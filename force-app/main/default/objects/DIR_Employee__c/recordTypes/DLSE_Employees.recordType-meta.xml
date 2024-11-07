@@ -46,6 +46,10 @@
             <default>false</default>
         </values>
         <values>
+            <fullName>Public Information Investigator</fullName>
+            <default>false</default>
+        </values>
+        <values>
             <fullName>Registration_Services</fullName>
             <default>false</default>
         </values>
