@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Validate_Account_Phone_Number</fullName>
+    <active>false</active>
+    <description>To validate account phone number, if phone number entered is less than 10, show error message.</description>
+    <errorConditionFormula>OR( 
+IF( 
+ISBLANK(Phone) , false , NOT(REGEX(Phone, "\\D*?(\\d\\D*?){10}"))), 
+IF( 
+ISBLANK(Phone1__c) , false , NOT(REGEX(Phone1__c , "\\D*?(\\d\\D*?){10}"))), 
+IF( 
+ISBLANK(Fax) , false , NOT(REGEX( Fax, "\\D*?(\\d\\D*?){10}"))), 
+IF( 
+ISBLANK(Phone2__c ) , false , NOT(REGEX( Phone2__c , "\\D*?(\\d\\D*?){10}"))), 
+IF( 
+ISBLANK(Cell_Phone__c) , false , NOT(REGEX( Cell_Phone__c , "\\D*?(\\d\\D*?){10}"))) 
+ 
+)</errorConditionFormula>
+    <errorMessage>You must enter a valid phone or fax number</errorMessage>
+</ValidationRule>

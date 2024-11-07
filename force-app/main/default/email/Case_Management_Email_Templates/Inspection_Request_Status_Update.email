@@ -1,0 +1,6 @@
+Your Inspection Request Number {!Inspection_Request__c.Name} has been updated with a status of {!Inspection_Request__c.Status__c}. 
+
+L&R File Number: {!Inspection_Request__c.L_R_File_Number__c}
+Date Complete: {!Inspection_Request__c.Completion_Date__c}
+The Inspection Request detail can be found here:
+{!Inspection_Request__c.Link}

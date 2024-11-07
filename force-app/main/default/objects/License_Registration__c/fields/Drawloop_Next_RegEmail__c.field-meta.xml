@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Drawloop_Next_RegEmail__c</fullName>
+    <description>"Email A Copy" from dashboard
+Nintex package: "Registration Send Application by Automation"
+Delivery option: "Email A Copy" from dashboard</description>
+    <externalId>false</externalId>
+    <formula>"SFLicense_Registration__c:" &amp; Id &amp; ";DDPId:a0Gt0000008T6rs;Deploy:a0Et0000009L6Sm;DeployType:autoemail"</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>Drawloop_Next_RegEmail</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

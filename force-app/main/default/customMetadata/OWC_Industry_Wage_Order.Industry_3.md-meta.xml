@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomMetadata xmlns="http://soap.sforce.com/2006/04/metadata" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <label>Industry 3</label>
+    <protected>false</protected>
+    <values>
+        <field>NaicsCodeLevel1EnglishTranslation__c</field>
+        <value xsi:type="xsd:string">Food or Beverage Services</value>
+    </values>
+    <values>
+        <field>NaicsCodeLevel1SpanishTranslation__c</field>
+        <value xsi:type="xsd:string">Servicio de Alimentos y Bebidas</value>
+    </values>
+    <values>
+        <field>NaicsCodeLevel2EnglishTranslation__c</field>
+        <value xsi:type="xsd:string">Restaurants and Other Eating Places~Restaurants and Other Eating Places;Snack and Nonalcoholic Beverage  Bars~Snack and Nonalcoholic Beverage Bars;Food Service Contractors~Food Service Contractors;Food Services and Drinking Places~Food Services and Drinking Places;Drinking Places (Alcoholic Beverages)~Drinking Places (Alcoholic Beverages);Products after Harvest~Farm Product Raw Material Merchant Wholesalers;Canning Freezing and Preserving Industry~Packaged Frozen Food Merchant Wholesalers;Preparting Agriculture Products for Market~Grocery and Related Product Merchant Wholesalers</value>
+    </values>
+    <values>
+        <field>NaicsCodeLevel2SpanishTranslation__c</field>
+        <value xsi:type="xsd:string">Restaurantes y Otros Lugares para Comer; Bares de Botanas y Bebidas no Alcohólicas; Contratistas de Servicios Alimentarios; Contratistas de Servicios Alimentarios y Bebidas; Lugares para Beber (Bebidas Alcohólicas); Productos Tras la Cosecha; Industria de Congelación y Conservación; Preparación de Productos Agrícolas para el Mercado</value>
+    </values>
+    <values>
+        <field>OWC_Industry__c</field>
+        <value xsi:type="xsd:string">Food or Beverage Services</value>
+    </values>
+    <values>
+        <field>OWC_NAICS_Discription__c</field>
+        <value xsi:type="xsd:string">Restaurants and Other Eating Places;Snack and Nonalcoholic Beverage Bars;Food Service Contractors;Food Services and Drinking Places;Drinking Places (Alcoholic Beverages);Products after Harvest;Canning Freezing and Preserving Industry;Preparting Agriculture Products for Market</value>
+    </values>
+    <values>
+        <field>Order_Number__c</field>
+        <value xsi:type="xsd:double">3.0</value>
+    </values>
+</CustomMetadata>

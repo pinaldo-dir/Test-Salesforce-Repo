@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Reg_Submit_Email_Alert_Subject__c</fullName>
+    <externalId>false</externalId>
+    <formula>IF((ISPICKVAL( License_Registration_Type__c , 'Entertainment Work') &amp;&amp; ISPICKVAL(Registration_Duration__c , '6 Months - Permit')) || (ISPICKVAL( License_Registration_Type__c , 'Permit to Employ Minors'))
+, Legal_Entity_Name__c &amp; " " &amp; TEXT(License_Registration_Type__c)&amp; " " &amp; Application_Type__c &amp; " " &amp; "application received"
+, Legal_Entity_Name__c &amp; " " &amp; TEXT(License_Registration_Type__c)&amp; " " &amp; Application_Type__c &amp; " - Ready for Payment"
+)</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>Reg Submit Email Alert Subject</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

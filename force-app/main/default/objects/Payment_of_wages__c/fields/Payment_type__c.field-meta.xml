@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Payment_type__c</fullName>
+    <externalId>false</externalId>
+    <label>Payment type</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>One hourly rate</fullName>
+                <default>false</default>
+                <label>One hourly rate</label>
+            </value>
+            <value>
+                <fullName>Multiple hourly rate</fullName>
+                <default>false</default>
+                <label>Multiple hourly rate</label>
+            </value>
+            <value>
+                <fullName>Salary rate</fullName>
+                <default>false</default>
+                <label>Salary rate</label>
+            </value>
+            <value>
+                <fullName>Commission rate</fullName>
+                <default>false</default>
+                <label>Commission rate</label>
+            </value>
+            <value>
+                <fullName>Piece rate</fullName>
+                <default>false</default>
+                <label>Piece rate</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

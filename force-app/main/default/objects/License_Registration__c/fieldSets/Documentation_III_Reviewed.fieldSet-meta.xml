@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FieldSet xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Documentation_III_Reviewed</fullName>
+    <description>Used in FLC for vip form tool section Documentation III</description>
+    <displayedFields>
+        <field>Documentation_III_Reviewed__c</field>
+        <isFieldManaged>false</isFieldManaged>
+        <isRequired>false</isRequired>
+    </displayedFields>
+    <label>Documentation III Reviewed</label>
+</FieldSet>

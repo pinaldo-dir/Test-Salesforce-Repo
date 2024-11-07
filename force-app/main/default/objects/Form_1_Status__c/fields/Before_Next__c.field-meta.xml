@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Before_Next__c</fullName>
+    <description>Check if certain fields from F1 Status Type of Return to Program / Underview /Min Qual. Withhold or Salary Det. Transf. Check are blank. The numeric value as the result is then rolled up in Form 1 which determines if new F1 Status is allowed to be created - See HR Enhancement project for details.</description>
+    <externalId>false</externalId>
+    <formula>IF ( Error_or_Invalid__c = TRUE, 0, IF (
+(ISPICKVAL(Form1_Status_Type__c, 'Part 1 Return to Program') &amp;&amp;  ISNULL( Date_Revision_Received__c ) ), 1, IF ( (ISPICKVAL(Form1_Status_Type__c, 'Part 2 Return to Program') &amp;&amp;  ISNULL( Date_Revision_Received__c ) ), 1, IF ( (ISPICKVAL(Form1_Status_Type__c, 'Part 3 Return to Program') &amp;&amp; ISNULL( Date_Revision_Received__c ) ), 1, IF ( (ISPICKVAL(Form1_Status_Type__c, 'Packet to HR - Part 1 Under Review') &amp;&amp; ISNULL(  Review_Date__c ) ), 1, IF ( (ISPICKVAL(Form1_Status_Type__c, 'Packet to HR - Part 2 Under Review') &amp;&amp; ISNULL(  Review_Date__c ) ), 1, IF ( (ISPICKVAL(Form1_Status_Type__c, 'Packet to HR - Part 3 Under Review') &amp;&amp; ISNULL(  Review_Date__c ) ), 1, IF ( (ISPICKVAL(Form1_Status_Type__c, 'Salary Determination/Transfer Eligibility Check Review') &amp;&amp; ISNULL( Date_Received_from_Transactions__c ) ), 1,
+IF (ISPICKVAL(Form1_Status_Type__c, 'Minimum Qualification Withhold') &amp;&amp; ISBLANK(TEXT(Withhold_Status__c)), 1 ,0 ) ) ) ) ) ) ) ) )</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>Before Next</label>
+    <precision>18</precision>
+    <required>false</required>
+    <scale>0</scale>
+    <trackTrending>false</trackTrending>
+    <type>Number</type>
+    <unique>false</unique>
+</CustomField>

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <description>Alert to user for 10 days before invest</description>
+    <encodingKey>ISO-8859-1</encodingKey>
+    <name>PAGA 110 days investigation alert</name>
+    <relatedEntityType>DIR_Case__c</relatedEntityType>
+    <style>none</style>
+    <subject>PAGA Case at 110 days under investigation</subject>
+    <type>custom</type>
+    <uiType>SFX</uiType>
+</EmailTemplate>

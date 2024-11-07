@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+        <help><!-- Enter date Inactive Status Notice was sent to the Claimant. At least 60 days after PCN was sent. Date entry is required to generate Inactive Status Notice document. --></help>
+        <label><!-- Inactive Notice Sent Date --></label>
+        <name>Inactive_Notice_Sent_Date__c</name>
+    </CustomFieldTranslation>

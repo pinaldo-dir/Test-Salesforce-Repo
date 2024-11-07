@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Service_Method__c</fullName>
+    <externalId>false</externalId>
+    <label>Service Method</label>
+    <required>false</required>
+    <type>Picklist</type>
+    <valueSet>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>1st Class</fullName>
+                <default>false</default>
+                <label>1st Class</label>
+            </value>
+            <value>
+                <fullName>Certified</fullName>
+                <default>false</default>
+                <label>Certified</label>
+            </value>
+            <value>
+                <fullName>1st Class &amp; Certified</fullName>
+                <default>false</default>
+                <label>1st Class &amp; Certified</label>
+            </value>
+            <value>
+                <fullName>Personal Service</fullName>
+                <default>false</default>
+                <label>Personal Service</label>
+            </value>
+            <value>
+                <fullName>Registered Mail</fullName>
+                <default>false</default>
+                <label>Registered Mail</label>
+            </value>
+            <value>
+                <fullName>Email</fullName>
+                <default>false</default>
+                <label>Email</label>
+            </value>
+            <value>
+                <fullName>Fax</fullName>
+                <default>false</default>
+                <label>Fax</label>
+            </value>
+            <value>
+                <fullName>Substitute</fullName>
+                <default>false</default>
+                <label>Substitute</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

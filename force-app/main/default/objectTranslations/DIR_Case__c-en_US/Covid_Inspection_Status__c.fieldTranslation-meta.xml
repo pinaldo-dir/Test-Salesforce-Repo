@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+        <label><!-- Covid Inspection Status --></label>
+        <name>Covid_Inspection_Status__c</name>
+        <picklistValues>
+            <masterLabel>Covid-19 Appeal Hrg</masterLabel>
+            <translation><!-- Covid-19 Appeal Hrg --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Covid-19 DOSH Referral</masterLabel>
+            <translation><!-- Covid-19 DOSH Referral --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Covid-19 Legal Referral</masterLabel>
+            <translation><!-- Covid-19 Legal Referral --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Covid-19 Misclass</masterLabel>
+            <translation><!-- Covid-19 Misclass --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Covid-19 NTD</masterLabel>
+            <translation><!-- Covid-19 NTD --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Covid-19 PSL</masterLabel>
+            <translation><!-- Covid-19 PSL --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Covid-19 RCI Referral</masterLabel>
+            <translation><!-- Covid-19 RCI Referral --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Covid-19 Recheck</masterLabel>
+            <translation><!-- Covid-19 Recheck --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Covid-19 SO</masterLabel>
+            <translation><!-- Covid-19 SO --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Covid-19 SPSL</masterLabel>
+            <translation><!-- Covid-19 SPSL --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Other</masterLabel>
+            <translation><!-- Other --></translation>
+        </picklistValues>
+    </CustomFieldTranslation>

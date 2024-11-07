@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <description>Notification of a change of status or final legal outcome on the writ</description>
+    <encodingKey>ISO-8859-1</encodingKey>
+    <name>Writ Updated Notify Deputy</name>
+    <style>none</style>
+    <subject>Writ: {!Writ__c.Name} Status Updated</subject>
+    <type>text</type>
+    <uiType>Aloha</uiType>
+</EmailTemplate>

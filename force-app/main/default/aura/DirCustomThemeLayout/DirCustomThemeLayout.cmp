@@ -1,0 +1,21 @@
+<aura:component implements="forceCommunity:themeLayout">
+    <aura:attribute name="search" type="Aura.Component[]"/>
+    <aura:attribute name="sidebarFooter" type="Aura.Component[]"/>
+    <aura:attribute name="navBar" type="Aura.Component[]"/>
+    <aura:attribute name="newHeader" type="Aura.Component[]"/>
+    <div>
+        <div class="newHeader ">
+            {!v.newHeader}
+        </div>
+        <!--
+        <div class="navigation">
+            {!v.navBar}
+        </div>-->
+        <div class="mainContentArea">
+            {!v.body}
+        </div>
+        <div class="footerArea">
+            {!v.sidebarFooter}
+        </div>
+    </div>
+</aura:component>

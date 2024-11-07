@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+        <label><!-- Allegation Type --></label>
+        <name>Allegation_Type__c</name>
+        <picklistValues>
+            <masterLabel>Complaint with Management</masterLabel>
+            <translation><!-- Complaint with Management --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Filing with Other Agency</masterLabel>
+            <translation><!-- Filing with Other Agency --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Filing with Primary Agency</masterLabel>
+            <translation><!-- Filing with Primary Agency --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Other</masterLabel>
+            <translation><!-- Other --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Participation in S/H Activities</masterLabel>
+            <translation><!-- Participation in S/H Activities --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Refusal to Perform Task</masterLabel>
+            <translation><!-- Refusal to Perform Task --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Reporting Accident/Injury</masterLabel>
+            <translation><!-- Reporting Accident/Injury --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Testifying in Proceedings</masterLabel>
+            <translation><!-- Testifying in Proceedings --></translation>
+        </picklistValues>
+    </CustomFieldTranslation>

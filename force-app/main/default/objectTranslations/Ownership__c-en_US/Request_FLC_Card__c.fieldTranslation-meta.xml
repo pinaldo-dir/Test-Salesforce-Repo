@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+        <help><!-- Check to request a card --></help>
+        <label><!-- Request FLC Card --></label>
+        <name>Request_FLC_Card__c</name>
+    </CustomFieldTranslation>

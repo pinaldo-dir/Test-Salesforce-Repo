@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>x1st_Attempt_less_Created_Date__c</fullName>
+    <defaultValue>false</defaultValue>
+    <description>Trigger to fire validation rule from flow "WCA Inactive Tracking Validation Trigger"</description>
+    <externalId>false</externalId>
+    <label>x1st Attempt less Created Date</label>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Checkbox</type>
+</CustomField>

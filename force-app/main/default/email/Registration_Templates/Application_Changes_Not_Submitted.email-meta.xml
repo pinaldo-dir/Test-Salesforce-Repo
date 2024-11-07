@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <description>Email template to be sent to applicant when changes are made post-approval and not resubmitted</description>
+    <encodingKey>ISO-8859-1</encodingKey>
+    <name>Application Changes Not Submitted</name>
+    <style>none</style>
+    <subject>{!License_Registration__c.License_Registration_Type__c} Registration {!License_Registration__c.License_Registration_Number__c} Changes Not Submitted</subject>
+    <type>text</type>
+    <uiType>Aloha</uiType>
+</EmailTemplate>

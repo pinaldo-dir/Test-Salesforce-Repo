@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<WebLink xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Generate_Case_Role_Document</fullName>
+    <availability>online</availability>
+    <description>For WCA case role forms.</description>
+    <displayType>massActionButton</displayType>
+    <linkType>javascript</linkType>
+    <masterLabel>Generate Documents Conga</masterLabel>
+    <openType>onClickJavaScript</openType>
+    <protected>false</protected>
+    <requireRowSelection>true</requireRowSelection>
+    <url>{!REQUIRESCRIPT("/soap/ajax/24.0/connection.js")}; 
+{!REQUIRESCRIPT("/soap/ajax/24.0/apex.js")}; 
+
+var ids= {!GETRECORDIDS( $ObjectType.Case_Role__c )}; 
+var idsReport=ids.join("|"); 
+var idsQuery=ids.join("'|'"); 
+
+if (ids.length == '0') 
+{ 
+alert("Please select a Case Role"); 
+} 
+else if(ids.length &gt; '1') 
+{ 
+alert("Only one Case Role may be selected"); 
+} 
+else 
+{ 
+
+var CongaURL = "https://composer.congamerge.com" + 
+"?sessionId={!$Api.Session_ID}" + 
+"&amp;ServerUrl={!$Api.Partner_Server_URL_290}" + 
+"&amp;Id={!DIR_Case__c.Id}" + 
+"&amp;templategroup=WCARole" + 
+"&amp;QueryId=[Govname]a0md0000003l2S0" + 
+//"&amp;AC0=1" + 
+//"&amp;DS3=0" + 
+"&amp;DS6=1" + 
+//"&amp;SC0=1" + 
+//"&amp;SC1=Attachments" + 
+//"&amp;OFN={template.label}" + 
+
+"&amp;QueryId=[wcaoffice]a0md00000064cjOAAQ" + 
+"&amp;QueryId=[Defendant]a0md00000064cjRAAQ" +
+"&amp;QueryId=[Claimant]a0md00000064cj4" +
+"&amp;reportid=[CaseRole]00Od0000004WoyG?pv0=" + idsReport;
+
+window.open( CongaURL, "Conga", "width=700,height=550,menubar=0" ); 
+
+}</url>
+</WebLink>

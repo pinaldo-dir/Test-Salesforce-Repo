@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+        <label><!-- Pay period covered by Small Emp Cure --></label>
+        <name>Pay_period_covered_by_Small_Emp_Cure__c</name>
+    </CustomFieldTranslation>

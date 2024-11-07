@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Hearing_Output_Preview__c</fullName>
+    <description>Provides an example of what the output will look like for Notices of Hearing based on the selected values for Hearing Output Type and Operating Under Fictitious Name fields.</description>
+    <externalId>false</externalId>
+    <formula>CASE( Hearing_Output_Type__c , 
+"An Individual" , "As an individual defendant." , 
+"Operating Under Fictitious Name" , "As the person operating under the fictitious name of " + Operating_Under_Fictitious_Name__c + "." , 
+"On Behalf of Employer" , "On behalf of " + Case_Role__r.Case__r.Employer__r.Name + ", " +  TEXT( Case_Role__r.Case__r.Employer__r.Legal_Entity_Descriptor__c ) + "." , 
+NULL )</formula>
+    <label>Hearing Output Preview</label>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

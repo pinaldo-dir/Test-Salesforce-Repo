@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+        <label><!-- Withhold Reason --></label>
+        <name>Withhold_Reason__c</name>
+        <picklistValues>
+            <masterLabel>Education Documentation</masterLabel>
+            <translation><!-- Education Documentation --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Experience Clarification</masterLabel>
+            <translation><!-- Experience Clarification --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Other (See Status Notes)</masterLabel>
+            <translation><!-- Other (See Status Notes) --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Other-Legacy</masterLabel>
+            <translation><!-- Other-Legacy --></translation>
+        </picklistValues>
+    </CustomFieldTranslation>

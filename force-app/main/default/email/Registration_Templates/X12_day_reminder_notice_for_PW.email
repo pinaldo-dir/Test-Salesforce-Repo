@@ -1,0 +1,12 @@
+Your {!License_Registration__c.License_Registration_Type__c} {!License_Registration__c.Application_Type__c}  application {!License_Registration__c.Legal_Entity_Name__c}.
+The current {!License_Registration__c.License_Registration_Type__c} {!License_Registration__c.Application_Type__c} {!License_Registration__c.License_Registration_Number__c} is Incomplete and will be purged after 14 days of the creation. Please visit our website to submit  application as soon as possible to avoid purging.
+
+We want to help keep California employers in compliance.
+
+Click here to begin or continue process: {!License_Registration__c.Registration_Site__c} 
+
+Sincerely, 
+Licensing & Registration
+Labor Commissioner's office
+Department of Industrial Relations
+State of California

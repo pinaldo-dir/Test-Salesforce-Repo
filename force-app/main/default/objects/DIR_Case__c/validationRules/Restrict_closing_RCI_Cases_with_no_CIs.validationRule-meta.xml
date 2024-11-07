@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Restrict_closing_RCI_Cases_with_no_CIs</fullName>
+    <active>true</active>
+    <errorConditionFormula>Closed__c &amp;&amp;
+ISCHANGED(Closed__c) &amp;&amp;
+RecordType.DeveloperName = "RCI" &amp;&amp;
+ISPICKVAL(Assignment_Status__c, "Accept &amp; Assign INV") &amp;&amp;
+(Number_of_Case_Issues_on_Case__c = 0 || ISBLANK(Assigned_Deputy__c))</errorConditionFormula>
+    <errorMessage>Case cannot be closed without an assigned deputy and case issue created.</errorMessage>
+</ValidationRule>

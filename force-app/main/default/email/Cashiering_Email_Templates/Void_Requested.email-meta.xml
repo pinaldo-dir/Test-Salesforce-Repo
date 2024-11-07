@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <description>A check batch has been requested to be voided by SR. Deputies</description>
+    <encodingKey>ISO-8859-1</encodingKey>
+    <name>Void Requested</name>
+    <style>none</style>
+    <subject>Please Review Void Request</subject>
+    <type>text</type>
+    <uiType>Aloha</uiType>
+</EmailTemplate>

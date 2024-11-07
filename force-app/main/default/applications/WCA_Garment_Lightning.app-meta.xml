@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomApplication xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionOverrides>
+        <actionName>View</actionName>
+        <comment>Action override created by Lightning App Builder during activation.</comment>
+        <content>Meeting_Lightning_Rec_Page</content>
+        <formFactor>Large</formFactor>
+        <skipRecordTypeSelect>false</skipRecordTypeSelect>
+        <type>Flexipage</type>
+        <pageOrSobjectType>Hearing__c</pageOrSobjectType>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Tab</actionName>
+        <content>Home_Page_DIR_WCA_Garment</content>
+        <formFactor>Large</formFactor>
+        <skipRecordTypeSelect>false</skipRecordTypeSelect>
+        <type>Flexipage</type>
+        <pageOrSobjectType>standard-home</pageOrSobjectType>
+    </actionOverrides>
+    <brand>
+        <headerColor>#0070D2</headerColor>
+        <logo>LCOfinalvector82_15</logo>
+        <logoVersion>1</logoVersion>
+        <shouldOverrideOrgTheme>false</shouldOverrideOrgTheme>
+    </brand>
+    <description>App containing the tabs most often used in processing a WCA or Garment case</description>
+    <formFactors>Large</formFactors>
+    <isNavAutoTempTabsDisabled>false</isNavAutoTempTabsDisabled>
+    <isNavPersonalizationDisabled>false</isNavPersonalizationDisabled>
+    <isNavTabPersistenceDisabled>false</isNavTabPersistenceDisabled>
+    <isOmniPinnedViewEnabled>false</isOmniPinnedViewEnabled>
+    <label>WCA/Garment</label>
+    <navType>Standard</navType>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>Meeting_Lightning_Rec_Page</content>
+        <formFactor>Large</formFactor>
+        <pageOrSobjectType>Hearing__c</pageOrSobjectType>
+        <recordType>Hearing__c.WCA_Hearing</recordType>
+        <type>Flexipage</type>
+        <profile>WCA User</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>Meeting_Lightning_Rec_Page</content>
+        <formFactor>Large</formFactor>
+        <pageOrSobjectType>Hearing__c</pageOrSobjectType>
+        <recordType>Hearing__c.Garment_Hearing</recordType>
+        <type>Flexipage</type>
+        <profile>WCA User</profile>
+    </profileActionOverrides>
+    <tabs>standard-home</tabs>
+    <tabs>WCA_Sr_Dashboard</tabs>
+    <tabs>WCA_HO_Dashboard</tabs>
+    <tabs>WCA_Deputy_Dashboard</tabs>
+    <tabs>WCA_Clerk_Dashboard</tabs>
+    <tabs>standard-Account</tabs>
+    <tabs>DIR_Case__c</tabs>
+    <tabs>Hearing__c</tabs>
+    <tabs>Referral__c</tabs>
+    <tabs>Judgement__c</tabs>
+    <tabs>standard-File</tabs>
+    <tabs>Loop__Document_Request__c</tabs>
+    <tabs>standard-report</tabs>
+    <tabs>standard-Dashboard</tabs>
+    <tabs>Labels__c</tabs>
+    <tabs>Support_Request__c</tabs>
+    <tabs>smagicinteract__ContentType__c</tabs>
+    <uiType>Lightning</uiType>
+    <utilityBar>WCA_Garment_UtilityBar</utilityBar>
+</CustomApplication>

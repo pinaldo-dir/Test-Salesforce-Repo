@@ -1,0 +1,64 @@
+<aura:component >
+    <aura:attribute name="text" type="String" required="true"/>
+    <aura:attribute name="helpTextLabel" type="String" required="true"/>
+    
+    <!--<div aura:id="divHelp" class="slds-popover slds-nubbin_bottom-left slds-popover_tooltip ms-help-popup-in-header"
+             role="tooltip" aria-live="polite">-->
+    <aura:if isTrue="{!v.helpTextLabel == 'dirOfficeText'}">
+        <div class="slds-form-element__icon">
+            <a href="javascript:void(0);" class="slds-form-element__icon slds-align-middle"
+               onclick="{!c.handleOnClick}"
+               onmouseout="{!c.handleMouseLeave}"
+               onmouseover="{!c.handleMouseEnter}"
+               tabindex="-1">
+                <lightning:icon class="slds-icon-text-default ms-help-icon" size="xx-small"
+                                iconName="utility:info"/>
+                <span class="slds-assistive-text">Help</span>
+            </a>
+            <div aura:id="divHelp" class="slds-popover slds-popover_tooltip slds-nubbin_bottom-left slds-hide popoverStyleDirOffice" role="tooltip">
+                <div class="slds-popover__body ms-help-popup-body">
+                    <ui:outputText value="{!v.text}"/>
+                </div>
+            </div>
+        </div>
+    </aura:if>
+    <aura:if isTrue="{!v.helpTextLabel == 'naicsCodeHelpText'}">
+        <div class="slds-form-element__icon">
+            <a href="javascript:void(0);" class="slds-form-element__icon slds-align-middle"
+               onclick="{!c.handleOnClick}"
+               onmouseout="{!c.handleMouseLeave}"
+               onmouseover="{!c.handleMouseEnter}"
+               tabindex="-1">
+                <lightning:icon class="slds-icon-text-default ms-help-icon" size="xx-small"
+                                iconName="utility:info"/>
+                <span class="slds-assistive-text">Help</span>
+            </a>
+            <div aura:id="divHelp" class="slds-popover slds-popover_tooltip slds-nubbin_bottom-left slds-hide popoverStyleNaicsCode" role="tooltip">
+                <div class="slds-popover__body ms-help-popup-body">
+                        <ui:outputText value="{!v.text}"/>
+                        <a href="https://www.naics.com/search/" target="_blank">
+                            <span class="naicsLinkStyle">https://www.naics.com/search/</span>
+                        </a>
+                </div>
+            </div>
+        </div>
+    </aura:if>
+    <aura:if isTrue="{!v.helpTextLabel == 'citationNumberText'}">
+        <div class="slds-form-element__icon">
+                <a href="javascript:void(0);" class="slds-form-element__icon slds-align-middle"
+                   onclick="{!c.handleOnClick}"
+                   onmouseout="{!c.handleMouseLeave}"
+                   onmouseover="{!c.handleMouseEnter}"
+                   tabindex="-1">
+                    <lightning:icon class="slds-icon-text-default ms-help-icon" size="xx-small"
+                                    iconName="utility:info"/>
+                    <span class="slds-assistive-text">Help</span>
+                </a>
+                <div aura:id="divHelp" class="slds-popover slds-popover_tooltip slds-nubbin_bottom-left slds-hide popoverStyle" role="tooltip">
+                    <div class="slds-popover__body ms-help-popup-body">
+                        <ui:outputText value="{!v.text}"/>
+                    </div>
+                </div>
+            </div>
+    </aura:if>
+</aura:component>

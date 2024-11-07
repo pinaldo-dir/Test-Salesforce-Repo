@@ -1,0 +1,3 @@
+Allocations have been made for a case payment you recorded against case {!Case_Payment__c.Case__c}. Please apply the payments to the violations at this time.
+
+The payment can be accessed here: {!Case_Payment__c.Link}

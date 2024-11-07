@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Wage_Cases_Previous_6_months__c</fullName>
+    <description>Count of wage cases docketed in the previous 6 months. Used for determining potential accounts for BOFE investigations</description>
+    <externalId>false</externalId>
+    <label>Wage Cases Previous 6 months</label>
+    <precision>3</precision>
+    <required>false</required>
+    <scale>0</scale>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Number</type>
+    <unique>false</unique>
+</CustomField>

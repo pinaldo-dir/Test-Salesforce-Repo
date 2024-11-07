@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+        <label><!-- Client Employer/Joint Employer Name --></label>
+        <name>Client_Employer_Joint_Employer_Name__c</name>
+        <relationshipLabel><!-- Legal Actions --></relationshipLabel>
+    </CustomFieldTranslation>

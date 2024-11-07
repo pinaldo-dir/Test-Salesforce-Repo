@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<WebLink xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>New_Linked_Case</fullName>
+    <availability>online</availability>
+    <description>auto populates assigned deputy and employer fields from parent case</description>
+    <displayType>massActionButton</displayType>
+    <encodingKey>UTF-8</encodingKey>
+    <height>600</height>
+    <linkType>url</linkType>
+    <masterLabel>New Linked Case</masterLabel>
+    <openType>sidebar</openType>
+    <protected>false</protected>
+    <requireRowSelection>true</requireRowSelection>
+    <url>/lightning/o/Linked_Case__c/new?defaultFieldValues=Employer__c={!DIR_Case__c.EmployerId__c},Parent_Case__c={!DIR_Case__c.Id},Case_Number__c={!DIR_Case__c.Case_Number__c}</url>
+</WebLink>

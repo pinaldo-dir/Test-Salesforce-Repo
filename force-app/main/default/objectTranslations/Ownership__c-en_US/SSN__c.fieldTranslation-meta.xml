@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+        <help><!-- Enter 9 digits with no spaces or dashes. --></help>
+        <label><!-- SSN or ITIN --></label>
+        <name>SSN__c</name>
+    </CustomFieldTranslation>

@@ -1,0 +1,9 @@
+{!Referral__c.Referring_Deputy__c},
+
+Your referral {!Referral__c.Name} to JEU from case {!DIR_Case__c.Name} has been approved. 
+
+Here are the links to the Case and Referral.
+
+Case ID : {!DIR_Case__c.Link}
+
+Referral ID : {!Referral__c.Link}

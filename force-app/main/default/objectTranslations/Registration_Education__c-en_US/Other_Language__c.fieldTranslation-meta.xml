@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+        <help><!-- If needed, enter another language not provided on the list.
+An interpreter will be provided by the Department of Labor and Standards Enforcement (DLSE). --></help>
+        <label><!-- Other Language --></label>
+        <name>Other_Language__c</name>
+    </CustomFieldTranslation>

@@ -1,0 +1,7 @@
+Hello,
+
+Inspection Request {!Inspection_Request__c.Name} was filed 5 days ago, and has not yet been assigned to a deputy.  You can look at the Inspection Request Directly at {!Inspection_Request__c.Link}
+
+Case: {!Inspection_Request__c.Case__c}
+Legal Entity: {!Inspection_Request__c.Legal_Entity__c}
+Requesting Party: {!Inspection_Request__c.Requesting_Party_User__c}

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+        <label><!-- Small Employer Cure Determination --></label>
+        <name>Small_Employer_Cure_Determination__c</name>
+        <picklistValues>
+            <masterLabel>Cure Complete</masterLabel>
+            <translation><!-- Cure Complete --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Cure Not Complete</masterLabel>
+            <translation><!-- Cure Not Complete --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Cure Partially Complete</masterLabel>
+            <translation><!-- Cure Partially Complete --></translation>
+        </picklistValues>
+    </CustomFieldTranslation>

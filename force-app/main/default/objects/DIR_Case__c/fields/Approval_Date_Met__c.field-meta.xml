@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Approval_Date_Met__c</fullName>
+    <externalId>false</externalId>
+    <formula>IF(
+(RecordType.Name="RCI") &amp;&amp;
+ISPICKVAL(Approval_Status__c,"Approved") &amp;&amp;
+(LC_Approval_Required_By__c &gt;= Approval_Date__c), "Yes",
+IF(
+(RecordType.Name="RCI") &amp;&amp;
+ISPICKVAL(Approval_Status__c,"Approved") &amp;&amp;
+(LC_Approval_Required_By__c &lt; Approval_Date__c), "No",
+null))</formula>
+    <label>Approval Date Met</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

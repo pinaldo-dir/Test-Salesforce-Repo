@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RecordType xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Garment</fullName>
+    <active>true</active>
+    <label>Garment</label>
+    <picklistValues>
+        <picklist>Bond_Status__c</picklist>
+        <values>
+            <fullName>Active</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Cancelled</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Expired</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Reinstated</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Withdrawn</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Bond_Type__c</picklist>
+        <values>
+            <fullName>Cashier%27s Check</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Certificate of Deposit</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Money Order</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Registration%2FSurety Bond</fullName>
+            <default>true</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Imported_From__c</picklist>
+        <values>
+            <fullName>LR-CW</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+</RecordType>

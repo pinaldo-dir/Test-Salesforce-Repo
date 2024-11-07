@@ -1,0 +1,5 @@
+<apex:page showHeader="false" standardController="License_Registration__c" standardStylesheets="true"
+cache="true" docType="html-5.0" >
+<OB_Archiver:SearchResultWidget recordId="{!License_Registration__c.Id }" object="License_Registration__c">
+</OB_Archiver:SearchResultWidget>
+</apex:page>

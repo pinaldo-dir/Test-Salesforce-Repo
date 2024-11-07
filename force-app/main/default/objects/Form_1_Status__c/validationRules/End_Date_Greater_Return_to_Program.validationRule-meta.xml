@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>End_Date_Greater_Return_to_Program</fullName>
+    <active>true</active>
+    <description>When  Date of Status is greater than Status End Date</description>
+    <errorConditionFormula>(NOT( ISBLANK( Status_End_Date__c ) ) )
+
+&amp;&amp;
+
+(Status_End_Date__c  &lt;&gt; DATE (1700,01,01) )
+
+&amp;&amp;
+
+( CONTAINS(RecordType.Name , "Return to Program") )
+
+&amp;&amp;
+
+( Status_End_Date__c  &lt;  Date_of_Status__c )</errorConditionFormula>
+    <errorMessage>Date of Status cannot be greater than Status End Date</errorMessage>
+</ValidationRule>

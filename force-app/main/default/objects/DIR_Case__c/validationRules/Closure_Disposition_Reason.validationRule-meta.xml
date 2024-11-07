@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Closure_Disposition_Reason</fullName>
+    <active>true</active>
+    <errorConditionFormula>AND ( RecordType.DeveloperName = 'WCA', ISPICKVAL (Closure_Disposition_Reason__c, '' ), OR ( ISPICKVAL( Closure_Disposition__c , 'DISMISSED' ),ISPICKVAL( Closure_Disposition__c , 'JUDGMENT' ), ISPICKVAL( Closure_Disposition__c , 'PAID IN FULL' ), ISPICKVAL( Closure_Disposition__c , 'SETTLED' ) ) )</errorConditionFormula>
+    <errorDisplayField>Closure_Disposition_Reason__c</errorDisplayField>
+    <errorMessage>Select the Closure Disposition Reason</errorMessage>
+</ValidationRule>

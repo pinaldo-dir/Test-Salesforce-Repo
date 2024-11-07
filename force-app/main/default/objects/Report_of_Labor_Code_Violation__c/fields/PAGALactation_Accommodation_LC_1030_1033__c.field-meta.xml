@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>PAGALactation_Accommodation_LC_1030_1033__c</fullName>
+    <defaultValue>false</defaultValue>
+    <description>PAGA Lactation Accommodation Violation</description>
+    <externalId>false</externalId>
+    <inlineHelpText>PAGA Lactation Accommodation Violation</inlineHelpText>
+    <label>Lactation Accommodation (LC 1030-1033)</label>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Checkbox</type>
+</CustomField>

@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Permit_applicant_effective_date_inpast</fullName>
+    <active>true</active>
+    <description>Effective date for Permit applicant can not be in past current date(system date)</description>
+    <errorConditionFormula>IF(AND(
+RecordType.DeveloperName = 'Entertainment_Work',Effective_Date__c &lt; TODAY(), ISPICKVAL(Status__c,'Incomplete'),$Profile.Name = "Community Registrations User", ISPICKVAL(Registration_Duration__c,'10 Days - Temporary Permit')), True,false)</errorConditionFormula>
+    <errorMessage>Effective Date can not be less than current date. If you are at the Submission Section, change your answer to "No" and return to the Minor Information page to correct the Effective Date.</errorMessage>
+</ValidationRule>

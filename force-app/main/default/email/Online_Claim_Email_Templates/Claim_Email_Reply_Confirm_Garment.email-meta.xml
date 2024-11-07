@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <encodingKey>ISO-8859-1</encodingKey>
+    <name>Claim Email Reply Confirm Garment</name>
+    <style>none</style>
+    <subject>Confirmation notification for ({Case.Name})</subject>
+    <textOnly>Hello {!Claimant},
+Thank you for your timely response to our request. You have responded that the wage claim submitted on your behalf by {!advocate/rep} against {!Defendant} on {!filed date} is to be CONFIRMED. Your case number is . Your claim is assigned to the following Wage Office:
+{!DIR_Case__c.Office__c } {!DIR_Case__c.DIR_WCA_Office_Address__c} {!DIR_Case__c.DIR_Office_Phone_Number__c}  Labor Commissioner&apos;s Office</textOnly>
+    <type>custom</type>
+    <uiType>Aloha</uiType>
+</EmailTemplate>

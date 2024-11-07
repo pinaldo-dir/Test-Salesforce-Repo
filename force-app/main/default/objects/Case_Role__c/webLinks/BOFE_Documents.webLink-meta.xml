@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<WebLink xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>BOFE_Documents</fullName>
+    <availability>online</availability>
+    <displayType>massActionButton</displayType>
+    <linkType>javascript</linkType>
+    <masterLabel>Generate BOFE Document</masterLabel>
+    <openType>onClickJavaScript</openType>
+    <protected>false</protected>
+    <requireRowSelection>true</requireRowSelection>
+    <url>{!REQUIRESCRIPT("/soap/ajax/24.0/connection.js")}; 
+{!REQUIRESCRIPT("/soap/ajax/24.0/apex.js")};
+
+var ids= {!GETRECORDIDS( $ObjectType.Case_Role__c )};
+var fullId = '';
+var crId = '';
+var depID = '';
+var query = "SELECT Id from Case_Role__c WHERE Case__c = '{!DIR_Case__c.Id}' AND Role__c = 'Case employer'";
+
+var records = sforce.connection.query(query); 
+var crIdArray = records.getArray('records'); 
+
+
+if(crIdArray.length &gt; 0 &amp;&amp; ids.length == 0)
+  {
+    fullId = crIdArray[0].Id;
+    crId = fullId.substring(0, fullId.length - 3);
+    ids[0] = crId;   
+   }
+
+if(ids.length &gt; '1')
+ {
+   alert("Only one Role may be selected");
+ }
+else if(crIdArray.length == 0 &amp;&amp; ids.length == '0')
+      {
+        alert("No Primary Case Role found. Please select a Case Role or create a Primary Case Role");
+      }
+     else
+        {
+   
+          var idsReport=ids.join("|");
+          var idsQuery=ids.join("'|'");
+          var CongaURL = "https://composer.congamerge.com" +
+          "?sessionId={!$Api.Session_ID}" +
+          "&amp;ServerUrl={!$Api.Partner_Server_URL_290}" +
+          "&amp;Id={!DIR_Case__c.Id}" +
+          "&amp;templategroup=BOFE%20Case%20Role" +
+          "&amp;QueryId=[Governor]a0md0000003l2S0" +
+          "&amp;QueryId=[Successor]a0mt0000001QkO0?pv0=" + '{!DIR_Case__c.Id}' +
+          "&amp;AC0=1" +
+          "&amp;DS3=0" +
+          "&amp;DS6=1" +
+          "&amp;SC0=1" +
+          "&amp;SC1=Attachments" +
+          "&amp;OFN={template.label}" +
+          "&amp;reportid=[LiabPen]00Od0000004WoyO" +
+          "&amp;reportid=[Account]00Od0000004WoyF" +
+          "&amp;reportid=[LiabWage]00Od0000004WoyP" +
+          "&amp;reportid=[CaseRole]00Od0000004WoyG?pv0=" + idsReport +
+          "&amp;QueryId=[Office]a0md0000003l2Rq?pv0=" + idsReport;
+
+
+          window.open( CongaURL, "Conga", "width=700,height=550,menubar=0" );
+
+        }</url>
+</WebLink>

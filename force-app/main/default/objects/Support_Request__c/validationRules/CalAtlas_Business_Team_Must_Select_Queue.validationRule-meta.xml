@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>CalAtlas_Business_Team_Must_Select_Queue</fullName>
+    <active>true</active>
+    <description>CalAtlas Business Team Must Select Queue</description>
+    <errorConditionFormula>$User.CalAtlas_Business_Team_Member__c = true &amp;&amp; 
+ ISPICKVAL(Select_Queue__c, '')&amp;&amp;  RecordType.DeveloperName &lt;&gt; 'User_Account_Request'</errorConditionFormula>
+    <errorDisplayField>Select_Queue__c</errorDisplayField>
+    <errorMessage>You must select the queue</errorMessage>
+</ValidationRule>

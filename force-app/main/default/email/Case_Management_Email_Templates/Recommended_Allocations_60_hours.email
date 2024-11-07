@@ -1,0 +1,3 @@
+Case Payment {!Case_Payment__c.Name} has not had allocations recommended within 60 hours.
+
+Link to the Case Payment: {!Case_Payment__c.Link}

@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Expiration_Date_More_than_6_months</fullName>
+    <active>true</active>
+    <description>For EWP to issues permits for 6 months only.</description>
+    <errorConditionFormula>IF(AND(RecordType.DeveloperName  = 'Entertainment_Work' ,ISPICKVAL(Registration_Duration__c, '6 Months - Permit'),(Expiration_Date__c - Effective_Date__c  &gt;=185)),True,False)</errorConditionFormula>
+    <errorMessage>Expiration date is more than 6 months.</errorMessage>
+</ValidationRule>

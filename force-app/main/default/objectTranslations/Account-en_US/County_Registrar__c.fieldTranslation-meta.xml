@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+        <help><!-- Complete this field when requesting a fictitious business name or completing a lien --></help>
+        <label><!-- County Registrar --></label>
+        <name>County_Registrar__c</name>
+        <relationshipLabel><!-- Accounts (County Registrar) --></relationshipLabel>
+    </CustomFieldTranslation>

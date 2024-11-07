@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Note_is_required_for_certain_statuses</fullName>
+    <active>false</active>
+    <description>Note_is_required_for_certain_statuses: Info Hold – Other,HR Hold 
+(this includes revisiting Eligibility), Cal HR Denied 
+(w/notes)</description>
+    <errorConditionFormula>(ISPICKVAL(Form1_Status_Type__c, "Info Hold - Other")
+||
+ISPICKVAL(Form1_Status_Type__c, "HR Hold (This Includes Revisiting Eligibility)")
+||
+ISPICKVAL(Form1_Status_Type__c, "CalHR Denied (w/notes)"))
+&amp;&amp;
+ISBLANK(Status_Notes__c)</errorConditionFormula>
+    <errorMessage>Please enter notes</errorMessage>
+</ValidationRule>

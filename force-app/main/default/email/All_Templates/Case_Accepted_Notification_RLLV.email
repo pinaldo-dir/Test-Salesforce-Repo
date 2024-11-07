@@ -1,0 +1,5 @@
+Hello,
+
+{!DIR_Case__c.OwnerFullName} has accepted Case: {!DIR_Case__c.Name} and will begin investigations immediately.  To view the corresponding RLLV record, please follow the link provided below.
+
+Link to RLLV: {!Report_of_Labor_Code_Violation__c.Link}

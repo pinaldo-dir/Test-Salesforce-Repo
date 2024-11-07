@@ -1,0 +1,25 @@
+.owcHeadingStyle {
+    color: rgb(191, 90, 66);
+    font-size: 33px;
+    font-family: "Source Sans Pro";
+    font-weight: 600;
+}
+
+.tableFixHead {
+    overflow-y: auto;
+    max-height: 300px;
+  }
+  .tableFixHead thead th {
+    position: sticky;
+    top: 0;
+    z-index: 500;
+  }
+  .slds-truncate{
+    color:white;
+  }
+  h2{
+    color: #333333;
+      font-size: 23px;
+      font-family: 'Source Sans Pro';
+      font-weight: 600;
+  }

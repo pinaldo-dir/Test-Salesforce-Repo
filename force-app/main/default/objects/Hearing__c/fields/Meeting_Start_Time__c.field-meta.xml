@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Meeting_Start_Time__c</fullName>
+    <externalId>false</externalId>
+    <formula>IF(Datevalue(Meeting_Start_Date_Time__c) &gt;= DATE(YEAR(TODAY()),3,(2*7+1)) - WEEKDAY(DATE(YEAR(TODAY()),3,8-1)) &amp;&amp; Datevalue(Meeting_Start_Date_Time__c) 
+ &lt;=  DATE( YEAR(TODAY()),11,(1*7+1)) -  WEEKDAY(DATE(YEAR(TODAY()),11,8-1)),IF(HOUR(TIMEVALUE( Meeting_Start_Date_Time__c - ($CustomMetadata.OrgTimeZoneOffset__mdt.OWC.Offset_Value__c /1440)) ) = 12 , '12', IF(HOUR(TIMEVALUE( Meeting_Start_Date_Time__c - ($CustomMetadata.OrgTimeZoneOffset__mdt.OWC.Offset_Value__c/1440)) ) &lt; 12,
+TEXT(HOUR(TIMEVALUE(Meeting_Start_Date_Time__c - ($CustomMetadata.OrgTimeZoneOffset__mdt.OWC.Offset_Value__c/1440)))) ,
+TEXT(HOUR(TIMEVALUE(Meeting_Start_Date_Time__c - ($CustomMetadata.OrgTimeZoneOffset__mdt.OWC.Offset_Value__c/1440))) - 12)))
+
++ ':' + IF(MINUTE(TIMEVALUE( Meeting_Start_Date_Time__c)) = 00, '00', TEXT(MINUTE(TIMEVALUE( Meeting_Start_Date_Time__c))) ) +
+IF(
+HOUR(TIMEVALUE( Meeting_Start_Date_Time__c - ($CustomMetadata.OrgTimeZoneOffset__mdt.OWC.Offset_Value__c/1440)) ) &lt; 12,
+" AM",
+" PM"
+), IF(HOUR(TIMEVALUE( Meeting_Start_Date_Time__c - ($CustomMetadata.OrgTimeZoneOffset__mdt.OWC2.Offset_Value__c/1440)) ) = 12 , '12', IF(HOUR(TIMEVALUE( Meeting_Start_Date_Time__c - ($CustomMetadata.OrgTimeZoneOffset__mdt.OWC2.Offset_Value__c/1440)) ) &lt; 12,
+TEXT(HOUR(TIMEVALUE(Meeting_Start_Date_Time__c - ($CustomMetadata.OrgTimeZoneOffset__mdt.OWC2.Offset_Value__c/1440)))) ,
+TEXT(HOUR(TIMEVALUE(Meeting_Start_Date_Time__c - ($CustomMetadata.OrgTimeZoneOffset__mdt.OWC2.Offset_Value__c/1440))) - 12)))
+
++ ':' + IF(MINUTE(TIMEVALUE( Meeting_Start_Date_Time__c)) = 00, '00', TEXT(MINUTE(TIMEVALUE( Meeting_Start_Date_Time__c))) ) +
+IF(
+HOUR(TIMEVALUE( Meeting_Start_Date_Time__c - ($CustomMetadata.OrgTimeZoneOffset__mdt.OWC2.Offset_Value__c/1440)) ) &lt; 12,
+" AM",
+" PM"
+))</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>Meeting Start Time</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

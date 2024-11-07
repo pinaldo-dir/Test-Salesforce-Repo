@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>X1st_Attempt_Method__c</fullName>
+    <externalId>false</externalId>
+    <label>1st Attempt Method</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Email &amp; Phone</fullName>
+                <default>true</default>
+                <label>Email &amp; Phone</label>
+            </value>
+            <value>
+                <fullName>Email &amp; Mail</fullName>
+                <default>false</default>
+                <label>Email &amp; Mail</label>
+            </value>
+            <value>
+                <fullName>Phone &amp; Mail</fullName>
+                <default>false</default>
+                <label>Phone &amp; Mail</label>
+            </value>
+            <value>
+                <fullName>Email</fullName>
+                <default>false</default>
+                <label>Email</label>
+            </value>
+            <value>
+                <fullName>Phone</fullName>
+                <default>false</default>
+                <label>Phone</label>
+            </value>
+            <value>
+                <fullName>Mail</fullName>
+                <default>false</default>
+                <label>Mail</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

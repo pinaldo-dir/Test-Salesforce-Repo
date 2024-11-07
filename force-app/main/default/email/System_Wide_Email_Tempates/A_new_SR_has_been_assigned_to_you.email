@@ -1,0 +1,6 @@
+The Support Request {!Support_Request__c.Name} has been assigned to you. <br>
+
+Subject: {!Support_Request__c.Subject__c}<br>
+Type: {!Support_Request__c.RecordType}<br>
+Requester: {!Support_Request__c.Submitted_By__c}<br>
+Link: {!Support_Request__c.Link}<br>

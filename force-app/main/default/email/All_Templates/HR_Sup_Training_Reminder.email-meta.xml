@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <encodingKey>ISO-8859-1</encodingKey>
+    <name>HR Sup Training Reminder</name>
+    <style>none</style>
+    <subject>{!HR_Mandatory_Training_Tracking__c.RecordType} Training Reminder</subject>
+    <type>custom</type>
+    <uiType>Aloha</uiType>
+</EmailTemplate>

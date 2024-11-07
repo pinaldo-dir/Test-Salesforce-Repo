@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Settlement_Type__c</fullName>
+    <externalId>false</externalId>
+    <label>Settlement Type</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Legal - Citation</fullName>
+                <default>false</default>
+                <label>Legal - Citation</label>
+            </value>
+            <value>
+                <fullName>Legal - Writ</fullName>
+                <default>false</default>
+                <label>Legal - Writ</label>
+            </value>
+            <value>
+                <fullName>JEU</fullName>
+                <default>false</default>
+                <label>JEU</label>
+            </value>
+            <value>
+                <fullName>Legal-Lawsuit</fullName>
+                <default>false</default>
+                <label>Legal-Lawsuit</label>
+            </value>
+            <value>
+                <fullName>Legal-prejudgment</fullName>
+                <default>false</default>
+                <label>Legal-prejudgment</label>
+            </value>
+            <value>
+                <fullName>Legal-postjudgment</fullName>
+                <default>false</default>
+                <label>Legal-postjudgment</label>
+            </value>
+            <value>
+                <fullName>Self-Audit</fullName>
+                <default>false</default>
+                <label>Self-Audit</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

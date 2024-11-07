@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+        <help><!-- Sum of Adjustment-type Transactions deposited in the previous month. --></help>
+        <label><!-- + Adjustments --></label>
+        <name>Adjustments__c</name>
+    </CustomFieldTranslation>

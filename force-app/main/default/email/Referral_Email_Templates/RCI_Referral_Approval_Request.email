@@ -1,0 +1,18 @@
+Hello,
+
+A new case referral is pending your approval:
+
+Referral Date:  {!Referral__c.Referral_Date__c}
+Type of Request:  {!Referral__c.Type_of_Request__c}
+Referring Deputy:  {!Referral__c.Referring_Deputy__c}
+Referral Link:  {!Referral__c.Link}
+
+Case Type:  {!DIR_Case__c.Case_Type__c}
+Case Owner:  {!DIR_Case__c.OwnerFullName}
+Case Number:  {!DIR_Case__c.RCI_Case_Number__c}
+Case Status:  {!DIR_Case__c.Status__c}
+Case Link:  {!DIR_Case__c.Link}
+
+
+Thank you 
+Salesforce Automated Email

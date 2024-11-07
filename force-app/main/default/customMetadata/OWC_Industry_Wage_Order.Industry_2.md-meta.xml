@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomMetadata xmlns="http://soap.sforce.com/2006/04/metadata" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <label>Industry 2</label>
+    <protected>false</protected>
+    <values>
+        <field>NaicsCodeLevel1EnglishTranslation__c</field>
+        <value xsi:type="xsd:string">Construction, Drilling, Logging, Mining</value>
+    </values>
+    <values>
+        <field>NaicsCodeLevel1SpanishTranslation__c</field>
+        <value xsi:type="xsd:string">Construcción, Excavación, Deforestación, Minería</value>
+    </values>
+    <values>
+        <field>NaicsCodeLevel2EnglishTranslation__c</field>
+        <value xsi:type="xsd:string">On-site Construction~Construction;Construction Sand and Gravel Mining~Construction Sand and Gravel Mining;Ready-Mix Concrete Manufacturing~Ready-Mix Concrete Manufacturing;Poured Concrete Foundation and Structure Contractors~Poured Concrete Foundation and Structure Contractors;Roofing Contractors~Roofing Contractors;Building Equipment Contractors~Building Equipment Contractors;Electrical Contractors and Other Wiring Installation Contractors~Electrical Contractors and Other Wiring Installation Contractors;Plumbing, HVAC Contractors~Plumbing, Heating, and Air-Conditioning Contractors;Drywall and Insulation Contractors~Drywall and Insulation Contractors;Painting and Wall Covering Contractors~Painting and Wall Covering Contractors;Flooring Contractors~Flooring Contractors;Tile and Terrazzo Contractors~Tile and Terrazzo Contractors;On-site Drilling~Oil and Gas Extraction;On-site Logging~Forestry and Logging;On-site Mining~Mining (except Oil and Gas)</value>
+    </values>
+    <values>
+        <field>NaicsCodeLevel2SpanishTranslation__c</field>
+        <value xsi:type="xsd:string">Construcción en el Lugar; Construcción Minera de Arena y Grava; Fabricación de Hormigón Listo para Mezclar; Contratistas de Estructuras y Cimientos de Hormigón Vertido; Contratistas de Techos; Contratistas de Equipos de Construcción; Contratistas Eléctricos y Contratistas de Instalaciones Eléctricas; Contratistas de Plomería, HVAC;
+Contratistas de Paneles de Yeso (Draiwalero) y Aislamiento; Contratistas de Pintura y Revestimiento de Paredes; Contratistas de Pisos; Contratistas de Azulejos y Terrazos;
+Excavaciones en el Lugar; Deforestación en el Lugar; Minería en el Lugar</value>
+    </values>
+    <values>
+        <field>OWC_Industry__c</field>
+        <value xsi:type="xsd:string">Construction, Drilling, Logging, Mining</value>
+    </values>
+    <values>
+        <field>OWC_NAICS_Discription__c</field>
+        <value xsi:type="xsd:string">On-site Construction;Construction Sand and Gravel Mining;Ready-Mix Concrete Manufacturing;Poured Concrete Foundation and Structure Contractors;Roofing Contractors;Building Equipment Contractors;Electrical Contractors and Other Wiring Installation Contractors;Plumbing, HVAC Contractors;
+Drywall and Insulation Contractors;Painting and Wall Covering Contractors;Flooring Contractors;Tile and Terrazzo Contractors;
+On-site Drilling;On-site Logging;On-site Mining</value>
+    </values>
+    <values>
+        <field>Order_Number__c</field>
+        <value xsi:type="xsd:double">2.0</value>
+    </values>
+</CustomMetadata>

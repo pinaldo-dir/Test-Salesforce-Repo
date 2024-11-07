@@ -1,0 +1,190 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>Judgment</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Judgments</value>
+    </caseValues>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <layouts>
+        <layout>BOFE</layout>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+        <sections>
+            <label><!-- Financial Info --></label>
+            <section>Financial Info</section>
+        </sections>
+        <sections>
+            <label><!-- Related Businesses --></label>
+            <section>Related Businesses</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>Judgment Layout</layout>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+        <sections>
+            <label><!-- Financial Info --></label>
+            <section>Financial Info</section>
+        </sections>
+        <sections>
+            <label><!-- Related Businesses --></label>
+            <section>Related Businesses</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>Non-DLSE (LC 2810.4)</layout>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+        <sections>
+            <label><!-- Related Businesses --></label>
+            <section>Related Businesses</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>RCI</layout>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+        <sections>
+            <label><!-- Financial Info --></label>
+            <section>Financial Info</section>
+        </sections>
+        <sections>
+            <label><!-- Related Businesses --></label>
+            <section>Related Businesses</section>
+        </sections>
+    </layouts>
+    <recordTypes>
+        <description><!-- BOFE and Judgment Enforcement Unit --></description>
+        <label><!-- BOFE --></label>
+        <name>BOFE</name>
+    </recordTypes>
+    <recordTypes>
+        <description><!-- Judgment Enforcement Unit --></description>
+        <label><!-- JEU --></label>
+        <name>JEU</name>
+    </recordTypes>
+    <recordTypes>
+        <description><!-- Dummy Judgment --></description>
+        <label><!-- LC 2810.4 Citation Decision or Award Subsequent Offender --></label>
+        <name>LC_2810_4_Citation_Decision_or_Award_Subsequent_Offender</name>
+    </recordTypes>
+    <recordTypes>
+        <description><!-- For third-party judgment. --></description>
+        <label><!-- Non-DLSE (LC 2810.4) --></label>
+        <name>Non_DLSE_LC_2810_4</name>
+    </recordTypes>
+    <recordTypes>
+        <label><!-- RCI --></label>
+        <name>RCI</name>
+    </recordTypes>
+    <recordTypes>
+        <description><!-- Wage Claim Adjudication and Garment Judgments --></description>
+        <label><!-- WCA --></label>
+        <name>WCA</name>
+    </recordTypes>
+    <startsWith>Consonant</startsWith>
+    <webLinks>
+        <label><!-- Generate_Documents --></label>
+        <name>Generate_Documents</name>
+    </webLinks>
+    <webLinks>
+        <label><!-- Generate_Documents_Conga --></label>
+        <name>Generate_Documents_Conga</name>
+    </webLinks>
+    <webLinks>
+        <label><!-- Generate_Documents_Nintex --></label>
+        <name>Generate_Documents_Nintex</name>
+    </webLinks>
+    <webLinks>
+        <label><!-- New_JEU_Referral --></label>
+        <name>New_JEU_Referral</name>
+    </webLinks>
+</CustomObjectTranslation>

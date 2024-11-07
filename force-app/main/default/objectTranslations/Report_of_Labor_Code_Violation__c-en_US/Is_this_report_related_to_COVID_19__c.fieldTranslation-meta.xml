@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+        <label><!-- Is this report related to COVID-19? --></label>
+        <name>Is_this_report_related_to_COVID_19__c</name>
+    </CustomFieldTranslation>

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <description>Reminder email sent to BOFE deputy to check</description>
+    <encodingKey>ISO-8859-1</encodingKey>
+    <name>Registration related case issue 30 day reminder</name>
+    <style>none</style>
+    <subject>30 day reminder of registration related case issue</subject>
+    <type>text</type>
+    <uiType>Aloha</uiType>
+</EmailTemplate>

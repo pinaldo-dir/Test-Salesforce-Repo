@@ -1,0 +1,283 @@
+<!--
+  @description       : 
+  @author            : ChangeMeIn@UserSettingsUnder.SFDoc
+  @group             : 
+  @last modified on  : 10-22-2021
+  @last modified by  : ChangeMeIn@UserSettingsUnder.SFDoc
+-->
+<template>
+    <template if:true={isFormPreviewMode}>
+            <div class="slds-grid slds-wrap">
+                <div class="slds-col slds-small-size_5-of-6 slds-medium-size_5-of-6">
+                <h2 class="slds-p-top_medium slds-p-bottom_medium slds-p-right_medium">
+                    {customLabelValues.Owc_Additional}
+                </h2>  
+                </div>
+                <div class="slds-col slds-small-size_1-of-5 slds-medium-size_1-of-5">
+                    <div class="slds-grid slds-wrap">
+                        <!--1. I was paid $ for-->
+                        <template if:true={paymentWagesDetailPreview.paidPieceRateAdditional}>
+                            <div class="slds-col slds-small-size_1-of-1 slds-medium-size_1-of-1">
+                                <fieldset class="slds-p-top_medium slds-p-bottom_medium slds-p-right_medium">
+                                    {customLabelValues.Owc_ratePaid}
+                                    <lightning-input variant="label-hidden" disabled
+                                                        placeholder="$0.00"
+                                                        name="paidPieceRateAdditional"
+                                                        type="currency"
+                                                        formatter="currency" 
+                                                        step="0.01"
+                                                        value ={paymentWagesDetailPreview.paidPieceRateAdditional}
+                                                        data-id="paidPieceRateAdditional"
+                                                        onchange={handleChange}
+                                                        >
+                                    </lightning-input>
+                                </fieldset>
+                            </div>
+                        </template>
+                        <!--I was promised $ for-->
+                        <template if:true={paymentWagesDetailPreview.promisedPieceRateAdditional}>
+                            <div class="slds-col slds-small-size_1-of-1 slds-medium-size_1-of-1">
+                                <fieldset class="slds-p-top_medium slds-p-bottom_medium slds-p-right_medium">
+                                    {customLabelValues.Owc_ratePromised}  
+                                    <lightning-input variant="label-hidden" 
+                                                                    placeholder="$0.00" disabled
+                                                                    name="promisedPieceRateAdditional"
+                                                                    type="currency"
+                                                                    formatter="currency" 
+                                                                    step="0.01"
+                                                                    value ={paymentWagesDetailPreview.promisedPieceRateAdditional} 
+                                                                    data-id="promisedPieceRateAdditional"
+                                                                    onchange={handleChange}
+                                                                    >
+                                    </lightning-input>
+                                </fieldset>
+                            </div>
+                        </template>
+                    </div>   
+                </div>
+
+                <!--jyg-->
+                <template if:true={paymentWagesDetailPreview.perUnitPaymentOfWagesAdditional}>
+                    <div class="slds-col slds-small-size_1-of-5 slds-medium-size_1-of-5">
+                            <div class="slds-grid slds-wrap">
+                                <div class="slds-col slds-small-size_1-of-1 slds-medium-size_1-of-1">
+                                    <fieldset class="slds-p-top_medium slds-p-bottom_medium slds-p-right_medium">
+                                        {customLabelValues.Owc_perUnit}
+                                        <lightning-combobox
+                                            variant="label-hidden" 
+                                            disabled
+                                            name="perUnitPaymentOfWagesAdditional"
+                                            data-id="perUnitPaymentOfWagesAdditional"
+                                            value={paymentWagesDetailPreview.perUnitPaymentOfWagesAdditional}
+                                            placeholder = {customLabelValues.OWC_select_picklist_label}
+                                            options={perUnitPaymentOfWagesValue}
+                                            onchange={handleChange}
+                                            ></lightning-combobox> 
+                                        </fieldset>                                                               
+                                </div>
+                                <template if:true={paymentWagesDetailPreview.isPerUnitOtherAdditional}>
+                                    <div class="slds-col slds-small-size_1-of-1 slds-medium-size_1-of-1">
+                                        <fieldset class="slds-p-top_medium slds-p-bottom_medium slds-p-right_medium">
+                                            {customLabelValues.OWC_Other}
+                                            <lightning-input variant="label-hidden" disabled
+                                                                        name="otherAdditional"
+                                                                        type="text"
+                                                                        value ={paymentWagesDetailPreview.otherAdditional}
+                                                                        data-id="otherAdditional"
+                                                                        onchange={handleChange}
+                                                                        >
+                                            </lightning-input>
+                                        </fieldset>
+                                    </div>
+                                </template>                                                        
+                            </div>
+                    </div>
+                </template>
+
+                <template if:true={paymentWagesDetailPreview.numberOfUnitsAdditional}>
+                    <div class="slds-col slds-small-size_1-of-5 slds-medium-size_1-of-5">
+                                <fieldset class="slds-p-top_medium slds-p-bottom_medium slds-p-right_medium">
+                                    {customLabelValues.Owc_noOfUnits}
+                                    <lightning-input variant="label-hidden" disabled
+                                                        name="numberOfUnitsAdditional"
+                                                        type="Text"
+                                                        value ={paymentWagesDetailPreview.numberOfUnitsAdditional}
+                                                        data-id="numberOfUnitsAdditional"
+                                                        onchange={handleChange}
+                                                        ></lightning-input> 
+                                    </fieldset>                                                         
+                    </div>
+                </template>
+                
+                <!--Beginning Date-->
+                <template if:true={paymentWagesDetailPreview.pieceRateBegDateAdditional}>
+                    <div class="slds-col slds-small-size_1-of-5 slds-medium-size_1-of-5">
+                        <fieldset class="slds-p-top_medium slds-p-bottom_medium slds-p-right_medium">
+                            {customLabelValues.Owc_Beginning}
+                            <lightning-input variant="label-hidden" disabled
+                                                        placeholder={customLabelValues.OWC_date_placeholder}
+                                                        name="pieceRateBegDateAdditional"
+                                                        type="date"
+                                                        value ={paymentWagesDetailPreview.pieceRateBegDateAdditional}
+                                                        data-id="pieceRateBegDateAdditional"
+                                                        onchange={handleChange}
+                                                        >
+                            </lightning-input>
+                        </fieldset>
+                    </div>
+                </template>
+                <!--Ending Date-->
+                <template if:true={paymentWagesDetailPreview.pieceRateEndDateAdditional}>
+                    <div class="slds-col slds-small-size_1-of-5 slds-medium-size_1-of-5">
+                        <fieldset class="slds-p-top_medium slds-p-bottom_medium slds-p-right_medium">
+                            {customLabelValues.Owc_Ending}
+                            <lightning-input variant="label-hidden" disabled
+                                                        placeholder={customLabelValues.OWC_date_placeholder}
+                                                        name="pieceRateEndDateAdditional"
+                                                        type="date"
+                                                        value ={paymentWagesDetailPreview.pieceRateEndDateAdditional}
+                                                        data-id="pieceRateEndDateAdditional"
+                                                        onchange={handleChange}
+                                                        
+                                                        >
+                            </lightning-input>
+                        </fieldset>
+                    </div>
+                </template>
+            </div>
+    </template>
+    <template if:false={isFormPreviewMode}>
+            <div class="slds-grid slds-wrap">
+                <div class="slds-col slds-small-size_5-of-6 slds-medium-size_5-of-6">
+                <h2 class="slds-p-top_medium slds-p-bottom_medium slds-p-right_medium">
+                    {customLabelValues.Owc_Additional}
+                </h2>  
+                 </div>
+                <div class="slds-col slds-small-size_1-of-6 slds-medium-size_1-of-6">
+                    <template if:true={deletebutton}>
+                        <lightning-button variant="brand" label={customLabelValues.OWC_delete_button_label} title={customLabelValues.OWC_delete_button_label} onclick={handlePieceRateAdditionalDelete} class="slds-float_right owcButtonStyle"></lightning-button>
+                    </template> 
+                </div> 
+                <div class="slds-col slds-small-size_1-of-5 slds-medium-size_1-of-5">
+                    <div class="slds-grid slds-wrap">
+                        <!--1. I was paid $ for-->
+                        <div class="slds-col slds-small-size_1-of-1 slds-medium-size_1-of-1">
+                            <fieldset class="slds-p-top_medium slds-p-bottom_medium slds-p-right_medium">
+                                {customLabelValues.Owc_ratePaid}
+                                <lightning-input variant="label-hidden" 
+                                                    placeholder="$0.00"
+                                                    name="paidPieceRateAdditional"
+                                                    type="currency"
+                                                    formatter="currency" 
+                                                    step="0.01"
+                                                    value ={paidPieceRateAdditional}
+                                                    data-id="paidPieceRateAdditional"
+                                                    onchange={handleChange}
+                                                    >
+                                </lightning-input>
+                            </fieldset>
+                        </div>
+                        <!--I was promised $ for-->
+                        <div class="slds-col slds-small-size_1-of-1 slds-medium-size_1-of-1">
+                            <fieldset class="slds-p-top_medium slds-p-bottom_medium slds-p-right_medium">
+                                {customLabelValues.Owc_ratePromised}  
+                                <lightning-input variant="label-hidden" 
+                                                                placeholder="$0.00"
+                                                                name="promisedPieceRateAdditional"
+                                                                type="currency"
+                                                                formatter="currency" 
+                                                                step="0.01"
+                                                                value ={promisedPieceRateAdditional} 
+                                                                data-id="promisedPieceRateAdditional"
+                                                                onchange={handleChange}
+                                                                >
+                                </lightning-input>
+                            </fieldset>
+                        </div>
+                    </div>   
+                </div>
+    
+                <!--jyg-->
+                <div class="slds-col slds-small-size_1-of-5 slds-medium-size_1-of-5">
+                        <div class="slds-grid slds-wrap">
+                            <div class="slds-col slds-small-size_1-of-1 slds-medium-size_1-of-1">
+                                <fieldset class="slds-p-top_medium slds-p-bottom_medium slds-p-right_medium">
+                                    {customLabelValues.Owc_perUnit}
+                                    <lightning-combobox
+                                        variant="label-hidden" 
+                                        name="perUnitPaymentOfWagesAdditional"
+                                        data-id="perUnitPaymentOfWagesAdditional"
+                                        value={perUnitPaymentOfWagesAdditional}
+                                        placeholder = {customLabelValues.OWC_select_picklist_label}
+                                        options={perUnitPaymentOfWagesValue}
+                                        onchange={handleChange}
+                                        ></lightning-combobox> 
+                                    </fieldset>                                                               
+                            </div>
+                            <template if:true={isPerUnitOtherAdditional}>
+                                <div class="slds-col slds-small-size_1-of-1 slds-medium-size_1-of-1">
+                                    <fieldset class="slds-p-top_medium slds-p-bottom_medium slds-p-right_medium">
+                                        {customLabelValues.OWC_Other}
+                                        <lightning-input variant="label-hidden" 
+                                                                    name="otherAdditional"
+                                                                    type="text"
+                                                                    value ={otherAdditional}
+                                                                    data-id="otherAdditional"
+                                                                    onchange={handleChange}
+                                                                    >
+                                        </lightning-input>
+                                    </fieldset>
+                                </div>
+                            </template>                                                        
+                        </div>
+                </div>
+    
+                <div class="slds-col slds-small-size_1-of-5 slds-medium-size_1-of-5">
+                            <fieldset class="slds-p-top_medium slds-p-bottom_medium slds-p-right_medium">
+                                {customLabelValues.Owc_noOfUnits}
+                                <lightning-input variant="label-hidden" 
+                                                    name="numberOfUnitsAdditional"
+                                                    type="Text"
+                                                    value ={numberOfUnitsAdditional}
+                                                    data-id="numberOfUnitsAdditional"
+                                                    onchange={handleChange}
+                                                    ></lightning-input> 
+                                </fieldset>                                                         
+                </div>
+                
+                <!--Beginning Date-->
+                <div class="slds-col slds-small-size_1-of-5 slds-medium-size_1-of-5">
+                    <fieldset class="slds-p-top_medium slds-p-bottom_medium slds-p-right_medium">
+                        {customLabelValues.Owc_Beginning}
+                        <span class="slds-p-left_medium dateFormatLabel">{dateFormatLabel}</span>
+                        <lightning-input variant="label-hidden" 
+                                                    date-style="short"
+                                                    name="pieceRateBegDateAdditional"
+                                                    type="date"
+                                                    value ={pieceRateBegDateAdditional}
+                                                    data-id="pieceRateBegDateAdditional"
+                                                    onchange={handleChange}
+                                                    >
+                        </lightning-input>
+                    </fieldset>
+                </div>
+                <!--Ending Date-->
+                <div class="slds-col slds-small-size_1-of-5 slds-medium-size_1-of-5">
+                    <fieldset class="slds-p-top_medium slds-p-bottom_medium slds-p-right_medium">
+                        {customLabelValues.Owc_Ending}
+                        <span class="slds-p-left_medium dateFormatLabel">{dateFormatLabel}</span>
+                        <lightning-input variant="label-hidden" 
+                                                    date-style="short"
+                                                    name="pieceRateEndDateAdditional"
+                                                    type="date"
+                                                    value ={pieceRateEndDateAdditional}
+                                                    data-id="pieceRateEndDateAdditional"
+                                                    onchange={handleChange}
+                                                    
+                                                    >
+                        </lightning-input>
+                    </fieldset>
+                </div>
+            </div>
+    </template>
+</template>

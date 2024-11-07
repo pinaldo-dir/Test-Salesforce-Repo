@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+        <label><!-- Date/Time of Last Case Activity --></label>
+        <name>DateTime_of_Last_Case_Activity__c</name>
+    </CustomFieldTranslation>

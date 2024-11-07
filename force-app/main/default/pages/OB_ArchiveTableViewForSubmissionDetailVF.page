@@ -1,0 +1,5 @@
+<apex:page showHeader="false" standardController="Attachments_Plus__c" standardStylesheets="true"
+cache="true" docType="html-5.0" >
+<OB_Archiver:SearchResultWidget recordId="{!Attachments_Plus__c.Id }" object="Attachments_Plus__c">
+</OB_Archiver:SearchResultWidget>
+</apex:page>

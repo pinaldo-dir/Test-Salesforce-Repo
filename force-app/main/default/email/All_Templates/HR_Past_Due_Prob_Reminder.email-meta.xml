@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <encodingKey>ISO-8859-1</encodingKey>
+    <letterhead>Blank_Letterhead</letterhead>
+    <name>HR Past Due Prob Reminder</name>
+    <style>freeForm</style>
+    <subject>Probation Report Reminder</subject>
+    <textOnly>Hello,
+
+You are receiving this reminder, because DIR&apos;s Human Resource Office does not have a copy of the probation report on {!HR_Probe_Report_Tracking__c.Employee_Name__c} for the {!HR_Probe_Report_Tracking__c.Prob_Classification__c} position.
+
+If you need assistance in completing the form, please refer to this link http://www.calhr.ca.gov/Training/Pages/supervisors-probation-period.aspx
+
+Please email the completed Standard Form 636 (REPORT OF PERFORMANCE FOR PROBATIONARY EMPLOYEE) to PerformanceAppraisals-HR@dir.ca.gov.
+
+
+Thank you.</textOnly>
+    <type>html</type>
+    <uiType>Aloha</uiType>
+</EmailTemplate>

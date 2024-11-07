@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Only_Tech_Support_Team_Can_Close_this_SR</fullName>
+    <active>true</active>
+    <description>Prevents Users from Closing a Support Request</description>
+    <errorConditionFormula>NOT(CONTAINS($Profile.Name, 'System Administrator') || CONTAINS($UserRole.Name, 'System Administrator'))
+  
+&amp;&amp;
+
+ISCHANGED(Status__c)  
+
+&amp;&amp;
+
+$User.CalAtlas_Business_Team_Member__c = false
+
+&amp;&amp;
+
+!ISPICKVAL(Type__c, 'Added to a Project')
+
+&amp;&amp;
+NOT(ISPICKVAL(Status__c, 'Accepted') || ISPICKVAL(Status__c, 'Confirmed'))</errorConditionFormula>
+    <errorDisplayField>Account_Request_Type__c</errorDisplayField>
+    <errorMessage>Only a System Administrator Can Change the Status to the value you selected</errorMessage>
+</ValidationRule>

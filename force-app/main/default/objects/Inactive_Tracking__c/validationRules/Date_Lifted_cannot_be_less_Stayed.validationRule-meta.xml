@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Date_Lifted_cannot_be_less_Stayed</fullName>
+    <active>true</active>
+    <errorConditionFormula>AND(
+Record_Type_Name__c = 'Stay',
+Date_Lifted__c -  Date_Stayed__c &lt; 0
+)</errorConditionFormula>
+    <errorMessage>Date Lifted cannot be less than Date Stayed</errorMessage>
+</ValidationRule>

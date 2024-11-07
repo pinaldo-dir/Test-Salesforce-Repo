@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+        <help><!-- Enter Employer Name --></help>
+        <label><!-- Occupation 1 Employer Name --></label>
+        <name>Occupation_1_Employer_Name__c</name>
+    </CustomFieldTranslation>

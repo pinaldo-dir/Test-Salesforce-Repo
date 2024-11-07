@@ -1,0 +1,5 @@
+A case Case {!DIR_Case__c.Case_Number__c} has been created as an Immediate Investigation Case. 
+
+The employer is: {!DIR_Case__c.Employer__c}
+
+Please follow the link below for more information: {!DIR_Case__c.Link}

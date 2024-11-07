@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+        <help><!-- Please check if Defects are corrected --></help>
+        <label><!-- Sexual Harassment Prevention Training DA --></label>
+        <name>Sexual_Harassment_Prevention_TrainingDA__c</name>
+    </CustomFieldTranslation>

@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+        <help><!-- In what U.S. state was your Corporation or LLC incorporated? --></help>
+        <label><!-- State of Incorporation --></label>
+        <name>State_of_Incorporation__c</name>
+    </CustomFieldTranslation>

@@ -1,0 +1,5 @@
+<apex:page showHeader="false" standardController="DIR_Case__c" standardStylesheets="true"
+cache="true" docType="html-5.0" >
+<OB_Archiver:SearchResultWidget recordId="{!DIR_Case__c.Id }" object="DIR_Case__c">
+</OB_Archiver:SearchResultWidget>
+</apex:page>

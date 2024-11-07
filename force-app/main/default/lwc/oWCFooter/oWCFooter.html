@@ -1,0 +1,47 @@
+<!--
+  @description       : 
+  @author            : ChangeMeIn@UserSettingsUnder.SFDoc
+  @group             : 
+  @last modified on  : 01-21-2022
+  @last modified by  : ChangeMeIn@UserSettingsUnder.SFDoc
+-->
+<template>
+    <template if:true={isSmallDevice}>
+        <div class="slds-align_absolute-center slds-p-bottom_xx-small" >
+            <span class="contactStyle">{customLabelValues.OWC_for_support_email} &nbsp;</span><a class="" onclick={openContactInfo}>{customLabelValues.OWC_email_address}</a>
+        </div>
+        <div class="judgment-Footer-Container">
+            <div class="" style="text-align: center;
+            font-family: Source Sans Pro, sans-serif;
+            padding-top: 15px;
+            background-color: #444;
+            padding-bottom: 15px;
+            position: relative;
+            overflow: hidden;
+            font-size: .97em;">
+                <div class="" style="color: #ffffff;
+                font-size: 15px;">
+                    <div >
+                        {copyRightPolicy}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </template>
+    
+    <template if:true={isOtherDevice}>
+        <div class="slds-align_absolute-center slds-p-bottom_xx-small" >
+            <span class="contactStyle">{customLabelValues.OWC_for_support_email} &nbsp;</span><a class="slds-p-left_medium"  target="_blank" href="mailto:onlinewageclaim@dir.ca.gov" >{customLabelValues.OWC_email_address}</a>
+        </div>
+        <div class="judgment-Footer-Container">
+            <div class="sectionClass">
+                <div class="copyright-Class">
+                    <div >
+                        {copyRightPolicy}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </template>
+    
+</template>

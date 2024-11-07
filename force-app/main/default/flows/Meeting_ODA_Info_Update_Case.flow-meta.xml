@@ -1,0 +1,348 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>61.0</apiVersion>
+    <decisions>
+        <name>Documents_Sent_Type</name>
+        <label>Documents Sent Type</label>
+        <locationX>645</locationX>
+        <locationY>674</locationY>
+        <defaultConnector>
+            <targetReference>Blank_out_CM_Mailed_Date</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>ODA_or_Findings_Documents</name>
+            <conditionLogic>or</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.Documents_Sent__c</leftValueReference>
+                <operator>Contains</operator>
+                <rightValue>
+                    <stringValue>Findings and Orders</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Documents_Sent__c</leftValueReference>
+                <operator>Contains</operator>
+                <rightValue>
+                    <stringValue>75</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Update_Date_Docs_Mailed</targetReference>
+            </connector>
+            <label>ODA or Findings Documents</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <name>What_s_Changed</name>
+        <label>What&apos;s Changed?</label>
+        <locationX>329</locationX>
+        <locationY>431</locationY>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>Meeting_End_Date</name>
+            <conditionLogic>1 OR (2 AND 3)</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.Meeting_End_Date_Time__c</leftValueReference>
+                <operator>IsChanged</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>IsNew</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Meeting_End_Date_Time__c</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Update_Meeting_End_Date</targetReference>
+            </connector>
+            <label>Meeting End Date</label>
+        </rules>
+        <rules>
+            <name>Date_ODA_Docs_Mailed</name>
+            <conditionLogic>1 OR (2 AND 3)</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.Date_Documents_Mailed__c</leftValueReference>
+                <operator>IsChanged</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>IsNew</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Date_Documents_Mailed__c</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Documents_Sent_Type</targetReference>
+            </connector>
+            <label>Date ODA Docs Mailed</label>
+        </rules>
+        <rules>
+            <name>ODA_Doc_Generate_Date</name>
+            <conditionLogic>1 OR (2 AND 3)</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.ODA_Decision_Generated__c</leftValueReference>
+                <operator>IsChanged</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>IsNew</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.ODA_Decision_Generated__c</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Update_ODA_Doc_Gen_Date</targetReference>
+            </connector>
+            <label>ODA Doc Generate Date</label>
+        </rules>
+        <rules>
+            <name>Document_Sent</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.Documents_Sent__c</leftValueReference>
+                <operator>IsChanged</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Date_Documents_Mailed__c</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Documents_Sent_Type</targetReference>
+            </connector>
+            <label>Document Sent</label>
+        </rules>
+    </decisions>
+    <description>Update case w fields ODA Doc Generate date or Hearing End Date or Date Documents Mailed, for ODA reports.</description>
+    <environments>Default</environments>
+    <formulas>
+        <name>IsNew</name>
+        <dataType>Boolean</dataType>
+        <expression>IsNew()</expression>
+    </formulas>
+    <interviewLabel>Meeting ODA Info Update Case {!$Flow.CurrentDateTime}</interviewLabel>
+    <label>Meeting ODA Info Update Case</label>
+    <processMetadataValues>
+        <name>BuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>CanvasMode</name>
+        <value>
+            <stringValue>FREE_FORM_CANVAS</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>OriginBuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processType>AutoLaunchedFlow</processType>
+    <recordLookups>
+        <name>Get_Latest_Task</name>
+        <label>Get Latest Task</label>
+        <locationX>1094</locationX>
+        <locationY>788</locationY>
+        <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
+        <connector>
+            <targetReference>Update_Task_Status_to_Complete</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>WhatId</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>$Record.Case__c</elementReference>
+            </value>
+        </filters>
+        <filters>
+            <field>Type</field>
+            <operator>EqualTo</operator>
+            <value>
+                <stringValue>ODA Task</stringValue>
+            </value>
+        </filters>
+        <getFirstRecordOnly>true</getFirstRecordOnly>
+        <object>Task</object>
+        <sortField>CreatedDate</sortField>
+        <sortOrder>Desc</sortOrder>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </recordLookups>
+    <recordUpdates>
+        <description>Blank out CM Mailed Date when document type is not of ODA</description>
+        <name>Blank_out_CM_Mailed_Date</name>
+        <label>Blank out CM Mailed Date</label>
+        <locationX>578</locationX>
+        <locationY>999</locationY>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Id</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>$Record.Case__c</elementReference>
+            </value>
+        </filters>
+        <inputAssignments>
+            <field>Date_Documents_Mailed__c</field>
+        </inputAssignments>
+        <object>DIR_Case__c</object>
+    </recordUpdates>
+    <recordUpdates>
+        <name>Update_Date_Docs_Mailed</name>
+        <label>Update Date Docs Mailed</label>
+        <locationX>950</locationX>
+        <locationY>778</locationY>
+        <connector>
+            <targetReference>Get_Latest_Task</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Id</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>$Record.Case__c</elementReference>
+            </value>
+        </filters>
+        <inputAssignments>
+            <field>Date_Documents_Mailed__c</field>
+            <value>
+                <elementReference>$Record.Date_Documents_Mailed__c</elementReference>
+            </value>
+        </inputAssignments>
+        <object>DIR_Case__c</object>
+    </recordUpdates>
+    <recordUpdates>
+        <name>Update_Meeting_End_Date</name>
+        <label>Update Meeting End Date</label>
+        <locationX>385</locationX>
+        <locationY>668</locationY>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Id</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>$Record.Case__c</elementReference>
+            </value>
+        </filters>
+        <inputAssignments>
+            <field>Hearing_End_Date__c</field>
+            <value>
+                <elementReference>$Record.Meeting_End_Date_Time__c</elementReference>
+            </value>
+        </inputAssignments>
+        <object>DIR_Case__c</object>
+    </recordUpdates>
+    <recordUpdates>
+        <name>Update_ODA_Doc_Gen_Date</name>
+        <label>Update ODA Doc Gen Date</label>
+        <locationX>892</locationX>
+        <locationY>524</locationY>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Id</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>$Record.Case__c</elementReference>
+            </value>
+        </filters>
+        <inputAssignments>
+            <field>Date_Decision_Document_Generated__c</field>
+            <value>
+                <elementReference>$Record.ODA_Decision_Generated_Date__c</elementReference>
+            </value>
+        </inputAssignments>
+        <object>DIR_Case__c</object>
+    </recordUpdates>
+    <recordUpdates>
+        <name>Update_Task_Status_to_Complete</name>
+        <label>Update Task Status to Complete</label>
+        <locationX>1062</locationX>
+        <locationY>462</locationY>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Id</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>Get_Latest_Task.Id</elementReference>
+            </value>
+        </filters>
+        <inputAssignments>
+            <field>Status</field>
+            <value>
+                <stringValue>Completed</stringValue>
+            </value>
+        </inputAssignments>
+        <object>Task</object>
+    </recordUpdates>
+    <start>
+        <locationX>294</locationX>
+        <locationY>49</locationY>
+        <connector>
+            <targetReference>What_s_Changed</targetReference>
+        </connector>
+        <filterFormula>(
+ISNEW() || ISCHANGED({!$Record.Meeting_End_Date_Time__c}) || ISCHANGED({!$Record.ODA_Decision_Generated_Date__c}) || ISCHANGED({!$Record.Date_Documents_Mailed__c}) || 
+(ISCHANGED({!$Record.Documents_Sent__c}))
+)
+&amp;&amp;
+(
+{!$Record.RecordType.Name} = &quot;BOFE Hearing&quot;
+||
+{!$Record.RecordType.Name} = &quot;Garment Hearing&quot;
+||
+ISPICKVAL({!$Record.Meeting_Type__c}, &quot;Berman Hearing&quot;)
+||
+ISPICKVAL({!$Record.Meeting_Type__c}, &quot;Hearing, Health &amp; Safety&quot;)
+)</filterFormula>
+        <object>Hearing__c</object>
+        <recordTriggerType>CreateAndUpdate</recordTriggerType>
+        <triggerType>RecordAfterSave</triggerType>
+    </start>
+    <status>Active</status>
+    <variables>
+        <name>LatestTaskID</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>true</isInput>
+        <isOutput>true</isOutput>
+    </variables>
+</Flow>

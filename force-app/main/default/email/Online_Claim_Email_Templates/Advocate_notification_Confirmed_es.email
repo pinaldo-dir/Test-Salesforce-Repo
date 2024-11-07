@@ -1,0 +1,5 @@
+Hola {!Advocate},<br></br> 
+Gracias por presentar el reclamo de sueldo en nombre de {!Claimant}, en contra de {!Defendant}, el {!filed date}. El número de caso es {!case number}. Este reclamo está asignado a la siguiente Oficina de Sueldos:<br></br>
+{!DIR_Case__c.Office__c }
+{!DIR_Case__c.DIR_WCA_Office_Address__c}{!DIR_Case__c.DIR_Office_Phone_Number__c}
+Oficina de la Comisionada Laboral

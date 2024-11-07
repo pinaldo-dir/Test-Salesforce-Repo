@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Case_Role_Entity__c</fullName>
+    <externalId>false</externalId>
+    <formula>IF(NOT(ISBLANK(Case_Role__r.Entity__c)), IF( ISBLANK(Case_Role__r.Entity__r.Name), Case_Role__r.Entity__r.PersonContact.FirstName + " " + IF( ISBLANK(Case_Role__r.Entity__r.PersonContact.MiddleName), Case_Role__r.Entity__r.PersonContact.LastName, Case_Role__r.Entity__r.PersonContact.MiddleName &amp; " " &amp; Case_Role__r.Entity__r.PersonContact.LastName) , Case_Role__r.Entity__r.Name),'')</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>Case Role Entity</label>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

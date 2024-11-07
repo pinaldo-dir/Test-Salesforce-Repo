@@ -1,0 +1,2 @@
+The status for Form 1 number {!Form_1__c.Name} has been changed to "{!Form_1__c.Recruitment_Status__c}".
+{!Form_1__c.Link}

@@ -1,0 +1,1132 @@
+<!--
+  @description       : 
+  @author            : ChangeMeIn@UserSettingsUnder.SFDoc
+  @group             : 
+  @last modified on  : 09-28-2022
+  @last modified by  : ChangeMeIn@UserSettingsUnder.SFDoc
+-->
+<template>
+    <template if:true={isFormPreviewMode}>
+        <form class="">
+            <div class="slds-grid slds-wrap">
+                <div class="slds-col slds-medium-size_1-of-8 slds-large-size_1-of-8"></div>
+                <div class="slds-col slds-size_1-of-1 slds-medium-size_6-of-8 slds-large-size_6-of-8">
+                    <h1 class="slds-p-around_medium slds-text-heading_large owcHeadingStyle slds-col slds-size_1-of-1 slds-medium-size_1-of-1 slds-large-size_1-of-1 ">
+                        {customLabelValues.OWC_Employment_Status_and_Final_Wages}
+                    </h1>
+                    <template if:true={EmpStatusAndWagesDetails.hireDate}>
+                        <fieldset class="slds-p-around_medium slds-p-left_xx-large">
+                            <div class="slds-grid slds-wrap">
+                                <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-1 slds-large-size_1-of-1">
+                                    <span >
+                                        {customLabelValues.OWC_Date_Of_Hire}
+                                    </span>
+                                    <span class="requiredStyle"><abbr title="required">*</abbr></span>
+                                </div>
+                                <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-2 slds-large-size_1-of-2 slds-p-top_xx-small">
+                                    <lightning-input name="hireDate"
+                                        disabled
+                                        date-style="short"
+                                        variant="label-hidden" 
+                                        type="date" 
+                                        value={hireDate}
+                                        data-id="hireDate"
+                                        onchange={handleChange}
+                                        onblur={handleHireDateFocus}>
+                                    </lightning-input>
+                                </div>
+                            </div>
+                        </fieldset>
+                    </template>
+                    <!--Name of Person who hire you-->
+                    <template if:true={EmpStatusAndWagesDetails.nameOfPersonWhoHiredYou}>
+                        <fieldset class="slds-p-around_medium slds-p-left_xx-large">
+                            <div class="slds-grid slds-wrap">
+                                <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-1 slds-large-size_1-of-1 ">
+                                    {customLabelValues.OWC_Name_of_person_who_hired_you}
+                                </div>
+                                <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-2 slds-large-size_1-of-2 slds-p-top_xx-small">
+                                    <lightning-input 
+                                        name="nameOfPersonWhoHiredYou" 
+                                        value={nameOfPersonWhoHiredYou}
+                                        variant="label-hidden"  
+                                        disabled
+                                        data-id="nameOfPersonWhoHiredYou"
+                                        onchange={handleChange}>
+                                    </lightning-input>
+                                </div>
+                            </div>
+                        </fieldset>
+                    </template>
+                    <!--How were your wages paid?-->
+                    <template if:true={EmpStatusAndWagesDetails.howWereYourWagesPaid}>
+                        <fieldset class="slds-p-around_medium slds-p-left_xx-large">
+                            <div class="slds-grid slds-wrap">
+                                <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-1 slds-large-size_1-of-1">
+                                    <span >
+                                        {customLabelValues.OWC_How_were_your_wages_paid}
+                                    </span>
+                                    <span class="requiredStyle"><abbr title="required">*</abbr></span>
+                                </div>
+                                <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-2 slds-large-size_1-of-2">
+                                    <lightning-combobox
+                                                    placeholder={customLabelValues.OWC_select_picklist_label}
+                                                    disabled
+                                                    name="howWereYourWagesPaid"
+                                                    data-id="howWereYourWagesPaid"
+                                                    value={howWereYourWagesPaid}
+                                                    variant="label-hidden"
+                                                    options={Paid_Type_List}
+                                                    onchange={handleChange} 
+                                                    onblur={handleHowWereYourWagesPaidFocus}>
+                                    </lightning-combobox>
+                                </div>
+                            </div>
+                        </fieldset>
+                    </template>
+                    <!--Paid By Cheque-->
+                    <template if:true={EmpStatusAndWagesDetails.isCheck}>
+                    <template if:true={isCheck}>
+                        <div class="slds-p-left_medium">   
+                            <div class="slds-grid slds-wrap">
+                                <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-1 slds-large-size_1-of-1">
+                                    <template if:true={EmpStatusAndWagesDetails.paidByCheck}>
+                                        <fieldset class="slds-p-top_medium slds-p-bottom_medium">
+                                            <span >
+                                                {customLabelValues.OWC_Did_any_of_the_paychecks_Bounce}
+                                            </span>
+                                            <span class="requiredStyle"><abbr title="required">*</abbr></span>
+                                            <lightning-radio-group  name="paidByCheck"
+                                                            disabled
+                                                            data-id="paidByCheck"
+                                                            options={options}
+                                                            value={paidByCheck}
+                                                            variant="label-hidden" 
+                                                            onchange={handleChange}>
+                                            </lightning-radio-group>
+                                        </fieldset>
+                                    </template>
+                        
+                                    <!--Is Cheque Bounced-->
+                                    <template if:true={isChequeBounce}>
+                                        <div class="slds-p-left_medium">   
+                                            <div class="slds-grid slds-wrap">
+                                                <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-1 slds-large-size_1-of-1">
+                                                    <template if:true={EmpStatusAndWagesDetails.chequeReplaced}>
+                                                        <fieldset class="slds-p-around_medium slds-p-left_xx-large">
+                                                            <span >
+                                                                {customLabelValues.Owc_Was_Check_Replaced}
+                                                            </span>  
+                                                            <lightning-radio-group 
+                                                                disabled
+                                                                name="chequeReplaced"
+                                                                data-id="chequeReplaced"
+                                                                options={options}
+                                                                value={chequeReplaced}
+                                                                variant="label-hidden" 
+                                                                onchange={handleChange}>
+                                                            </lightning-radio-group>
+                                                        </fieldset>
+                                                    </template>
+                                                    <!--Is Cheque Replaced-->
+                                                    <template if:true={EmpStatusAndWagesDetails.chequeReplacedDate}>
+                                                        <template if:true={isChequeReplaced}>
+                                                            <div class="slds-p-left_medium">   
+                                                                <div class="slds-grid slds-wrap">
+                                                                    <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-2 slds-large-size_1-of-2">
+                                                                        <fieldset class="slds-p-around_medium slds-p-left_xx-large">
+                                                                            <span >
+                                                                                {customLabelValues.Owc_Was_Check_ReplacedDate}
+                                                                            </span>  
+                                                                            <lightning-input name="chequeReplacedDate"
+                                                                                date-style="short"
+                                                                                variant="label-hidden" 
+                                                                                type="date" 
+                                                                                disabled
+                                                                                value={chequeReplacedDate}
+                                                                                data-id="chequeReplacedDate"
+                                                                                onchange={handleChange}
+                                                                                onblur={handlechequeReplacedDateFocus}>
+                                                                            </lightning-input>
+                                                                        </fieldset>
+                                                                    </div>
+                                                                </div>
+                                                            </div> 
+                                                        </template>       
+                                                    </template>
+                                                </div>
+                                            </div>
+                                        </div>        
+                                    </template>
+                                </div>
+                            </div>
+                        </div>        
+                    </template>
+                    </template>
+                    <!--Other-->
+                    <template if:true={EmpStatusAndWagesDetails.Explanation}>
+                        <template if:true={isOther}>
+                            <div class="slds-p-left_medium">   
+                                <div class="slds-grid slds-wrap">
+                                    <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-2 slds-large-size_1-of-2">
+                                        <fieldset class="slds-p-around_medium slds-p-left_xx-large ">
+                                            <span >
+                                            {customLabelValues.OWC_Explanation}
+                                            </span>
+                                            <span class="requiredStyle slds-p-top_xx-small"><abbr title="required">*</abbr></span>       
+                                            <lightning-textarea name="Explanation"
+                                                        variant="label-hidden" 
+                                                        value={Explanation} 
+                                                        disabled
+                                                        data-id="Explanation"
+                                                        onchange={handleChange}
+                                                        onblur={handleExplanationFocus}>
+                                            </lightning-textarea>
+                                        </fieldset>
+                                    </div>
+                                </div>
+                            </div> 
+                        </template>
+                    </template>
+                    <!--Were your wages paid on the pay day?-->
+                    <template if:true={EmpStatusAndWagesDetails.wereWagesPaid}>
+                        <fieldset class="slds-p-around_medium slds-p-left_xx-large">
+                            <div class="slds-grid slds-wrap">
+                                <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-1 slds-large-size_1-of-1">
+                                    <span >{customLabelValues.OWC_wages_paid_on_the_pay_day}</span>
+                                </div>
+                                <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-2 slds-large-size_1-of-2">
+                                    <lightning-combobox disabled  placeholder={customLabelValues.OWC_select_picklist_label}  
+                                                        variant="label-hidden" 
+                                                        name="wereWagesPaid"
+                                                        data-id="wereWagesPaid"
+                                                        options={statusOptions}
+                                                        value={wereWagesPaid}
+                                                        type="radio"
+                                                        onchange={handleChange}
+                                                        onblur={handlewereWagesPaidFocus}>
+                                    </lightning-combobox>
+                                </div>
+                            </div>
+                        </fieldset>
+                    </template>     
+                    <!--Did you receive itemized wage statements when you received cash or check payments?-->
+                    <template if:true={EmpStatusAndWagesDetails.statementReceived}>
+                        <fieldset class="slds-p-around_medium slds-p-left_xx-large">
+                            <div class="slds-grid slds-wrap">
+                                <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-1 slds-large-size_1-of-1">
+                                    <span >
+                                        {customLabelValues.Owc_Did_Receive_Itemized_Wage}
+                                    </span>
+                                </div>
+                                <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-2 slds-large-size_1-of-2">
+                                    <lightning-combobox  
+                                        placeholder={customLabelValues.OWC_select_picklist_label}  
+                                        disabled
+                                        variant="label-hidden" 
+                                        name="statementReceived"
+                                        data-id="statementReceived"
+                                        options={statusOptions}
+                                        value={statementReceived}
+                                        type="radio"
+                                        onchange={handleChange}
+                                        onblur={handleStatementReceivedFocus}>
+                                    </lightning-combobox>
+                                </div>
+                            </div>
+                        </fieldset> 
+                    </template>
+                    <!--Are you still working for the identified employer?-->
+                    <template if:true={EmpStatusAndWagesDetails.stillIdentifiedEmp}>
+                        <fieldset class="slds-p-around_medium slds-p-left_xx-large">
+                            <div class="slds-grid slds-wrap">
+                                <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-1 slds-large-size_1-of-1 ">
+                                    {customLabelValues.OWC_WorkingForIdentifiedEmployer}
+                                    <span class="requiredStyle"><abbr title="required">*</abbr></span>
+                                </div>
+                                <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-2 slds-large-size_1-of-2 slds-p-top_xx-small">
+                                    <lightning-combobox  
+                                        placeholder={customLabelValues.OWC_select_picklist_label}  
+                                        disabled
+                                        variant="label-hidden" 
+                                        name="stillIdentifiedEmp"
+                                        data-id="stillIdentifiedEmp"
+                                        options={statusOptions}
+                                        value={stillIdentifiedEmp}
+                                        type="radio"
+                                        onchange={handleChange}>
+                                    </lightning-combobox>
+                                </div>
+                            </div>
+                        </fieldset>
+                    </template>
+                    
+                    <div class="slds-p-around_medium slds-p-left_xx-large">     
+                        <!--Select Any One-->
+                        <template if:true={EmpStatusAndWagesDetails.selectAnyOne}>
+                            <template if:true={isstillIdentifiedEmp}>
+                                <fieldset class="">
+                                    <div class="slds-grid slds-wrap">
+                                        <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-1 slds-large-size_1-of-1  ">
+                                            {customLabelValues.OWC_CompleteAtLeastOne}
+                                            <span class="requiredStyle slds-p-top_xx-small"><abbr title="required">*</abbr></span>
+                                        </div>
+                                        <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-2 slds-large-size_1-of-2 slds-p-top_xx-small">
+                                            <lightning-combobox  placeholder={customLabelValues.OWC_select_picklist_label}  
+                                                                variant="label-hidden" 
+                                                                disabled
+                                                                name="selectAnyOne"
+                                                                data-id="selectAnyOne"
+                                                                options={quitDateDischargeDate}
+                                                                value={selectAnyOne}
+                                                                onchange={handleChange}
+                                                                onblur={handleselectAnyOneFocus}>
+                                            </lightning-combobox>
+                                        </div>
+                                    </div>
+                                </fieldset>
+                            </template>
+                        </template>
+                        <!--isQuitDateSection-->
+                        <template if:true={EmpStatusAndWagesDetails.QuitDateTemplate}>
+                            <template if:true={QuitDateTemplate}>   
+                                <div class="slds-p-left_medium">
+                                    <fieldset class="slds-p-top_small">
+                                        <div class="slds-grid slds-wrap">
+                                            <!-- <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-1 slds-large-size_1-of-1 ">
+                                                <h2>{customLabelValues.OWC_employement_status_quitdate_heading}</h2>
+                                            </div> -->
+                                            <!--Quit Date-->
+                                            <template if:true={EmpStatusAndWagesDetails.quitDate}>
+                                            <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-1 slds-large-size_1-of-1">
+                                                <fieldset class="slds-p-top_medium slds-p-bottom_medium">
+                                                    <span class="slds-p-top_xx-small ">
+                                                        {customLabelValues.OWC_Quit_Date}
+                                                    </span>
+                                                    <span class="requiredStyle slds-p-top_xx-small"><abbr title="required">*</abbr></span>
+                                                    <span class="slds-p-left_medium dateFormatLabel">{dateFormatLabel}</span>                                            
+                                                    <div class=" slds-col slds-size_1-of-1 slds-medium-size_1-of-2 slds-large-size_1-of-2 slds-p-top_xx-small">
+                                                        <lightning-input name="quitDate"
+                                                            variant="label-hidden" 
+                                                            type="date" 
+                                                            disabled
+                                                            date-style="short"
+                                                            value={quitDate}
+                                                            data-id="quitDate"
+                                                            onchange={handleChange}
+                                                            onblur={handleQuitDateFocus}>
+                                                        </lightning-input>
+                                                    </div>
+                                                </fieldset>
+                                            </div>
+                                            </template>
+                                            <!--Did you provide 72 hours’ notice before quitting?--> 
+                                            <template if:true={EmpStatusAndWagesDetails.noticeBeforeQuiting}>                                                                           
+                                            <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-1 slds-large-size_1-of-1">
+                                                <fieldset class="slds-p-top_medium slds-p-bottom_medium">
+                                                    <span class="slds-p-top_xx-small ">
+                                                        {customLabelValues.OWC_notice_before_quitting}  
+                                                    </span>
+                                                    <span class="requiredStyle slds-p-top_xx-small"><abbr title="required">*</abbr></span>                                  
+                                                    <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-2 slds-large-size_1-of-2 slds-p-top_xx-small slds-p-top_xx-small">
+                                                        <lightning-combobox  placeholder={customLabelValues.OWC_select_picklist_label}  
+                                                            variant="label-hidden" 
+                                                            disabled
+                                                            name="noticeBeforeQuiting"
+                                                            data-id="noticeBeforeQuiting"
+                                                            options={statusOptions}
+                                                            value={noticeBeforeQuiting}
+                                                            type="radio"
+                                                            onchange={handleChange}
+                                                            onblur={handleNoticeBeforeQuitingFocus}>
+                                                        </lightning-combobox>
+                                                    </div>
+                                                </fieldset>
+                                            </div>
+                                            </template>
+                                            <!--Have you received your final payment of wages including all wages owed?-->
+                                            <template if:true={EmpStatusAndWagesDetails.receivedFinalPayment}>  
+                                            <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-1 slds-large-size_1-of-1">
+                                                <fieldset class="slds-p-top_medium slds-p-bottom_medium">
+                                                    <span class="slds-p-top_xx-small ">
+                                                        {customLabelValues.OWC_RecievedFinalPayment}
+                                                    </span>
+                                                    <span class="requiredStyle slds-p-top_xx-small"><abbr title="required">*</abbr></span>
+                                                    <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-2 slds-large-size_1-of-2 slds-p-top_xx-small slds-p-top_xx-small">
+                                                        <lightning-combobox  placeholder={customLabelValues.OWC_select_picklist_label}  name="receivedFinalPayment"
+                                                            data-id="receivedFinalPayment"
+                                                            disabled
+                                                            options={statusOptions}
+                                                            value={receivedFinalPayment}
+                                                            type="radio"
+                                                            variant="label-hidden" 
+                                                            onchange={handleChange}
+                                                            onblur={handlereceivedFinalPaymentFocus}>
+                                                        </lightning-combobox>
+                                                    </div>
+                                                </fieldset>
+                                            </div>
+                                            </template>
+                                        </div>
+                                        <!--If the person didn't recieved his/her final payment-->
+                                        <template if:true={EmpStatusAndWagesDetails.finalPaymentDate}>  
+                                        <template if:true={isreceivedFinalPayment}>
+                                            <fieldset class="slds-p-top_medium slds-p-bottom_medium">
+                                                <div class="slds-grid slds-wrap">
+                                                    <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-2 slds-large-size_1-of-2 slds-p-top_xx-small">
+                                                        <span class="slds-p-top_xx-small ">
+                                                            {customLabelValues.Owc_Date}
+                                                        </span>
+                                                        <span class="requiredStyle slds-p-top_xx-small"><abbr title="required">*</abbr></span>
+                                                        <span class="slds-p-left_medium dateFormatLabel">{dateFormatLabel}</span>
+                                                        <lightning-input name="finalPaymentDate"
+                                                            variant="label-hidden" 
+                                                            type="date" 
+                                                            disabled
+                                                            date-style="short"
+                                                            value={finalPaymentDate}
+                                                            data-id="finalPaymentDate"
+                                                            onchange={handleChange}
+                                                            onblur={handleFinalPaymentDateFocus}>
+                                                        </lightning-input>
+                                                    </div>
+                                                </div>
+                                            </fieldset>
+                                        </template>
+                                        </template>
+                                        <!--If the person recieved his/her final payment-->
+                                        <template if:true={EmpStatusAndWagesDetails.finalPaymentExplanation}>  
+                                        <template if:true={isDidntReceivedFinalPayment}>
+                                            <fieldset class="slds-p-top_medium slds-p-bottom_medium">   
+                                                <div class="slds-grid slds-wrap">
+                                                    <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-2 slds-large-size_1-of-2 slds-p-top_xx-small">
+                                                        <span class="slds-p-top_xx-small ">
+                                                            {customLabelValues.OWC_Explanation}
+                                                        </span>
+                                                        <span class="requiredStyle slds-p-top_xx-small"><abbr title="required">*</abbr></span>
+                                                        <lightning-textarea name="finalPaymentExplanation"
+                                                            variant="label-hidden" 
+                                                            disabled
+                                                            value={finalPaymentExplanation}
+                                                            data-id="finalPaymentExplanation"
+                                                            onchange={handleChange}
+                                                            onblur={handleFinalPaymentExplanationFocus}>
+                                                        </lightning-textarea>
+                                                    </div>
+                                                </div>
+                                            </fieldset>
+                                        </template>
+                                        </template>
+                                    </fieldset>
+                                </div>
+                            </template>
+                        </template>
+                        <!--DischargeDateTemplate-->
+                        <template if:true={EmpStatusAndWagesDetails.DischargeDateTemplate}>
+                            <template  if:true={DischargeDateTemplate}>
+                                <div class="slds-p-top_medium">
+                                    <fieldset>
+                                        <div class="slds-grid slds-wrap">
+                                            <!-- <span>
+                                                <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-1 slds-large-size_1-of-1 ">
+                                                    <h2>{customLabelValues.OWC_employement_status_dischargeddate_heading}</h2>
+                                                </div>
+                                            </span> -->
+                                        
+                                            <!--Discharged Date-->
+                                            <template if:true={EmpStatusAndWagesDetails.dischargedDate}>
+                                            <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-1 slds-large-size_1-of-1">
+                                                <fieldset class="slds-p-top_medium slds-p-bottom_medium">
+                                                    <span class="slds-p-top_xx-small ">
+                                                        {customLabelValues.OWC_DischargedDate} 
+                                                    </span>
+                                                    <span class="requiredStyle slds-p-top_xx-small"><abbr title="required">*</abbr></span>
+                                                    <span class="slds-p-left_medium dateFormatLabel">{dateFormatLabel}</span>  
+                                                    <!-- <span class="slds-p-left_x-small">
+                                                        <lightning-icon icon-name="utility:info" class="my-icon" size="x-small" alternative-text="info"  label={customLabelValues.OWC_learnmore_button} name="dischargedDateHelpText" onclick={handleHelpText} ></lightning-icon>
+                                                     </span>                                -->
+                                                    <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-2 slds-large-size_1-of-2 slds-p-top_xx-small">
+                                                        <lightning-input name="dischargedDate"
+                                                            variant="label-hidden"
+                                                            disabled 
+                                                            type="date" 
+                                                            date-style="short"
+                                                            value={dischargedDate}
+                                                            data-id="dischargedDate"
+                                                            onchange={handleChange}>
+                                                        </lightning-input>
+                                                    </div>
+                                                </fieldset>
+                                            </div>
+                                            </template>
+                                            <!--Name of person who discharge you.-->
+                                            <template if:true={EmpStatusAndWagesDetails.personNameWhoDischargeYou}>
+                                            <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-1 slds-large-size_1-of-1">
+                                                <fieldset class="slds-p-top_medium slds-p-bottom_medium">
+                                                    <span class="slds-p-top_xx-small ">
+                                                        {customLabelValues.OWC_PersonWhoDischargeYou}  
+                                                    </span>
+                                                    <span class="requiredStyle slds-p-top_xx-small"><abbr title="required">*</abbr></span>                          
+                                                    <div class=" slds-col slds-size_1-of-1 slds-medium-size_1-of-2 slds-large-size_1-of-2 slds-p-top_xx-small slds-p-top_xx-small">
+                                                        <lightning-input name="personNameWhoDischargeYou"
+                                                            variant="label-hidden" 
+                                                            type="text"
+                                                            disabled
+                                                            value={personNameWhoDischargeYou} 
+                                                            data-id="personNameWhoDischargeYou"
+                                                            onchange={handleChange}
+                                                            onblur={handlepersonNameWhoDischargeYouFocus}>
+                                                        </lightning-input>
+                                                    </div>
+                                                </fieldset>
+                                            </div>
+                                            </template>
+                                            <!--Have you received your final payment of wages including all wages owed?-->
+                                            <template if:true={EmpStatusAndWagesDetails.receivedFinalPayment2}>
+                                            <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-1 slds-large-size_1-of-1">
+                                                <fieldset class="slds-p-top_medium slds-p-bottom_medium">
+                                                    <span class="slds-p-top_xx-small ">
+                                                        {customLabelValues.OWC_payment_received_final_wage}
+                                                    </span>
+                                                    <span class="requiredStyle slds-p-top_xx-small"><abbr title="required">*</abbr></span>
+                                                    <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-2 slds-large-size_1-of-2 slds-p-top_xx-small slds-p-top_xx-small">
+                                                        <lightning-combobox  placeholder={customLabelValues.OWC_select_picklist_label}  
+                                                            variant="label-hidden" 
+                                                            name="receivedFinalPayment2"
+                                                            disabled
+                                                            data-id="receivedFinalPayment2"
+                                                            options={statusOptions}
+                                                            value={receivedFinalPayment2}
+                                                            type="radio"
+                                                            onchange={handleChange}
+                                                            onblur={handlereceivedFinalPayment2Focus}
+                                                        ></lightning-combobox>
+                                                    </div>
+                                                </fieldset>
+                                            </div>
+                                            </template>
+                                        </div>
+                                        <!--If the person didn't recieved his/her final payment-->
+                                        <template if:true={EmpStatusAndWagesDetails.DateFS2}>
+                                        <template if:true={isreceivedFinalPayment2}>
+                                            <fieldset class="slds-p-top_medium slds-p-bottom_medium">
+                                                <div class="slds-grid slds-wrap">
+                                                    <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-2 slds-large-size_1-of-2 slds-p-top_xx-small">
+                                                        <span class="slds-p-top_xx-small ">
+                                                            {customLabelValues.Owc_Date}
+                                                        </span>
+                                                        <span class="slds-p-left_medium dateFormatLabel">{dateFormatLabel}</span>
+                                                        <span class="requiredStyle slds-p-top_xx-small"><abbr title="required">*</abbr></span>
+                                                        <lightning-input name="DateFS2"
+                                                            variant="label-hidden" 
+                                                            type="date" 
+                                                            disabled
+                                                            date-style="short"
+                                                            data-id="DateFS2"
+                                                            value={DateFS2} 
+                                                            onchange={handleChange}
+                                                            onblur={handleDateFS2Focus}>
+                                                        </lightning-input>
+                                                    </div>
+                                                </div>
+                                            </fieldset>
+                                        </template>
+                                        </template>
+                                        <!--If the person recieved his/her final payment-->
+                                        <template if:true={EmpStatusAndWagesDetails.dischargedExplanation}>
+                                        <template if:true={isDidntReceivedFinalPayment2}>
+                                            <fieldset class="slds-p-top_medium slds-p-bottom_medium">   
+                                                <div class="slds-grid slds-wrap">
+                                                    <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-2 slds-large-size_1-of-2 slds-p-top_xx-small">
+                                                        <span class="slds-p-top_xx-small ">
+                                                            {customLabelValues.OWC_Explanation}
+                                                        </span>
+                                                        <!-- <span class="requiredStyle slds-p-top_xx-small"><abbr title="required">*</abbr></span> -->
+                                                        <lightning-textarea name="dischargedExplanation"
+                                                            variant="label-hidden" 
+                                                            type="text" 
+                                                            disabled
+                                                            value={dischargedExplanation} 
+                                                            data-id="dischargedExplanation"
+                                                            onchange={handleChange}
+                                                            onblur={handleDischargedExplanationFocus}>
+                                                        </lightning-textarea>
+                                                    </div>
+                                                </div>
+                                            </fieldset>
+                                        </template>
+                                        </template>
+                                    </fieldset>
+                                </div>
+                            </template>
+                        </template>
+                    </div> 
+                </div>
+            </div>
+            
+        </form>
+    </template>
+    <template if:false={isFormPreviewMode}>
+        <form class="">
+            <div class="slds-grid slds-wrap">
+                <div class="slds-col slds-medium-size_1-of-8 slds-large-size_1-of-8"></div>
+                <div class="slds-col slds-size_1-of-1 slds-medium-size_6-of-8 slds-large-size_6-of-8">
+                    <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-1 slds-large-size_1-of-1">
+                        <div class="slds-grid slds-wrap">
+                            <div class="slds-col slds-size_1-of-1 slds-medium-size_5-of-6 slds-large-size_5-of-6">
+                                <h1 class="slds-p-around_medium slds-text-heading_large owcHeadingStyle">
+                                    {customLabelValues.OWC_Employment_Status_and_Final_Wages}
+                                </h1>
+                            </div>
+                            <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-6 slds-large-size_1-of-6">
+                                <lightning-button class="slds-float_right slds-m-top_medium slds-m-bottom_medium slds-m-left_medium owcButtonStyle" label={customLabelValues.OWC_save_as_draft_label} variant="brand" onclick={handleSaveAsDraft}></lightning-button>
+                            </div>
+                        </div>
+                    </div>
+                    <fieldset class="slds-p-around_medium slds-p-left_xx-large">
+                        <div class="slds-grid slds-wrap">
+                            <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-1 slds-large-size_1-of-1">
+                                <span >
+                                    {customLabelValues.OWC_Date_Of_Hire}
+                                </span>
+                                <span class="requiredStyle"><abbr title="required">*</abbr></span>
+                                <span class="slds-p-left_medium dateFormatLabel">{dateFormatLabel}</span>
+                                <span class="slds-p-left_x-small">
+                                    <lightning-icon icon-name="utility:info" class="my-icon" size="x-small" alternative-text="info"  label={customLabelValues.OWC_learnmore_button} name="dateOfHireHelpText" onclick={handleHelpText} ></lightning-icon>
+                                 </span>
+                                <!-- <span class="slds-p-left_medium learnMoreStyle">
+                                    <lightning-button variant="base" label={customLabelValues.OWC_learnmore_button} name="dateOfHireHelpText" onclick={handleHelpText} class="slds-m-left_x-small"></lightning-button>
+                                </span>   -->
+                            </div>
+                            <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-2 slds-large-size_1-of-2 slds-p-top_xx-small">
+                                <lightning-input name="hireDate"
+                                            variant="label-hidden" 
+                                            type="date" 
+                                            date-style="short"
+                                            value={hireDate}
+                                            data-id="hireDate"
+                                            onchange={handleChange}>
+                                </lightning-input>
+                            </div>
+                        </div>
+                    </fieldset>
+    
+                    <!--Name of Person who hire you-->
+                    <fieldset class="slds-p-around_medium slds-p-left_xx-large">
+                        <div class="slds-grid slds-wrap">
+                            <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-1 slds-large-size_1-of-1 ">
+                                {customLabelValues.OWC_Name_of_person_who_hired_you}
+                            </div>
+                            <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-2 slds-large-size_1-of-2 slds-p-top_xx-small">
+                                <lightning-input max-length="255" name="nameOfPersonWhoHiredYou" value={nameOfPersonWhoHiredYou}
+                                    variant="label-hidden"  
+                                    data-id="nameOfPersonWhoHiredYou"
+                                    onchange={handleChange}>
+                                </lightning-input>
+                            </div>
+                        </div>
+                    </fieldset>
+    
+                    <!--How were your wages paid?-->
+                    <fieldset class="slds-p-around_medium slds-p-left_xx-large">
+                        <div class="slds-grid slds-wrap">
+                            <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-1 slds-large-size_1-of-1">
+                                <span >
+                                    {customLabelValues.OWC_How_were_your_wages_paid}
+                                </span>
+                                <span class="requiredStyle"><abbr title="required">*</abbr></span>
+                            </div>
+                            <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-2 slds-large-size_1-of-2">
+                                <lightning-combobox placeholder={customLabelValues.OWC_select_picklist_label} 
+                                                    name="howWereYourWagesPaid"
+                                                    data-id="howWereYourWagesPaid"
+                                                    value={value}
+                                                    variant="label-hidden"
+                                                    options={Paid_Type_List}
+                                                    onchange={handleChange} 
+                                                    onblur={handleHowWereYourWagesPaidFocus}>
+                                </lightning-combobox>
+                            </div>
+                        </div>
+                    </fieldset>
+    
+                    <!--Paid By Cheque-->
+                    <template if:true={isCheck}>
+                        <div class="">   
+                            <div class="slds-grid slds-wrap">
+                                <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-1 slds-large-size_1-of-1">
+                                    <fieldset class="slds-p-around_medium slds-p-left_xx-large">
+                                        <span >
+                                            {customLabelValues.OWC_Did_any_of_the_paychecks_Bounce}
+                                        </span>
+                                        <span class="requiredStyle"><abbr title="required">*</abbr></span>
+                                        <lightning-radio-group  
+                                                        class="radioGroupStyle"
+                                                        name="paidByCheck"
+                                                        data-id="paidByCheck"
+                                                        options={options}
+                                                        value={paidByCheck}
+                                                        variant="label-hidden" 
+                                                        onchange={handleChange}>
+                                        </lightning-radio-group>
+                                    </fieldset>
+                                    <!--Is Cheque Bounced-->
+                                    <!-- <template if:true={isChequeBounce}>
+                                        <div class="slds-p-left_medium">   
+                                            <div class="slds-grid slds-wrap">
+                                                <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-1 slds-large-size_1-of-1">
+                                                    <fieldset class="slds-p-top_medium slds-p-bottom_medium">
+                                                        <span >
+                                                           {customLabelValues.Owc_Was_Check_Replaced}
+                                                        </span>  
+                                                        <lightning-radio-group name="chequeReplaced"
+                                                                        class="radioGroupStyle"
+                                                                        data-id="chequeReplaced"
+                                                                        options={options}
+                                                                        value={chequeReplaced}
+                                                                        variant="label-hidden" 
+                                                                        onchange={handleChange}>
+                                                        </lightning-radio-group>
+                                                    </fieldset>
+                                                    <template if:true={isChequeReplaced}>
+                                                        <div class="">   
+                                                            <div class="slds-grid slds-wrap">
+                                                                <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-2 slds-large-size_1-of-2">
+                                                                    <fieldset class="slds-p-right_medium slds-p-top_medium slds-p-bottom_medium">
+                                                                        <span >
+                                                                            {customLabelValues.Owc_Was_Check_ReplacedDate}
+                                                                        </span>  
+                                                                        <span class="slds-p-left_medium dateFormatLabel">{dateFormatLabel}</span>
+                                                                        <lightning-input name="chequeReplacedDate"
+                                                                                        variant="label-hidden" 
+                                                                                        type="date" 
+                                                                                        date-style="short"
+                                                                                        value={chequeReplacedDate}
+                                                                                        data-id="chequeReplacedDate"
+                                                                                        onchange={handleChange}>
+                                                                        </lightning-input>
+                                                                    </fieldset>
+                                                                </div>
+                                                            </div>
+                                                        </div>        
+                                                    </template>
+                                                </div>
+                                            </div>
+                                        </div>        
+                                    </template> -->
+                                </div>
+                            </div>
+                        </div>        
+                    </template>
+    
+                    <!--Other-->
+                    <template if:true={isOther}>
+                        <div class="slds-p-left_medium">   
+                            <div class="slds-grid slds-wrap">
+                                <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-2 slds-large-size_1-of-2">
+                                    <fieldset class="slds-p-top_medium slds-p-bottom_medium">
+                                        <span >
+                                        {customLabelValues.OWC_Explanation}
+                                        </span>
+                                        <span class="requiredStyle slds-p-top_xx-small"><abbr title="required">*</abbr></span>       
+                                        <lightning-textarea max-length="255" name="Explanation"
+                                                    variant="label-hidden" 
+                                                    value={Explanation} 
+                                                    data-id="Explanation"
+                                                    onchange={handleChange}
+                                                    onblur={handleExplanationFocus}>
+                                        </lightning-textarea>
+                                    </fieldset>
+                                </div>
+                            </div>
+                        </div> 
+                    </template>
+    
+                    <!--Were your wages paid on the pay day?-->
+                    <fieldset class="slds-p-around_medium slds-p-left_xx-large">
+                        <div class="slds-grid slds-wrap">
+                            <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-1 slds-large-size_1-of-1">
+                                <span >
+                                    {customLabelValues.OWC_wages_paid_on_the_pay_day}
+                                </span> 
+                            </div>
+                            <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-2 slds-large-size_1-of-2">
+                                <lightning-combobox  placeholder={customLabelValues.OWC_select_picklist_label}  
+                                                    variant="label-hidden" 
+                                                    name="wereWagesPaid"
+                                                    data-id="wereWagesPaid"
+                                                    options={statusOptions}
+                                                    value={wereWagesPaid}
+                                                    type="radio"
+                                                    onchange={handleChange}>
+                                </lightning-combobox>
+                            </div>
+                        </div>
+                    </fieldset> 
+    
+    
+                    <!--Did you receive itemized wage statements when you received cash or check payments?-->
+                    <fieldset class="slds-p-around_medium slds-p-left_xx-large">
+                        <div class="slds-grid slds-wrap">
+                            <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-1 slds-large-size_1-of-1">
+                                <span >
+                                    {customLabelValues.Owc_Did_Receive_Itemized_Wage}
+                                </span>
+                                <span class="slds-p-left_x-small">
+                                    <lightning-icon icon-name="utility:info" class="my-icon" size="x-small" alternative-text="info"  label={customLabelValues.OWC_learnmore_button} name="statementReceivedHelpText" onclick={handleHelpText} ></lightning-icon>
+                                 </span>
+                                <!-- <span class="slds-p-left_medium learnMoreStyle">
+                                    <lightning-button variant="base" label={customLabelValues.OWC_learnmore_button} name="statementReceivedHelpText" onclick={handleHelpText} class="slds-m-left_x-small"></lightning-button>
+                                </span>  -->
+                            </div>
+                            <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-2 slds-large-size_1-of-2">
+                                <lightning-combobox  placeholder={customLabelValues.OWC_select_picklist_label}  
+                                                    variant="label-hidden" 
+                                                    name="statementReceived"
+                                                    data-id="statementReceived"
+                                                    options={statusOptions}
+                                                    value={statementReceived}
+                                                    type="radio"
+                                                    onchange={handleChange}
+                                                    onblur={handleStatementReceivedFocus}>
+                                </lightning-combobox>
+                            </div>
+                        </div>
+                    </fieldset> 
+
+                    <template if:true={isPayStubRecord}>
+                        <fieldset class="slds-p-around_medium slds-p-left_xx-large">
+                            <div class="slds-grid slds-wrap">
+                                <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-1 slds-large-size_1-of-1">
+                                    <span >
+                                        {customLabelValues.OWC_paystub_sick_leave}
+                                    </span>
+                                </div>
+                                <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-2 slds-large-size_1-of-2">
+                                    <lightning-combobox  placeholder={customLabelValues.OWC_select_picklist_label}  
+                                                        variant="label-hidden" 
+                                                        name="payStubSickRecord"
+                                                        data-id="payStubSickRecord"
+                                                        options={statusOptions}
+                                                        value={payStubSickRecord}
+                                                        type="radio"
+                                                        onchange={handleChange}>
+                                    </lightning-combobox>
+                                </div>
+                            </div>
+                        </fieldset> 
+                    </template>
+
+                    
+    
+                    <!--Are you still working for the identified employer?-->
+                    <fieldset class="slds-p-around_medium slds-p-left_xx-large">
+                        <div class="slds-grid slds-wrap">
+                            <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-1 slds-large-size_1-of-1 ">
+                                {customLabelValues.OWC_WorkingForIdentifiedEmployer}
+                                <span class="requiredStyle"><abbr title="required">*</abbr></span>
+                            </div>
+                            <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-2 slds-large-size_1-of-2 slds-p-top_xx-small">
+                                <lightning-combobox  placeholder={customLabelValues.OWC_select_picklist_label}  
+                                                    variant="label-hidden" 
+                                                    name="stillIdentifiedEmp"
+                                                    data-id="stillIdentifiedEmp"
+                                                    options={statusOptions}
+                                                    value={stillIdentifiedEmp}
+                                                    onchange={handleChange}>
+                                </lightning-combobox>
+                            </div>
+                        </div>
+                    </fieldset>
+                    <div class="">     
+                        <!--Select Any One-->
+                        <template if:true={isstillIdentifiedEmp}> 
+                                <div class="slds-grid slds-wrap">
+                                    <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-1 slds-large-size_1-of-1">
+                                        <fieldset class="slds-p-around_medium slds-p-left_xx-large">
+                                            <span >
+                                                {customLabelValues.OWC_CompleteAtLeastOne}
+                                            </span>
+                                        <span class="requiredStyle slds-p-top_xx-small"><abbr title="required">*</abbr></span>
+                                        <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-2 slds-large-size_1-of-2">
+                                        <lightning-combobox  placeholder={customLabelValues.OWC_select_picklist_label}  
+                                                            variant="label-hidden" 
+                                                            name="selectAnyOne"
+                                                            data-id="selectAnyOne"
+                                                            options={quitDateDischargeDate}
+                                                            value={selectAnyOne}
+                                                            onchange={handleChange}
+                                                            onblur={handleselectAnyOneFocus}>
+                                        </lightning-combobox>
+                                    </div>
+                                        </fieldset>
+                                    </div>
+                                </div>
+                        </template>
+                        <!--isQuitDateSection-->
+                        <template if:true={QuitDateTemplate}>   
+                            <div class="">
+                                <fieldset class="slds-p-top_small">
+                                    <div class="slds-grid slds-wrap">
+                                        <!-- <div class="slds-col slds-p-around_medium slds-p-left_xx-large slds-size_1-of-1 slds-medium-size_1-of-1 slds-large-size_1-of-1 ">
+                                            <h2>{customLabelValues.OWC_employement_status_quitdate_heading}</h2>
+                                        </div> -->
+                                        <!--Quit Date-->
+                                        <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-1 slds-large-size_1-of-1">
+                                            <fieldset class="slds-p-around_medium slds-p-left_xx-large">
+                                                <span class="slds-p-top_xx-small">
+                                                    {customLabelValues.OWC_Quit_Date}
+                                                </span>
+                                                <span class="requiredStyle slds-p-top_xx-small"><abbr title="required">*</abbr></span>
+                                                <span class="slds-p-left_medium dateFormatLabel">{dateFormatLabel}</span>                                            
+                                                <div class=" slds-col slds-size_1-of-1 slds-medium-size_1-of-2 slds-large-size_1-of-2 slds-p-top_xx-small">
+                                                    <lightning-input name="quitDate"
+                                                        variant="label-hidden" 
+                                                        type="date" 
+                                                        date-style="short"
+                                                        value={quitDate}
+                                                        data-id="quitDate"
+                                                        onchange={handleChange}
+                                                        onblur={handleQuitDateFocus}>
+                                                    </lightning-input>
+                                                </div>
+                                            </fieldset>
+                                        </div>
+                                        <!--Did you provide 72 hours’ notice before quitting?-->                                    
+                                        <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-1 slds-large-size_1-of-1">
+                                            <fieldset class="slds-p-around_medium slds-p-left_xx-large">
+                                                <span class="slds-p-top_xx-small ">
+                                                    {customLabelValues.OWC_notice_before_quitting}  
+                                                </span>
+                                                <span class="requiredStyle slds-p-top_xx-small"><abbr title="required">*</abbr></span>                                  
+                                                <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-2 slds-large-size_1-of-2 slds-p-top_xx-small slds-p-top_xx-small">
+                                                    <lightning-combobox  placeholder={customLabelValues.OWC_select_picklist_label}  
+                                                        variant="label-hidden" 
+                                                        name="noticeBeforeQuiting"
+                                                        data-id="noticeBeforeQuiting"
+                                                        options={statusOptions}
+                                                        value={noticeBeforeQuiting}
+                                                        type="radio"
+                                                        onchange={handleChange}
+                                                        onblur={handleNoticeBeforeQuitingFocus}>
+                                                    </lightning-combobox>
+                                                </div>
+                                            </fieldset>
+                                        </div>
+                                        <!--Have you received your final payment of wages including all wages owed?-->
+                                        <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-1 slds-large-size_1-of-1">
+                                            <fieldset class="slds-p-around_medium slds-p-left_xx-large">
+                                                <span class="slds-p-top_xx-small ">
+                                                    {customLabelValues.OWC_RecievedFinalPayment}
+                                                </span>
+                                                <span class="requiredStyle slds-p-top_xx-small"><abbr title="required">*</abbr></span>
+                                                <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-2 slds-large-size_1-of-2 slds-p-top_xx-small slds-p-top_xx-small">
+                                                    <lightning-combobox  placeholder={customLabelValues.OWC_select_picklist_label}  name="receivedFinalPayment"
+                                                        data-id="receivedFinalPayment"
+                                                        options={statusOptions}
+                                                        value={receivedFinalPayment}
+                                                        type="radio"
+                                                        variant="label-hidden" 
+                                                        onchange={handleChange}
+                                                        onblur={handlereceivedFinalPaymentFocus}>
+                                                    </lightning-combobox>
+                                                </div>
+                                            </fieldset>
+                                        </div>
+                                    </div>
+                                    <!--If the person didn't recieved his/her final payment-->
+                                    <template if:true={isreceivedFinalPayment}>
+                                        <fieldset class="slds-p-around_medium slds-p-left_xx-large">
+                                            <div class="slds-grid slds-wrap">
+                                                <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-2 slds-large-size_1-of-2 slds-p-top_xx-small">
+                                                    <span class="slds-p-top_xx-small ">
+                                                        {customLabelValues.Owc_Date}
+                                                    </span>
+                                                    <span class="requiredStyle slds-p-top_xx-small"><abbr title="required">*</abbr></span>
+                                                    <span class="slds-p-left_medium dateFormatLabel">{dateFormatLabel}</span>
+                                                    <lightning-input name="finalPaymentDate"
+                                                        variant="label-hidden" 
+                                                        type="date" 
+                                                        date-style="short"
+                                                        value={finalPaymentDate}
+                                                        data-id="finalPaymentDate"
+                                                        onchange={handleChange}
+                                                        onblur={handleFinalPaymentDateFocus}>
+                                                    </lightning-input>
+                                                </div>
+                                            </div>
+                                        </fieldset>
+                                    </template>
+                                    <!--If the person recieved his/her final payment-->
+                                    <template if:true={isDidntReceivedFinalPayment}>
+                                        <fieldset class="slds-p-around_medium slds-p-left_xx-large">   
+                                            <div class="slds-grid slds-wrap">
+                                                <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-2 slds-large-size_1-of-2 slds-p-top_xx-small">
+                                                    <span class="slds-p-top_xx-small ">
+                                                        {customLabelValues.OWC_Explanation}
+                                                    </span>
+                                                    <!-- <span class="requiredStyle slds-p-top_xx-small"><abbr title="required">*</abbr></span> -->
+                                                    <lightning-textarea name="finalPaymentExplanation" max-length="255"
+                                                        variant="label-hidden" 
+                                                        value={finalPaymentExplanation}
+                                                        data-id="finalPaymentExplanation"
+                                                        onchange={handleChange}
+                                                        onblur={handleFinalPaymentExplanationFocus}>
+                                                    </lightning-textarea>
+                                                </div>
+                                            </div>
+                                        </fieldset>
+                                    </template>
+                                    <!--Validation Message Section-->
+                                    <template if:true={isCustomValidationVisible}>
+                                        <div class="requiredMsgStyle">
+                                            {customValidationMsg}
+                                        </div>
+                                    </template>
+                                </fieldset>
+                            </div>
+                        </template>
+                        <!--DischargeDateTemplate-->
+                        <template  if:true={DischargeDateTemplate}>
+                            <div class="">
+                                <fieldset class="slds-p-top_small">
+                                    <div class="slds-grid slds-wrap">
+                                        <!-- <div class="slds-col slds-p-around_medium slds-p-left_xx-large slds-size_1-of-1 slds-medium-size_1-of-1 slds-large-size_1-of-1 ">
+                                            <h2><span >
+                                                {customLabelValues.OWC_employement_status_dischargeddate_heading}
+                                            </span>
+                                            <span class="requiredStyle slds-p-top_xx-small"><abbr title="required">*</abbr></span>
+                                            <span class="slds-p-left_medium dateFormatLabel">{dateFormatLabel}</span>  
+                                            <span class="slds-p-left_x-small">
+                                                <lightning-icon icon-name="utility:info" class="my-icon" size="x-small" alternative-text="info"  label={customLabelValues.OWC_learnmore_button} name="dischargedDateHelpText" onclick={handleHelpText} ></lightning-icon>
+                                             </span> 
+                                        </h2>
+                                    </div> -->
+                                        <!--Discharged Date-->
+                                        <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-1 slds-large-size_1-of-1">
+                                            <fieldset class="slds-p-around_medium slds-p-left_xx-large">
+                                                <span class="slds-p-top_xx-small ">
+                                                    {customLabelValues.OWC_DischargedDate} 
+                                                </span>
+                                                <span class="requiredStyle slds-p-top_xx-small"><abbr title="required">*</abbr></span>
+                                                <span class="slds-p-left_medium dateFormatLabel">{dateFormatLabel}</span>  
+                                                <span class="slds-p-left_x-small">
+                                                    <lightning-icon icon-name="utility:info" class="my-icon" size="x-small" alternative-text="info"  label={customLabelValues.OWC_learnmore_button} name="dischargedDateHelpText" onclick={handleHelpText} ></lightning-icon>
+                                                 </span>
+                                                <!-- <span class="slds-p-left_medium dateFormatLabel">{dateFormatLabel}</span>                                  -->
+                                                <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-2 slds-large-size_1-of-2 slds-p-top_xx-small">
+                                                    <lightning-input name="dischargedDate"
+                                                        variant="label-hidden" 
+                                                        type="date" 
+                                                        date-style="short"
+                                                        value={dischargedDate}
+                                                        data-id="dischargedDate"
+                                                        onchange={handleChange}>
+                                                    </lightning-input>
+                                                </div>
+                                            </fieldset>
+                                        </div>
+                                        <!--Name of person who discharge you.-->
+                                        <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-1 slds-large-size_1-of-1">
+                                            <fieldset class="slds-p-around_medium slds-p-left_xx-large">
+                                                <span class="slds-p-top_xx-small ">
+                                                    {customLabelValues.OWC_PersonWhoDischargeYou}  
+                                                </span>
+                                                <span class="requiredStyle slds-p-top_xx-small"><abbr title="required">*</abbr></span>                          
+                                                <div class=" slds-col slds-size_1-of-1 slds-medium-size_1-of-2 slds-large-size_1-of-2 slds-p-top_xx-small slds-p-top_xx-small">
+                                                    <lightning-input name="personNameWhoDischargeYou" max-length="255"
+                                                        variant="label-hidden" 
+                                                        type="text"
+                                                        value={personNameWhoDischargeYou} 
+                                                        data-id="personNameWhoDischargeYou"
+                                                        onchange={handleChange}
+                                                        onblur={handlepersonNameWhoDischargeYouFocus}>
+                                                    </lightning-input>
+                                                </div>
+                                            </fieldset>
+                                        </div>
+                                        <!--Have you received your final payment of wages including all wages owed?-->
+                                        <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-1 slds-large-size_1-of-1">
+                                            <fieldset class="slds-p-around_medium slds-p-left_xx-large">
+                                                <span class="slds-p-top_xx-small ">
+                                                    {customLabelValues.OWC_payment_received_final_wage}
+                                                </span>
+                                                <span class="requiredStyle slds-p-top_xx-small"><abbr title="required">*</abbr></span>
+                                                <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-2 slds-large-size_1-of-2 slds-p-top_xx-small slds-p-top_xx-small">
+                                                    <lightning-combobox  placeholder={customLabelValues.OWC_select_picklist_label}  
+                                                        variant="label-hidden" 
+                                                        name="receivedFinalPayment2"
+                                                        data-id="receivedFinalPayment2"
+                                                        options={statusOptions}
+                                                        value={receivedFinalPayment2}
+                                                        type="radio"
+                                                        onchange={handleChange}
+                                                        onblur={handlereceivedFinalPayment2Focus}
+                                                    ></lightning-combobox>
+                                                </div>
+                                            </fieldset>
+                                        </div>
+                                    </div>
+                                    <!--If the person didn't recieved his/her final payment-->
+                                    <template if:true={isreceivedFinalPayment2}>
+                                        <fieldset class="slds-p-around_medium slds-p-left_xx-large">
+                                            <div class="slds-grid slds-wrap">
+                                                <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-2 slds-large-size_1-of-2 slds-p-top_xx-small">
+                                                    <span class="slds-p-top_xx-small ">
+                                                        {customLabelValues.Owc_Date}
+                                                    </span>
+                                                    <span class="slds-p-left_medium dateFormatLabel">{dateFormatLabel}</span>
+                                                    <span class="requiredStyle slds-p-top_xx-small"><abbr title="required">*</abbr></span>
+                                                    <lightning-input name="DateFS2"
+                                                        variant="label-hidden" 
+                                                        type="date" 
+                                                        date-style="short"
+                                                        data-id="DateFS2"
+                                                        value={DateFS2} 
+                                                        onchange={handleChange}
+                                                        onblur={handleDateFS2Focus}>
+                                                    </lightning-input>
+                                                </div>
+                                            </div>
+                                        </fieldset>
+                                    </template>
+                                    <!--If the person recieved his/her final payment-->
+                                    <template if:true={isDidntReceivedFinalPayment2}>
+                                        <fieldset class="slds-p-around_medium slds-p-left_xx-large">   
+                                            <div class="slds-grid slds-wrap">
+                                                <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-2 slds-large-size_1-of-2 slds-p-top_xx-small">
+                                                    <span class="slds-p-top_xx-small ">
+                                                        {customLabelValues.OWC_Explanation}
+                                                    </span>
+                                                    <!-- <span class="requiredStyle slds-p-top_xx-small"><abbr title="required">*</abbr></span> -->
+                                                    <lightning-textarea name="dischargedExplanation" max-length="255"
+                                                        variant="label-hidden" 
+                                                        type="text" 
+                                                        value={dischargedExplanation} 
+                                                        data-id="dischargedExplanation"
+                                                        onchange={handleChange}
+                                                        onblur={handleDischargedExplanationFocus}>
+                                                    </lightning-textarea>
+                                                </div>
+                                            </div>
+                                        </fieldset>
+                                    </template>
+                                    <!--Validation Message Section-->
+                                    <template if:true={isCustomValidationVisible}>
+                                        <div class="requiredMsgStyle">
+                                            {customValidationMsg}
+                                        </div>
+                                    </template>
+                                </fieldset>
+                            </div>
+                        </template>
+                    </div> 
+                </div>
+                <!--Help Text Section-->
+                <template if:true={isHelpText}>
+                    <c-owc-Help-Text-Cmp isimage={isImageAvailable} helptext={helpText} onhelptextevent={handleHelpTextEvent}></c-owc-Help-Text-Cmp>
+                </template>
+            </div>
+        </form>
+    </template>
+</template>

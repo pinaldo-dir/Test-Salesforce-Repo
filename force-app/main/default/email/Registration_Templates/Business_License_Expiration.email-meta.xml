@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <description>Added after go-live as HTML version to merge fields</description>
+    <encodingKey>ISO-8859-1</encodingKey>
+    <letterhead>Blank_Letterhead</letterhead>
+    <name>Business License Expiration</name>
+    <style>freeForm</style>
+    <subject>Follow-Up Defect Notice: Registration Application# {!Rejection__c.Registration_Number__c} for {!License_Registration__c.Legal_Entity_Name__c}</subject>
+    <textOnly>To {!License_Registration__c.Applicant__c}:
+
+Your registration application for {!License_Registration__c.Legal_Entity_Name__c} has been reviewed and defected again for not meeting all of the registration requirements. Please review the attached Follow-up Defect Notice included in this email, which lists each specific defect in your application. You are required to complete the requested adjustments to your application and re-submit it within 30 days from the date of the First Defect Notice email, but this Follow-Up Defect Notice serves as a courtesy to inform you that there are still pending requirements. Note that if you do not resubmit the application within 30 days from the date of this email, your application may be eligible for closure.
+
+If you submitted a paper application, please fax requested item(s) to Fax No. (510) 286-1366 or email to DLSE.licensing@dir.ca.gov. Include your car wash registration number on all items you submit.
+
+To log in and make changes, please visit{!Rejection__c.Registration_Community_URL__c} and select registration number {!License_Registration__c.License_Registration_Number__c}.
+{!License_Registration__c.Registration_Site__c}
+
+Sincerely,
+Licensing &amp; Registration
+Labor Commissioner&apos;s Office
+Department of Industrial Relations
+State of California
+Phone: 510-285-3502
+Fax:  510-286-1366</textOnly>
+    <type>html</type>
+    <uiType>Aloha</uiType>
+</EmailTemplate>

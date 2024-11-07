@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>permit_applicant_must_be_15_days_to_15yr</fullName>
+    <active>true</active>
+    <description>For Entertainment Work Permit applicants -  Applicants must be 15 days old  or 15 years to receive an 10 Day Temporary permit.</description>
+    <errorConditionFormula>($Profile.Name &lt;&gt; 'System Administrator'
+&amp;&amp; $Profile.Name &lt;&gt; 'System Administrator LTD' 
+&amp;&amp; !ISPICKVAL(Status__c,'Expired') 
+&amp;&amp; RecordType.DeveloperName = 'Entertainment_Work') 
+&amp;&amp; (ISPICKVAL(Registration_Duration__c,'10 Days - Temporary Permit')) 
+&amp;&amp; ((Birth_Date__c &gt; Today() - 15) || ( TODAY() &gt;= ADDMONTHS(Birth_Date__c,192)))</errorConditionFormula>
+    <errorMessage>Applicants must be between 15 days and 15yrs old to receive an Entertainment Work Permit - 10 Day Temporary Permit</errorMessage>
+</ValidationRule>

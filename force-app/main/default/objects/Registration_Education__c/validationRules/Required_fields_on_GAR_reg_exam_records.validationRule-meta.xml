@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Required_fields_on_GAR_reg_exam_records</fullName>
+    <active>false</active>
+    <errorConditionFormula>Registration__r.Record_Type_Name__c = 'Garment_Manufacturers_and_Contractors' &amp;&amp; NOT(CONTAINS($Profile.Name,'System Administrator')) &amp;&amp; (Attendee__c = '' || Attendee_Email__c = '' || ISPICKVAL(Language__c, ''))</errorConditionFormula>
+    <errorMessage>Please enter all required fields for the Registration Education record.</errorMessage>
+</ValidationRule>

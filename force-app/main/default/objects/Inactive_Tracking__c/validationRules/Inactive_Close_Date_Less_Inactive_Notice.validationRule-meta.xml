@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Inactive_Close_Date_Less_Inactive_Notice</fullName>
+    <active>true</active>
+    <errorConditionFormula>AND (
+(Inactive_Closure_Sent_Date__c &lt; ( Inactive_Notice_Sent_Date__c  + 120)),
+DATEVALUE(CreatedDate) &gt;  DATEVALUE("2024-02-01")
+)</errorConditionFormula>
+    <errorMessage>Inactive Closure Sent Date must be &gt;= Inactive Notice Sent  Date + 120 day</errorMessage>
+</ValidationRule>

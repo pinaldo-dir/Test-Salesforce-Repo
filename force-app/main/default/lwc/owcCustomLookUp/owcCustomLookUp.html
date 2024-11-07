@@ -1,0 +1,167 @@
+<template>
+
+    <template if:false={modalContainer}>
+        <div>
+            <div class="slds-form-element">
+                <div class="slds-form-element__control">
+                    
+                    <div class="slds-combobox_container">
+    
+                        <div id="box" class={boxClass} aria-expanded="true" aria-haspopup="listbox" role="combobox">
+                            <div class="slds-combobox__form-element slds-input-has-icon slds-input-has-icon_right slds-p-left_medium slds-p-right_small" role="none">
+                                <div class="slds-p-around_medium slds-p-left_xx-large">
+                                    <h2>Account</h2>
+                                </div>
+                                <template if:true={isValueSelected}>
+                                    <div id="lookup-pill" class="slds-pill-container slds-p-left_medium slds-p-right_small">
+                                        <lightning-pill class="pillSize" label={selectedName} name={selectedName} onremove={handleRemovePill} href={href}>
+                                        <lightning-icon icon-name={iconName} alternative-text="acc" ></lightning-icon>
+                                        </lightning-pill>
+                                    </div>
+                                </template>
+                                <template if:false={isValueSelected}>
+                                    <div class="slds-p-top_none slds-p-left_medium slds-p-right_small slds-col slds-size_1-of-2">
+                                        <lightning-input class={inputClass} type="search" id="input" value={searchTerm}
+                                                         onclick={handleClick} onblur={onBlur} onchange={onChange}
+                                                         variant="label-hidden" autocomplete="off" placeholder={searchPlaceholder}>
+                                        </lightning-input>
+                                    </div>
+                                </template>
+                            </div>
+                            <div id="listbox-id-1" class="slds-dropdown slds-dropdown_left slds-dropdown_length-with-icon-7 slds-dropdown_fluid slds-p-left_medium slds-p-right_small slds-col slds-size_1-of-2" role="listbox">
+                                <ul class="slds-listbox slds-listbox_vertical" role="presentation">
+                                    <li onclick={onShowAllResult}>
+                                        <span class="slds-lookup__item-action slds-lookup__item-action--label" role="option">
+                                            <lightning-icon class="slds-icon slds-input__icon slds-input__icon_right slds-icon-text-default" icon-name="utility:search" alternative-text={objName} size="small"></lightning-icon>
+                                            <span class="slds-truncate">Show all result</span>
+                                        </span>
+                                    </li>
+                                    <template for:each={records} for:item="record">
+                                        
+                                        <li key={record.Id} onclick={onSelect} data-id={record.Id} role="presentation" data-name={record.Name}>
+                                            <span class="slds-lookup__item-action slds-lookup__item-action--label" role="option">
+                                                <lightning-icon class="slds-icon slds-icon--small slds-icon-text-default" icon-name={iconName} alternative-text={objName} size="small"></lightning-icon>
+                                                <span class="slds-truncate">{record.Name}</span>
+                                            </span>
+                                        </li>
+                                    </template>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>        
+        </div>    
+    </template>
+    
+    <template if:true={modalContainer}> 
+       
+        <div class="demo-only slds-scrollable" style="height:320px">
+            <section role="dialog" tabindex="-1" class="slds-modal slds-fade-in-open slds-modal_large" aria-modal="true" aria-describedby="modal-content-id-1">
+                <div class="slds-modal__container">
+                    <header class="slds-modal__header">
+                    <button class="slds-button slds-button_icon slds-modal__close slds-button_icon-inverse" title="Close" onclick={closeModalAction}>
+                        <svg class="slds-button__icon slds-button__icon_large" aria-hidden="true">
+                        <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#close"></use>
+                        </svg>
+                        <span class="slds-assistive-text">Close</span>
+                    </button>
+                    <h2 class="slds-text-heading_medium">Account name</h2>
+                    </header>
+                    <div class="slds-modal__content" id="modal-content-id-1">
+                        <div class="slds-lookup slds-scrollable" style="height:200px;">
+                            <!--<div class="slds-form-element slds-p-top_medium slds-p-horizontal_medium slds-m-bottom_small">
+                             <label class="slds-form-element__label" for="lookup">Accounts</label>
+                            <div class="slds-form-element__control slds-input-has-icon slds-input-has-icon_right">
+                                <svg class="slds-icon slds-input__icon slds-icon-text-default" aria-hidden="true">
+                                    <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#search"></use>
+                                </svg>
+                                <input type="text" id="lookup" class="slds-input" role="combobox" aria-activedescendant="" aria-autocomplete="list" aria-controls="lookup-grouped-table-id-1" aria-haspopup="listbox" aria-expanded="true" />
+                            </div> 
+                            </div>-->
+                            <!-- <lightning-datatable
+                            key-field="Id"
+                                    data={AccountData}
+                                    columns={columns} 
+                                    onclick={onRowSelect}
+                                    >
+                            </lightning-datatable> -->
+                            <table class="slds-table slds-table_bordered slds-table_cell-buffer slds-no-row-hover" role="listbox" id="lookup-grouped-table-id-1">
+                                <thead>        
+                                    <tr>
+                                        <th scope="col">
+                                            <div class="slds-truncate" title="Account Name">Account Name</div>
+                                        </th>
+                                        <th scope="col">
+                                            <div class="slds-truncate" title="Location">First Name</div>
+                                        </th>
+                                        <th scope="col">
+                                            <div class="slds-truncate" title="Location">Middle Name</div>
+                                        </th>
+                                        <th scope="col">
+                                            <div class="slds-truncate" title="Secondary Column">Last Name</div>
+                                        </th>
+                                        <th scope="col">
+                                            <div class="slds-truncate" title="Tertiary Column">Email</div>
+                                        </th>
+                                        <th scope="col">
+                                            <div class="slds-truncate" title="Tertiary Column">BirthDate</div>
+                                        </th>
+                                        <th scope="col">
+                                            <div class="slds-truncate" title="Tertiary Column">Cell Phone</div>
+                                        </th>
+                                        <th scope="col">
+                                            <div class="slds-truncate" title="Tertiary Column">Home Phone</div>
+                                        </th>
+                                    </tr>
+                                </thead>
+                                    <tbody>
+                                        <template for:each={AccountData} for:item="item" for:index="index">
+                                            <tr key={item.id} >
+                                                <th scope="row"  onclick={onSelect} data-id={item.Id} data-name={item.Name}>
+                                                    <a>
+                                                        <div class="slds-truncate" title={item.Name}>
+                                                            <span class="slds-icon slds-icon-standard-account slds-icon_small slds-m-right_x-small" aria-hidden="true">
+                                                                <lightning-icon class="slds-icon slds-icon--small slds-icon-text-default" icon-name={iconName} alternative-text={objName} size="x-small"></lightning-icon>
+                                                            </span>
+                                                            {item.Name}
+                                                        </div>
+                                                    </a>
+                                                </th>
+                                                <td>
+                                                    <div class="slds-truncate" title={item.FirstName}>{item.FirstName}</div>
+                                                </td>
+                                                <td>
+                                                    <div class="slds-truncate" title={item.MiddleName}>{item.MiddleName}</div>
+                                                </td>
+                                                <td>
+                                                    <div class="slds-truncate" title={item.LastName}>{item.LastName}</div>
+                                                </td>
+                                                <td>
+                                                    <div class="slds-truncate" title={item.PersonEmail}>{item.PersonEmail}</div>
+                                                </td>
+                                                <td>
+                                                    <div class="slds-truncate" title={item.PersonBirthdate}>{item.PersonBirthdate}</div>
+                                                </td>
+                                                <td>
+                                                    <div class="slds-truncate" title={item.Cell_Phone__c}>{item.PersonMobilePhone}</div>
+                                                </td>
+                                                <td>
+                                                    <div class="slds-truncate" title={item.PersonHomePhone}>{item.PersonHomePhone}</div>
+                                                </td>
+                                            </tr>
+                                        </template>                                    
+                                    </tbody>
+                                </table>
+                        </div>
+                    </div>
+                    <footer class="slds-modal__footer">
+                        <lightning-button   label="Cancel" title="Cancel"  onclick={closeModalAction}></lightning-button>
+                    </footer>
+                </div>
+            </section>
+            <div class="slds-backdrop slds-backdrop_open"></div>
+        </div>
+        <div class="slds-backdrop slds-backdrop_open"></div>
+    </template>
+    </template>

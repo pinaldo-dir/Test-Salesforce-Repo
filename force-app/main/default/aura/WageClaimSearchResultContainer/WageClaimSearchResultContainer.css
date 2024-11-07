@@ -1,0 +1,119 @@
+.THIS.result-container {
+    font-family: 'Source Sans Pro';
+    font-size: 16px;
+}
+.THIS .DTSelectLenghtStyle{
+    margin-bottom: 1rem;
+}
+.THIS .spins::after {
+    position: absolute;
+    content: 'Page is Loading... Please wait';
+    width: 100%;
+    text-align: center;
+    top: calc(50% + 3em);
+    font-weight: normal;
+}
+.THIS .dataTable thead th{
+    /*background: #708AA6;
+    color: #fff; */
+}
+.THIS .dataTable tbody tr.even td {
+    background: #f3f7f9; 
+}
+@font-face {
+  font-family: 'Source Sans Pro';
+  src: url('/resource/DIRGoogleFonts'); 
+}
+.THIS .dataTables_length {
+    margin-top: 10px;
+    margin-left: 400px;
+}
+.THIS .thStyle{
+    width: 339px !important;
+    color: #fff !important;
+    font-weight:normal;
+    text-align : center;
+    background: linear-gradient(#6e89a5, #52697F) !important;
+    border-top:solid 1px #617992 !important;
+    border-bottom:solid 1px #617992 !important;
+    
+}
+
+.THIS .th:first-child{
+    border-left:solid 1px #617992 !important;
+}
+.THIS .th:last-child{
+    border-right:solid 1px #617992 !important;
+}
+.THIS h1{
+    font-family: 'Source Sans Pro';
+    color: #bf5a42;
+    font-weight: 600;
+    font-size: 23px;
+    font-size: 33px;
+}
+.THIS .breadcrumb {
+    display: inline;
+    font-size: 18px;
+}
+.THIS .breadcrumb a{
+    text-decoration: none;
+}
+.THIS .breadcrumb a:hover{
+    text-decoration: underline;
+}
+.THIS table.dataTable thead .sorting_asc .sortIcon {
+    border: solid #ffffff;
+    border-width: 0 3px 3px 0;
+    display: inline-block;
+    padding: 3px;
+    margin-left: 5px;
+    position: absolute;
+    right: 5px;
+    bottom: 10px;
+    transform: rotate(-135deg);
+  	-webkit-transform: rotate(-135deg);
+}
+.THIS table.dataTable thead .sorting_desc .sortIcon {
+    border: solid #ffffff;
+    border-width: 0 3px 3px 0;
+    display: inline-block;
+    margin-left: 5px;
+    padding: 3px;
+    position: absolute;
+    right: 5px;
+    bottom: 10px;
+    transform: rotate(45deg);
+  	-webkit-transform: rotate(45deg);
+}
+.THIS table.dataTable thead .sorting .sortIcon {
+    border: solid black;
+    border-width: 0 3px 3px 0;
+    display: inline-block;
+    margin-left: 5px;
+    padding: 3px;
+    position: absolute;
+    right: 5px;
+    bottom: 10px;
+    transform: rotate(45deg);
+  	-webkit-transform: rotate(45deg);
+}
+.THIS .downloadButtons{
+    font-family: 'Source Sans Pro';
+    background-color: #0e61b9;
+    margin-right: 15px;
+    box-shadow: 1px 1px 2px #555;
+    display: inline-block;
+    color: #fff;
+    border: 1px solid transparent;
+    border-radius: 3px;
+    white-space: nowrap;
+    padding: 6px 12px 6px 12px;
+    font-size: 16px;
+    line-height: 23px;
+    font-weight: normal;
+    text-align: center;
+}
+.THIS .downloadButtons:hover{
+    background-color: #035376;
+}

@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <description>Used to calculate RCT.Hold_Date__c based on RCT.Payment_Type__c.</description>
+    <label>Receipt Hold Date</label>
+    <pluralLabel>Receipt Hold Dates</pluralLabel>
+    <visibility>Public</visibility>
+</CustomObject>

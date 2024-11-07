@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FieldSet xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>PWJanuary2</fullName>
+    <description>PW Registration Form</description>
+    <displayedFields>
+        <field>PWCurrentFY__c</field>
+        <isFieldManaged>false</isFieldManaged>
+        <isRequired>false</isRequired>
+    </displayedFields>
+    <displayedFields>
+        <field>PW_Grace_Period_End_Date__c</field>
+        <isFieldManaged>false</isFieldManaged>
+        <isRequired>false</isRequired>
+    </displayedFields>
+    <label>PWJanuary2</label>
+</FieldSet>

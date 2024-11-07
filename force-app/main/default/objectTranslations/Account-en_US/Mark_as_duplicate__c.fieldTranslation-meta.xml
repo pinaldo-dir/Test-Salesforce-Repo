@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+        <help><!-- If this account is a duplicate of another account, check this box and lookup the account to merge this account in to in the &quot;Merge into Account&quot; field. --></help>
+        <label><!-- Mark as duplicate --></label>
+        <name>Mark_as_duplicate__c</name>
+    </CustomFieldTranslation>

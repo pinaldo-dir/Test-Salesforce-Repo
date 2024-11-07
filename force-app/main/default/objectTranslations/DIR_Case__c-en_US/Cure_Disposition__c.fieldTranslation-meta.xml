@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+        <label><!-- Cure Appeal Disposition --></label>
+        <name>Cure_Disposition__c</name>
+        <picklistValues>
+            <masterLabel>Dismissed</masterLabel>
+            <translation><!-- Dismissed --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Judgment for Employee</masterLabel>
+            <translation><!-- Judgment for Employee --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Judgment for State</masterLabel>
+            <translation><!-- Judgment for State --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Other</masterLabel>
+            <translation><!-- Other --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Settled</masterLabel>
+            <translation><!-- Settled --></translation>
+        </picklistValues>
+    </CustomFieldTranslation>

@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>WCA_referrals_to_JEU_Non_Low_Wage_Indust</fullName>
+    <active>true</active>
+    <description>Type of Request for the referral is “Non-Low Wage Industries - Levy/Seize Account</description>
+    <errorConditionFormula>AND (RecordType.DeveloperName = "Refer_to_JEU",  ISPICKVAL(Type_of_Request__c, "Non-Low Wage Industries – Levy/Seize Account (LC 98.6/SB-588)" ),  ISBLANK( Request_Description__c ))</errorConditionFormula>
+    <errorDisplayField>Request_Description__c</errorDisplayField>
+    <errorMessage>Referral Description needed for Non-Low Wage Industries request.</errorMessage>
+</ValidationRule>

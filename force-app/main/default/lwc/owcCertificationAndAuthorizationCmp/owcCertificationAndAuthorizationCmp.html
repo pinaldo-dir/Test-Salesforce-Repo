@@ -1,0 +1,248 @@
+<!--
+  @description       : 
+  @author            : ChangeMeIn@UserSettingsUnder.SFDoc
+  @group             : 
+  @last modified on  : 11-05-2021
+  @last modified by  : ChangeMeIn@UserSettingsUnder.SFDoc
+-->
+<template>
+    <!-- This template is rendered only for Online Claim Preview. -->
+    <template if:true={isFormPreviewMode}>
+        <form class="">
+            <div class="slds-grid slds-wrap">
+                <div class="slds-col slds-medium-size_1-of-8 slds-large-size_1-of-8"></div>
+                <div class="slds-col slds-size_1-of-1 slds-medium-size_6-of-8 slds-large-size_6-of-8">
+                    <div class="slds-grid slds-wrap">
+                        <h1 class="slds-p-top_medium slds-p-around_medium slds-text-heading_large owcHeadingStyle slds-col slds-size_1-of-1 slds-medium-size_1-of-1 slds-large-size_1-of-1">
+                            {customLabelValues.OWC_certification_section_heading}
+                        </h1>
+                        <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-1 slds-large-size_1-of-1">
+                            <template if:true={certificationPreviewDetail.addtionalClaimDocs}>
+                                <div class="slds-p-left_medium">
+                                    <template if:false={isAdditionalClaimDocUpload}>
+                                        <c-owc-Multiple-File-Upload-Details-Cmp isfileuploaded={isAdditionalClaimDocUpload} onuploaddocumentevent={handleAdditonalClaimDocEvent}></c-owc-Multiple-File-Upload-Details-Cmp>
+                                    </template>
+                                </div>
+                                
+                            </template>
+                        </div>
+                        <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-1 slds-large-size_1-of-1">
+                            <fieldset class="slds-p-around_medium slds-p-left_xx-large">
+                                <template if:true={isAuthorizationRelease}>
+                                    <lightning-input type="checkbox" name="authorizationToRelease" data-id="authorizationToReleaseId" label={customLabelValues.OWC_certification_authorization_to_release} title={customLabelValues.OWC_certification_authorization_to_release} value={value} onchange={handleChange} checked disabled></lightning-input>
+                                </template>
+                                <template if:false={isAuthorizationRelease}>
+                                    <lightning-input type="checkbox" name="authorizationToRelease" data-id="authorizationToReleaseId" label={customLabelValues.OWC_certification_authorization_to_release} title={customLabelValues.OWC_certification_authorization_to_release} value={value} onchange={handleChange} disabled></lightning-input>
+                                </template>
+                                
+                                <template if:true={isAuthorizationRelease}>
+                                    <!--Claminet Name-->
+                                    <fieldset class="slds-p-top_medium slds-p-bottom_medium slds-p-right_medium">
+                                        <div class="slds-grid slds-wrap">
+                                            <template if:true={certificationPreviewDetail.claimantName}>
+                                                <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-2 slds-large-size_1-of-2 slds-p-top_xx-small">
+                                                    {customLabelValues.OWC_claimant_name_cert_label}
+                                                    <span class="requiredStyle slds-p-top_xx-small"><abbr title="required">*</abbr></span>
+                                                <lightning-input name="claimantName"
+                                                    disabled
+                                                                     variant="label-hidden" 
+                                                                     type="Text" 
+                                                                     value={claimantName}
+                                                                     data-id="claimantName"
+                                                                     onchange={handleChange}
+                                                                     onblur={handleclaimantNameFocus}>
+                                                    </lightning-input>
+                                                </div>
+                                            </template>
+                                        </div>
+                                    </fieldset>
+                                    <!--Clainment Date>
+                                    <fieldset class="slds-p-top_medium slds-p-bottom_medium slds-p-right_medium">
+                                        <div class="slds-grid slds-wrap">
+                                            <template if:true={certificationPreviewDetail.claimDate}>
+                                                <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-2 slds-large-size_1-of-2 slds-p-top_xx-small">
+                                                    {customLabelValues.OWC_cert_date_label}
+                                                    <span class="requiredStyle slds-p-top_xx-small"><abbr title="required">*</abbr></span>
+                                                <lightning-input name="claimDate"
+                                                    disabled
+                                                                     variant="label-hidden" 
+                                                                     type="date" 
+                                                                     value={claimDate}
+                                                                     data-id="claimDate"
+                                                                     onchange={handleChange}
+                                                                     onblur={handleclaimDateFocus}>
+                                                    </lightning-input>
+                                                </div>
+                                            </template>
+                                        </div>
+                                    </fieldset> -->
+                                </template>
+                                <template if:true={isHelpText}>
+                                    <c-owc-Help-Text-Cmp helptext={helpText} onhelptextevent={handleHelpTextEvent}></c-owc-Help-Text-Cmp>
+                                </template>
+                            </fieldset>
+                        </div>
+                    </div>
+                </div>
+                <div class="slds-col slds-medium-size_1-of-8 slds-large-size_1-of-8"></div>
+            </div>
+        </form>
+    </template>
+    <!-- This template is rendered for Online Claim. -->
+    <template if:false={isFormPreviewMode}>
+        <template if:true={isclaimantadvocate}>
+            <div class="slds-grid slds-wrap">
+                <div class="slds-col slds-medium-size_1-of-8 slds-large-size_1-of-8"></div>
+                <div class="slds-col slds-size_1-of-1 slds-medium-size_6-of-8 slds-large-size_6-of-8">
+                    <div class="slds-align_absolute-center">
+                        <b style="font-size: 22px;">{customLabelValues.OWC_claimant_garment_text_msg}</b>
+                    </div>
+                </div>
+                <div class="slds-col slds-medium-size_1-of-8 slds-large-size_1-of-8"></div>
+            </div>
+            
+            <!-- <div>
+                <lightning-button class="slds-float_right slds-m-around_medium owcButtonStyle" label="Continue" variant="brand" onclick={handleNext}></lightning-button>
+            </div> -->
+        </template>
+        <template if:false={isclaimantadvocate}>
+            <form class="">
+                <div class="slds-grid slds-wrap">
+                    <div class="slds-col slds-medium-size_1-of-8 slds-large-size_1-of-8"></div>
+                    <div class="slds-col slds-size_1-of-1 slds-medium-size_6-of-8 slds-large-size_6-of-8">
+                        <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-1 slds-large-size_1-of-1">
+                            <div class="slds-grid slds-wrap">
+                                    <!-- Section Heading -->
+                                    <h1 class="slds-col slds-size_1-of-1 slds-medium-size_5-of-6 slds-large-size_5-of-6 slds-p-around_medium slds-text-heading_large owcHeadingStyle">
+                                        {customLabelValues.OWC_certification_section_heading}
+                                    </h1>
+                                <!-- Draft Button -->
+                                <div class="slds-p-top_medium slds-col slds-size_1-of-1 slds-medium-size_1-of-6 slds-large-size_1-of-6">
+                                    <lightning-button style="padding-right: 2px;"  class="slds-float_right slds-p-right_medium owcButtonStyle" label={customLabelValues.OWC_save_as_draft_label} variant="brand" onclick={handleSaveAsDraft}></lightning-button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="slds-grid slds-wrap">
+                            <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-1 slds-large-size_1-of-1">
+                                <!-- Upload certification and Authorization -->
+                                <fieldset class="slds-p-around_medium slds-p-left_xx-large">
+                                    {customLabelValues.OWC_certification_additional_claim_documents}
+                                    <span class="slds-p-left_x-small">
+                                        <lightning-icon icon-name="utility:info" class="my-icon" size="x-small" alternative-text="info"  label={customLabelValues.OWC_learnmore_button} name="multiFileUploadHelpText" onclick={handleHelpText} ></lightning-icon>
+                                     </span>
+                                     <!-- <lightning-input 
+                                     class="slds-p-top_medium slds-p-left_small"
+                                                     accept={acceptedFormats}
+                                                     data-id="additionalClaimDocs"
+                                                     type="file"
+                                                     variant="label-hidden"
+                                                     onchange={handleAdditionalClaimDocChange}
+                                                     multiple>
+                                     </lightning-input> -->
+                                    <!-- <span class="slds-p-left_medium learnMoreStyle">
+                                        <lightning-button variant="base" label={customLabelValues.OWC_learnmore_button} name="multiFileUploadHelpText" onclick={handleHelpText} class="slds-m-left_x-small"></lightning-button>
+                                    </span> -->
+                                    <lightning-file-upload name="additionalClaimDocs"
+                                                           accept={acceptedFormats}
+                                                           disabled={isFileUploadDisabled}
+                                                           data-id="additionalClaimDocs"
+                                                           onuploadfinished={handleAdditionalClaimDoc}
+                                                           multiple> 
+                                    </lightning-file-upload>
+                                    <template if:true={isFileUploadDisabled}>
+                                        <span style="color:red;">{customLabelValues.OWC_file_size_error}</span>
+                                    </template>
+                                </fieldset>
+                                <!-- Show uploaded fiels in SLDS Datatable -->
+                                <div class="slds-p-left_medium">
+                                    <template if:false={isAdditionalClaimDocUpload}>
+                                        <c-owc-Multiple-File-Upload-Details-Cmp isfileuploaded={isAdditionalClaimDocUpload} onuploaddocumentevent={handleAdditonalClaimDocEvent}></c-owc-Multiple-File-Upload-Details-Cmp>
+                                    </template>
+                                </div>
+                                
+                            </div>
+                            <div class="slds-p-left_medium slds-col slds-size_1-of-1 slds-medium-size_1-of-1 slds-large-size_1-of-1">
+                                <!-- -->
+                                <div class="slds-wrap slds-grid ">
+                                    <div class="slds-col slds-small-size_0-of-6 slds-medium-size_0-of-6">
+                                        <lightning-input
+                                        max-length="255" 
+                                        variant="label-hidden"
+                                            label=""
+                                            name="authorizationToRelease"
+                                            type="checkbox"
+                                            value ={value}
+                                            data-id="authorizationToReleaseId"
+                                            onchange={handleChange}>
+                                    </lightning-input>
+                                    </div>
+                                    <div class="slds-col slds-small-size_5-of-6 slds-medium-size_5-of-6">
+                                        {customLabelValues.OWC_certification_authorization_to_release} &nbsp;
+                                        <span><a href="https://www.dir.ca.gov/od_pub/privacy.html" target="_blank">https://www.dir.ca.gov/od_pub/privacy.html</a></span>
+                                        <span class="requiredStyle slds-p-top_xx-small"><abbr title="required">*</abbr></span>
+                                    </div>
+                                </div>
+                                <fieldset class="slds-p-right_medium">
+                                    <!-- <span style="display: inline-block">
+                                        <lightning-input    type="checkbox" 
+                                                    name="authorizationToRelease" 
+                                                    data-id="authorizationToReleaseId"
+                                                    label={customLabelValues.OWC_certification_authorization_to_release}
+                                                    title={customLabelValues.OWC_certification_authorization_to_release}
+                                                    value={value} 
+                                                    onchange={handleChange} >
+                                        </lightning-input>
+                                    </span>                 -->
+                                    <!-- <span class="requiredStyle" style="display: inline-block"><abbr title="required">*</abbr></span>  -->
+                                    <template if:true={isAuthorizationRelease}>
+                                        <!--Claminet Name-->
+                                        <fieldset class="slds-p-right_medium slds-p-top_medium slds-p-bottom_medium">
+                                            <div class="slds-grid slds-wrap">
+                                                <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-2 slds-large-size_1-of-2 slds-p-top_xx-small">
+                                                    {customLabelValues.OWC_claimant_name_cert_label}
+                                                    <span class="requiredStyle slds-p-top_xx-small"><abbr title="required">*</abbr></span>
+                                                    <lightning-input name="claimantName"
+                                                    max-length="255"
+                                                                     variant="label-hidden" 
+                                                                     type="Text" 
+                                                                     value={claimantName}
+                                                                     data-id="claimantName"
+                                                                     onchange={handleChange}>
+                                                    </lightning-input>
+                                                </div>
+                                            </div>
+                                        </fieldset>
+                                        <!--Clainment Date>
+                                        <fieldset class="slds-p-right_medium slds-p-top_medium slds-p-bottom_medium">
+                                            <div class="slds-grid slds-wrap">
+                                                <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-2 slds-large-size_1-of-2 slds-p-top_xx-small">
+                                                    {customLabelValues.OWC_cert_date_label}
+                                                    <span class="slds-p-left_medium dateFormatLabel">{dateFormatLabel}</span>
+                                                    <span class="requiredStyle slds-p-top_xx-small"><abbr title="required">*</abbr></span>
+                                                    <lightning-input name="claimDate"
+                                                    max-length="255"
+                                                                        variant="label-hidden" 
+                                                                        type="date" 
+                                                                        date-style="short"
+                                                                        value={claimDate}
+                                                                        data-id="claimDate"
+                                                                        onchange={handleChange}>
+                                                    </lightning-input>
+                                                </div>
+                                            </div>
+                                        </fieldset> -->
+                                    </template>
+                                    <template if:true={isHelpText}>
+                                        <c-owc-Help-Text-Cmp helptext={helpText} onhelptextevent={handleHelpTextEvent}></c-owc-Help-Text-Cmp>
+                                    </template>
+                                </fieldset>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="slds-col slds-medium-size_1-of-8 slds-large-size_1-of-8"></div>
+                </div>
+            </form>
+        </template>
+    </template>
+    
+</template>

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <description>Sent to Applicants when a paper application is entered by DIR.</description>
+    <encodingKey>ISO-8859-1</encodingKey>
+    <name>Internal User Application Submission Notice</name>
+    <style>none</style>
+    <subject>{!License_Registration__c.License_Registration_Type__c} Manual Application Input Confirmation</subject>
+    <type>text</type>
+    <uiType>Aloha</uiType>
+</EmailTemplate>

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Due_Date__c</fullName>
+    <description>Populated by the Payment Plan Flow on Payment Plan creation, then subsequently by the Case Payment Flow on Case Payment allocation when that Case Payment is parented to a Payment Plan.</description>
+    <externalId>false</externalId>
+    <inlineHelpText>Auto-populated on save or update. On Payment Plan creation, this date will be the Date of First Payment. Due Date is then advanced based upon Frequency and multiples of Regular Payment Amounts received.</inlineHelpText>
+    <label>Due Date</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Date</type>
+</CustomField>

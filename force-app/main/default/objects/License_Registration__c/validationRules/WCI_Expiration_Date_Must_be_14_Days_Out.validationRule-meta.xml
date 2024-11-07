@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>WCI_Expiration_Date_Must_be_14_Days_Out</fullName>
+    <active>true</active>
+    <description>Cannot submit registrations with WCI Expiration Dates less than 14 days from today.</description>
+    <errorConditionFormula>/* Evaluate in these conditions */ 
+( 
+	( 
+		ISCHANGED ( Ready_to_Submit__c )
+		&amp;&amp; ISPICKVAL ( Ready_to_Submit__c , 'Yes') 
+	)
+	||
+	( 
+		ISCHANGED ( VIP_Date_Time_Submitted__c )
+		&amp;&amp; ISPICKVAL ( Ready_to_Submit__c, 'Yes' )
+	)
+	||
+	(
+		!ISNEW()
+		&amp;&amp; ISCHANGED ( WCI_Expiration_Date__c )
+	)
+) 
+
+&amp;&amp; 
+/* Core of validation rule */ 
+
+(
+    (
+        NOT(ISBLANK(WCI_Expiration_Date__c)) 
+        &amp;&amp; 
+        WCI_Expiration_Date__c &lt; (TODAY() + 14)
+        &amp;&amp;
+        Record_Type_Name__c &lt;&gt; "Public_Works"
+        &amp;&amp;
+        ($Profile.Name &lt;&gt; "System Administrator LTD"
+        &amp;&amp;
+        $Profile.Name &lt;&gt; "WCA User"
+        &amp;&amp;
+        $Profile.Name &lt;&gt; "System Administrator")
+     )
+   
+      
+)</errorConditionFormula>
+    <errorMessage>Workers' Compensation expiration date cannot be less than 14 days from today. Please provide the most current WCI certification.</errorMessage>
+</ValidationRule>

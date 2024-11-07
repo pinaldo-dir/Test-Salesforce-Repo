@@ -1,0 +1,6 @@
+Hello {!DIR_Violation__c.DIR_Employee__c},
+
+You are the deputy assigned to case {!DIR_Case__c.Case_Number__c}. Please confirm with L&R the entity has obtained current registration. 
+
+You may visit the corresponding Case at: {!DIR_Case__c.Link}
+You may visit the corresponding Case Issue at : {!DIR_Violation__c.Link}

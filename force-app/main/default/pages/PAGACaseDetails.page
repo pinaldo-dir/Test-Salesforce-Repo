@@ -1,0 +1,134 @@
+<apex:page standardController="DIR_Case__c" extensions="PAGACaseDetailsController" docType="HTML-5.0" applyHtmlTag="false" applyBodyTag="false" sidebar="false" showHeader="false" standardStylesheets="false">
+    <style>
+        .btn-group-lg>.btn, .btn-md {
+            padding: 8px 12px;
+            font-size: 15px;
+            line-height: 1.42857143;
+            border-radius: 6px;
+        }
+        .panel {border:none;}
+        .panel-heading {
+            background:linear-gradient(to bottom, #4887c2 0%,#295b8f 100%);
+            border-color: #4887c2;
+            border-top-right-radius: 0px;
+            border-top-left-radius: 0px;
+        }
+    </style>
+    <script>
+        $j = jQuery.noConflict();
+        $j( document ).ready(function() {
+            $j('#table').DataTable({
+                select: true,
+                "bPaginate": true,
+                "bLengthChange": false,
+                "bFilter": false,
+                "bSort": false,
+                "order": [[ 1, "asc" ]],
+                "bInfo": true,
+                "bAutoWidth": true,
+                "pageLength": 10,
+                "lengthMenu": [5, 50, 100],
+                "language": {
+                  "emptyTable": "No matching records found"
+                }
+            });
+        });
+    </script>
+    <apex:composition template="PAGATemplate">
+        <apex:define name="body">
+            <apex:form >
+            
+                <ol class="breadcrumb">
+                    <li><a href="https://www.dir.ca.gov/dlse/dlse.html">Department of Industrial Relations (DIR)</a></li>
+                    <li><a href="/PagaSearch/">PAGA Case Search</a></li>
+                    <li class="active">PAGA Case Detail</li>
+                </ol>
+                
+                <h1>PAGA Case Detail</h1>
+                 <div class="row">
+                    <div class="col-xs-9"></div>
+                    <div class="col-xs-3 text-right">
+                        <a href="/PagaSearch/PAGACaseDetailsPDF?id={!currentCase.Id}" target="_blank" style="text-decoration:none;" class="btn-custom btn-md">Print to PDF</a>
+                        <br />
+                    </div>
+                </div>
+                <br />
+                <div class="panel panel-primary">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">Case Information</h3>
+                    </div>
+                    <div class="panel-body">
+                        <div class="row mb">
+                            <apex:repeat value="{!$ObjectType.DIR_Case__c.FieldSets.PAGA_Search_Details}" var="f"> 
+                                <div class="form-group col-md-6">
+                                    <apex:outputPanel rendered="{!IF(f.Label == 'Violation Type', true, false)}">
+                                        <div class="row">
+                                        <div class="col-xs-3 text-left">
+                                            &nbsp;&nbsp;&nbsp;<label><b>{!f.Label}:</b></label>
+                                        </div>
+                                        <div class="col-xs-9 text-left">
+                                            <apex:outputField value="{!DIR_Case__c[f]}" styleclass="form-control"  />
+                                        </div>
+                                        </div>
+                                    </apex:outputPanel>
+                                    <apex:outputPanel rendered="{!IF(f.Label != 'Violation Type', true, false)}">
+                                        &nbsp;&nbsp;&nbsp;<label><b>{!f.Label}:</b></label>&nbsp;&nbsp;&nbsp;
+                                        <apex:outputField value="{!DIR_Case__c[f]}" styleclass="form-control"  />
+                                    </apex:outputPanel>
+                                </div>
+                            </apex:repeat>
+                        </div>       
+                    </div>
+                </div>
+                
+                <div class="panel panel-primary">
+                    
+                    <h3 class="panel-title">Submission Details</h3>
+                    <div class="col-xs-12">
+                        <span class="help-block">Please note that certain documents, including court related documents (i.e. court complaints, proposed settlements, and court orders/judgments) are available for download. PAGA Claim Notices, Amended Claim Notices, Employer Responses or Cure Notices, Employee’s Cure Dispute, Other Response or Documents are not available at this time. To access these documents please submit a Public Record Acts Request via email at PAGAInfo@dir.ca.gov .</span>
+                    </div>
+                    <div class="panel-body">
+                        <div class="row mb">
+                            
+                            <div class="form-group col-md-12">
+                                <table id="table" class="cell-border stripe" cellspacing="0">
+                                    <thead>
+                                        <tr>
+                                            <th width="10%">Actions</th>
+                                            <!--Commented out Attachment Name column as part of SCR-926 released in the August 2024 release -->
+                                            <!--<th width="20%">Attachment Name</th> -->
+                                            <th width="15%">Submission Name</th>
+                                            <th width="20%">Description</th>
+                                            <th width="15%">Date Submitted</th>
+                                            <th width="20%">Type</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <apex:repeat value="{!Attachments}" var="att"> 
+                                            <tr>
+                                               <!--Added as part of the Paga Search 2 project user story PS-006 All Documents Listed on Case Details.  Checks to see if the incoming attachment record has the Publicly_Accesible__c field equal to True.  If True then displays a download link in table cell, otherwise displays -- instead.   -->    
+                                                <apex:outputPanel rendered="{!att.Publicly_Accessible__c}">
+												<td><a href="{!att.File_URL__c}" target="_blank">View/Download</a></td>
+												</apex:outputPanel>
+											    <apex:outputPanel rendered="{!att.Publicly_Accessible__c == false}">   
+												<td>--</td>
+												</apex:outputPanel>
+                                                <!-- End of Paga Search 2 project user story PS-006 All Documents Listed on Case Details addition.  -->
+                                                <!--Commented out Attachment Name column as part of SCR-926 released in the August 2024 release -->
+                                                <!--<td>{!att.Attachment_Name__c}</td> -->
+                                                <td>{!att.Name}</td>
+                                                <td>{!att.Description__c}</td>
+                                                <td><apex:outputField value="{!att.CreatedDate}" /></td>
+                                                <td>{!att.Type__c}</td>
+                                            </tr>
+                                        </apex:repeat>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>   
+                    </div>
+                </div>
+            </apex:form>
+        </apex:define>
+    </apex:composition>
+</apex:page>

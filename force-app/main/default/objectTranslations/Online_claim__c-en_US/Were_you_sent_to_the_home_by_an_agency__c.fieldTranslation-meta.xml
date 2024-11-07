@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+        <label><!-- Were you sent to the home by an agency? --></label>
+        <name>Were_you_sent_to_the_home_by_an_agency__c</name>
+    </CustomFieldTranslation>

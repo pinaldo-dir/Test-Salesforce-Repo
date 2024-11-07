@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>59.0</apiVersion>
+    <environments>Default</environments>
+    <formulas>
+        <name>VarLineBreak</name>
+        <dataType>String</dataType>
+        <expression>BR()</expression>
+    </formulas>
+    <formulas>
+        <name>VarTodaysDate</name>
+        <dataType>Date</dataType>
+        <expression>Today()</expression>
+    </formulas>
+    <interviewLabel>WCA Inactive Tracking Update Comments {!$Flow.CurrentDateTime}</interviewLabel>
+    <label>WCA Inactive Tracking Update Comments</label>
+    <processMetadataValues>
+        <name>BuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>CanvasMode</name>
+        <value>
+            <stringValue>FREE_FORM_CANVAS</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>OriginBuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processType>AutoLaunchedFlow</processType>
+    <recordUpdates>
+        <name>Clear_Comment_Entry</name>
+        <label>Clear Comment Entry</label>
+        <locationX>581</locationX>
+        <locationY>505</locationY>
+        <inputAssignments>
+            <field>Comment_Entry__c</field>
+            <value>
+                <stringValue></stringValue>
+            </value>
+        </inputAssignments>
+        <inputReference>$Record</inputReference>
+    </recordUpdates>
+    <recordUpdates>
+        <name>Update_Comments</name>
+        <label>Update Comments</label>
+        <locationX>266</locationX>
+        <locationY>422</locationY>
+        <connector>
+            <targetReference>Clear_Comment_Entry</targetReference>
+        </connector>
+        <inputAssignments>
+            <field>Comments__c</field>
+            <value>
+                <elementReference>Comments_New_Old</elementReference>
+            </value>
+        </inputAssignments>
+        <inputReference>$Record</inputReference>
+    </recordUpdates>
+    <start>
+        <locationX>650</locationX>
+        <locationY>48</locationY>
+        <connector>
+            <targetReference>Update_Comments</targetReference>
+        </connector>
+        <filterFormula>(ISNEW() &amp;&amp; NOT(ISNULL({!$Record.Comment_Entry__c})) )
+|| 
+(
+ISCHANGED({!$Record.Comment_Entry__c}) &amp;&amp; NOT(ISNULL({!$Record.Comment_Entry__c}))
+)</filterFormula>
+        <object>Inactive_Tracking__c</object>
+        <recordTriggerType>CreateAndUpdate</recordTriggerType>
+        <triggerType>RecordAfterSave</triggerType>
+    </start>
+    <status>Active</status>
+    <textTemplates>
+        <name>Comments_New_Old</name>
+        <isViewedAsPlainText>true</isViewedAsPlainText>
+        <text>{!VarPreviousComments}{!VarLineBreak}On {!VarTodaysDate}, {!$User.FirstName} {!$User.LastName}: {!VarCurrentComments}</text>
+    </textTemplates>
+    <variables>
+        <name>VarCurrentComments</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>true</isInput>
+        <isOutput>true</isOutput>
+        <value>
+            <elementReference>$Record.Comment_Entry__c</elementReference>
+        </value>
+    </variables>
+    <variables>
+        <name>VarPreviousComments</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>true</isInput>
+        <isOutput>true</isOutput>
+        <value>
+            <elementReference>$Record.Comments__c</elementReference>
+        </value>
+    </variables>
+</Flow>

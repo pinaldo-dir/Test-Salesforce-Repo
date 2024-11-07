@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Liable_Party_Related_Business_Link__c</fullName>
+    <externalId>false</externalId>
+    <formula>IF( NOT( ISBLANK(Liable_Party__c) ),
+HYPERLINK("/"&amp;Liable_Party__r.Entity__c, 
+IF(ISBLANK(Liable_Party__r.Entity__r.Name),Liable_Party__r.Entity__r.FirstName &amp; " " &amp; IF(ISBLANK(Liable_Party__r.Entity__r.MiddleName), Liable_Party__r.Entity__r.LastName,Liable_Party__r.Entity__r.MiddleName &amp; " " &amp; Liable_Party__r.Entity__r.LastName), Liable_Party__r.Entity__r.Name)),
+HYPERLINK
+("/"&amp;Related_Business__r.Business__c, 
+IF(ISBLANK(Related_Business__r.Business__r.Name), Related_Business__r.Business__r.FirstName &amp; " " &amp; IF (ISBLANK(Related_Business__r.Business__r.MiddleName), Related_Business__r.Business__r.LastName, Related_Business__r.Business__r.MiddleName &amp; " " &amp; Related_Business__r.Business__r.LastName), Related_Business__r.Business__r.Name)
+) 
+)</formula>
+    <label>Business</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PermissionSet xmlns="http://soap.sforce.com/2006/04/metadata">
+    <description>[Do NOT Assign - DEPRECATED] Allows community users to create A+ records when generating a new Registration.</description>
+    <hasActivationRequired>false</hasActivationRequired>
+    <label>DO NOT USE - Community Users can create A+ records</label>
+    <pageAccesses>
+        <apexPage>AddAttachmentsPlus</apexPage>
+        <enabled>true</enabled>
+    </pageAccesses>
+    <pageAccesses>
+        <apexPage>AffiliationsFull</apexPage>
+        <enabled>true</enabled>
+    </pageAccesses>
+    <pageAccesses>
+        <apexPage>AttachmentsPlusLicenseAndRegistration</apexPage>
+        <enabled>true</enabled>
+    </pageAccesses>
+</PermissionSet>

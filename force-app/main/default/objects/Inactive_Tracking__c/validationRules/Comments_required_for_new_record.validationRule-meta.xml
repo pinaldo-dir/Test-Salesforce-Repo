@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Comments_required_for_new_record</fullName>
+    <active>true</active>
+    <errorConditionFormula>AND ( RecordType.DeveloperName != 'Stay',  ISNEW() &amp;&amp; ISBLANK(Comment_Entry__c))</errorConditionFormula>
+    <errorMessage>Please enter comments via 'Comment Entry' field</errorMessage>
+</ValidationRule>

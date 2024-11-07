@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Workflow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <alerts>
+        <fullName>HR_EMAIL_ALERT_send_email_to_supervisor_on_probationary_due_dates_report</fullName>
+        <description>HR EMAIL ALERT send email to supervisor on probationary due dates report</description>
+        <protected>false</protected>
+        <recipients>
+            <field>Division_Liaison_Email__c</field>
+            <type>email</type>
+        </recipients>
+        <recipients>
+            <field>Supervisor_Email__c</field>
+            <type>email</type>
+        </recipients>
+        <senderAddress>humanresources@dir.ca.gov</senderAddress>
+        <senderType>OrgWideEmailAddress</senderType>
+        <template>All_Templates/HR_Send_Email_on_New_Prob_Due_Date</template>
+    </alerts>
+    <alerts>
+        <fullName>HR_Send_Past_Due_Prob_Reminder_to_Liaison_and_Supv</fullName>
+        <description>HR Send PAST DUE Prob Reminder notification to Liaison and Supv</description>
+        <protected>false</protected>
+        <recipients>
+            <field>Division_Liaison_Email__c</field>
+            <type>email</type>
+        </recipients>
+        <recipients>
+            <field>Supervisor_Email__c</field>
+            <type>email</type>
+        </recipients>
+        <recipients>
+            <recipient>ble@dir.ca.gov</recipient>
+            <type>user</type>
+        </recipients>
+        <senderAddress>humanresources@dir.ca.gov</senderAddress>
+        <senderType>OrgWideEmailAddress</senderType>
+        <template>All_Templates/HR_Past_Due_Prob_Reminder</template>
+    </alerts>
+    <fieldUpdates>
+        <fullName>HR_Update_Employee_Name_on_Prob_Object</fullName>
+        <description>To be updated with employee contact name using wfr for sending email to supervisor on new prob due date report.</description>
+        <field>Employee_Name__c</field>
+        <formula>Appointment__r.Employee_Contact__r.FirstName &amp; " " &amp;  Appointment__r.Employee_Contact__r.LastName</formula>
+        <name>HR Update Employee Name on Prob Object</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Formula</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>HR_Update_Liaison_Email_on_Prob_Object</fullName>
+        <description>for due dates notification</description>
+        <field>Division_Liaison_Email__c</field>
+        <formula>Appointment__r.Employee_Contact__r.HR_Probation_Liaison__r.Liaison_Name__r.Email</formula>
+        <name>HR Update Liaison Email on Prob Object</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Formula</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>HR_Update_Position_Number_on_Prob_Object</fullName>
+        <description>To be updated with position number using wfr for sending email to supervisor on new prob due date report.</description>
+        <field>Position_Number__c</field>
+        <formula>Appointment__r.Position__r.Name</formula>
+        <name>HR Update Position Number on Prob Object</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Formula</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>HR_Update_Sup_Email_on_Prob_Object</fullName>
+        <field>Supervisor_Email__c</field>
+        <formula>Appointment__r.Supervisor_Contact__r.Email</formula>
+        <name>HR Update Sup Email on Prob Object</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Formula</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>HR_update_past_due_date</fullName>
+        <field>First_Reminder_Date__c</field>
+        <formula>IF(
+DAY( TODAY() ) = 1,
+TODAY(),
+IF(
+MONTH(TODAY()) = 12,
+DATE( YEAR(TODAY())+1, 1, 1 ),
+DATE( YEAR(TODAY()), MONTH (TODAY()) + 1, 1 )
+)
+)</formula>
+        <name>HR update past due date</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Formula</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+</Workflow>

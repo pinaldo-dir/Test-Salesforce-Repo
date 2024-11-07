@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Payment_Terms_Text__c</fullName>
+    <description>Field used for merging text onto WCA case payments - WARRANTS (Same as WCA 18 Payment Notification document). Source fields uses: Case_Payment__r.Payment_Terms__c &amp;
+Case_Payment__r.Payment_Terms_Other__c</description>
+    <externalId>false</externalId>
+    <formula>CASE(Liability_Payment__r.Case_Payment__r.Payment_Terms__c,
+"Full Payment", "Full payment of your claim.",
+"Full Payment Pursuant to the ODA", "Full payment pursuant to the Order, Decision, or Award of the Labor Commissioner.",
+"Full Payment per Settlement", "Full payment pursuant to the Settlement Agreement.",
+"Partial Payment per Settlement", "Partial payment pursuant to the Settlement Agreement.",
+"Employer Concedes Amount", "An amount the employer concedes to be due you. If the amount is not acceptable as settlement of your claim, please send us in writing, within ten (10) days, further evidence and facts in support of your complaint and we will continue our investigation of the matter.  PLEASE CASH THE CHECK AS IT WILL NOT JEOPARDIZE ANY BALANCE OF YOUR CLAIM IN ANY WAY.",
+"Employer Correspondence", "See attached correspondence received from your former employer. If you disagree with any statement or any points raised in the letter, please answer in writing. If we don't hear from you within ten (10) days, we must assume you do not wish to pursue your claim and your file will be closed. An amount the employer concedes  to be due you. If the amount is not accepted as settlement of your claim, please send us in writing, within ten (10) days, further evidence and facts in support of your complaint and we will continue our investigation of the matter. PLEASE CASH THE CHECK AS IT WILL NOT JEOPARDIZE ANY BALANCE OF YOUR CLAIM IN ANY WAY." ,
+"Other", Liability_Payment__r.Case_Payment__r.Payment_Terms_Other__c,
+"")</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>Payment Terms Text</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

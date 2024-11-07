@@ -1,0 +1,4 @@
+A deputy has requested dismissal of a liability. It is linked to Assessment: {!Liability__c.Assessment__c}
+
+You can view the liability here and change the status to dismissed if appropriate.
+{!Liability__c.Link}

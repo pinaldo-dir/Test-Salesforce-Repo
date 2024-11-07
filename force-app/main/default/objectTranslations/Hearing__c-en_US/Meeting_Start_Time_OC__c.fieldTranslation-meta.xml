@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+        <label><!-- Meeting Start Time --></label>
+        <name>Meeting_Start_Time_OC__c</name>
+    </CustomFieldTranslation>

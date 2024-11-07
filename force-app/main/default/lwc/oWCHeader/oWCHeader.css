@@ -1,0 +1,58 @@
+.headerBranding {
+    /*margin-bottom: 20px;*/
+    min-height: 91px;
+    position: relative;
+    background: #0a628a;
+    color: #ffffff;
+    top: 0;
+    width: 100%;
+    
+}
+.headerBrandingMobile {
+    min-height: 55px;
+    position: relative;
+    background: #0a628a;
+    color: #ffffff;
+    top: 0;
+    width: 100%;   
+}
+ a,  a:hover {  
+    text-decoration: none;
+    color: #ffffff;
+}
+ .titlepart2 {
+    font-size: 37px;
+    line-height: 25px;
+    color: #fff;
+    font-weight: normal;
+    height: 25px;
+}
+
+ .titlPart1 {
+    font-size: 16px;
+    margin-top: 1rem;
+    margin-bottom: -.5rem;
+    
+}
+
+ .dirBearLogoStyle{
+    height: 28px;
+    margin-left: 2rem;
+}
+
+ .dirLogoClass {
+    margin-top: -2rem;
+    height: 28px;
+    margin-left: 2rem;
+}
+
+ .dirMobileLogoClass{
+    margin-top: -5rem;
+    line-height: 0.42857143;
+    height: 2px;
+    margin-left: 1rem;
+}
+
+.slds-media__body{
+    text-align: left;
+}

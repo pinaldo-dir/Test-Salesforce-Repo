@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <description>When the appeal is withdrawn, the assigned deputy and assigned hearing officer shall be notified</description>
+    <encodingKey>ISO-8859-1</encodingKey>
+    <name>Appeal Withdrawn Notification</name>
+    <style>none</style>
+    <subject>An appeal has been withdrawn</subject>
+    <type>text</type>
+    <uiType>Aloha</uiType>
+</EmailTemplate>

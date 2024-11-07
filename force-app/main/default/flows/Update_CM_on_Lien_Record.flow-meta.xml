@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>49.0</apiVersion>
+    <assignments>
+        <name>Assign_to_Lien</name>
+        <label>Assign to Lien</label>
+        <locationX>436</locationX>
+        <locationY>284</locationY>
+        <assignmentItems>
+            <assignToReference>vLienID.Case_Management__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>vJudgement.Case_Management__r.Id</elementReference>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Update_Lien</targetReference>
+        </connector>
+    </assignments>
+    <decisions>
+        <name>If_record_found</name>
+        <label>If record found</label>
+        <locationX>178</locationX>
+        <locationY>471</locationY>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>CM_Found</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>vJudgement</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Assign_to_Lien</targetReference>
+            </connector>
+            <label>CM Found</label>
+        </rules>
+    </decisions>
+    <interviewLabel>Update CM on Lien Record {!$Flow.CurrentDateTime}</interviewLabel>
+    <label>Update CM on Lien Record</label>
+    <processMetadataValues>
+        <name>BuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>CanvasMode</name>
+        <value>
+            <stringValue>FREE_FORM_CANVAS</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>OriginBuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processType>AutoLaunchedFlow</processType>
+    <recordLookups>
+        <name>Find_Case_Management</name>
+        <label>Find Case Management</label>
+        <locationX>176</locationX>
+        <locationY>275</locationY>
+        <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
+        <connector>
+            <targetReference>If_record_found</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Id</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>vJudgement.Case_Management__c</elementReference>
+            </value>
+        </filters>
+        <object>DIR_Case__c</object>
+    </recordLookups>
+    <recordUpdates>
+        <name>Update_Lien</name>
+        <label>Update Lien</label>
+        <locationX>592</locationX>
+        <locationY>281</locationY>
+        <inputReference>vLienID</inputReference>
+    </recordUpdates>
+    <startElementReference>Find_Case_Management</startElementReference>
+    <status>Active</status>
+    <variables>
+        <name>vJudgement</name>
+        <dataType>SObject</dataType>
+        <isCollection>false</isCollection>
+        <isInput>true</isInput>
+        <isOutput>true</isOutput>
+        <objectType>Judgement__c</objectType>
+    </variables>
+    <variables>
+        <name>vLienID</name>
+        <dataType>SObject</dataType>
+        <isCollection>false</isCollection>
+        <isInput>true</isInput>
+        <isOutput>true</isOutput>
+        <objectType>Lien__c</objectType>
+    </variables>
+</Flow>

@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+        <help><!-- Enter date of 1st attempt made to contact the Claimant.
+The date first attempt must be a date on or after the creation of the Inactive Record, or no less than 5 days prior to the creation of the Inactive Record. If the first attempt date was made 5 days prior to the creation of the Inactive Record, the Senior deputy can modify the date --></help>
+        <label><!-- 1st Attempt Date --></label>
+        <name>X1st_Attempt_Date__c</name>
+    </CustomFieldTranslation>

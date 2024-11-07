@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Assigned_Deputy_Must_have_user</fullName>
+    <active>true</active>
+    <description>Assigned deputy must be associated with a sf user</description>
+    <errorConditionFormula>( 
+ISBLANK ( Assigned_Deputy__r.User__c ) 
+&amp;&amp; RecordType.Name = 'BOFE' 
+) 
+&amp;&amp; ISPICKVAL( Imported_From__c, '' )
+&amp;&amp; (
+ISPICKVAL( Status__c, 'Eligible for Closure')
+|| ISPICKVAL( Status__c, 'Hearing Scheduled')
+|| ISPICKVAL( Status__c, 'Conf Scheduled')
+|| ISPICKVAL( Status__c, 'Documents Received')
+|| ISPICKVAL( Status__c, 'NOF Issued')
+|| ISPICKVAL( Status__c, 'Open')
+|| ISPICKVAL( Status__c, 'Pre-investigation')
+|| ISPICKVAL( Status__c, 'Under Investigation')
+|| ISPICKVAL( Status__c, 'Under Writ')
+|| ISPICKVAL( Status__c, 'Referred to DA')
+|| ISPICKVAL( Status__c, 'Reopened with Senior Approval')
+)</errorConditionFormula>
+    <errorMessage>The Assigned Deputy must be a Salesforce User.</errorMessage>
+</ValidationRule>

@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>Registrations Exam</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Registrations Exams</value>
+    </caseValues>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <fieldSets>
+        <label><!-- FLC Exam FS --></label>
+        <name>FLC_Exam_FS</name>
+    </fieldSets>
+    <fieldSets>
+        <label><!-- FLC  Exams FS Slim --></label>
+        <name>FLC_Exams_FS_Slim</name>
+    </fieldSets>
+    <fieldSets>
+        <label><!-- GA Exams FS External --></label>
+        <name>GA_Exams_FS_External</name>
+    </fieldSets>
+    <fieldSets>
+        <label><!-- GA Exams FS Internal --></label>
+        <name>GA_Exams_FS_Internal</name>
+    </fieldSets>
+    <fieldSets>
+        <label><!-- GA Exams FS Slim --></label>
+        <name>GA_Exams_FS_Slim</name>
+    </fieldSets>
+    <layouts>
+        <layout>Registrations Exam Layout</layout>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+        <sections>
+            <label><!-- Garment --></label>
+            <section>Garment</section>
+        </sections>
+    </layouts>
+    <recordTypes>
+        <label><!-- Farm Labor Contractor --></label>
+        <name>Farm_Labor_Contractor</name>
+    </recordTypes>
+    <recordTypes>
+        <label><!-- Garment --></label>
+        <name>Garment</name>
+    </recordTypes>
+    <startsWith>Consonant</startsWith>
+</CustomObjectTranslation>

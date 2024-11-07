@@ -1,0 +1,7 @@
+Hello,
+
+Case {!DIR_Case__c.Case_Number__c} has been Rejected for Referral by the JEU for the following reason:
+
+{!DIR_Case__c.JEU_Reject_Reason__c}
+
+You may access this case by going to the following link: {!DIR_Case__c.Link}

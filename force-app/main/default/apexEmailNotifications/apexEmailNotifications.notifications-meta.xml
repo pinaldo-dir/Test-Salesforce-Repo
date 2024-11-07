@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ApexEmailNotifications xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apexEmailNotification>
+        <email>DIRSalesforceSupportTeam@dir.ca.gov</email>
+    </apexEmailNotification>
+    <apexEmailNotification>
+        <user>tnegussay@dir.ca.gov</user>
+    </apexEmailNotification>
+</ApexEmailNotifications>

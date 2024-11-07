@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+        <label><!-- Part 2 Program Return Reason(s) --></label>
+        <name>Part_2_Program_Return_Reason_s__c</name>
+        <picklistValues>
+            <masterLabel>Identified Interview Panels Members Missing</masterLabel>
+            <translation><!-- Identified Interview Panels Members Missing --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Interview Questions Missing or Revisions Needed</masterLabel>
+            <translation><!-- Interview Questions Missing or Revisions Needed --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Missing Documents</masterLabel>
+            <translation><!-- Missing Documents --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Other (Legacy)</masterLabel>
+            <translation><!-- Other (Legacy) --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Screening Criteria</masterLabel>
+            <translation><!-- Screening Criteria --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel> Other (See Status Notes)</masterLabel>
+            <translation><!--  Other (See Status Notes) --></translation>
+        </picklistValues>
+    </CustomFieldTranslation>

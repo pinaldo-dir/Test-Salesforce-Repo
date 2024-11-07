@@ -1,0 +1,67 @@
+<!--
+  @description       : 
+  @author            : ChangeMeIn@UserSettingsUnder.SFDoc
+  @group             : 
+  @last modified on  : 10-13-2021
+  @last modified by  : ChangeMeIn@UserSettingsUnder.SFDoc
+-->
+<template>
+    <h1 class="slds-p-bottom_medium slds-text-heading_large owcHeadingStyle" id="meetingDetail">{customLabelValues.OWC_meeting_detail_heading}</h1>
+        
+        <div style="overflow-y: auto;max-height: 300px;">
+        <table class="slds-table slds-table_cell-buffer slds-table_bordered slds-border_left slds-border_right" aria-labelledby="element-with-table-label other-element-with-table-label">
+            <thead>
+              <tr class="">
+                  <template for:each={columns} for:item="column">
+                    <th class="" scope="col" key={column}>
+                        <div class="slds-truncate" title="Draft">{column}</div>
+                    </th>
+                  </template>
+              </tr>
+            </thead>
+            <tbody>
+              
+              
+                <template for:each={meetings} for:item="meeting">
+                  <tr key={meeting.Id}>
+                      <th scope="col" class="slds-cell-wrap" style="width: 25%;">
+                          <div>
+                            <a href="javascript:void(0);" name={meeting.Id} onclick={handleClick} tabindex="-1">
+                              {meeting.caseName}
+                            </a>
+                          </div>
+                      </th>
+                      
+                      <td scope="col" class="slds-cell-wrap">
+                        <div>
+                          {meeting.rtName}
+                        </div>
+                      </td>
+                      <td scope="col" class="slds-cell-wrap">
+                        <div>
+                          {meeting.mdt}
+                        </div> 
+                      </td>
+                      <td scope="col" class="slds-cell-wrap">
+                        <div>
+                          {meeting.In_Person_Remote_Meeting__c}
+                        </div>
+                      </td>
+                      <td scope="col" class="slds-cell-wrap">
+                        <div>
+                          {meeting.Status__c}
+                        </div>
+                      </td>
+                      
+                  </tr>
+                </template>
+              
+            </tbody>
+          </table>
+        </div>
+        <template if:true={showModal}>
+            <c-owc-meeting-modal meeting-details={currentMeeting} onclose={handleClose}></c-owc-meeting-modal>
+        </template>
+        <!-- <lightning-button label="Send SMS" onclick={handleSendSMS}></lightning-button> -->
+        <span class="styleContainer"></span>
+</template>

@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+        <label><!-- Closure Disposition Reason --></label>
+        <name>Closure_Disposition_Reason__c</name>
+        <picklistValues>
+            <masterLabel>Dismissed - Employer cannot be located</masterLabel>
+            <translation><!-- Dismissed - Employer cannot be located --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Dismissed - Inactive</masterLabel>
+            <translation><!-- Dismissed - Inactive --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Dismissed - No Jurisdiction</masterLabel>
+            <translation><!-- Dismissed - No Jurisdiction --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Dismissed - Other</masterLabel>
+            <translation><!-- Dismissed - Other --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Dismissed - Plaintiff Abandoned</masterLabel>
+            <translation><!-- Dismissed - Plaintiff Abandoned --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Dismissed - Plaintiff Withdrew</masterLabel>
+            <translation><!-- Dismissed - Plaintiff Withdrew --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Dismissed - Plaintiff cannot be located</masterLabel>
+            <translation><!-- Dismissed - Plaintiff cannot be located --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Dismissed - Plaintiff failed to appear</masterLabel>
+            <translation><!-- Dismissed - Plaintiff failed to appear --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Judgment - JEU</masterLabel>
+            <translation><!-- Judgment - JEU --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Judgment - Plaintiff Collect</masterLabel>
+            <translation><!-- Judgment - Plaintiff Collect --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Paid in Full - Post Judgment Entry</masterLabel>
+            <translation><!-- Paid in Full - Post Judgment Entry --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Paid in Full - Post ODA but prior to judgment entry</masterLabel>
+            <translation><!-- Paid in Full - Post ODA but prior to judgment entry --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Paid in Full - Pre-Hearing</masterLabel>
+            <translation><!-- Paid in Full - Pre-Hearing --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Settled - At Conference</masterLabel>
+            <translation><!-- Settled - At Conference --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Settled - At hearing</masterLabel>
+            <translation><!-- Settled - At hearing --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Settled - Post Hearing but prior to ODA</masterLabel>
+            <translation><!-- Settled - Post Hearing but prior to ODA --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Settled - Post Judgment but prior to JEU referral</masterLabel>
+            <translation><!-- Settled - Post Judgment but prior to JEU referral --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Settled - Post ODA but prior to Judgment entry</masterLabel>
+            <translation><!-- Settled - Post ODA but prior to Judgment entry --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Settled - Pre-Conference</masterLabel>
+            <translation><!-- Settled - Pre-Conference --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Settled - Pre-hearing</masterLabel>
+            <translation><!-- Settled - Pre-hearing --></translation>
+        </picklistValues>
+    </CustomFieldTranslation>

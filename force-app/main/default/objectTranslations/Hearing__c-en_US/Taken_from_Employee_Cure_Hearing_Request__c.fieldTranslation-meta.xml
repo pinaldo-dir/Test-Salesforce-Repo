@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+        <label><!-- Taken from Employee Cure Hearing Request --></label>
+        <name>Taken_from_Employee_Cure_Hearing_Request__c</name>
+        <picklistValues>
+            <masterLabel>Indemnification of employees by employer (Labor Code §2800)</masterLabel>
+            <translation><!-- Indemnification of employees by employer (Labor Code §2800) --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Meal and rest breaks</masterLabel>
+            <translation><!-- Meal and rest breaks --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Minimum Wage</masterLabel>
+            <translation><!-- Minimum Wage --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Other</masterLabel>
+            <translation><!-- Other --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Other Unpaid Wages</masterLabel>
+            <translation><!-- Other Unpaid Wages --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Overtime</masterLabel>
+            <translation><!-- Overtime --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Reimbursement of employee expenses</masterLabel>
+            <translation><!-- Reimbursement of employee expenses --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Violation of Labor Code §226</masterLabel>
+            <translation><!-- Violation of Labor Code §226 --></translation>
+        </picklistValues>
+    </CustomFieldTranslation>

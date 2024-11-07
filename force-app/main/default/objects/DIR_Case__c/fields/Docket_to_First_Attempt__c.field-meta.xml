@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Docket_to_First_Attempt__c</fullName>
+    <description>Duration from date CM is docketed to Inactive Tracking's first attempt reach-out to claim to complete intake process. It is updated by flow.</description>
+    <externalId>false</externalId>
+    <label>Docket to First Attempt</label>
+    <precision>18</precision>
+    <required>false</required>
+    <scale>0</scale>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Number</type>
+    <unique>false</unique>
+</CustomField>

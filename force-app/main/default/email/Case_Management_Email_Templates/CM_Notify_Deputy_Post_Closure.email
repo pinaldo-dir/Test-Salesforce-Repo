@@ -1,0 +1,10 @@
+Hello,
+
+Case {!DIR_Case__c.Case_Number__c} closed on {!DIR_Case__c.Closed_On__c}. 
+
+Please send a letter to the claimant with the closure information. 
+
+Link to Case:  {!DIR_Case__c.Link}
+
+
+Automated Salesforce Email

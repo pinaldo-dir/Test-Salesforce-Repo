@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomMetadata xmlns="http://soap.sforce.com/2006/04/metadata" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <label>Industry 9</label>
+    <protected>false</protected>
+    <values>
+        <field>NaicsCodeLevel1EnglishTranslation__c</field>
+        <value xsi:type="xsd:string">Manufacturing</value>
+    </values>
+    <values>
+        <field>NaicsCodeLevel1SpanishTranslation__c</field>
+        <value xsi:type="xsd:string">Fabricación</value>
+    </values>
+    <values>
+        <field>NaicsCodeLevel2EnglishTranslation__c</field>
+        <value xsi:type="xsd:string">Apparel Manufacturing~Apparel Manufacturing;Textile and Fabric Finishing Mills~Textile and Fabric Finishing Mills;Apparel, Piece Goods, and Notation Merchant Wholesalers~Apparel, Piece Goods, and Notions Merchant Wholesalers;Food Manufacturing~Food Manufacturing; Daily Product Manufacturing~Dairy Product Manufacturing;Beverage Manufacturing~Beverage Manufacturing;
+Tobacco Manufacturing~Tobacco Manufacturing;Fiber, Yarn and Thread Mills~Fiber, Yarn, and Thread Mills;Leather and Hide Tanning and Finishing~Leather and Hide Tanning and Finishing;
+Wood Product Manufacturing~Wood Product Manufacturing;Paper Manufacturing~Paper Manufacturing;Chemical Manufacturing~Chemical Manufacturing;Plastics and Rubber Products Manufacturing~Plastics and Rubber Products Manufacturing;Nonmetallic Mineral Product Manufacturing~Nonmetallic Mineral Product Manufacturing;Primary Metal Manufacturing~Primary Metal Manufacturing;Fabricated Metal Product Manufacturing~Fabricated Metal Product Manufacturing;Computer and Electronic Product Manufacturing~Computer and Electronic Product Manufacturing;Motor Vehicle Manufacturing~Motor Vehicle Manufacturing;Furniture and Related Product Manufacturing~Furniture and Related Product Manufacturing;Miscellaneous Manufacturing~Miscellaneous Manufacturing</value>
+    </values>
+    <values>
+        <field>NaicsCodeLevel2SpanishTranslation__c</field>
+        <value xsi:type="xsd:string">Fabricación de Prendas; Fábricas de Textiles, Tejidos y Acabados; Mayoristas de Prendas de Vestir, Artículos a Destajo y Notación; Fabricación de Alimentos; Fabricación de Productos Cotidianos; Fabricación de Bebidas;
+Fabricación de Tabaco; Fábricas de Fibras, Hilado e Hilos; Curtido y Acabado de Cuero y Pieles;
+Fabricación de Productos de Madera; Fabricación de Papel; Fabricación de Químicos; Fabricación de Productos de Plástico y Caucho; Fabricación de Productos Minerales no Metálicos; Fabricación de Metales Primarios; Fabricación de Productos de Metales Elaborados; Fabricación de Productos de Computadoras y Electrónicos; Fabricación de Vehículos Motorizados; Fabricación de Muebles y Productos Relacionados; Fabricación de Todo Tipo</value>
+    </values>
+    <values>
+        <field>OWC_Industry__c</field>
+        <value xsi:type="xsd:string">Manufacturing</value>
+    </values>
+    <values>
+        <field>OWC_NAICS_Discription__c</field>
+        <value xsi:type="xsd:string">Apparel Manufacturing;Textile and Fabric Finishing Mills;Apparel, Piece Goods, and Notions Merchant Wholesalers;Food Manufacturing;Dairy Product Manufacturing;Beverage Manufacturing;
+Tobacco Manufacturing;Fiber, Yarn, and Thread Mills;Leather and Hide Tanning and Finishing;
+Wood Product Manufacturing;Paper Manufacturing;Chemical Manufacturing;Plastics and Rubber Products Manufacturing;Nonmetallic Mineral Product Manufacturing;Primary Metal Manufacturing;Fabricated Metal Product Manufacturing;Computer and Electronic Product Manufacturing;Motor Vehicle Manufacturing;Furniture and Related Product Manufacturing;Miscellaneous Manufacturing</value>
+    </values>
+    <values>
+        <field>Order_Number__c</field>
+        <value xsi:type="xsd:double">9.0</value>
+    </values>
+</CustomMetadata>

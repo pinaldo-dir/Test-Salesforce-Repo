@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>PAGA_type_only</fullName>
+    <active>true</active>
+    <errorConditionFormula>IF ( ( Case_Management__r.Record_Type_Name__c &lt;&gt; "PAGA_Case" )&amp;&amp; (OR( 
+ISPICKVAL(Type__c,"Cure Dispute"),
+ISPICKVAL(Type__c,"Court Complaint"),
+ISPICKVAL(Type__c,"Proposed Settlement"),
+ISPICKVAL(Type__c,"PAGA Notice"),
+ISPICKVAL(Type__c,"Other PAGA Document"),
+ISPICKVAL(Type__c,"Employer Response/Cure"),
+ISPICKVAL(Type__c,"In forma Pauperis"),
+ISPICKVAL(Type__c,"Court Order/Judgment"),
+ISPICKVAL(Type__c,"Complaint Inquiry Letter/Response"),
+ISPICKVAL(Type__c,"Duplicate")
+)),True,False)</errorConditionFormula>
+    <errorMessage>You can not use this document category type as it is reserved for PAGA Case related attachments only. Please choose a different document type. Thank you.</errorMessage>
+</ValidationRule>

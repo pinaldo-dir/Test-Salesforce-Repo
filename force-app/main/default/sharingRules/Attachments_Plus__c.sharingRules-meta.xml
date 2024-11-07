@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8"?>
+<SharingRules xmlns="http://soap.sforce.com/2006/04/metadata">
+    <sharingCriteriaRules>
+        <fullName>IFP_Documents</fullName>
+        <accessLevel>Edit</accessLevel>
+        <description>Only PAGA Role should access IFP Documents</description>
+        <label>IFP Documents</label>
+        <sharedTo>
+            <role>PAGA</role>
+        </sharedTo>
+        <booleanFilter>(1 OR 2) AND 3</booleanFilter>
+        <criteriaItems>
+            <field>IFP_Claimed__c</field>
+            <operation>equals</operation>
+            <value>True</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Employer_IFP_Claimed__c</field>
+            <operation>equals</operation>
+            <value>True</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>RecordTypeId</field>
+            <operation>equals</operation>
+            <value>General Document</value>
+        </criteriaItems>
+        <includeRecordsOwnedByAll>false</includeRecordsOwnedByAll>
+    </sharingCriteriaRules>
+    <sharingCriteriaRules>
+        <fullName>Registration_Document</fullName>
+        <accessLevel>Edit</accessLevel>
+        <label>Registration Document</label>
+        <sharedTo>
+            <roleAndSubordinatesInternal>Registration_Services</roleAndSubordinatesInternal>
+        </sharedTo>
+        <criteriaItems>
+            <field>RecordTypeId</field>
+            <operation>equals</operation>
+            <value>Registration Document</value>
+        </criteriaItems>
+        <includeRecordsOwnedByAll>true</includeRecordsOwnedByAll>
+    </sharingCriteriaRules>
+    <sharingCriteriaRules>
+        <fullName>Registration_Services_Document_General</fullName>
+        <accessLevel>Edit</accessLevel>
+        <label>Registration Services Document - General</label>
+        <sharedTo>
+            <roleAndSubordinatesInternal>Registration_Services</roleAndSubordinatesInternal>
+        </sharedTo>
+        <criteriaItems>
+            <field>RecordTypeId</field>
+            <operation>equals</operation>
+            <value>General Document</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>VIP_Form_Section__c</field>
+            <operation>notEqual</operation>
+            <value></value>
+        </criteriaItems>
+        <includeRecordsOwnedByAll>true</includeRecordsOwnedByAll>
+    </sharingCriteriaRules>
+    <sharingCriteriaRules>
+        <fullName>Share_non_IFP_with_ALL</fullName>
+        <accessLevel>Edit</accessLevel>
+        <label>Share non-IFP with ALL</label>
+        <sharedTo>
+            <roleAndSubordinates>System_Administrators</roleAndSubordinates>
+        </sharedTo>
+        <criteriaItems>
+            <field>RecordTypeId</field>
+            <operation>notEqual</operation>
+            <value>Registration Document</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Employer_IFP_Claimed__c</field>
+            <operation>notEqual</operation>
+            <value>True</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>IFP_Claimed__c</field>
+            <operation>notEqual</operation>
+            <value>True</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>VIP_Form_Section__c</field>
+            <operation>equals</operation>
+            <value></value>
+        </criteriaItems>
+        <includeRecordsOwnedByAll>false</includeRecordsOwnedByAll>
+    </sharingCriteriaRules>
+    <sharingGuestRules>
+        <fullName>PAGA_Search_User</fullName>
+        <accessLevel>Read</accessLevel>
+        <label>PAGA Search User</label>
+        <sharedTo>
+            <guestUser>Paga_Search</guestUser>
+        </sharedTo>
+        <criteriaItems>
+            <field>Publicly_Accessible__c</field>
+            <operation>equals</operation>
+            <value>True</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Type__c</field>
+            <operation>equals</operation>
+            <value>Proposed Settlement,Other PAGA Document,Employer Response/Cure,Amended Notice,Court Order/Judgment,PAGA Notice,Cure Dispute,Court Complaint</value>
+        </criteriaItems>
+        <includeHVUOwnedRecords>false</includeHVUOwnedRecords>
+    </sharingGuestRules>
+</SharingRules>

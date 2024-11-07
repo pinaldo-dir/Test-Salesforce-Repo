@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Inactive_Closure_Sent_Date__c</fullName>
+    <description>Date entry required to generate the Inactive Closure Notice</description>
+    <externalId>false</externalId>
+    <inlineHelpText>Enter date Inactive Closure Notice was sent to the Claimant. At least 120 days after Inactive Status Notice was sent. Date entry is required to generated Inactive Closure Notice document.</inlineHelpText>
+    <label>Inactive Closure Sent Date</label>
+    <required>false</required>
+    <trackHistory>true</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Date</type>
+</CustomField>

@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>Warrant Batch</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Warrant Batches</value>
+    </caseValues>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <layouts>
+        <layout>Warrant Batch Layout</layout>
+        <sections>
+            <label><!-- Check Approval Info --></label>
+            <section>Check Approval Info</section>
+        </sections>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+    </layouts>
+    <quickActions>
+        <label><!-- Task --></label>
+        <name>Task</name>
+    </quickActions>
+    <startsWith>Consonant</startsWith>
+    <webLinks>
+        <label><!-- Generate_Check_Batch --></label>
+        <name>Generate_Check_Batch</name>
+    </webLinks>
+    <webLinks>
+        <label><!-- Generate_Documents --></label>
+        <name>Generate_Documents</name>
+    </webLinks>
+    <webLinks>
+        <label><!-- Generate_Warrant_Batch_Document --></label>
+        <name>Generate_Warrant_Batch_Document</name>
+    </webLinks>
+    <webLinks>
+        <label><!-- Merge_Test --></label>
+        <name>Merge_Test</name>
+    </webLinks>
+    <webLinks>
+        <label><!-- Print_Checks --></label>
+        <name>Print_Checks</name>
+    </webLinks>
+    <webLinks>
+        <label><!-- Print_Checks_FX --></label>
+        <name>Print_Checks_FX</name>
+    </webLinks>
+    <webLinks>
+        <label><!-- Print_Checks_LQ --></label>
+        <name>Print_Checks_LQ</name>
+    </webLinks>
+    <webLinks>
+        <label><!-- Print_Checks_Web_Page --></label>
+        <name>Print_Checks_Web_Page</name>
+    </webLinks>
+    <webLinks>
+        <label><!-- Print_Warrants --></label>
+        <name>Print_Warrants</name>
+    </webLinks>
+    <webLinks>
+        <label><!-- Process_Batch --></label>
+        <name>Process_Batch</name>
+    </webLinks>
+</CustomObjectTranslation>

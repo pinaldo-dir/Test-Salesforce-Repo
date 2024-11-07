@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Permit_must_have_eff_and_exp_dates</fullName>
+    <active>false</active>
+    <description>Permits must have effective and expiration dates</description>
+    <errorConditionFormula>ISPICKVAL(Status__c, 'Approved')
+&amp;&amp; (ISBLANK(Effective_Date__c) || ISBLANK(Expiration_Date__c))
+&amp;&amp; (RecordType.DeveloperName = 'Permit_to_Employ_Minors')</errorConditionFormula>
+    <errorMessage>Must enter Effective and Expiration dates</errorMessage>
+</ValidationRule>

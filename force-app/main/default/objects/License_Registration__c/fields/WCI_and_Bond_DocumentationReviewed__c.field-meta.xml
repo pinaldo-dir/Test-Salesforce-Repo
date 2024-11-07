@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>WCI_and_Bond_DocumentationReviewed__c</fullName>
+    <defaultValue>false</defaultValue>
+    <description>Used in conjunction with WCI and Bond Documentation DA in FLC for WCI and Bond Documentation on vipform tool for to check mark defect reviewed for the section</description>
+    <externalId>false</externalId>
+    <label>WCI and Bond Documentation Reviewed</label>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Checkbox</type>
+</CustomField>

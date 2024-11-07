@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Payment_Applied_To__c</fullName>
+    <description>F0263</description>
+    <externalId>false</externalId>
+    <label>Payment Applied To</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Wages</fullName>
+                <default>false</default>
+                <label>Wages</label>
+            </value>
+            <value>
+                <fullName>Wage Interest</fullName>
+                <default>false</default>
+                <label>Wage Interest</label>
+            </value>
+            <value>
+                <fullName>Penalties</fullName>
+                <default>false</default>
+                <label>Penalties</label>
+            </value>
+            <value>
+                <fullName>Interest</fullName>
+                <default>false</default>
+                <label>Interest</label>
+            </value>
+            <value>
+                <fullName>Hold Amount</fullName>
+                <default>false</default>
+                <label>Hold Amount</label>
+            </value>
+            <value>
+                <fullName>Refund Amount</fullName>
+                <default>false</default>
+                <label>Refund Amount</label>
+            </value>
+            <value>
+                <fullName>Other Amount</fullName>
+                <default>false</default>
+                <label>Other Amount</label>
+            </value>
+            <value>
+                <fullName>Buyback</fullName>
+                <default>false</default>
+                <label>Buyback</label>
+            </value>
+            <value>
+                <fullName>Amounts Due to DIR</fullName>
+                <default>false</default>
+                <label>Amounts Due to DIR</label>
+            </value>
+            <value>
+                <fullName>DIR Attorney Fees</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>DIR Attorney Fees</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

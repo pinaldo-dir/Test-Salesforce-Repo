@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+        <help><!-- Employee Number (Employer Assigned Payroll Number) --></help>
+        <label><!-- Employee Number --></label>
+        <name>Employee_Number__c</name>
+    </CustomFieldTranslation>

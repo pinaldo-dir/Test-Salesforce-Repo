@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Update_Mail_Tracking_Details</fullName>
+    <columns>NAME</columns>
+    <columns>Warrant_Batch__c</columns>
+    <columns>Office_Account__c</columns>
+    <columns>Amount__c</columns>
+    <columns>Issue_Date__c</columns>
+    <columns>Status__c</columns>
+    <columns>Mailed_Date__c</columns>
+    <columns>Certified_Mail_Tracking_No__c</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>Status__c</field>
+        <operation>equals</operation>
+        <value>Printed</value>
+    </filters>
+    <filters>
+        <field>RECORDTYPE</field>
+        <operation>equals</operation>
+        <value>Warrant__c.Warrant_Approved</value>
+    </filters>
+    <filters>
+        <field>Issue_Date__c</field>
+        <operation>equals</operation>
+        <value>1/23/2014</value>
+    </filters>
+    <label>Update Mail Tracking Details</label>
+</ListView>

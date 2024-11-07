@@ -1,0 +1,45 @@
+<template>
+        <template if:true={boolVisible}>
+            <div class="slds-align_absolute-center" style="padding:10px;">
+                <div class="payment-processing">
+                    Please wait while your payment is being processed.
+                </div>
+            </div>
+        </template>
+
+        <div class="slds-align_absolute-center" style="padding:10px;">
+            <div class="error-message">
+                {displayResults}
+            </div>
+        </div>
+
+        <div class="slds-align_absolute-center">
+            <div style="padding:5px">
+                <lightning-button 
+                    class="button"
+                    label="Back"
+                    variant="brand"
+                    disabled={disabled}
+                    onclick={handleBack}>
+                </lightning-button>
+            </div>
+            <div style="padding:5px">
+                <lightning-button 
+                    class="button"
+                    label="Cancel Payment"
+                    variant="brand"
+                    disabled={disabled}
+                    onclick={handleCancel}>
+                </lightning-button>
+            </div>
+            <div style="padding:5px">    
+                <lightning-button 
+                    class="button"
+                    label="Confirm & Submit Payment"
+                    variant="brand"
+                    disabled={disabled}
+                    onclick={handleNext}>
+                </lightning-button>
+            </div>
+        </div>
+</template>

@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <label>OWC Successor Hours Work Recorded Type</label>
+    <pluralLabel>OWC Successor Hours Work Recorded Types</pluralLabel>
+    <visibility>Public</visibility>
+</CustomObject>

@@ -1,0 +1,367 @@
+<!--
+  @description       : 
+  @author            : ChangeMeIn@UserSettingsUnder.SFDoc
+  @group             : 
+  @last modified on  : 09-28-2022
+  @last modified by  : ChangeMeIn@UserSettingsUnder.SFDoc
+-->
+<template>
+    <!--Form preview when true-->
+    <template if:true={isFormPreviewMode}>
+        <Form class="">
+            <div class="slds-grid slds-wrap">
+                <div class="slds-col slds-medium-size_1-of-8 slds-large-size_1-of-8"></div>
+                <div class="slds-col slds-size_1-of-1 slds-medium-size_6-of-8 slds-large-size_6-of-8">
+                    <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-1 slds-large-size_1-of-1">
+                        <div class="slds-grid slds-wrap">
+                            <div class="slds-col slds-size_1-of-1 slds-medium-size_5-of-6 slds-large-size_5-of-6">
+                                <h1 class="slds-p-around_medium slds-text-heading_large owcHeadingStyle">
+                                    {customLabelValues.OWC_OnlineDemographic_Heading}
+                                </h1>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="slds-p-left_medium slds-col slds-size_1-of-1 slds-medium-size_1-of-1 slds-large-size_1-of-1">
+                        {customLabelValues.OWC_Demographic_Instruction_Label}
+                    </div>
+                    <!-- <div class="slds-p-left_medium slds-p-top_medium slds-col slds-size_1-of-1 slds-medium-size_1-of-1 slds-large-size_1-of-1">
+                        <span>{customLabelValues.OWC_Demographic_heading_text}</span>
+                        <span class="slds-p-left_x-small">
+                            <lightning-icon icon-name="utility:info" class="my-icon" size="x-small" alternative-text="info"  label={customLabelValues.OWC_learnmore_button} name="demoGraphicInstruction" onclick={handleHelpText} ></lightning-icon>
+                        </span>
+                    </div> -->
+                    <!--Gender / Gender Identity-->
+                    <template if:true={DemographicGenderIdentity}>
+                        <fieldset class="slds-p-around_medium slds-p-left_xx-large  ">
+                            <div class="slds-grid slds-wrap">
+                                <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-1 slds-large-size_1-of-1 ">
+                                    {customLabelValues.OWC_Demographic_Gender}
+                                </div>
+                                <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-2 slds-large-size_1-of-2 slds-p-top_xx-small">
+                                    <lightning-combobox disabled
+                                                        variant="label-hidden"
+                                                        name="DemographicGenderIdentity"
+                                                        placeholder={customLabelValues.OWC_select_picklist_label}
+                                                        data-id="DemographicGenderIdentity"
+                                                        value={DemographicGenderIdentity}
+                                                        options={genderOptions}
+                                                        onchange={handleChange} 
+                                                        ></lightning-combobox>
+                                    
+                                </div>
+                            </div>
+                            <template if:true={GenderOther}>
+                                <div class="slds-grid slds-wrap slds-p-top_medium">
+                                    <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-1 slds-large-size_1-of-1 ">
+                                        {customLabelValues.OWC_Other}
+                                    </div>
+                                    <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-2 slds-large-size_1-of-2 slds-p-top_xx-small">
+                                        <lightning-input disabled 
+                                                        data-id="GenderOther" 
+                                                        name="GenderOther" 
+                                                        type="text" 
+                                                        variant="label-hidden"  
+                                                        value={GenderOther} 
+                                                        onchange={handleChange} ></lightning-input>
+                                        
+                                    </div>
+                                </div>
+                            </template>
+                        </fieldset>
+                    </template>
+                    <!--Sexual Orientation-->
+                    <template if:true={DemographicSexualOrientation}>
+                        <fieldset class="slds-p-around_medium slds-p-left_xx-large  ">
+                            <div class="slds-grid slds-wrap">
+                                <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-1 slds-large-size_1-of-1 ">
+                                    {customLabelValues.OWC_Demographic_SexualOrientation}
+                                </div>
+                                <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-2 slds-large-size_1-of-2 slds-p-top_xx-small">
+                                    <lightning-combobox disabled
+                                                        variant="label-hidden"
+                                                        name="DemographicSexualOrientation"
+                                                        placeholder={customLabelValues.OWC_select_picklist_label}
+                                                        data-id="DemographicSexualOrientation"
+                                                        value={DemographicSexualOrientation}
+                                                        options={sexualOrientationOptions}
+                                                        onchange={handleChange} 
+                                                        ></lightning-combobox>
+                                    
+                                </div>
+                            </div>
+                            <template if:true={SexualOrientationOther}>
+                                <div class="slds-grid slds-wrap slds-p-top_medium">
+                                    <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-1 slds-large-size_1-of-1 ">
+                                        {customLabelValues.OWC_Other}
+                                    </div>
+                                    <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-2 slds-large-size_1-of-2 slds-p-top_xx-small">
+                                        <lightning-input disabled 
+                                                        data-id="SexualOrientationOther" 
+                                                        name="SexualOrientationOther" 
+                                                        type="text" 
+                                                        variant="label-hidden"  
+                                                        value={SexualOrientationOther} 
+                                                        onchange={handleChange} ></lightning-input>
+                                        
+                                    </div>
+                                </div>
+                            </template>
+                        </fieldset>
+                    </template>
+                    <!--Race-->
+                    <template if:true={DemographicRace}>
+                        <fieldset class="slds-p-around_medium slds-p-left_xx-large  ">
+                            <div class="slds-grid slds-wrap">
+                                <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-1 slds-large-size_1-of-1 ">
+                                    {customLabelValues.OWC_Demographic_Race}
+                                    <span class="slds-p-left_x-small">
+                                        <lightning-icon icon-name="utility:info" class="my-icon" size="x-small" alternative-text="info"  label={customLabelValues.OWC_learnmore_button} name="raceAndEthinicityHelptext" onclick={handleHelpText} ></lightning-icon>
+                                    </span>
+                                </div>
+                                <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-2 slds-large-size_1-of-2 slds-p-top_xx-small">
+                                    <lightning-combobox disabled
+                                                        variant="label-hidden"
+                                                        name="DemographicRace"
+                                                        placeholder={customLabelValues.OWC_select_picklist_label}
+                                                        data-id="DemographicRace"
+                                                        value={DemographicRace}
+                                                        options={raceOptions}
+                                                        onchange={handleChange} 
+                                                        ></lightning-combobox>
+                                    
+                                </div>
+                            </div>
+                            <template if:true={DemographicRaceOther}>
+                                <div class="slds-grid slds-wrap slds-p-top_medium">
+                                    <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-1 slds-large-size_1-of-1 ">
+                                        {customLabelValues.OWC_Other}
+                                    </div>
+                                    <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-2 slds-large-size_1-of-2 slds-p-top_xx-small">
+                                        <lightning-input disabled
+                                                        data-id="DemographicRaceOther" 
+                                                        name="DemographicRaceOther" 
+                                                        type="text" 
+                                                        variant="label-hidden"  
+                                                        value={DemographicRaceOther} 
+                                                        onchange={handleChange} ></lightning-input>
+                                        
+                                    </div>
+                                </div>
+                            </template>
+                        </fieldset>
+                    </template>                    
+                </div>
+            </div>
+        </Form> 
+    </template>
+    <!--Form preview when false-->
+    <template if:false={isFormPreviewMode}>
+        <Form class="">
+            <div class="slds-grid slds-wrap">
+                <div class="slds-col slds-medium-size_1-of-8 slds-large-size_1-of-8"></div>
+                <div class="slds-col slds-size_1-of-1 slds-medium-size_6-of-8 slds-large-size_6-of-8">
+                    <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-1 slds-large-size_1-of-1">
+                        <div class="slds-grid slds-wrap">
+                            <div class="slds-col slds-size_1-of-1 slds-medium-size_5-of-6 slds-large-size_5-of-6">
+                                <h1 class="slds-p-around_medium slds-text-heading_large owcHeadingStyle">
+                                    {customLabelValues.OWC_OnlineDemographic_Heading}
+                                </h1>
+                            </div>
+                            <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-6 slds-large-size_1-of-6">
+                                <lightning-button class="slds-float_right slds-m-top_medium slds-m-bottom_medium slds-m-left_medium owcButtonStyle" label={customLabelValues.OWC_save_as_draft_label} variant="brand" onclick={handleSaveAsDraft}></lightning-button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="slds-p-left_medium slds-col slds-size_1-of-1 slds-medium-size_1-of-1 slds-large-size_1-of-1">
+                        {customLabelValues.OWC_Demographic_Instruction_Label}
+                    </div>
+                    <div class="slds-p-left_medium slds-p-top_medium slds-col slds-size_1-of-1 slds-medium-size_1-of-1 slds-large-size_1-of-1">
+                        <span>{customLabelValues.OWC_Demographic_heading_text}</span>
+                        <span class="slds-p-left_x-small">
+                            <lightning-icon icon-name="utility:info" class="my-icon" size="x-small" alternative-text="info"  label={customLabelValues.OWC_learnmore_button} name="demoGraphicInstruction" onclick={handleHelpText} ></lightning-icon>
+                        </span>
+                    </div>
+                    <!--Gender / Gender Identity-->
+                    <fieldset class="slds-p-around_medium slds-p-left_xx-large  ">
+                        <div class="slds-grid slds-wrap">
+                            <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-1 slds-large-size_1-of-1 ">
+                                {customLabelValues.OWC_Demographic_Gender}
+                                <!-- <span class="slds-p-left_x-small">
+                                    <lightning-icon icon-name="utility:info" class="my-icon" size="x-small" alternative-text="info"  label={customLabelValues.OWC_learnmore_button} name="workweekHelptext" onclick={handleHelpText} ></lightning-icon>
+                                    </span> -->
+                            </div>
+                            <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-2 slds-large-size_1-of-2 slds-p-top_xx-small">
+                                <lightning-combobox
+                                                    variant="label-hidden"
+                                                    name="DemographicGenderIdentity"
+                                                    placeholder={customLabelValues.OWC_select_picklist_label}
+                                                    data-id="DemographicGenderIdentity"
+                                                    value={DemographicGenderIdentity}
+                                                    options={genderOptions}
+                                                    onchange={handleChange} 
+                                                    ></lightning-combobox>
+                                
+                            </div>
+                        </div>
+                        <template if:true={isGenderOther}>
+                            <div class="slds-grid slds-wrap slds-p-top_medium">
+                                <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-1 slds-large-size_1-of-1 ">
+                                    {customLabelValues.OWC_Other}
+                                </div>
+                                <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-2 slds-large-size_1-of-2 slds-p-top_xx-small">
+                                    <lightning-input data-id="GenderOther" 
+                                    max-length="255"
+                                                    name="GenderOther" 
+                                                    type="text" 
+                                                    variant="label-hidden"  
+                                                    value={GenderOther} 
+                                                    onchange={handleChange} ></lightning-input>
+                                    
+                                </div>
+                            </div>
+                        </template>
+                    </fieldset>
+                    <!--Sexual Orientation-->
+                    <fieldset class="slds-p-around_medium slds-p-left_xx-large  ">
+                        <div class="slds-grid slds-wrap">
+                            <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-1 slds-large-size_1-of-1 ">
+                                {customLabelValues.OWC_Demographic_SexualOrientation}
+                                <!-- <span class="slds-p-left_x-small">
+                                    <lightning-icon icon-name="utility:info" class="my-icon" size="x-small" alternative-text="info"  label={customLabelValues.OWC_learnmore_button} name="workweekHelptext" onclick={handleHelpText} ></lightning-icon>
+                                    </span> -->
+                            </div>
+                            <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-2 slds-large-size_1-of-2 slds-p-top_xx-small">
+                                <lightning-combobox
+                                                    variant="label-hidden"
+                                                    name="DemographicSexualOrientation"
+                                                    placeholder={customLabelValues.OWC_select_picklist_label}
+                                                    data-id="DemographicSexualOrientation"
+                                                    value={DemographicSexualOrientation}
+                                                    options={sexualOrientationOptions}
+                                                    onchange={handleChange} 
+                                                    ></lightning-combobox>
+                                
+                            </div>
+                        </div>
+                        <template if:true={isSexualOrientationOther}>
+                            <div class="slds-grid slds-wrap slds-p-top_medium">
+                                <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-1 slds-large-size_1-of-1 ">
+                                    {customLabelValues.OWC_Other}
+                                </div>
+                                <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-2 slds-large-size_1-of-2 slds-p-top_xx-small">
+                                    <lightning-input data-id="SexualOrientationOther" max-length="255"
+                                                    name="SexualOrientationOther" 
+                                                    type="text" 
+                                                    variant="label-hidden"  
+                                                    value={SexualOrientationOther} 
+                                                    onchange={handleChange} ></lightning-input>
+                                    
+                                </div>
+                            </div>
+                        </template>
+                    </fieldset>
+                    <!--Race-->
+                    <fieldset class="slds-p-around_medium slds-p-left_xx-large  ">
+                        <div class="slds-grid slds-wrap">
+                            <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-1 slds-large-size_1-of-1 ">
+                                {customLabelValues.OWC_Demographic_Race}
+                                <!-- <span class="slds-p-left_x-small">
+                                    <lightning-icon icon-name="utility:info" class="my-icon" size="x-small" alternative-text="info"  label={customLabelValues.OWC_learnmore_button} name="raceAndEthinicityHelptext" onclick={handleHelpText} ></lightning-icon>
+                                </span> -->
+                            </div>
+                            <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-2 slds-large-size_1-of-2 slds-p-top_xx-small">
+                                <lightning-combobox
+                                                    variant="label-hidden"
+                                                    name="DemographicRace"
+                                                    placeholder={customLabelValues.OWC_select_picklist_label}
+                                                    data-id="DemographicRace"
+                                                    value={DemographicRace}
+                                                    options={raceOptions}
+                                                    onchange={handleChange} 
+                                                    ></lightning-combobox>
+                                
+                            </div>
+                        </div>
+                        <template if:true={isDemographicRaceOther}>
+                            <div class="slds-grid slds-wrap slds-p-top_medium">
+                                <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-1 slds-large-size_1-of-1 ">
+                                    {customLabelValues.OWC_Other}
+                                </div>
+                                <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-2 slds-large-size_1-of-2 slds-p-top_xx-small">
+                                    <lightning-input data-id="DemographicRaceOther" max-length="255"
+                                                    name="DemographicRaceOther" 
+                                                    type="text" 
+                                                    variant="label-hidden"  
+                                                    value={DemographicRaceOther} 
+                                                    onchange={handleChange} ></lightning-input>
+                                    
+                                </div>
+                            </div>
+                        </template>
+                    </fieldset>
+                    <!--Ethnicity-->
+                    <!-- <fieldset class="slds-p-around_medium slds-p-left_xx-large  ">
+                        <div class="slds-grid slds-wrap">
+                            <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-1 slds-large-size_1-of-1 ">
+                                {customLabelValues.OWC_Demographic_Ethnicity}
+                            </div>
+                            <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-2 slds-large-size_1-of-2 slds-p-top_xx-small">
+                                <lightning-combobox
+                                                    variant="label-hidden"
+                                                    name="DemographicEthnicity"
+                                                    placeholder={customLabelValues.OWC_select_picklist_label}
+                                                    data-id="DemographicEthnicity"
+                                                    value={DemographicEthnicity}
+                                                    options={ethnicityOptions}
+                                                    onchange={handleChange} 
+                                                    ></lightning-combobox>
+                                
+                            </div>
+                        </div>
+                    </fieldset> -->
+                    <!-- Ancestry / Ethnic Origin-->
+                    <!-- <fieldset class="slds-p-around_medium slds-p-left_xx-large  ">
+                        <div class="slds-grid slds-wrap">
+                            <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-1 slds-large-size_1-of-1 ">
+                                {customLabelValues.OWC_Demographic_Ethnic_Origin}
+                            </div>
+                            <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-2 slds-large-size_1-of-2 slds-p-top_xx-small">
+                                <lightning-combobox
+                                                    variant="label-hidden"
+                                                    name="DemographicEthnicOrigin"
+                                                    placeholder={customLabelValues.OWC_select_picklist_label}
+                                                    data-id="DemographicEthnicOrigin"
+                                                    value={DemographicEthnicOrigin}
+                                                    options={ethnicOriginOptions}
+                                                    onchange={handleChange} 
+                                                    ></lightning-combobox>
+                                
+                            </div>
+                        </div>
+                        <template if:true={isDemographicEthnicOriginOther}>
+                            <div class="slds-grid slds-wrap slds-p-top_medium">
+                                <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-1 slds-large-size_1-of-1 ">
+                                    {customLabelValues.OWC_Other}
+                                </div>
+                                <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-2 slds-large-size_1-of-2 slds-p-top_xx-small">
+                                    <lightning-input data-id="DemographicEthnicOriginOther" 
+                                                    name="DemographicEthnicOriginOther" 
+                                                    type="text" 
+                                                    variant="label-hidden"  
+                                                    value={DemographicEthnicOriginOther} 
+                                                    onchange={handleChange} ></lightning-input>
+                                    
+                                </div>
+                            </div>
+                        </template>
+                    </fieldset> -->
+                </div>
+            </div>
+        </Form>
+    </template>
+    <!--Help text template-->
+    <template if:true={isHelpText}>
+        <c-owc-Help-Text-Cmp isracedemoinfotext={isRaceDemograhicText} isdemograhictext={isDemograhicText} helptext={helpText} issickleavehelptext={issickleavehelptext} onhelptextevent={handleHelpTextEvent}></c-owc-Help-Text-Cmp>
+    </template> 
+   
+</template>

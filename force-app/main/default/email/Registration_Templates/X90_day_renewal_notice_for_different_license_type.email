@@ -1,0 +1,15 @@
+The current {!License_Registration__c.License_Registration_Type__c} {!License_Registration__c.Application_Type__c} {!License_Registration__c.License_Registration_Number__c} for {!License_Registration__c.Legal_Entity_Name__c} is expiring {!License_Registration__c.Expiration_Date__c}. Please visit our website to submit a renewal application. {!License_Registration__c.License_Registration_Number__c}
+
+We appreciate the timeliness of your submitted renewal application.
+
+{!License_Registration__c.License_Penalty_Verbiage__c}
+
+Failure to submit your renewal application prior to the expiration date of your current {!License_Registration__c.License_Registration_Type__c} {!License_Registration__c.Application_Type__c}, will require a new {!License_Registration__c.License_Registration_Type__c} {!License_Registration__c.Application_Type__c} number to be issued.
+
+Click here to begin or continue the renewal process: {!License_Registration__c.Registration_Site__c} 
+
+Sincerely, 
+Licensing & Registration
+Labor Commissioner's office
+Department of Industrial Relations
+State of California

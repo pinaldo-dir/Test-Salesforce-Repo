@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Alleged_claims__c</fullName>
+    <externalId>false</externalId>
+    <label>Alleged claims</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>MultiselectPicklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Misappropriation of Trade Secrets</fullName>
+                <default>false</default>
+                <label>Misappropriation of Trade Secrets</label>
+            </value>
+            <value>
+                <fullName>Breach of Fiduciary Duty</fullName>
+                <default>false</default>
+                <label>Breach of Fiduciary Duty</label>
+            </value>
+            <value>
+                <fullName>Conversion</fullName>
+                <default>false</default>
+                <label>Conversion</label>
+            </value>
+            <value>
+                <fullName>Unfair Competition</fullName>
+                <default>false</default>
+                <label>Unfair Competition</label>
+            </value>
+            <value>
+                <fullName>Intentional Interference with Economic Advantage</fullName>
+                <default>false</default>
+                <label>Intentional Interference with Economic Advantage</label>
+            </value>
+            <value>
+                <fullName>Malicious Prosecution</fullName>
+                <default>false</default>
+                <label>Malicious Prosecution</label>
+            </value>
+            <value>
+                <fullName>Defamation</fullName>
+                <default>false</default>
+                <label>Defamation</label>
+            </value>
+            <value>
+                <fullName>Injunctive relief</fullName>
+                <default>false</default>
+                <label>Injunctive relief</label>
+            </value>
+            <value>
+                <fullName>Other</fullName>
+                <default>false</default>
+                <label>Other</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+    <visibleLines>4</visibleLines>
+</CustomField>

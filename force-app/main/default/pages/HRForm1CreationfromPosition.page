@@ -1,0 +1,27 @@
+<apex:page standardController="Position__c">
+    <script src="{!URLFOR($Resource.jquery_mobile,'jquery.min.js')}"></script>    
+    <script>
+        window.onload = showAlert();
+        function showAlert()     
+            {        
+                var F1Active = '{!Position__c.Active_F1__c}';
+                var PositionCancelled = '{!Position__c.Position_Closed_Abolished__c}';
+                if((F1Active == 'false' || PositionCancelled == 'false'))
+                   {
+                    window.open("/lightning/o/Form_1__c/new?defaultFieldValues=SEC1_Position__c={!Position__c.Id},SEC1_Class_Title__c={!Position__c.Class_Title__c},SEC1_Position_Number__c={!Position__c.Name}", "_self");
+                }
+                if(F1Active == 'true')
+                {
+                    alert('This position has an active Form 1, new Form 1 is not allowed');
+                    window.open("/lightning/r/Position__c/{!Position__c.Id}/view", "_self");                  
+                }
+                if(PositionCancelled == 'true')
+                  {
+                   	    alert('This position is closed or abolished; a new Form 1 is not allowed.');
+                    window.open("/lightning/r/Position__c/{!Position__c.Id}/view", "_self");  
+                  }
+
+            }
+
+    </script>
+</apex:page>

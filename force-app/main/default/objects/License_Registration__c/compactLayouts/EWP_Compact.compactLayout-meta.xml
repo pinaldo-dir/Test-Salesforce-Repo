@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CompactLayout xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>EWP_Compact</fullName>
+    <fields>License_Registration_Number__c</fields>
+    <fields>First_Name__c</fields>
+    <fields>Last_Name__c</fields>
+    <fields>Status__c</fields>
+    <fields>Age__c</fields>
+    <fields>Effective_Date__c</fields>
+    <fields>Expiration_Date__c</fields>
+    <label>EWP_Compact</label>
+</CompactLayout>

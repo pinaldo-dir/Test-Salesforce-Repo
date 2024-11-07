@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Original_Amount_Payable_to_Employee_s__c</fullName>
+    <externalId>false</externalId>
+    <inlineHelpText>Sum of "Original Amount Payable to EE(s)" from all Case Issues.</inlineHelpText>
+    <label>Original Amount Payable to Employee(s)</label>
+    <summarizedField>DIR_Violation__c.Original_Wage_Assessment_Amount__c</summarizedField>
+    <summaryFilterItems>
+        <field>DIR_Violation__c.Status__c</field>
+        <operation>notEqual</operation>
+        <value>Canceled - Invalid</value>
+    </summaryFilterItems>
+    <summaryFilterItems>
+        <field>DIR_Violation__c.Status__c</field>
+        <operation>notEqual</operation>
+        <value>Canceled/Invalid</value>
+    </summaryFilterItems>
+    <summaryFilterItems>
+        <field>DIR_Violation__c.Status__c</field>
+        <operation>notEqual</operation>
+        <value>Administrative Dismissal</value>
+    </summaryFilterItems>
+    <summaryFilterItems>
+        <field>DIR_Violation__c.Status__c</field>
+        <operation>notEqual</operation>
+        <value>Dismissed</value>
+    </summaryFilterItems>
+    <summaryForeignKey>DIR_Violation__c.Case__c</summaryForeignKey>
+    <summaryOperation>sum</summaryOperation>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Summary</type>
+</CustomField>

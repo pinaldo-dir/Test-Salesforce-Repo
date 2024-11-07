@@ -1,0 +1,261 @@
+<apex:page controller="FLCClassAdminController" title="My Registrations" docType="HTML-5.0" applyHtmlTag="false" applyBodyTag="false" sidebar="false" showHeader="false" standardStylesheets="false" tabStyle="My_Registrations__tab">
+   <script>
+         function clearFields() {
+            alert('hello');
+             
+            document.getElementById('RegistrationNumber').value = '';
+             
+            var elements = document.getElementsByTagName("input");
+            for (var ii=0; ii < elements.length; ii++) {
+              if (elements[ii].type == "text") {
+                elements[ii].value = "";
+             }
+            
+    }
+    </script> 
+    <style>
+        th { font-size: 12px; }
+        td { font-size: 12px; }
+        a.disabled {
+            background: linear-gradient(to bottom, #A9A9A9 100%,#D3D3D3 100%);
+            filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#A9A9A9', endColorstr='#D3D3D3',GradientType=0 );
+            color: #fff;
+            font-weight: bold;
+            border-radius: 5px;
+            border: 0;
+            padding: 8px 12px;
+            font-size: 15px;
+            line-height: 1.42857143;
+            pointer-events: none;
+            cursor: default;
+        }
+         .help-text { font-size:x-small }
+    </style>
+    <script>
+        $j = jQuery.noConflict();    
+    </script>
+    
+
+    
+    <script type="text/javascript">
+        
+    function viewFLCClass(ownId){
+        //alert('hello');
+        
+        url="/registrations/FLCClass"
+        var winName = "'FLCClass";
+        var form = document.createElement("form");
+        form.setAttribute("id", "FLCClass");
+        form.setAttribute("method", "post");
+        form.setAttribute("action", url);
+        form.setAttribute("target",winName);
+        
+        var input = document.createElement('input');
+        input.type = 'hidden';
+        input.name = 'id';
+        input.value = ownId;
+        form.appendChild(input);
+        
+        document.body.appendChild(form);
+        window.open('',winName);
+        form.target = winName;
+        form.submit();
+        document.body.removeChild(form);    
+    }
+    </script>
+    
+    <apex:composition template="CommunityRegistrationTemplate">
+         
+        <apex:define name="body">
+        
+            <apex:form >
+                <ol class="breadcrumb">
+                    <li><a href="https://www.dir.ca.gov/dlse/dlse.html">Department of Industrial Relations (DIR)</a></li>
+                   
+                </ol>
+                 
+                <h1>Search to Enter Class</h1>
+                
+                <div class="col-lg-8">
+                    To search by License or Owner, enter the information below and click search.
+                </div>
+
+                <div class="row mb">
+                    <!-- empty row -->
+                </div>
+                
+                <br/>
+                <font color="red"><apex:outputPanel id="msgPanel"><apex:pageMessages /></apex:outputPanel></font>
+                <div class="row mb">
+                    <div class="col-lg-3 text-left">
+                        <b><label for="{!$Component.RegistrationNumber}">License Registration Number</label></b>
+                    </div>
+                    <div class="col-lg-3" >  
+                        <apex:inputField id="RegistrationNumber" value="{!currentRegistration.License_Registration_Number__c}" label="License Registration Number" required="false" styleclass="form-control" />
+                        <span class="help-text">Enter complete license number (e.g., FLC-LR-1000438582, FLC000123456, 1000002166).</span>
+                    </div>
+                </div>
+                <div class="row mb">
+                    <div class="col-lg-3 text-left">
+                        <b><label for="{!$Component.Legal_Entity_Name__c}">Legal Entity Name</label></b>
+                    </div>
+                    <div class="col-lg-3">
+                        <apex:inputField id="Legal_Entity_Name__c" value="{!currentRegistration.Legal_Entity_Name__c}" label="Legal Entity Name" required="false" styleclass="form-control" />
+                      
+                    </div>
+                </div>
+                <div class="row mb">
+                    <div class="col-lg-3 text-left">
+                        <b><label for="{!$Component.First_Name__c}">First Name</label></b>
+                    </div>
+                    <div class="col-lg-3">
+                        <apex:inputField id="First_Name__c" value="{!owners.First_Name__c}" label="Owner First Name" required="false" styleclass="form-control" />
+                      
+                    </div>
+                </div>
+                <div class="row mb">
+                    <div class="col-lg-3 text-left">
+                        <b><label for="{!$Component.Middle_Name__c}">Middle Name</label></b>
+                    </div>
+                    <div class="col-lg-3">
+                        <apex:inputField id="Middle_Name__c" value="{!owners.Middle_Name__c}" label="Owner Middle Name" required="false" styleclass="form-control" />
+                      
+                    </div>
+                </div>
+                <div class="row mb">
+                    <div class="col-lg-3 text-left">
+                        <b><label for="{!$Component.Last_Name__c}">Last Name</label></b>
+                    </div>
+                    <div class="col-lg-3">
+                        <apex:inputField id="Last_Name__c" value="{!owners.Last_Name__c}" label="Owner Last Name" required="false" styleclass="form-control" />
+                        
+                    </div>
+                </div>
+                <div class="row mb">
+                    <br/><br/>
+                    <div class="col-lg-3"></div>
+                    <div class="col-lg-3">
+                        <center>
+                            <apex:commandLink action="{!SearchRegistration}" value="Search" style="text-decoration:none;" rerender="tablePanel,msgPanel" styleclass="btn btn-custom"/>&nbsp;&nbsp;
+							<apex:commandLink action="{!ClearFields}" value="Clear" style="text-decoration:none;" styleclass="btn btn-custom" />                            
+                            <!--
+<apex:commandLink  onclick="clearFields()" value="Clear" style="text-decoration:none;" styleclass="btn btn-custom" immediate="true" />                            
+
+                            -->
+                        </center>
+                    </div>
+
+                </div>
+                <div class="row mb">
+                    <div class="col-lg-3"><br/><br/>
+                    </div>
+                </div>
+                <apex:outputPanel id="tablePanel" >
+                    <!-- <apex:outputPanel rendered="{!AllRegistrations.size >0}"> -->
+                    <apex:outputPanel rendered="{!allOwners.size >0}">    
+                        Click the "View/Add Class" button to modify the class information for the owner.
+                        <div class="row">
+                            <div class="col-xs-12">
+                                <div class="table-responsive">
+                                    <table id="table" class="cell-border stripe" cellspacing="0">
+                                        
+                                        <thead>
+                                            <tr> 
+                                                <th style="text-align:center;">Action</th>
+                                                <th style="text-align:center;">Created Date</th>
+                                                <th style="text-align:center;">Registration Status</th>
+                                                <th style="text-align:center;">Owner First Name</th>
+                                                <th style="text-align:center;">Owner Middle Name</th>
+                                                <th style="text-align:center;">Owner Last Name</th>
+                                                <th style="text-align:center;">Legal Entity Name</th>
+                                                <th style="text-align:center;">License Registration Number</th>
+                                                <th style="text-align:center;">Effective Date</th>
+                                                <th style="text-align:center;">Expiration Date</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <apex:repeat value="{!allOwners}" var="own">
+                                                <tr>
+                                                    <td style="text-align:center;">
+                                                        
+                                                        <apex:commandLink onclick="viewFLCClass('{!own.Id}')" value="View/Add Class" style="text-decoration:none;" styleclass="btn btn-custom">
+                                                        </apex:commandLink>
+                                                    </td>
+                                                    <td style="text-align:center;">
+                                                        <apex:outputText value="{0, date, MM/dd/YYYY}">
+                                                            <apex:param value="{!own.Registration__r.CreatedDate}" /> 
+                                                        </apex:outputText>
+                                                    </td>
+                                                    <td style="text-align:center;">
+                                                        {!own.Registration__r.Status__c}
+                                                    </td>
+                                                    <td style="text-align:center;">
+                                                        {!own.First_Name__c}
+                                                    </td>
+                                                    <td style="text-align:center;">
+                                                        {!own.Middle_Name__c}
+                                                    </td>
+                                                    <td style="text-align:center;">
+                                                        {!own.Last_Name__c}
+                                                    </td>
+                                                    <td style="text-align:center;">
+                                                        {!own.Registration__r.Legal_Entity_Name__c}
+                                                    </td>
+                                                    <td style="text-align:center;">
+                                                        {!own.Registration__r.License_Registration_Number__c}
+                                                    </td>
+                                                    <td style="text-align:center;">
+                                                        <apex:outputText value="{0, date, MMMM d','  yyyy}">
+                                                            <apex:param value="{!own.Registration__r.Effective_Date__c}" /> 
+                                                        </apex:outputText>
+                                                    </td>
+                                                    <td style="text-align:center;">
+                                                        <apex:outputText value="{0, date, MMMM d','  yyyy}">
+                                                            <apex:param value="{!own.Registration__r.Expiration_Date__c}" /> 
+                                                        </apex:outputText>
+                                                    </td>
+                                                </tr>
+                                             </apex:repeat>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                     </apex:outputpanel>
+                     <apex:outputPanel rendered="{!AllRegistrations.size != 1}">
+                         <div class="row mb">
+                            <div class="col-lg-2"></div>
+                            <div class="col-lg-8">
+                                <apex:outputPanel id="errorPanel">
+                                    <div style="display:{!errorDisplay}" class="{!errortype}">
+                                        <center>{!errormessage}</center> 
+                                    </div>
+                                </apex:outputPanel>
+                            </div>
+                            <div class="col-lg-2"></div>
+                        </div>
+                        <div class="row mb">
+                            <div class="col-lg-5"></div>
+                            <div class="col-lg-2">
+                                <center>
+                                    <apex:commandLink action="{!CancelBack}" value="Go Back" styleclass="btn btn-custom" style="text-decoration:none;display:{!errorDisplay};"  />
+                                </center> 
+                            </div>
+                            <div class="col-lg-5"></div>
+                        </div>                           
+                     </apex:outputPanel>
+                     <script type="text/javascript">
+                        $j(document).ready(function(){
+                            $j('#table').DataTable({
+                                "bPaginate": false,
+                                "bLengthChange": false,
+                                "bFilter": false,
+                                "bSort": false,
+                            });
+                        });
+                    </script>
+                </apex:outputpanel> 
+            </apex:form>
+        </apex:define>
+    </apex:composition>
+</apex:page>

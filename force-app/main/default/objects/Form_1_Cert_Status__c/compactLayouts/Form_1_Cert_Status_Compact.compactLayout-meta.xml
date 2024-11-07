@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CompactLayout xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Form_1_Cert_Status_Compact</fullName>
+    <fields>Form_1__c</fields>
+    <label>Form 1 Cert Status Compact</label>
+</CompactLayout>

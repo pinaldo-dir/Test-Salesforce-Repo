@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Outcome__c</fullName>
+    <externalId>false</externalId>
+    <label>Outcome</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Dismissed with Prejudice</fullName>
+                <default>false</default>
+                <label>Dismissed with Prejudice</label>
+            </value>
+            <value>
+                <fullName>Dismissed without Prejudice</fullName>
+                <default>false</default>
+                <label>Dismissed without Prejudice</label>
+            </value>
+            <value>
+                <fullName>Judgment in favor of Employer</fullName>
+                <default>false</default>
+                <label>Judgment in favor of Employer</label>
+            </value>
+            <value>
+                <fullName>Judgment in favor of worker</fullName>
+                <default>false</default>
+                <label>Judgment in favor of worker</label>
+            </value>
+            <value>
+                <fullName>Settlement</fullName>
+                <default>false</default>
+                <label>Settlement</label>
+            </value>
+            <value>
+                <fullName>Other</fullName>
+                <default>false</default>
+                <label>Other</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

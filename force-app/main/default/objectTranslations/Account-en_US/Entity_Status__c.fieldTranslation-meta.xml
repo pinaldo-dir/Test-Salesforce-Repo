@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+        <label><!-- Entity Status --></label>
+        <name>Entity_Status__c</name>
+        <picklistValues>
+            <masterLabel>Active</masterLabel>
+            <translation><!-- Active --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Canceled</masterLabel>
+            <translation><!-- Canceled --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Consolidated Out</masterLabel>
+            <translation><!-- Consolidated Out --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Converted Out</masterLabel>
+            <translation><!-- Converted Out --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Delinquent</masterLabel>
+            <translation><!-- Delinquent --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Dissolved</masterLabel>
+            <translation><!-- Dissolved --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Expired</masterLabel>
+            <translation><!-- Expired --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Forfeited</masterLabel>
+            <translation><!-- Forfeited --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Merged Out</masterLabel>
+            <translation><!-- Merged Out --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Revoked</masterLabel>
+            <translation><!-- Revoked --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Surrender</masterLabel>
+            <translation><!-- Surrender --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Suspended</masterLabel>
+            <translation><!-- Suspended --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Terminated</masterLabel>
+            <translation><!-- Terminated --></translation>
+        </picklistValues>
+    </CustomFieldTranslation>

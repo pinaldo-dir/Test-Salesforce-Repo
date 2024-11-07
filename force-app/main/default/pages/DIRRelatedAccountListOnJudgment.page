@@ -1,0 +1,20 @@
+<apex:page standardController="Judgement__c" extensions="DIRRelatedAccountListOnJudgmentCtrl">
+    <apex:outputPanel layout="block" style="overflow: scroll; width: 100%; height: 200px;">
+        <apex:pageBlock mode="maindetail"> 
+            <apex:pageBlockTable var="judgementParty" value="{!wrapper}" rendered="{!wrapper.size > 0 }">
+                <apex:column headerValue="Business Name" >
+                    <apex:outputLink target="_blank" value="{! '/' +judgementParty.entityId}">{!judgementParty.entityName}</apex:outputLink>
+                </apex:column>
+                <apex:column headerValue="Related Business" >
+                    <apex:outputLink target="_blank" value="{! '/' + judgementParty.relatedBusinessId}">{!judgementParty.relatedBusinessName}</apex:outputLink>
+                </apex:column>
+                <apex:column headerValue="Type" value="{!judgementParty.rboType}"/>
+            </apex:pageBlockTable> 
+        </apex:pageBlock> 
+        <div style="text-align:center;font-size: 18px;">
+            <apex:outputLabel rendered="{!wrapper.size == 0}"> 
+                No account Found related to this judgment. 
+            </apex:outputLabel> 
+        </div>
+    </apex:outputPanel>
+</apex:page>

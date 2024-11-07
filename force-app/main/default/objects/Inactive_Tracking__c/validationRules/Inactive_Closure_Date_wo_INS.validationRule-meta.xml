@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Inactive_Closure_Date_wo_INS</fullName>
+    <active>true</active>
+    <errorConditionFormula>AND(
+NOT(ISNULL(Inactive_Closure_Sent_Date__c)),
+ISNULL (Inactive_Notice_Sent_Date__c)
+)</errorConditionFormula>
+    <errorMessage>Inactive Notice Sent Date must be filled prior to Inactive Closure Sent Date</errorMessage>
+</ValidationRule>

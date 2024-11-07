@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CompactLayout xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Liability_Compact</fullName>
+    <fields>Name</fields>
+    <fields>Case_Number__c</fields>
+    <fields>Citation_Number__c</fields>
+    <fields>Status__c</fields>
+    <fields>Assessment__c</fields>
+    <fields>Refer_to_JEU__c</fields>
+    <label>Liability Compact</label>
+</CompactLayout>

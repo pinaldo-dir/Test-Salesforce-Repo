@@ -1,0 +1,319 @@
+<apex:page controller="RegistrationEWPPDFController" renderAs="{!renderingService}" standardStylesheets="false" applyBodyTag="false" docType="html-5.0">
+    <head>
+        <style type="text/css" media="print">
+            <apex:outputpanel layout="none" rendered="true">
+                .watermark {
+                background-repeat: repeat;
+                background-image: url("{!URLFOR($Resource.EWP_School_Watermark)}");
+                background-position: top;
+                }
+            </apex:outputpanel>
+        </style>
+        
+        <style type="text/css" media="print">
+            @page {
+            @top-center {
+            content: element(header);
+            }
+            @bottom-left {
+            content: element(footer);
+            }
+            }
+            div.header {
+            padding: 10px;
+            position: running(header);
+            }
+            div.footer {
+            display: block;
+            padding: 5px;
+            position: running(footer);
+            }
+            .pagenumber:before {
+            content: counter(page);
+            }
+            .pagecount:before {
+            content: counter(pages);
+            }
+        </style>    
+        
+    </head>
+    <html>
+        <body class="watermark" style="font-size:9pt;">
+            <br/>
+            <br/> 
+            <br/>
+            <br/>  
+            <br/>
+            <br/>  
+            <br/>
+            <br/>
+            <apex:outputPanel style="text-align:center;font-weight:bold;" layout="block">APPLICATION FOR PERMISSION TO WORK</apex:outputPanel>
+            <apex:outputPanel style="text-align:center;font-weight:bold;" layout="block">IN THE ENTERTAINMENT INDUSTRY</apex:outputPanel>
+           
+            <apex:pageBlock title=""> 
+                <div style="width: 100%; display: table;">
+                    <div style="width: 2%; display: table-cell; border: 1px solid black; font-size: 8px;text-align:center;border-right:none;">
+                        <span>S</span><br/>
+                        <span>E</span><br/>
+                        <span>C</span><br/>
+                        <span>T</span><br/>
+                        <span>I</span><br/>
+                        <span>O</span><br/>
+                        <span>N</span><br/>
+                        <br/>
+                        <span>A</span>
+                    </div>
+                    
+                    <apex:dataTable width="100%" border="1px solid black" style="font-weight:bold;border:1px solid black" value="{!permitInfo}" var="pi">
+                        <apex:column style="border:1px solid black;font-weight:bold" >
+                            <apex:outputText value="{!pi.minorsFullName}">Name of Minor:&nbsp;</apex:outputText>
+                        </apex:column>
+                        <apex:column style="border:1px solid black;font-weight:bold" >
+                            <apex:outputText value="{!pi.minorsStageName}">Stage Name:&nbsp;</apex:outputText>
+                        </apex:column>
+                    </apex:dataTable>
+                    <apex:dataTable width="100%" border="1px solid black" style="font-weight:bold;border:1px solid black" value="{!permitInfo}" var="pi">
+                        <apex:column headerValue="Address" style="border:1px solid black" value="{!pi.minorsAddress}"></apex:column>
+                        <apex:column headerValue="City" style="border:1px solid black" value="{!pi.minorsCity}"></apex:column>
+                        <apex:column headerValue="State" style="border:1px solid black" value="{!pi.minorsState}"></apex:column>
+                        <apex:column headerValue="Zip" style="border:1px solid black" value="{!pi.minorsZip}_"></apex:column>
+                        <apex:column headerValue="Home Phone Number" style="border:1px solid black" value="{!pi.minorsHomePhone}"></apex:column>   
+                    </apex:dataTable>
+                    
+                    <apex:dataTable width="100%" border="1px solid black" style="font-weight:bold;border:1px solid black;font-weight:bold" value="{!permitInfo}" var="pi">
+                        <apex:column style="border:1px solid black" >
+                            <apex:outputText value="{!pi.minorsSchool}">School:&nbsp;</apex:outputText>
+                        </apex:column>
+                        <apex:column style="border:1px solid black" >
+                            <apex:outputText value="{!pi.minorsGrade}">Grade:&nbsp;</apex:outputText>
+                        </apex:column>
+                    </apex:dataTable>
+                    
+                    <apex:dataTable width="100%" border="1px solid black" style="font-weight:bold;border:1px solid black" value="{!permitInfo}" var="pi">
+                        <apex:column headerValue="Date of Birth" style="border:1px solid black" >
+                            <apex:outputText value="{0,date,MM'/'dd'/'yyyy}">
+                                <apex:param value="{!pi.minorsBirthDate}" /> 
+                            </apex:outputText>
+                        </apex:column>
+                        <apex:column headerValue="Height" style="border:1px solid black" value="{!pi.minorsHeight}_"></apex:column>
+                        <apex:column headerValue="Weight" style="border:1px solid black" value="{!pi.minorsWeight}"></apex:column>
+                        <apex:column headerValue="Hair Color" style="border:1px solid black" value="{!pi.minorsHairColor}"></apex:column>
+                        <apex:column headerValue="Eye Color" style="border:1px solid black" value="{!pi.minorsEyeColor}"></apex:column>
+                        <apex:column headerValue="Gender" style="border:1px solid black" value="{!pi.minorsGender}"></apex:column>
+                    </apex:dataTable>
+                </div>
+            </apex:pageBlock> 
+            <br/>
+            <apex:panelGrid style="font-weight:bold;text-align:center;" columns="1" width="100%" cellpadding="0" cellspacing="0" rules="all" columnClasses="colClass">
+                <apex:outputText style="text-align:center;" value="SCHOOL RECORD"/>
+                <apex:outputText style="text-align:center;" value="** Please CHECK the best description of the minor for each **"/>
+            </apex:panelGrid>
+            
+            <div style="width: 100%; display: table;">
+                <div style="width: 2%; display: table-cell; border: 1px solid black; font-size: 9px;text-align:center;border-right:none;">
+                    <br/>
+                    <br/>
+                    <br/>
+                    <br/>
+                    <br/>
+                    <br/>
+                    <br/>
+                    <br/>
+                    <br/>
+                    <br/>
+                    <br/>
+                    <span>S</span><br/>
+                    <span>E</span><br/>
+                    <span>C</span><br/>
+                    <span>T</span><br/>
+                    <span>I</span><br/>
+                    <span>O</span><br/>
+                    <span>N</span><br/>
+                    <br/>
+                    <span>B</span>
+                </div>
+                <apex:dataTable width="100%" border="1px solid black" style="font-weight:bold;:1px solid black" value="{!permitInfo}" var="pi">
+                    <apex:column style="border:1px solid black;font-weight:bold" >
+                        <apex:outputText value="{!pi.minorsFullName}">Name of Minor:&nbsp;</apex:outputText>
+                    </apex:column>
+                </apex:dataTable>
+                <apex:dataTable width="100%" border="1px solid black" style="font-weight:bold;border:1px solid black" value="{!permitInfo}" var="pi">
+                    <apex:column width="220px" headerValue="Attendance" style="border:1px solid black" >
+                        <apex:image style="border:1px solid black" value="/img/checkbox_unchecked.gif"/>SATISFACTORY
+                        <br/>
+                        <apex:image style="border:1px solid black" value="/img/checkbox_unchecked.gif"/>UNSATISFACTORY
+                    </apex:column>
+                    <apex:column width="220px" headerValue="Academics (Grades)" style="border:1px solid black" >
+                        <apex:image style="border:1px solid black" value="/img/checkbox_unchecked.gif"/>SATISFACTORY
+                        <br/>
+                        <apex:image style="border:1px solid black" value="/img/checkbox_unchecked.gif"/>UNSATISFACTORY
+                    </apex:column>
+                    <apex:column headerValue="Health" style="border:1px solid black" >
+                        <div>Please indicate if the minor requires medical approval to obtain a permit</div>
+                        <apex:outputText ><apex:image style="border:1px solid black" value="/img/checkbox_unchecked.gif"/>REQUIRED&nbsp;<apex:image style="border:1px solid black" value="/img/checkbox_unchecked.gif"/>NOT NEEDED</apex:outputText>
+                    </apex:column>
+                </apex:dataTable>
+                
+                <apex:dataTable width="100%" border="1px solid black" style="font-weight:bold;border:1px solid black;" value="{!permitInfo}" var="pi">
+                    <apex:column width="40%" style="border:1px solid black" >
+                        <apex:outputText value="Certification:"/><br/>
+                        <apex:outputText value="I certify that the above-named minor meets the school district's requirements with respect to age, school record and health"/><br/>
+                        <apex:outputText ><apex:image style="border:1px solid black" value="/img/checkbox_unchecked.gif"/>AGREE</apex:outputText><br/>
+                        <apex:outputText ><apex:image style="border:1px solid black" value="/img/checkbox_unchecked.gif"/>DISAGREE</apex:outputText>
+                        <hr/>
+                        Signature and Title of Authorized<br/> School Official
+                        <br/><br/><br/>
+                        <hr/>
+                        Date Signed
+                        <hr/>
+                        
+                        
+                        School Address
+                        <br/><br/>
+                        <hr/>
+                        Daytime Phone
+                        <br/>
+                    </apex:column>
+                    <apex:column style="font-weight:bold;border:1px solid black" >
+                        <br/><br/><br/><br/><br/><br/><br/> <br/><br/><br/><br/><br/><br/><br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        <apex:outputText style="font-weight:bold;text-align:center" value="[School Seal/Stamp or Address Stamp](REQUIRED)"/>
+                        
+                    </apex:column>
+                </apex:dataTable>
+            </div>
+            <br/>
+            <apex:panelGrid style="font-weight:bold;text-align:center;" columns="1" width="100%" cellpadding="0" cellspacing="0" rules="all" columnClasses="colClass">
+                <apex:outputText style="text-align:center;" value="** All Areas Must state SATISFACTORY for issuance of permit **"/>
+                <apex:outputText style="text-align:center;" value="** Any alterations or falsifications may void this application **"/>
+            </apex:panelGrid>
+            
+            <div style="width: 100%; display: table;">
+                <div style="width: 2%; display: table-cell; border: 1px solid black; font-size: 9px;text-align:center;border-right:none;">
+                    <span>S</span><br/>
+                    <span>E</span><br/>
+                    <span>C</span><br/>
+                    <span>T</span><br/>
+                    <span>I</span><br/>
+                    <span>O</span><br/>
+                    <span>N</span><br/>
+                    <br/>
+                    <span>C</span>
+                </div>
+                <div style="width: 100%; display: table-cell; border: 1px solid black;">
+                    <div style="font-weight: bold;">
+                        <p>STATEMENTOF PARENT OR GUARDIAN: It is my desire that a 6 Month Entertainment Work Permit be issued to the
+                            above named minor. I will read the rules governing such employment and will cooperate to the best of my ability in
+                            safeguarding the above named minor's educational, moral and physical interest.
+                            <br/>I declare that the School Record section of the Application for Permission to Work in the Entertainment Industry
+                            submitted herein, is a true, accurate and complete copy of the original signed by the school official, whose name and title appears on the
+                            application.
+                            <br/>Under penalty of perjury under the laws of the State of California, I declare that I have read the foregoing Application for
+                            Permission to Work in the Entertainment Industry and the facts as stated on this application are true.
+                        </p>
+                    </div>
+                    <div style="width: 100%; display: table;">
+                        <div style="width: 45%; display: table-cell; border: 1px solid black;height: 22px;">{!permitInfo[0].parentsFullName}</div>
+                        <div style="width: 5%; display: table-cell;height: 22px;">&nbsp;</div>
+                        <div style="display: table-cell; border: 1px solid black;height: 22px;">&nbsp;</div>
+                    </div>
+                    <div style="width: 100%; display: table;">
+                        <div style="width: 45%; display: table-cell;height: 22px;">Name of Parent or Guardian (print or type)</div>
+                        <div style="width: 5%; display: table-cell;height: 22px;">&nbsp;</div>
+                        <div style="display: table-cell;height: 22px;">Signature</div>
+                    </div>
+                    <div style="width: 45%; display: table;">
+                        <div style="width: 45%; display: table-cell; border: 1px solid black;height: 22px;">{!permitInfo[0].minorsFullName}</div>
+                    </div>
+                    <div style="width: 45%; display: table;">
+                        <div style="width: 45%; display: table-cell;height: 22px;">Name of Minor (print or type)</div>
+                    </div>
+                </div>
+            </div>
+            <div class="footer">
+                <div style="width: 100%; display: table;">
+                    <div style="width: 80%; display: table-cell;">WATERMARK-277-A</div>
+                    <div style="display: table-cell;">Page <span class="pagenumber"/> of <span class="pagecount"/></div>
+                </div>
+            </div>
+            <br/>
+			<br/>
+            <br/>
+            <br/>
+            <div style="width: 100%; display: table;">
+                <div style="width: 2%; display: table-cell; border: 1px solid black; font-size: 9px;text-align:center;border-right:none;">
+                    <br/>
+                    <br/>
+                    <br/>
+                    <br/>
+                    <span>S</span><br/>
+                    <span>E</span><br/>
+                    <span>C</span><br/>
+                    <span>T</span><br/>
+                    <span>I</span><br/>
+                    <span>O</span><br/>
+                    <span>N</span><br/>
+                    <br/>
+                    <span>D</span>
+                </div>
+                <div style="border: 1px solid black; padding: 2px;">
+                    <p><strong><u>AB 3175 Certification of Compliance Acknowledgment</u>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<u>THIS IS NOT A TRAINING CERTIFICATE</u></strong></p>
+                    <p><strong><u>For 14-17 year old minors only</u></strong>, (with exception for 13&frac12; year olds)</p>
+                    <p><a href="https://www.dir.ca.gov/dlse/Entertainment-Industry-Sexual-Harassment-Prevention-Training-Requirements.html">https://www.dir.ca.gov/dlse/Entertainment-Industry-Sexual-Harassment-Prevention-Training-Requirements.html</a></p>
+                    <p>I hereby certify that the below named minor completed the training in sexual harassment prevention, retaliation, and reporting resources using the online training course made available on the internet website of the Civil Rights Department (CRD) pursuant to Section 12950.1 of the Government Code on the date contained in the <Strong>CRD&rsquo;s Certificate of Completion</Strong> submitted herewith.&nbsp; I also hereby certify that I accompanied the below named minor<strong>&nbsp;</strong>during said training.&nbsp; <strong>I verify under penalty of perjury that the foregoing is true and correct.</strong></p>
+                    <div style="width: 100%; display: table;">
+                        <div style="width: 45%; display: table-cell; border: 1px solid black;height: 21px;">{!permitInfo[0].parentsFullName}</div>
+                        <div style="width: 5%; display: table-cell;height: 21px;">&nbsp;</div>
+                        <div style="display: table-cell; border: 1px solid black;height: 21px;">&nbsp;</div>
+                    </div>
+                    <div style="width: 100%; display: table;">
+                        <div style="width: 45%; display: table-cell;height: 21px;">Name of Parent or Guardian (print or type)</div>
+                        <div style="width: 5%; display: table-cell;height: 21px;">&nbsp;</div>
+                        <div style="display: table-cell;height: 21px;">Signature</div>
+                    </div>
+                    <div style="width: 45%; display: table;">
+                        <div style="width: 45%; display: table-cell; border: 1px solid black;height: 21px;">{!permitInfo[0].minorsFullName}</div>
+                    </div>
+                    <div style="width: 45%; display: table;">
+                        <div style="width: 45%; display: table-cell;height: 21px;">Name of Minor (print or type)</div>
+                    </div>
+                </div>
+            </div>
+
+            <p><strong><em>Information covering California&rsquo;s child labor laws applicable to the entertainment industry can be found at </em></strong><a href="http://www.dir.ca.gov/dlse/DLSE-CL.htm"><strong><em>http://www.dir.ca.gov/dlse/DLSE-CL.htm</em></strong></a><strong><em>.&nbsp; </em></strong></p>
+            <p style="text-align:center"><strong><em><u>REQUIREMENTS FOR NON-SCHOOL AGE MINORS</u></em></strong> (15 days through kindergarten)</p>
+            <div style="font-weight: bold; text-align: left; padding-left: 40px;">A PHOTO COPY OF ONE OF THE FOLLOWING:</div>
+            <div style="text-align: left; padding-left: 40px;">
+                1. Certified Birth Certificate<br />
+                2. Baptismal Certificate<br />
+                3. Official letter from hospital where born<br />
+                4. Passport
+            </div>
+            <p><em>* Every infant under one month of age must have a certification from a licensed physician and surgeon who is Board Certified in either pediatrics or family medicine,
+                certifying that the infant is at least 15 days old, was carried to full term, and is physically able to endure the stresses of working in the entertainment industry.
+                </em></p>
+            <p style="text-align:center"><strong><em><u>REQUIREMENTS FOR SCHOOL AGE MINORS</u></em></strong><strong><em>&nbsp; </em></strong><strong><em>(Grades 1 through 12)</em></strong></p>
+            <p><strong><u>PUBLIC / PRIVATE SCHOOL, ON-LINE and VIRTUAL ACADEMY:</u></strong></p>
+            <ul>
+                <li>When school is IN session, the application must be completed and dated during the current school session by an authorized school official.</li>
+                <li>When school is NOT in session (i.e., school break, vacations, holidays), either the minor&rsquo;s recent report card or letter from the school principal on school letterhead indicating that the minor is &ldquo;satisfactory&rdquo; in all academic subjects, health and attendance is required.</li>
+            </ul>
+            <p><strong><u>HOMESCHOOL (ON-LINE and VIRTUAL ACADEMY see above):</u></strong></p>
+            <ul>
+                <li>If minor is homeschooled, the application must be completed by the parent/guardian and attached to either a current private school affidavit, or written verification indicating that the minor is &ldquo;satisfactory&rdquo; in all academic subjects, health and attendance from either the local school district, county office of education or state board of education where the minor lives.</li>
+            </ul>
+            <p><u>INFORMATION PRACTICES ACT NOTICE (California Civil Code Section 1798.17)</u></p>
+            <ol style = "font-size: 11.5px"> 
+                <li>The information on this application is being requested by the Department of Industrial Relations, Division of Labor Standards Enforcement.</li>
+                <li>The information in this application is collected and maintained pursuant to California Labor Code sections 1308.5, 1308.10 and Title 8 California Code of Regulations section 11753.&nbsp;</li>
+                <li>If you fail to provide all or any part of the information requested in this application, the Labor Commissioner may deny issuance / renewal of an Entertainment Work Permit for minors under 18 years of age.</li>
+                <li>The principal purposes within the Division of Labor Standards Enforcement for which the information on this application will be used are: (1) administration of the registration for the employment of minors in the entertainment industry, and (2) enforcement of the California child labor laws.</li>
+                <li>The following are known or foreseeable disclosures of the information contained herein which may be made pursuant to subdivision (e) or (f) of Section 1798.24 of the California Civil Code by the Division of Labor Standards Enforcement. Response to a request under the California Public Records Act.</li>
+                <li>You have the right to access records containing your personal information that are maintained by the Division of Labor Standards Enforcement. To make a request to access such records, please contact the Entertainment Work Permit Unit by email <a href="mailto:EWP@dir.ca.gov">EWP@dir.ca.gov</a> or telephone 818-901-5484.</li>
+            </ol>
+        </body>           
+    </html>
+    
+</apex:page>

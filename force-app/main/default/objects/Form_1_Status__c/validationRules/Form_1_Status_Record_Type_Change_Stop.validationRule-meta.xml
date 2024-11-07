@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Form_1_Status_Record_Type_Change_Stop</fullName>
+    <active>true</active>
+    <description>Prevent HR users from changing Form 1 Status record type after saving a record.</description>
+    <errorConditionFormula>AND(ISCHANGED(RecordTypeId), 
+OR( $Profile.Name = "WCA", $Profile.Name = "HR BOFE Restricted User", $Profile.Name = "HR BOFE Restricted User", $Profile.Name = "HR Division User", $Profile.Name = "HR Personnel Analyst User", $Profile.Name = "DLSE Personnel Specialist User", $Profile.Name = "HR System Administrator", $Profile.Name = "HR View Only"))</errorConditionFormula>
+    <errorMessage>Record Type field cannot be modified after save. Please create a new status record.</errorMessage>
+</ValidationRule>

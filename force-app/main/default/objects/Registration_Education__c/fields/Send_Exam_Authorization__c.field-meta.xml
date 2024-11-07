@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Send_Exam_Authorization__c</fullName>
+    <externalId>false</externalId>
+    <formula>"&amp;id=" + Id +
+"&amp;templateid=a0nt000000028Pa" +
+"&amp;EmailAdditionalTo=" + Registration__r.Applicant__r.Email +
+"&amp;EmailRelatedToId=" + Registration__r.Id +
+"&amp;EmailFromID=0D2t0000000Gmid" +
+"&amp;congaemailtemplateid=a0lt0000000EWPF" +
+"&amp;queryid=[Education]a0mt00000023Qs3?pv0=" + Registration__r.Id +
+"&amp;defaultpdf=1" +
+"&amp;qmode=SendEmail"</formula>
+    <label>Send Exam Authorization</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

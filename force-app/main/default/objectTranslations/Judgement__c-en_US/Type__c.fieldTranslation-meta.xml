@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+        <label><!-- Type --></label>
+        <name>Type__c</name>
+        <picklistValues>
+            <masterLabel>Citation against subsequent offender  (LC 2810.4(b)(1)(B))</masterLabel>
+            <translation><!-- Citation against subsequent offender  (LC 2810.4(b)(1)(B)) --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Court Judgment</masterLabel>
+            <translation><!-- Court Judgment --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Default Clerk Judgment</masterLabel>
+            <translation><!-- Default Clerk Judgment --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>JEU</masterLabel>
+            <translation><!-- JEU --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>ODA</masterLabel>
+            <translation><!-- ODA --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>ODA against subsequent offender (LC 2810.4(b)(1)(B))</masterLabel>
+            <translation><!-- ODA against subsequent offender (LC 2810.4(b)(1)(B)) --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>ODA by Settlement</masterLabel>
+            <translation><!-- ODA by Settlement --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Other Ruling or award against subsequent offender (LC 2810.4(b)(1)(B))</masterLabel>
+            <translation><!-- Other Ruling or award against subsequent offender (LC 2810.4(b)(1)(B)) --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>RCI Citation Post-Hearing</masterLabel>
+            <translation><!-- RCI Citation Post-Hearing --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>RCI Citation Pre-Hearing</masterLabel>
+            <translation><!-- RCI Citation Pre-Hearing --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Tax Lien</masterLabel>
+            <translation><!-- Tax Lien --></translation>
+        </picklistValues>
+    </CustomFieldTranslation>

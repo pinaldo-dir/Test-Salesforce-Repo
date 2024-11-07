@@ -1,0 +1,19 @@
+<apex:page showHeader="false" title="{!$Label.site.in_maintenance}" cache="false">
+    <apex:composition template="StdExceptionTemplate">
+        <apex:define name="error">
+            <apex:outputPanel id="maintenanceMsgId">
+                <div class="alert alert-info">
+                    <br/>
+                    <span>
+                        <img src="{!URLFOR($Resource.SiteSamples, 'img/warning.png')}" /><H1 style='display:inline;'><b>We've moved.</b></H1>
+                    </span>
+                    <br>&nbsp;</br>
+                <H2><apex:outputText value="Our modernized Public Works Website Services are now live, featuring a new, unified platform."/></H2>
+                <br/>
+                <H2><apex:outputText ><a href="https://services.dir.ca.gov/gsp" target="_blank">Visit our new site now.</a></apex:outputText></H2>
+                <br/>
+            </div>
+        </apex:outputPanel>
+        </apex:define>
+    </apex:composition>
+</apex:page>

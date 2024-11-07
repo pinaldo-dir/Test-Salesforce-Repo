@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+        <help><!-- Please confirm the Advocate before confirming the Claimant so that the ability to associate the claimant and the advocate will not be adversely affected. --></help>
+        <label><!-- Associate the Representative --></label>
+        <name>Associate_the_Representative__c</name>
+    </CustomFieldTranslation>

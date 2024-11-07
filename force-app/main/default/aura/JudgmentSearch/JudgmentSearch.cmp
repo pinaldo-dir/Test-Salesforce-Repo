@@ -1,0 +1,397 @@
+<aura:component controller="JudgmentSearchController" implements="flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId,forceCommunity:availableForAllPageTypes" access="global" >
+    <aura:attribute name="isLoading" type="Boolean" default="false" />
+    
+    <aura:attribute name="showSearchFilters" type="Boolean" />
+    <aura:attribute name="listStatus2810" type="String" />
+    <aura:attribute name="naicsCode" type="String"/>
+    <aura:attribute name="naicsCodeTitle" type="String"/>
+    <aura:attribute name="accountName" type="String" />
+    <aura:attribute name="primaryAddress" type="String"/>
+    <aura:attribute name="city" type="String"/>
+    <aura:attribute name="county" type="String"/>
+    <aura:attribute name="zipCode" type="String"/>
+    <aura:attribute name="placeHolderDate" type="Date"/>
+    <aura:attribute name="judgmentEntryDate" type="Date"/>
+    <aura:attribute name="judgmentEntryDateFrom" type="Date" />
+    <aura:attribute name="currentListAsOfDate" type="Date" />
+    <aura:attribute name="currentListAsOfDateLabel" type="Date" />
+    <aura:attribute name="previousListFromDate" type="Date" />
+    <aura:attribute name="previousListToDate" type="Date" />
+    <aura:attribute name="judgmentEntryDateTo" type="Date" />
+    <aura:attribute name="court" type="String"/>
+    <aura:attribute name="judgmentStatus" type="List"/>
+    <aura:attribute name="defandantEmployerName" type="String"/>
+    <aura:attribute name="judgmentTotal" type="integer"/>
+    <aura:attribute name="citationNumber" type="String"/>
+    <aura:attribute name="dirOffice" type="String"/>
+    <aura:attribute name="judgmentStatusPicklistValues" type="List"/>
+    <aura:attribute name="listStatusPicklistValues" type="List"/>
+    <aura:attribute name="courtHouseList" type="List"/>
+    <aura:attribute name="courtHousePicklistValues" type="List"/>
+    <aura:attribute name="dirOfficePicklistValues" type="List"/>
+    <aura:attribute name="countyPicklistValues" type="List"/>
+    <aura:attribute name="selectedJudgmentStatusOptions" type="List" default="[]" description="Selected status Picklist Values"/>
+    <aura:attribute name="judgmentTotalFrom" type="double" default=""/>
+    <aura:attribute name="judgmentTotalTo" type="double" default=""/> 
+    <aura:attribute name="selectedLookUpRecordForNaicsCode" type="Object" default="{}"/>
+    <aura:attribute name="selectedLookUpRecordForOfficeName" type="Object" default="{}"/>
+    <aura:attribute name="selectedLookUpRecordForCourt" type="Object" default="{}"/>
+    <aura:attribute name="selectedLookUpRecordForCitationNumber" type="Object" default="{}"/> 
+    <aura:attribute name="errorMsg" type="boolean" default="false"/>
+    
+    <!--declare events hendlers-->  
+    <head><ltng:require styles="{!$Resource.JudgmentSearchCss}" /></head>
+    
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}" />
+    
+    <div class="c-container slds-align_absolute-center slds-m-around_large">
+        <div class="{!($Browser.formFactor != 'PHONE' ? 'dir-judgment-search-Desktop-container' : 'dir-judgment-search-mobile-container')}" >
+            <div class="slds-grid slds-grid_vertical">
+                <aura:if isTrue="{!v.isLoading}">
+                    <div class="demo-only" >
+                        <div class="slds-spinner_container ">
+                            <div role="status" class="slds-spinner slds-spinner_medium slds-spinner_brand">
+                                <span class="slds-assistive-text">Loading</span>
+                                <div class="slds-spinner__dot-a"></div>
+                                <div class="slds-spinner__dot-b"></div>
+                                <div class="custom-loading-text">
+                                    Page is Loading... Please wait
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </aura:if>
+                <div class="slds-col slds-small-size_10-of-12 slds-medium-size_10-of-12 breakStyle">
+                    <ol class="slds-breadcrumb slds-list_horizontal slds-wrap">
+                        <li class="breadcrumb">
+                            <a href="https://www.dir.ca.gov/">DIR</a>
+                        </li>&nbsp;&nbsp;
+                        <li>
+                            |
+                        </li>&nbsp;&nbsp;
+                        <li class="breadcrumb">
+                            <a style="color: #666;pointer-events: none;" href="javascript:void(0);">Judgment Search</a>
+                        </li>&nbsp;
+                    </ol>
+                </div>
+                
+                <div class="slds-col slds-small-size_10-of-12 slds-medium-size_10-of-12 breakStyle">
+                    <div class="">
+                        <div class="titleStyle">
+                            <h1 class="">Judgment Search</h1>
+                        </div>
+                        <br></br>
+                        <p class="heading-content">Effective January 1, 2019 port drayage motor carriers with unsatisfied final court judgments, 
+                            tax assessments or tax liens must be publicly listed by the California Labor Commissioner's Office.
+                            (<a target="_blank" href=" https://leginfo.legislature.ca.gov/faces/codes_displaySection.xhtml?lawCode=LAB&amp;sectionNum=2810.4">Labor Code section 2810.4</a>)
+                            <br></br>
+                            <br></br>
+                            For a List of Port Trucking Companies with Outstanding Judgments as of the current date, click <a style="color:#000000;" onclick="{!c.onSearchAsOfButton}"><b>here</b></a> or click on the "Get List" button below.</p>
+                    </div>
+                </div>
+                
+                <div class="slds-col slds-small-size_10-of-12 slds-medium-size_6-of-12 breakStyle">
+                    <div class="formHeading">
+                        <h2>2810.4 Port Drayage Judgment Search</h2>
+                    </div>
+                </div>
+                <div class="slds-col slds-small-size_10-of-12 slds-medium-size_6-of-12">
+                </div>
+                <div class="slds-col slds-small-size_10-of-12 slds-medium-size_6-of-12 breakStyle">
+                    <span>
+                        <div class="slds-form-element">
+                            <label class="slds-form-element__label formStyle" for="currentListAsOfDate">Current List As of</label>
+                            <span class="slds-form-element__label formStyle">{!v.currentListAsOfDateLabel}</span>
+                            <span><button class="formButton" onclick="{!c.onSearchAsOfButton}">Get List</button></span>
+                            <!--<div class="slds-grid slds-gutters">
+                                <div class="slds-col slds-size_1-of-2">
+                                    <span> <lightning:input  aura:id="currentListAsOfDate" name="As Of Date:" onchange="{!c.currentListAsOfDate}" value="{!v.currentListAsOfDate}" disabled="true" type="date" variant="label-hidden" dateStyle="short"/></span>
+                                </div>
+                            </div>-->
+                        </div>
+                    </span>
+                </div>
+                
+                <!--<div class="slds-col slds-small-size_10-of-12 slds-medium-size_6-of-12 breakStyle">
+                                <span>
+                                    <div class="slds-form-element">
+                                        <button class="formButton" onclick="{!c.onSearchAsOfButton}">Get List</button>
+                                    </div>
+                                </span>
+                            </div>-->
+                <!-- Comment Search for Previous Lists based on the Business meeting as on 04-Feb-2021
+                <div class="slds-col slds-small-size_10-of-12 slds-medium-size_6-of-12">
+                    <div class="formTitle">
+                        <h3>Search for Previous Lists</h3>
+                    </div>
+                </div>
+                <div class="slds-col slds-small-size_10-of-12 slds-medium-size_6-of-12 breakStyle">
+                    <span>
+                        <div class="slds-form-element">
+                            <div class="slds-grid slds-gutters">
+                                <div class="slds-col slds-size_1-of-2">
+                                    <label class="slds-form-element__label dateStyle" for="fromDate">From Date (mm/dd/yyyy)<span class="RequiredInputStyle">*</span></label>
+                                    <span> <lightning:input  aura:id="previousListFromDate" name="From Date:" onchange="{!c.onPreviousListFromDate}" value="{!v.previousListFromDate}" type="date" variant="label-hidden" dateStyle="short"/></span>
+                                </div>    
+                            </div>
+                            <div class="slds-grid slds-gutters">
+                                <div class="slds-col slds-size_1-of-2">
+                                    <label class="slds-form-element__label dateStyle" for="toDate">To Date (mm/dd/yyyy)<span class="RequiredInputStyle">*</span></label>
+                                    <span> <lightning:input  aura:id="previousListToDate" name="To Date:" onchange="{!c.onPreviousListToDate}" value="{!v.previousListToDate}" type="date" variant="label-hidden" dateStyle="short"/></span>
+                                </div>
+                            </div>
+                        </div>
+                    </span>
+                </div>
+                
+                <div class="slds-col slds-small-size_10-of-12 slds-medium-size_6-of-12 breakStyle">
+                    <span>
+                        <div class="slds-form-element">
+                            <button class="formButton" onclick="{!c.onSearchPreviousListButton}">Search</button>&nbsp;&nbsp;
+                            <button class="formButton" onclick="{!c.onClearPreviousListFields}">Clear Fields</button>
+                        </div>
+                    </span>
+                </div>
+                 -->
+                <div class="slds-col slds-small-size_10-of-12 slds-medium-size_6-of-12 breakStyle">
+                    <hr/>
+                </div>
+                <div class="slds-col slds-small-size_10-of-12 slds-medium-size_6-of-12">
+                    <div class="formHeading">
+                        <h2>Judgment Search</h2>
+                    </div>
+                </div>
+                <div class="slds-col slds-small-size_10-of-12 slds-medium-size_6-of-12 breakStyle">
+                    <span>
+                        <div class="slds-form-element formInstructionStyle">
+                            Enter information in the boxes below to search for judgments based on criteria such as defendant name.
+                            This search provides access to all records of Labor Commissioner judgments in all industries, including 
+                            those that have been paid.
+                        </div>
+                    </span>
+                </div>
+                <!--<div class="slds-col slds-small-size_10-of-12 slds-medium-size_6-of-12">
+                    <span>
+                        <div class="slds-form-element">
+                            <label class="slds-form-element__label formStyle" for="listStatus2810"><abbr class="slds-required" title="required">* </abbr>Port Drayage Motor Carrier Judgment Status (Labor Code § 2810.4):</label>
+                            <ui:inputSelect  aura:id="listStatus" class="slds-input" label="" change="{!c.onListStatusChange}"  value="{!v.listStatus2810}">
+                                <aura:iteration items="{!v.listStatusPicklistValues}" var="item">
+                                    <ui:inputSelectOption text="{!item.value}" label="{!item.label}"/>
+                                </aura:iteration>
+                            </ui:inputSelect>
+                        </div>
+                    </span>
+                </div>
+                
+                <div class="slds-col slds-small-size_10-of-12 slds-medium-size_6-of-12 breakStyle">
+                    <span>
+                        <div class="slds-form-element">
+                            <label class="slds-form-element__label formStyle" for="ClaimantPalintiffName">Claimant/Plaintiff Name</label>
+                            <div class="slds-form-element__control">
+                                <ui:inputText updateOn="keyup" keyup="{!c.onClaimantPlaintiffChange}" class="slds-input formInputStyle" value="{!v.accountName}"/>
+                            </div>
+                        </div>
+                    </span>
+                </div>
+-->
+                <div class="slds-col slds-small-size_10-of-12 slds-medium-size_6-of-12 breakStyle">
+                    <span>
+                        <div class="slds-form-element">
+                            <label class="slds-form-element__label formStyle" for="defandantEmployerName">Defendant/Employer Name</label>
+                            <div class="slds-form-element__control">
+                                <ui:inputText updateOn="keyup" keyup="{!c.onDefandantEmployerNameChange}" class="slds-input formInputStyle" value="{!v.defandantEmployerName}"/>
+                            </div>
+                        </div>
+                    </span>
+                </div>
+                <div class="slds-col slds-small-size_10-of-12 slds-medium-size_6-of-12 breakStyle">
+                    <span>
+                        <div class="slds-form-element formFieldSetStyle">
+                            <label class="slds-form-element__label formStyle" for="primaryAddress">
+                                Defendant Address
+                                <!-- <lightning:helptext content="Only address of the main business location can be searched e.g. corporate office." /> -->
+                            </label>
+                            <div class="slds-form-element__control">
+                                <div class="slds-form-element__static">(Only address of the main business location can be searched e.g. corporate office.)</div>
+                            </div>
+                            <div class="slds-form-element__control" id="primaryAddress">
+                                <div class="slds-grid slds-gutters">
+                                    <div class="slds-col">
+                                        <span><ui:inputText updateOn="keyup" keyup="{!c.onAddressCityChange}" placeholder="City" class="slds-input formInputStyle" value="{!v.city}"/></span>
+                                    </div>
+                                    <div class="slds-col">
+                                        <span><ui:inputText updateOn="keyup" keyup="{!c.onAddresszipCodeChange}" placeholder="Zip Code" class="slds-input formInputStyle" value="{!v.zipCode}"/></span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </span>
+                </div>
+                <div class="slds-col slds-small-size_10-of-12 slds-medium-size_6-of-12 breakStyle">
+                    
+                    <span>
+                        <div class="slds-form-element formFieldSetStyle">
+                            <label class="slds-form-element__label formStyle" for="judgmentEntryDate">Judgment Entry Date</label>
+                            <div class="slds-grid slds-gutters">
+                                <div class="slds-col slds-size_1-of-2">
+                                    <label class="slds-form-element__label dateStyle" for="judgmentEntryDate">From Date (mm/dd/yyyy)</label>
+                                    <span> <lightning:input class="formInputStyle" aura:id="judgmentEntryFromDate" name="Judgment Entry Date:" onchange="{!c.onJudgmentEntryFromDate}" value="{!v.judgmentEntryDateFrom}" type="date" variant="label-hidden" dateStyle="short"/></span>
+                                </div>    
+                            </div>
+                            <div class="slds-grid slds-gutters">
+                                <div class="slds-col slds-size_1-of-2">
+                                    <label class="slds-form-element__label dateStyle" for="judgmentEntryDate">To Date (mm/dd/yyyy)</label>
+                                    <span> <lightning:input aura:id="judgmentEntryToDate" name="Judgment Entry Date:" onchange="{!c.onJudgmentEntryToDate}" value="{!v.judgmentEntryDateTo}" type="date" variant="label-hidden" dateStyle="short"/></span>
+                                </div>
+                            </div>
+                        </div>
+                    </span>
+                </div>
+                <div class="slds-col slds-small-size_10-of-12 slds-medium-size_6-of-12 breakStyle">
+                    <span>
+                        <div class="slds-form-element formFieldSetStyle">
+                            <label for="Judgment Status" class="formStyle">Judgment Status</label>
+                            <!--<ui:inputSelect aura:id="judgmentStatus" class="slds-input" label="" change="{!c.onJudgmentStatusChange}">
+                                <aura:iteration items="{!v.judgmentStatusPicklistValues}" var="item">
+                                    <ui:inputSelectOption text="{!item.value}" label="{!item.label}"/>
+                                </aura:iteration>
+                            </ui:inputSelect>-->
+                            <lightning:dualListbox name="Judgment Status"
+                                                   label= ""
+                                                   aura:id="judgmentStatus"
+                                                   sourceLabel="Available"
+                                                   selectedLabel="Selected"
+                                                   options="{!v.judgmentStatusPicklistValues}"
+                                                   value="{!v.selectedJudgmentStatusOptions}"
+                                                   onchange="{! c.onJudgmentStatusChange }"/>
+                            
+                        </div>
+                    </span>
+                </div>
+                <div class="slds-col slds-small-size_10-of-12 slds-medium-size_6-of-12 breakStyle">
+                    <span>
+                        <div class="slds-form-element formFieldSetStyle">
+                            <label class="slds-form-element__label formStyle" for="Judgment Total">Judgment Total</label>
+                            <div class="slds-form-element__control">
+                                <div class="slds-grid slds-gutters">
+                                    <div class="slds-col">
+                                        <label class="slds-form-element__label fromToStyle" for="judgmentTotalFrom">From</label>
+                                        <span> <ui:inputCurrency updateOn="keyup" keyup="{!c.onJudgmentTotalFromChange}" aura:id="judgmentTotalFrom" value="{!v.judgmentTotalFrom}" placeholder="$0.00" format="#,###,###.00"/></span>
+                                    </div>
+                                    <div class="slds-col">
+                                        <label class="slds-form-element__label fromToStyle" for="judgmentTotalTo">To</label>
+                                        <span> <ui:inputCurrency updateOn="keyup" keyup="{!c.onJudgmentTotalToChange}" aura:id="judgmentTotalTo" value="{!v.judgmentTotalTo}" placeholder="$0.00" format="#,###,###.00"/></span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </span>
+                </div>
+                <div class="slds-col slds-small-size_10-of-12 slds-medium-size_6-of-12 breakStyle">
+                    <div class="slds-form-element__control">
+                        <div class="slds-grid slds-gutters">
+                            <div class="slds-col">
+                                <label class="slds-form-element__label formStyle" for="County court">County Court</label>
+                                <ui:inputSelect aura:id="county" class="slds-input" label="" change="{!c.onCountyChnage}" value="{!v.county}">
+                                    <aura:iteration items="{!v.countyPicklistValues}" var="item">
+                                        <ui:inputSelectOption text="{!item.value}" label="{!item.label}"/>
+                                    </aura:iteration>
+                                </ui:inputSelect>
+                            </div>
+                            <div class="slds-col">
+                                <!--<c:JudgmentSearchCustomLookup aura:id="courtCmp" county="{!v.county}" inputLabel="Courthouse:" objectAPIName="Office__c" fieldAPIName="Name" selectedRecord="{!v.selectedLookUpRecordForCourt}" ObjectName="Judgment"/>-->
+                                <label class="slds-form-element__label formStyle" for="Courthouse">Courthouse</label>
+                                <ui:inputSelect aura:id="court" class="slds-input" label="" change="{!c.onCourtHouseChange}" value="{!v.court}">
+                                    <aura:iteration items="{!v.courtHousePicklistValues}" var="item">
+                                        <ui:inputSelectOption text="{!item.value}" label="{!item.label}"/>
+                                    </aura:iteration>
+                                </ui:inputSelect>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="slds-col slds-small-size_10-of-12 slds-medium-size_6-of-12">
+                    <span>
+                        <div class="slds-form-element">
+                            <label class="slds-form-element__label formStyle" for="citationNumber">
+                                Citation Number
+                                <c:CustomHelpText text="	Citation Number as follows:\n\n
+                                                        PA - Citation for penalties only. \n\n
+                                                        WC - Citation for lapse in workers compensation. \n\n
+                                                        WA - Citation for wages/premiums owed. \n\n
+                                                        SO - Citation for not having workers compensation coverage in place. \n\n
+                                                        Retaliation citations are numeric only without two letter prefix." 
+                                                  helpTextLabel="citationNumberText"/>
+                                <!--<div class="slds-form-element__control">
+                                    <div class="slds-form-element__static">(Enter numeric values only, no need to include prefix.)</div>
+                                </div>-->
+                            </label>
+                            <div class="slds-form-element__control">
+                                <c:JudgmentSearchCustomLookup aura:id="citationNumber" inputLabel="" objectAPIName="Liability__c" fieldAPIName="Citation_Number__c" selectedRecord="{!v.selectedLookUpRecordForCitationNumber}" ObjectName="Judgment"/>
+                            </div>
+                        </div>
+                    </span>
+                </div>
+                <div class="slds-col slds-small-size_10-of-12 slds-medium-size_6-of-12">
+                    <div class="slds-form-element">
+                            <label class="slds-form-element__label formStyle" for="dirOffice">
+                                DIR Office
+                                <c:CustomHelpText text="For Retaliation Claims, please search RCI North or RCI South." helpTextLabel="dirOfficeText"/>
+                            </label>
+                            <div class="slds-form-element__control">
+                                <c:JudgmentSearchCustomLookup aura:id="dirOffice" inputLabel="" objectAPIName="Office__c" fieldAPIName="Name" selectedRecord="{!v.selectedLookUpRecordForOfficeName}" ObjectName="DIROffice" searchType="JudgmentSearch"/>
+                            </div>
+                        </div>
+                    
+                    <!--<span>
+                        <div class="slds-form-element">
+                            <label class="slds-form-element__label formStyle" for="dirOffice">DIR Office</label>
+                            <ui:inputSelect aura:id="dirOffice" class="slds-input" label="" change="{!c.onDirOfficeChange}" >
+                                <aura:iteration items="{!v.dirOfficePicklistValues}" var="item">
+                                    <ui:inputSelectOption text="{!item.value}" label="{!item.label}"/>
+                                </aura:iteration>
+                            </ui:inputSelect>
+                        </div>
+                    </span>-->
+                </div>
+                
+                <div class="slds-col slds-small-size_10-of-12 slds-medium-size_6-of-12 ">
+                    <label class="slds-form-element__label formStyle" for="naicsCode">
+                        NAICS Code
+                        <div class="slds-form-element__control">
+                                    <div class="slds-form-element__static">A NAICS Code is a standard used to classify business establishments. To view the available NAICS Codes, please visit: <a href="https://www.naics.com/search/" target="_blank">https://www.naics.com/search/</a></div>
+                                </div>
+                        <!--<c:CustomHelpText text="	A NAICS Code is a 
+                                                standard used to classify 
+                                                business establishments.
+                                                To view the available 
+                                                NAICS Codes, please visit:
+                                                " 
+                                          helpTextLabel="naicsCodeHelpText"/>-->
+                    </label>
+                    <div class="slds-form-element__control">
+                        <ui:inputText updateOn="keyup" keyup="{!c.onNaicsCodeChange}" class="slds-input formInputStyle" value="{!v.naicsCode}"/>
+                    </div>
+                </div><br/>
+                
+                <aura:if isTrue="{!v.errorMsg}">
+                    <div class="slds-col slds-small-size_10-of-12 slds-medium-size_6-of-12">
+                        <span>
+                            <div class="errorMsgStyle slds-form-element">
+                                *Select at least One Filter Criteria from Judgment Search
+                            </div>
+                        </span>
+                    </div><br/>
+                </aura:if>
+                <div class="slds-col slds-small-size_10-of-12 slds-medium-size_6-of-12">
+                    <span>
+                        <div class="slds-form-element">
+                            <button class="formButton" onclick="{!c.onSearchButton}">Search</button>&nbsp;&nbsp;
+                            <button class="formButton" onclick="{!c.onClearFields}">Clear Fields</button>
+                        </div>
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+</aura:component>

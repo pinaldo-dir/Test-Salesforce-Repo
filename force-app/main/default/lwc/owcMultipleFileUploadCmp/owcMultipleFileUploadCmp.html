@@ -1,0 +1,45 @@
+<template>
+    {label}
+    <lightning-file-upload
+            name="multipleFileUpload"
+            accept={acceptedFormats}
+            record-id={myRecordId}
+            onuploadfinished={handleUploadFinished}
+            multiple>
+    </lightning-file-upload>
+    <template if:true={isFileDetailsVisible}>
+        <div class="slds-p-around_medium">
+            <table class="slds-table slds-table_cell-buffer slds-table_bordered slds-border_left slds-border_right">
+                <thead>
+                    <tr class="slds-line-height_reset">
+                        <th class="" scope="col">
+                            <div class="slds-truncate">
+                                Delete File
+                            </div>
+                        </th>
+                        <th class="slds-cell-wrap cellStyle" scope="col">
+                            <div class="slds-truncate" title="Name">File Name</div>
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <template for:each={uploadcontractdoc} for:item="doc">
+                        <tr key={doc.documentId}>
+                            <th scope="col">
+                                <div>
+                                    <lightning-button-icon icon-name="utility:delete" value={doc.documentId} alternative-text="Delete" class="slds-m-left_xx-small" title="Delete" onclick={deleteUploadDoc}></lightning-button-icon>
+                                </div>
+                            </th>
+                            <th scope="col" class="slds-cell-wrap cellStyle">
+                                <div>{doc.name}</div>
+                            </th>
+                        </tr>
+                    </template>
+                </tbody>
+            </table>
+        </div>
+    </template>
+    <template if:true={isFileDeleted}>
+        <c-owc-Multiple-File-Delete-Cmp filename={fileName} ondeletemsgevent={handleDeleteMsg} onundeletemsgevent={handleUndeleteMsg} onclosedmodalboxevent={handleCloseModal}></c-owc-Multiple-File-Delete-Cmp>
+    </template>
+</template>

@@ -1,0 +1,487 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionCalls>
+        <description>Task to log in Activity History</description>
+        <name>Initial_Notification_Sent</name>
+        <label>Initial Notification Sent</label>
+        <locationX>692</locationX>
+        <locationY>579</locationY>
+        <actionName>NewTask</actionName>
+        <actionType>quickAction</actionType>
+        <flowTransactionModel>CurrentTransaction</flowTransactionModel>
+        <inputParameters>
+            <name>OwnerId</name>
+            <value>
+                <elementReference>$Record.CreatedBy.Id</elementReference>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>WhatId</name>
+            <value>
+                <elementReference>$Record.Id</elementReference>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>Status</name>
+            <value>
+                <stringValue>Completed</stringValue>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>Subject</name>
+            <value>
+                <stringValue>Email Sent: Probation Initial Notification</stringValue>
+            </value>
+        </inputParameters>
+        <nameSegment>NewTask</nameSegment>
+        <versionSegment>1</versionSegment>
+    </actionCalls>
+    <actionCalls>
+        <description>Task to log in Activity History</description>
+        <name>Probation_Reminder_Notification</name>
+        <label>Probation Reminder Notification</label>
+        <locationX>1082</locationX>
+        <locationY>493</locationY>
+        <actionName>NewTask</actionName>
+        <actionType>quickAction</actionType>
+        <flowTransactionModel>CurrentTransaction</flowTransactionModel>
+        <inputParameters>
+            <name>OwnerId</name>
+            <value>
+                <elementReference>$Record.CreatedBy.Id</elementReference>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>contextId</name>
+            <value>
+                <elementReference>$Record.Id</elementReference>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>Status</name>
+            <value>
+                <stringValue>Completed</stringValue>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>Subject</name>
+            <value>
+                <stringValue>Email Sent: Probation Reminder Notification</stringValue>
+            </value>
+        </inputParameters>
+        <nameSegment>NewTask</nameSegment>
+        <versionSegment>1</versionSegment>
+    </actionCalls>
+    <actionCalls>
+        <description>Send initial notification when record is new or due dates are changed</description>
+        <name>Send_Initial_Notification</name>
+        <label>Send Initial Notification</label>
+        <locationX>511</locationX>
+        <locationY>569</locationY>
+        <actionName>HR_Probe_Report_Tracking__c.HR_EMAIL_ALERT_send_email_to_supervisor_on_probationary_due_dates_report</actionName>
+        <actionType>emailAlert</actionType>
+        <connector>
+            <targetReference>Initial_Notification_Sent</targetReference>
+        </connector>
+        <flowTransactionModel>CurrentTransaction</flowTransactionModel>
+        <inputParameters>
+            <name>SObjectRowId</name>
+            <value>
+                <elementReference>$Record.Id</elementReference>
+            </value>
+        </inputParameters>
+        <nameSegment>HR_Probe_Report_Tracking__c.HR_EMAIL_ALERT_send_email_to_supervisor_on_probationary_due_dates_report</nameSegment>
+        <versionSegment>1</versionSegment>
+    </actionCalls>
+    <actionCalls>
+        <name>Send_Reminder</name>
+        <label>Send Reminder</label>
+        <locationX>1278</locationX>
+        <locationY>742</locationY>
+        <actionName>HR_Probe_Report_Tracking__c.HR_Send_Past_Due_Prob_Reminder_to_Liaison_and_Supv</actionName>
+        <actionType>emailAlert</actionType>
+        <connector>
+            <targetReference>Probation_Reminder_Notification</targetReference>
+        </connector>
+        <flowTransactionModel>CurrentTransaction</flowTransactionModel>
+        <inputParameters>
+            <name>SObjectRowId</name>
+            <value>
+                <elementReference>$Record.Id</elementReference>
+            </value>
+        </inputParameters>
+        <nameSegment>HR_Probe_Report_Tracking__c.HR_Send_Past_Due_Prob_Reminder_to_Liaison_and_Supv</nameSegment>
+        <versionSegment>1</versionSegment>
+    </actionCalls>
+    <apiVersion>55.0</apiVersion>
+    <decisions>
+        <name>Employee_Contact_Has_Liaison</name>
+        <label>Employee Contact Has Liaison</label>
+        <locationX>1385</locationX>
+        <locationY>356</locationY>
+        <defaultConnector>
+            <targetReference>Send_Reminder</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>Has_Liaison_1</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.Appointment__r.Employee_Contact__r.HR_Probation_Liaison__c</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Update_Liaison_Email_2</targetReference>
+            </connector>
+            <label>Has Liaison</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <name>Has_Liaison_Decision</name>
+        <label>Has Liaison</label>
+        <locationX>299</locationX>
+        <locationY>311</locationY>
+        <defaultConnector>
+            <targetReference>Send_Initial_Notification</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>Has_Liaison</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.Appointment__r.Employee_Contact__r.HR_Probation_Liaison__c</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Update_Liaison_Email_1</targetReference>
+            </connector>
+            <label>Has Liaison</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <name>Is_Appointment_Active_2</name>
+        <label>Is Appointment Active?</label>
+        <locationX>387</locationX>
+        <locationY>121</locationY>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>Active2</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.Appointment__r.End_Date__c</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Probation_Report_Completed_1</targetReference>
+            </connector>
+            <label>Active</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <name>Past_Due_Appointment_Active</name>
+        <label>Past Due and Appointment Active?</label>
+        <locationX>1338</locationX>
+        <locationY>122</locationY>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>Yes</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.past_due_probe__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Appointment__r.End_Date__c</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Probation_Report_Completed_3</targetReference>
+            </connector>
+            <label>Yes</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <description>All received dates are populated</description>
+        <name>Probation_Report_Completed_1</name>
+        <label>Probation Report Completed</label>
+        <locationX>29</locationX>
+        <locationY>114</locationY>
+        <defaultConnector>
+            <targetReference>Update_First_Reminder_Date_and_Fields</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Not Completed</defaultConnectorLabel>
+        <rules>
+            <name>Completed_1</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.X1st_Received_Date__c</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.X2nd_Received_Date__c</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.X3rd_Received_Date__c</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <label>Completed</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <name>Probation_Report_Completed_3</name>
+        <label>Probation Report Completed?</label>
+        <locationX>1530</locationX>
+        <locationY>118</locationY>
+        <defaultConnector>
+            <targetReference>Update_All_Field_at_Reminder</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Not Completed</defaultConnectorLabel>
+        <rules>
+            <name>Completed_3</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.X1st_Received_Date__c</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.X2nd_Received_Date__c</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.X3rd_Received_Date__c</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <label>Completed</label>
+        </rules>
+    </decisions>
+    <description>Tracks and sends initial/reminders for probation report</description>
+    <environments>Default</environments>
+    <formulas>
+        <description>Combining first and last name of employee from appointment</description>
+        <name>EmployeeName</name>
+        <dataType>String</dataType>
+        <expression>{!$Record.Appointment__r.Employee_Contact__r.FirstName} &amp; &quot; &quot; &amp; {!$Record.Appointment__r.Employee_Contact__r.LastName}</expression>
+    </formulas>
+    <formulas>
+        <description>Calculate first reminder date</description>
+        <name>FirstReminderDateFormula</name>
+        <dataType>Date</dataType>
+        <expression>IF(
+DAY( {!$Record.X1st_Probe_due_date__c} +1 ) = 1, {!$Record.X1st_Probe_due_date__c} +1,
+IF(
+MONTH({!$Record.X1st_Probe_due_date__c} +1) = 12,
+DATE( YEAR({!$Record.X1st_Probe_due_date__c} +1)+1, 1, 1 ),
+DATE( YEAR({!$Record.X1st_Probe_due_date__c} +1), MONTH ({!$Record.X1st_Probe_due_date__c} +1) + 1, 1 )
+)
+)</expression>
+    </formulas>
+    <formulas>
+        <name>IsNew</name>
+        <dataType>Boolean</dataType>
+        <expression>IsNew()</expression>
+    </formulas>
+    <formulas>
+        <name>NewProbation</name>
+        <dataType>Boolean</dataType>
+        <expression>IsNew()</expression>
+    </formulas>
+    <formulas>
+        <name>TodaysDate</name>
+        <dataType>Date</dataType>
+        <expression>Today()</expression>
+    </formulas>
+    <interviewLabel>HR Probation Report Tracking {!$Flow.CurrentDateTime}</interviewLabel>
+    <label>HR Probation Report Tracking</label>
+    <processMetadataValues>
+        <name>BuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>CanvasMode</name>
+        <value>
+            <stringValue>FREE_FORM_CANVAS</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>OriginBuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processType>AutoLaunchedFlow</processType>
+    <recordUpdates>
+        <name>Update_All_Field_at_Reminder</name>
+        <label>Update All Field at Reminder</label>
+        <locationX>1577</locationX>
+        <locationY>355</locationY>
+        <connector>
+            <targetReference>Employee_Contact_Has_Liaison</targetReference>
+        </connector>
+        <inputAssignments>
+            <field>Employee_Name__c</field>
+            <value>
+                <elementReference>EmployeeName</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Position_Number__c</field>
+            <value>
+                <elementReference>$Record.Appointment__r.Position__r.Name</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Supervisor_Email__c</field>
+            <value>
+                <elementReference>$Record.Appointment__r.Supervisor_Contact__r.Email</elementReference>
+            </value>
+        </inputAssignments>
+        <inputReference>$Record</inputReference>
+    </recordUpdates>
+    <recordUpdates>
+        <description>Formula to calculate when to start reminding when probation report becomes past due.</description>
+        <name>Update_First_Reminder_Date_and_Fields</name>
+        <label>Update First Reminder Date and Fields</label>
+        <locationX>23</locationX>
+        <locationY>308</locationY>
+        <connector>
+            <targetReference>Has_Liaison_Decision</targetReference>
+        </connector>
+        <inputAssignments>
+            <field>Employee_Name__c</field>
+            <value>
+                <elementReference>EmployeeName</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>First_Reminder_Date__c</field>
+            <value>
+                <elementReference>FirstReminderDateFormula</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Position_Number__c</field>
+            <value>
+                <elementReference>$Record.Appointment__r.Position__r.Name</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Supervisor_Email__c</field>
+            <value>
+                <elementReference>$Record.Appointment__r.Employee_Contact__r.ReportsTo.Email</elementReference>
+            </value>
+        </inputAssignments>
+        <inputReference>$Record</inputReference>
+    </recordUpdates>
+    <recordUpdates>
+        <name>Update_Liaison_Email_1</name>
+        <label>Update Liaison Email</label>
+        <locationX>307</locationX>
+        <locationY>571</locationY>
+        <connector>
+            <targetReference>Send_Initial_Notification</targetReference>
+        </connector>
+        <inputAssignments>
+            <field>Division_Liaison_Email__c</field>
+            <value>
+                <elementReference>$Record.Appointment__r.Employee_Contact__r.HR_Probation_Liaison__r.Liaison_Name__r.Email</elementReference>
+            </value>
+        </inputAssignments>
+        <inputReference>$Record</inputReference>
+    </recordUpdates>
+    <recordUpdates>
+        <name>Update_Liaison_Email_2</name>
+        <label>Update Liaison Email</label>
+        <locationX>1544</locationX>
+        <locationY>740</locationY>
+        <connector>
+            <targetReference>Send_Reminder</targetReference>
+        </connector>
+        <inputAssignments>
+            <field>Division_Liaison_Email__c</field>
+            <value>
+                <elementReference>$Record.Appointment__r.Employee_Contact__r.HR_Probation_Liaison__r.Liaison_Name__r.Email</elementReference>
+            </value>
+        </inputAssignments>
+        <inputReference>$Record</inputReference>
+    </recordUpdates>
+    <start>
+        <locationX>670</locationX>
+        <locationY>5</locationY>
+        <connector>
+            <targetReference>Is_Appointment_Active_2</targetReference>
+        </connector>
+        <filterFormula>ISNEW() &amp;&amp; ISNULL({!$Record.X1st_Probe_due_date__c}) = FALSE
+||
+ISCHANGED ( {!$Record.X1st_Probe_due_date__c} )</filterFormula>
+        <object>HR_Probe_Report_Tracking__c</object>
+        <recordTriggerType>CreateAndUpdate</recordTriggerType>
+        <scheduledPaths>
+            <name>Schedule_Reminder_1</name>
+            <connector>
+                <targetReference>Past_Due_Appointment_Active</targetReference>
+            </connector>
+            <label>Schedule Reminder 1</label>
+            <offsetNumber>1</offsetNumber>
+            <offsetUnit>Minutes</offsetUnit>
+            <recordField>First_Reminder_Date__c</recordField>
+            <timeSource>RecordField</timeSource>
+        </scheduledPaths>
+        <scheduledPaths>
+            <name>Schedule_Reminder_2</name>
+            <connector>
+                <targetReference>Past_Due_Appointment_Active</targetReference>
+            </connector>
+            <label>Schedule Reminder 2</label>
+            <offsetNumber>30</offsetNumber>
+            <offsetUnit>Days</offsetUnit>
+            <recordField>First_Reminder_Date__c</recordField>
+            <timeSource>RecordField</timeSource>
+        </scheduledPaths>
+        <scheduledPaths>
+            <name>Schedule_Reminder_3</name>
+            <label>Schedule Reminder 3</label>
+            <offsetNumber>60</offsetNumber>
+            <offsetUnit>Days</offsetUnit>
+            <recordField>First_Reminder_Date__c</recordField>
+            <timeSource>RecordField</timeSource>
+        </scheduledPaths>
+        <triggerType>RecordAfterSave</triggerType>
+    </start>
+    <status>Active</status>
+</Flow>

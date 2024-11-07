@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Spanish_Closure_Notice_Date__c</fullName>
+    <externalId>false</externalId>
+    <formula>Text( DAY ( Inactive_Closure_Sent_Date__c )) +
+CASE( MONTH ( Inactive_Closure_Sent_Date__c ),
+1, " de enero de ",
+2, " de febrero de ",
+3, " de marzo de ",
+4, " de abril de ",
+5, " de mayo de ",
+6, " de junio de ",
+7, " de julio de ",
+8, " de agosto de ",
+9, " de septiembre de ",
+10, " de octubre de ",
+11, " de noviembre de ",
+12, " de diciembre de ",
+"") + Text(YEAR( Inactive_Closure_Sent_Date__c ))</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>Spanish Closure Notice Date</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

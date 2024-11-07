@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>IC_Alleged_At_Hearing_Required</fullName>
+    <active>true</active>
+    <description>IC Alleged at hearing required for completed WCA hearing records</description>
+    <errorConditionFormula>ISPICKVAL( Status__c , "Completed")  &amp;&amp;   RecordType.DeveloperName == 'WCA_Hearing' &amp;&amp; ISPICKVAL( IC_Alleged_at_Hearing__c ,"")</errorConditionFormula>
+    <errorMessage>IC Alleged at Hearing field is required when status of WCA hearing is completed</errorMessage>
+</ValidationRule>

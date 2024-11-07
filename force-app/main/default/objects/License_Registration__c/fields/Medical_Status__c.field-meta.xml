@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Medical_Status__c</fullName>
+    <externalId>false</externalId>
+    <label>Medical Status</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Not Required - Older than 30 days old</fullName>
+                <default>false</default>
+                <label>Not Required - Older than 30 days old</label>
+            </value>
+            <value>
+                <fullName>Required - Older than 30 days, but medical approval needed</fullName>
+                <default>false</default>
+                <label>Required - Older than 30 days, but medical approval needed</label>
+            </value>
+            <value>
+                <fullName>Required - 15-30 Day Infant, medical approval needed</fullName>
+                <default>false</default>
+                <label>Required - 15-30 Day Infant, medical approval needed</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

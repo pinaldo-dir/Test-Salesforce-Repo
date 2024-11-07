@@ -1,0 +1,5 @@
+An appeal has not yet been set for the appeal {!Appeal__c.Name}
+
+It must be set by {!Appeal__c.Hearing_Must_Be_Set_No_Later_Than__c}
+
+You may visit this appeal in salesforce at {!Appeal__c.Link}

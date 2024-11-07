@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Payment_Applied_To__c</fullName>
+    <description>Usually populated by CashCreatePRs.cls when a Case Payment is Posted. Also populated by ReturnedVoidedReceipt.cls, creating Buybacks when a RCT is Returned.</description>
+    <externalId>false</externalId>
+    <label>Payment Applied To</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Attorney Fees</fullName>
+                <default>false</default>
+                <label>Attorney Fees</label>
+            </value>
+            <value>
+                <fullName>Filing Fees</fullName>
+                <default>false</default>
+                <label>Filing Fees</label>
+            </value>
+            <value>
+                <fullName>Interest</fullName>
+                <default>false</default>
+                <label>Interest</label>
+            </value>
+            <value>
+                <fullName>Judgment Amount</fullName>
+                <default>false</default>
+                <label>Judgment Amount</label>
+            </value>
+            <value>
+                <fullName>Other</fullName>
+                <default>false</default>
+                <label>Other</label>
+            </value>
+            <value>
+                <fullName>Penalties</fullName>
+                <default>false</default>
+                <label>Penalties</label>
+            </value>
+            <value>
+                <fullName>Post-Hearing Interest</fullName>
+                <default>false</default>
+                <label>Post-Hearing Interest</label>
+            </value>
+            <value>
+                <fullName>Post-Judgment Interest</fullName>
+                <default>false</default>
+                <label>Post-Judgment Interest</label>
+            </value>
+            <value>
+                <fullName>Refund Amount</fullName>
+                <default>false</default>
+                <label>Refund Amount</label>
+            </value>
+            <value>
+                <fullName>Wage Interest</fullName>
+                <default>false</default>
+                <label>Wage Interest</label>
+            </value>
+            <value>
+                <fullName>Wages</fullName>
+                <default>false</default>
+                <label>Wages</label>
+            </value>
+            <value>
+                <fullName>Buyback</fullName>
+                <default>false</default>
+                <label>Buyback</label>
+            </value>
+            <value>
+                <fullName>Amounts Due to DIR</fullName>
+                <default>false</default>
+                <label>Amounts Due to DIR</label>
+            </value>
+            <value>
+                <fullName>DIR Attorney Fees</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>DIR Attorney Fees</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

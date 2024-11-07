@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+        <label><!-- Complex Process --></label>
+        <name>Complex_Process__c</name>
+        <picklistValues>
+            <masterLabel>Claim includes irregular work hours and/or multiple hourly rates for extended periods.</masterLabel>
+            <translation><!-- Claim includes irregular work hours and/or multiple hourly rates for extended periods. --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Claim involves subpoenas.</masterLabel>
+            <translation><!-- Claim involves subpoenas. --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Defendant(s) is/are represented.</masterLabel>
+            <translation><!-- Defendant(s) is/are represented. --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Includes one interpreter.</masterLabel>
+            <translation><!-- Includes one interpreter. --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Involves rare/exotic languages or multiple interpreters.</masterLabel>
+            <translation><!-- Involves rare/exotic languages or multiple interpreters. --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>More than 2 witnesses, excluding principal parties</masterLabel>
+            <translation><!-- More than 2 witnesses, excluding principal parties --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Multiple case issues.</masterLabel>
+            <translation><!-- Multiple case issues. --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Number of Defendants or liable parties that are listed.</masterLabel>
+            <translation><!-- Number of Defendants or liable parties that are listed. --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>One or more special theory of liability has been raised: Client Employer, IC, Exempt/Non-Exempt, Joint Employer, Individual Liability (558.1), Joint Liability (238.5).</masterLabel>
+            <translation><!-- One or more special theory of liability has been raised: Client Employer, IC, Exempt/Non-Exempt, Joint Employer, Individual Liability (558.1), Joint Liability (238.5). --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Plaintiff is represented.</masterLabel>
+            <translation><!-- Plaintiff is represented. --></translation>
+        </picklistValues>
+    </CustomFieldTranslation>

@@ -1,0 +1,214 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>54.0</apiVersion>
+    <assignments>
+        <name>Add_Current_Item_Assigned_End_Date_to_Collection_Variable</name>
+        <label>Add Current Item Assigned End Date to Collection Variable</label>
+        <locationX>918</locationX>
+        <locationY>157</locationY>
+        <assignmentItems>
+            <assignToReference>RecordsToUpdateCollection</assignToReference>
+            <operator>Add</operator>
+            <value>
+                <elementReference>loop_1</elementReference>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>loop_1</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
+        <name>Assign_Current_Item_w_VarStatusEndDate</name>
+        <label>Assign Current Item w VarStatusEndDate</label>
+        <locationX>1007</locationX>
+        <locationY>427</locationY>
+        <assignmentItems>
+            <assignToReference>loop_1.Status_End_Date__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>VarTodaysDate</elementReference>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Add_Current_Item_Assigned_End_Date_to_Collection_Variable</targetReference>
+        </connector>
+    </assignments>
+    <decisions>
+        <description>The current record being looped</description>
+        <name>Current_EndDate_is_NULL</name>
+        <label>Current EndDate is NULL</label>
+        <locationX>821</locationX>
+        <locationY>422</locationY>
+        <defaultConnector>
+            <targetReference>loop_1</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>NO</defaultConnectorLabel>
+        <rules>
+            <name>YES</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>loop_1.Status_End_Date__c</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Assign_Current_Item_w_VarStatusEndDate</targetReference>
+            </connector>
+            <label>YES</label>
+        </rules>
+    </decisions>
+    <formulas>
+        <name>VarTodaysDate</name>
+        <dataType>Date</dataType>
+        <expression>Today()</expression>
+    </formulas>
+    <interviewLabel>HR Populate Status End Date - Form 1 Status Object {!$Flow.CurrentDateTime}</interviewLabel>
+    <label>HR Populate Status End Date - Form 1 Status Object</label>
+    <loops>
+        <name>loop_1</name>
+        <label>loop 1</label>
+        <locationX>641</locationX>
+        <locationY>467</locationY>
+        <collectionReference>Get_All_Records_Required_Duration</collectionReference>
+        <iterationOrder>Asc</iterationOrder>
+        <nextValueConnector>
+            <targetReference>Current_EndDate_is_NULL</targetReference>
+        </nextValueConnector>
+        <noMoreValuesConnector>
+            <targetReference>Update_All_Records</targetReference>
+        </noMoreValuesConnector>
+    </loops>
+    <processMetadataValues>
+        <name>BuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>CanvasMode</name>
+        <value>
+            <stringValue>FREE_FORM_CANVAS</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>OriginBuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processType>AutoLaunchedFlow</processType>
+    <recordLookups>
+        <description>Part X Return to program / Part X Under Review</description>
+        <name>Get_All_Records_Required_Duration</name>
+        <label>Get All Records Required Duration</label>
+        <locationX>489</locationX>
+        <locationY>446</locationY>
+        <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
+        <connector>
+            <targetReference>loop_1</targetReference>
+        </connector>
+        <filterLogic>1 AND 2 AND ( 3 OR 4 OR 5 OR 6 OR 7 OR 8 ) AND  9</filterLogic>
+        <filters>
+            <field>Form_1__c</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>$Record.Form_1__r.Id</elementReference>
+            </value>
+        </filters>
+        <filters>
+            <field>Id</field>
+            <operator>NotEqualTo</operator>
+            <value>
+                <elementReference>$Record.Id</elementReference>
+            </value>
+        </filters>
+        <filters>
+            <field>Form1_Status_Type__c</field>
+            <operator>EqualTo</operator>
+            <value>
+                <stringValue>Part 1 Return to Program</stringValue>
+            </value>
+        </filters>
+        <filters>
+            <field>Form1_Status_Type__c</field>
+            <operator>EqualTo</operator>
+            <value>
+                <stringValue>Part 2 Return to Program</stringValue>
+            </value>
+        </filters>
+        <filters>
+            <field>Form1_Status_Type__c</field>
+            <operator>EqualTo</operator>
+            <value>
+                <stringValue>Part 3 Return to Program</stringValue>
+            </value>
+        </filters>
+        <filters>
+            <field>Form1_Status_Type__c</field>
+            <operator>EqualTo</operator>
+            <value>
+                <stringValue>Packet to HR - Part 1 Under Review</stringValue>
+            </value>
+        </filters>
+        <filters>
+            <field>Form1_Status_Type__c</field>
+            <operator>EqualTo</operator>
+            <value>
+                <stringValue>Packet to HR - Part 2 Under Review</stringValue>
+            </value>
+        </filters>
+        <filters>
+            <field>Form1_Status_Type__c</field>
+            <operator>EqualTo</operator>
+            <value>
+                <stringValue>Packet to HR - Part 3 Under Review</stringValue>
+            </value>
+        </filters>
+        <filters>
+            <field>Status_End_Date__c</field>
+            <operator>IsNull</operator>
+            <value>
+                <booleanValue>true</booleanValue>
+            </value>
+        </filters>
+        <getFirstRecordOnly>false</getFirstRecordOnly>
+        <object>Form_1_Status__c</object>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </recordLookups>
+    <recordUpdates>
+        <name>Update_All_Records</name>
+        <label>Update All Records</label>
+        <locationX>665</locationX>
+        <locationY>593</locationY>
+        <inputReference>RecordsToUpdateCollection</inputReference>
+    </recordUpdates>
+    <start>
+        <locationX>301</locationX>
+        <locationY>20</locationY>
+        <connector>
+            <targetReference>Get_All_Records_Required_Duration</targetReference>
+        </connector>
+        <object>Form_1_Status__c</object>
+        <recordTriggerType>Create</recordTriggerType>
+        <triggerType>RecordAfterSave</triggerType>
+    </start>
+    <status>Active</status>
+    <variables>
+        <description>Hold all records. Added each record 1 by 1 from the loop</description>
+        <name>RecordsToUpdateCollection</name>
+        <dataType>SObject</dataType>
+        <isCollection>true</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+        <objectType>Form_1_Status__c</objectType>
+    </variables>
+    <variables>
+        <name>VarStatusEndDate</name>
+        <dataType>Date</dataType>
+        <isCollection>false</isCollection>
+        <isInput>true</isInput>
+        <isOutput>true</isOutput>
+    </variables>
+</Flow>

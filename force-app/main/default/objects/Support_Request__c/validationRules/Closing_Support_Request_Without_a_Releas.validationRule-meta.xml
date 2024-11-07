@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Closing_Support_Request_Without_a_Releas</fullName>
+    <active>true</active>
+    <description>This validation rule will prevent Team to close the Support Request without adding it to a Release</description>
+    <errorConditionFormula>ISBLANK(Add_to_a_Release__c) 
+&amp;&amp; ISPICKVAL(Status__c, "Closed") 
+&amp;&amp; (RecordTypeId  &lt;&gt; '012d0000001tZk3') 
+&amp;&amp; !ISPICKVAL(Type__c , "Training Issue")
+&amp;&amp; !ISPICKVAL(Type__c , "Account Request")
+&amp;&amp; !ISPICKVAL(Type__c , "Password Reset")
+&amp;&amp; !ISPICKVAL(Type__c , "ServiceNow Request")
+&amp;&amp; !ISPICKVAL(Type__c , "Support Request Enhancement")
+&amp;&amp;  $User.CalAtlas_Business_Team_Member__c = false</errorConditionFormula>
+    <errorDisplayField>Add_to_a_Release__c</errorDisplayField>
+    <errorMessage>The Support Request cannot be closed without adding it to a Release</errorMessage>
+</ValidationRule>

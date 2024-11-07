@@ -1,0 +1,59 @@
+<table border="0" cellpadding="5" width="550" cellspacing="5" height="400" >
+<tr valign="top" height="400" >
+<td tEditID="c1r1" style=" background-color:#FFFFFF; color:#000000; bEditID:r3st1; bLabel:main; font-size:12pt; font-family:arial;" aEditID="c1r1" locked="0" >
+<![CDATA[<p class="MsoNormal" style="color: rgb(0, 0, 0); font-family: arial; font-size: 12pt; margin-bottom: 0.0001pt; line-height: normal;"><span style="font-family:&quot;Arial&quot;,sans-serif;mso-fareast-font-family:
+&quot;Times New Roman&quot;;color:black;mso-font-kerning:0pt;mso-ligatures:none">The application
+for&nbsp;</span><span style="font-size: 12pt;">{!Rejection__c.Legal_Entity_Name__c}</span><span style="font-family: Arial, sans-serif; font-size: 12pt;">&nbsp;has been reviewed and defected for not meeting all
+of the&nbsp;&nbsp;requirements.&nbsp;Please review the attached First Defect
+Notice, which lists each specific defect in your application.&nbsp;</span></p>
+
+<p class="MsoNormal" style="color: rgb(0, 0, 0); font-family: arial; font-size: 12pt; margin-bottom: 0.0001pt; line-height: normal;"><span style="font-family:&quot;Arial&quot;,sans-serif;mso-fareast-font-family:
+&quot;Times New Roman&quot;;color:black;mso-font-kerning:0pt;mso-ligatures:none"><o:p>&nbsp;<br></o:p></span><span style="font-family: Arial, sans-serif; font-size: 12pt;">You are required
+to complete the requested adjustments to your application and re-submit it
+within&nbsp;10&nbsp;days from the date of this email, applications not
+resubmitted will be eligible for closure.</span></p>
+
+<p class="MsoNormal" style="color: rgb(0, 0, 0); font-family: arial; font-size: 12pt; margin-bottom: 0.0001pt; line-height: normal;"><span style="font-size: 12pt; font-family: Arial, sans-serif;"><br>To log
+in and make changes, please visit&nbsp;</span><span style="font-size: 12pt; background: white;"><font color="#0000ff" face="Arial, sans-serif"><b><u><a href="https://cadir.my.site.com/registrations">https://cadir.my.site.com/registrations</a></u></b></font><font face="Arial, sans-serif"><span style="font-size: 12pt;">.</span></font></span></p>
+
+<p class="MsoNormal" style="color: rgb(0, 0, 0); font-family: arial; font-size: 12pt; margin-bottom: 0.0001pt; line-height: normal;"><b style="font-size: 12pt;"><span style="font-family: Arial, sans-serif;"><br>Please
+follow the steps below:</span></b></p>
+
+<ol style="color: rgb(0, 0, 0); font-family: arial; font-size: 12pt; margin-top: 0in;" start="1" type="1">
+ <li class="MsoNormal" style="color:black;margin-bottom:0in;margin-bottom:.0001pt;
+     line-height:normal;mso-list:l0 level1 lfo1;tab-stops:list .5in"><b><span style="font-family:&quot;Arial&quot;,sans-serif;mso-fareast-font-family:&quot;Times New Roman&quot;;
+     mso-font-kerning:0pt;mso-ligatures:none">Log in to your dashboard and click
+     update under the license number. </span></b><span style="font-family:&quot;Arial&quot;,sans-serif;
+     mso-fareast-font-family:&quot;Times New Roman&quot;;mso-font-kerning:0pt;mso-ligatures:
+     none"><o:p></o:p></span></li>
+ <li class="MsoNormal" style="color:black;margin-bottom:0in;margin-bottom:.0001pt;
+     line-height:normal;mso-list:l0 level1 lfo1;tab-stops:list .5in"><b><span style="font-family:&quot;Arial&quot;,sans-serif;mso-fareast-font-family:&quot;Times New Roman&quot;;
+     mso-font-kerning:0pt;mso-ligatures:none">Provide the requested
+     information.</span></b><span style="font-family:&quot;Arial&quot;,sans-serif;
+     mso-fareast-font-family:&quot;Times New Roman&quot;;mso-font-kerning:0pt;mso-ligatures:
+     none"><o:p></o:p></span></li>
+ <li class="MsoNormal" style="color:black;margin-bottom:0in;margin-bottom:.0001pt;
+     line-height:normal;mso-list:l0 level1 lfo1;tab-stops:list .5in"><b><span style="font-family:&quot;Arial&quot;,sans-serif;mso-fareast-font-family:&quot;Times New Roman&quot;;
+     mso-font-kerning:0pt;mso-ligatures:none">Go to the "Submission"
+     section.</span></b><span style="font-family:&quot;Arial&quot;,sans-serif;mso-fareast-font-family:
+     &quot;Times New Roman&quot;;mso-font-kerning:0pt;mso-ligatures:none"><o:p></o:p></span></li>
+ <li class="MsoNormal" style="color:black;margin-bottom:0in;margin-bottom:.0001pt;
+     line-height:normal;mso-list:l0 level1 lfo1;tab-stops:list .5in"><b><span style="font-family:&quot;Arial&quot;,sans-serif;mso-fareast-font-family:&quot;Times New Roman&quot;;
+     mso-font-kerning:0pt;mso-ligatures:none">Select "Yes" to the
+     question "Resubmit Application due to Pending Defect".</span></b><span style="font-family:&quot;Arial&quot;,sans-serif;mso-fareast-font-family:&quot;Times New Roman&quot;;
+     mso-font-kerning:0pt;mso-ligatures:none"><o:p></o:p></span></li>
+ <li class="MsoNormal" style="color:black;margin-bottom:0in;margin-bottom:.0001pt;
+     line-height:normal;mso-list:l0 level1 lfo1;tab-stops:list .5in"><b><span style="font-family:&quot;Arial&quot;,sans-serif;mso-fareast-font-family:&quot;Times New Roman&quot;;
+     mso-font-kerning:0pt;mso-ligatures:none">Click &lt;Submit&gt;.</span></b><span style="font-family:&quot;Arial&quot;,sans-serif;mso-fareast-font-family:&quot;Times New Roman&quot;;
+     mso-font-kerning:0pt;mso-ligatures:none"><o:p></o:p></span></li>
+</ol>
+
+<p class="MsoNormal" style="color: rgb(0, 0, 0); font-family: arial; font-size: 12pt; margin-bottom: 0.0001pt; line-height: normal;"><span style="font-family: Arial, sans-serif; font-size: 12pt;">Sincerely,</span></p>
+
+<p class="MsoNormal" style="color: rgb(0, 0, 0); font-family: arial; font-size: 12pt; margin-bottom: 0.0001pt; line-height: normal;"><span style="font-family: Arial, sans-serif; font-size: 12pt;"><br>Licensing
+&amp; Registration<br></span><span style="font-family: Arial, sans-serif; font-size: 12pt;">Labor
+Commissioner's Office<br></span><span style="font-family: Arial, sans-serif; font-size: 12pt;">Department
+of Industrial Relations<br></span><span style="font-family: Arial, sans-serif; font-size: 12pt;">State of
+California</span></p>]]></td>
+</tr>
+</table>

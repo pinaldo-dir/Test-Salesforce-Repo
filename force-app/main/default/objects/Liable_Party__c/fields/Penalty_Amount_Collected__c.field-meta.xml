@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Penalty_Amount_Collected__c</fullName>
+    <description>Sum of Penalty amount Liability Payments on behalf on this Liable Party. Populated by LiabilityPaymentTrigger -&gt; LiabilityPaymentMethods classes.</description>
+    <externalId>false</externalId>
+    <inlineHelpText>Penalty amount collected on behalf of this Liable Party.</inlineHelpText>
+    <label>Penalty Amount Collected</label>
+    <precision>18</precision>
+    <required>false</required>
+    <scale>2</scale>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Currency</type>
+</CustomField>

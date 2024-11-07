@@ -1,0 +1,21 @@
+<table border="0" cellpadding="5" width="550" cellspacing="5" height="400" >
+<tr valign="top" height="400" >
+<td tEditID="c1r1" style=" background-color:#FFFFFF; color:#000000; bEditID:r3st1; bLabel:main; font-size:12pt; font-family:arial;" aEditID="c1r1" locked="0" >
+<![CDATA[<div style="font-family: arial; font-size: 12pt;"><ul type="disc" style=""><li class="MsoNormal" style="color: black; line-height: normal;"><span style="font-family:&quot;Arial&quot;,sans-serif;mso-fareast-font-family:&quot;Times New Roman&quot;;
+     mso-font-kerning:0pt;mso-ligatures:none">The application for {!Rejection__c.Legal_Entity_Name__c}&nbsp;has&nbsp;been rejected for not meeting all of the
+     application&nbsp;requirements.&nbsp;<o:p></o:p></span></li>
+ <li class="MsoNormal" style="line-height: normal;"><span style="font-family: Arial, sans-serif;">Please review the attached
+     Rejection Notice, which lists the&nbsp;incomplete requirements&nbsp;and
+     provides information on how you can continue&nbsp;the application process.<br><br><a href="https://cadir.my.site.com/registrations%0d" style="font-size: 12pt;">https://cadir.my.site.com/registrations</a></span></li></ul>
+
+<p class="MsoNormal" style="color: rgb(0, 0, 0); margin-bottom: 0.0001pt; line-height: normal;"><span style="font-family:&quot;Arial&quot;,sans-serif;mso-fareast-font-family:
+&quot;Times New Roman&quot;;color:black;mso-font-kerning:0pt;mso-ligatures:none"><o:p>&nbsp;</o:p></span></p>
+
+<p class="MsoNormal" style="color: rgb(0, 0, 0); margin-bottom: 0.0001pt; line-height: normal;"><span style="font-family:&quot;Arial&quot;,sans-serif;mso-fareast-font-family:
+&quot;Times New Roman&quot;;color:black;mso-font-kerning:0pt;mso-ligatures:none">Sincerely,<br></span><span style="font-family: Arial, sans-serif; font-size: 12pt;">Licensing
+&amp; Registration<br></span><span style="font-family: Arial, sans-serif; font-size: 12pt;">Labor Commissioner's
+Office<br></span><span style="font-family: Arial, sans-serif; font-size: 12pt;">Department
+of Industrial Relations<br></span><span style="font-family: Arial, sans-serif; font-size: 12pt;">State of
+California</span></p></div>]]></td>
+</tr>
+</table>

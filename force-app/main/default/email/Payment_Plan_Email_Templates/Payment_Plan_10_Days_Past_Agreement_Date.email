@@ -1,0 +1,3 @@
+The Payment Plan {!Payment_Plan__c.Link} on Case {!DIR_Case__c.Case_Number__c} with a Agreement Date of {!Payment_Plan__c.Payment_Plan_Agreement_Date__c} has a past due amount of {!Payment_Plan__c.Payment_Plan_Balance_Due__c} 
+
+Please follow up.

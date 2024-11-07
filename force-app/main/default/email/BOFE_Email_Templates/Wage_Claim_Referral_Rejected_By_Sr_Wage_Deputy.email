@@ -1,0 +1,9 @@
+Hello,
+
+The Wage Claim that against {!Report_of_Labor_Code_Violation__c.Account__c} you submitted to BOFE has been rejected by the Senior Wage Deputy.  With the following Comments:
+
+{!ApprovalRequest.Comments}
+
+You may reach your referral Directly in Salesforce at {!Report_of_Labor_Code_Violation__c.Link}
+
+The Record In Salesforce Is Labeled: {!Report_of_Labor_Code_Violation__c.Name}

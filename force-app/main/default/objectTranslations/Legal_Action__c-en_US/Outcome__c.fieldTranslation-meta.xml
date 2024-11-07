@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+        <label><!-- Outcome --></label>
+        <name>Outcome__c</name>
+        <picklistValues>
+            <masterLabel>Dismissed with Prejudice</masterLabel>
+            <translation><!-- Dismissed with Prejudice --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Dismissed without Prejudice</masterLabel>
+            <translation><!-- Dismissed without Prejudice --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Judgment in favor of Employer</masterLabel>
+            <translation><!-- Judgment in favor of Employer --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Judgment in favor of worker</masterLabel>
+            <translation><!-- Judgment in favor of worker --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Other</masterLabel>
+            <translation><!-- Other --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Settlement</masterLabel>
+            <translation><!-- Settlement --></translation>
+        </picklistValues>
+    </CustomFieldTranslation>

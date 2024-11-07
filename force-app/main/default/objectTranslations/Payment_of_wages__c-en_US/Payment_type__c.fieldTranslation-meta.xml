@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+        <label><!-- Payment type --></label>
+        <name>Payment_type__c</name>
+        <picklistValues>
+            <masterLabel>Commission rate</masterLabel>
+            <translation><!-- Commission rate --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Multiple hourly rate</masterLabel>
+            <translation><!-- Multiple hourly rate --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>One hourly rate</masterLabel>
+            <translation><!-- One hourly rate --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Piece rate</masterLabel>
+            <translation><!-- Piece rate --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Salary rate</masterLabel>
+            <translation><!-- Salary rate --></translation>
+        </picklistValues>
+    </CustomFieldTranslation>

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomMetadata xmlns="http://soap.sforce.com/2006/04/metadata" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <label>One hourly rate of pay for all regular h</label>
+    <protected>false</protected>
+    <values>
+        <field>Order_Number__c</field>
+        <value xsi:type="xsd:double">1.0</value>
+    </values>
+    <values>
+        <field>PicklistTypeValue__c</field>
+        <value xsi:type="xsd:string">One hourly rate of pay for all regular hours.</value>
+    </values>
+    <values>
+        <field>Spanish_Translation__c</field>
+        <value xsi:type="xsd:string">Una tarifa de pago por hora para todas las horas regulares</value>
+    </values>
+</CustomMetadata>

@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Duplicate_Account__c</fullName>
+    <defaultValue>false</defaultValue>
+    <description>Used to mark Tasks created by an autolaunched flow that has detected duplicate person accounts from when a new community user has self-registered.</description>
+    <externalId>false</externalId>
+    <label>Duplicate Account</label>
+    <type>Checkbox</type>
+</CustomField>

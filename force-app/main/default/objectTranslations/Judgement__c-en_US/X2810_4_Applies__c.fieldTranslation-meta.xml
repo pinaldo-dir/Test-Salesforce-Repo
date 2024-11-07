@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+        <help><!-- To edit this field, please go to the Case Management page. --></help>
+        <label><!-- 2810.4 Applies --></label>
+        <name>X2810_4_Applies__c</name>
+    </CustomFieldTranslation>

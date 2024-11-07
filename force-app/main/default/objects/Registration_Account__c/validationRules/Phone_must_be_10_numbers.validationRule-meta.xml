@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Phone_must_be_10_numbers</fullName>
+    <active>true</active>
+    <errorConditionFormula>OR( 
+AND( 
+NOT(ISBLANK(Business_Phone__c )), 
+NOT(REGEX(Business_Phone__c , "\\D*?(\\d\\D*?){10}")),
+OR( 
+ISPICKVAL(  Mailing_Country__c , "United States of America"), 
+ISPICKVAL(  Physical_Business_Country__c , "United States of America"))
+), 
+AND( 
+NOT(ISBLANK(Mobile_Phone__c)), 
+NOT(REGEX(Mobile_Phone__c, "\\D*?(\\d\\D*?){10}")),
+OR( 
+ISPICKVAL(  Mailing_Country__c , "United States of America"), 
+ISPICKVAL(  Physical_Business_Country__c , "United States of America")),
+Registration__r.RecordType.DeveloperName != "Entertainment_Work"
+),
+AND( 
+NOT(ISBLANK( Residential_Phone__c )), 
+NOT(REGEX(Residential_Phone__c, "\\D*?(\\d\\D*?){10}")) ,
+ISPICKVAL( Residential_Country__c, "United States of America"),
+OR( 
+ISPICKVAL(  Mailing_Country__c , "United States of America"), 
+ISPICKVAL(  Physical_Business_Country__c , "United States of America")) 
+))</errorConditionFormula>
+    <errorMessage>USA phone numbers must be 10 numbers. Please correct to continue.</errorMessage>
+</ValidationRule>

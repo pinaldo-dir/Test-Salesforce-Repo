@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>FLC_Instructor__c</fullName>
+    <defaultValue>false</defaultValue>
+    <description>Farm Labor Contractor Instructor.  Designates the Community User as an instructor so they can manage FLC classes through Registration Services community site.</description>
+    <externalId>false</externalId>
+    <label>FLC Instructor</label>
+    <trackFeedHistory>false</trackFeedHistory>
+    <type>Checkbox</type>
+</CustomField>

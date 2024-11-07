@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+        <label><!-- Position Closed or Abolished? --></label>
+        <name>Position_Closed_Abolished__c</name>
+    </CustomFieldTranslation>

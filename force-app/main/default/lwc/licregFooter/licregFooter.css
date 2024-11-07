@@ -1,0 +1,86 @@
+.sectionStyle{
+    padding-right: 50px;
+}
+ .anchorDivStyle{
+    text-align: center;
+}
+ .sectionClass{
+    font-family: "Source Sans Pro", sans-serif;
+    padding-top: 25px;
+    background-color:#444;
+    padding-bottom: 15px;
+    position: relative;
+    overflow: hidden;
+    font-size: .97em;
+}
+ .sectionFirstClass{
+    max-width: 930px;
+    margin: 0 auto;
+    padding: 0;
+    font-size: .97em;
+    padding-top: 25px;
+    padding-bottom: 25px
+}
+ h2{
+    color: #e0ae1a;
+    font-family: "Trebuchet MS";
+    font-weight: normal;
+    font-size: 17px;
+    text-align: left;
+    margin-top: 8px;
+    margin-bottom: 9px;
+}
+ a{
+    color: #6382f2;
+    padding: 0 0;
+    background: transparent;
+    cursor: pointer;
+    font-family: "Source Sans Pro", sans-serif;
+    font-size: 15px;
+}
+ .anchorStyle{
+    font-size: 16.49px;
+    font-family: "Source Sans Pro", sans-serif;
+}
+ ul{
+    padding: 0;
+    margin-bottom: -5px;
+    list-style: none;
+    margin-top: 7px;
+    font-size: 15px;
+}
+ li{
+    margin-bottom: .6em;
+    display: block;
+    line-height: 1.3;
+    text-align: left;
+    float: none;
+    font-size: 15px;
+    margin-left: 0;
+}
+ .navContainer{
+    padding-left: 100px;
+    padding-right: 100px;
+}
+ .link-Nav{
+    background-color: black;
+    color: #ffffff;
+    padding-left: 10px;
+    height: 40px;
+    padding-top: 5px;
+}
+ .socialMediaIconStyle{
+    margin-top: 5px;
+}
+ .copyright-Class{
+    position: absolute;  
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: #ffffff;
+    font-size: 15px;
+    text-align: center;
+}
+.contactStyle{
+    font-size: 15px;
+}

@@ -1,0 +1,7 @@
+Hello {!Liability__c.Assigned_Deputy_Name__c},
+
+Case Number: {!Liability__c.Case_Management__c}, {!DIR_Case__c.Employer__c} has Liabilities {!Liability__c.Name} 30 days past the Appeal Deadline of {!Liability__c.Appeal_Deadline__c} 
+
+Please follow up in Salesforce on the Liability, Assessment, and Payment. 
+
+{!Liability__c.Link}

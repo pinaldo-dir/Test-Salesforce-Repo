@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Pending_Project_Support_Request</fullName>
+    <filterScope>Queue</filterScope>
+    <label>Pending Project</label>
+    <queue>Pending_Project</queue>
+    <sharedTo>
+        <allInternalUsers />
+    </sharedTo>
+</ListView>

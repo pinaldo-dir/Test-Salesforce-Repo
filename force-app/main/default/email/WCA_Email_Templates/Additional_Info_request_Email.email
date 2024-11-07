@@ -1,0 +1,9 @@
+Additional information is needed on {!Referral__c.Name} - WCA Referral. 
+
+Please provide:
+ 
+{!Referral__c.Additional_Info_Requested__c}
+
+Referral record :  {!Referral__c.Link}
+ 
+Case number: {!Referral__c.Case__c}

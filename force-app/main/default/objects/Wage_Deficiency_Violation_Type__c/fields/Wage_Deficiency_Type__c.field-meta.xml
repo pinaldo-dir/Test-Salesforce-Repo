@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Wage_Deficiency_Type__c</fullName>
+    <externalId>false</externalId>
+    <label>Wage Deficiency Type</label>
+    <referenceTo>Wage_Deficiency_Type__c</referenceTo>
+    <relationshipLabel>Wage Deficiency Violation Types</relationshipLabel>
+    <relationshipName>Wage_Deficiency_Violation_Types</relationshipName>
+    <relationshipOrder>0</relationshipOrder>
+    <reparentableMasterDetail>true</reparentableMasterDetail>
+    <trackTrending>false</trackTrending>
+    <type>MasterDetail</type>
+    <writeRequiresMasterRead>false</writeRequiresMasterRead>
+</CustomField>

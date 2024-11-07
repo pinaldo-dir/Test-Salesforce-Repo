@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+        <help><!-- The Date of Notice is the date that the 2810.4 notice is deposited in the mail (or served) on the business. --></help>
+        <label><!-- 2810.4 Date of Notice --></label>
+        <name>X2810_4_Date_of_Notice__c</name>
+    </CustomFieldTranslation>

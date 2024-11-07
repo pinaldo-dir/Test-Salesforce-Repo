@@ -1,0 +1,15 @@
+The current {!Bond__c.Registration_Type__c} Registration # {!Bond__c.Registration_Number__c} for {!Bond__c.Legal_Entity_Name__c} expires on {!Bond__c.Expiration_Date__c} and requires a continuation certificate or update if you obtained a new {!Bond__c.Surety_Type__c}. Please visit our website to submit a new {!Bond__c.Surety_Type__c} or continuation certificate to avoid a lapse.  
+
+
+{!License_Registration__c.Registration_Site__c} 
+
+
+Sincerely, 
+
+Licensing & Registration
+
+Labor Commissioner's office
+
+Department of Industrial Relations
+
+State of California

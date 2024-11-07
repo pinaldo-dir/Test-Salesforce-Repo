@@ -1,0 +1,68 @@
+<!--
+  @description       : 
+  @author            : ChangeMeIn@UserSettingsUnder.SFDoc
+  @group             : 
+  @last modified on  : 03-28-2022
+  @last modified by  : ChangeMeIn@UserSettingsUnder.SFDoc
+-->
+<template>
+    <!-- <template if:false={isClaimHeading}> -->
+        <div class="slds-grid slds-wrap">
+            <div class="slds-col slds-medium-size_1-of-8 slds-large-size_1-of-8"></div>
+                <div class="slds-col slds-size_1-of-1 slds-medium-size_6-of-8 slds-large-size_6-of-8">
+                    <div class="slds-grid slds-wrap">
+                        <div class="slds-col slds-medium-size_1-of-1 slds-large-size_1-of-1">
+                            <template if:true={isRenderWageDef}>
+                                <template for:each={renderWageDefSection} for:item="wageDefObj">
+                                    <div key={wageDefObj.Id}>
+                                        <div class="slds-grid slds-wrap">
+                                                <h1 class="slds-col slds-medium-size_5-of-6 slds-large-size_5-of-6 slds-p-around_medium slds-text-heading_large owcHeadingStyle">
+                                                    {wageDefObj.heading}
+                                                </h1>
+                                            
+                                            <div class="slds-col slds-medium-size_1-of-6 slds-large-size_1-of-6">
+                                                <template if:false={isFormPreviewMode}>
+                                                    <template if:false={wageDefObj.button}>
+                                                        <lightning-button class="slds-float_right slds-m-top_medium slds-m-bottom_medium slds-m-left_medium owcButtonStyle" label={customLabelValues.OWC_save_as_draft_label} variant="brand" onclick={handleSaveAsDraft}></lightning-button>
+                                                    </template>
+                                                    <template if:true={wageDefObj.button}>
+                                                        <lightning-button variant="brand" label={customLabelValues.OWC_delete_claim_button} title={customLabelValues.OWC_delete_claim_button} name={wageDefObj.sectionId} onclick={handleSectionDelete} class="slds-float_right owcButtonStyle"></lightning-button>
+                                                    </template>
+                                                </template>
+                                            </div>
+                                            <template if:false={wageDefObj.button}>
+                                                <div class="slds-p-left_medium slds-p-right_medium">{customLabelValues.OWC_wage_header_summary}</div>
+                                            </template>
+                                        </div>
+                                        <div>
+                                            <template if:true={iswagedefpreview}>
+                                                <c-owc-Wage-Deficiencies-Child-Preview-Cmp is_wage_def_garment_claim={is_wage_def_garment_claim} is_domestic_worker={is_domestic_worker} isfarmlabour={isfarmlabour} wageclaimsubmit={wageclaimsubmit} paidbreaks={paidbreaks} chequereplaced={chequereplaced} iswagedefpreview={iswagedefpreview} finalpaymentdate={finalpaymentdate} stateratelist={stateratelist} onhidespinnercustomevent={handleHideSpinnerCmp} staterate={staterate} minimumrates={minimumrates} paystubsickrecord={paystubsickrecord} iwcinfoobj={iwcinfoobj} isnotidentifyemployer={isnotidentifyemployer} heatrecovery={heatrecovery} powdetails={powdetails} empstatementprovided={empstatementprovided} stateminwagerate={stateminwagerate} paystubstatement={paystubstatement} userworkedhours={userworkedhours} otherworkcity={otherworkcity} minimumwage={minimumwage} hourlyratelist={hourlyratelist} multiplehourlyrate={multiplehourlyrate} salaryratelist={salaryratelist} quitdatevalue={quitdatevalue} werewagespaid={werewagespaid} noticebeforequit={noticebeforequit} paidbycheck={paidbycheck} dischargeddate={dischargeddate} minimumhiredate={minimumhiredate} minimumwagezipcode={minimumwagezipcode} sectionid={wageDefObj.sectionId} employeesectionheader={wageDefObj.heading} onwagedeficienciescustomobjevent={handleWageDeficienciesInfo} onwagedeficiencieschildvalidityevent={handleWageDeficienciesValidityChecker} deletebutton={wageDefObj.button} onwagedefsectiondeleteevent={handleWageClaimDelete} onemployersectiondeleteevent={handleEmployerSectionDeletedData}></c-owc-Wage-Deficiencies-Child-Preview-Cmp>
+                                            </template>
+                                            <template if:false={iswagedefpreview}>
+                                                <c-owc-Wage-Deficiencies-Child-Container-Cmp is_wage_def_garment_claim={is_wage_def_garment_claim} is_domestic_worker={is_domestic_worker} isfarmlabour={isfarmlabour} wageclaimsubmit={wageclaimsubmit} paidbreaks={paidbreaks} chequereplaced={chequereplaced} iswagedefpreview={iswagedefpreview} finalpaymentdate={finalpaymentdate} stateratelist={stateratelist} onhidespinnercustomevent={handleHideSpinnerCmp} staterate={staterate} minimumrates={minimumrates} paystubsickrecord={paystubsickrecord} iwcinfoobj={iwcinfoobj} isnotidentifyemployer={isnotidentifyemployer} heatrecovery={heatrecovery} powdetails={powdetails} empstatementprovided={empstatementprovided} stateminwagerate={stateminwagerate} paystubstatement={paystubstatement} userworkedhours={userworkedhours} otherworkcity={otherworkcity} minimumwage={minimumwage} hourlyratelist={hourlyratelist} multiplehourlyrate={multiplehourlyrate} salaryratelist={salaryratelist} quitdatevalue={quitdatevalue} werewagespaid={werewagespaid} noticebeforequit={noticebeforequit} paidbycheck={paidbycheck} dischargeddate={dischargeddate} minimumhiredate={minimumhiredate} minimumwagezipcode={minimumwagezipcode} sectionid={wageDefObj.sectionId} employeesectionheader={wageDefObj.heading} onwagedeficienciescustomobjevent={handleWageDeficienciesInfo} onwagedeficiencieschildvalidityevent={handleWageDeficienciesValidityChecker} deletebutton={wageDefObj.button} onwagedefsectiondeleteevent={handleWageClaimDelete} onemployersectiondeleteevent={handleEmployerSectionDeletedData}></c-owc-Wage-Deficiencies-Child-Container-Cmp>
+                                            </template>
+                                        </div>
+                                        <!-- <template if:false={isFormPreviewMode}>
+                                            
+                                        </template>
+                                        <template if:true={isFormPreviewMode}>
+                                            <div>
+                                                <c-owc-Wage-Deficiencies-Child-Preview-Cmp stateratelist={stateratelist} onhidespinnercustomevent={handleHideSpinnerCmp} staterate={staterate} minimumrates={minimumrates} paystubsickrecord={paystubsickrecord} iwcinfoobj={iwcinfoobj} isnotidentifyemployer={isnotidentifyemployer} heatrecovery={heatrecovery} powdetails={powdetails} empstatementprovided={empstatementprovided} stateminwagerate={stateminwagerate} paystubstatement={paystubstatement} userworkedhours={userworkedhours} otherworkcity={otherworkcity} minimumwage={minimumwage} hourlyratelist={hourlyratelist} multiplehourlyrate={multiplehourlyrate} salaryratelist={salaryratelist} quitdatevalue={quitdatevalue} werewagespaid={werewagespaid} noticebeforequit={noticebeforequit} paidbycheck={paidbycheck} dischargeddate={dischargeddate} minimumhiredate={minimumhiredate} minimumwagezipcode={minimumwagezipcode} sectionid={wageDefObj.sectionId} employeesectionheader={wageDefObj.heading} onwagedeficienciescustomobjevent={handleWageDeficienciesInfo} onwagedeficiencieschildvalidityevent={handleWageDeficienciesValidityChecker} deletebutton={wageDefObj.button} onwagedefsectiondeleteevent={handleWageClaimDelete} onemployersectiondeleteevent={handleEmployerSectionDeletedData}></c-owc-Wage-Deficiencies-Child-Preview-Cmp>
+                                            </div>
+                                        </template> -->
+                                    </div>
+                                </template>
+                            </template>
+                        </div>
+                        <!-- <div class="slds-p-left_large slds-col slds-medium-size_1-of-1 slds-large-size_1-of-1">
+                            <template if:false={isFormPreviewMode}>
+                                {customLabelValues.OWC_another_deficiencies_claim_question_label}&nbsp;
+                                <lightning-button class="slds-m-around_medium owcButtonStyle" variant="brand" label={customLabelValues.OWC_another_deficiencies_claim_button} onclick={addMoreDeficiencies}></lightning-button>
+                            </template>
+                        </div> -->
+                    </div>
+                </div>
+            <div class="slds-col slds-medium-size_1-of-8 slds-large-size_1-of-8"></div>
+        </div>
+    
+</template>

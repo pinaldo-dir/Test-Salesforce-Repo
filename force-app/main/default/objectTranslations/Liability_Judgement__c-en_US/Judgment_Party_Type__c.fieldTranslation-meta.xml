@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+        <label><!-- Judgment Party Type --></label>
+        <name>Judgment_Party_Type__c</name>
+        <picklistValues>
+            <masterLabel>Alter Ego</masterLabel>
+            <translation><!-- Alter Ego --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Car Wash Successor (LC 2066)</masterLabel>
+            <translation><!-- Car Wash Successor (LC 2066) --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Equitable Successor</masterLabel>
+            <translation><!-- Equitable Successor --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>FLC Successor (LC 1698.9)</masterLabel>
+            <translation><!-- FLC Successor (LC 1698.9) --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Garment Successor (LC 2684)</masterLabel>
+            <translation><!-- Garment Successor (LC 2684) --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Janitorial Successor (LC 1420)</masterLabel>
+            <translation><!-- Janitorial Successor (LC 1420) --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Judgment Successor (LC 200.3)</masterLabel>
+            <translation><!-- Judgment Successor (LC 200.3) --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Labor Code 238(e) Related Business</masterLabel>
+            <translation><!-- Labor Code 238(e) Related Business --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Original Judgment Debtor</masterLabel>
+            <translation><!-- Original Judgment Debtor --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Other</masterLabel>
+            <translation><!-- Other --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Port Trucking Successor (LC 2810.4)</masterLabel>
+            <translation><!-- Port Trucking Successor (LC 2810.4) --></translation>
+        </picklistValues>
+    </CustomFieldTranslation>

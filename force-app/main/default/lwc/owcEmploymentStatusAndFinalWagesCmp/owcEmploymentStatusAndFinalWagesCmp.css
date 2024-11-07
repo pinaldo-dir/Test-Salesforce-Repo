@@ -1,0 +1,48 @@
+.headingStyle{
+    font-size: 34px;
+    line-height: 44px;
+    font-family: Avenir Next forINTUIT,Avenir,Helvetica,Arial,sans-serif;
+    font-style: normal;
+    font-weight: lighter;
+    color: #393a3d;
+    margin: 0;
+    overflow-wrap: break-word;
+}
+.requiredMsgStyle{
+    color:red;
+    padding: 15px 0 0 15px;
+}
+
+.slds-form-element__control .slds-radio{
+    padding: 0 0 10px 0;
+}
+
+.requiredErrorMag{
+    color: red;
+    padding: 0 0 0 6px;
+    font-size: 15px;
+}
+
+.learnMoreStyle{
+    font-size: 15px;
+}
+
+.dateFormatLabel{
+    font-size: 15px;
+}
+
+.fieldsetStyle{
+	background: #f4f4f4;
+	padding: 8px 12px 6px 15px;
+	margin-left: -12px;
+}
+
+.fieldSetLabelStyle{
+	font-weight: 600;
+}
+
+.fieldSetSubLabelStyle{
+    color: #333333;
+    font-size:16px;
+    font-family: Source Sans Pro;
+}

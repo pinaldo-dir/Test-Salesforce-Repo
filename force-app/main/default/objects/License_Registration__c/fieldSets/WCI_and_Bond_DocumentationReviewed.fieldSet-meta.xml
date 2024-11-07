@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FieldSet xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>WCI_and_Bond_DocumentationReviewed</fullName>
+    <description>Used in FLC VIP form tool</description>
+    <displayedFields>
+        <field>WCI_and_Bond_DocumentationReviewed__c</field>
+        <isFieldManaged>false</isFieldManaged>
+        <isRequired>false</isRequired>
+    </displayedFields>
+    <label>WCI and Bond DocumentationReviewed</label>
+</FieldSet>

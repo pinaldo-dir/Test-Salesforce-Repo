@@ -1,0 +1,59 @@
+<!--Sample.cmp-->
+<aura:component controller="OWCAssociateAgentController" implements="force:hasRecordId,flexipage:availableForAllPageTypes,force:appHostable,lightning:actionOverride">
+    <aura:attribute name="recordId" type="String" default=""/>
+    <aura:attribute name="agentAssociatedName" type="String"  default=""/>
+    <aura:attribute name="type" type="String"  default=""/>
+    <aura:attribute name="reason" type="String"  default=""/>
+    <aura:attribute name="status" type="Boolean"  default="false"/>
+    <aura:attribute name="showSpinner" type="Boolean"  default="false"/>
+    <!--Component-->
+    <div class="">
+        <lightning:card title="Associated Agents" iconName="standard:lead" class="">
+            <lightning:recordEditForm aura:id="associatedAgentFormId" recordId="{!v.recordId}" objectApiName="Associated_Agents__c" 
+            onload="{!c.doInit}" onsuccess="{!c.handleSuccess}">
+                <lightning:messages />
+                
+                <div class="slds-grid slds-wrap slds-m-left--small slds-m-right--small">
+                    <div class="slds-col slds-size_1-of-2 ">
+                        <lightning:inputField fieldName="Account__c" disabled="true" required="true"></lightning:inputField>
+                    </div>
+                    <div class="slds-col slds-size_1-of-2 ">
+                        <lightning:inputField fieldName="Associated_Account__c" disabled="true" required="true"></lightning:inputField>
+                    </div>
+                </div>
+                
+                <div class="slds-grid slds-wrap slds-m-left--small slds-m-right--small">
+                    <div class="slds-col slds-size_1-of-2 ">
+                        <lightning:inputField fieldName="Type__c" required="true"></lightning:inputField>
+                    </div>
+                    <div class="slds-col slds-size_1-of-2 "></div>
+                </div>
+                
+                <div class="slds-grid slds-wrap slds-m-left--small slds-m-right--small">
+                    <div class="slds-col slds-size_1-of-2 ">
+                        <lightning:inputField type="checkbox" fieldName="Relationship_Status__c" />
+                        <!--<lightning:input name="Relationship_Status__c" label="Relationship Status" type="checkbox" />      -->                  
+                    </div>
+                    <div class="slds-col slds-size_1-of-2 "></div>
+                </div>
+                
+                <div class="slds-grid slds-wrap slds-m-left--small slds-m-right--small">
+                    <div class="slds-col slds-size_1-of-2 ">
+                        <lightning:inputField fieldName="Reason__c" ></lightning:inputField>
+                    </div>
+                </div>
+                
+                <div class="slds-align_absolute-center">
+                    <lightning:button label="Cancel" onclick="{!c.handleCancel}" />
+                    <lightning:button type="submit" label="Save" variant="brand"  />
+                </div>
+            </lightning:recordEditForm>
+        </lightning:card>
+        <aura:if isTrue="{!v.showSpinner}">
+            <div class="exampleHolder">
+                <lightning:spinner alternativeText="Loading" size="medium" />
+            </div>
+        </aura:if> 
+        
+    </div>
+</aura:component>

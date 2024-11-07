@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<WebLink xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Generate_Documents_Nintex</fullName>
+    <availability>online</availability>
+    <description>For Citation and all demand Letters Liability__c</description>
+    <displayType>button</displayType>
+    <encodingKey>UTF-8</encodingKey>
+    <height>600</height>
+    <linkType>url</linkType>
+    <masterLabel>Generate Documents</masterLabel>
+    <openType>sidebar</openType>
+    <protected>false</protected>
+    <url>/apex/loop__looplus?&amp;eid={!Liability__c.Id}&amp;filter=8A,{!Liability__c.Citation_Form_Assessment_Conga__c}</url>
+</WebLink>

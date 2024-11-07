@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>RCI_Case_Must_Have_Deputy</fullName>
+    <active>true</active>
+    <description>RCI Cases must have a deputy assigned by the time Case Status = Under Investigation.</description>
+    <errorConditionFormula>(RecordType.DeveloperName="RCI") &amp;&amp;
+((ISPICKVAL(Status__c,"Under Investigation")) ||
+(ISPICKVAL(Status__c,"Pending Settlement")) ||
+(ISPICKVAL(Status__c,"Hearing")) ||
+(ISPICKVAL(Status__c,"Conference")) ||
+(ISPICKVAL(Status__c,"Report Submitted")) ||
+(ISPICKVAL(Status__c,"Appealed")) ||
+(ISPICKVAL(Status__c,"Awaiting Compliance")) ||
+(ISPICKVAL(Status__c,"Law School Referral")) ||
+(ISPICKVAL(Status__c,"Closed - No further action")) ||
+(ISPICKVAL(Status__c,"Closed - JEU Referral")) ||
+(ISPICKVAL(Status__c,"Closed - Enforcement Legal")))
+&amp;&amp;
+ISBLANK(Assigned_Deputy__c)</errorConditionFormula>
+    <errorMessage>Please assign a Deputy before changing the Case Status</errorMessage>
+</ValidationRule>

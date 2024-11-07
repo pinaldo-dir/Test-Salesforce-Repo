@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Referred_From__c</fullName>
+    <description>Agency which referred the case</description>
+    <externalId>false</externalId>
+    <label>Referred From</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>ALRB</fullName>
+                <default>false</default>
+                <label>ALRB</label>
+            </value>
+            <value>
+                <fullName>Legislator</fullName>
+                <default>false</default>
+                <label>Legislator</label>
+            </value>
+            <value>
+                <fullName>Governor</fullName>
+                <default>false</default>
+                <label>Governor</label>
+            </value>
+            <value>
+                <fullName>EDD</fullName>
+                <default>false</default>
+                <label>EDD</label>
+            </value>
+            <value>
+                <fullName>Attorney General</fullName>
+                <default>false</default>
+                <label>Attorney General</label>
+            </value>
+            <value>
+                <fullName>Other</fullName>
+                <default>false</default>
+                <label>Other</label>
+            </value>
+            <value>
+                <fullName>Claimant</fullName>
+                <default>false</default>
+                <label>Claimant</label>
+            </value>
+            <value>
+                <fullName>Representative - Individual</fullName>
+                <default>false</default>
+                <label>Representative - Individual</label>
+            </value>
+            <value>
+                <fullName>Representative - Law Firm / Organization</fullName>
+                <default>false</default>
+                <label>Representative - Law Firm / Organization</label>
+            </value>
+            <value>
+                <fullName>Representative - Organization</fullName>
+                <default>false</default>
+                <label>Representative - Organization</label>
+            </value>
+            <value>
+                <fullName>3rd Party API</fullName>
+                <default>false</default>
+                <label>3rd Party API</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

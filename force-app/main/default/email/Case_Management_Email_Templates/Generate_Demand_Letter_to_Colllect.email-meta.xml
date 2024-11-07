@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <description>Used in a workflow to the Case Owner to generate a demand letter to collect.</description>
+    <encodingKey>ISO-8859-1</encodingKey>
+    <name>Generate Demand Letter to Colllect</name>
+    <style>none</style>
+    <subject>Case: {!DIR_Case__c.Case_Number__c} Generate Demand Letter to Collect</subject>
+    <type>text</type>
+    <uiType>Aloha</uiType>
+</EmailTemplate>

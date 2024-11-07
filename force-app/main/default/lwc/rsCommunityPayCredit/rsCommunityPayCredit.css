@@ -1,0 +1,20 @@
+lightning-button.button {
+    --sds-c-button-brand-color-background: #2059c4;
+    --sds-c-button-brand-text-color: #f4f7f9;
+    font-family: sans-serif;
+    font-size: 16px;
+    font-weight: normal;
+}
+
+.payment-processing {
+    font-size: 20px;
+    font-weight: bold; 
+
+}
+
+.error-message {
+    font-size: 20px;
+    font-weight: bold; 
+    color: red;
+
+}

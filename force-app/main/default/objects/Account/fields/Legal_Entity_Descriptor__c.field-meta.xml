@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Legal_Entity_Descriptor__c</fullName>
+    <description>Legal Entity types</description>
+    <externalId>false</externalId>
+    <inlineHelpText>Used to populate output forms</inlineHelpText>
+    <label>Entity Type Description</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>true</trackHistory>
+    <type>Picklist</type>
+    <valueSet>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>an Individual</fullName>
+                <default>false</default>
+                <label>an Individual</label>
+            </value>
+            <value>
+                <fullName>a Corporation</fullName>
+                <default>false</default>
+                <label>a Corporation</label>
+            </value>
+            <value>
+                <fullName>a California Corporation</fullName>
+                <default>false</default>
+                <label>a California Corporation</label>
+            </value>
+            <value>
+                <fullName>a California Limited Liability Company</fullName>
+                <default>false</default>
+                <label>a California Limited Liability Company</label>
+            </value>
+            <value>
+                <fullName>a Foreign Corporation</fullName>
+                <default>false</default>
+                <label>a Foreign Corporation</label>
+            </value>
+            <value>
+                <fullName>a Foreign Limited Liability Company</fullName>
+                <default>false</default>
+                <label>a Foreign Limited Liability Company</label>
+            </value>
+            <value>
+                <fullName>a General Partnership</fullName>
+                <default>false</default>
+                <label>a General Partnership</label>
+            </value>
+            <value>
+                <fullName>a Limited Liability Company</fullName>
+                <default>false</default>
+                <label>a Limited Liability Company</label>
+            </value>
+            <value>
+                <fullName>a Limited Liability Partnership</fullName>
+                <default>false</default>
+                <label>a Limited Liability Partnership</label>
+            </value>
+            <value>
+                <fullName>a Limited Partnership</fullName>
+                <default>false</default>
+                <label>a Limited Partnership</label>
+            </value>
+            <value>
+                <fullName>a Registered Limited Liability Partnership</fullName>
+                <default>false</default>
+                <label>a Registered Limited Liability Partnership</label>
+            </value>
+            <value>
+                <fullName>a Joint Venture</fullName>
+                <default>false</default>
+                <label>a Joint Venture</label>
+            </value>
+            <value>
+                <fullName>an Unincorporated Association</fullName>
+                <default>false</default>
+                <label>an Unincorporated Association</label>
+            </value>
+            <value>
+                <fullName>a Professional Corporation</fullName>
+                <default>false</default>
+                <label>a Professional Corporation</label>
+            </value>
+            <value>
+                <fullName>a Professional Law Corporation</fullName>
+                <default>false</default>
+                <label>a Professional Law Corporation</label>
+            </value>
+            <value>
+                <fullName>a Political Subdivision of the State of California</fullName>
+                <default>false</default>
+                <label>a Political Subdivision of the State of California</label>
+            </value>
+            <value>
+                <fullName>a Trust</fullName>
+                <default>false</default>
+                <label>a Trust</label>
+            </value>
+            <value>
+                <fullName>a Business Trust</fullName>
+                <default>false</default>
+                <label>a Business Trust</label>
+            </value>
+            <value>
+                <fullName>A nonprofit organization</fullName>
+                <default>false</default>
+                <label>A nonprofit organization</label>
+            </value>
+            <value>
+                <fullName>A public entity</fullName>
+                <default>false</default>
+                <label>A public entity</label>
+            </value>
+            <value>
+                <fullName>a Delaware Corporation</fullName>
+                <default>false</default>
+                <label>a Delaware Corporation</label>
+            </value>
+            <value>
+                <fullName>a Delaware Limited Liability Company</fullName>
+                <default>false</default>
+                <label>a Delaware Limited Liability Company</label>
+            </value>
+            <value>
+                <fullName>a California Nonprofit Corporation</fullName>
+                <default>false</default>
+                <label>a California Nonprofit Corporation</label>
+            </value>
+            <value>
+                <fullName>a California Limited Partnership</fullName>
+                <default>false</default>
+                <label>a California Limited Partnership</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

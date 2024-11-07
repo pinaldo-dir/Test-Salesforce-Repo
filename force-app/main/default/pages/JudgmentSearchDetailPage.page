@@ -1,0 +1,161 @@
+<apex:page controller="JudgmentSearchDetailPageCtrl" applyHtmlTag="false"     
+           sidebar="false"     
+           showHeader="false"     
+           cache="true"
+           readOnly="false"
+           renderAs="pdf">
+    <head>    
+        <meta http-equiv="Content-Type" content="text/html;charset=UTF-8" /> 
+        <meta name="viewport" content="width=device-width, initial-scale=1"/>
+        <style type="text/css"> 
+            .break{
+            page-break-after:always;
+            page-break-inside:avoid;
+            }
+            @page {    
+            margin-top: 5%;
+            @top-center{
+            content: element(header1);
+            }
+            @bottom-center{
+            content: "Page: " counter(page) " of " counter(pages);font-size: 80%; font-family: Source Sans Pro,sans-serif;font-size: 16px;
+            }
+            size: A4 landscape;    
+            padding-left: 8px;    
+            padding-right: 8px;      
+            }    
+            div1 {
+            display: inline-block;
+            text-align: top;
+            width: 400px;
+            padding: 6px;
+            margin: 3px;
+            }
+            .detailPage-container{
+            border: 1px solid black;
+            }
+            div{
+            padding: 5px;
+            }
+        </style>   
+    </head>
+    <div style="margin-bottom: 5px;font-family: Source Sans Pro,sans-serif;">
+        <span style="font-size: 16px;font-weight: 600">Search Date</span> : {!MONTH(TODAY())}/{!DAY(TODAY())}/{!YEAR(TODAY())}
+    </div>
+    <apex:form style="padding: 20px;border-radius: .25rem;font-family: Source Sans Pro,sans-serif;font-size: 16px;">
+        <apex:outputLabel style="width:400px;padding: 6px;margin:3px;">
+            <h2>
+                <b>
+                    Judgment {!judgmentDetailObj.judgmentName}
+                </b>
+            </h2>
+        </apex:outputLabel>
+        <apex:pageBlock >
+            <apex:pageBlockSection columns="2">
+                <apex:outputLabel style="float: left;width:400px;padding: 5px;margin:3px;font-size: 18px;"><span style="font-size: 18px;font-weight: 600">Case Management Number</span><br/>
+                    {!judgmentDetailObj.caseManagementName}</apex:outputLabel>
+                <apex:outputLabel style="float: right;width:400px;padding: 5px;margin:3px;font-size: 18px;"><span style="font-size: 18px;font-weight: 600">Citation Number</span><br/>
+                    {!judgmentDetailObj.citationNumber}</apex:outputLabel>
+                <!--<apex:outputLabel style="float: left;width:400px;padding: 6px;margin:3px;font-size: 18px;"><span style="font-size: 18px;font-weight: 600">Claimant/Plaintiff</span><br/>
+                    {!judgmentDetailObj.accountName} </apex:outputLabel>-->
+                <apex:outputLabel style="float: right;width:400px;padding: 5px;margin:3px;font-size: 18px;"><span style="font-size: 18px;font-weight: 600">Defendant/Employer</span><br/>
+                    {!judgmentDetailObj.defendantEmployer}</apex:outputLabel>
+                <apex:outputLabel style="float: left;width:400px;padding: 5px;margin:3px;font-size: 18px;"><span style="font-size: 18px;font-weight: 600">Judgment Status</span><br/>
+                    {!judgmentDetailObj.judgmentStatus}</apex:outputLabel>
+                <apex:outputPanel rendered="{!judgmentDetailObj.totalDue == 0}">
+                    <apex:outputLabel style="float: right;width:400px;padding: 5px;margin:3px;font-size: 18px;"><span style="font-size: 18px;font-weight: 600">Judgment Total</span><br/>
+                        $0.00</apex:outputLabel>
+                </apex:outputPanel>
+                <apex:outputPanel rendered="{!judgmentDetailObj.totalDue != 0}">
+                    <apex:outputLabel style="float: right;width:400px;padding: 5px;margin:3px;font-size: 18px;"><span style="font-size: 18px;font-weight: 600">Judgment Total</span><br/>
+                        <apex:outputText value="${0,number,###,###,##0.00}"><apex:param value="{!judgmentDetailObj.totalDue}" /></apex:outputText></apex:outputLabel>
+                </apex:outputPanel>
+            </apex:pageBlockSection>
+            <apex:outputLabel style="width:400px;padding: 6px;margin:3px;">
+                <h2>
+                    <b>
+                        Additional Details
+                    </b>
+                </h2>
+            </apex:outputLabel>
+            <apex:pageBlockSection columns="2">
+                <apex:outputLabel style="float: left;width:400px;padding: 5px;margin:3px;"><span style="font-weight: 600">Judgment Entry Date</span><br/>
+                    <apex:outputText value="{0,date,MM/dd/yyyy}" >  
+                        <apex:param value="{!judgmentDetailObj.judgmentEntryDate}"/>  
+                    </apex:outputText>
+                </apex:outputLabel>
+                <apex:outputLabel style="float: right;width:400px;padding: 5px;margin:3px;"><span style="font-weight: 600">Employer/Defendant Address</span><br/>
+                    {!judgmentDetailObj.primaryAddress}</apex:outputLabel>
+                <apex:outputLabel style="float: left;width:400px;padding: 5px;margin:3px;"><span style="font-weight: 600">Court</span><br/>
+                    {!judgmentDetailObj.court}</apex:outputLabel>
+                <apex:outputLabel style="float: right;width:400px;padding: 5px;margin:3px;"><span style="font-weight: 600">Court Case Number</span><br/>
+                    {!judgmentDetailObj.courtCaseNumber} </apex:outputLabel>
+                <apex:outputLabel style="float: left;width:400px;padding: 5px;margin:3px;"><span style="font-weight: 600">NAICS Title</span><br/>
+                    {!judgmentDetailObj.naicsTitle}</apex:outputLabel>
+                <apex:outputLabel style="float: right;width:400px;padding: 5px;margin:3px;"><span style="font-weight: 600">NAICS Code</span><br/>
+                    {!judgmentDetailObj.naicsCode}</apex:outputLabel>
+                <apex:outputPanel rendered="{!judgmentDetailObj.totalDueToEmployee != null}">
+                    <apex:outputLabel style="float: left;width:400px;padding: 5px;margin:3px;"><span style="font-weight: 600">Total Due to Employee</span><br/>
+                        <apex:outputText value="${0,number,###,###,##0.00}"><apex:param value="{!judgmentDetailObj.totalDueToEmployee}" /></apex:outputText></apex:outputLabel>
+                </apex:outputPanel>
+                <apex:outputPanel rendered="{!judgmentDetailObj.totalDueToEmployee == null}">
+                    <apex:outputLabel style="float: left;width:400px;padding: 5px;margin:3px;"><span style="font-weight: 600">Total Due to Employee</span><br/>
+                        $0.00</apex:outputLabel>
+                </apex:outputPanel>
+                
+                <apex:outputPanel rendered="{!judgmentDetailObj.totalDueToState != null}">
+                    <apex:outputLabel style="float: right;width:400px;padding: 5px;margin:3px;"><span style="font-weight: 600">Total Due to State</span><br/>
+                        <apex:outputText value="${0,number,###,###,##0.00}"><apex:param value="{!judgmentDetailObj.totalDueToState}" /></apex:outputText></apex:outputLabel>
+                </apex:outputPanel>
+                <apex:outputPanel rendered="{!judgmentDetailObj.totalDueToState == null}">
+                    <apex:outputLabel style="float: right;width:400px;padding: 5px;margin:3px;"><span style="font-weight: 600">Total Due to State</span><br/>
+                        $0.00</apex:outputLabel>
+                </apex:outputPanel>
+                
+                <apex:outputPanel rendered="{!judgmentDetailObj.totalDueToOthers != null}">
+                    <br/><br/><br/>
+                    <apex:outputLabel style="float: left;width:400px;padding: 5px;margin:3px;"><span style="font-weight: 600">Total Due to Other(s)</span><br/>
+                        <apex:outputText value="${0,number,###,###,##0.00}"><apex:param value="{!judgmentDetailObj.totalDueToOthers}" /></apex:outputText></apex:outputLabel>
+                </apex:outputPanel>
+                <apex:outputPanel rendered="{!judgmentDetailObj.totalDueToOthers == null}">
+                    <br/><br/><br/>
+                    <apex:outputLabel style="float: left;width:400px;padding: 5px;margin:3px;"><span style="font-weight: 600">Total Due to Other(s)</span><br/>
+                        $0.00</apex:outputLabel>
+                </apex:outputPanel>
+                
+                <apex:outputPanel rendered="{!judgmentDetailObj.dirOffice != null}">
+                    <br/><br/><br/>
+                    <apex:outputLabel style="float: right;width:400px;padding: 5px;margin:3px;"><span style="font-weight: 600">DIR Office</span><br/>
+                        {!judgmentDetailObj.dirOffice}
+                    </apex:outputLabel>
+                </apex:outputPanel>
+                <apex:outputPanel rendered="{!judgmentDetailObj.dirOffice == null}">
+                    <br/><br/><br/>
+                    <apex:outputLabel style="float: right;width:400px;padding: 5px;margin:3px;"><span style="font-weight: 600">DIR Office</span><br/>
+                    </apex:outputLabel>
+                </apex:outputPanel>
+            </apex:pageBlockSection>
+            <apex:outputLabel style="width:400px;padding: 6px;margin:3px;">
+                <h2>
+                    <b>
+                        Labor Code 2810.4 Details (for Port Drayage Motor Carriers)
+                    </b>
+                </h2>
+            </apex:outputLabel>
+            <apex:pageBlockSection columns="2">
+                <apex:outputLabel style="float: left;width:400px;padding: 5px;margin:3px;"><span style="font-weight: 600">2810.4 Violation Status</span><br/>
+                    {!judgmentDetailObj.portDrayageMotorCarrierJudgmentStatus}</apex:outputLabel>
+                <apex:outputLabel style="float: left;width:400px;padding: 5px;margin:3px;"><span style="font-weight: 600">Confirmed ON the List Date</span><br/>
+                    <apex:outputText value="{0,date,MM/dd/yyyy}" >  
+                        <apex:param value="{!judgmentDetailObj.beginningdateofviolationofLaborCode}"/>  
+                    </apex:outputText>
+                </apex:outputLabel>
+                <apex:outputLabel style="float: right;width:400px;padding: 5px;margin:3px;"><span style="font-weight: 600">Confirmed OFF the List Date</span><br/>
+                    <apex:outputText value="{0,date,MM/dd/yyyy}" >  
+                        <apex:param value="{!judgmentDetailObj.dateofcompliancewithLaborCode}"/>  
+                    </apex:outputText>
+                </apex:outputLabel>
+            </apex:pageBlockSection>
+        </apex:pageBlock>
+    </apex:form>
+</apex:page>

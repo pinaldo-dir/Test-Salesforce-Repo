@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Deleting_Status_End_Date_is_not_allowed</fullName>
+    <active>true</active>
+    <description>Deleting Status End Date is not allowed.</description>
+    <errorConditionFormula>ISCHANGED( Status_End_Date__c ) &amp;&amp;  ISBLANK(Status_End_Date__c )</errorConditionFormula>
+    <errorMessage>Deleting Status End Date is not allowed</errorMessage>
+</ValidationRule>

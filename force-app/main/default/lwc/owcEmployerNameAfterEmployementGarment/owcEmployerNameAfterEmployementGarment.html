@@ -1,0 +1,684 @@
+<!--
+  @description       : 
+  @author            : ChangeMeIn@UserSettingsUnder.SFDoc
+  @group             : 
+  @last modified on  : 03-15-2022
+  @last modified by  : ChangeMeIn@UserSettingsUnder.SFDoc
+-->
+<template>
+    <form class="">
+        <template if:true={isFormPreviewMode}>
+            <div class="slds-grid slds-wrap">
+                <!--Employer/Business Type-->
+                <template if:true={empBusinessTypeDetails.representativeEmployerType}>
+                    <div class="slds-grid slds-wrap">
+                        <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-1 slds-large-size_1-of-1">
+                            <!-- <div>{customLabelValues.OWC_AnotherEmployerNote} </div> -->
+                            {customLabelValues.OWC_empinfo_EmpBusinessType}
+                            
+                        </div>
+                        <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-2 slds-large-size_1-of-2 slds-p-right_medium">
+                            <template if:false={empBusinessTypeDetails.isRenderPicklist}>
+                            <template if:false={isRenderPicklist}>
+                                <lightning-combobox disabled onblur={handleFocus}
+                                            placeholder={customLabelValues.OWC_select_picklist_label}
+                                            variant="label-hidden"
+                                            name="employer_Business_Type"
+                                            data-id="employer_Business_Type"
+                                            value={representativeEmployerType}
+                                            options={Employer_Business_Type_List}
+                                            onchange={handleChange} >
+                                </lightning-combobox>
+                            </template>
+                            </template>
+                            <template if:false={empBusinessTypeDetails.isClaimantAdvocate}>
+                            <template if:false={isClaimantAdvocate}>
+                                <lightning-combobox disabled onblur={handleFocus}
+                                            placeholder={customLabelValues.OWC_select_picklist_label}
+                                            variant="label-hidden"
+                                            name="employer_Business_Type"
+                                            data-id="employer_Business_Type"
+                                            value={representativeEmployerType}
+                                            options={employerBusinessTypeList}
+                                            onchange={handleChange} >
+                                </lightning-combobox>
+                            </template>
+                            </template>
+                        </div>
+                    </div>
+                    </template>
+                    </div>
+                    <!--Options if "Other" is seleceted--> 
+                    <template if:true={empBusinessTypeDetails.otherPleaseExplain}>
+                    <template if:true={IsOther}>
+                        <div class="slds-p-top_medium slds-p-right_medium slds-p-bottom_medium">
+                            <div class="slds-grid slds-wrap">
+                                <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-2 slds-large-size_1-of-2">
+                                    <fieldset class="">
+                                        {customLabelValues.OWC_empinfo_explain}
+                                        
+                                        <lightning-textarea disabled variant="label-hidden" type="text" data-id="otherPleaseExplain" name="otherPleaseExplain" value={otherPleaseExplain} onchange={handleChange} ></lightning-textarea>
+                                    </fieldset>
+                                </div>
+                            </div>
+                        </div>
+                    </template>
+                    </template>
+                    <!--Options for Individual/Sole Proprietor-->    
+                    <template if:true={empBusinessTypeDetails.IsIndividual}>  
+                    <template if:true={IsIndividual}>
+                    <div class="slds-p-top_medium">
+                        <div class="slds-grid slds-wrap">
+                            <template if:true={empBusinessTypeDetails.individualFirstName}>
+                            <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-2 slds-large-size_1-of-2">
+                                <fieldset class="slds-p-top_medium slds-p-right_medium slds-p-bottom_medium">
+                                    {customLabelValues.OWC_first_name}
+                                    <lightning-input disabled type="text"  message-when-value-missing="Complete this field." data-id="individualFirstName"  variant="label-hidden" name="individualFirstName" value={individualFirstName} onchange={handleChange} ></lightning-input>
+                                </fieldset>
+                            </div>
+                            </template>
+                            <template if:true={empBusinessTypeDetails.individualLastName}>
+                            <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-2 slds-large-size_1-of-2"> 
+                                <fieldset class="slds-p-top_medium slds-p-right_medium slds-p-bottom_medium">
+                                    {customLabelValues.OWC_last_name}
+                                    
+                                    <lightning-input disabled type="text"  message-when-value-missing="Complete this field." data-id="individualLastName"  variant="label-hidden" name="individualLastName"  value={individualLastName}  onchange={handleChange}></lightning-input>
+                                </fieldset>
+                            </div>
+                            </template>
+                            <template if:true={empBusinessTypeDetails.individualStreetAddress}>
+                            <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-2 slds-large-size_1-of-2">
+                                <fieldset class="slds-p-top_medium slds-p-right_medium slds-p-bottom_medium">
+                                    {customLabelValues.OWC_street_address}  
+                                    <lightning-textarea disabled type="text"   variant="label-hidden" name="individualStreetAddress"  value={individualStreetAddress} onchange={handleChange}></lightning-textarea>
+                                </fieldset>
+                            </div>
+                            </template>
+                            <template if:true={empBusinessTypeDetails.individualCity}>
+                            <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-2 slds-large-size_1-of-2">             
+                                <fieldset class="slds-p-top_medium slds-p-right_medium slds-p-bottom_medium">
+                                    {customLabelValues.OWC_city}
+                                    <lightning-input disabled value={individualCity} variant="label-hidden" name="individualCity" onchange={handleChange}></lightning-input>
+                                </fieldset>
+                            </div>
+                            </template>
+                            <template if:true={empBusinessTypeDetails.individualState}>
+                            <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-2 slds-large-size_1-of-2">
+                                <fieldset class="slds-p-top_medium slds-p-right_medium slds-p-bottom_medium">
+                                    {customLabelValues.OWC_state}  
+                                    <lightning-combobox disabled
+                                                variant="label-hidden" 
+                                                name="individualState"
+                                                data-id="individualState"
+                                                value={individualState}
+                                                placeholder ={customLabelValues.OWC_select_picklist_label}
+                                                options={statePicklistValues}
+                                                onchange={handleChange} >
+                                    </lightning-combobox>        
+                                </fieldset>
+                            </div>
+                            </template>
+                            <template if:true={empBusinessTypeDetails.individualZipCode}>
+                            <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-2 slds-large-size_1-of-2">             
+                                <fieldset class="slds-p-top_medium slds-p-right_medium slds-p-bottom_medium">
+                                    {customLabelValues.OWC_zipcode}
+                                    <lightning-input disabled type="text"  max-length="10" data-id="individualZipCode" value={individualZipCode}  variant="label-hidden" name="individualZipCode" onchange={handleChange} ></lightning-input>
+                                </fieldset>
+                            </div>
+                            </template>
+                            <template if:true={empBusinessTypeDetails.individualBusinessPhone}>
+                            <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-2 slds-large-size_1-of-2">
+                                <fieldset class="slds-p-top_medium slds-p-right_medium slds-p-bottom_medium">
+                                    {customLabelValues.OWC_empinfo_BusinessPhone}
+                                    <div class="slds-grid slds-wrap">
+                                        <div class="slds-col slds-size_3-of-7 slds-medium-size_1-of-2 slds-large-size_2-of-8 slds-p-right_xxx-small">
+                                            <lightning-combobox disabled
+                                                    variant="label-hidden" 
+                                                    name="countryCodeindividualBusinessPhone"
+                                                    data-id="countryCodeindividualBusinessPhone"
+                                                    value={countryCodeindividualBusinessPhone}
+                                                    placeholder ={customLabelValues.OWC_select_picklist_label}
+                                                    options={countryCodeValue}
+                                                    onchange={handleChange} >
+                                            </lightning-combobox>
+                                        </div>
+                                        <div class="slds-col slds-size_4-of-7 slds-medium-size_1-of-2 slds-large-size_6-of-8">
+                                            <lightning-input disabled type="tel"  data-id="individualBusinessPhone" variant="label-hidden" name="individualBusinessPhone" value={individualBusinessPhone} onchange={handleChange}></lightning-input>
+                                        </div>
+                                    </div>
+                                </fieldset>
+                            </div>
+                            </template>
+                            <template if:true={empBusinessTypeDetails.individualCellPhone}>
+                            <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-2 slds-large-size_1-of-2"> 
+                                <fieldset class="slds-p-top_medium slds-p-right_medium slds-p-bottom_medium">
+                                    {customLabelValues.OWC_CellPhone}
+                                    <div class="slds-grid slds-wrap">
+                                        <div class="slds-col slds-size_3-of-7 slds-medium-size_1-of-2 slds-large-size_2-of-8 slds-p-right_xxx-small">
+                                            <lightning-combobox disabled
+                                                    variant="label-hidden" 
+                                                    name="countryCodeindividualCellPhone"
+                                                    data-id="countryCodeindividualCellPhone"
+                                                    value={countryCodeindividualCellPhone}
+                                                    placeholder ={customLabelValues.OWC_select_picklist_label}
+                                                    options={countryCodeValue}
+                                                    onchange={handleChange} >
+                                            </lightning-combobox>
+                                        </div>
+                                        <div class="slds-col slds-size_4-of-7 slds-medium-size_1-of-2 slds-large-size_6-of-8">
+                                            <lightning-input disabled type="tel"  data-id="individualCellPhone" variant="label-hidden" name="individualCellPhone"  value={individualCellPhone}  onchange={handleChange} ></lightning-input>
+                                        </div>
+                                    </div>
+                                </fieldset>
+                            </div>
+                            </template>
+                            <template if:true={empBusinessTypeDetails.individualEmail}>
+                            <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-2 slds-large-size_1-of-2"> 
+                                <fieldset class="slds-p-top_medium slds-p-right_medium slds-p-bottom_medium">
+                                    {customLabelValues.OWC_email}
+                                    <lightning-input disabled type="text"   data-id="individualEmail" variant="label-hidden" name="individualEmail"  value={individualEmail}  onchange={handleChange}></lightning-input>
+                                </fieldset>
+                            </div>
+                            </template>
+                            <template if:true={empBusinessTypeDetails.individualVehicleLicense}>
+                            <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-2 slds-large-size_1-of-2">
+                                <fieldset class="slds-p-top_medium slds-p-right_medium slds-p-bottom_medium">
+                                    {customLabelValues.OWC_empinfo_VehicleLicense}
+                                    <lightning-input disabled type="text" message-when-value-missing="Complete this field." data-id="individualVehicleLicense"  variant="label-hidden" name="individualVehicleLicense" value={individualVehicleLicense} onchange={handleChange} ></lightning-input>
+                                </fieldset>
+                            </div>
+                            </template>
+                            <template if:true={empBusinessTypeDetails.individualWebsite}>
+                            <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-2 slds-large-size_1-of-2"> 
+                                <fieldset class="slds-p-top_medium slds-p-right_medium slds-p-bottom_medium">
+                                    {customLabelValues.OWC_website}
+                                    <lightning-input disabled type="text" data-id="individualWebsite" variant="label-hidden" name="individualWebsite"  value={individualWebsite}  onchange={handleChange}></lightning-input>
+                                </fieldset>
+                            </div>
+                            </template>
+                            <template if:true={empBusinessTypeDetails.additionalTotalEmployees}>
+                            <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-2 slds-large-size_1-of-2"> 
+                                <fieldset class="slds-p-top_medium slds-p-right_medium slds-p-bottom_medium">
+                                    {customLabelValues.OWC_TotalEmployees}
+                                    <lightning-input disabled type="number" data-id="additionalTotalEmployees" value={additionalTotalEmployees}  variant="label-hidden" name="additionalTotalEmployees" onchange={handleChange}></lightning-input>
+                                </fieldset>
+                            </div>
+                            </template>
+                        </div>
+                    </div>
+                    </template>
+                    </template>
+                    <!--For options other than Individual/Sole Proprietor--> 
+                    <template if:true={empBusinessTypeDetails.IsOtherIndividual}>  
+                    <template if:true={IsOtherIndividual}>
+                        <div class="slds-p-top_medium">
+                        <div class="slds-grid slds-wrap">
+                            <template if:true={empBusinessTypeDetails.OtherIndividualBusinessName}>  
+                            <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-2 slds-large-size_1-of-2">
+                                <fieldset class="slds-p-top_medium slds-p-right_medium slds-p-bottom_medium">
+                                    {customLabelValues.OWC_businessname}
+                                    
+                                    <lightning-input disabled type="text"  message-when-value-missing="Complete this field." data-id="OtherIndividualBusinessName"  variant="label-hidden" name="OtherIndividualBusinessName" value={OtherIndividualBusinessName} onchange={handleChange} ></lightning-input>
+                                </fieldset>
+                            </div>
+                            </template>
+                            <template if:true={empBusinessTypeDetails.OtherIndividualStreetAddress}> 
+                            <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-2 slds-large-size_1-of-2">             
+                                <fieldset class="slds-p-top_medium slds-p-right_medium slds-p-bottom_medium">
+                                    {customLabelValues.OWC_street_address}
+                                    <lightning-textarea disabled type="text" variant="label-hidden" name="OtherIndividualStreetAddress"  value={OtherIndividualStreetAddress} onchange={handleChange}></lightning-textarea>
+                                </fieldset>
+                            </div>
+                            </template>
+                            <template if:true={empBusinessTypeDetails.OtherIndividualCity}> 
+                            <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-2 slds-large-size_1-of-2">
+                                <fieldset class="slds-p-top_medium slds-p-right_medium slds-p-bottom_medium">
+                                    {customLabelValues.OWC_city}  
+                                    <lightning-input disabled type="text" value={OtherIndividualCity} variant="label-hidden" name="OtherIndividualCity" onchange={handleChange}></lightning-input>
+                                </fieldset>
+                            </div>
+                            </template>
+                            <template if:true={empBusinessTypeDetails.OtherIndividualState}> 
+                            <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-2 slds-large-size_1-of-2">             
+                                <fieldset class="slds-p-top_medium slds-p-right_medium slds-p-bottom_medium">
+                                    {customLabelValues.OWC_state}  
+                                        <lightning-combobox disabled
+                                            variant="label-hidden" 
+                                            name="OtherIndividualState"
+                                            data-id="OtherIndividualState"
+                                            value={OtherIndividualState}
+                                            placeholder ={customLabelValues.OWC_select_picklist_label}                                                    
+                                            options={statePicklistValues}
+                                            onchange={handleChange} >
+                                        </lightning-combobox> 
+                                </fieldset>
+                            </div>
+                            </template>
+                            <template if:true={empBusinessTypeDetails.OtherIndividualZipCode}> 
+                            <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-2 slds-large-size_1-of-2">
+                                <fieldset class="slds-p-top_medium slds-p-right_medium slds-p-bottom_medium">
+                                    {customLabelValues.OWC_zipcode}
+                                    <lightning-input disabled type="text"  max-length="10" data-id="OtherIndividualZipCode" value={OtherIndividualZipCode}  variant="label-hidden" name="OtherIndividualZipCode" onchange={handleChange} ></lightning-input>
+                                </fieldset>
+                            </div>
+                            </template>
+                            <template if:true={empBusinessTypeDetails.OtherIndividualPhone}> 
+                            <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-2 slds-large-size_1-of-2">             
+                                <fieldset class="slds-p-top_medium slds-p-right_medium slds-p-bottom_medium">
+                                    {customLabelValues.OWC_empinfo_BusinessPhone}
+                                    <div class="slds-grid slds-wrap">
+                                        <div class="slds-col slds-size_3-of-7 slds-medium-size_1-of-2 slds-large-size_2-of-8 slds-p-right_xxx-small">
+                                            <lightning-combobox disabled
+                                                    variant="label-hidden" 
+                                                    name="countryCodeOtherIndividualPhone"
+                                                    data-id="countryCodeOtherIndividualPhone"
+                                                    value={countryCodeOtherIndividualPhone}
+                                                    placeholder ={customLabelValues.OWC_select_picklist_label}
+                                                    options={countryCodeValue}
+                                                    onchange={handleChange} >
+                                            </lightning-combobox>
+                                        </div>
+                                        <div class="slds-col slds-size_4-of-7 slds-medium-size_1-of-2 slds-large-size_6-of-8">
+                                            <lightning-input disabled type="text"   data-id="OtherIndividualPhone" value={OtherIndividualPhone}  variant="label-hidden" name="OtherIndividualPhone" onchange={handleChange}></lightning-input>
+                                        </div>
+                                    </div>
+                                </fieldset>
+                            </div>
+                            </template>
+                            <template if:true={empBusinessTypeDetails.OtherIndividualEmail}> 
+                            <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-2 slds-large-size_1-of-2">
+                                <fieldset class="slds-p-top_medium slds-p-right_medium slds-p-bottom_medium">
+                                    {customLabelValues.OWC_email}
+                                    <lightning-input disabled type="email"  data-id="OtherIndividualEmail" value={OtherIndividualEmail}  variant="label-hidden" name="OtherIndividualEmail" onchange={handleChange} ></lightning-input>
+                                </fieldset>
+                            </div>
+                            </template>
+                            <template if:true={empBusinessTypeDetails.OtherIndividualVehicleLicense}> 
+                            <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-2 slds-large-size_1-of-2">             
+                                <fieldset class="slds-p-top_medium slds-p-right_medium slds-p-bottom_medium">
+                                    {customLabelValues.OWC_empinfo_VehicleLicense}
+                                    <lightning-input disabled type="text" value={OtherIndividualVehicleLicense}  variant="label-hidden" name="OtherIndividualVehicleLicense" onchange={handleChange}></lightning-input>
+                                    </fieldset>
+                            </div>
+                            </template>
+                            <template if:true={empBusinessTypeDetails.OtherIndividualWebsite}> 
+                            <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-2 slds-large-size_1-of-2">
+                                <fieldset class="slds-p-top_medium slds-p-right_medium slds-p-bottom_medium">
+                                    {customLabelValues.OWC_website}
+                                    <lightning-input disabled type="text" data-id="OtherIndividualWebsite" value={OtherIndividualWebsite}  variant="label-hidden" name="OtherIndividualWebsite" onchange={handleChange}></lightning-input>
+                                </fieldset>
+                            </div>
+                            </template>
+                            <template if:true={empBusinessTypeDetails.additionalTotalEmployees}> 
+                            <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-2 slds-large-size_1-of-2"> 
+                                <fieldset class="slds-p-top_medium slds-p-right_medium slds-p-bottom_medium">
+                                    {customLabelValues.OWC_TotalEmployees}
+                                    <lightning-input disabled type="number" data-id="additionalTotalEmployees" value={additionalTotalEmployees}  variant="label-hidden" name="additionalTotalEmployees" onchange={handleChange}></lightning-input>
+                                </fieldset>
+                            </div>
+                            </template>
+                        </div>
+                        </div>
+                    </template> 
+                    </template>
+        </template>
+        <template if:false={isFormPreviewMode}>
+            <!--Employer/Business Type-->
+        <div class="slds-grid slds-wrap">
+            <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-1 slds-large-size_1-of-1">
+                {customLabelValues.OWC_empinfo_EmpBusinessType}
+                
+            </div>
+            <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-2 slds-large-size_1-of-2">
+                <template if:false={isRenderPicklist}>
+                    <lightning-combobox onblur={handleFocus}
+                                placeholder= {customLabelValues.OWC_select_picklist_label}
+                                variant="label-hidden"
+                                name="employer_Business_Type"
+                                data-id="employer_Business_Type"
+                                value={representativeEmployerType}
+                                options={Employer_Business_Type_List}
+                                onchange={handleChange} >
+                </lightning-combobox>
+                </template>
+                <template if:false={isClaimantAdvocate}>
+                    <lightning-combobox onblur={handleFocus}
+                                placeholder= {customLabelValues.OWC_select_picklist_label}
+                                variant="label-hidden"
+                                name="employer_Business_Type"
+                                data-id="employer_Business_Type"
+                                value={representativeEmployerType}
+                                options={employerBusinessTypeList}
+                                onchange={handleChange} >
+                </lightning-combobox>
+                </template>
+            </div>
+        </div>
+        <!--Options if "Other" is seleceted--> 
+        <template if:true={IsOther}>
+            <div class="slds-m-left_medium">
+                <div class="slds-grid slds-wrap">
+                    <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-2 slds-large-size_1-of-2">
+                        <fieldset class="slds-p-top_medium slds-p-right_medium slds-p-bottom_medium">
+                            {customLabelValues.OWC_empinfo_explain}
+                            
+                            <lightning-textarea variant="label-hidden" type="text" data-id="otherPleaseExplain" name="otherPleaseExplain" value={otherPleaseExplain} onchange={handleChange} ></lightning-textarea>
+                        </fieldset>
+                    </div>
+                </div>
+            </div>
+        </template>
+        <template if:true={showIndividualSole}>
+            <div class="slds-p-top_medium">
+                <div class="slds-grid slds-wrap">
+                    <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-2 slds-large-size_1-of-2">
+                        <fieldset class="slds-p-top_medium slds-p-right_medium slds-p-bottom_medium">
+                            {customLabelValues.OWC_first_name}
+                            <template if:false={IndividualFirstNamerequired}>
+                                
+                            </template>
+                            <lightning-input type="text"  message-when-value-missing="Complete this field." data-id="individualFirstName"  variant="label-hidden" name="individualFirstName" value={individualFirstName} onchange={handleChange} ></lightning-input>
+                        </fieldset>
+                    </div>
+                    <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-2 slds-large-size_1-of-2"> 
+                        <fieldset class="slds-p-top_medium slds-p-right_medium slds-p-bottom_medium">
+                            {customLabelValues.OWC_last_name}
+                            
+                            <span class="slds-p-left_x-small">
+                                <lightning-icon icon-name="utility:info" class="my-icon" size="x-small" alternative-text="info"  label={customLabelValues.OWC_learnmore_button} name="LastName" onclick={handleHelpText} ></lightning-icon>
+                             </span>
+                             <lightning-input type="text"  message-when-value-missing="Complete this field." data-id="individualLastName"  variant="label-hidden" name="individualLastName"  value={individualLastName}  onchange={handleChange}></lightning-input>
+                        </fieldset>
+                    </div>
+                </div>  
+                <div class="slds-grid slds-wrap">
+                    <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-2 slds-large-size_1-of-2">
+                        <fieldset class="slds-p-top_medium slds-p-right_medium slds-p-bottom_medium">
+                            {customLabelValues.OWC_street_address}  
+                            <template if:false={IndividualStreetAddressrequired}>
+                                
+                            </template>
+                            <lightning-textarea type="text" data-id="individualStreetAddress"   variant="label-hidden" name="individualStreetAddress"  value={individualStreetAddress} onchange={handleChange}></lightning-textarea>
+                        </fieldset>
+                    </div>
+                    <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-2 slds-large-size_1-of-2">             
+                        <fieldset class="slds-p-top_medium slds-p-right_medium slds-p-bottom_medium">
+                            {customLabelValues.OWC_city}  
+                            <template if:false={IndividualCityrequired}>
+                                
+                            </template>
+                            <lightning-input value={individualCity} variant="label-hidden" name="individualCity" data-id="individualCity" onchange={handleChange}></lightning-input>
+                        </fieldset>
+                    </div>
+                </div> 
+                <div class="slds-grid slds-wrap">
+                    <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-2 slds-large-size_1-of-2">
+                        <fieldset class="slds-p-top_medium slds-p-right_medium slds-p-bottom_medium">
+                            {customLabelValues.OWC_state}  
+                            <template if:false={IndividualStaterequired}>
+                                
+                            </template>
+                            <lightning-combobox
+                                        variant="label-hidden" 
+                                        name="individualState"
+                                        data-id="individualState"
+                                        value={individualState}
+                                        placeholder ={customLabelValues.OWC_select_picklist_label}
+                                        options={statePicklistValues}
+                                        onchange={handleChange} >
+                            </lightning-combobox>        
+                            <!-- <lightning-input type="text"  value={individualState}  variant="label-hidden" name="individualState" onchange={handleChange}></lightning-input> -->
+                        </fieldset>
+                    </div>
+                    <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-2 slds-large-size_1-of-2">             
+                        <fieldset class="slds-p-top_medium slds-p-right_medium slds-p-bottom_medium">
+                            {customLabelValues.OWC_zipcode}
+                            <template if:false={IndividualZipCoderequired}>
+                                
+                            </template>
+                            <lightning-input type="text"  max-length="10" data-id="individualZipCode" value={individualZipCode}  variant="label-hidden" name="individualZipCode" onchange={handleChange} ></lightning-input>
+                        </fieldset>
+                    </div>
+                </div>                         
+                <div class="slds-grid slds-wrap">
+                    <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-2 slds-large-size_1-of-2">
+                        <fieldset class="slds-p-top_medium slds-p-right_medium slds-p-bottom_medium">
+                            {customLabelValues.OWC_empinfo_BusinessPhone}
+                            <template if:false={IndividualBusinessPhonerequired}>
+                                
+                            </template>
+                            <div class="slds-grid slds-wrap">
+                                <div class="slds-col slds-size_3-of-7 slds-medium-size_1-of-2 slds-large-size_2-of-8 slds-p-right_xxx-small">
+                                    <lightning-combobox
+                                            variant="label-hidden" 
+                                            name="countryCodeindividualBusinessPhone"
+                                            data-id="countryCodeindividualBusinessPhone"
+                                            value={countryCodeindividualBusinessPhone}
+                                            placeholder ={customLabelValues.OWC_select_picklist_label}
+                                            options={countryCodeValue}
+                                            onchange={handleChange} >
+                                    </lightning-combobox>
+                                </div>
+                                <div class="slds-col slds-size_4-of-7 slds-medium-size_1-of-2 slds-large-size_6-of-8">
+                                    <lightning-input type="tel"  data-id="individualBusinessPhone" variant="label-hidden" name="individualBusinessPhone" value={individualBusinessPhone} onchange={handleChange}></lightning-input>
+                                </div>
+                            </div>
+                        </fieldset>
+                    </div>
+                    <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-2 slds-large-size_1-of-2"> 
+                        <fieldset class="slds-p-top_medium slds-p-right_medium slds-p-bottom_medium">
+                            {customLabelValues.OWC_CellPhone}
+                            <div class="slds-grid slds-wrap">
+                                <div class="slds-col slds-size_3-of-7 slds-medium-size_1-of-2 slds-large-size_2-of-8 slds-p-right_xxx-small">
+                                    <lightning-combobox
+                                            variant="label-hidden" 
+                                            name="countryCodeindividualCellPhone"
+                                            data-id="countryCodeindividualCellPhone"
+                                            value={countryCodeindividualCellPhone}
+                                            placeholder ={customLabelValues.OWC_select_picklist_label}
+                                            options={countryCodeValue}
+                                            onchange={handleChange} >
+                                    </lightning-combobox>
+                                </div>
+                                <div class="slds-col slds-size_4-of-7 slds-medium-size_1-of-2 slds-large-size_6-of-8">
+                                    <lightning-input type="tel"  data-id="individualCellPhone" variant="label-hidden" name="individualCellPhone"  value={individualCellPhone}  onchange={handleChange} ></lightning-input>
+                                </div>
+                            </div>
+                        </fieldset>
+                    </div>
+                </div> 
+                <div class="slds-grid slds-wrap">
+                    <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-2 slds-large-size_1-of-2"> 
+                        <fieldset class="slds-p-top_medium slds-p-right_medium slds-p-bottom_medium">
+                            {customLabelValues.OWC_email}
+                            <lightning-input type="text"   data-id="individualEmail" variant="label-hidden" name="individualEmail"  value={individualEmail}  onchange={handleChange}></lightning-input>
+                        </fieldset>
+                    </div>
+                    <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-2 slds-large-size_1-of-2">
+                        <fieldset class="slds-p-top_medium slds-p-right_medium slds-p-bottom_medium">
+                            {customLabelValues.OWC_empinfo_VehicleLicense}
+                            <lightning-input type="text" message-when-value-missing="Complete this field." data-id="individualVehicleLicense"  variant="label-hidden" name="individualVehicleLicense" value={individualVehicleLicense} onchange={handleChange} ></lightning-input>
+                        </fieldset>
+                    </div>
+                </div> 
+                <div class="slds-grid slds-wrap">
+                    <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-2 slds-large-size_1-of-2"> 
+                        <fieldset class="slds-p-top_medium slds-p-right_medium slds-p-bottom_medium">
+                            {customLabelValues.OWC_website}
+                            <lightning-input type="text" data-id="individualWebsite" variant="label-hidden" name="individualWebsite"  value={individualWebsite}  onchange={handleChange}></lightning-input>
+                        </fieldset>
+                    </div>
+                    <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-2 slds-large-size_1-of-2"> 
+                        <fieldset class="slds-p-top_medium slds-p-right_medium slds-p-bottom_medium">
+                            {customLabelValues.OWC_TotalEmployees}
+                            
+                            <span class="slds-p-left_x-small">
+                                <lightning-icon icon-name="utility:info" class="my-icon" size="x-small" alternative-text="info"  label={customLabelValues.OWC_learnmore_button} name="bestGuess" onclick={handleHelpText} ></lightning-icon>
+                             </span>
+                             <lightning-input type="number" data-id="additionalTotalEmployees" value={additionalTotalEmployees}  variant="label-hidden" name="additionalTotalEmployees" onchange={handleChange}></lightning-input>
+                        </fieldset>
+                    </div>
+                </div>
+            </div>
+            </template>
+        <!--For options other than Individual/Sole Proprietor-->   
+        <template if:true={IsOtherIndividual}>
+            <div class="slds-p-top_medium">
+            <div class="slds-grid slds-wrap">
+                <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-2 slds-large-size_1-of-2">
+                    <fieldset class="slds-p-top_medium slds-p-right_medium slds-p-bottom_medium">
+                        {customLabelValues.OWC_businessname}
+                        
+                            <lightning-input type="text"  message-when-value-missing="Complete this field." data-id="OtherIndividualBusinessName"  variant="label-hidden" name="OtherIndividualBusinessName" value={OtherIndividualBusinessName} onchange={handleChange} ></lightning-input>
+                        
+                    </fieldset>
+                </div>
+                <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-2 slds-large-size_1-of-2">             
+                    <fieldset class="slds-p-top_medium slds-p-right_medium slds-p-bottom_medium">
+                        {customLabelValues.OWC_street_address}
+                        <template if:false={OtherStreetAddressrequired}>
+                            
+                        </template>
+                            <lightning-textarea type="text" variant="label-hidden" data-id="OtherIndividualStreetAddress" name="OtherIndividualStreetAddress"  value={OtherIndividualStreetAddress} onchange={handleChange}></lightning-textarea>
+                        
+                    </fieldset>
+                </div>
+            </div>
+            
+            <div class="slds-grid slds-wrap">
+                <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-2 slds-large-size_1-of-2">
+                    <fieldset class="slds-p-top_medium slds-p-right_medium slds-p-bottom_medium">
+                        {customLabelValues.OWC_city}  
+                        <template if:false={OtherCityrequired}>
+                            
+                        </template>
+                            <lightning-input type="text" data-id="OtherIndividualCity" value={OtherIndividualCity} variant="label-hidden" name="OtherIndividualCity" onchange={handleChange}></lightning-input>
+                        
+                    </fieldset>
+                </div>
+                <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-2 slds-large-size_1-of-2">             
+                    <fieldset class="slds-p-top_medium slds-p-right_medium slds-p-bottom_medium">
+                        {customLabelValues.OWC_state} 
+                        <template if:false={OtherStaterequired}>
+                            
+                        </template> 
+                            <lightning-combobox
+                            variant="label-hidden" 
+                                    name="OtherIndividualState"
+                                    data-id="OtherIndividualState"
+                                    value={OtherIndividualState}
+                                    placeholder ={customLabelValues.OWC_select_picklist_label}                                                    
+                                    options={statePicklistValues}
+                                    onchange={handleChange} 
+                                    
+                            ></lightning-combobox>
+                        </fieldset>
+                </div>
+            </div>
+            <div class="slds-grid slds-wrap">
+                <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-2 slds-large-size_1-of-2">
+                    <fieldset class="slds-p-top_medium slds-p-right_medium slds-p-bottom_medium">
+                        {customLabelValues.OWC_zipcode}   
+                        <template if:false={OtherZipCoderequired}>
+                            
+                        </template> 
+                        <lightning-input type="text"  max-length="10" data-id="OtherIndividualZipCode" value={OtherIndividualZipCode}  variant="label-hidden" name="OtherIndividualZipCode" onchange={handleChange} ></lightning-input>
+                        
+                    </fieldset>
+                </div>
+                <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-2 slds-large-size_1-of-2">             
+                    <fieldset class="slds-p-top_medium slds-p-right_medium slds-p-bottom_medium">
+                        {customLabelValues.OWC_empinfo_BusinessPhone}  
+                        <template if:false={OtherBusinessPhonerequired}>
+                            
+                        </template>
+                        <div class="slds-grid slds-wrap">
+                            <div class="slds-col slds-size_3-of-7 slds-medium-size_1-of-2 slds-large-size_2-of-8 slds-p-right_xxx-small">
+                                <lightning-combobox
+                                        variant="label-hidden" 
+                                        name="countryCodeOtherIndividualPhone"
+                                        data-id="countryCodeOtherIndividualPhone"
+                                        value={countryCodeOtherIndividualPhone}
+                                        placeholder ={customLabelValues.OWC_select_picklist_label}
+                                        options={countryCodeValue}
+                                        onchange={handleChange} >
+                                </lightning-combobox>
+                            </div>
+                            <div class="slds-col slds-size_4-of-7 slds-medium-size_1-of-2 slds-large-size_6-of-8">
+                                <lightning-input type="text"   data-id="OtherIndividualPhone" value={OtherIndividualPhone}  variant="label-hidden" name="OtherIndividualPhone" onchange={handleChange}></lightning-input>
+                            </div>
+                        </div>
+                    </fieldset>
+                </div>
+            </div>
+            <div class="slds-grid slds-wrap">
+                <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-2 slds-large-size_1-of-2">
+                    <fieldset class="slds-p-top_medium slds-p-right_medium slds-p-bottom_medium">
+                        {customLabelValues.OWC_email}  
+                        
+                            <lightning-input type="email"  data-id="OtherIndividualEmail" value={OtherIndividualEmail}  variant="label-hidden" name="OtherIndividualEmail" onchange={handleChange} ></lightning-input>
+                        
+                    </fieldset>
+                </div>
+                <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-2 slds-large-size_1-of-2">             
+                    <fieldset class="slds-p-top_medium slds-p-right_medium slds-p-bottom_medium">
+                        {customLabelValues.OWC_empinfo_VehicleLicense}
+                        
+                            <lightning-input type="text" value={OtherIndividualVehicleLicense}  variant="label-hidden" name="OtherIndividualVehicleLicense" onchange={handleChange}></lightning-input>
+                        
+                    </fieldset>
+                </div>
+            </div>
+            <div class="slds-grid slds-wrap">
+                <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-2 slds-large-size_1-of-2">
+                    <fieldset class="slds-p-top_medium slds-p-right_medium slds-p-bottom_medium">
+                        {customLabelValues.OWC_website}  
+                        
+                            <lightning-input type="text" data-id="OtherIndividualWebsite" value={OtherIndividualWebsite}  variant="label-hidden" name="OtherIndividualWebsite" onchange={handleChange}></lightning-input>
+                        
+                    </fieldset>
+                </div>
+                <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-2 slds-large-size_1-of-2"> 
+                    <fieldset class="slds-p-top_medium slds-p-right_medium slds-p-bottom_medium">
+                        {customLabelValues.OWC_TotalEmployees}
+                        
+                        <span class="slds-p-left_x-small">
+                            <lightning-icon icon-name="utility:info" class="my-icon" size="x-small" alternative-text="info"  label={customLabelValues.OWC_learnmore_button} name="bestGuess" onclick={handleHelpText} ></lightning-icon>
+                            </span>
+                            <lightning-input type="number" data-id="additionalTotalEmployees" value={additionalTotalEmployees}  variant="label-hidden" name="additionalTotalEmployees" onchange={handleChange}></lightning-input>
+                    </fieldset>
+                </div>
+            </div>
+            
+            <!-- <div class="slds-grid slds-wrap">
+                <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-2 slds-large-size_1-of-2"> 
+                    <fieldset class="slds-p-top_medium slds-p-right_medium slds-p-bottom_medium">
+                        {customLabelValues.OWC_TotalEmployees}
+                        
+                        <span class="slds-p-left_x-small">
+                            <lightning-icon icon-name="utility:info" class="my-icon" size="small" alternative-text="info"  label={customLabelValues.OWC_learnmore_button} name="bestGuess" onclick={handleHelpText} ></lightning-icon>
+                            </span> --> 
+                        <!-- <span class="slds-p-left_medium learnMoreStyle">
+                            <lightning-button variant="base" label={customLabelValues.OWC_learnmore_button} name="bestGuess" onclick={handleHelpText} class="slds-m-left_x-small"></lightning-button>
+                        </span>   -->
+                        <!-- <lightning-input type="number" data-id="additionalTotalEmployees" value={additionalTotalEmployees}  variant="label-hidden" name="additionalTotalEmployees" onchange={handleChange}></lightning-input>
+                    </fieldset>
+                </div>
+            </div> -->
+            
+            </div>
+        </template>
+        </template>
+
+        <!--Help Text Section--> 
+        <template if:true={isHelpText}>
+            <c-owc-Help-Text-Cmp helptext={helpText} ismultiplefileuploadhelptext={isMultipleFileUploadHelpText} onhelptextevent={handleHelpTextEvent}></c-owc-Help-Text-Cmp>
+        </template>
+        <!--Required Message Section-->    
+        <template if:true={isMultipleRequiredCheck}>
+            <div class="requiredMsgStyle">
+                {ValidationMsg}
+            </div>
+        </template>
+    </form>
+</template>

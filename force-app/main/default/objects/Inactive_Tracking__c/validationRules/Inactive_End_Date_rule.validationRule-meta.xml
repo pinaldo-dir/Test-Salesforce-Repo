@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Inactive_End_Date_rule</fullName>
+    <active>false</active>
+    <description>Inactive End Date must be equal to Claimant Respond Date</description>
+    <errorConditionFormula>AND(NOT(ISNULL( Inactive_End_Date__c )), NOT(ISNULL( Claimant_Respond_Date__c )), Inactive_End_Date__c  &lt;&gt;  Claimant_Respond_Date__c )</errorConditionFormula>
+    <errorMessage>Inactive End Date must be equal to Claimant Respond Date</errorMessage>
+</ValidationRule>

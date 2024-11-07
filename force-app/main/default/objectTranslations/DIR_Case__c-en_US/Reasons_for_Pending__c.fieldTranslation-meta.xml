@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+        <label><!-- Reason for Pending --></label>
+        <name>Reasons_for_Pending__c</name>
+        <picklistValues>
+            <masterLabel>CIU Hold</masterLabel>
+            <translation><!-- CIU Hold --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>City/County Investigation</masterLabel>
+            <translation><!-- City/County Investigation --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>DOL Investigation</masterLabel>
+            <translation><!-- DOL Investigation --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Legal hold</masterLabel>
+            <translation><!-- Legal hold --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Low priority</masterLabel>
+            <translation><!-- Low priority --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>RM Determination</masterLabel>
+            <translation><!-- RM Determination --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Waiting on Legal to give clarification. Legal hold.</masterLabel>
+            <translation><!-- Waiting on Legal to give clarification. Legal hold. --></translation>
+        </picklistValues>
+    </CustomFieldTranslation>

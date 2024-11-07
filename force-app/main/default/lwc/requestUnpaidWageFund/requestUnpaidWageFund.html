@@ -1,0 +1,243 @@
+<template>
+    <div class="slds-form-element">
+        <lightning-card>
+            <template if:false={allowUserRequest}>
+                <p style="color: rgb(255, 0, 0); padding-left: 40px;">Disbursement Clerks can only request Warrants</p><br>
+            </template>
+            <template if:true={allowUserRequest}>
+                <template if:true={forUWF}>
+                    <lightning-combobox style="width: 300px; padding-left: 40px;"
+                        label="Request UWF Warrants on BOFE/WCA:"
+                        value={optValue}
+                        placeholder="Select One"
+                        options={caseOptions}
+                        onchange={handleChange} >
+                    </lightning-combobox>
+                    <template if:true={isBofe}>
+                        <!-- <label class="slds-form-element__label custom-required-label" style="padding-left: 40px;">Enter the Case Names: </label>-->
+                        <div class="slds-p-around_medium lgc-bg" style="padding-left: 40px;padding-top: 20px;width: 600px">
+                            <lightning-input type="text" label="Enter the Case Names" placeholder="Separate case names with a comma" onchange={handleBofeCaseInputChange} required></lightning-input>
+                            <br>
+                            <lightning-button variant="brand-outline" label="Get Payees" title="Primary action with lighter look" disabled={getPayeeBtnDisabled} onclick={handleGetBOFEPayeesClick} class="slds-m-left_x-small" ></lightning-button>
+                        </div>  
+                    </template>
+                    <template if:true={isWca}>
+                        <!-- <label class="slds-form-element__label custom-required-label" style="padding-left: 40px;">Payees Owed @ </label> -->
+                        <div class="slds-p-around_medium lgc-bg" style="padding-left: 40px;padding-top: 20px;width: 600px">
+                            <lightning-combobox style="width: 300px;"
+                                label="Payees Owed @ "
+                                value={optOffice}
+                                placeholder="Select One"
+                                options={wcaOfficeOpts}
+                                onchange={handleWcaOfficeChange} >
+                            </lightning-combobox>
+                            <br>
+                            <lightning-button variant="brand-outline" label="Get Payees" title="Primary action with lighter look" disabled={getPayeeBtnDisabled} onclick={handleGetWCAPayeesClick} class="slds-m-left_x-small" ></lightning-button>
+                        </div>
+                    </template>
+
+                    <template if:true={gettingPayees}>
+                        <p style="color: rgb(255, 123, 0); padding-left: 40px;">Processing... Payee details will be updated soon...</p><br>
+                    </template>
+
+                    <template if:true={validatePayees}>
+                        <p style="color: rgb(255, 123, 0); padding-left: 40px;">Validation in Progress... Please Wait... </p><br>
+                    </template>
+                    <br>
+
+                    <template if:true={nonBofeCaseExist}>
+                        <p style="color: rgb(255, 174, 0); padding-left: 40px;">{nonBofeCases} are not BOFE Case(s), Hence it is excluded</p><br>
+                    </template>
+                    
+                    <template if:true={selectOpt}>
+                        <p style="color: rgb(255, 0, 0); padding-left: 40px;">Select BOFE or WCA</p><br>
+                    </template>
+
+                    <template if:false={payeeSelected}>
+                        <p style="color: rgb(255, 0, 0); padding-left: 40px;">No Payees selected. Select at least one Payee to issue UWF Warrants</p><br>
+                    </template>
+
+                    <template if:true={payeeOAerror}>
+                        <p style="color: rgb(255, 0, 0); padding-left: 40px;">Payees with multiple office accounts (WCA) cannot be batched together</p><br>
+                    </template>
+
+                    <template if:true={officeAccountUndefined}>
+                        <p style="color: rgb(255, 0, 0); padding-left: 40px;">One or more Payment Record's Office Account of the selected Payee is undefined and this breaks the process</p><br>
+                    </template>
+
+                    <template if:false={payeeOAerror}>
+                        <template if:true={noPRinPayee}>
+                            <p style="color: rgb(255, 174, 0); padding-left: 40px;">Either Payment Record(s) don’t exist or Warrant(s) have already been issued to Payee(s) {payee_NoPR}</p><br>
+                        </template>
+                        <template if:true={paymentAmtisNull}>
+                            <p style="color: rgb(255, 174, 0); padding-left: 40px;">The Payment Amount in one or more Payment Record(s) are Null in these Payee(s) {payee_PRnullPayAmt}</p><br>
+                        </template>
+                        <template if:true={payeeNoDirOffice}>
+                            <p style="color: rgb(255, 174, 0); padding-left: 40px;">The DIR Office field is undefined in Payee(s) {payee_NoOffice}</p><br>
+                        </template>
+                        <template if:true={rctHoldDateisFuture}>
+                            <p style="color: rgb(255, 174, 0); padding-left: 40px;">The Receipt Hold Date is future date in one of the Payment Records in Payee(s) {payee_FutureRctHoldDate}</p><br>
+                        </template>
+                        <!--
+                        <template if:true={prHasNoOA}>
+                            <p style="color: rgb(255, 174, 0); padding-left: 40px;">Office Account doesn’t exist in one or more Payment Record for the following Payee(s) {payee_PRwithNoOffAcc}</p><br>
+                        </template>
+                        -->
+                        <template if:true={payeeNoCashBalance}>
+                            <p style="color: rgb(255, 174, 0); padding-left: 40px;">Cash balance on case is not sufficient in the following Case(s) {payeeInsuffCashOnCase}</p><br>
+                        </template>
+                    </template>
+
+                    <template if:true={errorMessage}>
+                        <br><br>
+                        <lightning-icon icon-name="utility:error" alternative-text="Error!" variant="error" title="error variant small" size="small"></lightning-icon>
+                        <label style="color: rgb(255, 0, 0); padding-left: 40px;">Warrants cannot be requested. Above errors need to be addressed before proceeding...</label><br>
+                    </template>
+            
+                    <template if:false={errorMessage}>
+                        <template if:true={warningMessage}>
+                            <lightning-icon icon-name="utility:warning" alternative-text="Warning!" variant="warning" title="warning variant small" size="small" style="padding-left: 40px;"></lightning-icon>
+                            <label style="color: rgb(255, 123, 0);">Proceed excluding the Case(s) {uniqueCasesWithErr} with errors mentioned above .....</label><br>
+                        </template>
+                        <template if:true={successMessage}>
+                            <lightning-icon icon-name="utility:success" alternative-text="Success!" variant="success" title="success variant small" size="small" style="padding-left: 40px;"></lightning-icon>
+                            <label style="color: rgb(28, 158, 61);">Proceed to create Warrants...</label><br>
+                        </template>
+                        <template if:true={unsuccessMessage}>
+                            <lightning-icon icon-name="utility:error" alternative-text="Error!" variant="error" title="error variant small" size="small" style="padding-left: 40px;"></lightning-icon>
+                            <label style="color: rgb(255, 0, 0);">No valid Payees are available to proceed to Warrant Batch...</label></br></br>
+                        </template>
+                    </template>
+                    <br>
+    
+
+                    <template if:true={payeesExist}>
+                        <div class="payeeDetailTbl  slds-scrollable">
+                            <table class="slds-table slds-table_cell-buffer slds-table_bordered">
+                                <thead>
+                                    <tr class="slds-line-height_reset">
+                                        <th class="" scope="col">
+                                            <div class="slds-truncate">
+                                                <lightning-input id="checkboxSel" onchange={allSelected} type="checkbox"></lightning-input>
+                                            </div>
+                                        </th>
+
+                                        <th class="" scope="col">
+                                            <div class="slds-truncate" title="Serial No"> </div>
+                                        </th>
+
+                                        <th class="" scope="col">
+                                            <div class="slds-truncate" title="Case Name"> Case</div>
+                                        </th>
+
+                                        <th class="" scope="col">
+                                            <div class="slds-truncate" title="Payee Id"> Payee Id</div>
+                                        </th>
+
+                                        <th class="" scope="col">
+                                            <div class="slds-truncate" title="Payee Name"> Payee Name</div>
+                                        </th>
+                                        
+                                        <th class="" scope="col">
+                                            <div class="slds-truncate" title="Payee Type">Payee Type</div>
+                                        </th>
+
+                                        <th class="" scope="col">
+                                            <div class="slds-truncate" title="Payee Amount">Payee Amount</div>
+                                        </th>
+                                    
+                                        <th class="" scope="col">
+                                            <div class="slds-truncate" title="Wage Payable Balance">Wage Payable Balance</div>
+                                        </th>
+
+                                        <th class="" scope="col">
+                                            <div class="slds-truncate" title="Wage Interest Payable Balance">Wage Interest Payable Balance</div>
+                                        </th>
+
+                                        <th class="" scope="col">
+                                            <div class="slds-truncate" title="Interest/Other Payable Balance">Interest/Other Payable Balance</div>
+                                        </th>
+                                    </tr>
+                                </thead>
+                                
+                                <tbody>
+                                <!-- <template if:true={groupCasePayeeMap}> -->
+                                        <template for:each={allPayeesInEnteredCases} for:item="Payee">
+                                            <tr key={Payee.Id}>
+                                                <th scope="col">
+                                                    <div>
+                                                        <lightning-input type="checkbox" onchange={updateSelectedPayees} value={Payee.Name} data-id={Payee.Id}>
+                                                        </lightning-input>
+                                                    </div>
+                                                </th>
+
+                                                <th scope="col">
+                                                    <div>{Payee.payeeSerialNo}</div>
+                                                </th>
+
+                                                <th scope="col">
+                                                    <div><a href={Payee.caseLink} target="_blank">{Payee.caseName}</a></div>
+                                                </th>
+
+                                                <th scope="col">
+                                                    <div><a href={Payee.payeeLink} target="_blank">{Payee.Name}</a></div>
+                                                </th>
+
+                                                <th scope="col">
+                                                    <div>{Payee.Payee_Name__c}</div>
+                                                </th>
+
+                                                <th scope="col">
+                                                    <div>{Payee.Payee_Type__c}</div>
+                                                </th>
+
+                                                <th scope="col">
+                                                    <div>{Payee.Payee_Amount}</div>
+                                                </th>
+
+                                                <th scope="col">
+                                                    <div>{Payee.Wage_Payable_Balance_New__c}</div>
+                                                </th>
+
+                                                <th scope="col">
+                                                    <div>{Payee.Wage_Interest_Payable_Balance__c}</div>
+                                                </th>
+
+                                                <th scope="col">
+                                                    <div>{Payee.Interest_Other_Payable_Balance__c}</div>
+                                                </th>
+                                            </tr>
+                                        </template>
+                                    <!-- </template> -->
+                                </tbody>
+                            </table>
+                        </div>
+                        <br>
+                        <template if:true={proceedRequestWB}>
+                            <lightning-icon icon-name="utility:success" alternative-text="Success!" variant="success" title="success variant small" size="small" style="padding-left: 40px;"></lightning-icon>
+                            <label style="color: rgb(28, 158, 61);">Click Request UWF Warrant button to batch Warrants for case(s) {validCasesWBRequest} ...</label><br>
+                        </template>
+                        <template if:true={cannotProceedReqWB}>
+                            <lightning-icon icon-name="utility:error" alternative-text="Error!" variant="error" title="error variant small" size="small" style="padding-left: 40px;"></lightning-icon>
+                            <label style="color: rgb(255, 0, 0);">There is no valid case to request Warrant Batch</label></br></br>
+                        </template>
+                        <br>
+                        <lightning-button variant="brand-outline" label="Validate Selected Payees" title="Primary action with lighter look" disabled={valSelPayeeBtnDisabled} onclick={validateSelectedPayees} class="slds-m-left_x-small" ></lightning-button>
+                        <lightning-button variant="brand" class="slds-var-m-left_x-small" label="Request UWF Warrant" disabled={reqUWFwrBtnDisabled} onclick={requestUWFWarrant}></lightning-button>
+                        <br>
+                        <br>
+                        <template if:true={uwfPassed}>
+                            <lightning-icon icon-name="utility:success" alternative-text="Success!" variant="success" title="success variant small" size="small" style="padding-left: 40px;"></lightning-icon>
+                            <label style="color: rgb(28, 158, 61);">UWF Warrants are being batched successfully and confirmation email will be sent ...</label><br>
+                        </template>
+                        <template if:true={uwfFailed}>
+                            <lightning-icon icon-name="utility:error" alternative-text="Error!" variant="error" title="error variant small" size="small" style="padding-left: 40px;"></lightning-icon>
+                            <label style="color: rgb(255, 0, 0);">Someting went wrong while batching the Warrants. Contact the Admin...</label></br></br>
+                        </template>
+                    
+                    </template>
+                </template>
+            </template>
+        </lightning-card>
+    </div>
+</template>

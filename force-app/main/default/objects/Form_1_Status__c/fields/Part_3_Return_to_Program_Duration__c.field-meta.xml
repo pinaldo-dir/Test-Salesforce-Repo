@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Part_3_Return_to_Program_Duration__c</fullName>
+    <externalId>false</externalId>
+    <formula>IF (  RecordType.DeveloperName  = 'Part_3_Return_to_Program',
+
+(
+
+IF ( Error_or_Invalid__c = TRUE, 0,
+
+
+    IF (  Status_End_Date__c =  DATE(1700,01,01), 0,
+
+
+         IF ( ISBLANK( Status_End_Date__c ) , ( Todays_Date_Hidden__c - Date_of_Status__c + 1 ) ,
+
+
+                   Status_End_Date__c  -  Date_of_Status__c  + 1  ) ) )
+), 0)</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>Part 3 Return to Program Duration</label>
+    <precision>18</precision>
+    <required>false</required>
+    <scale>0</scale>
+    <trackTrending>false</trackTrending>
+    <type>Number</type>
+    <unique>false</unique>
+</CustomField>

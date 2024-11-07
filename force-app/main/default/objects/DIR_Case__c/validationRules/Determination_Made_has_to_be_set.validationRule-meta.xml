@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Determination_Made_has_to_be_set</fullName>
+    <active>true</active>
+    <description>The determination made pick list has to be selected in order to save a date</description>
+    <errorConditionFormula>IF (NOT(ISBLANK(Determination_Date__c )) &amp;&amp; (ISPICKVAL(Determination_Made__c, '')),true,false)</errorConditionFormula>
+    <errorDisplayField>Determination_Made__c</errorDisplayField>
+    <errorMessage>Please select a value for Determination Made</errorMessage>
+</ValidationRule>

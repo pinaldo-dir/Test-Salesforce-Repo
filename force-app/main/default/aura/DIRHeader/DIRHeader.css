@@ -1,0 +1,35 @@
+.THIS.headerBranding {
+    /*margin-bottom: 20px;*/
+    min-height: 101px;
+    position: relative;
+    background: #0a628a;
+    color: #ffffff;
+    top: 0;
+    width: 100%;
+    
+}
+.THIS a, .THIS a:hover {
+    text-decoration: none;
+    color: #ffffff;
+}
+.THIS .titlepart2 {
+    font-size: 37px;
+    line-height: 25px;
+    color: #fff;
+    font-weight: normal;
+    height: 25px;
+}
+
+.THIS .titlPart1 {
+    font-size: 16px;
+    margin-top: 1rem;
+    margin-bottom: -.5rem;
+    
+}
+
+.THIS .dirLogoClass {
+    margin-top: -5rem;
+    line-height: 1.42857143;
+    height: 32px;
+    margin-left: 2rem;
+}

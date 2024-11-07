@@ -1,0 +1,8 @@
+<aura:component implements="forceCommunity:availableForAllPageTypes" access="global" >
+    
+    <div class="c-container slds-is-relative">
+        <div aura:id="judgmentSearchContainer" class="judgmentSearchContainer">
+            <c:JudgmentSearch showSearchFilters="{!v.displayJudgmentSearch}" isLoading="{!v.isLoading}"/>
+        </div>
+    </div>
+</aura:component>

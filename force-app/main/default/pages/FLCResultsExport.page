@@ -1,0 +1,39 @@
+<apex:page controller="FLCResultsExportController" sidebar="false" contentType="application/vnd.ms-excel">
+    <table>
+        <td>First Name</td>
+        <td>Middle Name</td>
+        <td>Lasst Name</td>
+        <td>1 DBA</td>
+        <td>2 DBA</td>
+        <td>3 DBA</td>
+        <td>Street Address</td>
+        <!--<td>Address2</td> -->
+        <td>City</td>
+        <td>State</td>
+        <td>Zip</td>
+        <td>License #</td>
+        <td>Bond</td>
+        <td>Issue Date</td>
+        <td>Expires Date</td>
+        
+        <apex:repeat id="regDetails" value="{!wrapLRLists}" var="flcreg">
+            <tr>
+                <td>{!flcreg.FirstName}</td>
+                <td>{!flcreg.MiddleName}</td>
+                <td>{!flcreg.LastName}</td>
+                <td>{!flcreg.DBA1}</td>
+                <td>{!flcreg.DBA2}</td>
+                <td>{!flcreg.DBA3}</td>
+                <td>{!flcreg.AddressLine1}</td>
+                <!-- <td>{!flcreg.AddressLine2}</td> -->
+                <td>{!flcreg.City}</td>
+                <td>{!flcreg.State}</td>
+                <td>{!flcreg.Zip}</td>
+                <td>{!flcreg.RegistrationNum}</td>
+                <td>{!flcreg.BondAmount}</td>
+                <td><apex:outputText value="{0,date,MM/dd/yy}"> <apex:param value="{!flcreg.EffectiveDte}" /> </apex:outputText></td>
+                <td><apex:outputText value="{0,date,MM/dd/yy}"> <apex:param value="{!flcreg.ExpirationDte}" /> </apex:outputText></td>
+            </tr>
+        </apex:repeat>      
+    </table>
+</apex:page>

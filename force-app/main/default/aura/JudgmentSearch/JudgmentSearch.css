@@ -1,0 +1,196 @@
+.THIS .titleStyle{
+    color: #bf5a42;
+    font-weight: normal;
+    font-size: 23px;
+    line-height: 1.1;
+    margin: .67em 0;
+    font-family:'Source Sans Pro';
+}
+.THIS .spins::after {
+    position: absolute;
+    content: 'Page is Loading... Please wait';
+    width: 80%;
+    text-align: center;
+    top: calc(50% + 3em);
+    font-size: 16px;
+}
+.THIS .custom-loading-text {
+    transform: rotate(-90deg);
+    position: absolute;
+    top: -1.5rem;
+    left: -1rem;
+    white-space: nowrap;
+}
+.THIS .loadingMessageStyle{
+    font-weight: bold;
+}
+.THIS .dir-judgment-search-Desktop-container {
+    width: 90%;
+}
+.THIS .dir-judgment-search-mobile-container {
+    width: 100%;
+}
+.THIS .formStyle{
+    font-family: 'Source Sans Pro';
+    font-size: 18px;
+    font-weight: 600;
+    color: #333333; 
+}
+.THIS .dateStyle{
+    font-family: 'Source Sans Pro';
+    font-size: 16px;
+    font-weight: normal;
+    color: #333333; 
+}
+@font-face {
+  font-family: 'Source Sans Pro';
+  src: url('/resource/DIRGoogleFonts'); 
+}
+.THIS .heading-content{
+    font-family: 'Source Sans Pro';
+    font-size: 16px;
+    color: #333333;
+    font-weight: normal;
+}
+.THIS.c-container input, .THIS.c-container select {
+    border: 1px solid #637383;
+    border-radius: 3px;
+    padding: 2px 4px 4px 8px;
+    background: #ffffff;
+    font-size: 16px;
+}
+.THIS hr{
+    border: none;
+    height: 2px;
+    color: #0e61b9;
+    background-color: #0e61b9;
+}
+
+.THIS .breakStyle{
+    padding-bottom: 14px;
+}
+.THIS .fromToStyle{
+    font-size: 16px;
+}
+
+
+.THIS .formButton{
+    font-family: 'Source Sans Pro';
+    background-color: #0e61b9;
+    margin-right: 15px;
+    box-shadow: 1px 1px 2px #555;
+    display: inline-block;
+    color: #fff;
+    border: 1px solid transparent;
+    border-radius: 3px;
+    white-space: nowrap;
+    padding: 6px 12px 6px 12px;
+    font-size: 16px;
+    line-height: 23px;
+    font-weight: normal;
+    text-align: center;
+}
+.THIS .formButton:hover{
+    background-color: #035376;
+}
+.THIS .formInstructionStyle{
+    font-family: 'Source Sans Pro';
+    font-size: 16px; 
+    font-weight: normal;
+    color: #333333;
+}
+.THIS .pillSize{
+    width:100%;
+}
+.THIS .RequiredInputStyle{
+    color: #bf0404;
+    font-weight: bold;
+    font-size: 18px;
+}
+.THIS .tooltipdiv{
+    width:auto;
+    height:auto;
+    padding:20px;
+    position:absolute;
+    left:45px;
+    box-shadow:3px 3px #888888;
+    
+}
+.THIS .formFieldSetStyle{
+    background: #f4f4f4;
+    padding: 8px 12px 6px 15px;
+}
+.THIS .c-container{
+    font-family: 'Source Sans Pro';
+    font-size: 16px;
+    font-weight: 600;
+}
+
+.THIS .formTitle{
+    color: #bf5a42;
+    font-weight: normal;
+    font-size: 23px;
+    line-height: 1.1;
+    margin: 0.67em 0;
+}
+.THIS .formHeading{
+    font-weight: normal;
+    line-height: 1.1;
+    margin: 0.67em 0;
+}
+.THIS .breadcrumb {
+    display: inline;
+    font-size: 18px;
+}
+.THIS .breadcrumb a{
+    text-decoration: none;
+}
+.THIS .breadcrumb a:hover{
+    text-decoration: underline;
+}
+.THIS .errorMsgStyle{
+    color: #FF0000;
+    font-size: 18px;
+}
+.THIS h1{
+    font-size: 33px;
+    font-weight: 600;
+    color: #bf5a42;
+    font-family: 'Source Sans Pro';
+}
+.THIS h2{
+    font-size: 23px;
+    font-weight: 600;
+    color: #333333;
+    font-family: 'Source Sans Pro';
+}
+.THIS h3{
+    font-size: 19px;
+    font-weight: 600;
+    color: #333333;
+    font-family: 'Source Sans Pro';
+}
+.THIS h4{
+    font-size: 17px;
+    font-weight: 600;
+    color: #333333;
+    font-family: 'Source Sans Pro';
+}
+.THIS p{
+    font-size: 16px;
+    font-weight: normal;
+    color: #333333;
+    font-family: 'Source Sans Pro';
+}
+.THIS div{
+    font-size: 16px;
+    font-weight: normal;
+    color: #333333;
+    font-family: 'Source Sans Pro';
+}
+.THIS span{
+    font-size: 16px;
+    font-weight: normal;
+    color: #333333;
+    font-family: 'Source Sans Pro';
+}

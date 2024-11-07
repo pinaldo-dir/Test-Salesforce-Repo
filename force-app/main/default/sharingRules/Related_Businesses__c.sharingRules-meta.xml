@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<SharingRules xmlns="http://soap.sforce.com/2006/04/metadata">
+    <sharingGuestRules>
+        <fullName>Related_Business_Access_to_DIR_Port_Drayage_Users</fullName>
+        <accessLevel>Read</accessLevel>
+        <label>Related Business Access to DIR Port Drayage Users</label>
+        <sharedTo>
+            <guestUser>Judgment_WC_Search</guestUser>
+        </sharedTo>
+        <criteriaItems>
+            <field>Business__c</field>
+            <operation>notEqual</operation>
+            <value>null</value>
+        </criteriaItems>
+        <includeHVUOwnedRecords>false</includeHVUOwnedRecords>
+    </sharingGuestRules>
+</SharingRules>

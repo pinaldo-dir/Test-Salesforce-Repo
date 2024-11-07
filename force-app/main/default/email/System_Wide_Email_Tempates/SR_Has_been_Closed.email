@@ -1,0 +1,6 @@
+Your Support Request {!Support_Request__c.Name} has been resolved. If you have any questions, please go to the support request record and chatter "@[Salesforce Support Team]". <br><br>
+
+Subject: {!Support_Request__c.Subject__c} <br>
+Date Created: {!Support_Request__c.CreatedDate} <br>
+Closed By: {!Support_Request__c.OwnerFullName} <br>
+Link: {!Support_Request__c.Link}<br>

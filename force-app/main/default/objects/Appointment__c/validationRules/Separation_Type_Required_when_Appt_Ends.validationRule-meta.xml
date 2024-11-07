@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Separation_Type_Required_when_Appt_Ends</fullName>
+    <active>true</active>
+    <description>Field "Type of Separation" is required when appointment has an end date</description>
+    <errorConditionFormula>AND ( (NOT(CONTAINS($Profile.Name,'System Administrator'))),
+(
+
+NOT(ISBLANK(End_Date__c)) &amp;&amp;  ISPICKVAL( Type_of_Separation__c ,'')
+
+))</errorConditionFormula>
+    <errorMessage>Please Select Type of Separation</errorMessage>
+</ValidationRule>

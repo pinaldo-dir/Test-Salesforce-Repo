@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+        <help><!-- Hidden Placeholder for Primary Zip to update on new form assembly submissions. --></help>
+        <label><!-- Primary Zip Placeholder --></label>
+        <name>Primary_Zip_Placeholder__c</name>
+    </CustomFieldTranslation>

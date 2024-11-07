@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Sec_Attpt_Date_Greater_than_1st_plus_15</fullName>
+    <active>true</active>
+    <errorConditionFormula>AND(
+(X2nd_Attempt_Date__c &lt; (X1st_Attempt_Date__c) + 15),
+DATEVALUE(CreatedDate) &gt;  DATEVALUE("2024-02-01")
+)</errorConditionFormula>
+    <errorMessage>2nd Attempt Date must be &gt;=  1st Attempt Date+15 days</errorMessage>
+</ValidationRule>

@@ -1,0 +1,49 @@
+<!--
+  @description       : 
+  @author            : ChangeMeIn@UserSettingsUnder.SFDoc
+  @group             : 
+  @last modified on  : 10-28-2021
+  @last modified by  : ChangeMeIn@UserSettingsUnder.SFDoc
+-->
+<template>
+    <div class="slds-grid slds-wrap">
+        <div class="slds-col slds-medium-size_1-of-1 slds-large-size_1-of-1">
+            <template if:true={isrenderPayClaimSection}>
+                <template for:each={renderPayClaimSection} for:item="payClaimObj">
+                    <div class="" key={payClaimObj.Id}>
+                        <div class="slds-grid slds-wrap">
+                                <h2 class="slds-col slds-medium-size_5-of-6 slds-large-size_5-of-6 slds-p-around_medium">
+                                    {payClaimObj.heading}
+                                </h2>
+                            
+                            <div class="slds-col slds-p-top_medium slds-p-bottom_medium slds-medium-size_1-of-6 slds-large-size_1-of-6">
+                                <template if:false={iswagedefpreview}>
+                                    <!-- <template if:false={payClaimObj.button}>
+                                        <lightning-button class="slds-float_right slds-m-around_medium owcButtonStyle" label={customLabelValues.OWC_save_as_draft_label} variant="brand" onclick={handleSaveAsDraft}></lightning-button>
+                                    </template> -->
+                                    <template if:true={payClaimObj.button}>
+                                        <lightning-button variant="brand" label={customLabelValues.OWC_delete_claim_button} title={customLabelValues.OWC_delete_claim_button} name={payClaimObj.sectionId} onclick={handleSectionDelete} class="slds-float_right owcButtonStyle"></lightning-button>
+                                    </template>
+                                </template>
+                            </div>
+                            <template if:false={payClaimObj.button}>
+                                <div class="slds-p-bottom_medium slds-p-left_medium slds-col slds-size_1-of-1 slds-medium-size_1-of-1 slds-large-size_1-of-1">
+                                    {customLabelValues.OWC_reporting_claim_screentext}
+                                </div>
+                            </template>
+                        </div>
+                        <div>
+                            <c-owc-Reporting-Time-Pay-Claim-Child iwcinfoobj={iwcinfoobj} iswagedefpreview={iswagedefpreview} onovertimecustominfoevent={handleOverTimeInfoEvent} onovertimedefchildvalidityevent={handleOverTimeChildValidityEvent} sectionid={payClaimObj.sectionId} onovertimesectiondeleteevent={handleEmployerSectionDeletedData}></c-owc-Reporting-Time-Pay-Claim-Child>
+                        </div>
+                    </div>
+                </template>
+            </template>
+        </div>
+        <div class="slds-p-left_medium slds-col slds-medium-size_1-of-1 slds-large-size_1-of-1">
+            <template if:false={iswagedefpreview}>
+                {customLabelValues.OWC_reporting_time_claim_label}&nbsp;
+                <lightning-button class="owcAdditionalButtonStyle" icon-name="utility:add" variant="brand" label={customLabelValues.OWC_repeat_claim} onclick={addMoreSickLeaveSection}></lightning-button>
+            </template>
+        </div>
+    </div>
+</template>

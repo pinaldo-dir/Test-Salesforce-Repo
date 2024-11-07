@@ -1,0 +1,13 @@
+The current {!License_Registration__c.Legal_Entity_Name__c}
+ {!Registration_Education__c.Exam_or_Course_Name__c}
+ for {!Registration_Education__c.Registration_Record_Type__c} Registration {!Registration_Education__c.Registration_Number__c} exam is about to expire. Please visit our website to submit a renewal application if you have not started the renewal process for your <insert license type>. An email notification with DLSE exam locations and information on scheduling your exam will be sent once you submit your renewal application.
+
+We appreciate the timeliness of scheduling and taking the exam.
+
+Click here to begin or continue the renewal process: {!License_Registration__c.Registration_Site__c}
+
+Sincerely, 
+Licensing & Registration
+Labor Commissioner's office
+Department of Industrial Relations
+State of California

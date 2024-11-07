@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <description>Email template for Employer Cure document review notification</description>
+    <encodingKey>ISO-8859-1</encodingKey>
+    <name>Employer Cure Notice or Proposal</name>
+    <style>none</style>
+    <subject>Employer Cure submission available for review</subject>
+    <type>text</type>
+    <uiType>Aloha</uiType>
+</EmailTemplate>

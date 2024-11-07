@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <description>This email is sent when there is no activity for 60 days.</description>
+    <encodingKey>ISO-8859-1</encodingKey>
+    <name>No Activity for 60 Days Sr. Deputy</name>
+    <style>none</style>
+    <subject>No Activity On Case {!DIR_Case__c.Name} In 45 Days</subject>
+    <type>text</type>
+    <uiType>Aloha</uiType>
+</EmailTemplate>

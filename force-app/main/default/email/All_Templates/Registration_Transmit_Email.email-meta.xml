@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <description>Send FLC Transmit email with instruction</description>
+    <encodingKey>ISO-8859-1</encodingKey>
+    <letterhead>Blank_Letterhead</letterhead>
+    <name>Registration Transmit Email</name>
+    <style>freeForm</style>
+    <subject>FLC License Transmitted Successfully</subject>
+    <textOnly>For: {!License_Registration__c.Legal_Entity_Name__c}
+Application ID: {!License_Registration__c.License_Registration_Number__c}
+
+We acknowledge receipt of your online application and fees. You have now transmitted the first part of the application for a Farm Labor Contractor License.
+
+You can now purchase your Workers&apos; Compensation Insurance and obtain a bond as necessary. In order to complete your transmitted application, you will need to continue filling out your application until the system allows you to fully submit it for review.
+
+If you are due to take the examination and have paid the exam fee,
+
+you will receive an email with the online examination invitation. If you do not know if you are due for the examination, you can call us in Oakland at (510) 285-3399 or in Fresno at (559) 248-1893.
+
+
+
+The FLC exam study material can be found and downloaded at
+http://www.dir.ca.gov/DLSE/Resources.html.
+
+
+
+IMPORTANT: Successful completion of the examination does not authorize you to operate as a Farm Labor Contractor. It is illegal to operate as a Farm Labor Contractor business without first obtaining a Farm Labor Contractor License from the State Labor Commissioner&apos;s Office. If you operate without a valid license, you will be subject to civil or criminal penalties.
+
+Thank you,
+
+Licensing &amp; Registration Unit</textOnly>
+    <type>html</type>
+    <uiType>Aloha</uiType>
+</EmailTemplate>

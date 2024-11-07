@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CompactLayout xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Assessment_Compact</fullName>
+    <fields>Name</fields>
+    <fields>Case_Management__c</fields>
+    <fields>Citation_Form__c</fields>
+    <fields>Total_Wages_Balance_Due__c</fields>
+    <fields>Total_Citation_Penalties_Balance_Due__c</fields>
+    <label>Assessment Compact</label>
+</CompactLayout>

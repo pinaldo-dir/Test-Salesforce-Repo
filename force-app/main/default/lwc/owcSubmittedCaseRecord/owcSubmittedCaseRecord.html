@@ -1,0 +1,139 @@
+<!--
+  @description       : 
+  @author            : ChangeMeIn@UserSettingsUnder.SFDoc
+  @group             : 
+  @last modified on  : 10-20-2021
+  @last modified by  : ChangeMeIn@UserSettingsUnder.SFDoc
+-->
+<template>
+    <h1 class="slds-p-bottom_medium slds-text-heading_large owcHeadingStyle" id="submitcaseRecord">{customLabelValues.OWC_submitted_claim_label}</h1>
+    <div class="tableFixHead">
+      <table class="slds-table slds-table_cell-buffer slds-table_bordered slds-border_left slds-border_right" aria-labelledby="element-with-table-label other-element-with-table-label">
+        <thead>
+          <tr class="">
+            <th class="" scope="col">
+              <div class="slds-truncate" title="Draft">{customLabelValues.owc_Case_Number}</div>
+            </th>
+            <th class="" scope="col">
+              <div class="slds-truncate" title="Draft">{customLabelValues.OWC_claimant_name_label}</div>
+            </th>
+            <th class="" scope="col">
+              <div class="slds-truncate" title="Draft">{customLabelValues.OWC_employer_name_label}</div>
+            </th>
+            <th class="" scope="col">
+              <div class="slds-truncate" title="Draft">{customLabelValues.OWC_submitted_date}</div>
+            </th>
+            <th class="" scope="col">
+              <div class="slds-truncate" title="Draft">{customLabelValues.OWC_status_label}</div>
+            </th>
+          </tr>
+        </thead>
+        <tbody>
+          <template if:false={isSubmittedRecord}>
+            <tr>
+              <th scope="col" class="slds-cell-wrap">
+                <div>
+                  {customLabelValues.OWC_no_record_error}
+                </div>
+              </th>
+            </tr>
+          </template>
+          <template if:true={isSubmittedRecord}>
+            <template for:each={submittedCaseRecords} for:item="caseObj">
+              <tr key={caseObj.recordId}>
+                  <th scope="col" class="slds-cell-wrap" style="width: 25%;">
+                      <div>
+                        <a href="javascript:void(0);" name={caseObj.recordId} onclick={handlePopUp} tabindex="-1">
+                          {caseObj.CaseNumber}
+                        </a>
+                        <template if:true={caseObj.is60DayOld}>
+                          <lightning-icon icon-name="utility:warning" size="xx-small" alternative-text="Warning!" title="Unconfirmed from more than 60 days."></lightning-icon>
+                        </template>
+                      </div>
+                  </th>
+                  <!-- <td scope="col" class="slds-cell-wrap">
+                    <div>
+                      {caseObj.CaseNumber}
+                    </div>
+                  </td> -->
+                  <td scope="col" class="slds-cell-wrap">
+                    <div>
+                      {caseObj.claimantName}
+                    </div>
+                  </td>
+                  <td scope="col" class="slds-cell-wrap">
+                    <div>
+                      {caseObj.employerName}
+                    </div>
+                  </td>
+                  <td scope="col" class="slds-cell-wrap">
+                    <div>
+                      {caseObj.submittedDate}
+                    </div>
+                  </td>
+                  <td scope="col" class="slds-cell-wrap">
+                    <div>
+                      {caseObj.status}
+                    </div>
+                  </td>
+                  
+              </tr>
+            </template>
+          </template>
+        </tbody>
+      </table>
+      <template if:true={isPopUp}>
+        <section role="dialog" tabindex="-1" aria-labelledby="modal-heading-01" aria-modal="true" aria-describedby="modal-content-id-1" class="slds-modal slds-fade-in-open">
+            <div class="slds-modal__container">
+              <div class="slds-modal__header">  
+                <lightning-button-icon icon-name="utility:close" alternative-text="Close this window" size="large"  
+                  variant="bare-inverse" onclick={closeModal} class="slds-modal__close">  
+                </lightning-button-icon>  
+                <h2>{customLabelValues.OWC_case_details_label}</h2>  
+              </div>  
+              <div class="slds-modal__content slds-p-around_medium" id="modal-content-id-1">
+                <template if:true={caseDetail.is60DayOld}>
+                    <div style="margin-left: 10px;background: lightgoldenrodyellow;padding: 4px;">{customLabelValues.OWC_case_closed_label}</div>
+                </template>
+                <div class="slds-wrap slds-grid">
+                  <div class="slds-p-around_medium slds-col slds-size_1-of-1 slds-medium-size_1-of-2 slds-large-size_1-of-2">
+                    <b>{customLabelValues.owc_Case_Number}</b><br/>
+                    {caseDetail.CaseNumber}
+                  </div>
+                  <div class="slds-p-around_medium slds-col slds-size_1-of-1 slds-medium-size_1-of-2 slds-large-size_1-of-2">
+                    <b>{customLabelValues.OWC_case_name}</b><br/>
+                    {caseDetail.caseName}
+                  </div>
+                  <div class="slds-p-around_medium slds-col slds-size_1-of-1 slds-medium-size_1-of-2 slds-large-size_1-of-2">
+                    <b>{customLabelValues.OWC_case_status1}</b><br/>
+                    {caseDetail.status}
+                  </div>
+                  <div class="slds-p-around_medium slds-col slds-size_1-of-1 slds-medium-size_1-of-2 slds-large-size_1-of-2">
+                    <b>{customLabelValues.OWC_assigned_deputy}</b><br/>
+                    {caseDetail.assignedDeputy}
+                  </div>
+                  <!-- <div class="slds-p-around_medium slds-col slds-size_1-of-1 slds-medium-size_1-of-2 slds-large-size_1-of-2">
+                    <b>Office Location</b><br/>
+                    {caseDetail.officeLocation}
+                  </div> -->
+                  <div class="slds-p-around_medium slds-col slds-size_1-of-1 slds-medium-size_1-of-2 slds-large-size_1-of-2">
+                    <b>{customLabelValues.OWC_office_address}</b><br/>
+                    {caseDetail.officeEmail}
+                  </div>
+                  <div class="slds-p-around_medium slds-col slds-size_1-of-1 slds-medium-size_1-of-2 slds-large-size_1-of-2">
+                    <b>{customLabelValues.OWC_pdf_link}</b><br/>
+                    <template if:true={caseDetail.isPDFAvailable}>
+                      <a href={caseDetail.pdfLink} target="_blank">{customLabelValues.OWC_claim_summary}</a>
+                    </template>
+                  </div>
+                </div>
+              </div>
+              <!-- <footer class="slds-modal__footer">
+                <button class="slds-button slds-button_neutral owcButtonStyle" onclick={closeModal}>Cancel</button>
+              </footer> -->
+            </div>
+          </section>
+          <div class="slds-backdrop slds-backdrop_open"></div>
+      </template>
+    </div>
+  </template>

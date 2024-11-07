@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Duplicate_F1_is_not_allowed</fullName>
+    <active>true</active>
+    <description>When editing a Form1 whose present position has already associated with another form 1, saving is not allowed</description>
+    <errorConditionFormula>OR(
+(AND (
+(NOT (ISNEW())),
+ISCHANGED(SEC1_Position__c),
+ISBLANK (PRIORVALUE(SEC1_Position__c)),
+NOT(ISBLANK(SEC1_Position__c)),
+SEC1_Position__r.Active_F1__c = TRUE
+))
+,
+(OR (
+AND (ISNEW(),(SEC1_Position__r.Active_F1__c = TRUE)),
+AND (ISCHANGED (SEC1_Position__c),
+(SEC1_Position__r.Active_F1__c = TRUE))
+))
+)</errorConditionFormula>
+    <errorMessage>This position has an active Form 1, duplicate F1 is not allowed</errorMessage>
+</ValidationRule>

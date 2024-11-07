@@ -1,0 +1,11 @@
+Hola {!Claimant},<br></br>
+
+ Gracias por su oportuna respuesta a nuestra solicitud. Ha respondido que el reclamo de 
+ sueldo presentado en su nombre por {!advocate/rep} contra {!Defendant} el {!filed date} 
+ deberá ser CONFIRMADO. Su número de es {!case number}. Su reclamo está asignado a la 
+ siguiente Oficina de Sueldo: <br></br>
+ 
+ {!DIR_Case__c.Office__c }
+ {!DIR_Case__c.DIR_WCA_Office_Address__c}
+ {!DIR_Case__c.DIR_Office_Phone_Number__c}
+ La Oficina de la Comisionada Laboral

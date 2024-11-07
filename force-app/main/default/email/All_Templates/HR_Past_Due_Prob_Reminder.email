@@ -1,0 +1,22 @@
+<table border="0" cellpadding="5" width="550" cellspacing="5" height="400" >
+<tr valign="top" height="400" >
+<td tEditID="c1r1" style=" background-color:#FFFFFF; color:#000000; bEditID:r3st1; bLabel:main; font-size:12pt; font-family:arial;" aEditID="c1r1" locked="0" >
+<![CDATA[<p class="Default" style=""><span lang="EN" style="font-size: 12pt; font-family: arial; color: rgb(0, 0, 0);"><font face="arial"><span style="font-size: 10pt;">Hello,</span></font><br>
+<br><font face="arial"><span style="font-size: 10pt;">
+You are receiving this reminder, because&nbsp;DIR's Human Resource&nbsp;Office
+does not have a copy of the&nbsp;probation report on </span><span style="font-size: 13.3333px;"><b><u>{!HR_Probe_Report_Tracking__c.Employee_Name__c}</u></b></span><span style="font-size: 10pt;">&nbsp;for the&nbsp;</span></font><font face="arial"><span style="font-size: 13.3333px;"><b><u>{!HR_Probe_Report_Tracking__c.Prob_Classification__c}</u></b></span><span style="font-size: 10pt;">&nbsp;position.</span></font><br>
+<br><font face="arial"><span style="font-size: 10pt;">
+If you need assistance in completing the form,&nbsp;please refer to this
+link&nbsp;</span></font></span><span class="MsoHyperlink" style="font-size: 12pt; font-family: arial; color: rgb(0, 0, 0);"><span lang="EN" style="font-size:10.0pt;
+mso-ansi-language:EN"><a href="http://www.calhr.ca.gov/Training/Pages/supervisors-probation-period.aspx">http://www.calhr.ca.gov/Training/Pages/supervisors-probation-period.aspx</a></span></span><span lang="EN" style="font-size: 10pt; font-family: arial; color: rgb(0, 0, 0);"><br>
+<br>
+Please email the completed Standard Form 636 (</span><b style="font-size: 12pt; font-family: arial; color: rgb(0, 0, 0);"><span style="font-size:
+10.0pt;color:#211D1E">REPORT OF PERFORMANCE FOR PROBATIONARY EMPLOYEE</span></b><span style="font-size: 10pt; font-family: arial; color: rgb(33, 29, 30);">) to&nbsp;</span><font style="" size="2" face="Verdana, Helvetica, sans-serif">PerformanceAppraisals-HR@dir.ca.gov.</font></p>
+
+<p class="Default" style="font-size: 12pt; font-family: arial; color: rgb(0, 0, 0);"><span style="font-size:10.0pt;color:#211D1E;mso-bidi-font-weight:
+bold"><o:p>&nbsp;</o:p></span></p>
+
+<p class="Default" style="font-size: 12pt; font-family: arial; color: rgb(0, 0, 0);"><span style="font-size:10.0pt;color:#211D1E;mso-bidi-font-weight:
+bold">Thank you.<o:p></o:p></span></p>]]></td>
+</tr>
+</table>

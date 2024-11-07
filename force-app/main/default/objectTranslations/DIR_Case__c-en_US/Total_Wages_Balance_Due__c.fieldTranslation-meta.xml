@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+        <help><!-- Total Amount Payable To Employee(s) + Total Wage Interest Amount - Total Paid By Defendant(s) --></help>
+        <label><!-- Balance Due to Employee(s) --></label>
+        <name>Total_Wages_Balance_Due__c</name>
+    </CustomFieldTranslation>

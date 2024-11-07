@@ -1,0 +1,13 @@
+Hello {!DIR_Case__c.OwnerFullName},
+
+You have been assigned BOFE Case {!DIR_Case__c.Name} from Salesforce.  You may view the Case and all associated Reports of Labor Code Violations in Salesforce directly in Salesforce at the following link: {!DIR_Case__c.Link}
+
+Employer: {!DIR_Case__c.Employer__c}
+Status: {!DIR_Case__c.Status__c}
+Case Type: {!DIR_Case__c.RecordType}
+
+Thank you
+Salesforce Automated Email
+
+Found in:
+/Case Management Email Templates/Deputy Assigned

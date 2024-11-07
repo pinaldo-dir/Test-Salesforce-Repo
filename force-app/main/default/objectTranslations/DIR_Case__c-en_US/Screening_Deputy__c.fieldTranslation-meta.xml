@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+        <help><!-- Name of the Representative/Deputy that conducted the complaint screening --></help>
+        <label><!-- Screening Deputy --></label>
+        <name>Screening_Deputy__c</name>
+        <relationshipLabel><!-- Case Management (Screening Deputy) --></relationshipLabel>
+    </CustomFieldTranslation>

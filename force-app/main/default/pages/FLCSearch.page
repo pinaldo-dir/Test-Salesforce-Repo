@@ -1,0 +1,116 @@
+<apex:page controller="FLCSearchController" docType="HTML-5.0" applyHtmlTag="false" applyBodyTag="false" sidebar="false" showHeader="false" standardStylesheets="true" title="Registration Search">
+    <script>
+        $j = jQuery.noConflict();
+    </script> 
+    <style>
+        .multiSelectPicklistRow select option:before,
+        .multiSelectPicklistRow select option:after {display:none;}
+    </style>
+    <apex:composition template="FLCRegistrationTemplate">
+        
+        <apex:define name="body"> 
+            <apex:form >     
+                <apex:outputPanel id="mainPanel">
+                    <ol class="breadcrumb">
+                        <li><a href="https://www.dir.ca.gov/dlse/dlse.html">Department of Industrial Relations (DIR)</a></li>
+                        <li class="active">Registration Search</li>
+                    </ol>
+                    <h1>Registration Search</h1>
+                    <br />
+ 
+                    <!--tken 06/27/2018 add list of record types -->
+                    <div class="row mb">
+                        <div class="col-md-5">
+                            <i>Use the drop-down menu under <b>"Registration Type"</b> to select the registration type you are searching, and enter at least one other search criteria.</i>
+                            <br/> 
+                        <label>Registration Type: * </label>
+                        <apex:selectList id="selectedRecordType" value="{!searchClassObj.selectedRecordType}" multiselect="false" size="1" styleClass="form-control">
+                            <apex:selectOptions value="{!registrationRecordTypes}"/>
+                        </apex:selectList>
+                        </div>                  
+                    </div>
+                    <div class="row mb">
+                        <div class="col-md-5">
+                            <label>License Type: * </label>
+                            <apex:selectList id="serviceType" value="{!searchClassObj.serviceType}" multiselect="false" size="1" styleClass="form-control">
+                                <apex:selectOptions value="{!serviceTypes}"/>
+                            </apex:selectList>
+                        </div>                  
+                    </div>
+                    <div class="row mb">
+                        <div class="col-md-5">
+                            <label>Registration Status: * </label>
+                            <apex:selectList id="selectedStatus" value="{!searchClassObj.selectedStatus}" multiselect="false" size="1" styleClass="form-control">
+                                <apex:selectOptions value="{!registrationStatus}"/>
+                            </apex:selectList>
+                        </div>                  
+                    </div>
+                   
+                    <div class="row mb">
+                        <div class="form-group col-md-5">
+                            <label><b>Effective Date Range</b></label>
+                            
+                        </div>
+                    </div>  
+                    <div class="row mb">
+                        <div class="form-group col-md-2">
+                            <label>Start Date:</label>
+                            <apex:input id="effectiveDateStart" value="{!searchClassObj.effectiveDateStart}" styleclass="form-control" type="date" />
+                            
+                        </div>
+                        <div class="form-group col-md-1"></div>
+                        <div class="form-group col-md-2">
+                            <label>End Date:</label>
+                            <apex:input id="effectiveDateEnd" value="{!searchClassObj.effectiveDateEnd}" styleclass="form-control" type="date" />
+                            
+                        </div>
+                    </div>
+                      
+                    <div class="row mb">
+                        <div class="form-group col-md-5">
+                            <label><b>Expiration Date Range</b></label>
+                            
+                        </div>
+                    </div>  
+                    <div class="row mb">
+                        <div class="form-group col-md-2">
+                            <label>Start Date:</label>
+                            <apex:input id="expirationDateStart" value="{!searchClassObj.expirationDateStart}" styleclass="form-control" type="date" />
+                            
+                        </div>
+                        <div class="form-group col-md-1"></div>
+                        <div class="form-group col-md-2">
+                            <label>End Date:</label>
+                            <apex:input id="expirationDateEnd" value="{!searchClassObj.expirationDateEnd}" styleclass="form-control" type="date" />
+                            
+                        </div>
+                    </div> 
+
+                    <apex:commandLink id="searchbt" action="{!SearchRegistration}" value="Search" style="text-decoration:none;" styleclass="btn-custom btn-lg" />&nbsp;&nbsp;
+                    
+                    <!-- empty fields (view action ClearFields() on PAGASearchController.cls) -->
+                    <apex:commandLink id="clearbt" onclick="clearDataFields();" action="{!ClearFields}" value="Clear Fields" rerender="mainPanel" />
+                    
+                    
+                </apex:outputPanel>
+                <!-- start press enter to initiate a search -->
+                <script type="text/javascript">
+                    $j(document).keypress(function(event) {
+                        var keycode = (event.keyCode ? event.keyCode : event.which);
+                        if (keycode == '13') {
+                             document.getElementById('{!$Component.searchbt}').click();
+                             
+                        }
+                    });
+                    function clearDataFields() {
+
+                    }
+                </script> 
+                <!-- end press enter to initiate a search -->
+                <!-- end press enter to initiate a search -->
+            </apex:form>
+              
+        </apex:define>
+    </apex:composition>
+    
+</apex:page>

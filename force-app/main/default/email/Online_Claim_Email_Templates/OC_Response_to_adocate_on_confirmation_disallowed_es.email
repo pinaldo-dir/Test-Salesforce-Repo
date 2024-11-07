@@ -1,0 +1,7 @@
+Hola {!DIR_Case__c.Advocate_Name_in_Text__c},
+
+El reclamo de sueldo que usted presentó en en nombre de {!DIR_Case__c.Claimant_Name_in_Text__c}, contra {!DIR_Case__c.Employer__c}, el {!DIR_Case__c.CreatedDate} ha quedado en espera. La Confirmación del reclamante adjunta a reclamo que le permite actuar en su nombre no cumplía con los requisitos. Hemos enviado una solicitud de confirmación a {!DIR_Case__c.Claimant_Name_in_Text__c}. El reclamo de sueldo permanecerá en espera hasta que sea confirmada por {!DIR_Case__c.Claimant_Name_in_Text__c}. Para ver un ejemplo y un formulario disponible para un documento de confirmación que cumpla con los requisitos, vaya a <link>.                                                                                        
+
+Si tiene preguntas, llámenos al 833-LCO-INFO (833-526-4636)
+
+La Oficina de la Comisionada Laboral

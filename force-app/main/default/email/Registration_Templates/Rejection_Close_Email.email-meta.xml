@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <description>Rejection Close Email</description>
+    <encodingKey>ISO-8859-1</encodingKey>
+    <letterhead>Blank_Letterhead</letterhead>
+    <name>Rejection Close Email</name>
+    <style>freeForm</style>
+    <subject>Rejection Letter for {!License_Registration__c.License_Registration_Type__c} {!License_Registration__c.Application_Type__c} {!License_Registration__c.License_Registration_Number__c}</subject>
+    <textOnly>To {!License_Registration__c.Applicant__c}:
+
+Your {!License_Registration__c.License_Registration_Number__c}
+{!License_Registration__c.Application_Type__c} application for {!License_Registration__c.Legal_Entity_Name__c} has been Closed.  You failed to submit a subsequent application with new payment fees within the 60-Day subsequent time frame.
+
+
+If you have any further questions, please contact our agency Mondays, Wednesdays, or Fridays, 8:00 am to 5:00 pm at (510) 285-3398. Or you can email us at DLSE.Licensing@dir.ca.gov
+
+{!License_Registration__c.Registration_Site__c}
+
+Thank you,
+Licensing and Registration Unit
+Division of Labor Standards Enforcement</textOnly>
+    <type>html</type>
+    <uiType>Aloha</uiType>
+</EmailTemplate>

@@ -1,0 +1,13 @@
+Hello,
+
+A referral assigned to you has not been edited in 15 days.
+
+Last Activity Date:  {!Referral__c.LastActivityDate}
+Referral Date:  {!Referral__c.Referral_Date__c}
+Type of Request:  {!Referral__c.Type_of_Request__c}
+Referring Deputy:  {!Referral__c.Referring_Deputy__c}
+Referral Link:  {!Referral__c.Link}
+
+
+Thank you 
+Salesforce Automated Email

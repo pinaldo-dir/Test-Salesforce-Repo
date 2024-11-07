@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Severity__c</fullName>
+    <externalId>false</externalId>
+    <label>Severity</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>High - Data Fix – User Cannot Proceed</fullName>
+                <default>false</default>
+                <label>High - Data Fix – User Cannot Proceed</label>
+            </value>
+            <value>
+                <fullName>High - System Error – No Workaround</fullName>
+                <default>false</default>
+                <label>High - System Error – No Workaround</label>
+            </value>
+            <value>
+                <fullName>High - Urgent Permission/License Assignment</fullName>
+                <default>false</default>
+                <label>High - Urgent Permission/License Assignment</label>
+            </value>
+            <value>
+                <fullName>High - Urgent Report Generation/Dashboard</fullName>
+                <default>false</default>
+                <label>High - Urgent Report Generation/Dashboard</label>
+            </value>
+            <value>
+                <fullName>High - Urgent Archived Data Retrieval</fullName>
+                <default>false</default>
+                <label>High - Urgent Archived Data Retrieval</label>
+            </value>
+            <value>
+                <fullName>High - Refund or Payment Request</fullName>
+                <default>false</default>
+                <label>High - Refund or Payment Request</label>
+            </value>
+            <value>
+                <fullName>High - Deployment Issue</fullName>
+                <default>false</default>
+                <label>High - Deployment Issue</label>
+            </value>
+            <value>
+                <fullName>High - Other</fullName>
+                <default>false</default>
+                <label>High - Other</label>
+            </value>
+            <value>
+                <fullName>Medium - Data Fix – Workaround in Place</fullName>
+                <default>false</default>
+                <label>Medium - Data Fix – Workaround in Place</label>
+            </value>
+            <value>
+                <fullName>Medium - System Error – Workaround in Place</fullName>
+                <default>false</default>
+                <label>Medium - System Error – Workaround in Place</label>
+            </value>
+            <value>
+                <fullName>Medium - Non-urgent Permission/License Assignment</fullName>
+                <default>false</default>
+                <label>Medium - Non-urgent Permission/License Assignment</label>
+            </value>
+            <value>
+                <fullName>Medium - Non-urgent Report Generation/Dashboard</fullName>
+                <default>false</default>
+                <label>Medium - Non-urgent Report Generation/Dashboard</label>
+            </value>
+            <value>
+                <fullName>Medium - Non-urgent Archived Data Retrieval</fullName>
+                <default>false</default>
+                <label>Medium - Non-urgent Archived Data Retrieval</label>
+            </value>
+            <value>
+                <fullName>Medium - Other</fullName>
+                <default>false</default>
+                <label>Medium - Other</label>
+            </value>
+            <value>
+                <fullName>Low - Data Fix - Minimal Business Impact</fullName>
+                <default>false</default>
+                <label>Low - Data Fix - Minimal Business Impact</label>
+            </value>
+            <value>
+                <fullName>Low - Other</fullName>
+                <default>false</default>
+                <label>Low - Other</label>
+            </value>
+            <value>
+                <fullName>75% Users Impacted</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>75% Users Impacted</label>
+            </value>
+            <value>
+                <fullName>90% Users Impacted</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>90% Users Impacted</label>
+            </value>
+            <value>
+                <fullName>Less than 50% Users Impacted</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>Less than 50% Users Impacted</label>
+            </value>
+            <value>
+                <fullName>Medium - 3RD Party App Issu</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>Medium - 3RD Party App Issu</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

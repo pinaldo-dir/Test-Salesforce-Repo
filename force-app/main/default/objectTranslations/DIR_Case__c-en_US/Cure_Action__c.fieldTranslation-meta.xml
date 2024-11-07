@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+        <label><!-- Cure Action --></label>
+        <name>Cure_Action__c</name>
+        <picklistValues>
+            <masterLabel>Appeal</masterLabel>
+            <translation><!-- Appeal --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Conference Scheduled</masterLabel>
+            <translation><!-- Conference Scheduled --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Cure Complete</masterLabel>
+            <translation><!-- Cure Complete --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Cure Dispute</masterLabel>
+            <translation><!-- Cure Dispute --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Cure Not Complete</masterLabel>
+            <translation><!-- Cure Not Complete --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Cure Partially Complete</masterLabel>
+            <translation><!-- Cure Partially Complete --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Hearing Requested</masterLabel>
+            <translation><!-- Hearing Requested --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Hearing Scheduled</masterLabel>
+            <translation><!-- Hearing Scheduled --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Review</masterLabel>
+            <translation><!-- Review --></translation>
+        </picklistValues>
+    </CustomFieldTranslation>

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Priority_Flag__c</fullName>
+    <externalId>false</externalId>
+    <formula>IMAGE(
+CASE(Priority__c,
+"Critical", "/resource/1664310946000/SRSeverityFlagRed",
+"High", "/resource/1664310600000/SRSeverityFlagOrange",
+"Moderate", "/resource/1664310819000/SRSeverityFlagYellow",
+"Low","/resource/1664309408000/SRSeverityFlagGreen",
+"/s.gif"),
+"Severity Flag")</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>Priority Flag</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

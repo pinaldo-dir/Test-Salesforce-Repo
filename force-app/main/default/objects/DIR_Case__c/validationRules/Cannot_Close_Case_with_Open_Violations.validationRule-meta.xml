@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Cannot_Close_Case_with_Open_Violations</fullName>
+    <active>true</active>
+    <description>RCI</description>
+    <errorConditionFormula>(RecordType.DeveloperName="RCI") &amp;&amp; 
+(Closed__c=TRUE) &amp;&amp; 
+(Open_Violations__c &gt;=1) &amp;&amp; 
+NOT( CONTAINS($Profile.Name, 'System Administrator') )</errorConditionFormula>
+    <errorMessage>Please close all Case Issues before closing this case</errorMessage>
+</ValidationRule>

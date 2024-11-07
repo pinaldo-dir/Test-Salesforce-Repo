@@ -1,0 +1,8 @@
+Hello,
+
+Inspection Request {!Inspection_Request__c.Name} has had a Recommendation added by {!Inspection_Request__c.Assigned_Deputy__c} and submitted for approval.
+
+The due date for this request is {!Inspection_Request__c.Due_Date__c}
+
+You may view this Inspection Request Directly in Salesforce at 
+{!Inspection_Request__c.Link}

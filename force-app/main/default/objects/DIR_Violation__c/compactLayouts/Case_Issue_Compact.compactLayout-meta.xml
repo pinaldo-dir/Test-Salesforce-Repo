@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CompactLayout xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Case_Issue_Compact</fullName>
+    <fields>Name</fields>
+    <fields>Violation_Type__c</fields>
+    <fields>Status__c</fields>
+    <fields>Case__c</fields>
+    <fields>Penalty_Balance_Due__c</fields>
+    <fields>Wage_Balance_Due__c</fields>
+    <label>Case Issue Compact</label>
+</CompactLayout>

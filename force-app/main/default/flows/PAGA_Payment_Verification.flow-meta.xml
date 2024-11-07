@@ -1,0 +1,389 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionCalls>
+        <name>Employer_Cure_Payment_not_processed</name>
+        <label>Employer Cure Payment not processed</label>
+        <locationX>638</locationX>
+        <locationY>758</locationY>
+        <actionName>DIR_Case__c.Employer_Cure_Payment_Unsuccessful</actionName>
+        <actionType>emailAlert</actionType>
+        <flowTransactionModel>CurrentTransaction</flowTransactionModel>
+        <inputParameters>
+            <name>SObjectRowId</name>
+            <value>
+                <elementReference>Get_AttPlus_Record.Case_Management__r.Id</elementReference>
+            </value>
+        </inputParameters>
+        <nameSegment>DIR_Case__c.Employer_Cure_Payment_Unsuccessful</nameSegment>
+        <versionSegment>1</versionSegment>
+    </actionCalls>
+    <actionCalls>
+        <name>Employer_Response_Payment_not_processed</name>
+        <label>Employer Response Payment not processed</label>
+        <locationX>110</locationX>
+        <locationY>758</locationY>
+        <actionName>DIR_Case__c.Employer_Response_Payment_Unsuccessful</actionName>
+        <actionType>emailAlert</actionType>
+        <flowTransactionModel>CurrentTransaction</flowTransactionModel>
+        <inputParameters>
+            <name>SObjectRowId</name>
+            <value>
+                <elementReference>Get_AttPlus_Record.Case_Management__r.Id</elementReference>
+            </value>
+        </inputParameters>
+        <nameSegment>DIR_Case__c.Employer_Response_Payment_Unsuccessful</nameSegment>
+        <versionSegment>1</versionSegment>
+    </actionCalls>
+    <actionCalls>
+        <name>PAGA_Notice_Payment_not_processed</name>
+        <label>PAGA Notice Payment not processed</label>
+        <locationX>374</locationX>
+        <locationY>758</locationY>
+        <actionName>DIR_Case__c.PAGA_Notice_Payment_Unsuccessful</actionName>
+        <actionType>emailAlert</actionType>
+        <flowTransactionModel>CurrentTransaction</flowTransactionModel>
+        <inputParameters>
+            <name>SObjectRowId</name>
+            <value>
+                <elementReference>Get_AttPlus_Record.Case_Management__r.Id</elementReference>
+            </value>
+        </inputParameters>
+        <nameSegment>DIR_Case__c.PAGA_Notice_Payment_Unsuccessful</nameSegment>
+        <versionSegment>1</versionSegment>
+    </actionCalls>
+    <apiVersion>50.0</apiVersion>
+    <decisions>
+        <name>IFP_Check</name>
+        <label>IFP Check</label>
+        <locationX>176</locationX>
+        <locationY>242</locationY>
+        <defaultConnector>
+            <targetReference>Type_of_submission</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>IFP_Claimed</name>
+            <conditionLogic>(1 AND 2 )OR(3 AND 4)</conditionLogic>
+            <conditions>
+                <leftValueReference>Get_AttPlus_Record.Case_Management__r.IFP_Claimed__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>Get_AttPlus_Record.Type__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>PAGA Notice</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>Get_AttPlus_Record.Case_Management__r.Employer_IFP_Claimed__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>Get_AttPlus_Record.Type__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Employer Response/Cure</stringValue>
+                </rightValue>
+            </conditions>
+            <label>IFP Claimed</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <name>Payment_check</name>
+        <label>Payment check</label>
+        <locationX>506</locationX>
+        <locationY>650</locationY>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>Employer_Response_Payment</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>Employer_Response_Payments.Id</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>Get_AttPlus_Record.Type__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Employer Response/Cure</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Employer_Response_Payment_not_processed</targetReference>
+            </connector>
+            <label>Employer Response Payment</label>
+        </rules>
+        <rules>
+            <name>PAGA_Notice_Payment</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>PAGA_Notice_payments.Id</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>Get_AttPlus_Record.Type__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>PAGA Notice</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>PAGA_Notice_Payment_not_processed</targetReference>
+            </connector>
+            <label>PAGA Notice Payment</label>
+        </rules>
+        <rules>
+            <name>Employer_Cure_Payment</name>
+            <conditionLogic>1 AND (2 OR 3)</conditionLogic>
+            <conditions>
+                <leftValueReference>Employer_Cure_Notice_or_Proposal_Payments</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>Get_AttPlus_Record.Type__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Employer Cure Notice (LC 226 Only)</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>Get_AttPlus_Record.Type__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Employer Cure Proposal (Small Employer Cure)</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Employer_Cure_Payment_not_processed</targetReference>
+            </connector>
+            <label>Employer Cure Payment</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <name>Type_of_submission</name>
+        <label>Type of submission</label>
+        <locationX>506</locationX>
+        <locationY>350</locationY>
+        <defaultConnector>
+            <targetReference>Employer_Response_Payments</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Employer Response</defaultConnectorLabel>
+        <rules>
+            <name>PAGA_Notice</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>Get_AttPlus_Record.Type__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>PAGA Notice</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>PAGA_Notice_payments</targetReference>
+            </connector>
+            <label>PAGA Notice</label>
+        </rules>
+        <rules>
+            <name>Employer_Cure_Notice_or_Proposal</name>
+            <conditionLogic>or</conditionLogic>
+            <conditions>
+                <leftValueReference>Get_AttPlus_Record.Type__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Employer Cure Notice (LC 226 Only)</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>Get_AttPlus_Record.Type__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Employer Cure Proposal (Small Employer Cure)</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Employer_Cure_Notice_or_Proposal_Payments</targetReference>
+            </connector>
+            <label>Employer Cure Notice or Proposal</label>
+        </rules>
+    </decisions>
+    <description>Added Employer Cure to the payment notification</description>
+    <environments>Default</environments>
+    <interviewLabel>PAGA Payment Verification {!$Flow.CurrentDateTime}</interviewLabel>
+    <label>PAGA Payment Verification</label>
+    <processMetadataValues>
+        <name>BuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>CanvasMode</name>
+        <value>
+            <stringValue>AUTO_LAYOUT_CANVAS</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>OriginBuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processType>AutoLaunchedFlow</processType>
+    <recordLookups>
+        <name>Employer_Cure_Notice_or_Proposal_Payments</name>
+        <label>Employer Cure Notice or Proposal Payments</label>
+        <locationX>506</locationX>
+        <locationY>458</locationY>
+        <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
+        <connector>
+            <targetReference>Payment_check</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Case_Management__c</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>Get_AttPlus_Record.Case_Management__c</elementReference>
+            </value>
+        </filters>
+        <filters>
+            <field>Type_of_Payment__c</field>
+            <operator>EqualTo</operator>
+            <value>
+                <stringValue>Filing Fee from PAGA Employer Cure</stringValue>
+            </value>
+        </filters>
+        <filters>
+            <field>Chargent_Order__c</field>
+            <operator>IsNull</operator>
+            <value>
+                <booleanValue>false</booleanValue>
+            </value>
+        </filters>
+        <getFirstRecordOnly>true</getFirstRecordOnly>
+        <object>PAGA_Payments__c</object>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </recordLookups>
+    <recordLookups>
+        <name>Employer_Response_Payments</name>
+        <label>Employer Response Payments</label>
+        <locationX>770</locationX>
+        <locationY>458</locationY>
+        <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
+        <connector>
+            <targetReference>Payment_check</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Case_Management__c</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>Get_AttPlus_Record.Case_Management__c</elementReference>
+            </value>
+        </filters>
+        <filters>
+            <field>Type_of_Payment__c</field>
+            <operator>EqualTo</operator>
+            <value>
+                <stringValue>Filing Fee from PAGA Employer</stringValue>
+            </value>
+        </filters>
+        <filters>
+            <field>Chargent_Order__c</field>
+            <operator>IsNull</operator>
+            <value>
+                <booleanValue>false</booleanValue>
+            </value>
+        </filters>
+        <getFirstRecordOnly>true</getFirstRecordOnly>
+        <object>PAGA_Payments__c</object>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </recordLookups>
+    <recordLookups>
+        <name>Get_AttPlus_Record</name>
+        <label>Get AttPlus Record</label>
+        <locationX>176</locationX>
+        <locationY>134</locationY>
+        <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
+        <connector>
+            <targetReference>IFP_Check</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Id</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>vAttPlusID</elementReference>
+            </value>
+        </filters>
+        <getFirstRecordOnly>true</getFirstRecordOnly>
+        <object>Attachments_Plus__c</object>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </recordLookups>
+    <recordLookups>
+        <name>PAGA_Notice_payments</name>
+        <label>PAGA Notice payments</label>
+        <locationX>242</locationX>
+        <locationY>458</locationY>
+        <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
+        <connector>
+            <targetReference>Payment_check</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Case_Management__c</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>Get_AttPlus_Record.Case_Management__c</elementReference>
+            </value>
+        </filters>
+        <filters>
+            <field>Type_of_Payment__c</field>
+            <operator>EqualTo</operator>
+            <value>
+                <stringValue>Filing Fee</stringValue>
+            </value>
+        </filters>
+        <filters>
+            <field>Chargent_Order__c</field>
+            <operator>IsNull</operator>
+            <value>
+                <booleanValue>false</booleanValue>
+            </value>
+        </filters>
+        <getFirstRecordOnly>true</getFirstRecordOnly>
+        <object>PAGA_Payments__c</object>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </recordLookups>
+    <start>
+        <locationX>50</locationX>
+        <locationY>0</locationY>
+        <connector>
+            <targetReference>Get_AttPlus_Record</targetReference>
+        </connector>
+    </start>
+    <status>Active</status>
+    <variables>
+        <name>vAttPlusID</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>true</isInput>
+        <isOutput>true</isOutput>
+    </variables>
+</Flow>

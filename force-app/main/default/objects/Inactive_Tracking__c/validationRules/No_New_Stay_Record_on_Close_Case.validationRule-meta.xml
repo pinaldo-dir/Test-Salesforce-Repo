@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>No_New_Stay_Record_on_Close_Case</fullName>
+    <active>true</active>
+    <errorConditionFormula>AND(ISNEW(), ISPICKVAL( Case_Management__r.Status__c , 'Closed'))</errorConditionFormula>
+    <errorMessage>Case is closed, do not enter a new Inactive or Stay record</errorMessage>
+</ValidationRule>

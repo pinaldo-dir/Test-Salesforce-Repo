@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>All</fullName>
+    <columns>NAME</columns>
+    <columns>X1st_Attempt_Date__c</columns>
+    <columns>X2nd_Attempt_Date__c</columns>
+    <columns>Date_Stayed__c</columns>
+    <columns>Date_Lifted__c</columns>
+    <columns>Inactive_Closure_Sent_Date__c</columns>
+    <columns>Inactive_Notice_Sent_Date__c</columns>
+    <columns>PCN_Sent_Date__c</columns>
+    <columns>Status__c</columns>
+    <columns>RECORDTYPE</columns>
+    <filterScope>Everything</filterScope>
+    <label>All</label>
+    <language>en_US</language>
+</ListView>

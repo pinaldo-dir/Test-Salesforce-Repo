@@ -1,0 +1,241 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+        <label><!-- Section --></label>
+        <name>Section__c</name>
+        <picklistValues>
+            <masterLabel>Agent Authorization</masterLabel>
+            <translation><!-- Agent Authorization --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Agreements</masterLabel>
+            <translation><!-- Agreements --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Branch Locations</masterLabel>
+            <translation><!-- Branch Locations --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Company Address Information</masterLabel>
+            <translation><!-- Company Address Information --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Company Address Information - JS</masterLabel>
+            <translation><!-- Company Address Information - JS --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Company Contact</masterLabel>
+            <translation><!-- Company Contact --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Company Details</masterLabel>
+            <translation><!-- Company Details --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Company Entity</masterLabel>
+            <translation><!-- Company Entity --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Company Entity - GA</masterLabel>
+            <translation><!-- Company Entity - GA --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Company Finances</masterLabel>
+            <translation><!-- Company Finances --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Company Information</masterLabel>
+            <translation><!-- Company Information --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Company Information -TA</masterLabel>
+            <translation><!-- Company Information -TA --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Company Locations</masterLabel>
+            <translation><!-- Company Locations --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Company Managers</masterLabel>
+            <translation><!-- Company Managers --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Company Managers Documentation - TA</masterLabel>
+            <translation><!-- Company Managers Documentation - TA --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Company Name &amp; Type</masterLabel>
+            <translation><!-- Company Name &amp; Type --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Company Owners</masterLabel>
+            <translation><!-- Company Owners --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Company Owners Documentation</masterLabel>
+            <translation><!-- Company Owners Documentation --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Company People</masterLabel>
+            <translation><!-- Company People --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Disclaimer</masterLabel>
+            <translation><!-- Disclaimer --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Documentation</masterLabel>
+            <translation><!-- Documentation --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Documentation I</masterLabel>
+            <translation><!-- Documentation I --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Documentation II</masterLabel>
+            <translation><!-- Documentation II --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Documentation III</masterLabel>
+            <translation><!-- Documentation III --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Download Documents To Be Completed</masterLabel>
+            <translation><!-- Download Documents To Be Completed --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Education</masterLabel>
+            <translation><!-- Education --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Exam</masterLabel>
+            <translation><!-- Exam --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Fees</masterLabel>
+            <translation><!-- Fees --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Follow up Questions</masterLabel>
+            <translation><!-- Follow up Questions --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Information I</masterLabel>
+            <translation><!-- Information I --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Information II</masterLabel>
+            <translation><!-- Information II --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Information III</masterLabel>
+            <translation><!-- Information III --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Live Scan</masterLabel>
+            <translation><!-- Live Scan --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Location Documentation</masterLabel>
+            <translation><!-- Location Documentation --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Medical Information</masterLabel>
+            <translation><!-- Medical Information --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Minor Information</masterLabel>
+            <translation><!-- Minor Information --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Owner Courses</masterLabel>
+            <translation><!-- Owner Courses --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Owner Exams</masterLabel>
+            <translation><!-- Owner Exams --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Owners &amp; Management</masterLabel>
+            <translation><!-- Owners &amp; Management --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Owners and Managers</masterLabel>
+            <translation><!-- Owners and Managers --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Owners, Managers, and Agents for Process</masterLabel>
+            <translation><!-- Owners, Managers, and Agents for Process --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Parent/Guardian Information</masterLabel>
+            <translation><!-- Parent/Guardian Information --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Permit Applicant</masterLabel>
+            <translation><!-- Permit Applicant --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Production Titles</masterLabel>
+            <translation><!-- Production Titles --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Qualifying Question</masterLabel>
+            <translation><!-- Qualifying Question --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Questionnaire</masterLabel>
+            <translation><!-- Questionnaire --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Ready to Submit - External - EWP</masterLabel>
+            <translation><!-- Ready to Submit - External - EWP --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Ready to Submit - Internal - EWP</masterLabel>
+            <translation><!-- Ready to Submit - Internal - EWP --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Registration Duration</masterLabel>
+            <translation><!-- Registration Duration --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Related Documents</masterLabel>
+            <translation><!-- Related Documents --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>School Information</masterLabel>
+            <translation><!-- School Information --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Sexual Harassment Prevention</masterLabel>
+            <translation><!-- Sexual Harassment Prevention --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Submission</masterLabel>
+            <translation><!-- Submission --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Upload Documentation</masterLabel>
+            <translation><!-- Upload Documentation --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Upload Documents</masterLabel>
+            <translation><!-- Upload Documents --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>WCI Documentation</masterLabel>
+            <translation><!-- WCI Documentation --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>WCI and Bond</masterLabel>
+            <translation><!-- WCI and Bond --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>WCI and Bond Documentation</masterLabel>
+            <translation><!-- WCI and Bond Documentation --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Workers Compensation Insurance</masterLabel>
+            <translation><!-- Workers Compensation Insurance --></translation>
+        </picklistValues>
+    </CustomFieldTranslation>

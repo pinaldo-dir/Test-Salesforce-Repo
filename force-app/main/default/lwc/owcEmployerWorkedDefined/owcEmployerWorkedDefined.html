@@ -1,0 +1,271 @@
+<!--
+  @description       : 
+  @author            : ChangeMeIn@UserSettingsUnder.SFDoc
+  @group             : 
+  @last modified on  : 12-03-2021
+  @last modified by  : ChangeMeIn@UserSettingsUnder.SFDoc
+-->
+<template>
+    <template if:true={iswagedefpreview}>
+        <div class="slds-p-left_medium slds-p-bottom_medium">
+            <h2>{customLabelValues.OWC_split_shift_premium_claim_heading}</h2>
+        </div>
+        <div class="slds-p-left_medium slds-p-right_medium">
+            {customLabelValues.OWC_splitshift_screent_text}
+        </div>
+        <template if:true={isOneHourlyForMin}>
+            <!-- <div class="slds-p-left_medium">
+                <h3>Split Shift</h3>
+            </div> -->
+            <div class="slds-grid slds-wrap">
+                <template for:each={violationTypeVariablesForOneHourlyForMin} for:item="varObj">
+                    <template if:true={varObj.value}>
+                        <template if:true={varObj.isHide}>
+
+                        </template>
+                        <template if:true={varObj.isHide}>
+                            <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-2 slds-large-size_1-of-2" key={varObj.recordId}>
+                                <div class="slds-p-around_medium">
+                                        {varObj.label} 
+                                        <template if:true={varObj.dateFormat}>
+                                            <lightning-input disabled date-style="short" type={varObj.dataType} variant="label-hidden" data-id={varObj.name} name={varObj.name} value={varObj.value} onchange={handleChange}></lightning-input>
+                                        </template>
+                                        <template if:true={varObj.currencyFormat}>
+                                            <lightning-input disabled variant="label-hidden" placeholder="$0.00" formatter="currency" step="0.01" type="number" data-id={varObj.name} name={varObj.name} value={varObj.value} onchange={handleChange}></lightning-input>
+                                        </template>
+                                        <template if:true={varObj.numberFormat}>
+                                            <lightning-input disabled variant="label-hidden" type="number" data-id={varObj.name} name={varObj.name} value={varObj.value} onchange={handleChange}></lightning-input>
+                                        </template>
+                                        <template if:true={varObj.inputFormat}>
+                                            <lightning-input disabled variant="label-hidden" type={varObj.dataType} data-id={varObj.name} name={varObj.name} value={varObj.value} onchange={handleChange}></lightning-input>
+                                        </template>
+                                    </div>
+                            </div>
+                        </template>
+                    </template>
+                </template>
+            </div>
+        </template>
+    </template>
+    <template if:false={iswagedefpreview}>
+        <div class="slds-p-left_medium slds-p-bottom_medium">
+            <h2>{customLabelValues.OWC_split_shift_premium_claim_heading}</h2>
+        </div>
+        <div class="slds-p-left_medium">
+            {customLabelValues.OWC_splitshift_screent_text}
+        </div>
+        <template if:true={isOneHourlyForMin}>
+            <!-- <div class="slds-p-left_medium">
+                <h3>Split Shift</h3>
+            </div> -->
+            <div class="slds-grid slds-wrap">
+                <template for:each={violationTypeVariablesForOneHourlyForMin} for:item="varObj">
+                    <template if:true={varObj.isHide}>
+
+                    </template>
+                    <template if:false={varObj.isHide}>
+                        <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-2 slds-large-size_1-of-2" key={varObj.recordId}>
+                            <div class="slds-p-around_medium">
+                                    {varObj.label} 
+                                    <template if:true={varObj.dateFormat}>
+                                        <lightning-input date-style="short" type={varObj.dataType} variant="label-hidden" data-id={varObj.name} name={varObj.name} value={varObj.value} onchange={handleChange}></lightning-input>
+                                    </template>
+                                    <template if:true={varObj.currencyFormat}>
+                                        <lightning-input variant="label-hidden" placeholder="$0.00" formatter="currency" step="0.01" type="number" data-id={varObj.name} name={varObj.name} value={varObj.value} onchange={handleChange}></lightning-input>
+                                    </template>
+                                    <template if:true={varObj.numberFormat}>
+                                        <lightning-input disabled variant="label-hidden" type="number" data-id={varObj.name} name={varObj.name} value={varObj.value} onchange={handleChange}></lightning-input>
+                                    </template>
+                                    <template if:true={varObj.inputFormat}>
+                                        <lightning-input variant="label-hidden" type={varObj.dataType} data-id={varObj.name} name={varObj.name} value={varObj.value} onchange={handleChange}></lightning-input>
+                                    </template>
+                            </div>
+                        </div>
+                    </template>
+                </template>
+            </div>
+        </template>
+    </template>
+    <!-- <div class="spinner">
+        <template if:true={showSpinner}>
+             <lightning-spinner alternative-text="Loading" variant="brand" size="large">
+             </lightning-spinner>
+        </template>
+    </div> -->
+    
+    <!-- <template if:true={isSS12Visible}>
+        <div class="slds-p-left_medium">
+            <h3>Any Type of Pay</h3>
+        </div>
+        <div class="slds-grid slds-wrap">
+            <template for:each={violationTypeVariablesForSS12} for:item="varObj">
+                <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-2 slds-large-size_1-of-2" key={varObj.recordId}>
+                    <div class="slds-p-around_medium">
+                            {varObj.label} 
+                            <span>
+                                <template if:true={varObj.dateFormat}>
+                                    &nbsp;&nbsp;&nbsp;{dateFormatLabel}
+                                </template>
+                            </span>
+                            <template if:true={varObj.dateFormat}>
+                                <lightning-input date-style="short" type={varObj.dataType} variant="label-hidden" data-id={varObj.name} name={varObj.name} value={varObj.value} onchange={handleChange}></lightning-input>
+                            </template>
+                            <template if:true={varObj.currencyFormat}>
+                                <lightning-input variant="label-hidden" placeholder="$0.00" formatter="currency" step="0.01" type="number" data-id={varObj.name} name={varObj.name} value={varObj.value} onchange={handleChange}></lightning-input>
+                            </template>
+                            <template if:true={varObj.inputFormat}>
+                                <lightning-input variant="label-hidden" type={varObj.dataType} data-id={varObj.name} name={varObj.name} value={varObj.value} onchange={handleChange}></lightning-input>
+                            </template>
+                        </div>
+                </div>
+            </template>
+        </div>
+    </template> -->
+    <!-- <template if:true={isOneHourlyRatePOW}>
+        <div class="slds-p-left_medium">
+            <h3>One hourly rate</h3>
+        </div>
+        <div class="slds-grid slds-wrap">
+            <template for:each={violationTypeVariablesForOneHourlyRate} for:item="varObj">
+                <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-2 slds-large-size_1-of-2" key={varObj.recordId}>
+                    <div class="slds-p-around_medium">
+                            {varObj.label} 
+                            <span>
+                                <template if:true={varObj.dateFormat}>
+                                    &nbsp;&nbsp;&nbsp;{dateFormatLabel}
+                                </template>
+                            </span>
+                            <template if:true={varObj.dateFormat}>
+                                <lightning-input date-style="short" type={varObj.dataType} variant="label-hidden" data-id={varObj.name} name={varObj.name} value={varObj.value} onchange={handleChange}></lightning-input>
+                            </template>
+                            <template if:true={varObj.currencyFormat}>
+                                <lightning-input variant="label-hidden" placeholder="$0.00" formatter="currency" step="0.01" type="number" data-id={varObj.name} name={varObj.name} value={varObj.value} onchange={handleChange}></lightning-input>
+                            </template>
+                            <template if:true={varObj.inputFormat}>
+                                <lightning-input variant="label-hidden" type={varObj.dataType} data-id={varObj.name} name={varObj.name} value={varObj.value} onchange={handleChange}></lightning-input>
+                            </template>
+                        </div>
+                </div>
+            </template>
+        </div>
+    </template> -->
+    
+    <!-- <template if:true={isSalaryWagePOW}>
+        <div class="slds-p-left_medium">
+            <h3>Other Rates</h3>
+        </div>
+        <div class="slds-grid slds-wrap">
+            <template for:each={violationTypeVariablesForSalaryRate} for:item="varObj">
+                <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-2 slds-large-size_1-of-2" key={varObj.recordId}>
+                    <div class="slds-p-around_medium">
+                            {varObj.label} 
+                            <span>
+                                <template if:true={varObj.dateFormat}>
+                                    &nbsp;&nbsp;&nbsp;{dateFormatLabel}
+                                </template>
+                            </span>
+                            <template if:true={varObj.dateFormat}>
+                                <lightning-input date-style="short" type={varObj.dataType} variant="label-hidden" data-id={varObj.name} name={varObj.name} value={varObj.value} onchange={handleChange}></lightning-input>
+                            </template>
+                            <template if:true={varObj.currencyFormat}>
+                                <lightning-input variant="label-hidden" placeholder="$0.00" formatter="currency" step="0.01" type="number" data-id={varObj.name} name={varObj.name} value={varObj.value} onchange={handleChange}></lightning-input>
+                            </template>
+                            <template if:true={varObj.inputFormat}>
+                                <lightning-input variant="label-hidden" type={varObj.dataType} data-id={varObj.name} name={varObj.name} value={varObj.value} onchange={handleChange}></lightning-input>
+                            </template>
+                        </div>
+                </div>
+            </template>
+        </div>
+    </template> -->
+    <!-- <template if:true={isOneHourlyRate}>
+        <template if:true={isOneHourlyRatePOW}>
+            <div class="slds-p-left_medium">
+                <h2>One hourly rate</h2>
+            </div>
+            <div class="slds-grid slds-wrap">
+                <template for:each={violationTypeVariablesForOneHourlyRate} for:item="varObj">
+                    <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-2 slds-large-size_1-of-2" key={varObj.recordId}>
+                        <div class="slds-p-around_medium">
+                                {varObj.label} 
+                                <span>
+                                    <template if:true={varObj.dateFormat}>
+                                        &nbsp;&nbsp;&nbsp;{dateFormatLabel}
+                                    </template>
+                                </span>
+                                <template if:true={varObj.dateFormat}>
+                                    <lightning-input date-style="short" type={varObj.dataType} variant="label-hidden" data-id={varObj.name} name={varObj.name} value={varObj.value} onchange={handleChange}></lightning-input>
+                                </template>
+                                <template if:true={varObj.currencyFormat}>
+                                    <lightning-input variant="label-hidden" placeholder="$0.00" formatter="currency" step="0.01" type="number" data-id={varObj.name} name={varObj.name} value={varObj.value} onchange={handleChange}></lightning-input>
+                                </template>
+                                <template if:true={varObj.inputFormat}>
+                                    <lightning-input variant="label-hidden" type={varObj.dataType} data-id={varObj.name} name={varObj.name} value={varObj.value} onchange={handleChange}></lightning-input>
+                                </template>
+                            </div>
+                    </div>
+                </template>
+            </div>
+        </template>
+    </template>
+    <template if:true={isLocalMinimumWage}>
+        <template if:true={isLocalWagePOW}>
+            <div class="slds-p-left_medium">
+                <h2>One hourly rate</h2>
+            </div>
+            <div class="slds-grid slds-wrap">
+                <template for:each={violationTypeVariablesForLocalWage} for:item="varObj">
+                    <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-2 slds-large-size_1-of-2" key={varObj.recordId}>
+                        <div class="slds-p-around_medium">
+                                {varObj.label} 
+                                <span>
+                                    <template if:true={varObj.dateFormat}>
+                                        &nbsp;&nbsp;&nbsp;{dateFormatLabel}
+                                    </template>
+                                </span>
+                                <template if:true={varObj.dateFormat}>
+                                    <lightning-input date-style="short" type={varObj.dataType} variant="label-hidden" data-id={varObj.name} name={varObj.name} value={varObj.value} onchange={handleChange}></lightning-input>
+                                </template>
+                                <template if:true={varObj.currencyFormat}>
+                                    <lightning-input variant="label-hidden" placeholder="$0.00" formatter="currency" step="0.01" type="number" data-id={varObj.name} name={varObj.name} value={varObj.value} onchange={handleChange}></lightning-input>
+                                </template>
+                                <template if:true={varObj.inputFormat}>
+                                    <lightning-input variant="label-hidden" type={varObj.dataType} data-id={varObj.name} name={varObj.name} value={varObj.value} onchange={handleChange}></lightning-input>
+                                </template>
+                            </div>
+                    </div>
+                </template>
+            </div>
+        </template>
+    </template>
+    <template if:true={isStateMinimumWage}>
+        <template if:true={isStateWagePOW}>
+            <div class="slds-p-left_medium">
+                <h2>Different hourly rate</h2>
+            </div>
+            <div class="slds-grid slds-wrap">
+                <template for:each={violationTypeVariablesForStateWage} for:item="varObj">
+                    <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-2 slds-large-size_1-of-2" key={varObj.recordId}>
+                        <div class="slds-p-around_medium">
+                                {varObj.label} 
+                                <span>
+                                    <template if:true={varObj.dateFormat}>
+                                        &nbsp;&nbsp;&nbsp;{dateFormatLabel}
+                                    </template>
+                                </span>
+                                <template if:true={varObj.dateFormat}>
+                                    <lightning-input date-style="short" type={varObj.dataType} variant="label-hidden" data-id={varObj.name} name={varObj.name} value={varObj.value} onchange={handleChange}></lightning-input>
+                                </template>
+                                <template if:true={varObj.currencyFormat}>
+                                    <lightning-input variant="label-hidden" placeholder="$0.00" formatter="currency" step="0.01" type="number" data-id={varObj.name} name={varObj.name} value={varObj.value} onchange={handleChange}></lightning-input>
+                                </template>
+                                <template if:true={varObj.inputFormat}>
+                                    <lightning-input variant="label-hidden" type={varObj.dataType} data-id={varObj.name} name={varObj.name} value={varObj.value} onchange={handleChange}></lightning-input>
+                                </template>
+                            </div>
+                    </div>
+                </template>
+            </div>
+        </template>
+    </template> -->
+</template>

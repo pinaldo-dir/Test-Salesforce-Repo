@@ -1,0 +1,678 @@
+<!-- TODO: make popovers with nubbin on bottom-left, so they appear above-right of the mouse
+    will  need to take into consideration the height of the popover
+    port these changes to the p2p lwc -->
+<template>
+    <div class="slds-page-header slds-page-header_record-home">
+        <div class="slds-page-header__row">
+            <div class="slds-page-header__col-title">
+                <div class="slds-media">
+                    <div class="slds-media__figure">
+                        <span class="slds-icon_container" >
+                            <img class="slds-icon slds-page-header__icon customIcon" src={cpIcon}>
+                        </span>
+                    </div>
+                    <div class="slds-media__body">
+                        <div class="slds-page-header__name">
+                            <div class="slds-page-header__name-title">
+                                <h1>
+                                    <span>Allocate or Post Case Payment</span>
+                                    <span class="slds-page-header__title slds-truncate" title="Case Payment Name">{casePaymentName}</span>
+                                </h1>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="slds-page-header__col-actions">
+                <div class="slds-page-header__controls">
+                    <div class="slds-page-header__control">
+                        
+                        <template if:true={bothButtonsHidden} >
+                            <lightning-button-group >
+                                <lightning-button variant="destructive" label={backToCasePaymentButtonLabel} title="Return to Case Payment record detail&#10;Work will not be saved" accesskey="b" disabled={backToCpButtonDisabled} onclick={handleBackToCasePayment} ></lightning-button>
+                            </lightning-button-group>
+                        </template>
+                        
+                        <template if:false={bothButtonsHidden} >
+
+                            <template if:false={recommendButtonHidden} >
+                                <lightning-button-group >
+                                    <lightning-button variant="brand" label="R̲ecommend Allocations" title="Save allocations for later review" accesskey="r" disabled={buttonsDisabled} onclick={handleRecommend}></lightning-button>
+                                </lightning-button-group>
+                            </template>
+                        
+                            <template if:false={postButtonHidden} >
+                                <lightning-button-group >
+                                    <lightning-button variant="brand" label="P̲ost Allocations" title="Save final allocations and lock this Case Payment" accesskey="p" disabled={buttonsDisabled} onclick={handlePost}></lightning-button>
+                                </lightning-button-group>
+                            </template>
+                            
+                            <lightning-button-group>
+                                <lightning-button variant="destructive" label={backToCasePaymentButtonLabel} title="Return to Case Payment record detail&#10;Work will not be saved" accesskey="b" disabled={backToCpButtonDisabled} onclick={handleBackToCasePayment} ></lightning-button>
+                            </lightning-button-group>
+                        
+                        </template>
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="slds-page-header__row slds-page-header__row_gutters">
+            <div class="slds-page-header__col-details">
+                <ul class="slds-page-header__detail-row">
+                    <li class="slds-page-header__detail-block">
+                        <div class="slds-text-title slds-m-left_medium slds-truncate" title="Case Payment Status">Case Payment Status</div>
+
+                        <div if:true={casePaymentStatusIsInvalid} class="slds-form-element__static slds-m-left_medium casePaymentStatusRed" >{casePaymentStatus}</div>
+                        <div if:false={casePaymentStatusIsInvalid} class="slds-form-element__static slds-m-left_medium casePaymentStatusGreen" >{casePaymentStatus}</div>
+
+                    </li>
+                    <li class="slds-page-header__detail-block">
+                        <div class="slds-text-title slds-m-left_medium slds-truncate" title="Funds Deposited?">Funds Deposited?</div>
+
+                        <div if:true={casePaymentDeposited} class="slds-form-element__static slds-m-left_medium casePaymentStatusGreen" >Yes</div>
+                        <div if:false={casePaymentDeposited} class="slds-form-element__static slds-m-left_medium casePaymentStatusRed" >No</div>
+
+                    </li>
+                    <li class="slds-page-header__detail-block">
+                        <div class="slds-text-title slds-m-left_medium slds-truncate" title="Amount Remaining to Allocate">Amount Remaining to Allocate</div>
+
+                        <div if:true={amountRemainingToAllocateIsZero} >
+                            <lightning-formatted-number class="slds-form-element__static slds-m-left_medium amountRemainingToAllocateGreen" value={amountRemainingToAllocate} format-style="currency"></lightning-formatted-number>
+                        </div>
+                        <div if:false={amountRemainingToAllocateIsZero} >
+                            <lightning-formatted-number class="slds-form-element__static slds-m-left_medium amountRemainingToAllocateRed" value={amountRemainingToAllocate} format-style="currency"></lightning-formatted-number>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+
+    <br />
+
+
+    <lightning-card>
+        <div class="slds-form" >
+            <div class="slds-grid slds-wrap" > <!-- TODO: slds-form__row see https://www.lightningdesignsystem.com/components/form-element/#Horizontal-Alignment-2 -->
+                <div class="slds-col slds-size_1-of-3" >
+                    <!-- <div class="slds-form-element slds-form-element_horizontal slds-m-left_medium" style="position:relative" > -->
+                    <div class="slds-form-element slds-form-element_horizontal slds-m-left_medium" >
+                        <label class="slds-form-element__label" >Case</label>
+                        <div class="slds-form-element__control slds-m-right_small slds-border_bottom" >
+                            <div class="slds-form-element__static slds-m-bottom_xx-small" >
+
+                                <lightning-formatted-url onmouseover={showPopoverFromLink} onmouseout={hidePopoverFromLink} data-popovercaseid={caseId}
+                                    value={caseUrl} label={caseName} target="_blank" >
+                                </lightning-formatted-url>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <c-cash-popovers onmouseover={keepPopover} onmouseleave={losePopover} data-caseid={popoverCaseId} data-ciid="" data-jid="" data-mouseisoverpopover="true"
+                    pocaseid={popoverCaseId} pocasestatus={caseStatus} pocaseemployerurl={caseEmployerUrl} pocaseemployername={caseEmployerName} 
+                    pocaseassigneddeputyurl={caseAssignedDeputyUrl} pocaseassigneddeputyname={caseAssignedDeputyName} pocasedirofficeurl={caseDirOfficeUrl} pocasedirofficename={caseDirOfficeName}
+                    pociid="" pojid="" topmargin={top} leftmargin={left} >
+                </c-cash-popovers>
+
+                <div class="slds-col slds-size_1-of-3" >
+                    <div class="slds-form-element slds-form-element_horizontal slds-m-left_medium" >
+                        <label class="slds-form-element__label" >Case Number</label>
+                        <div class="slds-form-element__control slds-m-right_small slds-border_bottom" >
+                            <div class="slds-form-element__static slds-m-bottom_xx-small" >{caseNumber}</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="slds-col slds-size_1-of-3" >
+                    <div class="slds-form-element slds-form-element_horizontal slds-m-left_medium" >
+                        <label class="slds-form-element__label" >Payment Amount</label>
+                        <div class="slds-form-element__control slds-m-right_small slds-border_bottom" >
+                            <div class="slds-form-element__static slds-m-bottom_xx-small">
+                                <lightning-formatted-number value={casePaymentAmount} format-style="currency"></lightning-formatted-number>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="slds-col slds-size_1-of-3" >
+                    <div class="slds-form-element slds-form-element_horizontal slds-m-left_medium" >
+                        <label class="slds-form-element__label" >Receipt</label>
+                        <div class="slds-form-element__control slds-m-right_small slds-border_bottom" >
+                            <div class="slds-form-element__static slds-m-bottom_xx-small" >
+                                <lightning-formatted-url value={rctUrl} label={rctName} target="_blank" ></lightning-formatted-url>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="slds-col slds-size_1-of-3" >
+                    <div class="slds-form-element slds-form-element_horizontal slds-m-left_medium" >
+                        <label class="slds-form-element__label" >Instrument Number</label>
+                        <div class="slds-form-element__control slds-m-right_small slds-border_bottom" >
+                            <div class="slds-form-element__static slds-m-bottom_xx-small" >{rctInstrumentNumber}</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="slds-col slds-size_1-of-3" >
+                    <div class="slds-form-element slds-form-element_horizontal slds-m-left_medium" >
+                        <label class="slds-form-element__label" >Date Received</label>
+                        <div class="slds-form-element__control slds-m-right_small slds-border_bottom" >
+                            <div class="slds-form-element__static slds-form-element__static slds-m-bottom_xx-small">
+                                <lightning-formatted-date-time value={rctDateReceived} ></lightning-formatted-date-time>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="slds-col slds-size_1-of-3" >
+                    <div class="slds-form-element slds-form-element_horizontal slds-m-left_medium" >
+                        <label class="slds-form-element__label" >Receipt Hold Date</label>
+                        <div class="slds-form-element__control slds-m-right_small slds-border_bottom" >
+                            <div class="slds-form-element__static slds-form-element__static slds-m-bottom_xx-small">
+                                <lightning-formatted-date-time value={rctHoldDate} ></lightning-formatted-date-time>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="slds-col slds-size_1-of-3" >
+                    <div class="slds-form-element slds-form-element_horizontal slds-m-left_medium" >
+                        <label class="slds-form-element__label" >Receipt Status</label>
+                        <div class="slds-form-element__control slds-m-right_small slds-border_bottom" >
+                            <div class="slds-form-element__static slds-m-bottom_xx-small" >{rctStatus}</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="slds-col slds-size_1-of-3" >
+                    <div class="slds-form-element slds-form-element_horizontal slds-m-left_medium" >
+                        <label class="slds-form-element__label" >Payor</label>
+                        <div class="slds-form-element__control slds-m-right_small slds-border_bottom" >
+                            <div class="slds-form-element__static slds-m-bottom_xx-small" >
+                                <lightning-formatted-url value={rctPayorUrl} label={rctPayorName} target="_blank" ></lightning-formatted-url>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="slds-col slds-size_1-of-3" >
+                    <div class="slds-form-element slds-form-element_horizontal slds-m-left_medium" >
+                        <label class="slds-form-element__label custom-required-label" >Payment On Behalf Of</label>
+                        <div class="slds-form-element__control slds-m-right_small slds-border_bottom" >
+                            <div class="slds-form-element__static slds-m-bottom_xxx-small" >
+                                <lightning-combobox
+                                    name="Payment On Behalf Of"
+                                    value={selectedPobo}
+                                    placeholder="All"
+                                    options={poboOptions}
+                                    onchange={handlePoboChange}
+                                    disabled={poboComboboxDisabled}
+                                    variant="label-hidden"
+                                    required >
+                                </lightning-combobox>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="slds-col slds-size_1-of-3" >
+                    <div class="slds-form-element slds-form-element_horizontal slds-m-left_medium" >
+                        <label class="slds-form-element__label" >Payment Plan</label>
+                        <div class="slds-form-element__control slds-m-right_small slds-border_bottom" >
+                            <div class="slds-form-element__static slds-m-bottom_xxx-small" >
+                                <lightning-combobox
+                                    name="Payment Plan"
+                                    value={ppSelection}
+                                    placeholder="None"
+                                    options={ppOptions}
+                                    onchange={handlePpChange}
+                                    disabled={ppComboboxDisabled}>
+                                </lightning-combobox>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div if:true={ppBalanceDue} class="slds-col slds-size_1-of-3" >
+
+                    <div class="slds-form-element slds-form-element_horizontal slds-m-left_medium" >
+                        <label class="slds-form-element__label" >Payment Plan Balance Due</label>
+                        <div class="slds-form-element__control slds-m-right_small slds-border_bottom" >
+                            <div class="slds-form-element__static slds-m-bottom_xx-small">
+                                <lightning-formatted-number value={ppBalanceDue} format-style="currency"></lightning-formatted-number>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            
+            </div>
+                
+        </div>
+    </lightning-card>
+
+
+    
+    <!-- Case Issue Wrapper table -->
+    <template if:true={renderCaseIssueWrapperTable} >
+        <div class="slds-section slds-is-open slds-box slds-p-around_none">
+
+            <div class="slds-section__title slds-theme_shade">
+                <span class="slds-truncate slds-p-horizontal_small" title="Case Issues"><b>Case Issues</b></span>
+            </div>
+            <div class="slds-scrollable" style="max-height:400px;" >
+
+                <table class="slds-table slds-table_cell-buffer slds-table_bordered slds-table_col-bordered" >
+                    <thead style="position:sticky; top:0; z-index:2">
+                        <tr >
+                            <th class="slds-border_top slds-border_bottom" scope="col" >
+                                <div class="slds-truncate" align="center" title="Labor Code Violation">Labor Code<br>Violation</div>
+                            </th>
+                            <th class="slds-border_top slds-border_bottom" scope="col" >
+                                <div class="slds-truncate" align="center" title="Citation Number" >Citation<br>Number</div>
+                            </th>
+                            <th class="slds-border_top slds-border_bottom" scope="col" >
+                                <div class="slds-truncate" align="center" title="Judgment Number">Judgment<br>Number</div>
+                            </th>
+                            <template if:false={isWcaCase} >
+                                <th class="slds-border_top slds-border_bottom" scope="col" >
+                                    <div class="slds-truncate" align="center" title="Penalties Assessed">Penalties<br>Assessed</div>
+                                </th>
+                                <th class="slds-border_top slds-border_bottom" scope="col" >
+                                    <div class="slds-truncate" align="center" title="Penalty Balance Due">Penalty<br>Balance Due</div>
+                                </th>
+                                <th class="slds-border_top slds-border_bottom" scope="col" >
+                                    <div class="slds-truncate" align="center" title="Penalty Allocation">Penalty<br>Allocation</div>
+                                </th>
+                            </template>
+                            <th class="slds-border_top slds-border_bottom" scope="col" >
+                                <div class="slds-truncate" align="center" title="EEs Amount Assessed">EE(s) Amounts<br>Assessed</div>
+                            </th>
+                            <!-- <th class="slds-border_top slds-border_bottom" scope="col" >
+                                <div class="slds-truncate" align="center" title="EEs Balance Due">EE(s)<br>Balance Due</div>
+                            </th> -->
+                            <th class="slds-border_top slds-border_bottom" scope="col" >
+                                <div class="slds-truncate" align="center" title="EEs Balance Due">Non-Interest EE(s)<br>Balance Due</div>
+                            </th>
+                            <th class="slds-border_top slds-border_bottom" scope="col" >
+                                <div class="slds-truncate" align="center" title="EEs Amounts Allocation">EE(s) Amounts<br>Allocation</div>
+                            </th>
+                            
+                            <!-- Wage Interest headers  -->
+                            <template if:false={isWcaCase} >
+                                <th class="slds-border_top slds-border_bottom" scope="col" >
+                                    <div class="slds-truncate" align="center" title="Wage Interest Amt Assessed">Wage Interest<br>Amt Assessed</div>
+                                </th>
+                                <th class="slds-border_top slds-border_bottom" scope="col" >
+                                    <div class="slds-truncate" align="center" title="Wage Interest Bal Due">Wage Interest<br>Bal Due</div>
+                                </th>
+                                <th class="slds-border_top slds-border_bottom" scope="col" >
+                                    <div class="slds-truncate" align="center" title="Wage Interest Allocation">Wage Interest<br>Allocation</div>
+                                </th>
+                            </template>
+                            <!--  -->
+                                    
+                            <th class="slds-border_top slds-border_bottom" scope="col" >
+                                <div class="slds-truncate" align="center" title="Interest Assessed">Interest<br>Assessed</div>
+                            </th>
+                            <th class="slds-border_top slds-border_bottom" scope="col" >
+                                <div class="slds-truncate" align="center" title="Interest Balance Due">Interest<br>Balance Due</div>
+                            </th>
+                            <th class="slds-border_top slds-border_bottom" scope="col" >
+                                <div class="slds-truncate" align="center" title="Interest Allocation">Interest<br>Allocation</div>
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <template for:each={ciwArray} for:item="ciw" for:index="indexVar">
+                            <tr key={ciw.thisCaseIssue.Id} >
+                                <!-- Labor Code Violation -->
+                                <td class="slds-cell-buffer_right" >
+                                    <lightning-formatted-url onmouseover={showPopoverFromLink} onmouseout={hidePopoverFromLink}
+                                        data-popoverciid={ciw.thisCaseIssue.Id} data-popoverassessmentdescription={ciw.assessmentDescription} data-popovercistatus={ciw.status}
+                                        value={ciw.caseIssueIdUrl} label={ciw.violationTypeName} target="_blank" >
+                                    </lightning-formatted-url>
+                                </td>
+                                <!-- Citation Number -->
+                                <td class="slds-cell-buffer_right" >
+                                    <lightning-formatted-text value={ciw.citationNumbers} ></lightning-formatted-text>
+                                </td>
+                                <!-- Judgment Number -->
+                                <td class="slds-cell-buffer_right" >
+                                    <lightning-formatted-text value={ciw.judgmentNumber} ></lightning-formatted-text>
+                                </td>
+
+                                <template if:false={isWcaCase} >
+                                    <!-- Penalties Assessed -->
+                                    <td class="slds-cell-buffer_right" >
+                                        <lightning-formatted-number value={ciw.penaltiesAssessed} style="float:right" format-style="currency" currency-code="USD"></lightning-formatted-number>
+                                    </td>
+                                    <!-- Penalty Balance Due -->
+                                    <td class="slds-cell-buffer_right" >
+                                        <lightning-formatted-number value={ciw.penaltyBalanceDue} style="float:right" format-style="currency" currency-code="USD" ></lightning-formatted-number>
+                                    </td>
+                                    <!-- Penalty Allocation -->
+                                    <td class="slds-cell-buffer_right" >
+                                        <lightning-input style="min-width: 125px;" type="number" step=".01" formatter="currency" min="0" message-when-range-underflow="Negative allocations not allowed." 
+                                            data-id={ciw.thisCaseIssue.Id} name="penaltyAllocation" label="Penalty Allocation" variant="label-hidden" disabled={inputFieldsDisabled}
+                                            value={ciw.penaltyAllocation} onblur={updateAmountRemainingToAllocate} >
+                                        </lightning-input>
+                                    </td>
+                                </template>
+
+                                <!-- EEs Amount Assessed -->
+                                <td class="slds-cell-buffer_right" >
+                                    <lightning-formatted-number value={ciw.wagesAssessed} style="float:right" format-style="currency" currency-code="USD" ></lightning-formatted-number>
+                                </td>
+                                <!-- Balance Due EEs -->
+                                <td class="slds-cell-buffer_right" >
+                                    <lightning-formatted-number value={ciw.wageBalanceDue} style="float:right" format-style="currency" currency-code="USD" ></lightning-formatted-number>
+                                </td>
+                                <!-- EE Amounts Allocation -->
+                                <td class="slds-cell-buffer_right" >
+                                    <lightning-input style="min-width: 125px;" type="number" step=".01" formatter="currency" min="0" message-when-range-underflow="Negative allocations not allowed." 
+                                        data-id={ciw.thisCaseIssue.Id} name="wageAllocation" label="Wage Allocation" disabled={inputFieldsDisabled}
+                                        value={ciw.wageAllocation} variant="label-hidden" onblur={updateAmountRemainingToAllocate} >
+                                    </lightning-input>
+                                </td>
+                                
+                                <!-- begin new Wage Interest stuff-->
+                                <template if:false={isWcaCase} >
+                                    <!-- Wage Interest Amount Assessed -->
+                                    <td class="slds-cell-buffer_right" >
+                                        <lightning-formatted-number value={ciw.wageInterestAssessed} style="float:right" format-style="currency" currency-code="USD" ></lightning-formatted-number>
+                                    </td>
+                                    <!-- Wage Interest Balance Due -->
+                                    <td class="slds-cell-buffer_right" >
+                                        <lightning-formatted-number value={ciw.wageInterestBalanceDue} style="float:right" format-style="currency" currency-code="USD" ></lightning-formatted-number>
+                                    </td>
+                                    <!-- Wage Interest Allocation -->
+                                    <td class="slds-cell-buffer_right" >
+                                        <lightning-input style="min-width: 125px;" type="number" step=".01" formatter="currency" min="0" message-when-range-underflow="Negative allocations not allowed." 
+                                            data-id={ciw.thisCaseIssue.Id} name="wageInterestAllocation" label="Wage Interest Allocation" disabled={inputFieldsDisabled}
+                                            value={ciw.wageInterestAllocation} variant="label-hidden" onblur={updateAmountRemainingToAllocate} >
+                                        </lightning-input>
+                                    </td>
+                                </template>
+                                <!-- end new Wage Interest stuff -->
+                                        
+                                <!-- Interest Assessed -->
+                                <td class="slds-cell-buffer_right" >
+                                    <lightning-formatted-number value={ciw.interestAssessed} style="float:right" format-style="currency" currency-code="USD" ></lightning-formatted-number>
+                                </td>
+                                <!-- Interest Balance Due -->
+                                <td class="slds-cell-buffer_right" >
+                                    <lightning-formatted-number value={ciw.interestBalanceDue} style="float:right" format-style="currency" currency-code="USD" ></lightning-formatted-number>
+                                </td>
+                                <!-- Interest Allocation -->
+                                <td class="slds-cell-buffer_right" >
+                                    <lightning-input style="min-width: 125px;" type="number" step=".01" formatter="currency" min="0" message-when-range-underflow="Negative allocations not allowed." 
+                                        data-id={ciw.thisCaseIssue.Id} name="interestAllocation" label="Interest Allocation" disabled={inputFieldsDisabled}
+                                        value={ciw.interestAllocation} variant="label-hidden" onblur={updateAmountRemainingToAllocate} >
+                                    </lightning-input>
+                                </td>
+                            </tr>
+                        </template>
+                    </tbody>
+                </table>
+                <c-cash-popovers onmouseover={keepPopover} onmouseleave={losePopover} data-caseid="" data-ciid={popoverCiId} data-jid="" data-mouseisoverpopover="true"
+                    pociid={popoverCiId} pociassessmentdescription={popoverCiAssessmentDescription} pocistatus={popoverCiStatus}
+                    pocaseid="" pojid="" topmargin={top} leftmargin={left} >
+                </c-cash-popovers>
+
+            </div>
+        </div>
+    </template>
+
+    
+    <!-- Judgment Wrapper table -->
+    <template if:true={renderJudgmentWrapperTable} >
+        <div class="slds-section slds-is-open slds-box slds-p-around_none">
+            
+            <div class="slds-section__title slds-theme_shade">
+                <span class="slds-truncate slds-p-horizontal_small" title="Judgments"><b>Judgments</b></span>
+            </div>
+            <div class="slds-scrollable" style="max-height:200px;" >
+
+
+                <table class="slds-table slds-table_cell-buffer slds-table_bordered slds-table_col-bordered" >
+                    <thead style="position:sticky; top:0; z-index:2">
+                        <tr >
+                            <th class="slds-border_top slds-border_bottom" scope="col" >
+                                <div class="slds-truncate" align="center" title="Judgment">Judgment<br></div>
+                            </th>
+                            <th class="slds-border_top slds-border_bottom" scope="col" >
+                                <div class="slds-truncate" align="center" title="Status">Status<br></div>
+                            </th>
+                            <th class="slds-border_top slds-border_bottom" scope="col" >
+                                <div class="slds-truncate" align="center" title="Post-Hearing Interest Balance Due">Post-Hearing Interest<br>Balance Due</div>
+                            </th>
+                            <th class="slds-border_top slds-border_bottom" scope="col" >
+                                <div class="slds-truncate" align="center" title="Post-Hearing Interest Allocation">Post-Hearing Interest<br>Allocation</div>
+                            </th>
+                            <th class="slds-border_top slds-border_bottom" scope="col" >
+                                <div class="slds-truncate" align="center" title="Post-Judgment Interest Balance Due">Post-Judgment Interest<br>Balance Due</div>
+                            </th>
+                            <th class="slds-border_top slds-border_bottom" scope="col" >
+                                <div class="slds-truncate" align="center" title="Post-Judgment Interest Allocation">Post-Judgment Interest<br>Allocation</div>
+                            </th>
+                            <th class="slds-border_top slds-border_bottom" scope="col" >
+                                <div class="slds-truncate" align="center" title="Attorney Fees Balance Due">Attorney Fees<br>Balance Due</div>
+                            </th>
+                            <th class="slds-border_top slds-border_bottom" scope="col" >
+                                <div class="slds-truncate" align="center" title="Attorney Fees Allocation">Attorney Fees<br>Allocation</div>
+                            </th>
+                            <th class="slds-border_top slds-border_bottom" scope="col" >
+                                <div class="slds-truncate" align="center" title="Filing Fees Balance Due">Filing Fees<br>Balance Due</div>
+                            </th>
+                            <th class="slds-border_top slds-border_bottom" scope="col" >
+                                <div class="slds-truncate" align="center" title="Filing Fees Allocation">Filing Fees<br>Allocation</div>
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <template for:each = {jwArray} for:item = "jw" for:index="indexVar">
+                            <tr key={jw.thisJudgment.Id} >
+                                <!-- Judgment -->
+                                <td class="slds-cell-buffer_right" >
+                                    <lightning-formatted-url
+                                        onmouseover={showPopoverFromLink} onmouseout={hidePopoverFromLink}
+                                        data-popoverjid={jw.thisJudgment.Id} data-popoverjtype={jw.thisJudgment.Type__c} 
+                                        data-popoverjpartyname={jw.judgmentPartyName} data-popoverjpartyurl={jw.judgmentPartyUrl} 
+                                        data-popoverjcourtcasenumber={jw.thisJudgment.Court_Case_Number__c}
+                                        data-popoverjcourtname={jw.courtName} data-popoverjcourturl={jw.courtUrl} 
+                                        value={jw.judgmentIdUrl} label={jw.judgmentName} target="_blank" >
+                                    </lightning-formatted-url>
+                                </td>
+                                <!-- Status -->
+                                <td class="slds-cell-buffer_right" >
+                                    <lightning-formatted-text value={jw.judgmentStatus} ></lightning-formatted-text>
+                                </td>
+                                <!-- PHI Bal Due -->
+                                <td class="slds-cell-buffer_right" >
+                                    <lightning-formatted-number value={jw.postHearingInterestBalanceDue} style="float:right" format-style="currency" currency-code="USD"></lightning-formatted-number>
+                                </td>
+                                <!-- PHI Allocation -->
+                                <td class="slds-cell-buffer_right" >
+                                    <lightning-input
+                                        style="min-width: 100px;" type="number" step=".01" formatter="currency" min="0"
+                                        message-when-range-underflow="Negative allocations not allowed." 
+                                        data-id={jw.thisJudgment.Id} name="postHearingInterestAllocation"
+                                        label="Post-Hearing Interest Allocation" disabled={inputFieldsDisabled}
+                                        value={jw.postHearingInterestAllocation} variant="label-hidden"
+                                        onblur={updateAmountRemainingToAllocate} >
+                                    </lightning-input>
+                                </td>
+                                <!-- PJI Bal Due -->
+                                <td class="slds-cell-buffer_right" >
+                                    <lightning-formatted-number value={jw.postJudgmentInterestBalanceDue} style="float:right" format-style="currency" currency-code="USD" ></lightning-formatted-number>
+                                </td>
+                                <!-- PJI Allocation -->
+                                <td class="slds-cell-buffer_right" >
+                                    <lightning-input
+                                        style="min-width: 100px;" type="number" step=".01" formatter="currency" min="0"
+                                        message-when-range-underflow="Negative allocations not allowed." 
+                                        data-id={jw.thisJudgment.Id} name="postJudgmentInterestAllocation"
+                                        label="Post-Judgment Interest Allocation" disabled={inputFieldsDisabled}
+                                        value={jw.postJudgmentInterestAllocation} variant="label-hidden" 
+                                        onblur={updateAmountRemainingToAllocate} >
+                                    </lightning-input>
+                                </td>
+                                <!-- AF Bal Due -->
+                                <td class="slds-cell-buffer_right" >
+                                    <lightning-formatted-number value={jw.attorneyFeesBalanceDue} style="float:right" format-style="currency" currency-code="USD" ></lightning-formatted-number>
+                                </td>
+                                <!-- AF Allocation -->
+                                <td class="slds-cell-buffer_right" >
+                                    <lightning-input
+                                        style="min-width: 100px;" type="number" step=".01" formatter="currency" min="0"
+                                        message-when-range-underflow="Negative allocations not allowed." 
+                                        data-id={jw.thisJudgment.Id} name="attorneyFeesAllocation"
+                                        label="Attorney Fees Allocation" disabled={inputFieldsDisabled}
+                                        value={jw.attorneyFeesAllocation} variant="label-hidden"
+                                        onblur={updateAmountRemainingToAllocate} >
+                                    </lightning-input>
+                                </td>
+                                <!-- FF Bal Due -->
+                                <td class="slds-cell-buffer_right" >
+                                    <lightning-formatted-number value={jw.filingFeesBalanceDue} style="float:right" format-style="currency" currency-code="USD" ></lightning-formatted-number>
+                                </td>
+                                <!-- FF Allocation -->
+                                <td class="slds-cell-buffer_right" >
+                                    <lightning-input
+                                        style="min-width: 100px;" type="number" step=".01" formatter="currency" min="0"
+                                        message-when-range-underflow="Negative allocations not allowed." 
+                                        data-id={jw.thisJudgment.Id} name="filingFeesAllocation"
+                                        label="Filing Fees Allocation" disabled={inputFieldsDisabled}
+                                        value={jw.filingFeesAllocation} variant="label-hidden"
+                                        onblur={updateAmountRemainingToAllocate} >
+                                    </lightning-input>
+                                </td>
+                            </tr>
+                        </template>
+                    </tbody>
+                </table>
+                <c-cash-popovers onmouseover={keepPopover} onmouseleave={losePopover} data-caseid="" data-ciid="" data-jid={popoverJId} data-mouseisoverpopover="true"
+                    pojid={popoverJId} pojtype={popoverJType} pojcourtname={popoverJCourtName} pojcourturl={popoverJCourtUrl} pojcourtcasenumber={popoverJCourtCaseNumber}
+                    pojpartyname={popoverJPartyName} pojpartyurl={popoverJPartyUrl}
+                    topmargin={top} leftmargin={left} >
+                </c-cash-popovers>
+
+            </div>
+        </div>
+    </template>
+
+
+    <!-- CU-1 table -->
+    <div class="slds-section slds-is-open slds-box slds-p-around_none">
+
+        <div class="slds-section__title slds-theme_shade">
+            <span class="slds-truncate slds-p-horizontal_small" title="CU-1 Allocations"><b>CU-1 Allocations</b></span>
+        </div>
+        <div class="slds-scrollable" >
+            <!-- TODO: make this table headerless. 'slds-table_header-hidden' doesn't seem to work
+                try: ".THIS lightning-primitive-header-actions {display: none;}"    
+                This has worked for me in the past, but does not work on LWC data tables. this will hide the headers drop down for the whole table
+                - if you have more than 1 table and want to do this to seelct tables, add a style class to the table and modify this to be 
+                ".THIS .mySpecificTable lightning-primitive-header-actions { display: none; }"" -->
+            
+            <table class="slds-table slds-table_cell-buffer slds-table_bordered slds-table_col-bordered" >
+                <!-- <thead>
+                    <tr class="">
+                        <th class="" scope="col">
+                            <div class="slds-truncate" align="center" title="Column 1"></div>
+                        </th>
+                        <th class="" scope="col">
+                            <div class="slds-truncate" align="center" title="Column 2"></div>
+                        </th>
+                        <th class="" scope="col">
+                            <div class="slds-truncate" align="center" title="Column 3"></div>
+                        </th>
+                    </tr>
+                </thead> -->
+                <tbody>
+                    <template for:each={cu1wArray} for:item="cu1w" for:index="indexVar">
+                        <tr key={cu1w.cu1Type} >                            
+                            <!-- COLUMN 1 (Type) -->
+                            <td class="slds-cell-buffer_right" >
+                                <lightning-formatted-text value={cu1w.cu1Type} ></lightning-formatted-text>
+                            </td>                                
+                            <!-- COLUMN 2  -->
+                            <td class="slds-cell-buffer_right" >
+                                <template if:true={cu1w.typeIsPaymentClassification} >
+                                    <lightning-combobox name="paymentClassification" label="Payment Classification" value={cu1w.paymentClassificationPicklist} data-id={cu1w.cu1Type}
+                                        options={paymentClassificationOptions} disabled={inputFieldsDisabled} onchange={updateAmountRemainingToAllocate}></lightning-combobox>
+                                </template>
+                                <template if:true={cu1w.typeIsPaymentTerms} >
+                                    <lightning-combobox name="paymentTerms" label="Payment Terms" value={cu1w.paymentTermsPicklist} data-id={cu1w.cu1Type}
+                                        options={paymentTermsOptions} onchange={handlePaymentTermsChange} disabled={inputFieldsDisabled} ></lightning-combobox>
+                                </template>
+                                <template if:true={cu1w.typeIsFundsMailedToEmployee} >
+                                    <lightning-input type="date" date-style="short" onchange={updateAmountRemainingToAllocate}
+                                        data-id={cu1w.cu1Type} name="dateFundsMailedToEmployee" label="Date Funds Mailed to Employee"
+                                        value={cu1w.fundsMailedToEmployeeDateString} disabled={inputFieldsDisabled} ></lightning-input>
+                                </template>
+                                <template if:true={cu1w.typeIsRefund} >
+                                    <lightning-input type="number" step=".01" formatter="currency" min="0" message-when-range-underflow="Negative allocations not allowed." 
+                                        data-id={cu1w.cu1Type} name="refundAmount" label="Refund Amount" disabled={inputFieldsDisabled}
+                                        value={cu1w.refundAmount} onblur={updateAmountRemainingToAllocate} >
+                                    </lightning-input>
+                                </template>
+                                <template if:true={cu1w.typeIsAmtDueToDIR} >
+                                    <lightning-input type="number" step=".01" formatter="currency" min="0" message-when-range-underflow="Negative allocations not allowed." 
+                                        data-id={cu1w.cu1Type} name="amtDueToDir" label="Amounts Due to DIR" disabled={inputFieldsDisabled}
+                                        value={cu1w.amtDueToDir} onblur={updateAmountRemainingToAllocate} >
+                                    </lightning-input>
+                                </template>
+                                <template if:true={cu1w.typeIsOther} >
+                                    <lightning-input type="number" step=".01" formatter="currency" min="0" message-when-range-underflow="Negative allocations not allowed." 
+                                        data-id={cu1w.cu1Type} name="otherAmount" label="Other Amount" disabled={inputFieldsDisabled}
+                                        value={cu1w.otherAmount} onblur={updateAmountRemainingToAllocate} >
+                                    </lightning-input>
+                                </template>
+                            </td>
+                            <!-- COLUMN 3  -->
+                            <td class="slds-cell-buffer_right" >
+                                <template if:true={cu1w.typeIsPaymentClassification} >
+                                    <lightning-input type="text" label="Payment Classification Special Instructions" value={cu1w.paymentClassificationSpecialInstructions}
+                                        data-id={cu1w.cu1Type} name="paymentClassificationSpecialInstructions" onblur={updateAmountRemainingToAllocate} onchange={updateAmountRemainingToAllocate} disabled={inputFieldsDisabled} ></lightning-input>
+                                </template>
+                                <template if:true={cu1w.typeIsPaymentTerms} >
+                                    <template if:true={isPaymentTermsOther} >
+                                        <lightning-input type="text" required={isPaymentTermsOther} label="Payment Terms &#8220;Other&#8221; Explanation" value={cu1w.paymentTermsOtherExplanation}
+                                            name="paymentTermsOtherExplanation" data-id={cu1w.cu1Type} onblur={handlePaymentTermsChange} disabled={inputFieldsDisabled} ></lightning-input> 
+                                    </template>
+                                <template if:false={isPaymentTermsOther} ></template>
+                                </template>
+                                <template if:true={cu1w.typeIsFundsMailedToEmployee} >
+                                    <lightning-combobox name="mailingInstructions" label="Mailing Instructions" value={cu1w.fundsMailedToEmployeeInstructionsPicklist} 
+                                        options={mailingInstructionsOptions} data-id={cu1w.cu1Type} onchange={updateAmountRemainingToAllocate} disabled={inputFieldsDisabled} ></lightning-combobox>
+                                </template>
+                                <template if:true={cu1w.typeIsRefund} >
+                                    <lightning-input type="text" name="refundDetails" data-id={cu1w.cu1Type} label="Refund Amount Details" value={cu1w.refundAmountDetails}
+                                        onblur={updateAmountRemainingToAllocate} onchange={updateAmountRemainingToAllocate} disabled={inputFieldsDisabled} required={refundAmountDetailsRequired} ></lightning-input>
+                                </template>
+                                <template if:true={cu1w.typeIsAmtDueToDIR} >
+                                    <lightning-input type="text" name="amtDueToDirExplanation" label="Amounts Due to DIR Explanation" value={cu1w.amtDueToDirExplanation}
+                                        data-id={cu1w.cu1Type} onblur={updateAmountRemainingToAllocate} onchange={updateAmountRemainingToAllocate} disabled={inputFieldsDisabled} required={amtDueToDirExplanation} ></lightning-input>
+                                </template>
+                                <template if:true={cu1w.typeIsOther} >
+                                    <lightning-input type="text" name="otherDetails" label="Other Amount Details" value={cu1w.otherAmountDetails} disabled={inputFieldsDisabled}
+                                        data-id={cu1w.cu1Type} onblur={updateAmountRemainingToAllocate} onchange={updateAmountRemainingToAllocate} required={otherAmountDetailsRequired} ></lightning-input>
+                                </template>
+                            </td>
+                        </tr>
+                    </template>
+                </tbody>
+            </table>
+        </div>
+
+    </div>
+
+</template>

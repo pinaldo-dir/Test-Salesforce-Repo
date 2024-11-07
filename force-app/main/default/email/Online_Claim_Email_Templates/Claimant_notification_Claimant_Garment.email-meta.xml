@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <encodingKey>ISO-8859-1</encodingKey>
+    <name>Claimant notification - Claimant Garment</name>
+    <style>none</style>
+    <subject>Thank You submitting your Claim</subject>
+    <textOnly>Hola {!Claimant},
+Gracias por presentar su reclamo de sueldo contra . Su número de caso es  . Su reclamo está asignado a la siguiente Oficina de Sueldos:
+
+{!DIR_Case__c.Office__c } {!DIR_Case__c.DIR_WCA_Office_Address__c} {!DIR_Case__c.DIR_Office_Phone_Number__c}  Oficina de la Comisionada Laboral</textOnly>
+    <type>custom</type>
+    <uiType>Aloha</uiType>
+</EmailTemplate>

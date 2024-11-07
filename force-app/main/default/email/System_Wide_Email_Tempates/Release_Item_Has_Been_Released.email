@@ -1,0 +1,7 @@
+Your Support Request changes have been deployed to PROD. If the SR has not been closed already, please complete the the closure  information by {!Support_Request__c.Closure_Due_Date__c} and close the SR.
+
+Support Request Number : {!Support_Request__c.Name}
+Release Number: {!Support_Request__c.Add_to_a_Release__c}
+Release Date/Time: {!Support_Request__c.Release_Date_Time__c}
+
+{!Support_Request__c.Link}

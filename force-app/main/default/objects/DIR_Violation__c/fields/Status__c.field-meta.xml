@@ -1,0 +1,253 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Status__c</fullName>
+    <description>Defaults to "open" but may be set to "affirmed" or "modified" by the hearing process via the hearing results vfp.</description>
+    <externalId>false</externalId>
+    <inlineHelpText>If Sr. administratively dismisses violation, they must also adjust penalties and/or wages due to zero.</inlineHelpText>
+    <label>Status</label>
+    <required>false</required>
+    <trackFeedHistory>true</trackFeedHistory>
+    <trackHistory>true</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Open</fullName>
+                <default>true</default>
+                <label>Open</label>
+            </value>
+            <value>
+                <fullName>NTD - Full Compliance</fullName>
+                <default>false</default>
+                <label>NTD - Full Compliance</label>
+            </value>
+            <value>
+                <fullName>NTD - No Compliance</fullName>
+                <default>false</default>
+                <label>NTD - No Compliance</label>
+            </value>
+            <value>
+                <fullName>Closed</fullName>
+                <default>false</default>
+                <label>Closed</label>
+            </value>
+            <value>
+                <fullName>Affirmed</fullName>
+                <default>false</default>
+                <label>Affirmed</label>
+            </value>
+            <value>
+                <fullName>Modified</fullName>
+                <default>false</default>
+                <label>Modified</label>
+            </value>
+            <value>
+                <fullName>Dismissed</fullName>
+                <default>false</default>
+                <label>Dismissed</label>
+            </value>
+            <value>
+                <fullName>Administrative Dismissal</fullName>
+                <default>false</default>
+                <label>Administrative Dismissal</label>
+            </value>
+            <value>
+                <fullName>De Novo Appeal</fullName>
+                <default>false</default>
+                <label>De Novo Appeal</label>
+            </value>
+            <value>
+                <fullName>Under Appeal</fullName>
+                <default>false</default>
+                <label>Under Appeal</label>
+            </value>
+            <value>
+                <fullName>Appeal Withdrawn</fullName>
+                <default>false</default>
+                <label>Appeal Withdrawn</label>
+            </value>
+            <value>
+                <fullName>Request Dismissal</fullName>
+                <default>false</default>
+                <label>Request Dismissal</label>
+            </value>
+            <value>
+                <fullName>Paid Off</fullName>
+                <default>false</default>
+                <label>Paid Off</label>
+            </value>
+            <value>
+                <fullName>Referred for Judgment</fullName>
+                <default>false</default>
+                <label>Referred for Judgment</label>
+            </value>
+            <value>
+                <fullName>Judgment Accepted</fullName>
+                <default>false</default>
+                <label>Judgment Accepted</label>
+            </value>
+            <value>
+                <fullName>Judgment Rejected</fullName>
+                <default>false</default>
+                <label>Judgment Rejected</label>
+            </value>
+            <value>
+                <fullName>Settled</fullName>
+                <default>false</default>
+                <label>Settled</label>
+            </value>
+            <value>
+                <fullName>Writ Dismissed</fullName>
+                <default>false</default>
+                <label>Writ Dismissed</label>
+            </value>
+            <value>
+                <fullName>Writ Settled by Legal</fullName>
+                <default>false</default>
+                <label>Writ Settled by Legal</label>
+            </value>
+            <value>
+                <fullName>Writ Affirmed</fullName>
+                <default>false</default>
+                <label>Writ Affirmed</label>
+            </value>
+            <value>
+                <fullName>Under Writ</fullName>
+                <default>false</default>
+                <label>Under Writ</label>
+            </value>
+            <value>
+                <fullName>Offer in Compromise</fullName>
+                <default>false</default>
+                <label>Offer in Compromise</label>
+            </value>
+            <value>
+                <fullName>Self Audit Discount</fullName>
+                <default>false</default>
+                <label>Self Audit Discount</label>
+            </value>
+            <value>
+                <fullName>Write Off</fullName>
+                <default>false</default>
+                <label>Write Off</label>
+            </value>
+            <value>
+                <fullName>Canceled - Invalid</fullName>
+                <default>false</default>
+                <label>Canceled - Invalid</label>
+            </value>
+            <value>
+                <fullName>Paid in Full</fullName>
+                <default>false</default>
+                <label>Paid in Full</label>
+            </value>
+            <value>
+                <fullName>Judgment</fullName>
+                <default>false</default>
+                <label>Judgment</label>
+            </value>
+            <value>
+                <fullName>Claimant Withdrew</fullName>
+                <default>false</default>
+                <label>Claimant Withdrew</label>
+            </value>
+            <value>
+                <fullName>Payment Plan</fullName>
+                <default>false</default>
+                <label>Payment Plan</label>
+            </value>
+            <value>
+                <fullName>Dismissed at Conference</fullName>
+                <default>false</default>
+                <label>Dismissed at Conference</label>
+            </value>
+            <value>
+                <fullName>Dismissed at Hearing</fullName>
+                <default>false</default>
+                <label>Dismissed at Hearing</label>
+            </value>
+            <value>
+                <fullName>Restitution Fund (no Judgment)</fullName>
+                <default>false</default>
+                <label>Restitution Fund (no Judgment)</label>
+            </value>
+            <value>
+                <fullName>Amended</fullName>
+                <default>false</default>
+                <label>Amended</label>
+            </value>
+            <value>
+                <fullName>Out of Statute</fullName>
+                <default>false</default>
+                <label>Out of Statute</label>
+            </value>
+            <value>
+                <fullName>Demand Non-citable</fullName>
+                <default>false</default>
+                <label>Demand Non-citable</label>
+            </value>
+            <value>
+                <fullName>Alleged</fullName>
+                <default>false</default>
+                <label>Alleged</label>
+            </value>
+            <value>
+                <fullName>Found</fullName>
+                <default>false</default>
+                <label>Found</label>
+            </value>
+            <value>
+                <fullName>Unsubstantiated</fullName>
+                <default>false</default>
+                <label>Unsubstantiated</label>
+            </value>
+            <value>
+                <fullName>Canceled/Invalid</fullName>
+                <default>false</default>
+                <label>Canceled/Invalid</label>
+            </value>
+            <value>
+                <fullName>Legacy Closed</fullName>
+                <default>false</default>
+                <label>Legacy Closed</label>
+            </value>
+            <value>
+                <fullName>Hold</fullName>
+                <default>false</default>
+                <label>Hold</label>
+            </value>
+            <value>
+                <fullName>Lifted</fullName>
+                <default>false</default>
+                <label>Lifted</label>
+            </value>
+            <value>
+                <fullName>In Effect</fullName>
+                <default>false</default>
+                <label>In Effect</label>
+            </value>
+            <value>
+                <fullName>New</fullName>
+                <default>false</default>
+                <label>New</label>
+            </value>
+            <value>
+                <fullName>Goods Donated</fullName>
+                <default>false</default>
+                <label>Goods Donated</label>
+            </value>
+            <value>
+                <fullName>Goods Destroyed</fullName>
+                <default>false</default>
+                <label>Goods Destroyed</label>
+            </value>
+            <value>
+                <fullName>Goods Returned</fullName>
+                <default>false</default>
+                <label>Goods Returned</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Liable_Party_Address__c</fullName>
+    <externalId>false</externalId>
+    <formula>IF( NOT( ISBLANK(Liable_Party__c) ),
+   Liable_Party__r.Entity__r.ShippingStreet &amp; BR() &amp; Liable_Party__r.Entity__r.ShippingCity +' '+ Liable_Party__r.Entity__r.ShippingState +' '+ Liable_Party__r.Entity__r.ShippingPostalCode,
+			Related_Business__r.Business__r.ShippingStreet &amp; BR() &amp; Related_Business__r.Business__r.ShippingCity +', '+ Related_Business__r.Business__r.ShippingState +' '+ Related_Business__r.Business__r.ShippingPostalCode)</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>Liable Party Address</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

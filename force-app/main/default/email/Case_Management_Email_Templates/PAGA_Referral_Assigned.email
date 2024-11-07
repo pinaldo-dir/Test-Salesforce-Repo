@@ -1,0 +1,6 @@
+Hello {!Referral__c.Division_Investigator_BOFE__c}, 
+
+You have been assigned Referral {!Referral__c.Name} from Salesforce, which has an Investigation Deadline Date of {!Referral__c.Investigation_Deadline_Date__c}. You may view the Referral and the associated PAGA Case in Salesforce directly at the following link: {!Referral__c.Link}
+
+Thank you, 
+Salesforce Automated Email

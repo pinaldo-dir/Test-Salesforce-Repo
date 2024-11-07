@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Comments_for_Case_Status_Required</fullName>
+    <active>true</active>
+    <description>Enter comments for Companion Case Other</description>
+    <errorConditionFormula>AND (
+     ISPICKVAL( Status__c , "Companion Case – Other") &amp;&amp;
+     (RecordType.DeveloperName="BOFE"),
+ISBLANK(Case_Status_Comments__c)   
+)</errorConditionFormula>
+    <errorDisplayField>Case_Status_Comments__c</errorDisplayField>
+    <errorMessage>Case Status of 'Companion Case Other' comments is required</errorMessage>
+</ValidationRule>

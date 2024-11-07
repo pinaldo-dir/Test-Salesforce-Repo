@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Payment_Day_or_Month__c</fullName>
+    <externalId>false</externalId>
+    <formula>CASE(
+	TEXT(Frequency__c),
+	"Weekly", "Every week on " &amp; TEXT(Day_of_Week_Payment_Due__c),
+	"Bi-Weekly", "Every two weeks on " &amp; TEXT(Day_of_Week_Payment_Due__c),
+	"Semi-Monthly", "Twice a month on the " &amp; TEXT(Day_of_Monthly_Payment_Due__c) &amp;
+		CASE(
+			TEXT(Day_of_Monthly_Payment_Due__c),
+			"1", "st",
+			"2", "nd",
+			"3", "rd",
+			"21", "st",
+			"22", "nd",
+			"23", "rd",
+			"31", "st",
+			"th") &amp; " and " &amp; TEXT(Day_of_Second_Monthly_Payment_Due__c) &amp;
+		CASE(
+			TEXT(Day_of_Second_Monthly_Payment_Due__c),
+			"1", "st",
+			"2", "nd",
+			"3", "rd",
+			"21", "st",
+			"22", "nd",
+			"23", "rd",
+			"31", "st",
+			"th"),
+	"Monthly", "Every month on the " &amp; TEXT(Day_of_Monthly_Payment_Due__c) &amp;
+		CASE(
+			TEXT(Day_of_Monthly_Payment_Due__c),
+			"1", "st",
+			"2", "nd",
+			"3", "rd",
+			"21", "st",
+			"22", "nd",
+			"23", "rd",
+			"31", "st",
+			"th"),
+	"Quarterly", "Every 3 months on the " &amp; TEXT(Day_of_Monthly_Payment_Due__c) &amp;
+		CASE(
+			TEXT(Day_of_Monthly_Payment_Due__c),
+			"1", "st",
+			"2", "nd",
+			"3", "rd",
+			"21", "st",
+			"22", "nd",
+			"23", "rd",
+			"31", "st",
+			"th"),
+	"Single", "One single payment on " &amp; TEXT(Date_of_First_Payment__c),
+	"Irregular", "Irregular",
+	"Not specified"
+)</formula>
+    <label>Payment Day or Month</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

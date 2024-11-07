@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Address_cannot_have_PO_Box</fullName>
+    <active>true</active>
+    <description>Does not allow P.O Boxes to be added in address fields.</description>
+    <errorConditionFormula>/* Evaluate in these conditions */
+(
+ (/* Exempt new imported records */
+  !ISNEW() &amp;&amp; !ISBLANK(TEXT (Imported_From__c))
+ )
+
+/* Or the field value has changed */
+||
+ISCHANGED ( Address__c )
+||
+ISCHANGED ( Address_Line_2__c )
+)
+
+&amp;&amp;
+/* Core of validation rule */
+OR( 
+CONTAINS(  Address__c , "PO BOX"), 
+CONTAINS(  Address_Line_2__c , "PO BOX"), 
+CONTAINS( Address__c, "P.O Box"), 
+CONTAINS( Address_Line_2__c, "P.O Box"), 
+CONTAINS( Address__c, "P.O. Box"), 
+CONTAINS( Address_Line_2__c, "P.O. Box"), 
+CONTAINS( Address__c, "po box"), 
+CONTAINS( Address_Line_2__c, "po box"),  
+CONTAINS( Address__c, "P.O. box"), 
+CONTAINS( Address_Line_2__c, "P.O. box"), 
+CONTAINS( Address__c, "p.o. box"), 
+CONTAINS( Address_Line_2__c, "p.o. box"), 
+CONTAINS( Address__c, "PO Box"), 
+CONTAINS( Address_Line_2__c, "PO Box"),
+CONTAINS( Address__c, "PO box"), 
+CONTAINS( Address_Line_2__c, "PO box"),
+CONTAINS( Address__c, "p. o. box"), 
+CONTAINS( Address_Line_2__c, "p. o. box"),
+CONTAINS( Address__c, "p o box"), 
+CONTAINS( Address_Line_2__c, "p o box"),
+CONTAINS( Address__c, "P. O. box"), 
+CONTAINS( Address_Line_2__c, "P. O. box"),   
+CONTAINS( Address__c, "p o box"), 
+CONTAINS( Address_Line_2__c, "p o box"),
+CONTAINS( Address__c, "P. O. Box"), 
+CONTAINS( Address_Line_2__c, "P. O. Box"),
+CONTAINS( Address__c, "P. O. BOX"), 
+CONTAINS( Address_Line_2__c, "P. O. BOX"),
+CONTAINS( Address__c, "P.O. BOX"), 
+CONTAINS( Address_Line_2__c, "P.O. BOX"),
+CONTAINS( Address__c, "P.O.Box"), 
+CONTAINS( Address_Line_2__c, "P.O.Box")
+)</errorConditionFormula>
+    <errorMessage>P.O. Boxes are not accepted addresses. Please change to a physical location before moving forward.</errorMessage>
+</ValidationRule>

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <description>Email template to be sent to applicant after successful submission of a registration</description>
+    <encodingKey>ISO-8859-1</encodingKey>
+    <name>Application Successfully Submitted</name>
+    <style>none</style>
+    <subject>{!License_Registration__c.Reg_Submit_Email_Alert_Subject__c}</subject>
+    <type>text</type>
+    <uiType>Aloha</uiType>
+</EmailTemplate>

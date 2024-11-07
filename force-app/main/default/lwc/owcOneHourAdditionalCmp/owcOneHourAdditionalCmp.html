@@ -1,0 +1,242 @@
+<!--
+  @description       : 
+  @author            : ChangeMeIn@UserSettingsUnder.SFDoc
+  @group             : 
+  @last modified on  : 10-22-2021
+  @last modified by  : ChangeMeIn@UserSettingsUnder.SFDoc
+-->
+<template>
+    <template if:true={isFormPreviewMode}>
+        <fieldset class="">
+            <div class="slds-wrap slds-grid">
+                <div class="slds-col slds-small-size_5-of-6 slds-medium-size_5-of-6">
+                    <h2 class="slds-p-top_medium slds-p-bottom_medium slds-p-right_medium">
+                        {customLabelValues.Owc_Additional}
+                    </h2>  
+                </div>
+                <div class="slds-col slds-small-size_1-of-6 slds-medium-size_1-of-6">
+                    <!-- <template if:true={deletebutton}>
+                        <lightning-button variant="brand" label={customLabelValues.OWC_delete_button_label} title={customLabelValues.OWC_delete_button_label} onclick={handleOneHourAdditionalDelete} class="slds-float_right slds-p-top_medium slds-p-bottom_medium owcButtonStyle"></lightning-button>
+                    </template>  -->
+                </div> 
+                <div class="slds-col slds-small-size_2-of-8 slds-medium-size_2-of-8">
+                    <div class="slds-grid slds-wrap">
+                        <!--1. I was paid $ for-->
+                        <template if:true={paidAmountPerHourAdditional}>
+                            <div class="slds-col slds-small-size_1-of-1 slds-medium-size_1-of-1">
+                                <fieldset class="slds-p-top_medium slds-p-bottom_medium slds-p-right_medium">
+                                {customLabelValues.OWC_PaidPerHour} 
+                                    <lightning-input variant="label-hidden" disabled
+                                                        placeholder="$0.00"
+                                                        name="paidAmountPerHourAdditional"
+                                                        type="currency"
+                                                        value ={paidAmountPerHourAdditional}
+                                                        formatter="currency" 
+                                                        step="0.01"
+                                                        data-id="paidAmountPerHourAdditional"
+                                                        onchange={handleChange}
+                                                        >
+                                    </lightning-input>
+                                </fieldset>
+                            </div>
+                        </template>
+                        
+                        <!--I was promised $ for-->
+                        <template if:true={promisedAmountPerHourAdditional}>
+                            <div class="slds-col slds-small-size_1-of-1 slds-medium-size_1-of-1">
+                                <fieldset class="slds-p-top_medium slds-p-bottom_medium slds-p-right_medium">
+                                    {customLabelValues.OWC_PromisedPerHour}
+                                    <lightning-input variant="label-hidden" disabled
+                                                        name="promisedAmountPerHourAdditional"
+                                                        placeholder="$0.00"
+                                                        type="currency"
+                                                        formatter="currency" 
+                                                        step="0.01" 
+                                                        value ={promisedAmountPerHourAdditional}
+                                                        data-id="promisedAmountPerHourAdditional"
+                                                        onchange={handleChange}
+                                                        >
+                                    </lightning-input>
+                                </fieldset>
+                            </div>
+                        </template>
+                        
+                    </div>   
+                </div>
+                <template if:true={hourlyRateBegDateAdditional}>
+                    <!--per Hour-->
+                    <template if:true={isSmallDevice}>
+                        <div class="slds-col slds-size_8-of-8 slds-small-size_8-of-8 slds-medium-size_8-of-8 slds-large-size_2-of-8">
+                            <fieldset class="slds-p-top_medium slds-p-bottom_medium slds-p-right_medium ">
+                                {customLabelValues.Owc_perHour}
+                            </fieldset>
+                        </div>
+                    </template>
+                    <template if:true={isMediumDevice}>
+                        <div class="slds-col slds-size_8-of-8 slds-small-size_8-of-8 slds-medium-size_8-of-8 slds-large-size_2-of-8">
+                            <fieldset class="slds-p-top_medium slds-p-bottom_medium slds-p-right_medium slds-align_absolute-center">
+                                {customLabelValues.Owc_perHour}
+                            </fieldset>
+                        </div>
+                    </template>
+                    <template if:true={isLargeDevice}>
+                        <div class="slds-col slds-size_8-of-8 slds-small-size_8-of-8 slds-medium-size_8-of-8 slds-large-size_2-of-8">
+                            <fieldset class="slds-p-top_medium slds-p-bottom_medium slds-p-right_medium slds-align_absolute-center">
+                                {customLabelValues.Owc_perHour}
+                            </fieldset>
+                        </div>
+                    </template>
+                </template>
+                <template if:true={hourlyRateBegDateAdditional}>
+                    <!--Beginning Date-->
+                <div class="slds-col slds-small-size_2-of-8 slds-medium-size_2-of-8">
+                    <fieldset class="slds-p-top_medium slds-p-bottom_medium slds-p-right_medium">
+                        {customLabelValues.Owc_Beginning}
+                        <span class="slds-p-left_medium dateFormatLabel">{dateFormatLabel}</span>
+                        <lightning-input variant="label-hidden" disabled
+                                                    date-style="short"
+                                                    name="hourlyRateBegDateAdditional"
+                                                    type="date"
+                                                    value ={hourlyRateBegDateAdditional}
+                                                    data-id="hourlyRateBegDateAdditional"
+                                                    onchange={handleChange}
+                                                    >
+                        </lightning-input>
+                    </fieldset>
+                </div>
+                </template>
+                
+                
+                <!--Ending Date-->
+                <template if:true={hourlyRateEndDateAdditional}>
+                    <div class="slds-col slds-small-size_2-of-8 slds-medium-size_2-of-8">
+                        <fieldset class="slds-p-top_medium slds-p-bottom_medium slds-p-right_medium">
+                            {customLabelValues.Owc_Ending}
+                            <span class="slds-p-left_medium dateFormatLabel">{dateFormatLabel}</span>
+                            <lightning-input variant="label-hidden" disabled
+                                                        date-style="short"
+                                                        name="hourlyRateEndDateAdditional"
+                                                        type="date"
+                                                        value ={hourlyRateEndDateAdditional}
+                                                        data-id="hourlyRateEndDateAdditional"
+                                                        onchange={handleChange}
+                                                    
+                                                        >
+                            </lightning-input>
+                        </fieldset>
+                    </div>
+                </template>
+                
+            </div>
+        </fieldset>
+    </template>
+    <template if:false={isFormPreviewMode}>
+        <fieldset class="">
+            <div class="slds-wrap slds-grid">
+                <div class="slds-col slds-small-size_5-of-6 slds-medium-size_5-of-6">
+                    <h2 class="slds-p-top_medium slds-p-bottom_medium slds-p-right_medium">
+                        {customLabelValues.Owc_Additional}
+                    </h2>  
+                </div>
+                <div class="slds-col slds-small-size_1-of-6 slds-medium-size_1-of-6">
+                    <template if:true={deletebutton}>
+                        <lightning-button variant="brand" label={customLabelValues.OWC_delete_button_label} title={customLabelValues.OWC_delete_button_label} onclick={handleOneHourAdditionalDelete} class="slds-float_right slds-p-top_medium slds-p-bottom_medium owcButtonStyle"></lightning-button>
+                    </template> 
+                </div> 
+                <div class="slds-col slds-small-size_2-of-8 slds-medium-size_2-of-8">
+                    <div class="slds-grid slds-wrap">
+                        <!--1. I was paid $ for-->
+                        <div class="slds-col slds-small-size_1-of-1 slds-medium-size_1-of-1">
+                            <fieldset class="slds-p-top_medium slds-p-bottom_medium slds-p-right_medium">
+                            {customLabelValues.OWC_PaidPerHour} 
+                                <lightning-input variant="label-hidden" 
+                                                    placeholder="$0.00"
+                                                    name="paidAmountPerHourAdditional"
+                                                    type="currency"
+                                                    value ={paidAmountPerHourAdditional}
+                                                    formatter="currency" 
+                                                    step="0.01"
+                                                    data-id="paidAmountPerHourAdditional"
+                                                    onchange={handleChange}
+                                                    >
+                                </lightning-input>
+                            </fieldset>
+                        </div>
+                        <!--I was promised $ for-->
+                        <div class="slds-col slds-small-size_1-of-1 slds-medium-size_1-of-1">
+                            <fieldset class="slds-p-top_medium slds-p-bottom_medium slds-p-right_medium">
+                                {customLabelValues.OWC_PromisedPerHour}
+                                <lightning-input variant="label-hidden" 
+                                                    name="promisedAmountPerHourAdditional"
+                                                    placeholder="$0.00"
+                                                    type="currency"
+                                                    formatter="currency" 
+                                                    step="0.01" 
+                                                    value ={promisedAmountPerHourAdditional}
+                                                    data-id="promisedAmountPerHourAdditional"
+                                                    onchange={handleChange}
+                                                    >
+                                </lightning-input>
+                            </fieldset>
+                        </div>
+                    </div>   
+                </div>
+                <!--per Hour-->
+                <template if:true={isSmallDevice}>
+                    <div class="slds-col slds-size_8-of-8 slds-small-size_8-of-8 slds-medium-size_8-of-8 slds-large-size_2-of-8">
+                        <fieldset class="slds-p-top_medium slds-p-bottom_medium slds-p-right_medium ">
+                            {customLabelValues.Owc_perHour}
+                        </fieldset>
+                    </div>
+                </template>
+                <template if:true={isMediumDevice}>
+                    <div class="slds-col slds-size_8-of-8 slds-small-size_8-of-8 slds-medium-size_8-of-8 slds-large-size_2-of-8">
+                        <fieldset class="slds-p-top_medium slds-p-bottom_medium slds-p-right_medium slds-align_absolute-center">
+                            {customLabelValues.Owc_perHour}
+                        </fieldset>
+                    </div>
+                </template>
+                <template if:true={isLargeDevice}>
+                    <div class="slds-col slds-size_8-of-8 slds-small-size_8-of-8 slds-medium-size_8-of-8 slds-large-size_2-of-8">
+                        <fieldset class="slds-p-top_medium slds-p-bottom_medium slds-p-right_medium slds-align_absolute-center">
+                            {customLabelValues.Owc_perHour}
+                        </fieldset>
+                    </div>
+                </template>
+                <!--Beginning Date-->
+                <div class="slds-col slds-small-size_2-of-8 slds-medium-size_2-of-8">
+                    <fieldset class="slds-p-top_medium slds-p-bottom_medium slds-p-right_medium">
+                        {customLabelValues.Owc_Beginning}
+                        <span class="slds-p-left_medium dateFormatLabel">{dateFormatLabel}</span>
+                        <lightning-input variant="label-hidden" 
+                                                    date-style="short"
+                                                    name="hourlyRateBegDateAdditional"
+                                                    type="date"
+                                                    value ={hourlyRateBegDateAdditional}
+                                                    data-id="hourlyRateBegDateAdditional"
+                                                    onchange={handleChange}
+                                                    >
+                        </lightning-input>
+                    </fieldset>
+                </div>
+                <!--Ending Date-->
+                <div class="slds-col slds-small-size_2-of-8 slds-medium-size_2-of-8">
+                    <fieldset class="slds-p-top_medium slds-p-bottom_medium slds-p-right_medium">
+                        {customLabelValues.Owc_Ending}
+                        <span class="slds-p-left_medium dateFormatLabel">{dateFormatLabel}</span>
+                        <lightning-input variant="label-hidden" 
+                                                    date-style="short"
+                                                    name="hourlyRateEndDateAdditional"
+                                                    type="date"
+                                                    value ={hourlyRateEndDateAdditional}
+                                                    data-id="hourlyRateEndDateAdditional"
+                                                    onchange={handleChange}
+                                                
+                                                    >
+                        </lightning-input>
+                    </fieldset>
+                </div>
+            </div>
+        </fieldset>
+    </template>
+</template>

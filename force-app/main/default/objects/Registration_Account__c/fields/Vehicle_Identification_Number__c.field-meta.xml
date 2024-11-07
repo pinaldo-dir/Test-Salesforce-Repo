@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Vehicle_Identification_Number__c</fullName>
+    <description>Vehicle Identification Number</description>
+    <externalId>false</externalId>
+    <inlineHelpText>Vehicle Identification Number (VIN)</inlineHelpText>
+    <label>Vehicle Identification Number (VIN)</label>
+    <length>255</length>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

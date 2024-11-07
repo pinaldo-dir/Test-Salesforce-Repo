@@ -1,0 +1,27 @@
+<!--
+  @description       : 
+  @author            : ChangeMeIn@UserSettingsUnder.SFDoc
+  @group             : 
+  @last modified on  : 03-15-2022
+  @last modified by  : ChangeMeIn@UserSettingsUnder.SFDoc
+-->
+<template>
+    <form>
+        <div class="slds-grid slds-wrap">
+            <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-8 slds-large-size_1-of-8"></div>
+            <div class="slds-col slds-size_1-of-1 slds-medium-size_6-of-8 slds-large-size_6-of-8"> 
+                <div class="slds-grid slds-wrap">
+                    <div class="slds-col slds-size_1-of-1 slds-medium-size_6-of-8 slds-large-size_6-of-8">
+                        <!--  Final Screen Msg -->
+                        {customLabelValues.OWC_garment_final_msg}
+                    </div>
+                    <div class="slds-col slds-size_1-of-1 slds-medium-size_2-of-8 slds-large-size_2-of-8">
+                        <!-- Generate PDF button -->
+                        <lightning-button class="slds-float_right slds-m-around_medium owcButtonStyle" label={customLabelValues.OWC_pdf_generation_button} variant="brand" onclick={generatePDF}></lightning-button>
+                    </div>
+                </div>
+            </div>
+            <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-8 slds-large-size_1-of-8"></div>
+            </div>
+    </form>
+</template>

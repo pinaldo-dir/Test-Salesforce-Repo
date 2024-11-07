@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>PCN_Date_Needed_for_Inactive_Notice</fullName>
+    <active>true</active>
+    <errorConditionFormula>AND(
+ISNULL(PCN_Sent_Date__c),
+NOT(ISNULL( Inactive_Notice_Sent_Date__c )),
+DATEVALUE(CreatedDate) &gt;  DATEVALUE("2024-02-01")
+)</errorConditionFormula>
+    <errorMessage>PCN Sent Date must be filled when entering Inactive Notice Sent Date</errorMessage>
+</ValidationRule>

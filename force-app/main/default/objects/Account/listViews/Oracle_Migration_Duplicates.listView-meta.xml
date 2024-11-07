@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Oracle_Migration_Duplicates</fullName>
+    <columns>ACCOUNT.NAME</columns>
+    <columns>ACCOUNT.ADDRESS1_STATE</columns>
+    <columns>ACCOUNT.PHONE1</columns>
+    <columns>ACCOUNT.TYPE</columns>
+    <columns>CORE.USERS.ALIAS</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>CREATEDBY_USER.ALIAS</field>
+        <operation>equals</operation>
+        <value>mteix</value>
+    </filters>
+    <filters>
+        <field>ACCOUNT.NAME</field>
+        <operation>equals</operation>
+        <value>DEPARTMENT OF INDUSTRIAL RELATIONS</value>
+    </filters>
+    <filters>
+        <field>ACCOUNT.ADDRESS2_STREET</field>
+        <operation>contains</operation>
+        <value>Unpaid Wage Fund</value>
+    </filters>
+    <label>Oracle Migration Duplicates</label>
+    <sharedTo>
+        <role>System_Administrators</role>
+    </sharedTo>
+</ListView>

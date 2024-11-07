@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+        <label><!-- Quota prevents use of bathroom facilitie --></label>
+        <name>Quota_prevents_use_of_bathroom_facilitie__c</name>
+    </CustomFieldTranslation>

@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Required_Form_700__c</fullName>
+    <description>Required Form 700?</description>
+    <externalId>false</externalId>
+    <label>Required Form 700?</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>true</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Required</fullName>
+                <default>false</default>
+                <label>Required</label>
+            </value>
+            <value>
+                <fullName>Not Required</fullName>
+                <default>false</default>
+                <label>Not Required</label>
+            </value>
+            <value>
+                <fullName>Inquire with Form 700 Filling Officer</fullName>
+                <default>false</default>
+                <label>Inquire with Form 700 Filling Officer</label>
+            </value>
+            <value>
+                <fullName>Inquire with Director's Office OLD</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>Inquire with Director's Office OLD</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

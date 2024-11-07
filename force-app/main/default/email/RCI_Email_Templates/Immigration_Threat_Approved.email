@@ -1,0 +1,8 @@
+This is being requested to be converted to a case for further investigation was approved. . 
+
+Record: {!RCI_Only__c.Name}
+Approval Date: {!RCI_Only__c.Approval_Date__c}
+
+See Link to Record: 
+
+{!RCI_Only__c.Link}

@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <label>Port Drayage Labor Commissioner Office</label>
+    <pluralLabel>Port Drayage Labor Commissioner Offices</pluralLabel>
+    <visibility>Public</visibility>
+</CustomObject>

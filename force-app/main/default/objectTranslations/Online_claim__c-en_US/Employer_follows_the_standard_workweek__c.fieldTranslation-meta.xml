@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+        <label><!-- Employer follows the standard workweek --></label>
+        <name>Employer_follows_the_standard_workweek__c</name>
+    </CustomFieldTranslation>

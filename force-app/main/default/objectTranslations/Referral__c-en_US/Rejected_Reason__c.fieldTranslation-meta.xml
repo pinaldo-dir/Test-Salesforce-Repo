@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+        <label><!-- Rejected Reason --></label>
+        <name>Rejected_Reason__c</name>
+        <picklistValues>
+            <masterLabel>Incomplete 204</masterLabel>
+            <translation><!-- Incomplete 204 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Incorrect Amount Received</masterLabel>
+            <translation><!-- Incorrect Amount Received --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Invalid ITIN/SSN</masterLabel>
+            <translation><!-- Invalid ITIN/SSN --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Pending Legal Action</masterLabel>
+            <translation><!-- Pending Legal Action --></translation>
+        </picklistValues>
+    </CustomFieldTranslation>

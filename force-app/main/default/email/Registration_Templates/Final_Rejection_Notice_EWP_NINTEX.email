@@ -1,0 +1,18 @@
+<table border="0" cellpadding="5" width="550" cellspacing="5" height="400" >
+<tr valign="top" height="400" >
+<td tEditID="c1r1" style=" background-color:#FFFFFF; color:#000000; bEditID:r3st1; bLabel:main; font-size:12pt; font-family:arial;" aEditID="c1r1" locked="0" >
+<![CDATA[<font face="arial" style=""><span style="font-size: 12pt;">To </span>{!Rejection__c.Applicant__c}<span style="font-size: 12pt;">:</span></font><div style="color: rgb(0, 0, 0); font-family: arial; font-size: 12pt;"><br></div><div style="color: rgb(0, 0, 0); font-family: arial; font-size: 12pt;"><font face="arial" style=""><span style="color: rgb(0, 0, 0); font-family: arial; font-size: 12pt;">Your </span><span style="font-size: 12pt;">Permit&nbsp;application for&nbsp;</span>{!Rejection__c.Legal_Entity_Name__c}<span style="font-size: 12pt;">&nbsp;has&nbsp;</span></font><span style="color: rgb(0, 0, 0); font-family: arial; font-size: 12pt;">been rejected for not meeting all of the application&nbsp;</span><span style="color: rgb(0, 0, 0); font-family: arial; font-size: 12pt;">requirements. Please review the attached&nbsp;</span><span style="font-family: Arial, sans-serif; font-size: 12pt;">Rejection
+Notice included in this e-mail, which lists the&nbsp;incomplete
+requirements.&nbsp;</span></div><div style=""><br></div><div style=""><br></div><div style=""><br></div><div style=""><p class="MsoNormal"><span style="font-family: Arial, sans-serif;">Sincerely,<o:p></o:p></span></p>
+
+<p class="MsoNormal"><span style="font-family: Arial, sans-serif;">EWPU<o:p></o:p></span></p>
+
+<p class="MsoNormal"><span style="font-family: Arial, sans-serif;">Labor
+Commissioner's Office<o:p></o:p></span></p>
+
+<p class="MsoNormal"><span style="font-family: Arial, sans-serif;">Department
+of Industrial Relations<o:p></o:p></span></p>
+
+<span style="font-size: 12pt; font-family: Arial, sans-serif;">State of California</span></div>]]></td>
+</tr>
+</table>

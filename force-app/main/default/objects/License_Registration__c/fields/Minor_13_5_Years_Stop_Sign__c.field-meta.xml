@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Minor_13_5_Years_Stop_Sign__c</fullName>
+    <externalId>false</externalId>
+    <formula>IF(ADDMONTHS(Birth_Date__c,162) &lt;= Today(), IMAGE("/servlet/servlet.FileDownload?file=015d000000BD3Vr", "Collections Hold - Stop!", 25, 25), 'FALSE')</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>Minor 13.5 Years Stop Sign</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

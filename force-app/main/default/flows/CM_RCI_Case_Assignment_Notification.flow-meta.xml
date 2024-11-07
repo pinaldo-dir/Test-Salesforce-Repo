@@ -1,0 +1,172 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionCalls>
+        <name>Chatter_Case_Assignment</name>
+        <label>Chatter Case Assignment</label>
+        <locationX>592</locationX>
+        <locationY>542</locationY>
+        <actionName>chatterPost</actionName>
+        <actionType>chatterPost</actionType>
+        <flowTransactionModel>CurrentTransaction</flowTransactionModel>
+        <inputParameters>
+            <name>text</name>
+            <value>
+                <stringValue>Hello @[{!AssignedDeputyUserID}] You have been assigned {!CaseName} from Salesforce.              Status: {!CaseStatus}</stringValue>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>subjectNameOrId</name>
+            <value>
+                <elementReference>CaseID</elementReference>
+            </value>
+        </inputParameters>
+        <nameSegment>chatterPost</nameSegment>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+        <versionSegment>1</versionSegment>
+    </actionCalls>
+    <apiVersion>49.0</apiVersion>
+    <assignments>
+        <description>Verify that flow triggers properly when data is populated.</description>
+        <name>Input_Variables</name>
+        <label>Input Variables</label>
+        <locationX>692</locationX>
+        <locationY>254</locationY>
+        <assignmentItems>
+            <assignToReference>CaseID</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <stringValue>a1B350000005jIj</stringValue>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>AssignedDeputyUserID</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <stringValue>00535000000e1NC</stringValue>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Valid_Inputs</targetReference>
+        </connector>
+    </assignments>
+    <decisions>
+        <description>Checks to see all data entry is valid for Case ID and Assigned Deputy User ID.</description>
+        <name>Valid_Inputs</name>
+        <label>Valid Inputs</label>
+        <locationX>303</locationX>
+        <locationY>422</locationY>
+        <defaultConnectorLabel>Invalid Input</defaultConnectorLabel>
+        <rules>
+            <name>Valid_Input</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>AssignedDeputyUserID</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>CaseID</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Chatter_Case_Assignment</targetReference>
+            </connector>
+            <label>Valid Input</label>
+        </rules>
+    </decisions>
+    <description>When Assign Deputy changes this creates a chatter post for the new owner to review the case.</description>
+    <interviewLabel>CM: RCI Case Assignment Notification {!$Flow.CurrentDateTime}</interviewLabel>
+    <label>CM: RCI Case Assignment Notification</label>
+    <processMetadataValues>
+        <name>BuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>CanvasMode</name>
+        <value>
+            <stringValue>FREE_FORM_CANVAS</stringValue>
+        </value>
+    </processMetadataValues>
+    <processType>AutoLaunchedFlow</processType>
+    <recordLookups>
+        <name>Get_Case_Name</name>
+        <label>Get DIR Case Name Case Status</label>
+        <locationX>176</locationX>
+        <locationY>276</locationY>
+        <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
+        <connector>
+            <targetReference>Valid_Inputs</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Id</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>CaseID</elementReference>
+            </value>
+        </filters>
+        <object>DIR_Case__c</object>
+        <outputAssignments>
+            <assignToReference>CaseName</assignToReference>
+            <field>Name</field>
+        </outputAssignments>
+        <outputAssignments>
+            <assignToReference>CaseStatus</assignToReference>
+            <field>Status__c</field>
+        </outputAssignments>
+    </recordLookups>
+    <start>
+        <locationX>50</locationX>
+        <locationY>59</locationY>
+        <connector>
+            <targetReference>Get_Case_Name</targetReference>
+        </connector>
+    </start>
+    <status>Active</status>
+    <textTemplates>
+        <description>Chatters the Assigned Deputy for a new WCA/Garment case.</description>
+        <name>ChatterDeputyonAssign</name>
+        <isViewedAsPlainText>false</isViewedAsPlainText>
+        <text>@[{!AssignedDeputyUserID}] - This case has been assigned to you; please review.</text>
+    </textTemplates>
+    <textTemplates>
+        <name>NotifyDeputyAssignment</name>
+        <isViewedAsPlainText>false</isViewedAsPlainText>
+        <text>@[{!AssignedDeputyUserID}] - A new case has been assigned to you.</text>
+    </textTemplates>
+    <variables>
+        <name>AssignedDeputyUserID</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>true</isInput>
+        <isOutput>false</isOutput>
+    </variables>
+    <variables>
+        <name>CaseID</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>true</isInput>
+        <isOutput>false</isOutput>
+    </variables>
+    <variables>
+        <name>CaseName</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+    </variables>
+    <variables>
+        <name>CaseStatus</name>
+        <dataType>Picklist</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+    </variables>
+</Flow>

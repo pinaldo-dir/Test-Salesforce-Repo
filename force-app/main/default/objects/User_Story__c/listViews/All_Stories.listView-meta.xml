@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>All_Stories</fullName>
+    <columns>NAME</columns>
+    <columns>Acceptance_Criteria__c</columns>
+    <columns>Allocation__c</columns>
+    <columns>As_a_Role__c</columns>
+    <columns>Assigned_To__c</columns>
+    <columns>Complexity__c</columns>
+    <columns>Functional_Description__c</columns>
+    <columns>Project__c</columns>
+    <columns>Project_Iteration__c</columns>
+    <columns>Requirement__c</columns>
+    <columns>Status__c</columns>
+    <columns>Story_Description__c</columns>
+    <columns>Technical_Specifications__c</columns>
+    <columns>Components_Updated__c</columns>
+    <filterScope>Everything</filterScope>
+    <label>All Stories</label>
+    <language>en_US</language>
+</ListView>

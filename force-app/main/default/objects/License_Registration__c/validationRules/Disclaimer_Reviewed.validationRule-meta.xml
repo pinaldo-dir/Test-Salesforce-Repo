@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Disclaimer_Reviewed</fullName>
+    <active>false</active>
+    <description>When an External user is reviewing a defected form. The Disclaimer reviewed checkbox is required.</description>
+    <errorConditionFormula>AND( 
+$Profile.Name = "Community Registrations User", 
+OR( 
+RecordType.DeveloperName = "Car_Wash", 
+RecordType.DeveloperName = "Janitorial")) 
+&amp;&amp; 
+AND(DisclaimerDA__c = true, 
+DisclaimerReviewed__c = false)</errorConditionFormula>
+    <errorMessage>Please indicate that you have reviewed the defects on the Disclaimer section to continue.</errorMessage>
+</ValidationRule>

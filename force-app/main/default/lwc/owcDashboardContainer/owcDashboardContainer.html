@@ -1,0 +1,131 @@
+<!--
+  @description       : This is the container component to set all the dashboard components responsively.
+  @author            : Akash Som
+  @last modified on  : 10-26-2021
+  @last modified by  : ChangeMeIn@UserSettingsUnder.SFDoc
+-->
+<template>
+     <template if:true={message}>
+        <div style="position: absolute;width: 100%;text-align: center;top: calc(50% + 3em);font-size: 16px;">
+            {customLabelValues.OWC_spinner_msg}
+            <!--<lightning:spinner alternativeText="Loading" size="medium" />-->
+        </div>
+    </template>
+    <template if:false={message}>
+        <div class="slds-grid slds-wrap">
+            <!-- Dashboard Header -->
+            <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-1 slds-large-size_1-of-1">
+                <template if:true={isBreadCrumbs}>
+                    <div class="slds-grid slds-wrap">
+                        <div class="slds-float_left slds-p-left_medium slds-col slds-size_1-of-1 slds-medium-size_1-of-2 slds-large-size_1-of-2">
+                            <div class="slds-grid slds-wrap">
+                                <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-1 slds-large-size_1-of-1">
+                                    <span style="font-family: 'Source Sans Pro';color:#333333; font-weight: normal;font-size: 15px;"> {customLabelValues.OWC_jump_to_label}:</span>&nbsp;&nbsp;&nbsp;
+                                    <a class="itrc-navigation" href="#submitted">
+                                    <span style="font-family: 'Source Sans Pro';color:#333333; font-weight: normal;font-size: 15px;">{customLabelValues.OWC_submitted_claim_label}</span>
+                                    </a> &nbsp;&nbsp;&nbsp; | &nbsp;&nbsp;&nbsp;
+                    
+                                    <a class="itrc-navigation" href="#online">
+                                        <span style="font-family: 'Source Sans Pro';color:#333333; font-weight: normal;font-size: 15px;">{customLabelValues.OWC_online_draft_label}</span> 
+                                    </a>&nbsp;&nbsp;&nbsp;| &nbsp;&nbsp;
+                                    
+                                    <a class="itrc-navigation" href="#meeting">
+                                        <span style="font-family: 'Source Sans Pro';color:#333333; font-weight: normal;font-size: 15px;">{customLabelValues.OWC_meeting_detail_heading}</span>
+                                    </a>
+                                </div>
+                                <div class="slds-p-top_medium slds-col slds-size_1-of-1 slds-medium-size_1-of-1 slds-large-size_1-of-1">
+                                    <span style="font-family: 'Source Sans Pro';color: rgb(51, 51, 51);font-weight: normal;font-size: 18px;">{customLabelValues.OWC_start_wage_claim_text}&nbsp;</span>
+                                    <span><lightning-button class="slds-m-around_medium owcButtonStyle" label={customLabelValues.OWC_new_claim_label} onclick={moveToNewClaim} style="margin-left: 0.2rem;" variant="brand"></lightning-button></span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="slds-float_right slds-col slds-size_1-of-1 slds-medium-size_1-of-2 slds-large-size_1-of-2">
+                            <template if:true={isNotGuestUser}>
+                            <div class="owcLangStyle slds-grid slds-wrap">
+                    
+                            <div class="slds-col owcLangStyle slds-size_1-of-1 slds-medium-size_1-of-1 slds-large-size_1-of-1 ">
+                                    <div class="slds-grid slds-wrap">
+                                        <div class="slds-size_1-of-2 slds-medium-size_1-of-2 slds-large-size_1-of-2"></div>
+                                        <div class="slds-size_1-of-2 slds-medium-size_1-of-2 slds-large-size_1-of-2 slds-p-right_medium slds-float_right">
+                                            <div class="slds-grid slds-wrap">
+                                                <div class="slds-size_1-of-2 slds-medium-size_1-of-2 slds-large-size_1-of-2"></div>
+                                                <div class="slds-size_1-of-2 slds-medium-size_1-of-2 slds-large-size_1-of-2">
+                                                    <lightning-combobox
+                                                        name="progress"
+                                                        class="owcLangStyle "
+                                                        data-id="communityLanguage"
+                                                        label={OWC_ChangeLanguage_Label}
+                                                        value={communityLanguage}
+                                                        placeholder="Select Language"
+                                                        options={languagesOptions}
+                                                        onchange={handleLanguageChange} ></lightning-combobox>
+                                                </div>
+                                            </div>
+                                            
+                                        </div>
+                                    </div>
+                                    </div>
+                                </div>
+                            </template>
+                        </div>
+                    </div>
+                </template>
+                <template if:false={isBreadCrumbs}>
+                    <div class="slds-grid slds-wrap">
+                        <div class="slds-p-left_medium slds-p-bottom_medium slds-p-right_medium slds-col slds-size_1-of-1 slds-medium-size_1-of-1 slds-large-size_1-of-1">
+                            <lightning-combobox
+                                                        name="progress"
+                                                        class="owcLangStyle "
+                                                        data-id="communityLanguage"
+                                                        label={OWC_ChangeLanguage_Label}
+                                                        value={communityLanguage}
+                                                        placeholder="Select Language"
+                                                        options={languagesOptions}
+                                                        onchange={handleLanguageChange} ></lightning-combobox>
+                        </div>
+                        <div class="slds-p-left_medium slds-p-right_medium slds-col slds-size_1-of-1 slds-medium-size_1-of-1 slds-large-size_1-of-1">
+                            <span style="font-family: 'Source Sans Pro';color: rgb(51, 51, 51);font-weight: normal;font-size: 18px;">{customLabelValues.OWC_start_wage_claim_text} &nbsp;</span>
+                                    <span><lightning-button class="slds-m-around_medium owcButtonStyle" label={customLabelValues.OWC_new_claim_label} onclick={moveToNewClaim} style="margin-left: 0.2rem;" variant="brand"></lightning-button></span>
+                        </div>
+                    </div>
+                </template>
+            </div>
+            <template if:false={isSmallDevice}>
+                <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-1 slds-large-size_1-of-1">
+                    <div class="slds-grid slds-wrap">
+                        <!-- Submitted Claim Cmp -->
+                        <div data-id="submittedClaimLink" class="slds-p-around_medium slds-col slds-size_1-of-1 slds-medium-size_1-of-2 slds-large-size_1-of-2" id="submitted">
+                            <c-owc-Submitted-Case-Record></c-owc-Submitted-Case-Record>
+                        </div>
+                        <!-- Meeting Details Cmp -->
+                        <div data-id="meetingDetail" class="slds-p-around_medium slds-col slds-size_1-of-1 slds-medium-size_1-of-2 slds-large-size_1-of-2" id="meeting">
+                            <c-meeting-Details></c-meeting-Details>
+                        </div>
+                        <!-- Draft Claims Cmp -->
+                        <div data-id="draftclaim" class="slds-p-around_medium slds-col slds-size_1-of-1 slds-medium-size_1-of-2 slds-large-size_1-of-2" id="online">
+                            <c-online-Wage-Claim-Draft-Cmp></c-online-Wage-Claim-Draft-Cmp>
+                        </div>
+                    </div>
+                </div>
+            </template>
+            <template if:true={isSmallDevice}>
+                <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-1 slds-large-size_1-of-1">
+                    <div class="slds-grid slds-wrap">
+                        <!-- Submitted Claim Cmp -->
+                        <div data-id="submittedClaimLink" class="slds-p-around_medium slds-col slds-size_1-of-1 slds-medium-size_1-of-2 slds-large-size_1-of-2">
+                            <c-owc-Submitted-Case-Record></c-owc-Submitted-Case-Record>
+                        </div>
+                        <!-- Draft Claims Cmp -->
+                        <div data-id="draftclaim" class="slds-p-around_medium slds-col slds-size_1-of-1 slds-medium-size_1-of-2 slds-large-size_1-of-2">
+                            <c-online-Wage-Claim-Draft-Cmp></c-online-Wage-Claim-Draft-Cmp>
+                        </div>
+                        <!-- Meeting Details Cmp -->
+                        <div data-id="meetingDetail" class="slds-p-around_medium slds-col slds-size_1-of-1 slds-medium-size_1-of-2 slds-large-size_1-of-2">
+                            <c-meeting-Details></c-meeting-Details>
+                        </div>
+                    </div>
+                </div>
+            </template>
+        </div>
+    </template>
+</template>

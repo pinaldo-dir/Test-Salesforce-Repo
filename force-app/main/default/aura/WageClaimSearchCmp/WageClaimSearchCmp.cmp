@@ -1,0 +1,256 @@
+<aura:component controller="WageClaimSearchController" implements="forceCommunity:availableForAllPageTypes" access="global" >
+    <aura:attribute name="isLoading" type="Boolean" default="false" />
+    <aura:attribute name="caseNumber" type="String" default=""/>
+    <aura:attribute name="caseLowWage" type="String" default=""/>
+    <aura:attribute name="accountName" type="String" default=""/>
+    <aura:attribute name="docketFromDate" type="Date"/>
+    <aura:attribute name="placeHolderDate" type="Date"/>
+    <aura:attribute name="docketToDate" type="Date"/>
+    <aura:attribute name="today" type="Date"/>
+    <aura:attribute name="caseClosedFromDate" type="Date" default="placeHolderDate"/>
+    <aura:attribute name="caseClosedToDate" type="Date"/>
+    <aura:attribute name="naicsCode" type="String" default=""/>
+    <aura:attribute name="naicsCodeTitle" type="String"/>
+    <aura:attribute name="lowWageValue" type="String"/>
+    <aura:attribute name="naicsCodeId" type="String"/>
+    <aura:attribute name="NAICSIndustry" type="String" default=""/>
+    <aura:attribute name="caseAppliesValue" type="List" default=""/>
+    <aura:attribute name="dirOffice" type="String" default=""/>
+    <aura:attribute name="dirOfficePicklistValues" type="List"/>
+    <aura:attribute name="lowWagePicklistValues" type="List"/>
+    <aura:attribute name="showSearchFilters" type="Boolean" />
+    <aura:attribute name="listStatus2810" type="String" />
+    <aura:attribute name="selectedLookUpRecordForOfficeName" type="Object" default="{}"/>
+    <aura:attribute name="selectedLookUpRecordForNaicsCode" type="Object" default="{}"/>
+    <aura:attribute name="selectedLookUpRecordForCitationNumber" type="Object" default="{}"/> 
+    <aura:attribute name="errorMsg" type="boolean" default="false"/>
+    <!--
+    <aura:registerEvent name="JudgmentRecordsRetrieve" type="c:JudgmentRecordsRetrieve"/>
+    declare events hendlers
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
+ -->  
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}"/> 
+    <ltng:require styles="{!$Resource.JudgmentSearchCss}"/>
+    <div class="c-container slds-align_absolute-center slds-m-around_large">
+        <div class="{!($Browser.formFactor != 'PHONE' ? 'dir-wageClaim-search-Desktop-container' : 'dir-wageClaim-search-mobile-container')}" >
+            <div class="slds-grid slds-grid_vertical">
+                <aura:if isTrue="{! v.isLoading }">
+                    <div class="spins">
+                        <!--<lightning:spinner alternativeText="Loading" size="medium" />-->
+                    </div>
+                    <aura:set attribute="else">
+                        <div class="slds-col slds-small-size_10-of-12 slds-medium-size_10-of-12 breakStyle">
+                            <nav role="navigation" aria-label="Breadcrumbs">
+                                <ol class="slds-breadcrumb slds-list_horizontal slds-wrap">
+                                    <li class="breadcrumb">
+                                        <a href="https://www.dir.ca.gov/">DIR</a>
+                                    </li>&nbsp;&nbsp;
+                                    <li>
+                                        |
+                                    </li>&nbsp;&nbsp;
+                                    <li class="breadcrumb">
+                                        <a style="color: #666;pointer-events: none;" href="javascript:void(0);">Wage Claim Search</a>
+                                    </li>&nbsp;
+                                </ol>
+                            </nav>
+                        </div>
+                        <div class="slds-col slds-small-size_10-of-12 slds-medium-size_6-of-12">
+                            <div class="formTitle">
+                                <h1>Wage Claim Search</h1>
+                            </div>
+                        </div>
+                        <div class="slds-col slds-small-size_10-of-12 slds-medium-size_6-of-12">
+                            <span>
+                                <div class="slds-form-element formInstructionStyle">
+                                    
+                                </div>
+                            </span>
+                        </div>
+                        <div class="slds-col slds-small-size_10-of-12 slds-medium-size_6-of-12 breakStyle">
+                            <span>
+                                <div class="slds-form-element">
+                                    <label class="slds-form-element__label formStyle" for="Account Name">Defendant Name</label>
+                                    <div class="slds-form-element__control">
+                                        <ui:inputText updateOn="keyup" class="slds-input formInputStyle" value="{!v.accountName}"/>
+                                    </div>
+                                </div>
+                            </span>
+                        </div>
+                        <div class="slds-col slds-small-size_10-of-12 slds-medium-size_6-of-12 breakStyle">
+                            <span>
+                                <div class="slds-form-element">
+                                    <label class="slds-form-element__label formStyle" for="Case Number">Case Number</label>
+                                    <div class="slds-form-element__control">
+                                        <ui:inputText  class="slds-input formInputStyle" value="{!v.caseNumber}"/>
+                                    </div>
+                                </div>
+                            </span>
+                        </div>
+                        
+                        <div class="slds-col slds-small-size_10-of-12 slds-medium-size_6-of-12 breakStyle">
+                            <span>
+                                <div class="slds-form-element formFieldSetStyle">
+                                    <label class="slds-form-element__label formStyle" for="Case Closed Date">Case Closed Date</label>
+                                    <div class="slds-grid slds-gutters">
+                                        <div class="slds-col slds-size_1-of-2">
+                                            <label class="slds-form-element__label fromToStyle" for="CaseCloseDateFrom">From Date (mm/dd/yyyy)</label>
+                                            <span> <lightning:input class="formInputStyle" aura:id="caseCloseDateFrom" name="Case Closed:" onchange="{!c.onCaseClosedFromDate}" value="{!v.caseClosedFromDate}" type="date" variant="label-hidden" dateStyle="short"/></span>
+                                        </div>    
+                                    </div>
+                                    <div class="slds-grid slds-gutters">
+                                        <div class="slds-col slds-size_1-of-2">
+                                            <label class="slds-form-element__label fromToStyle" for="CaseCloseDateTo">To Date (mm/dd/yyyy)</label>
+                                            <span> <lightning:input aura:id="caseCloseDateTo" name="Case Closed:" onchange="{!c.onCaseClosedToDate}" value="{!v.caseClosedToDate}" type="date" variant="label-hidden" dateStyle="short"/></span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </span>
+                            <!--<span>
+                        <div class="slds-form-element formFieldSetStyle">
+                            <label class="slds-form-element__label formStyle" for="Case Closed Date">Case Closed Date</label>
+                            <div class="slds-form-element__control">
+                                <div class="slds-grid slds-gutters">	
+                                    <div class="slds-col">
+                                        <label class="slds-form-element__label fromToStyle" for="CaseCloseDateFrom">From Date</label>
+                                        <span> <lightning:input class="formInputStyle" aura:id="caseCloseDateFrom" name="Case Closed:" onchange="{!c.onCaseClosedFromDate}" value="{!v.caseClosedFromDate}" type="date" variant="label-hidden" dateStyle="short"/></span>
+                                    </div>
+                                    <div class="slds-col">
+                                        <label class="slds-form-element__label fromToStyle" for="CaseCloseDateTo">To Date</label>
+                                        <span> <lightning:input aura:id="caseCloseDateTo" name="Case Closed:" onchange="{!c.onCaseClosedToDate}" value="{!v.caseClosedToDate}" type="date" variant="label-hidden" dateStyle="short"/></span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </span>-->
+                        </div>
+                        
+                        <div class="slds-col slds-small-size_10-of-12 slds-medium-size_6-of-12 breakStyle">
+                            <span>
+                                <div class="slds-form-element formFieldSetStyle">
+                                    <label class="slds-form-element__label formStyle" for="Date Filed">Date of Docket</label>
+                                    <div class="slds-form-element__static">Date claim entered in Case Management System</div>
+                                    <div class="slds-grid slds-gutters">
+                                        <div class="slds-col slds-size_1-of-2">
+                                            <label class="slds-form-element__label fromToStyle" for="judgmentEntryDate">From Date (mm/dd/yyyy)</label>
+                                            <span> <lightning:input class="formInputStyle" aura:id="docketDateFrom" name="Date of Docket:" onchange="{!c.onDocketFromDate}" value="{!v.docketFromDate}" type="date" variant="label-hidden" dateStyle="short"/></span>
+                                        </div>    
+                                    </div>
+                                    <div class="slds-grid slds-gutters">
+                                        <div class="slds-col slds-size_1-of-2">
+                                            <label class="slds-form-element__label fromToStyle" for="judgmentEntryDate">To Date (mm/dd/yyyy)</label>
+                                            <span> <lightning:input aura:id="docketDateTo" name="Date of Docket:" onchange="{!c.onDocketToDate}" value="{!v.docketToDate}" type="date" variant="label-hidden" dateStyle="short"/></span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </span>
+                            <!--<span>
+                        <div class="slds-form-element formFieldSetStyle">
+                            <label class="slds-form-element__label formStyle" for="Date Filed">Date Filed</label>
+                            <div class="slds-form-element__control">
+                                <div class="slds-grid slds-gutters">	
+                                    <div class="slds-col">
+                                        <label class="slds-form-element__label fromToStyle" for="judgmentEntryDate">From Date</label>
+                                        <span> <lightning:input class="formInputStyle" aura:id="docketDateFrom" name="Date of Docket:" onchange="{!c.onDocketFromDate}" value="{!v.docketFromDate}" type="date" variant="label-hidden" dateStyle="short"/></span>
+                                    </div>
+                                    <div class="slds-col">
+                                        <label class="slds-form-element__label fromToStyle" for="judgmentEntryDate">To Date</label>
+                                        <span> <lightning:input aura:id="docketDateTo" name="Date of Docket:" onchange="{!c.onDocketToDate}" value="{!v.docketToDate}" type="date" variant="label-hidden" dateStyle="short"/></span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </span>-->
+                        </div>
+                        
+                        <div class="slds-col slds-small-size_10-of-12 slds-medium-size_6-of-12">
+                            <label class="slds-form-element__label formStyle" for="naicsCode">
+                                NAICS Code
+                                <div class="slds-form-element__control">
+                                    <div class="slds-form-element__static">A NAICS Code is a standard used to classify business establishments. To view the available NAICS Codes, please visit: <a href="https://www.naics.com/search/" target="_blank">https://www.naics.com/search/</a></div>
+                                </div>
+                                <!--<c:CustomHelpText text="	A NAICS Code is a 
+                                                        standard used to classify 
+                                                        business establishments.
+                                                        To view the available 
+                                                        NAICS Codes, please visit:
+                                                        " 
+                                                  helpTextLabel="naicsCodeHelpText"/>-->
+                            </label>
+                            <div class="slds-form-element__control">
+                                <ui:inputText updateOn="keyup" keyup="{!c.onNaicsCodeChange}" class="slds-input formInputStyle" value="{!v.naicsCode}"/>
+                            </div>
+                        </div>
+                        
+                        <!--<div class="slds-col slds-small-size_10-of-12 slds-medium-size_6-of-12 breakStyle">
+                    <span>
+                        <div class="slds-form-element">
+                            <label class="slds-form-element__label formStyle" for="ClaimantPalintiffName">NAICS Industry:</label>
+                            <div class="slds-form-element__control">
+                                <ui:inputText class="slds-input formInputStyle" value="{!v.NAICSIndustry}"/>
+                            </div>
+                        </div>
+                    </span>
+                </div> -->
+                        
+                        <!--<div class="slds-col slds-small-size_10-of-12 slds-medium-size_6-of-12 breakStyle">
+                    <span>
+                        <div class="slds-form-element">
+                            <label for="Low Wage" class="formStyle">Low wage Industry</label>
+                            <ui:inputSelect aura:id="lowwage" class="slds-input" label="" change="{!c.onLowWageValueChange}" value="{!v.lowWageValue}">
+                                <aura:iteration items="{!v.lowWagePicklistValues}" var="item">
+                                    <ui:inputSelectOption text="{!item.value}" label="{!item.label}"/>
+                                </aura:iteration>
+                            </ui:inputSelect>
+                        </div>
+                    </span>
+                </div>-->
+                        <div class="slds-col slds-small-size_10-of-12 slds-medium-size_6-of-12 breakStyle">
+                            <span>
+                                <div class="slds-form-element">
+                                    <label class="slds-form-element__label formStyle" for="lowwage">Low wage Industry</label>
+                                    <ui:inputSelect aura:id="lowwage" class="slds-input" label="" change="{!c.onLowWageValueChange}" >
+                                        <aura:iteration items="{!v.lowWagePicklistValues}" var="item">
+                                            <ui:inputSelectOption text="{!item.value}" label="{!item.label}"/>
+                                        </aura:iteration>
+                                    </ui:inputSelect>
+                                </div>
+                            </span>
+                        </div>
+                        
+                        <div class="slds-col slds-small-size_10-of-12 slds-medium-size_6-of-12">
+                            <span>
+                                <c:JudgmentSearchCustomLookup aura:id="dirOffice" inputLabel="DIR Office" objectAPIName="Office__c" fieldAPIName="Name" selectedRecord="{!v.selectedLookUpRecordForOfficeName}" ObjectName="DIROffice" searchType="WageClaimSearch"/>
+                                <!--<div class="slds-form-element">
+                                    <label class="slds-form-element__label formStyle" for="dirOffice">DIR Office</label>
+                                    <ui:inputSelect aura:id="dirOffice" class="slds-input" label="" change="{!c.onDirOfficeChange}" value="{!v.dirOffice}">
+                                        <aura:iteration items="{!v.dirOfficePicklistValues}" var="item">
+                                            <ui:inputSelectOption text="{!item.value}" label="{!item.label}"/>
+                                        </aura:iteration>
+                                    </ui:inputSelect>
+                                </div>-->
+                            </span>
+                        </div>
+                        
+                        <aura:if isTrue="{!v.errorMsg}">
+                            <div class="slds-col slds-small-size_10-of-12 slds-medium-size_6-of-12 breakStyle">
+                                <span>
+                                    <div class="errorMsgStyle slds-form-element">
+                                        *Select at least One Filter Criteria from WageClaim Search
+                                    </div>
+                                </span>
+                            </div>
+                        </aura:if>
+                        <div class="slds-col slds-small-size_10-of-12 slds-medium-size_6-of-12">
+                            <span>
+                                <div class="slds-form-element">
+                                    <button class="slds-button slds-button_brand formButton" onclick="{!c.onSearchButton}">Search</button>&nbsp;&nbsp;
+                                    <button class="slds-button slds-button_brand formButton" onclick="{!c.onClearFields}">Clear Fields</button>
+                                </div>
+                            </span>
+                        </div>
+                    </aura:set>
+                </aura:if>
+            </div>
+        </div>
+    </div>
+</aura:component>

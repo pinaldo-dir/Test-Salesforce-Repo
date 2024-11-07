@@ -1,0 +1,136 @@
+<!--
+  @description       : 
+  @author            : ChangeMeIn@UserSettingsUnder.SFDoc
+  @group             : 
+  @last modified on  : 09-28-2022
+  @last modified by  : ChangeMeIn@UserSettingsUnder.SFDoc
+-->
+<template>
+    <template if:true={isFormPreviewMode}>
+        <form class="">
+            <div class="slds-grid slds-wrap">
+                <!--Beginign  Date-->
+                <template if:true={BegDate}>
+                    <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-2 slds-large-size_1-of-2">
+                        <fieldset class="slds-p-around_medium slds-p-left_xx-large ">
+                            {customLabelValues.owc_startdateofclaim}                                        
+                            <div class="slds-p-top_xxx-small">
+                                <lightning-input name="BegDate"
+                                max-length="255"
+                                    variant="label-hidden" 
+                                    type="date" 
+                                    disabled
+                                    date-style="short"
+                                    value={BegDate}
+                                    data-id="BegDate"
+                                    onchange={handleChange}>
+                                </lightning-input>
+                            </div>
+                        </fieldset>
+                    </div>
+                </template>
+                <!--Ending Date--> 
+                <template if:true={EndDate}>               
+                    <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-2 slds-large-size_1-of-2">
+                        <fieldset class="slds-p-around_medium slds-p-left_xx-large ">
+                            {customLabelValues.owc_enddateofclaim}                                  
+                            <div class="slds-p-top_xx-small">
+                                <lightning-input name="EndDate"
+                                max-length="255"
+                                    variant="label-hidden" 
+                                    type="date"
+                                    disabled
+                                    date-style="short"
+                                    value={EndDate} 
+                                    data-id="EndDate"
+                                    onchange={handleChange}>
+                                </lightning-input>
+                            </div>
+                        </fieldset>
+                    </div>
+                </template>
+
+                <!--Paid by piece rate--> 
+                <template if:true={paidbypiecerate}>               
+                    <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-2 slds-large-size_1-of-2">
+                        <fieldset class="slds-p-around_medium slds-p-left_xx-large ">
+                            {customLabelValues.owc_paidbypiecerate}                                  
+                            <div class="slds-p-top_xx-small">
+                                <lightning-input name="paidbypiecerate"
+                                max-length="255"
+                                    variant="label-hidden" 
+                                    type="number"
+                                    disabled
+                                    value={paidbypiecerate} 
+                                    data-id="paidbypiecerate"
+                                    onchange={handleChange}>
+                                </lightning-input>
+                            </div>
+                        </fieldset>
+                    </div>
+                </template>
+            </div>
+        </form>
+    </template>
+    <template if:false={isFormPreviewMode}>
+        <form class="">
+            <div class="slds-grid slds-wrap">
+                <!--Beginign  Date-->
+                <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-2 slds-large-size_1-of-2">
+                    <fieldset class="slds-p-around_medium slds-p-left_xx-large ">
+                        {customLabelValues.owc_startdateofclaim}                                        
+                        <div class="slds-p-top_xxx-small">
+                            <lightning-input name="BegDate"
+                            max-length="255"
+                                variant="label-hidden" 
+                                type="date" 
+                                date-style="short"
+                                value={BegDate}
+                                data-id="BegDate"
+                                onchange={handleChange}
+                                onblur={handleBegDateFocus}>
+                            </lightning-input>
+                        </div>
+                    </fieldset>
+                </div>
+
+                <!--Ending Date-->                
+                <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-2 slds-large-size_1-of-2">
+                    <fieldset class="slds-p-around_medium slds-p-left_xx-large ">
+                        {customLabelValues.owc_enddateofclaim}                                  
+                        <div class="slds-p-top_xx-small">
+                            <lightning-input name="EndDate"
+                            max-length="255"
+                                variant="label-hidden" 
+                                type="date"
+                                value={EndDate} 
+                                data-id="EndDate"
+                                date-style="short"
+                                onchange={handleChange}
+                                onblur={handleEndDateFocus}>
+                            </lightning-input>
+                        </div>
+                    </fieldset>
+                </div>
+
+                <!--Paid by piece rate-->                
+                <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-2 slds-large-size_1-of-2">
+                    <fieldset class="slds-p-around_medium slds-p-left_xx-large ">
+                        {customLabelValues.owc_paidbypiecerate}                                  
+                        <div class="slds-p-top_xx-small">
+                            <lightning-input name="paidbypiecerate"
+                            max-length="255"
+                                variant="label-hidden" 
+                                type="number"
+                                value={paidbypiecerate} 
+                                data-id="paidbypiecerate"
+                                onchange={handleChange}>
+                            </lightning-input>
+                        </div>
+                    </fieldset>
+                </div>
+
+            </div>
+        </form>
+    </template>
+</template>

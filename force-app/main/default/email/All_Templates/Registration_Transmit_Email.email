@@ -1,0 +1,31 @@
+<table border="0" cellpadding="5" width="550" cellspacing="5" height="400" >
+<tr valign="top" height="400" >
+<td tEditID="c1r1" style=" background-color:#FFFFFF; color:#000000; bEditID:r3st1; bLabel:main; font-size:12pt; font-family:arial;" aEditID="c1r1" locked="0" >
+<![CDATA[<font face="arial" style="font-size: 12pt; font-family: arial; color: rgb(0, 0, 0);"><span style="font-size: 12pt;">For:&nbsp;</span></font><font face="arial" style="font-size: 12pt; font-family: arial;">{!License_Registration__c.Legal_Entity_Name__c}</font><div style="font-size: 12pt; font-family: arial; color: rgb(0, 0, 0);"><font face="Arial, Helvetica, sans-serif" style="color: rgb(0, 0, 0); font-family: arial; font-size: 12pt;"><span style="font-size: 12px;">Application ID:&nbsp;</span></font><font face="Arial, Helvetica, sans-serif"><span style="font-size: 12px;">{!License_Registration__c.License_Registration_Number__c}</span></font></div><div style="color: rgb(0, 0, 0);"><table class="MsoNormalTable" border="0" cellpadding="0" width="80%" style="font-size: 12pt; font-family: arial; width: 80%;">
+ <tbody><tr>
+  <td style="padding:.75pt .75pt .75pt .75pt">
+  <p><font face="Arial, sans-serif" size="2">We acknowledge receipt of your online application and fees. You have now
+  transmitted the first part of the application for a Farm Labor Contractor
+  License.<o:p></o:p></font></p>
+  <p class="MsoNormal"><font face="Arial, sans-serif" size="2">You can now purchase your Workers' Compensation Insurance
+  and obtain a bond as necessary. In order to complete your transmitted
+  application, you will need to continue filling out your application until the
+  system allows you to fully submit it for review.<o:p></o:p></font></p>
+  <p><font face="Arial, sans-serif" size="2">If you are due to take the examination and have paid the exam fee,</font></p><p><font face="Arial, sans-serif" size="2">you will receive an email with the online examination invitation. If you do not know if you are due for the examination, you
+  can call us in Oakland at (510) 285-3399 or in Fresno at (559) 248-1893.</font></p></td></tr></tbody></table><font face="Arial, sans-serif" style="" size="2">
+<br><br>
+<b style="">The FLC exam study material can be found and downloaded at <br>
+<a href="http://www.dir.ca.gov/DLSE/Resources.html">http://www.dir.ca.gov/DLSE/Resources.html</a>.<br>
+</b><br>
+<br><br>
+<b style="">IMPORTANT: Successful completion of the examination does not authorize you
+to operate as a Farm Labor Contractor. It is illegal to operate as a Farm Labor
+Contractor business without first obtaining a Farm Labor Contractor License
+from the State Labor Commissioner's Office. If you operate without a valid
+license, you will be subject to civil or criminal penalties.<br>
+</b><br>
+Thank you,<br>
+<br>
+Licensing &amp; Registration Unit</font></div>]]></td>
+</tr>
+</table>

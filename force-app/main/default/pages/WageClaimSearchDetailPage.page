@@ -1,0 +1,81 @@
+<apex:page controller="WageClaimSearchDetailPageCtrl" applyHtmlTag="false"     
+           sidebar="false"     
+           showHeader="false"     
+           cache="true"
+           readOnly="false"
+           renderAs="pdf">
+    <head>    
+        <meta http-equiv="Content-Type" content="text/html;charset=UTF-8" /> 
+        <meta name="viewport" content="width=device-width, initial-scale=1"/>
+        <style type="text/css"> 
+            .break{
+            page-break-after:always;
+            page-break-inside:avoid;
+            }
+            @page {    
+            margin-top: 5%;
+            @top-center{
+            content: element(header1);
+            }
+            @bottom-center{
+            content: "Page: " counter(page) " of " counter(pages);font-size: 80%; font-family: Source Sans Pro,sans-serif;font-size: 16px;
+            }
+            size: A4 landscape;    
+            padding-left: 8px;    
+            padding-right: 8px;      
+            }    
+            div1 {
+            display: inline-block;
+            text-align: top;
+            width: 400px;
+            padding: 6px;
+            margin: 3px;
+            }
+            .detailPage-container{
+            border: 1px solid black;
+            }
+            div{
+            padding: 5px;
+            }
+        </style>   
+    </head>
+    <div style="margin-bottom: 5px;font-family: Source Sans Pro,sans-serif;font-size: 16px;">
+        <span style="font-weight: 600;font-family: Source Sans Pro,sans-serif;font-size: 16px;"> Search Date :</span> {!MONTH(TODAY())}/{!DAY(TODAY())}/{!YEAR(TODAY())}
+    </div>
+    <apex:form style="padding: 20px;border-radius: .25rem;font-family: Source Sans Pro,sans-serif;font-size: 16px;">
+        <apex:outputLabel style="width:400px;padding: 6px;margin:3px;">
+            <h2>
+                <b>
+                    Case {!wageClaimObj.caseName}
+                </b>
+            </h2>
+        </apex:outputLabel>
+        <apex:pageBlock >
+            <apex:pageBlockSection columns="2">
+                <apex:outputLabel style="float: left;width:400px;padding: 5px;margin:3px;"><span style="font-weight: 600">Party Name</span><br/>
+                    {!wageClaimObj.accountName}</apex:outputLabel>
+                <apex:outputLabel style="float: right;width:400px;padding: 5px;margin:3px;"><span style="font-weight: 600">Party Type</span><br/>
+                    {!wageClaimObj.caseRole}</apex:outputLabel>
+                <apex:outputLabel style="float: left;width:400px;padding: 6px;margin:3px;"><span style="font-weight: 600">Case Number</span><br/>
+                    {!wageClaimObj.caseNumber} </apex:outputLabel>
+                <apex:outputLabel style="float: right;width:400px;padding: 5px;margin:3px;"><span style="font-weight: 600">DIR Office</span><br/>
+                    {!wageClaimObj.dirOffice}</apex:outputLabel>
+                <apex:outputLabel style="float: left;width:400px;padding: 5px;margin:3px;"><span style="font-weight: 600">Assigned Deputy</span><br/>
+                    {!wageClaimObj.assignedDeputy}</apex:outputLabel>
+                <apex:outputLabel style="float: right;width:400px;padding: 5px;margin:3px;"><span style="font-weight: 600">Date Filed</span><br/>
+                    <apex:outputText value="{0,date,MM/dd/yyyy}" >  
+                            <apex:param value="{!wageClaimObj.dateofDocket}"/>  
+                    </apex:outputText>
+                </apex:outputLabel>
+                <apex:outputLabel style="float: left;width:400px;padding: 5px;margin:3px;"><span style="font-weight: 600">NAICS Code</span><br/>
+                    {!wageClaimObj.naicsCode}</apex:outputLabel>
+                <apex:outputLabel style="float: right;width:400px;padding: 5px;margin:3px;"><span style="font-weight: 600">NAICS Industry</span><br/>
+                    {!wageClaimObj.naicsTitle}</apex:outputLabel>
+                <apex:outputLabel style="float: left;width:400px;padding: 5px;margin:3px;"><b>Low Wage Industry</b><br/>
+                    {!wageClaimObj.lowWageIndustry}</apex:outputLabel>
+                <apex:outputLabel style="float: right;width:400px;padding: 5px;margin:3px;"><span style="font-weight: 600">Case Status</span><br/>
+                    {!wageClaimObj.caseStatus}</apex:outputLabel>
+            </apex:pageBlockSection>
+        </apex:pageBlock>
+    </apex:form>
+</apex:page>

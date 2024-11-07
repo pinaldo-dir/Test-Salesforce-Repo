@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <encodingKey>ISO-8859-1</encodingKey>
+    <name>30 day renewal notice for different license type</name>
+    <style>none</style>
+    <subject>{!License_Registration__c.License_Registration_Type__c} {!License_Registration__c.Application_Type__c} Renewal Application Outstanding - 30 day notification</subject>
+    <type>text</type>
+    <uiType>Aloha</uiType>
+</EmailTemplate>

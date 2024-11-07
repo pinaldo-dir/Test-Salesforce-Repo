@@ -1,0 +1,12 @@
+.tableFixHead {
+    overflow-y: auto;
+    max-height: 300px;
+  }
+  .tableFixHead thead th {
+    position: sticky;
+    top: 0;
+    z-index: 500;
+  }
+  .slds-truncate{
+    color:white;
+  }

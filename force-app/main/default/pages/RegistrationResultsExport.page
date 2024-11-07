@@ -1,0 +1,63 @@
+<!--<apex:page controller="RegistrationResultsExportController" sidebar="false" >-->
+<apex:page controller="RegistrationResultsExportController" sidebar="false" contentType="application/vnd.ms-excel" readOnly="true">
+    <table>
+        <th>
+            <td>Status</td>
+            <td>License/Registration Number</td>
+            <td>Registration Type</td>
+            <td>Legal Entity Name</td>
+            <td>Registration Start Date</td>
+            <td>Registration Expiration Date</td>
+            <td>Address</td>
+            <td>City</td>
+            <td>State</td>
+            <td>Zip</td>
+        	<td>Workers' Compensation Carrier</td>
+        	<td>Workers' Compensation Effective Date</td>
+        	<td>Workers' Compensation Expiration Date</td>
+        	<td>DBA Name</td>
+        	<td>DBA Active</td>
+
+		</th>
+    	<apex:repeat id="regDetails" value="{!regList}" var="newreg">
+            <tr>
+                <td></td>
+                <td>{!newReg.Status__c}</td>
+                <td>{!newReg.License_Registration_Number__c}</td>
+                <td>{!newReg.License_Registration_Type__c}</td>
+                <td>{!newreg.Legal_Entity_Name__c}</td>
+                <td><apex:outputText value="{0,date,MM/dd/yy}"> <apex:param value="{!newReg.Effective_Date__c}" /> </apex:outputText></td>
+                <td><apex:outputText value="{0,date,MM/dd/yy}"> <apex:param value="{!newReg.Expiration_Date__c}" /> </apex:outputText></td>
+                <td>{!newreg.Mailing_Address_Line_1__c}</td>
+                <td>{!newreg.Mailing_City__c}</td>
+                <td>{!newreg.Mailing_State__c}</td>
+                <td>{!newreg.Mailing_Postal_Code__c}</td>
+                <td>{!newreg.Workers_Compensation_Carrier__c}</td>
+                <td><apex:outputText value="{0,date,MM/dd/yy}"> <apex:param value="{!newReg.WCI_Effective_Date__c}" /> </apex:outputText></td>
+                <td><apex:outputText value="{0,date,MM/dd/yy}"> <apex:param value="{!newReg.WCI_Expiration_Date__c}" /> </apex:outputText></td>
+                <td><apex:repeat id="dbaDetails" value="{!newreg.DBAS__r}" var="newDba">
+                    <tr>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td>{!newDba.Name}</td>  
+                        <td>{!newDba.Active__c}</td>
+                     </tr>
+            		</apex:repeat>
+                </td>   
+    	</tr>
+    </apex:repeat>      
+</table>
+
+</apex:page>

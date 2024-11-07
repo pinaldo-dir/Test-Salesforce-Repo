@@ -1,0 +1,208 @@
+<aura:component controller="JudgmentSearchResultController" implements="flexipage:availableForRecordHome,force:hasRecordId,forceCommunity:availableForAllPageTypes,lightning:isUrlAddressable" access="global" >
+    <!-- Attribute for Filters -->
+    <aura:attribute name="liststatus" type="String" default=""/> 
+    <aura:attribute name="asOfDate" type="String" />
+    <aura:attribute name="naics" type="String" default=""/>
+    <aura:attribute name="accountName" type="String" default=""/>
+    <aura:attribute name="city" type="String" default=""/>
+    <aura:attribute name="zipCode" type="String" default=""/>
+    <aura:attribute name="judgmentdatefrom" type="String" default=""/>
+    <aura:attribute name="judgmentdateto" type="String" default=""/>
+    <aura:attribute name="court" type="String" default=""/>
+    <aura:attribute name="judgmentstatus" type="String" default=""/>
+    <aura:attribute name="defandantemployer" type="String" default=""/>
+    <aura:attribute name="judgmenttotal" type="String" default=""/>
+    <aura:attribute name="citationnumber" type="String" default=""/>
+    <aura:attribute name="urlParamsForFilters" type="String" default="" />
+    <aura:attribute name="searchType" type="Boolean" />
+    <aura:attribute name="showPdfButtons" type="Boolean" default="false"/>
+    <aura:attribute name="searchName" type="String" />
+    <aura:attribute name="sortingOrder" type="String"/>
+    <aura:attribute name="selectedHeader" type="String" />
+    
+    <aura:attribute name="isLoading" type="Boolean" default="false" />
+    <aura:attribute name="isExcelDownload" type="Boolean" default="false"/>
+    <aura:attribute name="showSearchFilters" type="Boolean" />
+    <!--use JQuery Data Table css,Js and jQUERY js file in lightning component by using ltng:require component-->
+    <ltng:require styles="{! $Resource.DIRJqueryDataTableFile + '/DataTables-1.10.16/media/css/jquery.dataTables.min.css'}" 
+                  scripts="{!join(',', 
+                           $Resource.jQuery364 , 
+                           $Resource.DIRJqueryDataTableFile + '/DataTables-1.10.16/media/js/jquery.dataTables.min.js')
+                           }" />
+    
+    <aura:attribute name="judgmentRecordsPerPage" type="list" access="public"/>
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}"/> 
+    <!-- Pagination attribute Start -->
+    <aura:attribute name="judgmentRecordsList" type="list" access="public"/>
+    <aura:attribute name="portDrayageRecordsList" type="list" access="public"/>
+    <aura:attribute name="judgmentRecordsListForCsv" type="list" access="public"/>
+    <aura:attribute name="portDrayageRecordsListForCsv" type="list" access="public"/>
+    <aura:attribute name="page" type="integer" description="using for store page Number" default="1"/>
+    <aura:attribute name="currentPageNumber" type="Integer" default="1"/>
+    <aura:attribute name="pageSize" type="Integer" default="10"/>
+    <aura:attribute name="totalPages" type="Integer" default="0"/>
+    <aura:attribute name="pageList" type="List"/>
+    <aura:attribute name="totalJudgmentRecordsSize" type="Integer" access="public" default="0"/>
+    <aura:attribute name="judgmentRecordStart" type="Integer" access="public" default="0"/>
+    <aura:attribute name="judgmentRecordEnd" type="Integer" access="public" default="0"/>
+    <aura:attribute name="displayDisclaimerContent" type="Boolean" access="public" default="false"/>
+    
+    <!-- Pagination attribute end -->
+    <head><ltng:require styles="{!$Resource.JudgmentSearchCss}" /></head>
+    <!--JudgmentRecordsRetrieve Event handler 
+    <aura:handler event="c:JudgmentRecordsRetrieve" action="{!c.loadJudgmentRecords}"/>
+    -->
+    <div class="result-container slds-is-relative" style="overflow-x:auto;"> 
+        <aura:if isTrue="{! or(v.isLoading, v.isExcelDownload)}">
+            <div class="spins">
+                <!--<lightning:spinner alternativeText="Loading" size="medium" />-->
+            </div>
+        </aura:if>
+        <div class="slds-col slds-small-size_10-of-12 slds-medium-size_10-of-12 slds-p-around_medium ">
+            <nav role="navigation" aria-label="Breadcrumbs">
+                <ol class="slds-breadcrumb slds-list_horizontal slds-wrap">
+                    <li class="breadcrumb">
+                        <a href="https://www.dir.ca.gov/">DIR</a>
+                    </li>&nbsp;&nbsp;
+                    <li>
+                        |
+                    </li>&nbsp;&nbsp;
+                    <li class="breadcrumb">
+                        <a onclick="{!c.backToSearch}">Judgment Search</a>
+                    </li>&nbsp;&nbsp;
+                    <li>
+                        |
+                    </li>&nbsp;&nbsp;
+                    <li class="breadcrumb">
+                        <a style="color: #666;pointer-events: none;" href="javascript:void(0);">{!v.searchName}</a>
+                    </li>&nbsp;
+                </ol>
+            </nav>
+        </div>
+        <br></br>
+        <div class="slds-col slds-small-size_10-of-12 slds-medium-size_10-of-12 slds-p-around_medium">
+            <div class="formHeading">
+                <h1>{!v.searchName}</h1>
+            </div>
+        </div>
+        <div class="result-page-content" >
+            <aura:if isTrue="{!and(empty(v.judgmentRecordsList), !empty(v.portDrayageRecordsList))}">
+                <div class="slds-col slds-small-size_10-of-12 slds-medium-size_12-of-12 slds-p-around_medium slds-clearfix">
+                    <div class="slds-float_right">
+                        <p><b>*Disclaimer: </b> Once the judgment is issued, the judgment balance is shown as due in the Labor Commissioner’s records. 
+                            This amount does not reflect post-judgment interest, costs or other amounts that may be added to the judgment after issuance.</p>
+                    </div>
+                </div>
+                <aura:set attribute="else">
+                    <aura:if isTrue="{!v.displayDisclaimerContent}">
+                        <!--<c:JudgmentSearchResultDisclaimerCmp displayListStatusContent="{!v.displayListStatusContent}" /> -->
+                        <div class="slds-p-around_medium" >
+                            <p> <b>*Disclaimer: </b> Once the judgment is issued, the judgment balance is shown as due in the Labor Commissioner’s records.
+                                This amount does not reflect post-judgment interest, costs or other amounts that may be added to the judgment after issuance. Furthermore this does not reflect any payments that may have been made since the judgment 
+                                was issued. Defendants often make payments to claimants directly without the knowledge of the Labor Commissioner's Office. 
+                                Thus judgments shown as open/unpaid may have been paid in whole or in part.
+                            </p>
+                        </div>
+                    </aura:if>
+                </aura:set>
+            </aura:if>
+            <div class="slds-col slds-small-size_10-of-12 slds-medium-size_12-of-12 slds-p-around_medium slds-clearfix">
+                <div class="slds-float_right">
+                    <aura:if isTrue="{!v.showPdfButtons}"><button class="downloadButtons" onclick="{!c.handleDownloadCsv}">Download to Excel</button> 
+                    </aura:if>
+                    <aura:if isTrue="{!or(!empty(v.judgmentRecordsList), !empty(v.portDrayageRecordsList))}">
+                        
+                        <button class="downloadButtons" onclick="{!c.handleDownloadPdf}">Download PDF</button>
+                    </aura:if>
+                    <button class="downloadButtons" onclick="{!c.backToSearch}">Back to Search</button>
+                </div>
+            </div> 
+            <div class="slds-p-around_medium">
+                <table class="dataTable slds-table slds-table_bordered slds-border_right slds-border_left slds-table_cell-buffer " id="lightningDataTable">
+                    <thead >
+                        <aura:if isTrue="{!v.searchType}">
+                            <tr class="slds-line-height_reset">
+                                <th class="slds-cell-wrap thStyle" scope="col">
+                                    <div  title="Action">Action</div>
+                                </th>
+                                <!--<th class="slds-cell-wrap thStyle" scope="col">
+                                    <div  title="Claimant / Plaintiff Name"> Claimant / Plaintiff Name<div class="sortIcon"> </div>
+                                    </div>
+                                </th>-->
+                                <th class="slds-cell-wrap thStyle" scope="col">
+                                    <div  title="Judgment Name">Judgment Name<div class="sortIcon"> </div></div>
+                                </th>
+                                <th class="slds-cell-wrap thStyle" scope="col">
+                                    <div  title="Defendant/Employer Name">Defendant / Employer Name<div class="sortIcon"> </div></div>
+                                </th>
+                                <th class="slds-cell-wrap thStyle" scope="col">
+                                    <div  title="Primary Address">Defendant Address<div class="sortIcon"> </div></div>
+                                </th>
+                                <th class="slds-cell-wrap thStyle" scope="col">
+                                    <div  title="As Successor To">As Successor To<div class="sortIcon"> </div></div>
+                                </th>
+                                <th class="slds-cell-wrap thStyle" scope="col">
+                                    <div  title="Judgment Total">Judgment Total*<div class="sortIcon"> </div></div>
+                                </th>
+                                <th class="slds-cell-wrap thStyle" scope="col">
+                                    <div  title="Confirmed ON List Date">Confirmed ON List Date<div class="sortIcon"> </div></div>
+                                </th>
+                               <!-- <th class="slds-cell-wrap thStyle" scope="col">
+                                    <div  title="Confirmed Off List Date">Confirmed OFF List Date<div class="sortIcon"> </div></div>
+                                </th>-->
+                            </tr>
+                            <aura:set attribute="else">
+                                <tr class="slds-line-height_reset">
+                                    <th class="slds-cell-wrap thStyle" scope="col">
+                                        <div  title="Action">Action</div>
+                                    </th>
+                                    <th class="slds-cell-wrap thStyle" scope="col">
+                                        <div  title="Port Drayage Motor Carrier Judgment Status"><a href="" onclick="{!c.openListLaborCode}" style="text-decoration:none;color:white;">Labor Code § 2810.4</a></div>
+                                    </th>
+                                    <!--<th class="slds-cell-wrap thStyle" scope="col">
+                                        <div  title="Account Name"> Claimant / Plaintiff Name<div class="sortIcon"> </div></div>
+                                    </th>-->
+                                    <th class="slds-cell-wrap thStyle" scope="col">
+                                        <div  title="Judgment Name">Judgment Name<div class="sortIcon"> </div></div>
+                                    </th>
+                                    <th class="slds-cell-wrap thStyle" scope="col">
+                                        <div  title="Judgment Status">Judgment Status<div class="sortIcon"> </div></div>
+                                    </th>
+                                    <th class="slds-cell-wrap thStyle" scope="col">
+                                        <div  title="Court">Court<div class="sortIcon"> </div></div>
+                                    </th>
+                                    <th class="slds-cell-wrap thStyle" scope="col">
+                                        <div  title="Defendant/Employer Name">Defendant / Employer Name<div class="sortIcon"> </div></div>
+                                    </th>
+                                    <th class="slds-cell-wrap thStyle" scope="col">
+                                        <div  title="Primary Address">Defendant Address<div class="sortIcon"> </div></div>
+                                    </th>
+                                    <th class="slds-cell-wrap thStyle" scope="col">
+                                        <div  title="Judgment Total">Judgment Total*<div class="sortIcon"> </div></div>
+                                    </th>
+                                </tr>
+                            </aura:set>
+                        </aura:if> 
+                        
+                    </thead>
+                    <tbody>
+                        <aura:if isTrue="{!v.searchType}">
+                            <aura:iteration items="{!v.portDrayageRecordsList}" var="item"> 
+                                <tr class="slds-hint-parent">
+                                    <c:PortDrayageResult JudgmentObj="{!item}" urlParamsForFilters="{!v.urlParamsForFilters}"/>
+                                </tr>
+                            </aura:iteration>
+                            <aura:set attribute="else">
+                                <aura:iteration items="{!v.judgmentRecordsList}" var="item"> 
+                                    <tr class="slds-hint-parent">
+                                        <c:JudgmentSearchResult JudgmentObj="{!item}" urlParamsForFilters="{!v.urlParamsForFilters}"/>
+                                    </tr>
+                                </aura:iteration>
+                            </aura:set>
+                        </aura:if>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</aura:component>

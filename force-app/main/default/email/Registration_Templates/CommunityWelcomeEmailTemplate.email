@@ -1,0 +1,11 @@
+Hi {!Receiving_User.FirstName},
+
+            Welcome to {!Community_Name}! To get started, go to {!Community_Url}
+
+            Username: {!Receiving_User.Email}
+
+            For Entertainment Work Permit questions, please contact EWP@dir.ca.gov.
+            For all other license and registration questions, please contact DLSE.Licensing@dir.ca.gov.
+ 
+            Registration Services
+            Labor Commissioner's Office

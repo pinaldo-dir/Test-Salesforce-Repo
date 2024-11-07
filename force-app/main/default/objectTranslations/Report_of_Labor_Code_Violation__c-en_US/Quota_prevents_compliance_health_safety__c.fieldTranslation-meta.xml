@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+        <label><!-- Quota prevents compliance health safety --></label>
+        <name>Quota_prevents_compliance_health_safety__c</name>
+    </CustomFieldTranslation>

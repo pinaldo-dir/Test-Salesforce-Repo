@@ -1,0 +1,8 @@
+A new employee has assumed a filer position.
+{!Appointment__c.Employee_Contact__c}
+{!Appointment__c.Position__c}
+{!Appointment__c.Division__c}
+{!Appointment__c.Classification__c}
+{!Appointment__c.Start_Date__c}
+Please see link below for appointment detail:
+{!Appointment__c.Link}

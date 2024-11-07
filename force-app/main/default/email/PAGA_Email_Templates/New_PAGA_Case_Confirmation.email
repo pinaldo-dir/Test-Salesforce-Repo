@@ -1,0 +1,19 @@
+{!DIR_Case__c.CreatedDate}
+
+LWDA Case No. {!DIR_Case__c.Case_Number__c}
+Law Firm : {!DIR_Case__c.Law_Firm_for_PAGA_Case__c}
+Plaintiff Name : {!DIR_Case__c.Plaintiff_for_PAGA_Case_Text__c}
+Employer: {!DIR_Case__c.Employer__c}
+Filing Fee : {!DIR_Case__c.Filing_Fees_for_PAGA__c}
+IFP Claimed : {!IF(DIR_Case__c.IFP_Claimed__c,"Yes","No")}
+
+Item submitted: Initial PAGA Notice
+
+Thank you for your submission to the Labor and Workforce Development Agency. Please make a note of the LWDA Case No. above as you may need this number for future reference when filing any subsequent documents for this Case. 
+
+If you have questions or concerns regarding this submission or your case, please send an email to pagainfo@dir.ca.gov.
+
+DIR PAGA Unit on behalf of
+Labor and Workforce Development Agency
+
+Website: http://labor.ca.gov/Private_Attorneys_General_Act.htm

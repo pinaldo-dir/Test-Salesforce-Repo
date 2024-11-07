@@ -1,0 +1,8 @@
+You have been assigned a new Bug: {!Bug__c.Name}
+
+Project: {!Bug__c.Project__c}
+Created By: {!Bug__c.CreatedBy}
+Bug Name: {!Bug__c.Bug_Name__c}
+{!Bug__c.Severity__c}
+{!Bug__c.Description__c}
+Link: {!Bug__c.Link}

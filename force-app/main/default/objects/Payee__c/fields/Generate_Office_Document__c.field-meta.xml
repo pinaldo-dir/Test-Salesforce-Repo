@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Generate_Office_Document__c</fullName>
+    <externalId>false</externalId>
+    <formula>"&amp;id=" + Id +
+"&amp;queryid=[PayeeInfo]a0md0000008uSKgAAM?pv0=" + Id + ",[Office]a0md00000064cjJ?pv0=" + $User.Id + ",[Governor]a0md0000003l2S0" +
+"&amp;templategroup=Payee" +
+"&amp;ofn={Template.Label} " + Case_Role__c +
+"&amp;sc0=1" +
+"&amp;sc1=Attachments" +
+"&amp;qmode=Download" +
+"&amp;templateid=a0nt0000000144v"</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>Generate Office Document</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

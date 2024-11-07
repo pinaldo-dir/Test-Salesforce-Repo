@@ -1,0 +1,261 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+        <label><!-- Industry Code --></label>
+        <name>Industry_Code__c</name>
+        <picklistValues>
+            <masterLabel>101 Other (carnivals, charter fishing, golf &amp; tennis facilities, marinas, ski lifts)</masterLabel>
+            <translation><!-- 101 Other (carnivals, charter fishing, golf &amp; tennis facilities, marinas, ski lifts) --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>102 Theaters</masterLabel>
+            <translation><!-- 102 Theaters --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>103 Amusement Parks</masterLabel>
+            <translation><!-- 103 Amusement Parks --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>104 Stables and Horse Racing</masterLabel>
+            <translation><!-- 104 Stables and Horse Racing --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>113 Broadcasting Industry-all</masterLabel>
+            <translation><!-- 113 Broadcasting Industry-all --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>121 Motion Picture Industry</masterLabel>
+            <translation><!-- 121 Motion Picture Industry --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>133 Packing, processing agricultural commodities on farmer's land</masterLabel>
+            <translation><!-- 133 Packing, processing agricultural commodities on farmer&apos;s land --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>140 Occupations involved in growing/harvesting crops &amp; all maintenance</masterLabel>
+            <translation><!-- 140 Occupations involved in growing/harvesting crops &amp; all maintenance --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>142 Irrigation Districts (employees involved in delivering water to farmers)</masterLabel>
+            <translation><!-- 142 Irrigation Districts (employees involved in delivering water to farmers) --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>144 Commercial Fishing</masterLabel>
+            <translation><!-- 144 Commercial Fishing --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>151 Private Households</masterLabel>
+            <translation><!-- 151 Private Households --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>161 On-site Logging</masterLabel>
+            <translation><!-- 161 On-site Logging --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>162 On-site Construction</masterLabel>
+            <translation><!-- 162 On-site Construction --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>163 On-site Mining</masterLabel>
+            <translation><!-- 163 On-site Mining --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>164 On-site Drilling</masterLabel>
+            <translation><!-- 164 On-site Drilling --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>180     All manufacturing except computer and garment</masterLabel>
+            <translation><!-- 180     All manufacturing except computer and garment --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>181 Garment Manufacturing except AB 633</masterLabel>
+            <translation><!-- 181 Garment Manufacturing except AB 633 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>185 Printing &amp; Textile Products</masterLabel>
+            <translation><!-- 185 Printing &amp; Textile Products --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>189 Computer Industry</masterLabel>
+            <translation><!-- 189 Computer Industry --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>195 Other (auto wrecking, machine shops, tool die shops, sawmills)</masterLabel>
+            <translation><!-- 195 Other (auto wrecking, machine shops, tool die shops, sawmills) --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>223 Beauty Shops &amp; Barber Shops</masterLabel>
+            <translation><!-- 223 Beauty Shops &amp; Barber Shops --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>229  Other (funeral parlors, weight and health clubs)</masterLabel>
+            <translation><!-- 229  Other (funeral parlors, weight and health clubs) --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>303 Canning, Freezing, and Preserving Establishments</masterLabel>
+            <translation><!-- 303 Canning, Freezing, and Preserving Establishments --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>419 Communications, Utilities, Newspapers</masterLabel>
+            <translation><!-- 419 Communications, Utilities, Newspapers --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>429 Banks, Finance, Mortgage Companies, Insurance, Real Estate, Travel Agencies</masterLabel>
+            <translation><!-- 429 Banks, Finance, Mortgage Companies, Insurance, Real Estate, Travel Agencies --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>439 Other (chainsaw &amp; lawn mower repair, home health care, employment agencies, non boarding schools, cable TV)</masterLabel>
+            <translation><!-- 439 Other (chainsaw &amp; lawn mower repair, home health care, employment agencies, non boarding schools, cable TV) --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>440 Health Care Industry</masterLabel>
+            <translation><!-- 440 Health Care Industry --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>449 Professional Offices (architects, attorneys, CPAs, dentists, doctors)</masterLabel>
+            <translation><!-- 449 Professional Offices (architects, attorneys, CPAs, dentists, doctors) --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>450 Computer Industry (non-manufacturing)</masterLabel>
+            <translation><!-- 450 Computer Industry (non-manufacturing) --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>511 Eating &amp; Drinking Places (ice cream parlors, donut shops)</masterLabel>
+            <translation><!-- 511 Eating &amp; Drinking Places (ice cream parlors, donut shops) --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>515 Hotels, Motels, Resorts, Organized Camps, Trailer Parks, Guest Ranches</masterLabel>
+            <translation><!-- 515 Hotels, Motels, Resorts, Organized Camps, Trailer Parks, Guest Ranches --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>516 Health Care Industry, Hospitals</masterLabel>
+            <translation><!-- 516 Health Care Industry, Hospitals --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>517 Rest Homes, Sanitariums, Board &amp; Care Homes for the aged, child care &amp; juvenile facilities</masterLabel>
+            <translation><!-- 517 Rest Homes, Sanitariums, Board &amp; Care Homes for the aged, child care &amp; juvenile facilities --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>524 Animal Care, Pest Control, Landscaping (other than new construction), cemeteries, upholstery cleaning, mini storage, tree service</masterLabel>
+            <translation><!-- 524 Animal Care, Pest Control, Landscaping (other than new construction), cemeteries, upholstery cleaning, mini storage, tree service --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>534 Janitorial</masterLabel>
+            <translation><!-- 534 Janitorial --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>620 Dry Cleaning (carpets and draperies)</masterLabel>
+            <translation><!-- 620 Dry Cleaning (carpets and draperies) --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>621 Laundry</masterLabel>
+            <translation><!-- 621 Laundry --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>633 Garment under AB 633</masterLabel>
+            <translation><!-- 633 Garment under AB 633 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>677 Other</masterLabel>
+            <translation><!-- 677 Other --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>709 Wholesale</masterLabel>
+            <translation><!-- 709 Wholesale --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>711 Retail (auto sales, gas stations, sand &amp; gravel, department stores, nurseries, auto wrecking, christmas tree sales)</masterLabel>
+            <translation><!-- 711 Retail (auto sales, gas stations, sand &amp; gravel, department stores, nurseries, auto wrecking, christmas tree sales) --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>729 Other (including commodity rentals, storage, TV repair, recycling</masterLabel>
+            <translation><!-- 729 Other (including commodity rentals, storage, TV repair, recycling --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>873 Packing/Processing agricultural commodites</masterLabel>
+            <translation><!-- 873 Packing/Processing agricultural commodites --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>913 Transportation Companies (airplanes, ambulances, buses, disposal services, taxis, tours, trucks)</masterLabel>
+            <translation><!-- 913 Transportation Companies (airplanes, ambulances, buses, disposal services, taxis, tours, trucks) --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>919 Government Employees</masterLabel>
+            <translation><!-- 919 Government Employees --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>922 Warehousing (storage of commodities moved)</masterLabel>
+            <translation><!-- 922 Warehousing (storage of commodities moved) --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>932 Other (delivery, parking, rentals, tow trucks)</masterLabel>
+            <translation><!-- 932 Other (delivery, parking, rentals, tow trucks) --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>943 Auto Repair (garages and car washes)</masterLabel>
+            <translation><!-- 943 Auto Repair (garages and car washes) --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Order 1</masterLabel>
+            <translation><!-- Order 1 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Order 10</masterLabel>
+            <translation><!-- Order 10 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Order 11</masterLabel>
+            <translation><!-- Order 11 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Order 12</masterLabel>
+            <translation><!-- Order 12 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Order 13</masterLabel>
+            <translation><!-- Order 13 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Order 14</masterLabel>
+            <translation><!-- Order 14 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Order 15</masterLabel>
+            <translation><!-- Order 15 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Order 16</masterLabel>
+            <translation><!-- Order 16 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Order 2</masterLabel>
+            <translation><!-- Order 2 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Order 3</masterLabel>
+            <translation><!-- Order 3 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Order 4</masterLabel>
+            <translation><!-- Order 4 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Order 5</masterLabel>
+            <translation><!-- Order 5 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Order 6</masterLabel>
+            <translation><!-- Order 6 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Order 7</masterLabel>
+            <translation><!-- Order 7 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Order 8</masterLabel>
+            <translation><!-- Order 8 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Order 9</masterLabel>
+            <translation><!-- Order 9 --></translation>
+        </picklistValues>
+    </CustomFieldTranslation>

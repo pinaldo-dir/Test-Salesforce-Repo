@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Complex_Plist_Required_When_Checked</fullName>
+    <active>true</active>
+    <errorConditionFormula>AND( 
+    Check_if_this_claim_is_complex__c = TRUE, 
+    ISBLANK(Complex_Process__c)
+)</errorConditionFormula>
+    <errorDisplayField>Complex_Process__c</errorDisplayField>
+    <errorMessage>Complex Process Picklist is required when If this claim complex is checked</errorMessage>
+</ValidationRule>

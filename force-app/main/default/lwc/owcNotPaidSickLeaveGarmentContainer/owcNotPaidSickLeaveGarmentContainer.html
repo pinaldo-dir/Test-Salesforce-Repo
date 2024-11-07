@@ -1,0 +1,39 @@
+<template>
+    <div class="slds-grid slds-wrap">
+        <div class="slds-col slds-medium-size_1-of-1 slds-large-size_1-of-1">
+            <template if:true={isrenderSickLeaveSection}>
+                <template for:each={renderSickLeaveSection} for:item="sickLeaveObj">
+                    <div class="" key={sickLeaveObj.Id}>
+                        <div class="slds-grid slds-wrap">
+                                <h2 class="slds-col slds-medium-size_5-of-6 slds-large-size_5-of-6 slds-p-around_medium">
+                                    {sickLeaveObj.heading}
+                                </h2>
+                            
+                            <div class="slds-col slds-p-top_medium slds-p-bottom_medium slds-medium-size_1-of-6 slds-large-size_1-of-6">
+                                <template if:false={iswagedefpreview}>
+                                    <template if:true={sickLeaveObj.button}>
+                                        <lightning-button variant="brand" label={customLabelValues.OWC_delete_claim_button} title={customLabelValues.OWC_delete_claim_button} name={sickLeaveObj.sectionId} onclick={handleSectionDelete} class="slds-float_right owcButtonStyle"></lightning-button>
+                                    </template>
+                                </template>
+                            </div>
+                            <template if:false={sickLeaveObj.button}>
+                                <div class="slds-p-bottom_medium slds-p-left_medium slds-p-right_medium slds-col slds-size_1-of-1 slds-medium-size_1-of-1 slds-large-size_1-of-1">
+                                    {customLabelValues.OWC_wage_def_sick_claim_text}
+                                </div>
+                            </template>
+                        </div>
+                        <div class="slds-p-left_medium">
+                            <c-owc-Not-Paid-Sick-Leave-Garment-Child iswagedefpreview={iswagedefpreview} paystubsickrecord={paystubsickrecord} onovertimecustominfoevent={handleOverTimeInfoEvent} onovertimedefchildvalidityevent={handleOverTimeChildValidityEvent} sectionid={sickLeaveObj.sectionId} onovertimesectiondeleteevent={handleEmployerSectionDeletedData}></c-owc-Not-Paid-Sick-Leave-Garment-Child>
+                        </div>
+                    </div>
+                </template>
+            </template>
+        </div>
+        <div class="slds-p-left_medium slds-p-bottom_medium slds-col slds-medium-size_1-of-1 slds-large-size_1-of-1">
+            <template if:false={iswagedefpreview}>
+                {customLabelValues.OWC_sick_leave_label}&nbsp;
+                <lightning-button class="owcAdditionalButtonStyle" icon-name="utility:add" variant="brand" label={customLabelValues.OWC_repeat_claim} onclick={addMoreSickLeaveSection}></lightning-button>
+            </template>
+        </div>
+    </div>
+</template>

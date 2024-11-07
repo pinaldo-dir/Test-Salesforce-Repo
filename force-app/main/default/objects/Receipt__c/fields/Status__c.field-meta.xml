@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Status__c</fullName>
+    <externalId>false</externalId>
+    <label>Status</label>
+    <required>true</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>New</fullName>
+                <default>false</default>
+                <label>New</label>
+            </value>
+            <value>
+                <fullName>Deposit Pending</fullName>
+                <default>false</default>
+                <label>Deposit Pending</label>
+            </value>
+            <value>
+                <fullName>Deposited</fullName>
+                <default>false</default>
+                <label>Deposited</label>
+            </value>
+            <value>
+                <fullName>Voided</fullName>
+                <default>false</default>
+                <label>Voided</label>
+            </value>
+            <value>
+                <fullName>Deposited-Returned</fullName>
+                <default>false</default>
+                <label>Deposited-Returned</label>
+            </value>
+            <value>
+                <fullName>Deposited-Returned Deduction</fullName>
+                <default>false</default>
+                <label>Deposited-Returned Deduction</label>
+            </value>
+            <value>
+                <fullName>Corrective Entry</fullName>
+                <default>false</default>
+                <label>Corrective Entry</label>
+            </value>
+            <value>
+                <fullName>Mailed to Employee</fullName>
+                <default>false</default>
+                <label>Mailed to Employee</label>
+            </value>
+            <value>
+                <fullName>Restitution Warrant sent to JEU</fullName>
+                <default>false</default>
+                <label>Restitution Warrant sent to JEU</label>
+            </value>
+            <value>
+                <fullName>Returned to Sender</fullName>
+                <default>false</default>
+                <label>Returned to Sender</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

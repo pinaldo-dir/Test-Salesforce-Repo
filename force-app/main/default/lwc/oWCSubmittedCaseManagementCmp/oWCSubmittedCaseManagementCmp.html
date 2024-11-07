@@ -1,0 +1,44 @@
+<template>
+    <h1 class="slds-p-around_medium slds-text-heading_large owcHeadingStyle">{customLabelValues.OWC_submitted_claim_label}</h1>
+    <div class="tableFixHead">
+      <table class="slds-table slds-table_cell-buffer slds-table_bordered slds-border_left slds-border_right" aria-labelledby="element-with-table-label other-element-with-table-label">
+        <thead>
+          <tr class="slds-line-height_reset">
+            <th class="" scope="col">
+              <div class="slds-truncate" title="Draft">{customLabelValues.OWC_submitted_case_label}</div>
+            </th>
+            <th class="" scope="col">
+              <div class="slds-truncate" title="Draft">{customLabelValues.OWC_case_status_label}</div>
+            </th>
+          </tr>
+        </thead>
+        <tbody>
+          <template if:false={isSubmittedRecord}>
+            <tr>
+              <th scope="col" class="slds-cell-wrap">
+                <div>
+                  {customLabelValues.OWC_no_record_error}
+                </div>
+              </th>
+            </tr>
+          </template>
+          <template if:true={isSubmittedRecord}>
+            <template for:each={submittedCaseRecords} for:item="caseObj">
+              <tr key={caseObj.recordId}>
+                  <td scope="col" class="slds-cell-wrap">
+                      <div>
+                        <a href="javascript:void(0);" name={caseObj.recordId} onclick={handleCaseManagement} tabindex="-1">{caseObj.caseName}</a>
+                      </div>
+                  </td>
+                  <td scope="col" class="slds-cell-wrap">
+                    <div>
+                      {caseObj.status}
+                    </div>
+                </td>
+              </tr>
+            </template>
+          </template>
+        </tbody>
+      </table>
+    </div>
+  </template>

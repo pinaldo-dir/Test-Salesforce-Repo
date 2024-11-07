@@ -1,0 +1,10 @@
+Hello {!DIR_Case__c.Assigned_Deputy_Name__c}
+
+Inspection Request {!Inspection_Request__c.Name} has had your  Recommendation APPROVED by the Senior Deputy.  The following comments were left:
+
+{!ApprovalRequest.Comments}
+
+The due date for this request is {!Inspection_Request__c.Due_Date__c}
+
+You may view this Inspection Request Directly in Salesforce at 
+{!Inspection_Request__c.Link}

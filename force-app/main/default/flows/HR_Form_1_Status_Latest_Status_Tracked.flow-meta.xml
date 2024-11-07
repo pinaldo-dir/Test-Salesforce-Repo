@@ -1,0 +1,496 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>53.0</apiVersion>
+    <assignments>
+        <name>Assign_Loop_Current_Status_to_Variable</name>
+        <label>Assign Loop Current Status to Variable</label>
+        <locationX>741</locationX>
+        <locationY>487</locationY>
+        <assignmentItems>
+            <assignToReference>VarStatusType</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>Loop_Tracked_Status.Form1_Status_Type__c</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>Var_Initial_Date_Tracked_Status</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>Loop_Tracked_Status.Date_of_Status__c</elementReference>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Loop_Tracked_Status</targetReference>
+        </connector>
+    </assignments>
+    <decisions>
+        <name>Any_Record_Found</name>
+        <label>Any Record Found?</label>
+        <locationX>824</locationX>
+        <locationY>134</locationY>
+        <defaultConnector>
+            <targetReference>Loop_Tracked_Status</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>No_Record_Found</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>Collection_Tracked_Status</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Update_Form_1_Tracked_Status_to_NULL</targetReference>
+            </connector>
+            <label>No Record Found</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <description>Use 1/1/1900 as initial date to compare</description>
+        <name>Compare_Date_to_Find_Max</name>
+        <label>Compare Date to Find Max</label>
+        <locationX>1163</locationX>
+        <locationY>479</locationY>
+        <defaultConnector>
+            <targetReference>Loop_Tracked_Status</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Less Than VarInitialDate</defaultConnectorLabel>
+        <rules>
+            <name>Greater_Equal_to_VarInitialDate</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>Loop_Tracked_Status.Date_of_Status__c</leftValueReference>
+                <operator>GreaterThanOrEqualTo</operator>
+                <rightValue>
+                    <elementReference>Var_Initial_Date_Tracked_Status</elementReference>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>Loop_Tracked_Status.Error_or_Invalid__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Assign_Loop_Current_Status_to_Variable</targetReference>
+            </connector>
+            <label>Greater Equal to VarInitialDate</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <description>Records of type &apos;Tracked Status&apos;</description>
+        <name>Tracked_Status_Records</name>
+        <label>Tracked Status Records</label>
+        <locationX>374</locationX>
+        <locationY>349</locationY>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>Tracked_Status</name>
+            <conditionLogic>or</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.Form1_Status_Type__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Canceled by Division</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Form1_Status_Type__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Canceled by HR</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Form1_Status_Type__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Packet to HR - Part 3 Received</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Form1_Status_Type__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Release of Applications</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Form1_Status_Type__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Interviews - Conducted</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Form1_Status_Type__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Packet to HR - Part 1 Under Review</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Form1_Status_Type__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Packet to HR - Part 2 Under Review</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Form1_Status_Type__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Packet to HR - Part 3 Under Review</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Form1_Status_Type__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>HR Final Packet - Analyst Approved</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Form1_Status_Type__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>HR Final Packet - Manager Approved</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Form1_Status_Type__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>HR Final Packet - Submitted to CalHR</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Form1_Status_Type__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>CalHR - Approved</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Form1_Status_Type__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>CalHR - Denied</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Form1_Status_Type__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>HR - Job Offer Clearance Notification</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Form1_Status_Type__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Part 1 Return to Program</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Form1_Status_Type__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Part 2 Return to Program</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Form1_Status_Type__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Part 3 Return to Program</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Form1_Status_Type__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>On Hold</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Form1_Status_Type__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Candidate Accepts</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Collection_Tracked_Status</targetReference>
+            </connector>
+            <label>Tracked Status</label>
+        </rules>
+    </decisions>
+    <description>Find latest tracked status and update Form 1</description>
+    <interviewLabel>HR Form 1 Status -  Latest Status - Tracked {!$Flow.CurrentDateTime}</interviewLabel>
+    <label>HR Form 1 Status -  Latest Status - Tracked</label>
+    <loops>
+        <name>Loop_Tracked_Status</name>
+        <label>Loop_Tracked_Status</label>
+        <locationX>741</locationX>
+        <locationY>300</locationY>
+        <collectionReference>Collection_Tracked_Status</collectionReference>
+        <iterationOrder>Asc</iterationOrder>
+        <nextValueConnector>
+            <targetReference>Compare_Date_to_Find_Max</targetReference>
+        </nextValueConnector>
+        <noMoreValuesConnector>
+            <targetReference>Update_Form_1_Tracked_Status</targetReference>
+        </noMoreValuesConnector>
+    </loops>
+    <processMetadataValues>
+        <name>BuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>CanvasMode</name>
+        <value>
+            <stringValue>FREE_FORM_CANVAS</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>OriginBuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processType>AutoLaunchedFlow</processType>
+    <recordLookups>
+        <name>Collection_Tracked_Status</name>
+        <label>Collection_Tracked_Status</label>
+        <locationX>631</locationX>
+        <locationY>158</locationY>
+        <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
+        <connector>
+            <targetReference>Any_Record_Found</targetReference>
+        </connector>
+        <filterLogic>1 AND ( 2 OR 3 OR 4 OR 5 OR 6 OR 7 OR 8 OR 9 OR 10 OR 11 OR 12 OR 13 OR 14 OR 15 OR 16 OR 17 OR 18 OR 19 OR 20 )</filterLogic>
+        <filters>
+            <field>Form_1__c</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>$Record.Form_1__r.Id</elementReference>
+            </value>
+        </filters>
+        <filters>
+            <field>Form1_Status_Type__c</field>
+            <operator>EqualTo</operator>
+            <value>
+                <stringValue>Canceled by Division</stringValue>
+            </value>
+        </filters>
+        <filters>
+            <field>Form1_Status_Type__c</field>
+            <operator>EqualTo</operator>
+            <value>
+                <stringValue>Canceled by HR</stringValue>
+            </value>
+        </filters>
+        <filters>
+            <field>Form1_Status_Type__c</field>
+            <operator>EqualTo</operator>
+            <value>
+                <stringValue>Packet to HR - Part 3 Received</stringValue>
+            </value>
+        </filters>
+        <filters>
+            <field>Form1_Status_Type__c</field>
+            <operator>EqualTo</operator>
+            <value>
+                <stringValue>Release of Applications</stringValue>
+            </value>
+        </filters>
+        <filters>
+            <field>Form1_Status_Type__c</field>
+            <operator>EqualTo</operator>
+            <value>
+                <stringValue>Interviews - Conducted</stringValue>
+            </value>
+        </filters>
+        <filters>
+            <field>Form1_Status_Type__c</field>
+            <operator>EqualTo</operator>
+            <value>
+                <stringValue>Packet to HR - Part 1 Under Review</stringValue>
+            </value>
+        </filters>
+        <filters>
+            <field>Form1_Status_Type__c</field>
+            <operator>EqualTo</operator>
+            <value>
+                <stringValue>Packet to HR - Part 2 Under Review</stringValue>
+            </value>
+        </filters>
+        <filters>
+            <field>Form1_Status_Type__c</field>
+            <operator>EqualTo</operator>
+            <value>
+                <stringValue>Packet to HR - Part 3 Under Review</stringValue>
+            </value>
+        </filters>
+        <filters>
+            <field>Form1_Status_Type__c</field>
+            <operator>EqualTo</operator>
+            <value>
+                <stringValue>HR Final Packet - Analyst Approved</stringValue>
+            </value>
+        </filters>
+        <filters>
+            <field>Form1_Status_Type__c</field>
+            <operator>EqualTo</operator>
+            <value>
+                <stringValue>HR Final Packet - Manager Approved</stringValue>
+            </value>
+        </filters>
+        <filters>
+            <field>Form1_Status_Type__c</field>
+            <operator>EqualTo</operator>
+            <value>
+                <stringValue>HR Final Packet - Submitted to CalHR</stringValue>
+            </value>
+        </filters>
+        <filters>
+            <field>Form1_Status_Type__c</field>
+            <operator>EqualTo</operator>
+            <value>
+                <stringValue>CalHR - Approved</stringValue>
+            </value>
+        </filters>
+        <filters>
+            <field>Form1_Status_Type__c</field>
+            <operator>EqualTo</operator>
+            <value>
+                <stringValue>CalHR - Denied</stringValue>
+            </value>
+        </filters>
+        <filters>
+            <field>Form1_Status_Type__c</field>
+            <operator>EqualTo</operator>
+            <value>
+                <stringValue>HR - Job Offer Clearance Notification</stringValue>
+            </value>
+        </filters>
+        <filters>
+            <field>Form1_Status_Type__c</field>
+            <operator>EqualTo</operator>
+            <value>
+                <stringValue>Part 1 Return to Program</stringValue>
+            </value>
+        </filters>
+        <filters>
+            <field>Form1_Status_Type__c</field>
+            <operator>EqualTo</operator>
+            <value>
+                <stringValue>Part 2 Return to Program</stringValue>
+            </value>
+        </filters>
+        <filters>
+            <field>Form1_Status_Type__c</field>
+            <operator>EqualTo</operator>
+            <value>
+                <stringValue>Part 3 Return to Program</stringValue>
+            </value>
+        </filters>
+        <filters>
+            <field>Form1_Status_Type__c</field>
+            <operator>EqualTo</operator>
+            <value>
+                <stringValue>On Hold</stringValue>
+            </value>
+        </filters>
+        <filters>
+            <field>Form1_Status_Type__c</field>
+            <operator>EqualTo</operator>
+            <value>
+                <stringValue>Candidate Accepts</stringValue>
+            </value>
+        </filters>
+        <getFirstRecordOnly>false</getFirstRecordOnly>
+        <object>Form_1_Status__c</object>
+        <sortField>Name</sortField>
+        <sortOrder>Asc</sortOrder>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </recordLookups>
+    <recordUpdates>
+        <name>Update_Form_1_Tracked_Status</name>
+        <label>Update Form 1 Tracked Status</label>
+        <locationX>348</locationX>
+        <locationY>519</locationY>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Id</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>$Record.Form_1__r.Id</elementReference>
+            </value>
+        </filters>
+        <inputAssignments>
+            <field>Tracked_Recruitment_Status_2__c</field>
+            <value>
+                <elementReference>VarStatusType</elementReference>
+            </value>
+        </inputAssignments>
+        <object>Form_1__c</object>
+    </recordUpdates>
+    <recordUpdates>
+        <name>Update_Form_1_Tracked_Status_to_NULL</name>
+        <label>Update_Form_1_Tracked_Status_to_NULL</label>
+        <locationX>688</locationX>
+        <locationY>25</locationY>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Id</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>$Record.Form_1__r.Id</elementReference>
+            </value>
+        </filters>
+        <inputAssignments>
+            <field>Tracked_Recruitment_Status_2__c</field>
+            <value>
+                <stringValue></stringValue>
+            </value>
+        </inputAssignments>
+        <object>Form_1__c</object>
+    </recordUpdates>
+    <start>
+        <locationX>50</locationX>
+        <locationY>49</locationY>
+        <connector>
+            <targetReference>Tracked_Status_Records</targetReference>
+        </connector>
+        <object>Form_1_Status__c</object>
+        <recordTriggerType>CreateAndUpdate</recordTriggerType>
+        <triggerType>RecordAfterSave</triggerType>
+    </start>
+    <status>Active</status>
+    <variables>
+        <name>Var_Initial_Date_Tracked_Status</name>
+        <dataType>Date</dataType>
+        <isCollection>false</isCollection>
+        <isInput>true</isInput>
+        <isOutput>true</isOutput>
+        <value>
+            <dateValue>1900-01-01</dateValue>
+        </value>
+    </variables>
+    <variables>
+        <name>VarStatusType</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>true</isInput>
+        <isOutput>true</isOutput>
+    </variables>
+</Flow>

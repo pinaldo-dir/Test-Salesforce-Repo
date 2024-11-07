@@ -1,0 +1,2 @@
+The Referral you requested for Case {!Referral__c.Case__c} has been updated. Please follow the link to find the details:
+{!Referral__c.Link}

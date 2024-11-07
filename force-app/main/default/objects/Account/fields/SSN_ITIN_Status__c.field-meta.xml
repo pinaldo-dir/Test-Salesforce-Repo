@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>SSN_ITIN_Status__c</fullName>
+    <description>Allows a deputy to indicate if either an SSN or ITIN is on file for an entity so that they can be paid wages or other compensation due them. The SSN or ITIN should be kept as "licenses and registrations" for the account.</description>
+    <externalId>false</externalId>
+    <inlineHelpText>Select whether a SSN or ITIN is on file so the person can be paid.</inlineHelpText>
+    <label>SSN/ITIN Status</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Picklist</type>
+    <valueSet>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>SSN on file</fullName>
+                <default>false</default>
+                <label>SSN on file</label>
+            </value>
+            <value>
+                <fullName>ITIN on file</fullName>
+                <default>false</default>
+                <label>ITIN on file</label>
+            </value>
+            <value>
+                <fullName>Requested</fullName>
+                <default>false</default>
+                <label>Requested</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

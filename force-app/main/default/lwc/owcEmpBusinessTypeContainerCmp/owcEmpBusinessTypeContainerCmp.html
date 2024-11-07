@@ -1,0 +1,62 @@
+<!--
+  @description       : 
+  @author            : ChangeMeIn@UserSettingsUnder.SFDoc
+  @group             : 
+  @last modified on  : 11-05-2021
+  @last modified by  : ChangeMeIn@UserSettingsUnder.SFDoc
+-->
+<template>
+    <form>
+        <div class="slds-p-left_xx-small slds-grid slds-wrap">
+            <div class="slds-col slds-medium-size_1-of-8 slds-large-size_1-of-8"></div>
+                <div class="slds-col slds-size_1-of-1 slds-medium-size_6-of-8 slds-large-size_6-of-8">
+                    <div class="slds-grid slds-wrap">
+                        <div class="slds-col slds-medium-size_1-of-1 slds-large-size_1-of-1">
+                            <template if:true={isRenderEmpSection}>
+                                <template for:each={renderEmpSection} for:item="empObj">
+                                    <div key={empObj.Id}>
+                                        <div class="slds-grid slds-wrap">
+                                            <template if:true={empObj.button}>
+                                                <h2 class="slds-col slds-medium-size_5-of-6 slds-large-size_5-of-6 slds-p-left_small">
+                                                    {empObj.heading}
+                                                </h2>
+                                            </template>
+                                            <template if:false={empObj.button}>
+                                                <h1 class="slds-col slds-medium-size_5-of-6 slds-large-size_5-of-6 slds-p-left_small slds-text-heading_large owcHeadingStyle">
+                                                    {empObj.heading}
+                                                </h1>
+                                            </template>
+                                            
+                                            <div class="slds-col slds-medium-size_1-of-6 slds-large-size_1-of-6">
+                                                <template if:false={isFormPreviewMode}>
+                                                    <template if:false={empObj.button}>
+                                                        <lightning-button class="slds-float_right slds-m-around_medium owcButtonStyle" label={customLabelValues.OWC_save_as_draft_label} variant="brand" onclick={handleSaveAsDraft}></lightning-button>
+                                                    </template>
+                                                    <template if:true={empObj.button}>
+                                                        <lightning-button variant="brand" label={customLabelValues.OWC_employer_delete_button} title={customLabelValues.OWC_employer_delete_button} name={empObj.sectionId} onclick={handleSectionDelete} class="slds-float_right owcButtonStyle"></lightning-button>
+                                                    </template>
+                                                </template>
+                                            </div>
+                                        </div>
+                                        <template if:false={empObj.button}>
+                                            <div class="slds-p-left_small">{customLabelValues.OWC_AnotherEmployerNote}</div>
+                                        </template>
+                                        <div>
+                                            <c-owc-Emp-Business-Type onmatchuspscustomeventforemployees={handleUSPSAddressMatch} ispreliminaryshown={empObj.isPreliminaryShown} isclaimantgarment={isclaimantadvocate} sectionid={empObj.sectionId} employeesectionheader={empObj.heading} onclaimfiledcustomevent={handleClaimFiledCustomEvent} onempbusinessvalidityevent={handleClaimFieldEmpValidityEvent} deletebutton={empObj.button} oncustomemployerdeleteevent={handleEmployerDelete} onemployersectiondeleteevent={handleEmployerSectionDeletedData}></c-owc-Emp-Business-Type>
+                                        </div>
+                                    </div>
+                                </template>
+                            </template>
+                        </div>
+                        <div class="slds-col slds-medium-size_1-of-1 slds-large-size_1-of-1">
+                            <template if:false={isFormPreviewMode}>
+                                <div class="slds-p-left_small" style="font-size: 16px; font-family:Source Sans Pro; color:#333333">{customLabelValues.OWC_other_employers_add_to_claim}</div>
+                                <lightning-button class="slds-float_left slds-m-around_small owcAdditionalButtonStyle" variant="brand" icon-name="utility:add" label={customLabelValues.OWC_AddEmployerInformation} onclick={addMoreSuccessor}></lightning-button>
+                            </template>
+                        </div>
+                    </div>
+                </div>
+            <div class="slds-col slds-medium-size_1-of-8 slds-large-size_1-of-8"></div>
+        </div>
+    </form>
+</template>

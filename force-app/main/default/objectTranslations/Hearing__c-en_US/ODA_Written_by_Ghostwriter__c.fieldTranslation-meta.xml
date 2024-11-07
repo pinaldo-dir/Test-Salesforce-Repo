@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+        <label><!-- Written by Ghostwriter --></label>
+        <name>ODA_Written_by_Ghostwriter__c</name>
+        <relationshipLabel><!-- Meetings (Written by Ghostwriter) --></relationshipLabel>
+    </CustomFieldTranslation>

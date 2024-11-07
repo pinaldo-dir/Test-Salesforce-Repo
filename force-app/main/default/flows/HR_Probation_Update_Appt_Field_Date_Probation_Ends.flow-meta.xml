@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>56.0</apiVersion>
+    <description>Update appointment with probation&apos;s 3rd due date. Used to determine when appraisal starts</description>
+    <environments>Default</environments>
+    <interviewLabel>HR Probation Update Appt Field {!$Flow.CurrentDateTime}</interviewLabel>
+    <label>HR Probation Update Appt Field Date Probation Ends</label>
+    <processMetadataValues>
+        <name>BuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>CanvasMode</name>
+        <value>
+            <stringValue>FREE_FORM_CANVAS</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>OriginBuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processType>AutoLaunchedFlow</processType>
+    <recordUpdates>
+        <name>hh</name>
+        <label>hh</label>
+        <locationX>181</locationX>
+        <locationY>280</locationY>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Id</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>$Record.Appointment__r.Id</elementReference>
+            </value>
+        </filters>
+        <inputAssignments>
+            <field>Date_Probation_Ends__c</field>
+            <value>
+                <elementReference>$Record.X3rd_Probe_Due_Date__c</elementReference>
+            </value>
+        </inputAssignments>
+        <object>Appointment__c</object>
+    </recordUpdates>
+    <start>
+        <locationX>490</locationX>
+        <locationY>48</locationY>
+        <connector>
+            <targetReference>hh</targetReference>
+        </connector>
+        <filterFormula>ISNEW() &amp;&amp; ISNULL({!$Record.X3rd_Probe_Due_Date__c}) = FALSE
+||
+ISCHANGED ( {!$Record.X3rd_Probe_Due_Date__c} )</filterFormula>
+        <object>HR_Probe_Report_Tracking__c</object>
+        <recordTriggerType>CreateAndUpdate</recordTriggerType>
+        <triggerType>RecordAfterSave</triggerType>
+    </start>
+    <status>Active</status>
+</Flow>

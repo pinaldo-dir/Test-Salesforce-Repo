@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+        <label><!-- Party Submitting Cure Documents --></label>
+        <name>Party_Submitting_Cure_Documents__c</name>
+        <picklistValues>
+            <masterLabel>Defendant/Employer</masterLabel>
+            <translation><!-- Defendant/Employer --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Plaintiff/Aggrieved Employee</masterLabel>
+            <translation><!-- Plaintiff/Aggrieved Employee --></translation>
+        </picklistValues>
+    </CustomFieldTranslation>

@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>60.0</apiVersion>
+    <customErrors>
+        <name>Fire_Validation_Now</name>
+        <label>Fire Validation Now</label>
+        <locationX>202</locationX>
+        <locationY>251</locationY>
+        <customErrorMessages>
+            <errorMessage>1st Attempt Date must be no less than 5 days prior to the creation of the Inactive Record. The Senior deputy can over ride this rule.</errorMessage>
+            <isFieldError>false</isFieldError>
+        </customErrorMessages>
+    </customErrors>
+    <decisions>
+        <name>Fire_Validation</name>
+        <label>Fire Validation?</label>
+        <locationX>370</locationX>
+        <locationY>230</locationY>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>Yes</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>X1AttptlessCreatedDate</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Fire_Validation_Now</targetReference>
+            </connector>
+            <label>Yes</label>
+        </rules>
+    </decisions>
+    <description>Decision whether to trigger validation First_Attpt_Date_5_Days_Less_CreatedDate</description>
+    <environments>Default</environments>
+    <formulas>
+        <description>for validation rule to fire</description>
+        <name>X1AttptlessCreatedDate</name>
+        <dataType>Boolean</dataType>
+        <expression>AND (
+(ISNEW() || ISCHANGED({!$Record.X1st_Attempt_Date__c})),
+({!$Record.X1st_Attempt_Date__c}&lt; (DATEVALUE({!$Record.CreatedDate}) - 5)), 
+NOT({!$Permission.LCO_Senior})
+)</expression>
+    </formulas>
+    <interviewLabel>WCA Inactive Tracking Validation Trigger {!$Flow.CurrentDateTime}</interviewLabel>
+    <label>WCA Inactive Tracking Validation Trigger</label>
+    <processMetadataValues>
+        <name>BuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>CanvasMode</name>
+        <value>
+            <stringValue>FREE_FORM_CANVAS</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>OriginBuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processType>AutoLaunchedFlow</processType>
+    <start>
+        <locationX>650</locationX>
+        <locationY>49</locationY>
+        <connector>
+            <targetReference>Fire_Validation</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>X1st_Attempt_Date__c</field>
+            <operator>IsNull</operator>
+            <value>
+                <booleanValue>false</booleanValue>
+            </value>
+        </filters>
+        <object>Inactive_Tracking__c</object>
+        <recordTriggerType>CreateAndUpdate</recordTriggerType>
+        <triggerType>RecordAfterSave</triggerType>
+    </start>
+    <status>Active</status>
+</Flow>

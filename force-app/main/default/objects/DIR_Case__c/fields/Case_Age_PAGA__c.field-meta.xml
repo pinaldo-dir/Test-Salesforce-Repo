@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Case_Age_PAGA__c</fullName>
+    <description>Case Closed Date  minus Notice of Filing Date. If Case is not closed it is current age.</description>
+    <externalId>false</externalId>
+    <formula>IF(
+ISBLANK(Case_Closed_Date__c),
+("total of "&amp;TEXT(TODAY() - Notice_Filing_Date__c)&amp;" day(s)"),("total of "&amp;TEXT(TODAY() - Notice_Filing_Date__c)&amp;" day(s)"))</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>Case Age</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

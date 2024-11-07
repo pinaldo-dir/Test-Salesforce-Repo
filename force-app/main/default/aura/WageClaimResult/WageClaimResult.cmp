@@ -1,0 +1,43 @@
+<aura:component implements="forceCommunity:availableForAllPageTypes" access="global" >
+    <aura:attribute name="isPopOpen" type="boolean" default="false"/>	
+    <aura:attribute name="selectedCaseId" type="String" default=""/>
+    <aura:attribute name="selectedCaseRoleId" type="String" default=""/>
+    <aura:attribute name="urlParamsForFilters" type="String" default="" />
+    <aura:attribute name="WageObj" type="Object" access="public"/>
+    <td scope="row" data-label="Info Button">
+        <div class="slds-truncate" title="View Info">
+            <button class="slds-button slds-button_brand view-info" onclick="{!c.viewInfoRecord}" >View Info</button>
+        </div>
+    </td>
+    <td class="slds-cell-wrap" data-label="Party Name">
+        <div  title="party Name">{!v.WageObj.accountName}</div>
+    </td>
+    <td class="slds-cell-wrap" data-label="Party Type">
+        <div  title="caseRole">{!v.WageObj.caseRole}</div>
+    </td>
+    <td class="slds-cell-wrap" data-label="Case Number">
+        <div  title="caseNumber">{!v.WageObj.caseNumber}</div>
+    </td>
+    <td class="slds-cell-wrap" data-label="NAICS Code">
+        <div  title="naicsCode">{!v.WageObj.naicsCode}</div>
+    </td>
+    <td class="slds-cell-wrap" data-label="NAICS Title">
+        <div  title="naicsTitle">{!v.WageObj.naicsTitle}</div>
+    </td>
+    <td class="slds-cell-wrap" data-label="Date Filed">
+        <div title="dateofDocket" class="slds-hide">{!v.WageObj.dateofDocket}</div>
+        <div title="dateofDocket" class="divDateStyle"><ui:outputDate value="{!v.WageObj.dateofDocket}" format="MM/DD/YYYY"/></div>
+    </td>
+    <td class="slds-cell-wrap" data-label="Assigned Deputy">
+        <div title="assignedDeputy">{!v.WageObj.assignedDeputy}</div>
+    </td>
+    <td class="slds-cell-wrap" data-label="Dir Office">
+        <div title="dirOffice">{!v.WageObj.dirOffice}</div>
+    </td>
+    <td class="slds-cell-wrap" data-label="Case Status">
+        <div title="caseStatus">{!v.WageObj.caseStatus}</div>
+    </td>
+    <aura:if isTrue="{!v.isPopOpen}">
+        <c:WageClaimSearchDetailCmp selectedCaseId="{!v.selectedCaseId}" isPopOpen="{!v.isPopOpen}" selectedCaseRoleId="{!v.selectedCaseRoleId}" urlParamsForFilters="{!v.urlParamsForFilters}"/>
+    </aura:if>
+</aura:component>

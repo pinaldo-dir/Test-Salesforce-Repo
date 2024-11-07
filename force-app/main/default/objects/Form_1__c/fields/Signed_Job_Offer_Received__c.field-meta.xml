@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Signed_Job_Offer_Received__c</fullName>
+    <description>From latest F1 Status "Candidate Accepts", updated by "HR Form 1 Status - Latest Status - Individual Status PART 2"</description>
+    <externalId>false</externalId>
+    <label>Signed Job Offer Received</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Date</type>
+</CustomField>

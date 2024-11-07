@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Only_1_EWP_permit_applicant_is_allowed</fullName>
+    <active>true</active>
+    <description>Only 1 EWP permit applicant is allowed, preventing multiple applicants.</description>
+    <errorConditionFormula>AND(ISNEW()
+, Registration__r.Number_of_Permit_Individual__c &gt; 0
+, RecordType.DeveloperName = "Individual_Permit"
+, Registration__r.RecordType.DeveloperName = 'Entertainment_Work'
+)</errorConditionFormula>
+    <errorMessage>You have already entered the permit applicant's information for an Entertainment Work Permit, please edit the existing record instead of creating a new record.</errorMessage>
+</ValidationRule>

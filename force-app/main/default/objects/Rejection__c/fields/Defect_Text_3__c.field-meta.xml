@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Defect_Text_3__c</fullName>
+    <externalId>false</externalId>
+    <formula>"If you have any questions regarding the above, please call "
++ CASE(Registration_Type__c
+, "Car Wash", "(510) 285-3502 or email DLSELicensing@dir.ca.gov"
+, "Talent Agency", "(510) 285-3397 email DLSELicensing@dir.ca.gov"
+, "Garment Manufacturers and Contractors", "(510) 285-3398 email DLSELicensing@dir.ca.gov"
+, "Child Performer Services", "(510) 285-2123 email DLSELicensing@dir.ca.gov"
+, "Janitorial", "(510) 879-8333 email DLSELicensing@dir.ca.gov"
+, "Farm Labor Contractor", "(559) 248-1893 or email FLC@dir.ca.gov."
+,"(510) 285-3502")</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>Defect Text 3</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

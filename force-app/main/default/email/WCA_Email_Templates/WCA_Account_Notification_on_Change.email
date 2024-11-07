@@ -1,0 +1,3 @@
+Account information has changed for {!Account.Name_UsedInTemplates__c}. This could be either address, telephone number or email address.
+
+{!Account.Link}

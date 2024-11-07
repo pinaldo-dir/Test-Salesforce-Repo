@@ -1,0 +1,4 @@
+Your Bug has been accepted.
+
+Bug Number: {!Bug__c.Name}
+Link: {!Bug__c.Link}

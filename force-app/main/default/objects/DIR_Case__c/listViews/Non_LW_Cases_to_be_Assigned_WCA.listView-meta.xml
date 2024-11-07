@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Non_LW_Cases_to_be_Assigned_WCA</fullName>
+    <booleanFilter>1 AND 2 AND 3 AND 4 AND 5 AND 6 AND 7 AND 8 AND 9</booleanFilter>
+    <columns>NAME</columns>
+    <columns>Case_Number__c</columns>
+    <columns>Employer__c</columns>
+    <columns>Address_Primary_City__c</columns>
+    <columns>Date_of_Docket__c</columns>
+    <columns>Status__c</columns>
+    <columns>Assigned_Deputy__c</columns>
+    <columns>COVID_19__c</columns>
+    <columns>Low_Wage_Occupation__c</columns>
+    <columns>Office__c</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>Office__c</field>
+        <operation>equals</operation>
+        <value>Santa Ana WCA,Long Beach WCA,Bakersfield WCA,Fresno WCA</value>
+    </filters>
+    <filters>
+        <field>RECORDTYPE</field>
+        <operation>equals</operation>
+        <value>DIR_Case__c.WCA</value>
+    </filters>
+    <filters>
+        <field>Employer__c</field>
+        <operation>notEqual</operation>
+    </filters>
+    <filters>
+        <field>Status__c</field>
+        <operation>equals</operation>
+        <value>New,Under Investigation</value>
+    </filters>
+    <filters>
+        <field>Date_of_Docket__c</field>
+        <operation>greaterOrEqual</operation>
+        <value>5/1/2022</value>
+    </filters>
+    <filters>
+        <field>COVID_19__c</field>
+        <operation>notEqual</operation>
+        <value>Yes</value>
+    </filters>
+    <filters>
+        <field>Low_Wage_Occupation__c</field>
+        <operation>notEqual</operation>
+        <value>Domestic Worker,Agricultural Employee,Food processing,Garment Employee,Car Wash Employee,Cannabis,Construction,Janitorial,Restaurant,Warehouse,Port,Hotel worker,Residential Care worker,Nail salon worker,Security guard,Day laborer</value>
+    </filters>
+    <filters>
+        <field>Status__c</field>
+        <operation>notEqual</operation>
+        <value>Wage Pass Through</value>
+    </filters>
+    <filters>
+        <field>Case_Closed_Date__c</field>
+        <operation>equals</operation>
+    </filters>
+    <label>Non LW Cases to be Assigned</label>
+    <sharedTo>
+        <role>WCA_ANA</role>
+        <role>WCA_BAK</role>
+        <role>WCA_FRE</role>
+        <role>WCA_LBO</role>
+    </sharedTo>
+</ListView>

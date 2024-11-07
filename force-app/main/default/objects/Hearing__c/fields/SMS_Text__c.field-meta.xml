@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>SMS_Text__c</fullName>
+    <externalId>false</externalId>
+    <formula>Record_Type_Name__c &amp;" "&amp;text(Status__c) &amp;" "&amp;$Label.for &amp;" "&amp;text(Meeting_Start_Date__c )&amp;" "&amp;Meeting_Start_Time__c &amp; " "&amp;$Label.which_is_a_an &amp;" "&amp;text(In_Person_Remote_Meeting__c )&amp;" meeting"&amp;BR()&amp;IF(ISPICKVAL(In_Person_Remote_Meeting__c,"In Person" ), WCA_Office__r.Name &amp;","&amp; WCA_Office__r.Office_Address_Formula__c ,IF(
+OR(ISPICKVAL(In_Person_Remote_Meeting__c,"Phone/Remote" ),ISPICKVAL(In_Person_Remote_Meeting__c,"Video" ))
+,text(Meeting_Location__c) ,""))</formula>
+    <label>SMS Text</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

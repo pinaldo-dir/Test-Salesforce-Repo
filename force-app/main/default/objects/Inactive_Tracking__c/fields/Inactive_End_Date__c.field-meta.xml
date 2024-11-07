@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Inactive_End_Date__c</fullName>
+    <externalId>false</externalId>
+    <inlineHelpText>The date the inactivity period is lifted due to a case closure or because the Claimant responded during the Inactive period.</inlineHelpText>
+    <label>Inactive End Date</label>
+    <required>false</required>
+    <trackHistory>true</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Date</type>
+</CustomField>

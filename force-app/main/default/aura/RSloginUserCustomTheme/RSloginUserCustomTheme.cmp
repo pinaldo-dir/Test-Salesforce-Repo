@@ -1,0 +1,34 @@
+<aura:component implements="forceCommunity:themeLayout" access="global" description="Sample Custom Theme Layout">
+    <aura:attribute name="search" type="Aura.Component[]" required="false"/>
+    <aura:attribute name="profileMenu" type="Aura.Component[]" required="false"/>
+    <aura:attribute name="navBar" type="Aura.Component[]" required="false"/>
+    <aura:attribute name="newHeader" type="Aura.Component[]" required="false"/>
+    <aura:attribute name="footer" type="Aura.Component[]" />
+    <div class="container">
+        <div class="newHeader">
+            {!v.newHeader}
+        </div>
+
+        <div class="slds-context-bar">
+            <nav class="slds-context-bar__secondary slds-p-right_medium slds-p-left_xx-small" role="navigation">
+                <div class="slds-context-bar__item" >
+                    <c:rsNavigationMenu />
+                </div>
+                <div class="slds-context-bar__item slds-col_bump-left owc-notifications">
+                    <forceCommunity:notifications/>
+                </div>
+                <div class="slds-context-bar__item owc-profile-menu">
+                    {!v.profileMenu}
+                </div>
+            </nav>
+        </div>
+          
+        <div class="mainContentArea">
+            {!v.body}
+        </div>
+       
+        <div id="footer" >
+            {!v.footer}
+        </div>
+    </div>
+</aura:component>

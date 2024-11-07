@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <description>Notification that the status or outcome has changed on a referral</description>
+    <encodingKey>ISO-8859-1</encodingKey>
+    <name>BOFE Referral change</name>
+    <style>none</style>
+    <subject>Your Referral has been updated</subject>
+    <type>text</type>
+    <uiType>Aloha</uiType>
+</EmailTemplate>

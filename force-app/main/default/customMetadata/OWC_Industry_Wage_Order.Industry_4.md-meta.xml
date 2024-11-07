@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomMetadata xmlns="http://soap.sforce.com/2006/04/metadata" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <label>Industry 4</label>
+    <protected>false</protected>
+    <values>
+        <field>NaicsCodeLevel1EnglishTranslation__c</field>
+        <value xsi:type="xsd:string">Household or Laundry Services</value>
+    </values>
+    <values>
+        <field>NaicsCodeLevel1SpanishTranslation__c</field>
+        <value xsi:type="xsd:string">Servicio Doméstico o de Lavandería</value>
+    </values>
+    <values>
+        <field>NaicsCodeLevel2EnglishTranslation__c</field>
+        <value xsi:type="xsd:string">Public Housekeeping~Other Residential Care Facilities;Household/Domestic Worker/Personal Attendant~Private Households;
+Janitorial Services~Janitorial Services;Laundry~Drycleaning and Laundry Services;Linen Supply~Linen Supply;Dry Cleaning~Drycleaning and Laundry Services;Dyeing~Drycleaning and Laundry Services</value>
+    </values>
+    <values>
+        <field>NaicsCodeLevel2SpanishTranslation__c</field>
+        <value xsi:type="xsd:string">Servicio de Limpieza Público; Empleado Doméstico/Asistente Personal;
+Servicios de Limpieza; Lavandería; Suministros de Ropa de Cama; Limpieza en Seco; Tintorería</value>
+    </values>
+    <values>
+        <field>OWC_Industry__c</field>
+        <value xsi:type="xsd:string">Household or Laundry Services</value>
+    </values>
+    <values>
+        <field>OWC_NAICS_Discription__c</field>
+        <value xsi:type="xsd:string">Public Housekeeping;Household/Domestic Worker;Household Personal Attendant;
+Janitorial Services;Laundry;Linen Supply;Dry Cleaning;Dyeing</value>
+    </values>
+    <values>
+        <field>Order_Number__c</field>
+        <value xsi:type="xsd:double">4.0</value>
+    </values>
+</CustomMetadata>

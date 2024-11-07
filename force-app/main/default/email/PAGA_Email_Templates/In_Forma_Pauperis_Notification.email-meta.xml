@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <description>Sends email to PAGA group when an In Forma Pauperis document is submitted</description>
+    <encodingKey>ISO-8859-1</encodingKey>
+    <name>In Forma Pauperis Notification</name>
+    <style>none</style>
+    <subject>In Forma Pauperis document has been submitted</subject>
+    <type>text</type>
+    <uiType>Aloha</uiType>
+</EmailTemplate>

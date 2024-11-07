@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+        <label><!-- Select Manufacturer if you sell garments --></label>
+        <name>Business_Type__c</name>
+        <picklistValues>
+            <masterLabel>Contractor</masterLabel>
+            <translation><!-- Contractor --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Manufacturer (seller or reseller)</masterLabel>
+            <translation><!-- Manufacturer (seller or reseller) --></translation>
+        </picklistValues>
+    </CustomFieldTranslation>

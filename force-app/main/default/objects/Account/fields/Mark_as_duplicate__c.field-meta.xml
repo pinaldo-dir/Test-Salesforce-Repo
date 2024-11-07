@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Mark_as_duplicate__c</fullName>
+    <defaultValue>false</defaultValue>
+    <description>Field triggers demand tools to merge the accounts</description>
+    <externalId>false</externalId>
+    <inlineHelpText>If this account is a duplicate of another account, check this box and lookup the account to merge this account in to in the "Merge into Account" field.</inlineHelpText>
+    <label>Mark as duplicate</label>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Checkbox</type>
+</CustomField>

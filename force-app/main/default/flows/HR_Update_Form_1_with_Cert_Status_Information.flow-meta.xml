@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>54.0</apiVersion>
+    <decisions>
+        <description>New or edited record&apos;s created date is equal or greater than F1_Cert_Status_Latest_Date__c on Form 1. If so, then update Form 1.</description>
+        <name>Compare_Created_Date</name>
+        <label>Compare Created Date</label>
+        <locationX>373</locationX>
+        <locationY>376</locationY>
+        <defaultConnectorLabel>Less than</defaultConnectorLabel>
+        <rules>
+            <name>Meet_Conditions_for_Update</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>VarConditionforUpdate</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Update_Form_1_Fields</targetReference>
+            </connector>
+            <label>Meet Conditions for Update</label>
+        </rules>
+    </decisions>
+    <description>When new/edit and created date is greater or equal to max cert status date</description>
+    <formulas>
+        <description>New record or if certain field(s) is/are edited</description>
+        <name>VarConditionforUpdate</name>
+        <dataType>Boolean</dataType>
+        <expression>ISNEW()
+||
+(
+(
+ISCHANGED( {!$Record.Job_Control_Number__c}) 
+||
+ISCHANGED( {!$Record.Certification_List_Number__c} ) 
+||
+ISCHANGED({!$Record.Job_Posting_Ending_Date__c} )  
+||
+ISCHANGED( {!$Record.Date_Certification_List_Expiration__c} )  
+||
+ISCHANGED( {!$Record.Date_Application_Sent_to_Divisions__c} )  
+||
+ISCHANGED( {!$Record.Number_of_Applications_Sent__c} )
+)
+&amp;&amp;
+{!$Record.CreatedDate} ={!$Record.Form_1__r.F1_Cert_Status_Latest_Date__c}
+)</expression>
+    </formulas>
+    <interviewLabel>HR Update Form 1 with Cert Status Information {!$Flow.CurrentDateTime}</interviewLabel>
+    <label>HR Update Form 1 with Cert Status Information</label>
+    <processMetadataValues>
+        <name>BuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>CanvasMode</name>
+        <value>
+            <stringValue>FREE_FORM_CANVAS</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>OriginBuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processType>AutoLaunchedFlow</processType>
+    <recordUpdates>
+        <name>Update_Form_1_Fields</name>
+        <label>Update Form 1 Fields</label>
+        <locationX>245</locationX>
+        <locationY>186</locationY>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Id</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>$Record.Form_1__r.Id</elementReference>
+            </value>
+        </filters>
+        <inputAssignments>
+            <field>Apps_Released_to_Division_Date__c</field>
+            <value>
+                <elementReference>$Record.Date_Application_Sent_to_Divisions__c</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Cert_List_Expiration_Date__c</field>
+            <value>
+                <elementReference>$Record.Date_Certification_List_Expiration__c</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Cert_List_Number__c</field>
+            <value>
+                <elementReference>$Record.Certification_List_Number__c</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>FFD__c</field>
+            <value>
+                <elementReference>$Record.Job_Posting_Ending_Date__c</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Job_Control_Number__c</field>
+            <value>
+                <elementReference>$Record.Job_Control_Number__c</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Number_of_Apps_Released__c</field>
+            <value>
+                <elementReference>$Record.Number_of_Applications_Sent__c</elementReference>
+            </value>
+        </inputAssignments>
+        <object>Form_1__c</object>
+    </recordUpdates>
+    <start>
+        <locationX>401</locationX>
+        <locationY>48</locationY>
+        <connector>
+            <targetReference>Compare_Created_Date</targetReference>
+        </connector>
+        <object>Form_1_Cert_Status__c</object>
+        <recordTriggerType>CreateAndUpdate</recordTriggerType>
+        <triggerType>RecordAfterSave</triggerType>
+    </start>
+    <status>Active</status>
+</Flow>

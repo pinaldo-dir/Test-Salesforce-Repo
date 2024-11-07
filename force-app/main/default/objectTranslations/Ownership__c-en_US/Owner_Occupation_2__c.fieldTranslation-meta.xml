@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+        <help><!-- Enter Owner&apos;s 2nd Occupation --></help>
+        <label><!-- Owner Occupation 2 --></label>
+        <name>Owner_Occupation_2__c</name>
+    </CustomFieldTranslation>

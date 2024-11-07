@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Pending_Final_Submission__c</fullName>
+    <description>Farm Labor Contractor - incomplete status and fees paid</description>
+    <externalId>false</externalId>
+    <formula>If(RecordType.DeveloperName  == 'Farm_Labor_Contractor'
+&amp;&amp;
+!(Status_of_Payment__c == 'Paid / No Balance Due') 
+&amp;&amp;
+ISPICKVAL(Service_Type__c, 'New')
+&amp;&amp; 
+!ISPICKVAL(Imported_From__c, 'LR-FLC'),'True','False')</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>Pending Final Submission</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

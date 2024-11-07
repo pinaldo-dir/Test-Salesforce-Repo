@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Status__c</fullName>
+    <externalId>false</externalId>
+    <label>Status</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Pending/Open</fullName>
+                <default>false</default>
+                <label>Pending/Open</label>
+            </value>
+            <value>
+                <fullName>Open/Unpaid</fullName>
+                <default>false</default>
+                <label>Open/Unpaid</label>
+            </value>
+            <value>
+                <fullName>Open - Partial Payment/Satisfaction</fullName>
+                <default>false</default>
+                <label>Open - Partial Payment/Satisfaction</label>
+            </value>
+            <value>
+                <fullName>Open - Payment Plan</fullName>
+                <default>false</default>
+                <label>Open - Payment Plan</label>
+            </value>
+            <value>
+                <fullName>Closed - Satisfied</fullName>
+                <default>false</default>
+                <label>Closed - Satisfied</label>
+            </value>
+            <value>
+                <fullName>Closed - Discharged in Bankruptcy</fullName>
+                <default>false</default>
+                <label>Closed - Discharged in Bankruptcy</label>
+            </value>
+            <value>
+                <fullName>Stayed - Bankruptcy</fullName>
+                <default>false</default>
+                <label>Stayed - Bankruptcy</label>
+            </value>
+            <value>
+                <fullName>Stayed - Other</fullName>
+                <default>false</default>
+                <label>Stayed - Other</label>
+            </value>
+            <value>
+                <fullName>Vacated</fullName>
+                <default>false</default>
+                <label>Vacated</label>
+            </value>
+            <value>
+                <fullName>Closed-Claimant Judgment</fullName>
+                <default>false</default>
+                <label>Closed-Claimant Judgment</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

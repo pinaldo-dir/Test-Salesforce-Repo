@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>No_Change_Allowed_on_Complete_Record</fullName>
+    <active>true</active>
+    <errorConditionFormula>AND ( ISCHANGED ( X1st_Probe_due_date__c ),
+NOT(ISNULL( X1st_Received_Date__c )), NOT(ISNULL( X2nd_Received_Date__c )), NOT(ISNULL( X3rd_Received_Date__c ))
+)</errorConditionFormula>
+    <errorMessage>Change of First Due Date is not allowed on complete record</errorMessage>
+</ValidationRule>

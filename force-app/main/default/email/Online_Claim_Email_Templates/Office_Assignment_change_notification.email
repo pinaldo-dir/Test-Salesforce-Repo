@@ -1,0 +1,3 @@
+Hi {!User},<br></br>
+Your Case {!case number} has been reassigned to the following office.
+{!DIR_Case__c.Office__c } {!DIR_Case__c.DIR_WCA_Office_Address__c} {!DIR_Case__c.DIR_Office_Phone_Number__c} Labor Commissioner's Office

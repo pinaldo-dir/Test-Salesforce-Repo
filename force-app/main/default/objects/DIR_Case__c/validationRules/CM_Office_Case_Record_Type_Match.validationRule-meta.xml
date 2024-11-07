@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>CM_Office_Case_Record_Type_Match</fullName>
+    <active>true</active>
+    <description>Requires that the case rec type match the office rec type</description>
+    <errorConditionFormula>AND(
+   NOT(ISBLANK(Office__c ))
+,
+((
+CONTAINS (RecordType.DeveloperName, 'BOFE Investigation')|| CONTAINS (RecordType.DeveloperName, 'BOFE Inspection Request')||
+CONTAINS (RecordType.DeveloperName, 'BOFE Intake Cases')||
+CONTAINS (RecordType.DeveloperName, 'BOFE Intake'))
+
+  &amp;&amp;  Office__r.RecordType.DeveloperName &lt;&gt; 'BOFE'
+)
+||
+(
+  RecordType.DeveloperName = 'WCA'
+  &amp;&amp; Office__r.RecordType.DeveloperName &lt;&gt; 'WCA'
+)
+||
+(
+  RecordType.DeveloperName = 'Garment'
+  &amp;&amp; Office__r.RecordType.DeveloperName &lt;&gt; 'Garment'
+)
+)</errorConditionFormula>
+    <errorMessage>The office you selected is not valid for this type of case.</errorMessage>
+</ValidationRule>

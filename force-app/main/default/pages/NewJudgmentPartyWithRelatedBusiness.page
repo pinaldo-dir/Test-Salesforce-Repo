@@ -1,0 +1,56 @@
+<apex:page standardController="Judgement__c" extensions="NewJudgmentPartyWithRelatedBusinessCtrl">
+    <apex:pageMessages ></apex:pageMessages>
+    <apex:form id="thisForm">
+        <style>
+            .inputText{
+            width:100px !important;
+            }
+            select{
+            width:150px !important;
+            }
+            .lookupIcon, .lookupIconOn{
+            background-image: url(/img/func_icons/util/lookup20.gif);
+            width: 20px;
+            height: 20px;
+            background-position: top left;
+            }
+        </style>
+        <script>
+        function openCustomRelatedBusinessLookups(relatedBusinessName,businessid ,judgmentId){
+            var url= '/apex/RelatedBusinessLookupForJudgmentParty?name='+ (document.getElementById(relatedBusinessName).value)+'&rbname='+relatedBusinessName + '&bid='+businessid +'&jid='+judgmentId
+            var popup = window.open(url,'Popup','height=400,width=500,left=100,top=100,scrollbars=yes,toolbar=no,\status=no');
+            popup.onblur = function(){popup.close();}
+        }
+        </script>
+        <apex:pageBlock title="Judgment Party Edit">
+            <!--Buttons -->
+            <apex:pageBlockButtons >
+                <apex:commandButton action="{!saveRecord}" value="Save"/>
+                <apex:commandButton action="{!cancel}" value="Cancel"/>
+            </apex:pageBlockButtons>
+            <!--Input form -->
+            <apex:pageBlockSection title="Information" columns="2">
+                <apex:inputField value="{!judgmentParty.Judgement__c}"/>
+                <apex:inputField value="{!judgmentParty.X2810_4_Date_added_to_the_list__c}"/>
+                <!--<apex:inputField value="{!judgmentParty.Related_Business__c}" required="true"/>-->
+                <apex:inputHidden value="{!judgmentParty.Related_Business__c}" id="relatedBusinessId" />
+                <div class="">
+                    <apex:inputText label="Related Business" id="relatedBusinessName" value="{!businessName}" style="float:left;" required="true">
+                        <a href="javascript: openCustomRelatedBusinessLookups('{!$Component.relatedBusinessName}','{!$Component.relatedBusinessId}','{!judgmentParty.Judgement__c}');" 
+                           id="con4_lkwgt" onclick="setLastMousePosition(event)" tabindex="6" title="Related Business Search Lookup (New Window)">
+                            <img src="/s.gif" alt="Related Business Search Lookup (New Window)" class="lookupIcon" onblur="this.className = 'lookupIcon';" 
+                                 onfocus="this.className = 'lookupIconOn';" onmouseout="this.className = 'lookupIcon';this.className = 'lookupIcon';" 
+                                 onmouseover="this.className = 'lookupIconOn';this.className = 'lookupIconOn';" title="Call Script Lookup (New Window)" />
+                        </a></apex:inputText>
+                </div>
+                
+                <apex:inputField value="{!judgmentParty.X2810_4_Date_Removed_from_the_list__c}"/>
+                <apex:inputField value="{!judgmentParty.X2810_4_List_Status__c}"/>
+                <apex:inputField value="{!judgmentParty.Judgment_Party_Type__c}"/>
+                <apex:inputField value="{!judgmentParty.Other_Reason__c}"/>
+                <apex:inputField value="{!judgmentParty.X2810_4_Removal_Request_Received__c}"/>
+                <apex:inputField value="{!judgmentParty.X2810_4_Date_of_Notice__c }"/>
+            </apex:pageBlockSection>
+        </apex:pageBlock>  
+    </apex:form>
+</apex:page>

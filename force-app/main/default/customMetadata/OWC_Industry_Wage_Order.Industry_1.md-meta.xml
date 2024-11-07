@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomMetadata xmlns="http://soap.sforce.com/2006/04/metadata" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <label>Industry 1</label>
+    <protected>false</protected>
+    <values>
+        <field>NaicsCodeLevel1EnglishTranslation__c</field>
+        <value xsi:type="xsd:string">Agriculture</value>
+    </values>
+    <values>
+        <field>NaicsCodeLevel1SpanishTranslation__c</field>
+        <value xsi:type="xsd:string">Agrícola</value>
+    </values>
+    <values>
+        <field>NaicsCodeLevel2EnglishTranslation__c</field>
+        <value xsi:type="xsd:string">Crop production~Crop Production;
+Farm Labor Contractors and Crew Leaders~Farm Labor Contractors and Crew Leaders;
+Farm Management Services~Farm Management Services;
+Poultry Hatcheries~Poultry Hatcheries;
+Dairy Cattle and Milk Production~Dairy Cattle and Milk Production;
+Horses and Other Equine Production~Horses and Other Equine Production;
+Crop Harvesting~Crop Harvesting, Primarily by Machine;Primarily By Machine~Crop Harvesting, Primarily by Machine;After Harvest Crop Activities~After Harvest Crop Activities</value>
+    </values>
+    <values>
+        <field>NaicsCodeLevel2SpanishTranslation__c</field>
+        <value xsi:type="xsd:string">La Producción de Cultivos; Contratista de Trabajo Agrícola y Mayordomos; Servicios de Administración Agrícola; Criaderos de Aves de Corral; Ganado Lechero y Producción de Leche; Caballos y otra Producción Equina; Cosecha de Cultivos; Principalmente por Máquinas;Actividades Luego de la Cosecha</value>
+    </values>
+    <values>
+        <field>OWC_Industry__c</field>
+        <value xsi:type="xsd:string">Agriculture</value>
+    </values>
+    <values>
+        <field>OWC_NAICS_Discription__c</field>
+        <value xsi:type="xsd:string">Crop Production;Farm Labor Contractors and Crew Leaders;Farm Management Services;Poultry Hatcheries;Dairy Cattle and Milk Production;Horses and Other Equine Production;Crop Harvesting;Primarily by Machine;After harvest Crop Activities</value>
+    </values>
+    <values>
+        <field>Order_Number__c</field>
+        <value xsi:type="xsd:double">1.0</value>
+    </values>
+</CustomMetadata>

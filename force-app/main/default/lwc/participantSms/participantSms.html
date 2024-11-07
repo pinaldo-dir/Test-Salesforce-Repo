@@ -1,0 +1,7 @@
+<template>
+    <div style="display: grid;">
+        <template for:each={messages} for:item="message">
+            <c-sms-details sms={message} key={message.sms.Id}></c-sms-details>
+        </template>
+    </div>
+</template>

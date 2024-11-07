@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Type_of_Information_Needed</fullName>
+    <active>true</active>
+    <description>At least one checkbox needs to be selected</description>
+    <errorConditionFormula>AND ( RecordType.DeveloperName != 'Stay', AND( Case_issue_claim_value__c == false, Case_issue_type_of_issue__c == false, Defendant_entity_contact_information__c == false, Documentation_needed__c == false, 	Plaintiff_contact_information__c == false))</errorConditionFormula>
+    <errorMessage>Select at least one Type of Information checkbox.</errorMessage>
+</ValidationRule>

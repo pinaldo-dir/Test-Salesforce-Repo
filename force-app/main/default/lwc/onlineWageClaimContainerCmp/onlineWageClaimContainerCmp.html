@@ -1,0 +1,252 @@
+<!--
+  @description       : 
+  @author            : ChangeMeIn@UserSettingsUnder.SFDoc
+  @group             : 
+  @last modified on  : 08-11-2022
+  @last modified by  : ChangeMeIn@UserSettingsUnder.SFDoc
+-->
+<template>
+    <template if:false={isShowErrorPrompt}>
+        <template if:false={isModalOpen}>
+                <template if:true={isShowSpinner}>
+                    <div style="position: absolute;width: 100%;text-align: center;top: calc(50% + 3em);font-size: 16px;">
+                        {customLabels.OWC_spinner_msg}
+                        <!--<lightning:spinner alternativeText="Loading" size="medium" />-->
+                    </div>
+                </template>
+                <template if:false={isShowSpinner}>
+                    <template if:true={isFormPreviewMode}>
+                        <div class="slds-grid slds-wrap" >
+                            <div class="slds-col slds-size_1-of-1 slds-medium-size_8-of-8 slds-large-size_8-of-8">
+                                <div class="slds-grid slds-wrap">
+                                    <div class="slds-col slds-size_1-of-8 slds-medium-size_1-of-8 slds-large-size_1-of-8"></div>
+                                    <div class="slds-col slds-size_6-of-8 slds-medium-size_6-of-8 slds-large-size_6-of-8">
+                                        <lightning-button class="slds-float_right slds-m-around_medium owcButtonStyle" label={customLabels.OWC_edit_buttton_label} variant="brand" onclick={handleEditForm}></lightning-button>
+                                    </div>
+                                    <div class="slds-col slds-size_1-of-8 slds-medium-size_1-of-8 slds-large-size_1-of-8"></div>
+                                </div>
+                            </div>
+                            <div class="slds-col slds-size_1-of-1 slds-medium-size_8-of-8 slds-large-size_8-of-8"> 
+                                <div id="content">
+                                    <c-owc-Form-Preview-Cmp></c-owc-Form-Preview-Cmp>
+                                </div>
+                                
+                                <div id="editor"></div>
+                            </div>
+                        </div>
+                    </template>
+                    <template if:true={isPDFGenerate}>
+                        <c-owc-Form-Preview-Cmp></c-owc-Form-Preview-Cmp>
+                    </template>
+                    <template if:false={isFormPreviewMode}>
+                        <div class="slds-grid slds-wrap" style="width:100%">
+                            <div class="slds-col slds-size_1-of-1 slds-medium-size_8-of-8 slds-large-size_8-of-8">
+                                <lightning-progress-indicator class="slds-m-around_medium" current-step={currentStep} type="base" variant="base">
+                                    <lightning-progress-step label={customLabels.OWC_welcome_path_label} value="0" ></lightning-progress-step>
+                                    <lightning-progress-step label={customLabels.OWC_preliminary_heading} value="1" ></lightning-progress-step>
+                                    <lightning-progress-step label={customLabels.OWC_industry_path_heading} value="2" ></lightning-progress-step>
+                                    <lightning-progress-step label={customLabels.OWC_employer_path_heading} value="3" ></lightning-progress-step>
+                                    <!-- <lightning-progress-step label="Successor Information" value="4" ></lightning-progress-step> -->
+                                    <lightning-progress-step label={customLabels.OWC_other_location_path_heading} value="4" ></lightning-progress-step>
+                                    <lightning-progress-step label={customLabels.OWC_label_info_heading} value="10" ></lightning-progress-step>
+                                    <lightning-progress-step label={customLabels.OWC_emp_status_path_heading} value="5" ></lightning-progress-step>
+                                    <lightning-progress-step label={customLabels.OWC_pow_path_label} value="6" ></lightning-progress-step>
+                                    <lightning-progress-step label={customLabels.OWC_workweek_path_label} value="7" ></lightning-progress-step>
+                                    <lightning-progress-step label={customLabels.OWC_hours_typically_label} value="8" ></lightning-progress-step>
+                                    <lightning-progress-step label={customLabels.OWC_wage_deficiencies_heading} value="9" ></lightning-progress-step>
+                                    <lightning-progress-step label={customLabels.OWC_OnlineDemographic_Heading} value="12" ></lightning-progress-step>
+                                    <lightning-progress-step label={customLabels.OWC_certification_section_heading} value="11" ></lightning-progress-step>
+                                </lightning-progress-indicator>
+                            </div>
+                        </div>
+                            
+                        <template if:true={isStepZero}>
+                            <!-- <c-owc-Place-holder-Cmp></c-owc-Place-holder-Cmp> -->
+                            <c-owc-Placeholder-Cmp></c-owc-Placeholder-Cmp>
+                        </template>
+                            <template if:true={isStepOne}>
+                                <div>
+                                    <c-owc-Preliminary-Section-Cmp onclaimantemployeecustomevent={handleClaimantEmployeeChanged} onvalidityevent={handleValidityEvent} onowcdraftversionevent={handleSaveAsDraftEvent} onmatchuspscustomevent={handleUSPSAddressMatch}></c-owc-Preliminary-Section-Cmp>
+                                </div>
+                            </template>
+                            
+                            <template if:true={isStepTwo}>
+                                <div>
+                                    <c-industry-info-Cmp oninfoindustrycustomevent={handleIndustryInfoSectionData} oninfoindustryvalidityevent={handleIndustryInfoValidityEvent} onowcdraftversionevent={handleSaveAsDraftEvent}></c-industry-info-Cmp>
+                                </div>
+                            </template>
+                            
+                            <template if:true={isStepThree}>
+                                <div>
+                                    <c-owc-Emp-Business-Type-Container-Cmp isclaimantadvocate={isClaimantAdvocate} thirdcomponentrender={isThirdCmpRender} onclaimnatempoyeescustomevent={handleEmployeeCustomEvent} onowcdraftversionevent={handleSaveAsDraftEvent} onmatchuspscustomeventforemployees={handleUSPSAddressMatchForEmployer}></c-owc-Emp-Business-Type-Container-Cmp>
+                                    <!-- <c-owc-Emp-Business-Type onclaimfiledcustomevent={handleClaimFiledCustomEvent} onempbusinessvalidityevent={handleClaimFieldEmpValidityEvent}></c-owc-Emp-Business-Type> -->
+                                </div>
+                            </template>
+                
+                            <!-- <template if:true={isStepFour}>
+                                <div>
+                                    <c-owc-Successor-Section-Container-Cmp onsuccessorsectionvalidityevent={handleSuccessorSectionValidity} onsuccessorsectioninfoevent={handleSuccessorSectionInfoEvent} onowcdraftversionevent={handleSaveAsDraftEvent}></c-owc-Successor-Section-Container-Cmp>
+                                </div>
+                            </template> -->
+                
+                            <template if:true={isStepFour}>
+                                <div>
+                                    <c-owc-Other-Work-Location-Section-Cmp onvalidityevent={handleOtherWorkLocationValidityEvent} onotherworklocationevent={handleOtherWorkLocationInfo} onowcdraftversionevent={handleSaveAsDraftEvent} onmatchuspscustomeventforlocation={handleUSPSAddressMatchForOtherWorkLocation}></c-owc-Other-Work-Location-Section-Cmp>
+                                </div>
+                            </template>
+
+                            <template if:true={isStepTenth}>
+                                <div>
+                                    <c-owc-Label-Section-Container-Cmp onlabelsectionvalidityevent={handleLabelValidityEvent} onlabelsectioninfoevent={handleLabelSectionInfoEvent} onowcdraftversionevent={handleSaveAsDraftEvent}></c-owc-Label-Section-Container-Cmp>
+                                </div>
+                            </template>
+                
+                            <template if:true={isStepFifth}>
+                                <div>
+                                    <c-owc-Employment-Status-And-Final-Wages-Cmp onempstatusandfinalwagesvalidityevent={handleEmployeeStatusAndFinalWageValidity} onempstatusandfinalwagescustomevent={handleEmployeeStatusDetails} onowcdraftversionevent={handleSaveAsDraftEvent}></c-owc-Employment-Status-And-Final-Wages-Cmp>
+                                </div>
+                            </template>
+                
+                            <template if:true={isStepSixth}>
+                                <div>
+                                    <c-owc-Payment-Of-Wages-Cmp onpaymentofwagesvalidityevent={handlepaymentofwagevaliditychecker} onpaymentofwagesevent={handlepaymentofwagesdetails} onowcdraftversionevent={handleSaveAsDraftEvent}></c-owc-Payment-Of-Wages-Cmp>
+                                </div>
+                            </template>
+            
+                            <template if:true={isStepSeventh}>
+                                <div>
+                                    <c-owc-Workweek-And-Workday-Cmp onworkweekandworkdayvalidityevent={handleWorkWeekAndWorkDayValidityChekcer} onworkweekandworkdaycustomevent={handleWorkWeekAndWorkDayDetails} onowcdraftversionevent={handleSaveAsDraftEvent}></c-owc-Workweek-And-Workday-Cmp>
+                                </div>
+                            </template>
+                
+                            <template if:true={isStepEight}>
+                                <div>
+                                    <c-owc-Hours-You-Typically-Worked-Cmp workweekvalue={workWeekValue} onhoursyoutypicallyworkedevent={handleTypicallyHourWorkedEvent} onhoursyoutypicallyworkedvalidityevent={handleHoursYouTypicallyWorkedValidityEvent} onowcdraftversionevent={handleSaveAsDraftEvent}></c-owc-Hours-You-Typically-Worked-Cmp>
+                                </div>
+                            </template>
+                            
+                            <template if:true={isStepNine}>
+                                <div>
+                                    <c-owc-Wage-Deficiencies-Cmp is_wage_def_garment_claim={isWageDefGarmentClaim} is_domestic_worker={isDomesticWorker} isfarmlabour={isFarmLabour} wageclaimsubmit={claimSubmitValue} paidbreaks={paidBreaks} chequereplaced={chequeReplaced} finalpaymentdate={finalPaymentDate} stateratelist={stateRateList} staterate={stateRate} minimumrates={minimumRates} paystubsickrecord={payStubSickRecord} iwcinfoobj={iwcInfoObj} isnotidentifyemployer={stillIdentifiedEmp} powdetails={paymentOfWagesDetails} heatrecovery={heatRecovery} empstatementprovided={empStatementProvided} stateminwagerate={stateMinimumWageRate} paystubstatement={statementReceived} userworkedhours={userWorkedHours} otherworkcity={otherWorkCity} minimumwage={minimumWage} salaryratelist={_salaryRateList} multiplehourlyrate={_multipleHourlyRateList} hourlyratelist={_onehourlyRateList} noticebeforequit={noticeBeforeQuiting} werewagespaid={wereWagesPaid} quitdatevalue={quitDateValue} paidbycheck={paidByCheck} dischargeddate={dischargedDate} minimumhiredate={minimumHireDate} minimumwagezipcode={minimumWageZipCode} issalaryrateselected={isSalaryRateSelected} isonehourlyrateselected={isOneHourlyRateSelected} onwagedeficienciesvalidityevent={handleWageDeficienciesValidityEvent} onwagedeficienciesinfoevent={handleWageDeficienciesInfoEvent} onowcdraftversionevent={handleSaveAsDraftEvent}></c-owc-Wage-Deficiencies-Cmp>
+                                </div>
+                            </template>
+
+                            <template if:true={isStepTwelve}>
+                                <div>
+                                    <c-owc-Online-Demographic-Cmp ononlinedemographiccustomevent={handleDemoGraphicInfoData} onowcdraftversionevent={handleSaveAsDraftEvent}></c-owc-Online-Demographic-Cmp>
+                                </div>
+                            </template>
+                
+                            <template if:true={isStepEleventh}>
+                                <div>
+                                    <c-owc-Certification-And-Authorization-Cmp oncontinuetocertificationevent={handleContinueToCert} isclaimantadvocate={isClaimantAdvocate} oncertandauthinfoevent={handleCertAndAuthInfoEvent} oncertificationvaliditycheker={handleCertAndAuthValidityCheker} onowcdraftversionevent={handleSaveAsDraftEvent}></c-owc-Certification-And-Authorization-Cmp>
+                                </div>
+                            </template>
+            
+                            <template if:true={isHideButtons}>
+                                <div class="slds-grid slds-wrap">
+                                    <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-8 slds-large-size_1-of-8"></div>
+                                        <div class="slds-col slds-size_1-of-1 slds-medium-size_6-of-8 slds-large-size_6-of-8">
+                                            <div class="slds-grid slds-wrap">
+                                                <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-1 slds-large-size_1-of-1">
+                                                    <template if:true={isEnablePrev}>
+                                                        <lightning-button class="slds-float_left slds-m-around_medium owcButtonStyle" variant="brand" label={customLabels.OWC_previous_button} onclick={handlePrev}></lightning-button>
+                                                    </template>
+                                                    <template if:true={isEnableNext}>
+                                                        <lightning-button class="slds-float_right slds-m-top_medium slds-m-bottom_medium slds-m-left_medium owcButtonStyle" label={customLabels.OWC_continue_button} variant="brand" onclick={handleNext}></lightning-button>
+                                                    </template>
+                                                    <template if:true={isEnableFinish}>
+                                                        <div id="download1">
+                                                            <lightning-button class="slds-float_right slds-m-around_medium owcButtonStyle" label={customLabels.OWC_finish_button} variant="brand" onclick={handleFinish}  ></lightning-button>
+                                                        </div>
+                                                    </template>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                            </template>
+                
+                            <template if:false={isHideButtons}>
+                                <div class="slds-grid slds-wrap">
+                                    <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-8 slds-large-size_1-of-8"></div>
+                                        <div class="slds-col slds-size_1-of-1 slds-medium-size_6-of-8 slds-large-size_6-of-8">
+                                            <div class="slds-grid slds-wrap">
+                                                <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-1 slds-large-size_1-of-1">
+                                                    <template if:true={isEnablePreview}>
+                                                        <lightning-button class="slds-float_right slds-m-around_medium owcAdditionalButtonStyle" label={customLabels.OWC_preview_button_label} variant="brand" onclick={handleFormPreview}></lightning-button>
+                                                    </template>
+                                                </div>
+                                                <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-1 slds-large-size_1-of-1">
+                                                    <template if:true={isEnablePrev}>
+                                                        <lightning-button class="slds-float_left slds-m-around_medium owcButtonStyle" variant="brand" label={customLabels.OWC_previous_button} onclick={handlePrev}></lightning-button>
+                                                    </template>
+                    
+                                                    <template if:true={isEnableNext}>
+                                                        <lightning-button class="slds-float_right slds-m-top_medium slds-m-bottom_medium slds-m-left_medium owcButtonStyle" label={customLabels.OWC_continue_button} variant="brand" onclick={handleNext}></lightning-button>
+                                                    </template>
+                            
+                                                    <template if:true={isEnableFinish}>
+                                                        <div id="download">
+                                                            <lightning-button class="slds-float_right slds-m-around_medium owcButtonStyle" label={customLabels.OWC_finish_button} variant="brand" onclick={handleFinish}  ></lightning-button>
+                                                        </div>
+                                                    </template>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-8 slds-large-size_1-of-8"></div>
+                                </div>
+                            </template>
+                    </template>
+                    <!--Claimant Confirmation Section-->
+                    <template if:true={isClaimantConfirmationPopUp}>
+                        <c-owc-Claimant-Confirmation-Modal-Cmp onclaimantconfirmationevent={handleClaimantConfirmationEvent}></c-owc-Claimant-Confirmation-Modal-Cmp>
+                    </template>
+            </template>
+            
+            
+        </template>
+    </template>
+    <!-- Modal Pop-Up-->
+    <template if:true={isModalOpen}>
+        <!-- Modal/Popup Box LWC starts here -->
+        <section role="dialog" tabindex="-1" aria-labelledby="modal-heading-01" aria-modal="true" aria-describedby="modal-content-id-1" class="slds-modal slds-fade-in-open">
+            <div class="slds-modal__container">
+                
+                <!-- Modal/Popup Box LWC body starts here -->
+                <div class="slds-modal__content slds-p-around_medium" id="modal-content-id-1">
+                    <form>{customLabels.OWC_thankyou_dialog}</form>
+                </div>
+                <!-- Modal/Popup Box LWC footer starts here -->
+                <footer class="slds-modal__footer">
+                    <lightning-button class="slds-m-around_medium owcButtonStyle" label={customLabels.OWC_return_to_dashboard} variant="brand" onclick={closeModal}  ></lightning-button>
+                    <!-- <button class="slds-button slds-button_neutral" onclick={closeModal} title="Cancel">Cancel</button> -->
+                    <!-- <button class="slds-button slds-button_brand owcButtonStyle" onclick={closeModal} title={customLabels.OWC_return_to_dashboard}>{customLabels.OWC_return_to_dashboard}</button> -->
+                </footer>
+            </div>
+        </section>
+        <div class="slds-backdrop slds-backdrop_open"></div>
+    </template>
+    <!-- Show prompt error in exception case -->
+    <template if:true={isShowErrorPrompt}>
+        <div class="demo-only" style="height:24rem">
+            <section role="dialog" tabindex="0" aria-modal="true" aria-labelledby="prompt-heading-id" aria-describedby="prompt-message-wrapper" class="slds-modal slds-fade-in-open slds-modal_prompt">
+              <div class="slds-modal__container">
+                <div class="slds-modal__header slds-theme_error slds-theme_alert-texture">
+                  <h1 class="slds-text-heading_medium" style="color:white; font-weight:bold;" id="prompt-heading-id">{customLabels.owcWageClaimSubmitError}</h1>
+                </div>
+                <div class="slds-modal__content slds-p-around_medium" id="prompt-message-wrapper">
+                    <form>
+                        <span>{customLabels.OWCUserGuideOnError1}</span> &nbsp;
+                        <span><a href="https://www.dir.ca.gov/dlse/Wage_Claim_forms.html" target="_blank">Wage Claim forms</a></span> &nbsp;
+                        <span>{customLabels.OWCUserGuideOnError2}</span>
+                    </form>
+                </div>
+                <div class="slds-modal__footer slds-theme_default">
+                    <lightning-button class="slds-m-around_medium owcButtonStyle" label={customLabels.OWC_return_to_dashboard} variant="brand" onclick={closeModal}  ></lightning-button>
+                </div>
+              </div>
+            </section>
+            <div class="slds-backdrop slds-backdrop_open" role="presentation"></div>
+          </div>
+    </template>
+</template>

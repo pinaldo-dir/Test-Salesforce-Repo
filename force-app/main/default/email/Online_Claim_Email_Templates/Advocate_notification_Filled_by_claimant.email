@@ -1,0 +1,6 @@
+Hello {!Advocate},<br></br>
+A wage claimant {!Claimant} has indicated you are their advocate/representative against {!Defendant}. The case number is {!case number}. The claim is assigned to the following Wage Office: <br></br>
+{!DIR_Case__c.Office__c }
+{!DIR_Case__c.DIR_WCA_Office_Address__c}
+{!DIR_Case__c.DIR_Office_Phone_Number__c} 
+Labor Commissioner's Office

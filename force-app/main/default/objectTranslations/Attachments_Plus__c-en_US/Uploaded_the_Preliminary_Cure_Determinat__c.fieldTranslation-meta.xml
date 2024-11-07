@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+        <help><!-- Uploaded the Preliminary Cure Determination document in Upload PAGA Documents tab in Case Management (it is required) --></help>
+        <label><!-- Uploaded the Preliminary Cure Determinat --></label>
+        <name>Uploaded_the_Preliminary_Cure_Determinat__c</name>
+    </CustomFieldTranslation>

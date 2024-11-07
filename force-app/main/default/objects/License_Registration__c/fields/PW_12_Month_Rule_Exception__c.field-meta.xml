@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>PW_12_Month_Rule_Exception__c</fullName>
+    <defaultValue>false</defaultValue>
+    <description>Check this box to allow a contractor to register who has been assessed a $2,000 penalty within the last 12 months.</description>
+    <externalId>false</externalId>
+    <inlineHelpText>Check this box to allow a contractor to register who has been assessed a $2,000 penalty within the last 12 months.</inlineHelpText>
+    <label>PW 12 Month Rule Exception</label>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Checkbox</type>
+</CustomField>

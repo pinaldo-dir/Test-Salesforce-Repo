@@ -1,0 +1,470 @@
+<!--
+  @description       : 
+  @author            : ChangeMeIn@UserSettingsUnder.SFDoc
+  @group             : 
+  @last modified on  : 10-22-2021
+  @last modified by  : ChangeMeIn@UserSettingsUnder.SFDoc
+-->
+<template>
+ <template if:true={isformpreviewmode}>
+    <div class="c-container">
+       <!-- <div class="slds-box" style="margin-left: -3rem;">-->
+        <!-- <lightning-input type="checkbox" name="sameSchedule" data-day="Sunday" checked={isSameScheduled} label="Show same Schedule for all Days" onchange={_getSameSchedule}></lightning-input> -->
+       
+        <template for:each= {timeEntriesDetails} for:item= "day">
+            <!-- <div key={day.name} class="slds-grid slds-wrap">
+                <div class="slds-col slds-size_4-of-12 slds-medium-size_4-of-12 slds-large-size_4-of-12">
+
+                </div>
+                <div class="slds-col slds-size_2-of-12 slds-medium-size_2-of-12 slds-large-size_2-of-12">
+
+                </div>
+                <div class="slds-col slds-size_2-of-12 slds-medium-size_2-of-12 slds-large-size_2-of-12">
+
+                </div>
+                <div class="slds-col slds-size_2-of-12 slds-medium-size_2-of-12 slds-large-size_2-of-12">
+
+                </div>
+                <div class="slds-col slds-size_2-of-12 slds-medium-size_2-of-12 slds-large-size_2-of-12">
+                    
+                </div>
+            </div>       -->
+
+            <lightning-layout horizontal-align="space" key={day} multiple-rows="true">
+                <lightning-layout-item padding="around-small" size="12" medium-device-size="10" small-device-size="9" large-device-size="3">
+                    <div class="header-column">
+                        <template if:true={day.isChecked}>
+                            
+                            <lightning-input type="checkbox" value={day.id} name="sameSchedule" data-day="Sunday" checked={day.issameScheduled} label={customLabelValues.OWC_Same_as_above}  onchange={_getSameSchedule} disabled="true"></lightning-input>
+                            <div style="margin-top: 20px;">{day.name}</div>
+                            <!-- <p class="" title="" ></p><br/><br/><br/><br/><br/> -->
+                            <template if:true={day.isFirstMeal}>
+                                <p style="padding-top: 45px;">{customLabelValues.OWC_first_meal}</p>
+                                <!-- <div>First Meal Placeholder</p><br/><br/><br/> -->
+                            </template>
+                            <template if:true={day.isSecondMeal}>
+                                <p style="padding-top: 45px;">{customLabelValues.OWC_second_meal}</p>
+                                <!-- <p style="margin-top:2px;"></p>Second Meal Placeholder</p> -->
+                            </template>
+                        </template>
+                        <template if:false={day.isChecked}>
+                            <!-- <lightning-input type="checkbox" value={day.id} name="sameSchedule" data-day="Sunday" checked={isSameScheduled} label="Show same Schedule for all Days" onchange={_getSameSchedule}></lightning-input> -->
+                            <div style="margin-top: 75px;">{day.name}</div>
+                            <!-- <p class="" title="" ></p><br/><br/><br/><br/><br/> -->
+                            <template if:true={day.isFirstMeal}>
+                                <p style="padding-top: 45px;">{customLabelValues.OWC_first_meal}</p>
+                                <!-- <div>First Meal Placeholder</p><br/><br/><br/> -->
+                            </template>
+                            <template if:true={day.isSecondMeal}>
+                                <p style="padding-top: 45px;">{customLabelValues.OWC_second_meal}</p>
+                                <!-- <p style="margin-top:2px;"></p>Second Meal Placeholder</p> -->
+                            </template>
+                        </template>
+                    </div>
+                </lightning-layout-item>
+                <lightning-layout-item padding="around-small" size="12" medium-device-size="10" small-device-size="9" large-device-size="2">
+                    <div class="header-column">
+                        <p class="field-title" title="">{customLabelValues.OWC_start_time}
+                                <lightning-input type="time" class="slds-grid slds-grid_align-space" value={day.startTime}  data-day={day.name} name="startTime" label=""
+                            placeholder="" onchange={handleChange} disabled="true"></lightning-input>
+                        </p>
+                        <template if:true={day.isFirstMeal}>
+                            <p>{customLabelValues.OWC_first_meal_time}<lightning-input type="time" class="slds-grid slds-grid_align-space" value={day.startTimeFirstMeal} data-day={day.name} name="startTimeFirstMeal" label=""
+                                placeholder="" onchange={handleChange} disabled="true"></lightning-input></p>
+                        </template>
+                        <template if:true={day.isSecondMeal}>
+                            <p>{customLabelValues.OWC_second_meal_time}<lightning-input type="time" class="slds-grid slds-grid_align-space" value={day.startTimeSecondMeal}  data-day={day.name} name="startTimeSecondMeal" label=""
+                                placeholder="" onchange={handleChange} disabled="true"></lightning-input></p>
+                        </template>
+                    </div>
+                </lightning-layout-item>
+                <lightning-layout-item padding="around-small" size="12" medium-device-size="10" small-device-size="9" large-device-size="2">
+                    <div class="header-column">
+                        <p class="field-title" title="">{customLabelValues.OWC_end_time}
+                            <!-- <span class="slds-p-left_x-small">
+                                <lightning-icon icon-name="utility:info" class="my-icon" size="x-small" alternative-text="info"  label={customLabelValues.OWC_learnmore_button} name="timeHelpText" onclick={handleHelpText} ></lightning-icon>
+                             </span> -->
+                            <lightning-input data-day={day.name} class="slds-grid slds-grid_align-space" value={day.endTime} type="time" name="endTime" label=""
+                            placeholder="" onchange={handleChange} disabled="true"></lightning-input>
+            
+                        </p>
+                        <template if:true={day.isFirstMeal}>
+                            <p>{customLabelValues.OWC_break_time}<lightning-input type="number" maxlength="2" class="slds-grid slds-grid_align-space" value={day.breakTimeFirstMeal}  data-day={day.name} name="breakTimeFirstMeal" label=""
+                                placeholder="Enter Break Time" onchange={handleChange} disabled="true"></lightning-input></p>
+                        </template>
+                        <template if:true={day.isSecondMeal}>
+                            <p>{customLabelValues.OWC_break_time}<lightning-input type="number" maxlength="2" class="slds-grid slds-grid_align-space" value={day.breakTimeSecondMeal}  data-day={day.name} name="breakTimeSecondMeal" label=""
+                                placeholder="Enter Break Time" onchange={handleChange} disabled="true"></lightning-input></p>
+                        </template>
+                    </div>
+                </lightning-layout-item>
+                <lightning-layout-item padding="around-small" size="12" medium-device-size="10" small-device-size="9" large-device-size="3">
+                    <div class="header-column">
+                        <p class="field-title" title="Date Differ">{customLabelValues.OWC_shift_end_follow_day}</p><p><lightning-input data-day={day.name} class="slds-grid slds-grid_align-space" style="width: 2rem;height: 2rem;margin-left: 1.2rem;margin-top: 25px;" type="checkbox" name="datediffer" label=""
+                            placeholder="" checked={day.dateDiffer} onchange={handleChange} disabled="true"></lightning-input></p>
+                    </div>
+                </lightning-layout-item>
+                <lightning-layout-item padding="around-small" size="12" medium-device-size="10" small-device-size="9" large-device-size="2">
+                    <div class="header-column">
+                        <p class="field-title" title="Total Work hours">{customLabelValues.OWC_total_work_hours}</p>
+                        <p>
+                          {day.totalHours}
+                        </p>
+                    </div>
+                </lightning-layout-item>
+            
+            </lightning-layout>
+            
+            </template> 
+            </div>
+            <template if:true={isHelpText}>
+                <c-owc-Help-Text-Cmp isdlseformhelptext={isdlse55Available} helptext={helpText} onhelptextevent={handleHelpTextEvent} ismultiplefileuploadhelptext={isMultipleFileUploadHelpText}></c-owc-Help-Text-Cmp>
+            </template>
+<!--</div>-->
+</template>
+
+<template if:true={isLargeDevice}>
+ <template if:false={isformpreviewmode}>
+    <div class="c-container">
+       <!-- <div class="slds-box" style="margin-left: -3rem;">-->
+        <!-- <lightning-input type="checkbox" name="sameSchedule" data-day="Sunday" checked={isSameScheduled} label="Show same Schedule for all Days" onchange={_getSameSchedule}></lightning-input> -->
+       
+        <template for:each= {timeEntriesDetails} for:item= "day">
+            <!-- <div key={day.name} class="slds-grid slds-wrap">
+                <div class="slds-col slds-size_4-of-12 slds-medium-size_4-of-12 slds-large-size_4-of-12">
+
+                </div>
+                <div class="slds-col slds-size_2-of-12 slds-medium-size_2-of-12 slds-large-size_2-of-12">
+
+                </div>
+                <div class="slds-col slds-size_2-of-12 slds-medium-size_2-of-12 slds-large-size_2-of-12">
+
+                </div>
+                <div class="slds-col slds-size_2-of-12 slds-medium-size_2-of-12 slds-large-size_2-of-12">
+
+                </div>
+                <div class="slds-col slds-size_2-of-12 slds-medium-size_2-of-12 slds-large-size_2-of-12">
+                    
+                </div>
+            </div>       -->
+
+            <lightning-layout horizontal-align="space" key={day} multiple-rows="true">
+                <lightning-layout-item padding="around-small" size="12" medium-device-size="10" small-device-size="9" large-device-size="3">
+                    <div class="header-column">
+                        <template if:true={day.isChecked}>
+                            
+                            <lightning-input type="checkbox" value={day.id} name="sameSchedule" data-day="Sunday" checked={day.issameScheduled} label={customLabelValues.OWC_Same_as_above} onchange={_getSameSchedule}></lightning-input>
+                            <div style="margin-top: 20px;">{day.name}</div>
+                            <!-- <p class="" title="" ></p><br/><br/><br/><br/><br/> -->
+                            <template if:true={day.isFirstMeal}>
+                                <p style="padding-top: 45px;">{customLabelValues.OWC_first_meal}</p>
+                                <!-- <div>First Meal Placeholder</p><br/><br/><br/> -->
+                            </template>
+                            <template if:true={day.isSecondMeal}>
+                                <p style="padding-top: 45px;">{customLabelValues.OWC_second_meal}</p>
+                                <!-- <p style="margin-top:2px;"></p>Second Meal Placeholder</p> -->
+                            </template>
+                        </template>
+                        <template if:false={day.isChecked}>
+                            <!-- <lightning-input type="checkbox" value={day.id} name="sameSchedule" data-day="Sunday" checked={isSameScheduled} label="Show same Schedule for all Days" onchange={_getSameSchedule}></lightning-input> -->
+                            <div style="margin-top: 75px;">{day.name}</div>
+                            <!-- <p class="" title="" ></p><br/><br/><br/><br/><br/> -->
+                            <template if:true={day.isFirstMeal}>
+                                <p style="padding-top: 45px;">{customLabelValues.OWC_first_meal}</p>
+                                <!-- <div>First Meal Placeholder</p><br/><br/><br/> -->
+                            </template>
+                            <template if:true={day.isSecondMeal}>
+                                <p style="padding-top: 45px;">{customLabelValues.OWC_second_meal}</p>
+                                <!-- <p style="margin-top:2px;"></p>Second Meal Placeholder</p> -->
+                            </template>
+                        </template>
+                    </div>
+                </lightning-layout-item>
+                <lightning-layout-item padding="around-small" size="12" medium-device-size="10" small-device-size="9" large-device-size="2">
+                    <div class="header-column">
+                        <p class="field-title" title="">{customLabelValues.OWC_start_time}
+                                <lightning-input type="time" class="slds-grid slds-grid_align-space" value={day.startTime}  data-day={day.name} name="startTime" label=""
+                            placeholder="" onchange={handleChange}></lightning-input>
+                        </p>
+                        <template if:true={day.isFirstMeal}>
+                            <p>{customLabelValues.OWC_first_meal_time}<lightning-input type="time" class="slds-grid slds-grid_align-space" value={day.startTimeFirstMeal} data-day={day.name} name="startTimeFirstMeal" label=""
+                                placeholder="" onchange={handleChange}></lightning-input></p>
+                        </template>
+                        <template if:true={day.isSecondMeal}>
+                            <p>{customLabelValues.OWC_second_meal_time}<lightning-input type="time" class="slds-grid slds-grid_align-space" value={day.startTimeSecondMeal}  data-day={day.name} name="startTimeSecondMeal" label=""
+                                placeholder="" onchange={handleChange}></lightning-input></p>
+                        </template>
+                    </div>
+                </lightning-layout-item>
+                <lightning-layout-item padding="around-small" size="12" medium-device-size="10" small-device-size="9" large-device-size="2">
+                    <div class="header-column">
+                        <p class="field-title" title="" style="width:7.6 rem;">{customLabelValues.OWC_end_time}
+                            <span class="slds-p-left_x-small">
+                                <lightning-icon icon-name="utility:info" class="my-icon" size="x-small" alternative-text="info"  label={customLabelValues.OWC_learnmore_button} name="timeHelpText" onclick={handleHelpText} ></lightning-icon>
+                             </span>
+                            <lightning-input data-day={day.name} class="slds-grid slds-grid_align-space" value={day.endTime} type="time" name="endTime" label=""
+                            placeholder="" onchange={handleChange}></lightning-input>
+            
+                        </p>
+                        <template if:true={day.isFirstMeal}>
+                            <p>{customLabelValues.OWC_break_time}
+                                <span class="slds-p-left_xxx-small">
+                                    <lightning-icon icon-name="utility:info" class="my-icon" size="x-small" alternative-text="info"  label={customLabelValues.OWC_learnmore_button} name="breakTimeHelpText" onclick={handleHelpText} ></lightning-icon>
+                                 </span>
+                                <lightning-input type="number" max-length="2" class="slds-grid slds-grid_align-space" value={day.breakTimeFirstMeal}  data-day={day.name} name="breakTimeFirstMeal" label=""
+                                placeholder="Enter Break Time" onchange={handleChange}></lightning-input>
+                            </p>
+                        </template>
+                        <template if:true={day.isSecondMeal}>
+                            <p>{customLabelValues.OWC_break_time}
+                                <span class="slds-p-left_xxx-small">
+                                    <lightning-icon icon-name="utility:info" class="my-icon" size="x-small" alternative-text="info"  label={customLabelValues.OWC_learnmore_button} name="breakTimeHelpText" onclick={handleHelpText} ></lightning-icon>
+                                 </span>
+                                 <lightning-input type="number" max-length="2" class="slds-grid slds-grid_align-space" value={day.breakTimeSecondMeal}  data-day={day.name} name="breakTimeSecondMeal" label=""
+                                placeholder="Enter Break Time" onchange={handleChange}></lightning-input></p>
+                        </template>
+                    </div>
+                </lightning-layout-item>
+                <lightning-layout-item padding="around-small" size="12" medium-device-size="10" small-device-size="9" large-device-size="3">
+                    <div class="header-column">
+                        <p class="field-title" title="Date Differ">{customLabelValues.OWC_shift_end_follow_day}</p><p><lightning-input data-day={day.name} class="slds-grid slds-grid_align-space" style="width: 2rem;height: 2rem;margin-left: 1.2rem;margin-top: 25px;" type="checkbox" name="datediffer" label=""
+                            placeholder="" onchange={handleChange} checked={day.dateDiffer}></lightning-input></p>
+                    </div>
+                </lightning-layout-item>
+                <lightning-layout-item padding="around-small" size="12" medium-device-size="10" small-device-size="9" large-device-size="2">
+                    <div class="header-column">
+                        <p class="field-title" title="Total Work hours">{customLabelValues.OWC_total_work_hours}</p>
+                        <p>
+                          {day.totalHours}
+                        </p>
+                    </div>
+                </lightning-layout-item>
+            
+            </lightning-layout>
+            
+            </template> 
+            </div>
+            <template if:true={isHelpText}>
+                <c-owc-Help-Text-Cmp isdlseformhelptext={isdlse55Available} helptext={helpText} onhelptextevent={handleHelpTextEvent} ismultiplefileuploadhelptext={isMultipleFileUploadHelpText}></c-owc-Help-Text-Cmp>
+            </template>
+<!--</div>-->
+</template>
+</template>
+
+<template if:true={isMediumDevice}>
+ <template if:false={isformpreviewmode}>
+    <div class="c-container">
+       <!-- <div class="slds-box" style="margin-left: -3rem;">-->
+        <!-- <lightning-input type="checkbox" name="sameSchedule" data-day="Sunday" checked={isSameScheduled} label="Show same Schedule for all Days" onchange={_getSameSchedule}></lightning-input> -->
+       
+        <template for:each= {timeEntriesDetails} for:item= "day">
+            <!-- <div key={day.name} class="slds-grid slds-wrap">
+                <div class="slds-col slds-size_4-of-12 slds-medium-size_4-of-12 slds-large-size_4-of-12">
+
+                </div>
+                <div class="slds-col slds-size_2-of-12 slds-medium-size_2-of-12 slds-large-size_2-of-12">
+
+                </div>
+                <div class="slds-col slds-size_2-of-12 slds-medium-size_2-of-12 slds-large-size_2-of-12">
+
+                </div>
+                <div class="slds-col slds-size_2-of-12 slds-medium-size_2-of-12 slds-large-size_2-of-12">
+
+                </div>
+                <div class="slds-col slds-size_2-of-12 slds-medium-size_2-of-12 slds-large-size_2-of-12">
+                    
+                </div>
+            </div>       -->
+
+            <lightning-layout horizontal-align="space" key={day} multiple-rows="true">
+                <lightning-layout-item padding="around-small" size="12" medium-device-size="10" small-device-size="9" large-device-size="3">
+                    <div class="header-column">
+                        <template if:true={day.isChecked}>
+                            
+                            <lightning-input type="checkbox" value={day.id} name="sameSchedule" data-day="Sunday" checked={day.issameScheduled} label={customLabelValues.OWC_Same_as_above}  onchange={_getSameSchedule}></lightning-input>
+                            <div style="margin-top: 20px;">{day.name}</div>
+                            <!-- <p class="" title="" ></p><br/><br/><br/><br/><br/> -->
+                            <template if:true={day.isFirstMeal}>
+                                <p style="padding-top: 45px;">{customLabelValues.OWC_first_meal}</p>
+                                <!-- <div>First Meal Placeholder</p><br/><br/><br/> -->
+                            </template>
+                            <template if:true={day.isSecondMeal}>
+                                <p style="padding-top: 45px;">{customLabelValues.OWC_second_meal}</p>
+                                <!-- <p style="margin-top:2px;"></p>Second Meal Placeholder</p> -->
+                            </template>
+                        </template>
+                        <template if:false={day.isChecked}>
+                            <!-- <lightning-input type="checkbox" value={day.id} name="sameSchedule" data-day="Sunday" checked={isSameScheduled} label="Show same Schedule for all Days" onchange={_getSameSchedule}></lightning-input> -->
+                            <div style="margin-top: 75px;">{day.name}</div>
+                            <!-- <p class="" title="" ></p><br/><br/><br/><br/><br/> -->
+                            <template if:true={day.isFirstMeal}>
+                                <p style="padding-top: 45px;">{customLabelValues.OWC_first_meal}</p>
+                                <!-- <div>First Meal Placeholder</p><br/><br/><br/> -->
+                            </template>
+                            <template if:true={day.isSecondMeal}>
+                                <p style="padding-top: 45px;">{customLabelValues.OWC_second_meal}</p>
+                                <!-- <p style="margin-top:2px;"></p>Second Meal Placeholder</p> -->
+                            </template>
+                        </template>
+                    </div>
+                </lightning-layout-item>
+                <lightning-layout-item padding="around-small" size="12" medium-device-size="10" small-device-size="9" large-device-size="2">
+                    <div class="header-column">
+                        <p class="field-title" title="">{customLabelValues.OWC_start_time}
+                                <lightning-input type="time" class="slds-grid slds-grid_align-space" value={day.startTime}  data-day={day.name} name="startTime" label=""
+                            placeholder="" onchange={handleChange}></lightning-input>
+                        </p>
+                        <template if:true={day.isFirstMeal}>
+                            <p>{customLabelValues.OWC_first_meal_time}
+                                <lightning-input type="time" class="slds-grid slds-grid_align-space" value={day.startTimeFirstMeal} data-day={day.name} name="startTimeFirstMeal" label=""
+                                placeholder="" onchange={handleChange}></lightning-input></p>
+                        </template>
+                        <template if:true={day.isSecondMeal}>
+                            <p>{customLabelValues.OWC_second_meal_time}<lightning-input type="time" class="slds-grid slds-grid_align-space" value={day.startTimeSecondMeal}  data-day={day.name} name="startTimeSecondMeal" label=""
+                                placeholder="" onchange={handleChange}></lightning-input></p>
+                        </template>
+                    </div>
+                </lightning-layout-item>
+                <lightning-layout-item padding="around-small" size="12" medium-device-size="10" small-device-size="9" large-device-size="2">
+                    <div class="header-column">
+                        <p class="field-title" title="" style="width:7.6 rem;">{customLabelValues.OWC_end_time}
+                            <span class="slds-p-left_x-small">
+                                <lightning-icon icon-name="utility:info" class="my-icon" size="x-small" alternative-text="info"  label={customLabelValues.OWC_learnmore_button} name="timeHelpText" onclick={handleHelpText} ></lightning-icon>
+                             </span>
+                            <lightning-input data-day={day.name} class="slds-grid slds-grid_align-space" value={day.endTime} type="time" name="endTime" label=""
+                            placeholder="" onchange={handleChange}></lightning-input>
+            
+                        </p>
+                        <template if:true={day.isFirstMeal}>
+                            <p>{customLabelValues.OWC_break_time}
+                                <span class="slds-p-left_xxx-small">
+                                    <lightning-icon icon-name="utility:info" class="my-icon" size="x-small" alternative-text="info"  label={customLabelValues.OWC_learnmore_button} name="breakTimeHelpText" onclick={handleHelpText} ></lightning-icon>
+                                 </span>
+                                 <lightning-input type="number" max-length="2" class="slds-grid slds-grid_align-space" value={day.breakTimeFirstMeal}  data-day={day.name} name="breakTimeFirstMeal" label=""
+                                placeholder="Enter Break Time" onchange={handleChange}></lightning-input></p>
+                        </template>
+                        <template if:true={day.isSecondMeal}>
+                            <p>{customLabelValues.OWC_break_time}
+                                <span class="slds-p-left_xxx-small">
+                                    <lightning-icon icon-name="utility:info" class="my-icon" size="x-small" alternative-text="info"  label={customLabelValues.OWC_learnmore_button} name="breakTimeHelpText" onclick={handleHelpText} ></lightning-icon>
+                                 </span>
+                                 <lightning-input type="number" max-length="2" class="slds-grid slds-grid_align-space" value={day.breakTimeSecondMeal}  data-day={day.name} name="breakTimeSecondMeal" label=""
+                                placeholder="Enter Break Time" onchange={handleChange}></lightning-input></p>
+                        </template>
+                    </div>
+                </lightning-layout-item>
+                <lightning-layout-item padding="around-small" size="12" medium-device-size="10" small-device-size="9" large-device-size="3">
+                    <div class="header-column">
+                        <p class="field-title" title="Date Differ">{customLabelValues.OWC_shift_end_follow_day}</p><p><lightning-input data-day={day.name} class="slds-grid slds-grid_align-space" style="width: 2rem;height: 2rem;margin-left: 1.2rem;margin-top: 25px;" type="checkbox" name="datediffer" label=""
+                            placeholder="" onchange={handleChange} checked={day.dateDiffer}></lightning-input></p>
+                    </div>
+                </lightning-layout-item>
+                <lightning-layout-item padding="around-small" size="12" medium-device-size="10" small-device-size="9" large-device-size="2">
+                    <div class="header-column">
+                        <p class="field-title" title="Total Work hours">{customLabelValues.OWC_total_work_hours}</p>
+                        <p>
+                          {day.totalHours}
+                        </p>
+                    </div>
+                </lightning-layout-item>
+            
+            </lightning-layout>
+            
+            </template> 
+            </div>
+            <template if:true={isHelpText}>
+                <c-owc-Help-Text-Cmp isdlseformhelptext={isdlse55Available} helptext={helpText} onhelptextevent={handleHelpTextEvent} ismultiplefileuploadhelptext={isMultipleFileUploadHelpText}></c-owc-Help-Text-Cmp>
+            </template>
+<!--</div>-->
+</template>
+</template>
+
+<template if:true={isSmallDevice}>
+    <template if:false={isformpreviewmode}>
+        <div class="slds-p-bottom_medium slds-grid slds-wrap">
+            <template for:each= {timeEntriesDetails} for:item= "day"> 
+                <div class="slds-p-around_medium slds-border_top slds-border_bottom slds-col slds-size_1-of-1 slds-medium-size_1-of-1 slds-large-size_1-of-1" key={day}>
+                    <div class="slds-grid slds-wrap">
+                        <template if:false={day.isChecked}></template>
+                        <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-1 slds-large-size_1-of-1">
+                            <template if:true={day.isChecked}>
+                                <lightning-input class="slds-p-bottom_medium" type="checkbox" value={day.id} name="sameSchedule" data-day="Sunday" checked={day.issameScheduled} label={customLabelValues.OWC_Same_as_above}  onchange={_getSameSchedule}></lightning-input>
+                            </template>
+                            <div class="slds-p-bottom_medium"><b>{day.name}</b></div>
+                        </div>
+                        <div class="slds-p-bottom_medium slds-col slds-size_1-of-1 slds-medium-size_1-of-1 slds-large-size_1-of-1">
+                            {customLabelValues.OWC_start_time}
+                        </div>
+                        <div class="slds-p-bottom_medium slds-col slds-size_1-of-1 slds-medium-size_1-of-1 slds-large-size_1-of-1">
+                            <lightning-input type="time" class="" value={day.startTime}  data-day={day.name} name="startTime" variant="label-hidden"
+                            placeholder="" onchange={handleChange}></lightning-input>
+                        </div>
+                        <div class="slds-p-bottom_medium slds-col slds-size_1-of-1 slds-medium-size_1-of-1 slds-large-size_1-of-1">
+                            {customLabelValues.OWC_end_time}
+                            <span class="slds-p-left_x-small">
+                                <lightning-icon icon-name="utility:info" class="my-icon" size="x-small" alternative-text="info"  label={customLabelValues.OWC_learnmore_button} name="timeHelpText" onclick={handleHelpText} ></lightning-icon>
+                             </span>
+                        </div>
+                        <div class="slds-p-bottom_medium slds-col slds-size_1-of-1 slds-medium-size_1-of-1 slds-large-size_1-of-1">
+                            <lightning-input data-day={day.name} class="" value={day.endTime} type="time" name="endTime" variant="label-hidden"
+                            placeholder="" onchange={handleChange}></lightning-input>
+                        </div>
+                        <div class="slds-p-bottom_medium slds-col slds-size_1-of-1 slds-medium-size_1-of-1 slds-large-size_1-of-1">
+                            <span class="" title="Date Differ">{customLabelValues.OWC_shift_end_follow_day}</span><span><lightning-input data-day={day.name} class="" type="checkbox" name="datediffer" label=""
+                                placeholder="" onchange={handleChange} checked={day.dateDiffer}></lightning-input></span>
+                        </div>
+                        <div class="slds-p-bottom_medium slds-col slds-size_1-of-1 slds-medium-size_1-of-1 slds-large-size_1-of-1">
+                            <span>{customLabelValues.OWC_total_work_hours}</span> &nbsp;&nbsp;&nbsp;:&nbsp;&nbsp;&nbsp;
+                            <span>{day.totalHours}</span>
+                        </div>
+                        <template if:true={day.isFirstMeal}>
+                            <div class="slds-p-bottom_medium slds-col slds-size_1-of-1 slds-medium-size_1-of-1 slds-large-size_1-of-1">
+                                {customLabelValues.OWC_first_meal}
+                            </div>
+                            <div class="slds-p-bottom_medium slds-col slds-size_1-of-1 slds-medium-size_1-of-1 slds-large-size_1-of-1">
+                                {customLabelValues.OWC_first_meal_time}
+                            </div>
+                            <div class="slds-p-bottom_medium slds-col slds-size_1-of-1 slds-medium-size_1-of-1 slds-large-size_1-of-1">
+                                <lightning-input type="time" class="slds-grid slds-grid_align-space" value={day.startTimeFirstMeal} data-day={day.name} name="startTimeFirstMeal" variant="label-hidden"
+                                    placeholder="" onchange={handleChange}></lightning-input>
+                            </div>
+                            <div class="slds-p-bottom_medium slds-col slds-size_1-of-1 slds-medium-size_1-of-1 slds-large-size_1-of-1">
+                                {customLabelValues.OWC_break_time}
+                                <span class="slds-p-left_x-small">
+                                    <lightning-icon icon-name="utility:info" class="my-icon" size="x-small" alternative-text="info"  label={customLabelValues.OWC_learnmore_button} name="breakTimeHelpText" onclick={handleHelpText} ></lightning-icon>
+                                 </span>
+                            </div>
+                            <div class="slds-p-bottom_medium slds-col slds-size_1-of-1 slds-medium-size_1-of-1 slds-large-size_1-of-1">
+                                <lightning-input type="number" max-length="2" class="slds-grid slds-grid_align-space" value={day.breakTimeFirstMeal}  data-day={day.name} name="breakTimeFirstMeal" variant="label-hidden"
+                                    placeholder="Enter Break Time" onchange={handleChange}></lightning-input>
+                            </div>
+                        </template>
+                        <template if:true={day.isSecondMeal}>
+                            <div class="slds-p-bottom_medium slds-col slds-size_1-of-1 slds-medium-size_1-of-1 slds-large-size_1-of-1">
+                                {customLabelValues.OWC_second_meal}
+                            </div>
+                            <div class="slds-p-bottom_medium slds-col slds-size_1-of-1 slds-medium-size_1-of-1 slds-large-size_1-of-1">
+                                {customLabelValues.OWC_second_meal_time}
+                            </div>
+                            <div class="slds-p-bottom_medium slds-col slds-size_1-of-1 slds-medium-size_1-of-1 slds-large-size_1-of-1">
+                                <lightning-input type="time" class="slds-grid slds-grid_align-space" value={day.startTimeSecondMeal}  data-day={day.name} name="startTimeSecondMeal" variant="label-hidden"
+                                    placeholder="" onchange={handleChange}></lightning-input>
+                            </div>
+                            <div class="slds-p-bottom_medium slds-col slds-size_1-of-1 slds-medium-size_1-of-1 slds-large-size_1-of-1">
+                                {customLabelValues.OWC_break_time}
+                                <span class="slds-p-left_x-small">
+                                    <lightning-icon icon-name="utility:info" class="my-icon" size="x-small" alternative-text="info"  label={customLabelValues.OWC_learnmore_button} name="breakTimeHelpText" onclick={handleHelpText} ></lightning-icon>
+                                 </span>
+                            </div>
+                            <div class="slds-p-bottom_medium slds-col slds-size_1-of-1 slds-medium-size_1-of-1 slds-large-size_1-of-1">
+                                <lightning-input type="number" max-length="2" class="slds-grid slds-grid_align-space" value={day.breakTimeSecondMeal}  data-day={day.name} name="breakTimeSecondMeal" variant="label-hidden"
+                                    placeholder="Enter Break Time" onchange={handleChange}></lightning-input>
+                            </div>
+                        </template>
+                    </div>
+                </div>
+            </template>
+        </div>
+    </template>
+</template>
+</template>

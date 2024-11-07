@@ -1,0 +1,54 @@
+<template>
+    <form>
+        <div class="slds-p-left_xx-small slds-grid slds-wrap">
+            <div class="slds-col slds-medium-size_1-of-8 slds-large-size_1-of-8"></div>
+                <div class="slds-col slds-size_1-of-1 slds-medium-size_6-of-8 slds-large-size_6-of-8">
+                    <div class="slds-grid slds-wrap">
+                        <div class="slds-col slds-medium-size_1-of-1 slds-large-size_1-of-1">
+                            <template if:true={isRenderLabelInformationSection}>
+                                <template for:each={renderLabelInformationSection} for:item="labelObj">
+                                    <div key={labelObj.Id}>
+                                        <div class="slds-grid slds-wrap">
+                                            <template if:true={labelObj.button}>
+                                                <h2 class="slds-col slds-medium-size_5-of-6 slds-large-size_5-of-6 slds-p-left_small">
+                                                    {labelObj.heading}
+                                                </h2>
+                                            </template>
+                                            <template if:false={labelObj.button}>
+                                                <h1 class="slds-col slds-medium-size_5-of-6 slds-large-size_5-of-6 slds-p-left_small slds-text-heading_large owcHeadingStyle">
+                                                    {labelObj.heading}
+                                                </h1>
+                                            </template>
+                                            
+                                            <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-6 slds-large-size_1-of-6">
+                                                <template if:false={isFormPreviewMode}>
+                                                    <template if:false={labelObj.button}>
+                                                        <lightning-button class="slds-m-left_medium slds-m-top_x-small slds-m-right_medium slds-m-bottom_medium owcButtonStyle" label={customLabelValues.OWC_save_as_draft_label} variant="brand" onclick={handleSaveAsDraft}></lightning-button>
+                                                    </template>
+                                                    <template if:true={labelObj.button}>
+                                                        <lightning-button variant="brand" label={customLabelValues.OWC_label_delete_button} title={customLabelValues.OWC_label_delete_button} 
+                                                        name={labelObj.sectionId} onclick={handleLabelSectionDelete} class="slds-float_right owcButtonStyle"></lightning-button>
+                                                    </template>
+                                                </template>
+                                            </div>
+                                        </div>
+                                        <div>
+                                            <c-owc-Label-Section-Garment-Cmp sectionid={labelObj.sectionId} labelheading={labelObj.heading} onlabelsectioncustomevent={handleLabelSectionEvent} onlabelsectionvalidity={handleLabelSectionValidity} oncustomlabeldeleteevent={handleLabelDelete} deletebutton={labelObj.button} onlabelsectiondeleteevent={handleLabelSectionDeletedData}></c-owc-Label-Section-Garment-Cmp>
+                                        </div>
+                                    </div>
+                                </template>
+                            </template>
+                        </div>
+                        <div class="slds-col slds-medium-size_1-of-1 slds-large-size_1-of-1 slds-p-left_small">
+                            <template if:false={isFormPreviewMode}>
+                                <lightning-button disabled={disableAddMore} class="slds-p-top_medium slds-p-right_medium slds-p-bottom_medium owcAdditionalButtonStyle" variant="brand" 
+                                icon-name="utility:add" label={customLabelValues.OWC_addanotherlabel_button} onclick={addMoreLabel}></lightning-button>
+                            </template>
+                        </div>
+                    </div>
+                </div>
+            <div class="slds-col slds-medium-size_1-of-8 slds-large-size_1-of-8"></div>
+        </div>
+    </form>
+    
+</template>

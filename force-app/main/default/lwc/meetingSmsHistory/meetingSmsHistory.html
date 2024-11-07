@@ -1,0 +1,22 @@
+<template>
+    
+        <lightning-card  title="Text Message Conversations">
+            <template if:true={isLoaded}>
+                <div class="slds-p-horizontal_small">
+                    <template if:true={showCmp}>
+                        <lightning-accordion active-section-name="A">
+                            <template for:each={meetings} for:item="meeting" style="border: 1px solid darkgrey;">
+                                    <lightning-accordion-section key={meeting} name={meeting} label={meeting}>
+                                        <c-meeting-participant-sms case-role-details={caseRoleDetails} obj-key={meeting} details={details}></c-meeting-participant-sms>
+                                    </lightning-accordion-section>
+                            </template>
+                        </lightning-accordion>
+                    </template>
+                    <template if:false={showCmp}>
+                        <center>No Conversation yet</center>
+                    </template>
+                </div>
+            </template>
+        </lightning-card>
+    <span class="styleContainer"></span>
+</template>

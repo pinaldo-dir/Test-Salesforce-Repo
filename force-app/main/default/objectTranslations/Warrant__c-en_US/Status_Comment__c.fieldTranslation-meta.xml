@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+        <label><!-- Status Comment --></label>
+        <name>Status_Comment__c</name>
+        <picklistValues>
+            <masterLabel>Incorrect address</masterLabel>
+            <translation><!-- Incorrect address --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Payee did not receive</masterLabel>
+            <translation><!-- Payee did not receive --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Payee lost warrant</masterLabel>
+            <translation><!-- Payee lost warrant --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Returned USPS/Undeliverable</masterLabel>
+            <translation><!-- Returned USPS/Undeliverable --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Stale dated</masterLabel>
+            <translation><!-- Stale dated --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Stolen</masterLabel>
+            <translation><!-- Stolen --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Warrant batch void</masterLabel>
+            <translation><!-- Warrant batch void --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Warrant damaged</masterLabel>
+            <translation><!-- Warrant damaged --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Warrant not approved to print</masterLabel>
+            <translation><!-- Warrant not approved to print --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Wrong payee</masterLabel>
+            <translation><!-- Wrong payee --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Wrong payment amount</masterLabel>
+            <translation><!-- Wrong payment amount --></translation>
+        </picklistValues>
+    </CustomFieldTranslation>

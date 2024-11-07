@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<WebLink xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Run_Account_Liability_Report</fullName>
+    <availability>online</availability>
+    <description>Custom button to route users to "Account Liability Report" and pass the Account ID automatically to the report as a filter (pv0).</description>
+    <displayType>button</displayType>
+    <encodingKey>UTF-8</encodingKey>
+    <linkType>url</linkType>
+    <masterLabel>Run Account Liability Report</masterLabel>
+    <openType>replace</openType>
+    <protected>false</protected>
+    <url>/00Od0000004pzqY?pv0={!Account.Id}</url>
+</WebLink>

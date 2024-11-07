@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PermissionSet xmlns="http://soap.sforce.com/2006/04/metadata">
+    <description>[Do NOT Assign - DEPRECATED] Grants access to config app for RS</description>
+    <hasActivationRequired>false</hasActivationRequired>
+    <label>DO NOT USE - Registration Services Config</label>
+    <license>Salesforce Platform</license>
+    <applicationVisibilities>
+        <application>Registration_Services_Config</application>
+        <visible>true</visible>
+    </applicationVisibilities>
+</PermissionSet>

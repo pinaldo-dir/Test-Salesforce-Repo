@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <label>OWC Employer Business Type</label>
+    <pluralLabel>OWC Employer Business Types</pluralLabel>
+    <visibility>Public</visibility>
+</CustomObject>

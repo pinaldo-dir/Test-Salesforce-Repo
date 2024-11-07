@@ -1,0 +1,9 @@
+The Division of Labor Standards Enforcement has modified the effective date for {!License_Registration__c.License_Registration_Type__c} for {!License_Registration__c.Legal_Entity_Name__c} license, {!License_Registration__c.License_Registration_Number__c}, to {!License_Registration__c.Effective_Date__c} and will expire on {!License_Registration__c.Expiration_Date__c}.
+Registration #{!License_Registration__c.License_Registration_Number__c}
+
+
+Sincerely, 
+Licensing & Registration
+Labor Commissioner's Office
+Department of Industrial Relations
+State of California

@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+        <help><!-- Sum of issued Warrants that were voided, canceled or stopped in the previous month. --></help>
+        <label><!-- + Voided, Canceled, and Stopped Warrants --></label>
+        <name>Voided_Canceled_and_Stopped_Warrants__c</name>
+    </CustomFieldTranslation>

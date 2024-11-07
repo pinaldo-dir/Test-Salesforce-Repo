@@ -1,0 +1,13 @@
+Hello {!DIR_Case__c.OwnerFullName},
+
+A new BOFE Case is assigned to your office queue,  {!DIR_Case__c.Name}. A Deputy needs to be assigned to this Case. You may view the Case directly in Salesforce at the following link: {!DIR_Case__c.Link}
+
+Employer: {!DIR_Case__c.Employer__c}
+Status: {!DIR_Case__c.Status__c}
+Case Type: {!DIR_Case__c.RecordType}
+
+Thank you
+Salesforce Automated Email
+
+Found in:
+/Case Management Email Templates/Deputy Assigned

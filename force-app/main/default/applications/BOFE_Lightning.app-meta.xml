@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomApplication xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionOverrides>
+        <actionName>Tab</actionName>
+        <content>Home_Page_DIR_BOFE</content>
+        <formFactor>Large</formFactor>
+        <skipRecordTypeSelect>false</skipRecordTypeSelect>
+        <type>Flexipage</type>
+        <pageOrSobjectType>standard-home</pageOrSobjectType>
+    </actionOverrides>
+    <brand>
+        <headerColor>#0070D2</headerColor>
+        <logo>LCOfinalvector82_1</logo>
+        <logoVersion>1</logoVersion>
+        <shouldOverrideOrgTheme>false</shouldOverrideOrgTheme>
+    </brand>
+    <description>Contains apps and functionality for Bureau of Field Enforcement for Department of Industrial Relations</description>
+    <formFactors>Large</formFactors>
+    <isNavAutoTempTabsDisabled>false</isNavAutoTempTabsDisabled>
+    <isNavPersonalizationDisabled>false</isNavPersonalizationDisabled>
+    <isNavTabPersistenceDisabled>false</isNavTabPersistenceDisabled>
+    <isOmniPinnedViewEnabled>false</isOmniPinnedViewEnabled>
+    <label>BOFE</label>
+    <navType>Standard</navType>
+    <tabs>standard-home</tabs>
+    <tabs>standard-Feed</tabs>
+    <tabs>standard-Account</tabs>
+    <tabs>DIR_Case__c</tabs>
+    <tabs>Report_of_Labor_Code_Violation__c</tabs>
+    <tabs>standard-report</tabs>
+    <tabs>Writ__c</tabs>
+    <tabs>Referral_Assignment__c</tabs>
+    <tabs>Case_Payment__c</tabs>
+    <tabs>DIR_Inspection__c</tabs>
+    <tabs>Support_Request__c</tabs>
+    <tabs>standard-File</tabs>
+    <tabs>Loop__Document_Request__c</tabs>
+    <uiType>Lightning</uiType>
+    <utilityBar>BOFE_UtilityBar</utilityBar>
+</CustomApplication>

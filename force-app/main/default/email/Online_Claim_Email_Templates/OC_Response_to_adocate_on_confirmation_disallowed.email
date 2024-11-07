@@ -1,0 +1,7 @@
+Hello {!DIR_Case__c. Advocate_Name_in_Text__c},
+
+The wage claim you submitted on behalf of {!DIR_Case__c.Claimant_Name_in_Text__c} against {!DIR_Case__c.Related_Party_Employer_Name__c} on {!DIR_Case__c.CreatedDate} has been put on hold. The claimant’s Confirmation attached to the claim allowing you to act on their behalf did not meet requirements. We have sent a confirmation request to {!DIR_Case__c.Claimant_Name_in_Text__c}. The wage claim will remain on hold until it is confirmed by {!DIR_Case__c.Claimant_Name_in_Text__c}. For an example and available form for a confirmation document that meets requirements, please go to .
+
+For questions, please call us at 833-LCO-INFO (833-526-4636).
+
+Labor Commissioner's Office

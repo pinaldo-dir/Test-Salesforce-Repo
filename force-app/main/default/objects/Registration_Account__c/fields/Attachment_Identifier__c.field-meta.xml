@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Attachment_Identifier__c</fullName>
+    <externalId>false</externalId>
+    <formula>IF( Registration__r.RecordType.DeveloperName == 'Talent_Agency', 'TA-MGMT', '')
+&amp;
+IF(( Registration__r.RecordType.DeveloperName == 'Garment_Manufacturers_and_Contractors') &amp;&amp; (RecordType.DeveloperName == 'Management_Individual') , 'GA-MGMT-DL', '')
+&amp;
+IF(( Registration__r.RecordType.DeveloperName == 'Farm_Labor_Contractor') &amp;&amp; (RecordType.DeveloperName == 'County') , 'FLC-COUNTY', '')
+&amp;
+IF(( Registration__r.RecordType.DeveloperName == 'Farm_Labor_Contractor') &amp;&amp; (RecordType.DeveloperName == 'Driver') , ';FLC-DRIVER-DL;FLC-DRIVER-DR', '')
+&amp;
+IF(( Registration__r.RecordType.DeveloperName == 'Farm_Labor_Contractor') &amp;&amp; (RecordType.DeveloperName == 'Individual_Entity') , ';FLC-ENTITY-FLCE-CARD', '')
+&amp;
+IF(( Registration__r.RecordType.DeveloperName == 'Farm_Labor_Contractor') &amp;&amp; (RecordType.DeveloperName == 'Vehicle') , ';FLC-VEH-OWN-INS;FLC-DMV-CERT', '')
+&amp;
+IF(( Registration__r.RecordType.DeveloperName == 'Farm_Labor_Contractor') &amp;&amp; (RecordType.DeveloperName == 'Labor_Camp_or_Lodging') , ';FLC-HL', '')
+&amp;
+IF(( Registration__r.RecordType.DeveloperName == 'Farm_Labor_Contractor') &amp;&amp; (RecordType.DeveloperName == 'Management_Individual') , ';FLC-MGMT-SHP', '')</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>Attachment Identifier</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

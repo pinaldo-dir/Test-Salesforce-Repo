@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Case__c</fullName>
+    <deleteConstraint>Restrict</deleteConstraint>
+    <description>Case to which this payment plan belongs.</description>
+    <externalId>false</externalId>
+    <label>Case Management</label>
+    <referenceTo>DIR_Case__c</referenceTo>
+    <relationshipLabel>Payment Plans</relationshipLabel>
+    <relationshipName>Payment_Plans</relationshipName>
+    <required>true</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Lookup</type>
+</CustomField>

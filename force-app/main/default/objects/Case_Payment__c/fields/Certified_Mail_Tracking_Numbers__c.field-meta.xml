@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Certified_Mail_Tracking_Numbers__c</fullName>
+    <description>Different data than Check__c.Certified_Mail_Tracking_No__c, though may be linked through automation later. This field is used mainly for Direct Payments which don't have Check__c records.
+
+This field is a long text area, as opposed to the one on the Check which is a Text (100) field, as there could be very many tracking numbers related to one CP.</description>
+    <externalId>false</externalId>
+    <label>Certified Mail Tracking Numbers</label>
+    <length>32768</length>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>true</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>LongTextArea</type>
+    <visibleLines>3</visibleLines>
+</CustomField>

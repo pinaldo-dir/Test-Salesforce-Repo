@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Additional_Information_Requested__c</fullName>
+    <externalId>false</externalId>
+    <label>Additional Information Requested</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>MultiselectPicklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Time Records</fullName>
+                <default>false</default>
+                <label>Time Records</label>
+            </value>
+            <value>
+                <fullName>Payroll Records</fullName>
+                <default>false</default>
+                <label>Payroll Records</label>
+            </value>
+            <value>
+                <fullName>Self-Audit</fullName>
+                <default>false</default>
+                <label>Self-Audit</label>
+            </value>
+            <value>
+                <fullName>Other</fullName>
+                <default>false</default>
+                <label>Other</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+    <visibleLines>4</visibleLines>
+</CustomField>

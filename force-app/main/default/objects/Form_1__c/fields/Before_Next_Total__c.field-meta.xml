@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Before_Next_Total__c</fullName>
+    <description>Roll up field 'Before Next Program Review' from F1-Status to determine if there are blank fields.This is the trigger for Validation to prevent new F1 Status record creation.</description>
+    <externalId>false</externalId>
+    <label>Before Next Total</label>
+    <summarizedField>Form_1_Status__c.Before_Next__c</summarizedField>
+    <summaryForeignKey>Form_1_Status__c.Form_1__c</summaryForeignKey>
+    <summaryOperation>sum</summaryOperation>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Summary</type>
+</CustomField>

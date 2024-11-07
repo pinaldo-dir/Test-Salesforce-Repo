@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RecordType xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Liable_Party</fullName>
+    <active>true</active>
+    <label>Liable Party</label>
+    <picklistValues>
+        <picklist>Judgment_Party_Type__c</picklist>
+        <values>
+            <fullName>Alter Ego</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Car Wash Successor %28LC 2066%29</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Equitable Successor</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>FLC Successor %28LC 1698%2E9%29</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Garment Successor %28LC 2684%29</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Janitorial Successor %28LC 1420%29</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Judgment Successor %28LC 200%2E3%29</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Labor Code 238%28e%29 Related Business</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Original Judgment Debtor</fullName>
+            <default>true</default>
+        </values>
+        <values>
+            <fullName>Other</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Port Trucking Successor %28LC 2810%2E4%29</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>X2810_4_List_Status__c</picklist>
+        <values>
+            <fullName>Confirmed-Off List</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Confirmed-On List</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Under Investigation%2FAppeal</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+</RecordType>

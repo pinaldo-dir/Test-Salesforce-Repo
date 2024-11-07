@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Locations_for_mass_delete</fullName>
+    <columns>NAME</columns>
+    <columns>Entity__c</columns>
+    <columns>Number_of_Case_Roles__c</columns>
+    <columns>Number_of_Liability__c</columns>
+    <columns>Number_of_RLLVs__c</columns>
+    <columns>Number_of_Service_Address__c</columns>
+    <columns>Number_of_Registration_Location__c</columns>
+    <columns>Number_of_Inspection__c</columns>
+    <filterScope>Everything</filterScope>
+    <label>Locations for mass delete</label>
+</ListView>

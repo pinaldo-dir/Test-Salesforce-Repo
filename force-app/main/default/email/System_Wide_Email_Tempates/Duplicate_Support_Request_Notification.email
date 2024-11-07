@@ -1,0 +1,5 @@
+Your Support Request {!Support_Request__c.Name} has been marked as duplicate and has been linked to the original support request {!Support_Request__c.Support_Request__c} . 
+
+Please refer to the original record to follow up on the status of your request. 
+
+Original Record: {!Support_Request__c.Related_Support_Request_Link__c}

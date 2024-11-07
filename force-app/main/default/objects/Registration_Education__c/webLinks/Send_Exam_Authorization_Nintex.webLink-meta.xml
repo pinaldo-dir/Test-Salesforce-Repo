@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<WebLink xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Send_Exam_Authorization_Nintex</fullName>
+    <availability>online</availability>
+    <displayType>button</displayType>
+    <encodingKey>UTF-8</encodingKey>
+    <height>600</height>
+    <linkType>url</linkType>
+    <masterLabel>Send Exam Authorization</masterLabel>
+    <openType>sidebar</openType>
+    <protected>false</protected>
+    <url>/apex/loop__looplus?&amp;eid={!Registration_Education__c.Id}&amp;ddplabel=Registration+Exam+Authorization&amp;ddpIds=a0Gt0000008T6rr&amp;deploy=a0Et0000009L6Sg&amp;accountId={!Registration_Education__c.ApplicantId__c}&amp;hideddp=true&amp;sidebar=false&amp;autorun=true</url>
+</WebLink>

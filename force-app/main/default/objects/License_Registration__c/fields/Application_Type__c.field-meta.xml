@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Application_Type__c</fullName>
+    <externalId>false</externalId>
+    <formula>CASE( RecordType.DeveloperName 
+, 'Car_Wash', 'Registration' 
+, 'Child_Performer_Services', 'Permit' 
+, 'Janitorial', 'Registration' 
+, 'Garment_Manufacturers_and_Contractors', 'Registration'
+, 'Other', 'Registration'
+, 'Talent_Agency', 'License'
+, 'Public_Works', 'Registration'
+, 'Entertainment_Work', 'Permit' 
+, 'Permit_to_Employ_Minors', 'Permit'
+, 'Farm_Labor_Contractor', 'License'  
+, '')</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>Application Type</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

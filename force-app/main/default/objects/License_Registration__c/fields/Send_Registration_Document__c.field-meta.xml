@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Send_Registration_Document__c</fullName>
+    <externalId>false</externalId>
+    <formula>"&amp;id=" + Id + 
+CASE(RecordType.DeveloperName 
+, 'Child_Performer_Services', '&amp;templateid=a0nt0000000sB9J' 
+, 'Entertainment_Work', '&amp;templateid=a0nt0000001be6G' 
+, 'Janitorial', '&amp;templateid=a0nt000000028PZ' 
+, 'Car_Wash', '&amp;templateid=a0nt000000028PZ' 
+, 'Public_Works', '&amp;templateid=a0nt000000028PZ' 
+, 'Other', '&amp;templateid=a0nt000000028PZ' 
+, 'Contractor_Registration', '&amp;templateid=a0nt000000028PZ' 
+, 'Talent_Agency', '&amp;templateid=a0nt00000032y7r'
+, 'Permit_to_Employ_Minors', '&amp;templateid=a0nt00000032y9E'
+,'Garment_Manufacturers_and_Contractors', '&amp;templateid=a0nt0000001f1tB'
+,'')+
+"&amp;defaultpdf=1" + 
+"&amp;queryid=[Education]a0mt00000000sKw,[Disclaimer]a0mt00000001R1N?pv1=" + Record_Type_Name__c + ",[REG]a0mt00000000sKq,[Bond]a0mt00000000sKv,[Owner]a0mt00000000sKr,[Manager]a0mt00000000sKt, [Parent]a0mt0000000fs02, [Reglocation]a0mt00000000sKx,[FUQues]a0mt00000000sKu,[LiveScan]a0mt0000000J0z4,[Ques]a0mt00000000sKs,[Attach]a0mt00000000sKy,[Document]a0mt00000000sKp, [Trade]a0mt0000000J0uI,[ProductionTitles]a0mt0000001vfjB" + 
+"&amp;congaemailtemplateid=a0lt0000000EcP9" +
+"&amp;EmailAdditionalTo=" + Applicant_s_Email__c +
+"&amp;EmailAdditionalTo=" + Account_Email__c +
+"&amp;EmailFromID=0D2t0000000Gmid" +
+"&amp;qmode=SendEmail" +
+"&amp;SC0=1" +
+"&amp;SC1=Attachments" + 
+"&amp;OFN=Registration for " + License_Registration_Number__c</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>Send Registration Document</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

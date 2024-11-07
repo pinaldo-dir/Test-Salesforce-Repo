@@ -1,0 +1,37 @@
+<aura:component implements="forceCommunity:availableForAllPageTypes" access="global">
+    
+    <div class="headerBranding" id="JudgmentSearch">
+        <div class="slds-page-header__row">
+            <div class="slds-page-header__col-title">
+                <div class="slds-media">
+                    <a href="https://www.dir.ca.gov/" >
+                        <div class="slds-media__figure">
+                            <span class="slds-icon_container" title="Header Ca. Gov">
+                                <img src="{!$Resource.HeaderCaGov}" class="dirLogoClass"/>
+                                <span class="slds-assistive-text">Header Ca. Gov</span>
+                            </span>
+                            <span class="slds-icon_container" title="State of California" style="margin-left: 2rem;margin-top: 2rem;">
+                                <img src="{!$Resource.JudgmentSearchHeader}"/>
+                                <span class="slds-assistive-text">State of California</span>
+                            </span>
+                        </div>
+                    </a>
+                    <div class="slds-media__body" style="margin-left: 3rem;">
+                        <p class="slds-page-header__name-meta titlPart1"><a href="https://www.dir.ca.gov/" >State of California</a></p>
+                        <a href="https://www.dir.ca.gov/" >
+                            <div class="slds-page-header__name">
+                                <div class="slds-page-header__name-title">
+                                    <h1>
+                                        <span class="slds-page-header__title slds-truncate" style="font-size: 37px;" title="Department Of Industrial Relations">Department Of Industrial Relations</span>
+                                    </h1>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    
+</aura:component>

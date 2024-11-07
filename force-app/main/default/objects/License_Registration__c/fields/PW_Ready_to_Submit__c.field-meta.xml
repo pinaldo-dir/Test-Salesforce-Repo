@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>PW_Ready_to_Submit__c</fullName>
+    <description>public works readiness check</description>
+    <externalId>false</externalId>
+    <formula>IF(NOT( ISPICKVAL(Liability_Certification__c,"")) &amp;&amp; ISPICKVAL(Liability_Certification__c,"Yes")&amp;&amp;
+NOT( ISPICKVAL(Debarment_Certification__c,"")) &amp;&amp; ISPICKVAL(Debarment_Certification__c,"Yes")&amp;&amp;
+NOT( ISPICKVAL(CSLB_Certification__c,"")) &amp;&amp; ISPICKVAL(CSLB_Certification__c,"Yes")&amp;&amp;
+NOT( ISPICKVAL(Ready_to_Submit__c,"")) &amp;&amp; ISPICKVAL(Ready_to_Submit__c,"Yes")&amp;&amp; 
+ISNULL(VIP_Date_Time_Submitted__c),true,false)
+||
+IF(HonestContractor__c = true,true,false)</formula>
+    <label>PW Ready to Submit</label>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Checkbox</type>
+</CustomField>

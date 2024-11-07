@@ -1,0 +1,6 @@
+A new approval request has been submitted.
+
+Release Number: {!Release__c.Name}
+Release Type: {!Release__c.RecordType}
+Requestor: {!Release__c.CreatedBy}
+Link: {!Release__c.Link}

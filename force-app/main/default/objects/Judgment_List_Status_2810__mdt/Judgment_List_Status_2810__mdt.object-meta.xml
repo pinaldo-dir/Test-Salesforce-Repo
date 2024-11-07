@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <label>Judgment List Status 2810</label>
+    <pluralLabel>Judgment List Status 2810s</pluralLabel>
+    <visibility>Public</visibility>
+</CustomObject>

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<WebLink xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>New_Judgment_Party</fullName>
+    <availability>online</availability>
+    <description>used to create judgment party with liable party</description>
+    <displayType>massActionButton</displayType>
+    <encodingKey>UTF-8</encodingKey>
+    <height>600</height>
+    <linkType>url</linkType>
+    <masterLabel>New Judgment Party</masterLabel>
+    <openType>sidebar</openType>
+    <protected>false</protected>
+    <requireRowSelection>true</requireRowSelection>
+    <url>/apex/NewJudgmentPartyWithLiableParty?id={!Judgement__c.Id}</url>
+</WebLink>

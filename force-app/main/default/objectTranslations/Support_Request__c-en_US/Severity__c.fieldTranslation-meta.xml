@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+        <label><!-- Severity --></label>
+        <name>Severity__c</name>
+        <picklistValues>
+            <masterLabel>High - Data Fix – User Cannot Proceed</masterLabel>
+            <translation><!-- High - Data Fix – User Cannot Proceed --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>High - Deployment Issue</masterLabel>
+            <translation><!-- High - Deployment Issue --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>High - Other</masterLabel>
+            <translation><!-- High - Other --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>High - Refund or Payment Request</masterLabel>
+            <translation><!-- High - Refund or Payment Request --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>High - System Error – No Workaround</masterLabel>
+            <translation><!-- High - System Error – No Workaround --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>High - Urgent Archived Data Retrieval</masterLabel>
+            <translation><!-- High - Urgent Archived Data Retrieval --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>High - Urgent Permission/License Assignment</masterLabel>
+            <translation><!-- High - Urgent Permission/License Assignment --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>High - Urgent Report Generation/Dashboard</masterLabel>
+            <translation><!-- High - Urgent Report Generation/Dashboard --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Low - Data Fix - Minimal Business Impact</masterLabel>
+            <translation><!-- Low - Data Fix - Minimal Business Impact --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Low - Other</masterLabel>
+            <translation><!-- Low - Other --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Medium - Data Fix – Workaround in Place</masterLabel>
+            <translation><!-- Medium - Data Fix – Workaround in Place --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Medium - Non-urgent Archived Data Retrieval</masterLabel>
+            <translation><!-- Medium - Non-urgent Archived Data Retrieval --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Medium - Non-urgent Permission/License Assignment</masterLabel>
+            <translation><!-- Medium - Non-urgent Permission/License Assignment --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Medium - Non-urgent Report Generation/Dashboard</masterLabel>
+            <translation><!-- Medium - Non-urgent Report Generation/Dashboard --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Medium - Other</masterLabel>
+            <translation><!-- Medium - Other --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Medium - System Error – Workaround in Place</masterLabel>
+            <translation><!-- Medium - System Error – Workaround in Place --></translation>
+        </picklistValues>
+    </CustomFieldTranslation>

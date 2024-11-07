@@ -1,0 +1,84 @@
+<!--
+  @description       : 
+  @author            : ChangeMeIn@UserSettingsUnder.SFDoc
+  @group             : 
+  @last modified on  : 03-17-2022
+  @last modified by  : ChangeMeIn@UserSettingsUnder.SFDoc
+-->
+<template>
+    <!-- Preliminary Section -->
+    <form class="cheked">
+        <div class="previewStyle">
+            <template if:true={isClaimantEmployee}>
+                <c-owc-Preliminary-Garment-Section-Cmp></c-owc-Preliminary-Garment-Section-Cmp>
+            </template>
+            <template if:true={isIndustryInfoDetails}>
+                <div>
+                    <c-industry-Info-Garment-Cmp></c-industry-Info-Garment-Cmp>
+                </div>
+            </template>
+            
+            <template if:true={isEmployerDetails}>
+                <div>
+                    <c-owc-Emp-Business-Garment-Type-Container-Cmp></c-owc-Emp-Business-Garment-Type-Container-Cmp>
+                </div>
+            </template>
+        
+            <template if:true={isSuccessorDetails}>
+                <div>
+                    <c-owc-Successor-Section-Container-Garment-Cmp></c-owc-Successor-Section-Container-Garment-Cmp>
+                </div>
+            </template>
+        
+            <template if:true={isOtherWorkLocation}>
+                <div>
+                    <c-owc-Other-Work-Location-Garment-Section-Cmp></c-owc-Other-Work-Location-Garment-Section-Cmp>
+                </div>
+            </template>
+        
+            <template if:true={isEmployeeStatusAndFinalWages}>
+                <div>
+                    <c-owc-Employment-Status-And-Final-Wages-Garment-Cmp></c-owc-Employment-Status-And-Final-Wages-Garment-Cmp>
+                </div>
+            </template>
+        
+            <template if:true={isPaymentOfWagesDetails}>
+                <div>
+                    <c-owc-Payment-Of-Wages-Garment-Cmp></c-owc-Payment-Of-Wages-Garment-Cmp>
+                </div>
+            </template>
+        
+            <template if:true={isHoursYouTypicallyWorkedDetails}>
+                <div>
+                    <c-owc-Hours-You-Typically-Worked-Garment-Cmp></c-owc-Hours-You-Typically-Worked-Garment-Cmp>
+                </div>
+            </template>
+        
+            <template if:true={isWorkWeekAndWorkDaysDetails}>
+                <div>
+                    <c-owc-Workweek-And-Workday-Garment-Cmp></c-owc-Workweek-And-Workday-Garment-Cmp>
+                </div>
+            </template>
+        
+            <template if:true={isWageDeficiencyDetails}>
+                <template if:true={isShowClaimHeading}>
+                    <div>
+                        <c-owc-Wage-Deficiencies-Garment iswagedefpreview={isFormPreviewMode} finalpaymentdate={finalpaymentdate} stateratelist={stateratelist} staterate={staterate} minimumrates={minimumrates} paystubsickrecord={paystubsickrecord} iwcinfoobj={iwcinfoobj} isnotidentifyemployer={isnotidentifyemployer} powdetails={paymentOfWagesDetails} heatrecovery={heatrecovery} empstatementprovided={empstatementprovided} stateminwagerate={stateminwagerate} paystubstatement={paystubstatement} userworkedhours={userworkedhours} otherworkcity={otherworkcity} minimumwage={minimumwage} salaryratelist={salaryratelist} multiplehourlyrate={multiplehourlyrate} hourlyratelist={hourlyratelist} noticebeforequit={noticebeforequit} werewagespaid={werewagespaid} quitdatevalue={quitdatevalue} paidbycheck={paidbycheck} dischargeddate={dischargeddate} minimumhiredate={minimumhiredate} minimumwagezipcode={minimumwagezipcode} issalaryrateselected={issalaryrateselected} isonehourlyrateselected={isonehourlyrateselected}></c-owc-Wage-Deficiencies-Garment>
+                    </div>
+                </template>
+            </template>
+        
+            <template if:true={isLabelSectionDetails}>
+                <div>
+                    <c-owc-Label-Section-Container-Garment-Cmp></c-owc-Label-Section-Container-Garment-Cmp>
+                </div>
+            </template>
+    
+            <template if:true={isDemoGraphicData}>
+                <div>
+                    <c-owc-Online-Demographic-Garment-Cmp></c-owc-Online-Demographic-Garment-Cmp>
+                </div>
+            </template>
+        </div>
+    </form>
+</template>

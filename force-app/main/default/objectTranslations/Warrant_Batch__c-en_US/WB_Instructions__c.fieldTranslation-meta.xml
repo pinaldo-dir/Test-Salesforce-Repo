@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+        <label><!-- WB Instructions --></label>
+        <name>WB_Instructions__c</name>
+        <picklistValues>
+            <masterLabel>BOFE Penalty</masterLabel>
+            <translation><!-- BOFE Penalty --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Court</masterLabel>
+            <translation><!-- Court --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Mail to Payees</masterLabel>
+            <translation><!-- Mail to Payees --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Return to Requesting Office</masterLabel>
+            <translation><!-- Return to Requesting Office --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>UWF</masterLabel>
+            <translation><!-- UWF --></translation>
+        </picklistValues>
+    </CustomFieldTranslation>

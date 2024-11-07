@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>DLSE_Defect_Text__c</fullName>
+    <externalId>false</externalId>
+    <formula>IF( (Registration_Type__c = "Entertainment Work" || Registration_Type__c = "Permit to Employ Minors"),
+
+""
+,
+
+"If you submitted a paper application, please resubmit by mail to the address in the attached notice. Alternatively you may fax or email the requested item(s) to listed fax and email address below. Be sure to include your Registration number on all items you submit."
+)</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>DLSE_Defect_Text</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

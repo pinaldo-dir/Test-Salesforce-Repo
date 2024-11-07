@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Require_Case_Received_Origin_not_Online</fullName>
+    <active>true</active>
+    <description>Wage claim whose “intake Origin” does not equal Online, the field “Date Case Received” requires a value</description>
+    <errorConditionFormula>AND(
+Record_Type_Name__c  = 'WCA',
+ISNULL(Date_Case_Received__c),
+NOT(ISPICKVAL(Intake_Origin__c ,'Online')),
+DATEVALUE(CreatedDate) &gt;  DATEVALUE("2024-06-01")
+)</errorConditionFormula>
+    <errorMessage>Wage claim whose “intake Origin” does not equal Online, the field “Date Case Received” requires a value</errorMessage>
+</ValidationRule>

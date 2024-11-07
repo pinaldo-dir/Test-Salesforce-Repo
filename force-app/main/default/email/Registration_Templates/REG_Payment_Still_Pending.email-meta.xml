@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <description>Email to be sent to applicant after submission, when pending payment is still due 24 hrs later</description>
+    <encodingKey>ISO-8859-1</encodingKey>
+    <name>REG: Payment Still Pending</name>
+    <style>none</style>
+    <subject>{!License_Registration__c.Legal_Entity_Name__c} {!License_Registration__c.Record_Type_Name__c} Application {!License_Registration__c.License_Registration_Number__c} Payment Still Pending</subject>
+    <type>text</type>
+    <uiType>Aloha</uiType>
+</EmailTemplate>

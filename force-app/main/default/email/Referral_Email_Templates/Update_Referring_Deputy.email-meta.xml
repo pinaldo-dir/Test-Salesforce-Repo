@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <description>Update Referring Deputy when Approval Status and/or 2ndary-Approver Approval Status is updated.</description>
+    <encodingKey>ISO-8859-1</encodingKey>
+    <name>Update Referring Deputy</name>
+    <style>none</style>
+    <subject>Your Approval Request Status</subject>
+    <type>text</type>
+    <uiType>Aloha</uiType>
+</EmailTemplate>

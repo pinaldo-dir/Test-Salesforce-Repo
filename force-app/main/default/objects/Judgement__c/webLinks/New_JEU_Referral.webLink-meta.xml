@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<WebLink xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>New_JEU_Referral</fullName>
+    <availability>online</availability>
+    <displayType>button</displayType>
+    <encodingKey>UTF-8</encodingKey>
+    <linkType>url</linkType>
+    <masterLabel>New JEU Referral</masterLabel>
+    <openType>replace</openType>
+    <protected>false</protected>
+    <url>/lightning/o/Referral__c/new?recordTypeId=012d00000019PP7AAM&amp;defaultFieldValues=Case__c={!Judgement__c.Case_ManagementId__c},Judgement__c={!Judgement__c.Id}</url>
+</WebLink>

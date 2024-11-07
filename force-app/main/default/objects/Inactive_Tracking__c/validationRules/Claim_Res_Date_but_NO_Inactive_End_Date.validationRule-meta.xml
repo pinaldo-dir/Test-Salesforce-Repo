@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Claim_Res_Date_but_NO_Inactive_End_Date</fullName>
+    <active>true</active>
+    <description>Claim Respond Date is entered but Inactive End Date is blank</description>
+    <errorConditionFormula>AND(
+OR(
+NOT(ISNULL( PCN_Sent_Date__c )),
+NOT(ISNULL( Inactive_Notice_Sent_Date__c ))),
+NOT(ISNULL(Claimant_Respond_Date__c)),
+ISNULL( Inactive_End_Date__c ),
+DATEVALUE(CreatedDate) &gt; DATEVALUE("2024-03-29")
+)</errorConditionFormula>
+    <errorMessage>Claimant Respond Date is filled, so Inactive End Date must be filled with the same date.</errorMessage>
+</ValidationRule>

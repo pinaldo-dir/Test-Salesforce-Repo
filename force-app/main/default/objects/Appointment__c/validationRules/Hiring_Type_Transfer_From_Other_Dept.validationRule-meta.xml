@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Hiring_Type_Transfer_From_Other_Dept</fullName>
+    <active>true</active>
+    <description>When hiring is from another state Dept, Dividsion/Dept field is required</description>
+    <errorConditionFormula>AND ( (NOT(CONTAINS($Profile.Name,'System Administrator'))),
+(
+
+(ISPICKVAL(Hiring_Type__c, "Transfer from other Dept")) 
+&amp;&amp; 
+( 
+ISPICKVAL( Type__c , "A01-Permanent Appointment from List")
+||
+ISPICKVAL( Type__c , "A01-CEA appointment from list") 
+|| 
+ISPICKVAL( Type__c , "A01-Limited Term from List") 
+|| 
+ISPICKVAL( Type__c , "A01-Student Assistant") 
+|| 
+ISPICKVAL( Type__c , "A01-Graduate Student Assistant") 
+|| 
+ISPICKVAL( Type__c , "A01-Youth Aid") 
+|| 
+ISPICKVAL( Type__c , "A01-TAU in Lieu of Limited Term") 
+|| 
+ISPICKVAL( Type__c , "A01-TAU in Lieu of Permanent Appointment") 
+|| 
+ISPICKVAL( Type__c , "A02-Reinstatement (permissive)") 
+|| 
+ISPICKVAL( Type__c , "A02-Emergency") 
+|| 
+ISPICKVAL( Type__c , "A02-Retired Annuitant") 
+|| 
+ISPICKVAL( Type__c , "A02-Transfer") 
+|| 
+ISPICKVAL( Type__c , "A04-Training &amp; Development") 
+|| 
+ISPICKVAL( Type__c , "A30/A31-Exempt")
+|| 
+ISPICKVAL( Type__c , "A14 - Adverse Demotion")
+) 
+&amp;&amp; 
+   ISPICKVAL(Transferred_from_Division_or_Dept__c,'')
+)
+)</errorConditionFormula>
+    <errorMessage>Please provide "Transferred from Division or Dept" information.</errorMessage>
+</ValidationRule>

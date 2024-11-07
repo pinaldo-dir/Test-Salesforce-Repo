@@ -1,0 +1,130 @@
+<aura:component controller="WageClaimSearchResultContainer" implements="forceCommunity:availableForAllPageTypes" access="global" >
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}"/> 
+    <!--use JQuery Data Table css,Js and jQUERY js file in lightning component by using ltng:require component-->
+    <ltng:require styles="{! $Resource.DIRJqueryDataTableFile + '/DataTables-1.10.16/media/css/jquery.dataTables.min.css'}" 
+                  scripts="{!join(',', 
+                           $Resource.jQuery364 , 
+                           $Resource.DIRJqueryDataTableFile + '/DataTables-1.10.16/media/js/jquery.dataTables.min.js')
+                           }" />
+    <ltng:require scripts="{!$Resource.DIRJqueryDataTableFile + '/DataTables-1.10.16/extensions/Buttons/vfs_fonts.js'}" />
+    <ltng:require styles="{! $Resource.DIRJqueryDataTableFile + '/DataTables-1.10.16/extensions/Buttons/css/buttons.dataTables.min.css'}" 
+                  scripts="{!$Resource.DIRJqueryDataTableFile + '/DataTables-1.10.16/extensions/Buttons/js/dataTables.buttons.min.js'
+                           }" />
+    <ltng:require scripts="{!$Resource.DIRJqueryDataTableFile + '/DataTables-1.10.16/extensions/Buttons/js/buttons.html5.min.js'
+                           }" />
+    <ltng:require scripts="{!$Resource.DIRJqueryDataTableFile + '/DataTables-1.10.16/extensions/Buttons/pdfmake.min.js'}" />
+    <aura:attribute name="currentPageNumber" type="Integer" default="1"/>
+    <aura:attribute name="pageSize" type="Integer" default="10"/>
+    <aura:attribute name="totalPages" type="Integer" default="0"/>
+    <aura:attribute name="pageList" type="List"/>
+    <aura:attribute name="totalWageRecordsSize" type="Integer" access="public" default="0"/>
+    <aura:attribute name="wageRecordStart" type="Integer" access="public" default="0"/>
+    <aura:attribute name="wageRecordEnd" type="Integer" access="public" default="0"/>
+    <aura:attribute name="wageClaimRecordList" type="List" access="public"/>
+    <aura:attribute name="sortedCsvFileForWageClaim" type="List" access="public"/>
+    <aura:attribute name="urlParamsForFilters" type="String" default="" />
+    <aura:attribute name="sortingOrder" type="String"/>
+    <aura:attribute name="wageClaimRecordCsvList" type="list"/>
+    <aura:attribute name="selectedHeader" type="String" />
+    <aura:attribute name="isLoading" type="Boolean" default="false" />
+    <aura:attribute name="isShowExcelButton" type="Boolean" default="false" />
+    <head><ltng:require styles="{!$Resource.JudgmentSearchCss}" /></head>
+    <div class="result-container" style="overflow-x:auto;"> 
+        <aura:if isTrue="{! v.isLoading }">
+            <div class="spins">
+                <!--<lightning:spinner alternativeText="Loading" size="medium" />-->
+            </div>
+        </aura:if>
+        <div class="slds-col slds-small-size_10-of-12 slds-medium-size_10-of-12 slds-p-around_medium ">
+            <nav role="navigation" aria-label="Breadcrumbs">
+                <ol class="slds-breadcrumb slds-list_horizontal slds-wrap">
+                    <li class="breadcrumb">
+                        <a href="https://www.dir.ca.gov/">DIR</a>
+                    </li>&nbsp;&nbsp;
+                    <li>
+                        |
+                    </li>&nbsp;&nbsp;
+                    <li class="breadcrumb">
+                        <a onclick="{!c.backToSearch}">Wage Claim Search</a>
+                    </li>&nbsp;&nbsp;
+                    <li>
+                        |
+                    </li>&nbsp;&nbsp;
+                    <li class="breadcrumb">
+                        <a style="color: #666;pointer-events: none;" href="javascript:void(0);">Search Results</a>
+                    </li>&nbsp;
+                </ol>
+            </nav>
+        </div>
+        <br></br>
+        <div class="slds-col slds-small-size_10-of-12 slds-medium-size_10-of-12 slds-p-around_medium">
+            <div class="formHeading">
+                <h1>Wage Claim Search</h1>
+            </div>
+        </div>
+        <div class="result-page-content" >
+            <div class="slds-col slds-small-size_10-of-12 slds-medium-size_12-of-12 slds-p-around_medium slds-clearfix">
+                <div class="slds-float_right">
+                    <aura:if isTrue="{!v.isShowExcelButton == true}">
+                        <button class="downloadButtons" onclick="{!c.handleDownloadCsv}">Download to Excel</button>
+                        <aura:set attribute="else">
+                            <aura:if isTrue="{! !empty(v.wageClaimRecordList)}">
+                                <button class="downloadButtons" onclick="{!c.handleDownloadPdf}">Download PDF</button>
+                                <button class="downloadButtons" onclick="{!c.handleDownloadCsv}">Download to Excel</button>
+                            </aura:if>
+                        </aura:set>
+                    </aura:if>
+                    <button class="downloadButtons" onclick="{!c.backToSearch}">Back to Search</button>
+                </div>
+            </div> 
+            <div class="slds-p-around_medium">
+                <table class="dataTable slds-table slds-table_bordered slds-border_right slds-border_left slds-table_cell-buffer " id="lightningDataTable">
+                    <thead>
+                        <tr class="slds-line-height_reset">
+                            <th class="slds-cell-wrap thStyle" scope="col">
+                                <div  title="Action">Action</div>
+                            </th>
+                            <th class="slds-cell-wrap thStyle" scope="col">
+                                <div  title="Account Name">Defendant Name<div class="sortIcon"> </div></div>
+                            </th>
+                            <th class="slds-cell-wrap thStyle" scope="col">
+                                <div  title="Case Role">Party Type<div class="sortIcon"> </div></div>
+                            </th>
+                            <th class="slds-cell-wrap thStyle" scope="col">
+                                <div  title="Case Number">Case Number<div class="sortIcon"> </div></div>
+                            </th>
+                            <th class="slds-cell-wrap thStyle" scope="col">
+                                <div  title="Naics Code">NAICS Code<div class="sortIcon"> </div></div>
+                            </th>
+                            <th class="slds-cell-wrap thStyle" scope="col">
+                                <div  title="Naics Title">NAICS Industry<div class="sortIcon"> </div></div>
+                            </th>
+                            <th class="slds-cell-wrap thStyle" scope="col">
+                                <div  title="Date of docket">Date Filed<div class="sortIcon"> </div></div>
+                            </th>
+                            
+                            <th class="slds-cell-wrap thStyle" scope="col">
+                                <div  title="Assigned Deputy">Assigned Deputy<div class="sortIcon"> </div></div>
+                            </th>
+                            <th class="slds-cell-wrap thStyle" scope="col">
+                                <div  title="Dir Office">DIR Office<div class="sortIcon"> </div></div>
+                            </th>
+                            <th class="slds-cell-wrap thStyle" scope="col">
+                                <div  title="Case Status">Case Status<div class="sortIcon"> </div></div>
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <aura:iteration items="{!v.wageClaimRecordList}" var="item"> 
+                            <tr class="slds-hint-parent">
+                                <c:WageClaimResult WageObj="{!item}" urlParamsForFilters="{!v.urlParamsForFilters}"/> 
+                            </tr>
+                        </aura:iteration>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    
+    
+</aura:component>

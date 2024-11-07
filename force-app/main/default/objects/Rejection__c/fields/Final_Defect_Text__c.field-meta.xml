@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Final_Defect_Text__c</fullName>
+    <externalId>false</externalId>
+    <formula>IF(Registration_Type__c = "Car Wash", "If you have any questions regarding the above, please call (510) 285-3502 or email DLSELicensing@dir.ca.gov. ", 
+IF(Registration_Type__c = "Talent Agency", "If you have any questions regarding the above, please call (510) 285-3397 or email DLSELicensing@dir.ca.gov. ", 
+IF(Registration_Type__c = "Garment Manufacturers and Contractors", "If you have any questions regarding the above, please call (510) 285-3398, email CPSLicensing@dir.ca.gov, or fax requested item(s) to ", 
+IF(Registration_Type__c = "Child Performer Services", "If you do not respond, your application will be rejected and you will forfeit your application fee.", 
+IF(Registration_Type__c = "Farm Labor Contractor", "If you have any questions regarding the above, please call ", ""))))) 
++ 
+IF( 
+AND( 
+Registration_Type__c = "Farm Labor Contractor", 
+CONTAINS(Office__c, "Fresno")), "(559) 248-1893, email FLC@dir.ca.gov, or fax requested item(s) to ", "") 
++ 
+IF( 
+AND( 
+Registration_Type__c = "Farm Labor Contractor", 
+CONTAINS(Office__c, "Oakland")), "(510) 285-3399, email FLC@dir.ca.gov, or fax requested item(s) to ", "") 
+/*+ 
+IF(CONTAINS(Office__c, "Oakland"), "(510) 286-1366.", 
+IF(CONTAINS(Office__c, "Fresno"), "(559) 248-1895.", "")*/</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>Final Defect Text</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

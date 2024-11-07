@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+        <label><!-- Request a written rate of compensation --></label>
+        <name>Request_a_written_rate_of_compensation__c</name>
+    </CustomFieldTranslation>

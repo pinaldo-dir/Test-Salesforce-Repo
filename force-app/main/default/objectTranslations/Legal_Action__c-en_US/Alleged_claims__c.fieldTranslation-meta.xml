@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+        <label><!-- Alleged claims --></label>
+        <name>Alleged_claims__c</name>
+        <picklistValues>
+            <masterLabel>Breach of Fiduciary Duty</masterLabel>
+            <translation><!-- Breach of Fiduciary Duty --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Conversion</masterLabel>
+            <translation><!-- Conversion --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Defamation</masterLabel>
+            <translation><!-- Defamation --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Injunctive relief</masterLabel>
+            <translation><!-- Injunctive relief --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Intentional Interference with Economic Advantage</masterLabel>
+            <translation><!-- Intentional Interference with Economic Advantage --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Malicious Prosecution</masterLabel>
+            <translation><!-- Malicious Prosecution --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Misappropriation of Trade Secrets</masterLabel>
+            <translation><!-- Misappropriation of Trade Secrets --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Other</masterLabel>
+            <translation><!-- Other --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Unfair Competition</masterLabel>
+            <translation><!-- Unfair Competition --></translation>
+        </picklistValues>
+    </CustomFieldTranslation>

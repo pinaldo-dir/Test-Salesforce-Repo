@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+        <help><!-- Type of case, use General for all others --></help>
+        <label><!-- Case Type --></label>
+        <name>Case_Type__c</name>
+        <picklistValues>
+            <masterLabel>BOFE Strategic</masterLabel>
+            <translation><!-- BOFE Strategic --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Child Care Facility</masterLabel>
+            <translation><!-- Child Care Facility --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>DV</masterLabel>
+            <translation><!-- DV --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>EPA</masterLabel>
+            <translation><!-- EPA --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>General</masterLabel>
+            <translation><!-- General --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Immigration threat</masterLabel>
+            <translation><!-- Immigration threat --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>OSHA</masterLabel>
+            <translation><!-- OSHA --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>PSL</masterLabel>
+            <translation><!-- PSL --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Pay Transparency</masterLabel>
+            <translation><!-- Pay Transparency --></translation>
+        </picklistValues>
+    </CustomFieldTranslation>

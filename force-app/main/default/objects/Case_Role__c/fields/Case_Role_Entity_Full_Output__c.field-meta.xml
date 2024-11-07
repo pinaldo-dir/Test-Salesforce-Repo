@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Case_Role_Entity_Full_Output__c</fullName>
+    <description>Formula field used to dynamically concatenate the Name, Entity Type Descriptor, and DBA of the Account associated with a Case Role.</description>
+    <externalId>false</externalId>
+    <formula>IF ( NOT (ISBLANK(Location__r.Law_Firm__c)),Location__r.Law_Firm__r.Name + ", Attn: " + Entity__r.Name_UsedInTemplates__c, Entity__r.Name_UsedInTemplates__c 	+ IF(ISBLANK (Entity__r.Entity_Type_Other__c), 	", " + TEXT( Entity__r.Legal_Entity_Descriptor__c ),", " + Entity__r.Entity_Type_Other__c) + IF (ISBLANK ( Location__r.DBA__c ), "", " dba " + Location__r.DBA__c ) + IF (ISBLANK(Entity__r.PersonContact.AKA_Alias_or_other_special_circumstance__c), "", ", a.k.a. " + Entity__r.PersonContact.AKA_Alias_or_other_special_circumstance__c))</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>Case Role Entity Full Output</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

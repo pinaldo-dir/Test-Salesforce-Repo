@@ -1,0 +1,39 @@
+.owcFormStyle{
+    font-family: Avenir Next forINTUIT,Avenir,Helvetica,Arial,sans-serif;
+    font-size: 18px;
+    line-height: 20px;
+    color: #393a3d;
+}
+/* .buttonStyle{
+    height: 51px;
+    width: 134px;
+    font-weight: 600;
+    font-family: sans-serif;
+    font-size: 16px;
+} */
+.slds-radio{
+    padding-bottom: 5px;
+}
+.spins::after {
+  position: absolute;
+  content: 'Page is Loading... Please wait';
+  width: 100%;
+  text-align: center;
+  top: calc(50% + 3em);
+  font-size: 16px;
+}
+.slds-progress__item.slds-is-completed .slds-progress__marker_icon, .slds-progress__item.slds-is-completed .slds-progress__marker--icon{
+  color:green;
+}
+.progress-indicator-tooltip{
+  background-color: green;
+}
+lightning-progress-step{
+  color: green;
+}
+.slds-progress__item.slds-is-active .slds-progress__marker{
+  color: green;
+}
+.slds-popover_tooltip .slds-popover__body{
+  color: white;
+}

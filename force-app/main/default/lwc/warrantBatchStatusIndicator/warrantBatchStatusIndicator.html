@@ -1,0 +1,32 @@
+<template>
+    <div class="wbStatusContainerDiv">
+        <lightning-card>
+            <template if:true={currStatus}>
+                <template if:false={wbVoid}>
+                    <template if:false={wbUWFalloc}>
+                        <div class="wbStatusDiv">
+                            <lightning-progress-indicator type="path" variant="base" current-step={currStatus}>
+                                <lightning-progress-step label="New" value="New"></lightning-progress-step>
+                                <lightning-progress-step label="Pending Approval" value="Pending Approval"></lightning-progress-step>
+                                <lightning-progress-step label="Under Review" value="Under Review"></lightning-progress-step>
+                                <lightning-progress-step label="Review Complete" value="Review Complete"></lightning-progress-step>
+                                <lightning-progress-step label="Printed" value="Printed"></lightning-progress-step>
+                            </lightning-progress-indicator>
+                        </div>
+                    </template>
+                </template>
+                <template if:true={wbVoid}>
+                    <div class="wbStatusDiv">
+                        <lightning-badge class="slds-badge slds-theme_error" label="Voided"></lightning-badge>
+                    </div>
+                </template>
+                <template if:true={wbUWFalloc}>
+                    <div class="wbStatusDiv">
+                        <lightning-badge class="slds-badge" label="UWF Allocation"></lightning-badge>
+                    </div>
+                </template>
+            </template>
+        </lightning-card>
+    </div>
+    
+</template>

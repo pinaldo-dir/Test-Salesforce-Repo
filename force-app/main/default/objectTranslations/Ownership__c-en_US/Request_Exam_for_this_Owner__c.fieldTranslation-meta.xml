@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+        <help><!-- Check to request to take Exam --></help>
+        <label><!-- Request Exam for this Owner --></label>
+        <name>Request_Exam_for_this_Owner__c</name>
+    </CustomFieldTranslation>

@@ -1,0 +1,18 @@
+<apex:page docType="HTML-5.0" applyHtmlTag="false" applyBodyTag="false" sidebar="false" showHeader="false" standardStylesheets="false" id="RegClosePage">
+    
+<script type="text/javascript">
+  window.close() ;
+</script>
+ 
+<!--    <div  style="font-size: 30px;">
+        <span style="width:300px;text-align:center;">
+           
+			 <ul>Registration Services</ul>
+           
+             <ul>Registration is Submitted.<ul>
+             </ul>You can close this browser tab</ul>
+                     
+        </span>
+    </div> -->
+    
+</apex:page>

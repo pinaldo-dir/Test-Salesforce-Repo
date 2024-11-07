@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>X14_Day_Old_Case__c</fullName>
+    <description>Hidden field for report to monitor case intake process</description>
+    <externalId>false</externalId>
+    <formula>TODAY()&gt; ( Date_Case_Received__c + 14)</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>X14 Day Old Case</label>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Checkbox</type>
+</CustomField>

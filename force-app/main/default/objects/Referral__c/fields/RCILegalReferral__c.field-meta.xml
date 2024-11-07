@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>RCILegalReferral__c</fullName>
+    <externalId>false</externalId>
+    <formula>IF(
+(RecordType.Name="RCI Cause Finding - Enforcement Legal" &amp;&amp; ISPICKVAL(Type_of_Request__c,"Enforcement") &amp;&amp; ISPICKVAL(Approval_Status__c,"Approved") &amp;&amp; ISBLANK(Legal_Ref_Closing_Date__c)),
+true, false)</formula>
+    <label>RCILegalReferral</label>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Checkbox</type>
+</CustomField>

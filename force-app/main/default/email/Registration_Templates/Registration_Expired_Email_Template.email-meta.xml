@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <description>Send Registration Expired email notification</description>
+    <encodingKey>ISO-8859-1</encodingKey>
+    <letterhead>Blank_Letterhead</letterhead>
+    <name>Registration Expired Email Template</name>
+    <style>freeForm</style>
+    <subject>Registration Expired</subject>
+    <textOnly>Your: {!License_Registration__c.Legal_Entity_Name__c}
+Application ID: {!License_Registration__c.License_Registration_Number__c} expired on {!License_Registration__c.Expiration_Date__c}
+
+We have not received the {!License_Registration__c.License_Registration_Type__c} renewal application for {!License_Registration__c.Legal_Entity_Name__c}.
+
+It is illegal to operate a {!License_Registration__c.License_Registration_Type__c} without current registration.  Violators may be cited for operations with a invalid registration and found guilty of a misdemeanor.
+
+If you wish to complete a registration application, please visit https://cadir.my.site.com/registrations to enter a new application.
+
+
+
+
+Thank you,
+Licensing &amp; Registration Unit</textOnly>
+    <type>html</type>
+    <uiType>Aloha</uiType>
+</EmailTemplate>

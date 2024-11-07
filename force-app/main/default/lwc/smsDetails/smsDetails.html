@@ -1,0 +1,11 @@
+<template>
+    <div>
+        <div class={smsClass}> {message}
+            <div class="dtime">
+                <lightning-formatted-date-time value={sentDate} year="2-digit" minute="numeric" month="short" day="2-digit" hour="numeric"
+                                           weekday="long" ></lightning-formatted-date-time>
+                </div>
+        </div>
+        
+    </div>
+</template>

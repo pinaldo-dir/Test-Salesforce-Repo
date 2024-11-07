@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CompactLayout xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Writ_Compact</fullName>
+    <fields>Name</fields>
+    <fields>Case_Management__c</fields>
+    <fields>Status__c</fields>
+    <fields>Assigned_Attorney__c</fields>
+    <fields>Filing_Date__c</fields>
+    <label>Writ Compact</label>
+</CompactLayout>

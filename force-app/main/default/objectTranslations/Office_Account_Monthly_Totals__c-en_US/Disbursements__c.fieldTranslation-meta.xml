@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+        <help><!-- Sum of Warrants where Issue Date is in the previous month. --></help>
+        <label><!-- - Disbursements --></label>
+        <name>Disbursements__c</name>
+    </CustomFieldTranslation>

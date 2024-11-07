@@ -1,0 +1,9 @@
+Meeting Type: {!Hearing__c.Meeting_Type__c}
+Scheduled Date: {!Hearing__c.Meeting_Start_Date_Time__c}
+DIR Case Number: {!DIR_Case__c.Case_Number__c}
+DIR Case Name: {!DIR_Case__c.Name}
+
+A Linked Case has scheduled a Meeting related to one of the Accounts from your cases. See Meeting Link below. 
+
+
+{!Hearing__c.Link}

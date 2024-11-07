@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+        <label><!-- Type --></label>
+        <name>Type__c</name>
+        <picklistValues>
+            <masterLabel>Alter Ego</masterLabel>
+            <translation><!-- Alter Ego --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>LC 238 (Related Business)</masterLabel>
+            <translation><!-- LC 238 (Related Business) --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Parent Company</masterLabel>
+            <translation><!-- Parent Company --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Predecessor</masterLabel>
+            <translation><!-- Predecessor --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Single Enterprise</masterLabel>
+            <translation><!-- Single Enterprise --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Subsidiary</masterLabel>
+            <translation><!-- Subsidiary --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Successor</masterLabel>
+            <translation><!-- Successor --></translation>
+        </picklistValues>
+    </CustomFieldTranslation>

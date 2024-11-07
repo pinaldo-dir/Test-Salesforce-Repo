@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CompactLayout xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>PAGA_Compact</fullName>
+    <fields>Case_Number__c</fields>
+    <fields>Case_Name_PAGA__c</fields>
+    <fields>Employer__c</fields>
+    <fields>Next_Action__c</fields>
+    <fields>Case_Age_PAGA__c</fields>
+    <fields>PAGA_Priority__c</fields>
+    <fields>Status__c</fields>
+    <label>PAGA Compact</label>
+</CompactLayout>

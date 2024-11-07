@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Must_Select_Case_Type</fullName>
+    <active>true</active>
+    <description>when Pre-Investigation Disposition equals Accept &amp; Assign INV, a picklist value for the Case Type field must be selected.</description>
+    <errorConditionFormula>ISPICKVAL( Assignment_Status__c , 'Accept &amp; Assign INV') &amp;&amp; ISPICKVAL( Case_Type__c , '')</errorConditionFormula>
+    <errorDisplayField>Case_Type__c</errorDisplayField>
+    <errorMessage>This case has been accepted for investigation, please select the appropriate Case Type.</errorMessage>
+</ValidationRule>

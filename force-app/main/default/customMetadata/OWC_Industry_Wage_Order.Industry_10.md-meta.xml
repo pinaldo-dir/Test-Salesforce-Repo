@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomMetadata xmlns="http://soap.sforce.com/2006/04/metadata" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <label>Industry 10</label>
+    <protected>false</protected>
+    <values>
+        <field>NaicsCodeLevel1EnglishTranslation__c</field>
+        <value xsi:type="xsd:string">Information &amp; Utilities</value>
+    </values>
+    <values>
+        <field>NaicsCodeLevel1SpanishTranslation__c</field>
+        <value xsi:type="xsd:string">Información y Servicio Público</value>
+    </values>
+    <values>
+        <field>NaicsCodeLevel2EnglishTranslation__c</field>
+        <value xsi:type="xsd:string">Publishing Industries (except Internet)~Publishing Industries (except Internet);Newspaper, Periodical, Book, and Directory Publishers~Newspaper, Periodical, Book, and Directory Publishers;Other Publishers~Other Publishers;Software Publishers~Software Publishers;Motion Picture and Sound Recording Industries~Motion Picture and Sound Recording Industries;Sound Recording Industries~Sound Recording Industries;Radio and Television Broadcasting~Radio and Television Broadcasting;Cable and Other Subscription Programming~Cable and Other Subscription Programming;Telecommunications~Telecommunications;Data Processing, Hosting, and Related Services~Data Processing, Hosting, and Related Services;Utilities (water, sewer, electric, gas)~Utilities</value>
+    </values>
+    <values>
+        <field>NaicsCodeLevel2SpanishTranslation__c</field>
+        <value xsi:type="xsd:string">Industria Editorial (excepto internet); Editores de Periódicos, Publicaciones Periódicas, Libros y Directorios; Otras Editoriales; Editoriales de Programas Informativos; Industrias Cinematográfica y Grabación de Sonidos; Industrias de Grabación de Sonidos; Difusión de Radio y Televisión; Programación por Cable y Otras Suscripciones; Telecomunicaciones; Procesamiento de Datos, Alojamiento y Servicios Relacionados; Servicios Públicos (agua,  desagüe, electricidad, gas)</value>
+    </values>
+    <values>
+        <field>OWC_Industry__c</field>
+        <value xsi:type="xsd:string">Information &amp; Utilities</value>
+    </values>
+    <values>
+        <field>OWC_NAICS_Discription__c</field>
+        <value xsi:type="xsd:string">Publishing Industries (except Internet);Newspaper, Periodical, Book, and Directory Publishers;Other Publishers;Software Publishers;Motion Picture and Sound Recording Industries;Sound Recording Industries;Radio and Television Broadcasting;Cable and Other Subscription Programming;Telecommunications;Data Processing, Hosting, and Related Services;Utilities (water, sewer, electric, gas)</value>
+    </values>
+    <values>
+        <field>Order_Number__c</field>
+        <value xsi:type="xsd:double">10.0</value>
+    </values>
+</CustomMetadata>

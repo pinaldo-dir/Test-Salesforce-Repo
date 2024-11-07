@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+        <help><!-- Successful: Contact was made with the Claimant, you had a conversation with the Claimant and/or the Claimant responded to your written communication. If the Claimant has not provided all of the requested information but has corresponded with you, this is a successful attempt. --></help>
+        <label><!-- 2nd Attempt Outcome --></label>
+        <name>X2nd_Attempt_Outcome__c</name>
+        <picklistValues>
+            <masterLabel>Successful</masterLabel>
+            <translation><!-- Successful --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Unsuccessful</masterLabel>
+            <translation><!-- Unsuccessful --></translation>
+        </picklistValues>
+    </CustomFieldTranslation>

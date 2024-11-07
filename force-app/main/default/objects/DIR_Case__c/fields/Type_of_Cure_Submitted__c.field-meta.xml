@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Type_of_Cure_Submitted__c</fullName>
+    <externalId>false</externalId>
+    <label>Type of Cure Submitted</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>LC 226 Only</fullName>
+                <default>false</default>
+                <label>LC 226 Only</label>
+            </value>
+            <value>
+                <fullName>Small Employer</fullName>
+                <default>false</default>
+                <label>Small Employer</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

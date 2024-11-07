@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FieldSet xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Subcontractors_Franchises_FS_JS_slim</fullName>
+    <description>VIP Form Tool Janitorial Services Registration</description>
+    <displayedFields>
+        <field>Subcontractor_Franchisee_Name__c</field>
+        <isFieldManaged>false</isFieldManaged>
+        <isRequired>false</isRequired>
+    </displayedFields>
+    <displayedFields>
+        <field>Subcontractor_Type__c</field>
+        <isFieldManaged>false</isFieldManaged>
+        <isRequired>false</isRequired>
+    </displayedFields>
+    <displayedFields>
+        <field>Number_of_individuals_perform_Janitorial__c</field>
+        <isFieldManaged>false</isFieldManaged>
+        <isRequired>false</isRequired>
+    </displayedFields>
+    <label>Subcontractors Franchises FS - JS - slim</label>
+</FieldSet>

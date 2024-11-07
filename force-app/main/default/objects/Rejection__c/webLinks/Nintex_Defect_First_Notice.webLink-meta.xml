@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<WebLink xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Nintex_Defect_First_Notice</fullName>
+    <availability>online</availability>
+    <displayType>button</displayType>
+    <encodingKey>UTF-8</encodingKey>
+    <height>600</height>
+    <linkType>url</linkType>
+    <masterLabel>Send First Defect Notice</masterLabel>
+    <openType>sidebar</openType>
+    <protected>false</protected>
+    <url>/apex/loop__looplus?&amp;eid={!Rejection__c.Id}&amp;ddpIds=a0Gt0000008T6ru&amp;hideddp=true&amp;sidebar=false&amp;autorun=true&amp;accountId={!Rejection__c.ApplicantId__c}&amp;deploy={!If(Rejection__c.Registration_Type__c="Entertainment Work","a0Et0000009L6SY",If(Rejection__c.Registration_Type__c="Garment Manufacturers and Contractors","a0E8y000000c4fs","a0Et0000009L6Sd"))}</url>
+</WebLink>

@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <description>Used to store the values for specify Covid-19 Claim.</description>
+    <label>OWCPreliminarySpecifyCovidClaim</label>
+    <pluralLabel>OWCPreliminarySpecifyCovidClaims</pluralLabel>
+    <visibility>Public</visibility>
+</CustomObject>

@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Part_3_Program_Return_Reason_s__c</fullName>
+    <externalId>false</externalId>
+    <label>Part 3 Program Return Reason(s)</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackTrending>false</trackTrending>
+    <type>MultiselectPicklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Additional Candidates to be Interviewed</fullName>
+                <default>false</default>
+                <label>Additional Candidates to be Interviewed</label>
+            </value>
+            <value>
+                <fullName>Reference Checks</fullName>
+                <default>false</default>
+                <label>Reference Checks</label>
+            </value>
+            <value>
+                <fullName>OPF Review</fullName>
+                <default>false</default>
+                <label>OPF Review</label>
+            </value>
+            <value>
+                <fullName>Missing Documents</fullName>
+                <default>false</default>
+                <label>Missing Documents</label>
+            </value>
+            <value>
+                <fullName>Eligibility See HR Hold</fullName>
+                <default>false</default>
+                <label>Eligibility See HR Hold</label>
+            </value>
+            <value>
+                <fullName>Other (See Status Notes)</fullName>
+                <default>false</default>
+                <label>Other (See Status Notes)</label>
+            </value>
+            <value>
+                <fullName>Other (Legacy)</fullName>
+                <default>false</default>
+                <label>Other (Legacy)</label>
+            </value>
+            <value>
+                <fullName>Screening Criteria</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>Screening Criteria</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+    <visibleLines>3</visibleLines>
+</CustomField>

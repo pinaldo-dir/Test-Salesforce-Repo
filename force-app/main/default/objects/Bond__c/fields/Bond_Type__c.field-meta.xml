@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Bond_Type__c</fullName>
+    <description>Records the type of bond for the record.</description>
+    <externalId>false</externalId>
+    <label>Bond Type</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Registration/Surety Bond</fullName>
+                <default>false</default>
+                <label>Registration/Surety Bond</label>
+            </value>
+            <value>
+                <fullName>Certificate of Deposit</fullName>
+                <default>false</default>
+                <label>Certificate of Deposit</label>
+            </value>
+            <value>
+                <fullName>Cashier's Check</fullName>
+                <default>false</default>
+                <label>Cashier's Check</label>
+            </value>
+            <value>
+                <fullName>Money Order</fullName>
+                <default>false</default>
+                <label>Money Order</label>
+            </value>
+            <value>
+                <fullName>Collective Bargaining Agreement</fullName>
+                <default>false</default>
+                <label>Collective Bargaining Agreement</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

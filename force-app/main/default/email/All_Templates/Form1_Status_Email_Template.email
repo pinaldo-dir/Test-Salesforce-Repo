@@ -1,0 +1,7 @@
+{!Form_1_Status__c.CreatedBy} updated the following Form 1 
+
+Form 1 Number: {!Form_1_Status__c.Form_1__c} 
+Date of Status: {!Form_1_Status__c.Date_of_Status__c} 
+Status Type: {!Form_1_Status__c.Form1_Status_Type__c} 
+Hire Type: {!Form_1_Status__c.Hire_Type__c} 
+Notes: {!Form_1_Status__c.Status_Notes__c}

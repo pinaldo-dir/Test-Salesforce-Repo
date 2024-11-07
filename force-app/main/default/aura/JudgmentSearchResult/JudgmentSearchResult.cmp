@@ -1,0 +1,46 @@
+<aura:component implements="forceCommunity:availableForAllPageTypes" access="global" >
+    <aura:attribute name="JudgmentObj" type="Object" access="public"/>
+    <aura:attribute name="isPopOpen" type="boolean" default="false"/>	
+    <aura:attribute name="recordId" type="String" default=""/>
+    <aura:attribute name="dbaName" type="String" default=""/>
+    <aura:attribute name="jpid" type="String" default=""/>
+    <aura:attribute name="urlParamsForFilters" type="String" default="" />
+    <td scope="row" data-label="Info Button">
+        <div class="slds-truncate" title="View Info">
+            <button class="slds-button slds-button_brand view-info" onclick="{!c.viewInfoRecord}" >View Info</button>
+        </div>
+    </td>
+    <td class="slds-cell-wrap" data-label="Labor Code § 2810.4 Status">
+        <div  title="2810.4Status">{!v.JudgmentObj.PortDrayageMotorCarrierJudgmentStatus}</div>
+    </td>
+    <!--<td class="slds-cell-wrap" data-label="Account Name">
+        <div  title="AccountName">{!v.JudgmentObj.ClaimantPlaintiffName}</div>
+    </td>-->
+    <td class="slds-cell-wrap" data-label="Judgment Name">
+        <div title="JudgmentName">{!v.JudgmentObj.JudgmentName}</div>
+    </td>
+    <td class="slds-cell-wrap" data-label="Judgment Status">
+        <div title="JudgmentStatus">{!v.JudgmentObj.JudgmentStatus}</div>
+    </td>
+    <td class="slds-cell-wrap" data-label="Court">
+        <div title="Court">{!v.JudgmentObj.Court}</div>
+    </td>
+    <td class="slds-cell-wrap" data-label="Defendant/Employer Name">
+        <div title="Defendant_EmployerName">{!v.JudgmentObj.Defendant_EmployerName}</div>
+    </td>
+    <td class="slds-cell-wrap" data-label="Primary Address">
+        <div title="PrimaryAddress">{!v.JudgmentObj.PrimaryAddress}</div>
+    </td>
+    <td class="slds-cell-wrap" data-label="Judgment Total">
+        <div class="slds-hide">{!v.JudgmentObj.JudgmentTotal} </div>
+        <aura:if isTrue="{!or(v.JudgmentObj.JudgmentTotal == 0,v.JudgmentObj.JudgmentTotal == null)}">
+            $0.00
+            <aura:set attribute="else">
+                <div title="JudgmentTotal"><ui:outputCurrency aura:id="curr" value="{!v.JudgmentObj.JudgmentTotal}" format="$##,###,###.00"/></div>
+            </aura:set>
+        </aura:if>
+    </td>
+    <aura:if isTrue="{!v.isPopOpen}">
+        <c:JudgmentSearchDetailCmp recordId="{!v.recordId}" isPopOpen="{!v.isPopOpen}" jpId="{!v.jpid}" urlParamsForFilters="{!v.urlParamsForFilters}" dbaName="{!v.dbaName}"/>
+    </aura:if>
+</aura:component>

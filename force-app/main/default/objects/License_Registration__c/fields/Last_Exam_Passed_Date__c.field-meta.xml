@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Last_Exam_Passed_Date__c</fullName>
+    <description>to calculate FLC exam fee</description>
+    <externalId>false</externalId>
+    <label>Last Exam Passed Date</label>
+    <summarizedField>Ownership__c.Last_Exam_Passed_Date__c</summarizedField>
+    <summaryForeignKey>Ownership__c.Registration__c</summaryForeignKey>
+    <summaryOperation>max</summaryOperation>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Summary</type>
+</CustomField>

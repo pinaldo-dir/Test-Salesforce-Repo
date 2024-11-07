@@ -1,0 +1,5 @@
+Hello,
+
+You have been assigned Inspection Request {!Inspection_Request__c.Name} tied to Case {!Inspection_Request__c.Case__c} and it has not yet been completed.  This case is 25 days old you must have it complete by 30 days.
+
+Click Here to Review: {!Inspection_Request__c.Link}

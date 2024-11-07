@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Reason_for_Cancellation_is_Required</fullName>
+    <active>true</active>
+    <errorConditionFormula>ISCHANGED(Status__c) &amp;&amp; ISPICKVAL(Status__c, 'Canceled') &amp;&amp; ISBLANK(Reason_for_Cancellation__c) &amp;&amp;  RecordType.Name != 'User Account Request'</errorConditionFormula>
+    <errorDisplayField>Reason_for_Cancellation__c</errorDisplayField>
+    <errorMessage>You must complete the reason for Cancellation</errorMessage>
+</ValidationRule>

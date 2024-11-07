@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>Associated Agents</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Associated Agents</value>
+    </caseValues>
+    
+    
+    
+    
+    
+    
+    <layouts>
+        <layout>Associated Agents Layout</layout>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+    </layouts>
+    <startsWith>Consonant</startsWith>
+    <validationRules>
+        <errorMessage><!-- Reason not required for active relationship. --></errorMessage>
+        <name>Active_Relationship_Reason_checker</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Please provide the inactive relationship reason. --></errorMessage>
+        <name>Reason_for_Inactive_Relationship</name>
+    </validationRules>
+</CustomObjectTranslation>

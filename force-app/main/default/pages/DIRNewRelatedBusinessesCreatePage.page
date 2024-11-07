@@ -1,0 +1,23 @@
+<apex:page standardController="Related_Businesses__c" extensions="DIRNewRelatedBusinessesCreateController">
+    <head>
+        <!--<apex:slds /> -->
+    </head>
+    <apex:pageMessages ></apex:pageMessages>
+        <apex:form >
+            
+        <apex:pageBlock title="New Related Businesses">
+            <apex:pageBlockButtons >
+                <apex:commandButton action="{!saveRelatedBusinessesRecord}" value="Save"/>
+                <apex:commandButton action="{!cancel}" value="Cancel"/>
+            </apex:pageBlockButtons>
+            <apex:pageBlockSection title="Information" columns="2" collapsible="false">
+                
+                <apex:inputText label="Business" value="{!businessName }" disabled="true" rendered="{!IF(accountExist == true,true,false)}"/>
+                <apex:inputField value="{!relatedBusinesses.Business__c }" required="true" rendered="{!IF(accountExist == false,true,false)}"/>
+                <apex:inputField value="{!relatedBusinesses.Related_Business__c }" required="true"/>
+                <apex:inputField value="{!relatedBusinesses.Type__c }" required="true"/>
+                 <apex:inputField value="{!relatedBusinesses.Additional_Information__c}" required="false" />
+            </apex:pageBlockSection>
+        </apex:pageBlock> 
+    </apex:form>
+</apex:page>

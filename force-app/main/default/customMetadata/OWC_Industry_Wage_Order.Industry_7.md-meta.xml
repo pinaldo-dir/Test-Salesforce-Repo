@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomMetadata xmlns="http://soap.sforce.com/2006/04/metadata" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <label>Industry 7</label>
+    <protected>false</protected>
+    <values>
+        <field>NaicsCodeLevel1EnglishTranslation__c</field>
+        <value xsi:type="xsd:string">Health Care and Social Assistance</value>
+    </values>
+    <values>
+        <field>NaicsCodeLevel1SpanishTranslation__c</field>
+        <value xsi:type="xsd:string">Atención Médica y Asistencia Social</value>
+    </values>
+    <values>
+        <field>NaicsCodeLevel2EnglishTranslation__c</field>
+        <value xsi:type="xsd:string">Hospitals~Hospitals;Social Assistance~Social Assistance;Vocational Rehabilitation Services~Vocational Rehabilitation Services;Offices of Physicians~Offices of Physicians;Offices of Dentists~Offices of Dentists;Offices of Chiropractors~Offices of Chiropractors;Offices of Optometrists~Offices of Optometrists;
+Family Planning Centers~Family Planning Centers;Kidney Dialysis Centers~Kidney Dialysis Centers;Medical and Diagnostic Laboratories~Medical and Diagnostic Laboratories;Home Health Care Services~Home Health Care Services;Family Personal Attendent~Home Health Care Services;
+Ambulance Services~Ambulance Services;Blood and Organ Banks~Blood and Organ Banks;Facilities~Facilities;Other Residential Care Facilities~Other Residential Care Facilities</value>
+    </values>
+    <values>
+        <field>NaicsCodeLevel2SpanishTranslation__c</field>
+        <value xsi:type="xsd:string">Hospitales; Asistencia Social; Servicios de Rehabilitación Vocacional; Oficinas de Médicos; Oficinas de Dentistas; Oficinas de Quiroprácticos; Oficinas de Optometristas;
+Centros de Planificación Familiar; Centros de Diálisis de Riñones; Laboratorios Médicos y de Diagnóstico; Servicios de Atención Médica a Domicilio; Asistente Personal de Familia;
+Servicios de Ambulancia; Bancos de Sangre y Organos; Establecimientos; Otros Establecimientos de Atención Residencial</value>
+    </values>
+    <values>
+        <field>OWC_Industry__c</field>
+        <value xsi:type="xsd:string">Health Care and Social Assistance</value>
+    </values>
+    <values>
+        <field>OWC_NAICS_Discription__c</field>
+        <value xsi:type="xsd:string">Hospitals;Social Assistance;Vocational Rehabilitation Services;Offices of Physicians;Offices of Dentists;Offices of Chiropractors;Offices of Optometrists;
+Family Planning Centers;Kidney Dialysis Centers;Medical and Diagnostic Laboratories;Home Health Care Services;Facility Personal Attendant;
+Ambulance Services;Blood and Organ Banks;Facilities;Other Residential Care Facilities</value>
+    </values>
+    <values>
+        <field>Order_Number__c</field>
+        <value xsi:type="xsd:double">7.0</value>
+    </values>
+</CustomMetadata>

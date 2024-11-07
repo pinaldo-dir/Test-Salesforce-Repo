@@ -1,0 +1,76 @@
+.THIS.wage-detail-container{
+    background: #f3f7f9;
+    font-family: 'Source Sans Pro';
+    font-size: 16px;
+}
+.THIS .sectionStyle{
+    font-weight: normal;
+    font-size: 16px;
+}
+.THIS h2{
+    font-weight: 600;
+}
+@font-face {
+  font-family: 'Source Sans Pro';
+  src: url('/resource/DIRGoogleFonts'); 
+}
+.THIS .dir-modal-container{
+	width: 90% !important;
+	max-width: 90% !important;
+}
+.THIS .labelStyle{
+    font-weight: 600;
+    font-size: 16px;
+    font-family: 'Source Sans Pro';
+}
+.THIS .subHeading{
+    color: #333333;
+    font-size: 23px;
+}
+.THIS.hideModel {
+    display: none;
+}
+.THIS a{
+    text-decoration: none; 
+}
+.THIS .breadcrumb a:hover{
+    text-decoration: underline;
+}
+.THIS .mainSection{
+    font-family: 'Source Sans Pro';
+    border: 1px solid black;
+}
+.THIS .additionalSection{
+    font-family: 'Source Sans Pro';
+    font-size: 16px;
+    border: 1px solid black;
+}
+.THIS .gridStyle{
+    padding: 5px;
+}
+.THIS .sectionHeader{
+    padding: 20px;
+    font-size: 24px;
+}
+.THIS h1{
+    font-size: 33px;
+    font-weight: 600;
+    color: #bf5a42;
+    font-family: 'Source Sans Pro';
+}
+.THIS .downloadButtons{
+    font-family: 'Source Sans Pro';
+    background-color: #0e61b9;
+    margin-right: 15px;
+    box-shadow: 1px 1px 2px #555;
+    display: inline-block;
+    color: #fff;
+    border: 1px solid transparent;
+    border-radius: 3px;
+    white-space: nowrap;
+    padding: 6px 12px 6px 12px;
+    font-size: 16px;
+    line-height: 23px;
+    font-weight: normal;
+    text-align: center;
+}

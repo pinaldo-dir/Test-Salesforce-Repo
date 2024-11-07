@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+        <label><!-- Employee Cure Dispute Submission Date --></label>
+        <name>Employee_Cure_Dispute_Submission_Date__c</name>
+    </CustomFieldTranslation>

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>All_Stockton_Lodi_Assigned_Cases_2020</fullName>
+    <columns>NAME</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>CREATED_DATE</field>
+        <operation>greaterThan</operation>
+        <value>12/31/2019 12:00 AM</value>
+    </filters>
+    <filters>
+        <field>BoFE_Office_Location_City__c</field>
+        <operation>contains</operation>
+        <value>Stockton</value>
+    </filters>
+    <label>All Stockton/Lodi Assigned Cases 2020</label>
+    <sharedTo>
+        <roleAndSubordinates>BOFE</roleAndSubordinates>
+        <roleAndSubordinates>PAGA</roleAndSubordinates>
+    </sharedTo>
+</ListView>

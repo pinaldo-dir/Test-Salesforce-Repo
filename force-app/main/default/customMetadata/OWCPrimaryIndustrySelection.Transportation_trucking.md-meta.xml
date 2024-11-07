@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomMetadata xmlns="http://soap.sforce.com/2006/04/metadata" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <label>Transportation trucking</label>
+    <protected>false</protected>
+    <values>
+        <field>English_Translation__c</field>
+        <value xsi:type="xsd:string">Transportation Trucking</value>
+    </values>
+    <values>
+        <field>Mapped_Value__c</field>
+        <value xsi:type="xsd:string">Truck Transportation</value>
+    </values>
+    <values>
+        <field>Order_Number__c</field>
+        <value xsi:type="xsd:double">34.0</value>
+    </values>
+    <values>
+        <field>Salesforce_Mapped_Value__c</field>
+        <value xsi:nil="true"/>
+    </values>
+    <values>
+        <field>Spanish_Translation__c</field>
+        <value xsi:type="xsd:string">Transporte de Mercancías por Camión</value>
+    </values>
+    <values>
+        <field>Value__c</field>
+        <value xsi:type="xsd:string">Transportation Trucking</value>
+    </values>
+</CustomMetadata>

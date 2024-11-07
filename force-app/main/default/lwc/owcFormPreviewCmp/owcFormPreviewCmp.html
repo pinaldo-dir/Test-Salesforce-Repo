@@ -1,0 +1,88 @@
+<!--
+  @description       : 
+  @author            : ChangeMeIn@UserSettingsUnder.SFDoc
+  @group             : 
+  @last modified on  : 02-16-2022
+  @last modified by  : ChangeMeIn@UserSettingsUnder.SFDoc
+-->
+<template>
+    <!-- Preliminary Section -->
+    <form class="cheked">
+        <template if:true={isClaimantEmployee}>
+            <c-owc-Preliminary-Section-Cmp></c-owc-Preliminary-Section-Cmp>
+        </template>
+        <template if:true={isIndustryInfoDetails}>
+            <div>
+                <c-industry-info-Cmp></c-industry-info-Cmp>
+            </div>
+        </template>
+        
+        <template if:true={isEmployerDetails}>
+            <div>
+                <c-owc-Emp-Business-Type-Container-Cmp></c-owc-Emp-Business-Type-Container-Cmp>
+            </div>
+        </template>
+    
+        <template if:true={isSuccessorDetails}>
+            <div>
+                <c-owc-Successor-Section-Container-Cmp></c-owc-Successor-Section-Container-Cmp>
+            </div>
+        </template>
+    
+        <template if:true={isOtherWorkLocation}>
+            <div>
+                <c-owc-Other-Work-Location-Section-Cmp></c-owc-Other-Work-Location-Section-Cmp>
+            </div>
+        </template>
+    
+        <template if:true={isEmployeeStatusAndFinalWages}>
+            <div>
+                <c-owc-Employment-Status-And-Final-Wages-Cmp></c-owc-Employment-Status-And-Final-Wages-Cmp>
+            </div>
+        </template>
+    
+        <template if:true={isPaymentOfWagesDetails}>
+            <div>
+                <c-owc-Payment-Of-Wages-Cmp></c-owc-Payment-Of-Wages-Cmp>
+            </div>
+        </template>
+    
+        <template if:true={isHoursYouTypicallyWorkedDetails}>
+            <div>
+                <c-owc-Hours-You-Typically-Worked-Cmp></c-owc-Hours-You-Typically-Worked-Cmp>
+            </div>
+        </template>
+    
+        <template if:true={isWorkWeekAndWorkDaysDetails}>
+            <div>
+                <c-owc-Workweek-And-Workday-Cmp></c-owc-Workweek-And-Workday-Cmp>
+            </div>
+        </template>
+    
+        <template if:true={isWageDeficiencyDetails}>
+            <template if:true={isShowClaimHeading}>
+                <div>
+                    <c-owc-Wage-Deficiencies-Cmp iswagedefpreview={isFormPreviewMode} finalpaymentdate={finalpaymentdate} stateratelist={stateratelist} staterate={staterate} minimumrates={minimumrates} paystubsickrecord={paystubsickrecord} iwcinfoobj={iwcinfoobj} isnotidentifyemployer={isnotidentifyemployer} powdetails={paymentOfWagesDetails} heatrecovery={heatrecovery} empstatementprovided={empstatementprovided} stateminwagerate={stateminwagerate} paystubstatement={paystubstatement} userworkedhours={userworkedhours} otherworkcity={otherworkcity} minimumwage={minimumwage} salaryratelist={salaryratelist} multiplehourlyrate={multiplehourlyrate} hourlyratelist={hourlyratelist} noticebeforequit={noticebeforequit} werewagespaid={werewagespaid} quitdatevalue={quitdatevalue} paidbycheck={paidbycheck} dischargeddate={dischargeddate} minimumhiredate={minimumhiredate} minimumwagezipcode={minimumwagezipcode} issalaryrateselected={issalaryrateselected} isonehourlyrateselected={isonehourlyrateselected}></c-owc-Wage-Deficiencies-Cmp>
+                </div>
+            </template>
+        </template>
+    
+        <template if:true={isLabelSectionDetails}>
+            <div>
+                <c-owc-Label-Section-Container-Cmp></c-owc-Label-Section-Container-Cmp>
+            </div>
+        </template>
+
+        <template if:true={isDemoGraphicData}>
+            <div>
+                <c-owc-Online-Demographic-Cmp></c-owc-Online-Demographic-Cmp>
+            </div>
+        </template>
+    
+        <template if:true={isCetAndAuthDetails}>
+            <div>
+                <c-owc-Certification-And-Authorization-Cmp></c-owc-Certification-And-Authorization-Cmp>
+            </div>
+        </template>
+    </form>
+</template>

@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Part_1_Program_Return_Reason_s__c</fullName>
+    <externalId>false</externalId>
+    <label>Part 1 Program Return Reason(s)</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackTrending>false</trackTrending>
+    <type>MultiselectPicklist</type>
+    <valueSet>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Duty Statement missing or revisions needed</fullName>
+                <default>false</default>
+                <label>Duty Statement missing or revisions needed</label>
+            </value>
+            <value>
+                <fullName>Statement of Qualifications Missing or Revisions Needed</fullName>
+                <default>false</default>
+                <label>Statement of Qualifications Missing or Revisions Needed</label>
+            </value>
+            <value>
+                <fullName>Job Bulletin missing or revisions needed</fullName>
+                <default>false</default>
+                <label>Job Bulletin missing or revisions needed</label>
+            </value>
+            <value>
+                <fullName>Justification revision needed or missing</fullName>
+                <default>false</default>
+                <label>Justification revision needed or missing</label>
+            </value>
+            <value>
+                <fullName>Knowledge, Skills, Abilities</fullName>
+                <default>false</default>
+                <label>Knowledge, Skills, Abilities</label>
+            </value>
+            <value>
+                <fullName>Org chart update needed</fullName>
+                <default>false</default>
+                <label>Org chart update needed</label>
+            </value>
+            <value>
+                <fullName>Other (See Status Notes)</fullName>
+                <default>false</default>
+                <label>Other (See Status Notes)</label>
+            </value>
+            <value>
+                <fullName>Other (Legacy)</fullName>
+                <default>false</default>
+                <label>Other (Legacy)</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+    <visibleLines>6</visibleLines>
+</CustomField>

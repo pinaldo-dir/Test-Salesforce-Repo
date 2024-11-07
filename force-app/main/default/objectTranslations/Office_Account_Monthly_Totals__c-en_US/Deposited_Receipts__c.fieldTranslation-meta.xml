@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+        <help><!-- Sum of Receipts where Deposit Date is in the previous month and Status is currently Deposited, or Deposited-Returned. --></help>
+        <label><!-- + Deposited Receipts --></label>
+        <name>Deposited_Receipts__c</name>
+    </CustomFieldTranslation>

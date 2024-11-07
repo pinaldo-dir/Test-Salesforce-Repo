@@ -1,0 +1,130 @@
+<apex:page controller="RegistrationVerificationController" docType="HTML-5.0" applyHtmlTag="false" applyBodyTag="false" sidebar="false" showHeader="false" standardStylesheets="false">
+    <style>
+        .btn-group-lg>.btn, .btn-md {
+            padding: 8px 12px;
+            font-size: 15px;
+            line-height: 1.42857143;
+            border-radius: 6px;
+        }
+        .panel {border:none;}
+        .panel-heading {
+            background:linear-gradient(to bottom, #4887c2 0%,#295b8f 100%);
+            border-color: #4887c2;
+            border-top-right-radius: 0px;
+            border-top-left-radius: 0px;
+        }
+    </style>
+    <script>
+        $j = jQuery.noConflict();
+        $j( document ).ready(function() {
+            $j('#table').DataTable({
+                select: true,
+                "bPaginate": true,
+                "bLengthChange": false,
+                "bFilter": false,
+                "bSort": false,
+                "order": [[ 1, "asc" ]],
+                "bInfo": true,
+                "bAutoWidth": true,
+                "pageLength": 10,
+                "lengthMenu": [5, 50, 100],
+                "language": {
+                  "emptyTable": "No matching records found"
+                }
+            });
+           
+            $j('#tablelocmain').DataTable({
+                select: true,
+                "bPaginate": true,
+                "bLengthChange": false,
+                "bFilter": false,
+                "bSort": false,
+                "order": [[ 1, "asc" ]],
+                "bInfo": true,
+                "bAutoWidth": true,
+                "pageLength": 10,
+                "lengthMenu": [5, 50, 100],
+                "language": {
+                  "emptyTable": "No matching records found"
+                }
+            });       
+            
+            $j('#tableloc').DataTable({
+                select: true,
+                "bPaginate": true,
+                "bLengthChange": false,
+                "bFilter": false,
+                "bSort": false,
+                "order": [[ 1, "asc" ]],
+                "bInfo": true,
+                "bAutoWidth": true,
+                "pageLength": 10,
+                "lengthMenu": [5, 50, 100],
+                "language": {
+                  "emptyTable": "No matching records found"
+                }
+            });
+          $j('#tabledba').DataTable({
+                select: true,
+                "bPaginate": true,
+                "bLengthChange": false,
+                "bFilter": false,
+                "bSort": false,
+                "order": [[ 1, "asc" ]],
+                "bInfo": true,
+                "bAutoWidth": true,
+                "pageLength": 10,
+                "lengthMenu": [5, 50, 100],
+                "language": {
+                  "emptyTable": "No matching records found"
+                }
+            });   
+        });
+    </script>
+    
+    <script>
+    function closeWebsite(){
+        var resultConfirm = confirm("'A copy of the verification will be sent to your email'");
+        if (resultConfirm == true) {
+            console.log("closing window...");
+            window.close();
+        }
+    }
+    </script>
+    
+    <apex:composition template="CommunityRegistrationTemplate">
+        <apex:define name="body">
+            <apex:form >
+            
+                <ol class="breadcrumb">
+                    <li><a href="https://www.dir.ca.gov/dlse/dlse.html">Department of Industrial Relations (DIR)</a></li>
+                    <li>Registration Search</li>
+                    <li class="active">Registration Detail</li>
+                </ol>
+                
+                <h1>License Registration Detail</h1>
+                <br />
+
+       <apex:pageBlock id="pb">
+ 
+            <apex:pageBlockButtons style="width:50%;text-align:right;">
+ 	
+                    <apex:commandButton onclick="closeWebsite()" action="{!sendLicenseRegistrationPermitPDF}" value="Submit" rerender="pb" oncomplete="closeWindow()"/>
+
+            </apex:pageBlockButtons>
+             <br/>
+            <apex:pageBlockSection columns="2">
+          
+                <apex:outputLabel value="Business Entity"/>
+                <apex:inputText value="{!businessName}"/>
+                
+                <apex:outputLabel value="Email Address"/>
+                <apex:inputText value="{!emailAddress}"/>
+              <br/>  
+            </apex:pageBlockSection>
+        </apex:pageBlock>
+
+            </apex:form>
+        </apex:define>
+    </apex:composition>
+</apex:page>

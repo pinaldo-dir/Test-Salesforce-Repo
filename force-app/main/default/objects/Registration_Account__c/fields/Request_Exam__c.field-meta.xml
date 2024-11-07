@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Request_Exam__c</fullName>
+    <defaultValue>false</defaultValue>
+    <description>Used to calculate fees for Garment exam</description>
+    <externalId>false</externalId>
+    <inlineHelpText>If you are an Owner, do not request a duplicate exam here, this will lead to additional fees</inlineHelpText>
+    <label>Request Exam</label>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Checkbox</type>
+</CustomField>

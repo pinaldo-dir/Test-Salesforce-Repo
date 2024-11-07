@@ -1,0 +1,8 @@
+Hello,
+
+Case {!DIR_Case__c.Case_Number__c} was Withdrawn 15 days ago on {!DIR_Case__c.Withdrawn_Date__c} and is now Closed.
+
+Case Link:  {!DIR_Case__c.Link}
+
+Thank you,
+Automated Salesforce Email

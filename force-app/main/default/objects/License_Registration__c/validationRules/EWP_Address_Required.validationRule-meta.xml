@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>EWP_Address_Required</fullName>
+    <active>true</active>
+    <errorConditionFormula>IF(RecordType.DeveloperName = 'Entertainment_Work' 
+ &amp;&amp;  (ISPICKVAL(Status__c, 'Submitted') || ISPICKVAL(Status__c, 'Pending / Defect') || ISPICKVAL(Status__c, 'Approved') ||  ISPICKVAL(Ready_to_Submit__c, 'Yes'))
+ ,ISBLANK(Residential_Address_Line_1__c)
+  || ISBLANK(Residential_City__c)
+  || ISPICKVAL(Residential_State__c, '')
+  || ISBLANK(Residential_Postal_Code__c)
+  || (Mailing_Address_Same_as_Residential__c = false 
+     &amp;&amp; (ISBLANK(Mailing_Address_Line_1__c)  
+        || ISBLANK(Mailing_City__c)
+        || ISPICKVAL(Mailing_State__c, '')
+        || ISBLANK(Mailing_Postal_Code__c) ) )
+, FALSE)</errorConditionFormula>
+    <errorMessage>Minor's Residential Address and Mailing Address is required.  Change the answer below to "No", return to the Minors tab, and complete all required information to continue.</errorMessage>
+</ValidationRule>

@@ -1,0 +1,113 @@
+<!--
+  @description       : 
+  @author            : ChangeMeIn@UserSettingsUnder.SFDoc
+  @group             : 
+  @last modified on  : 10-29-2021
+  @last modified by  : ChangeMeIn@UserSettingsUnder.SFDoc
+-->
+<template>
+    <form>
+        <div align="center"  if:true={isSpinner}>
+            <div class="loader"></div>
+            Please wait...
+         </div>
+         <div if:false={isSpinner}>
+            <div class=" slds-p-left_medium">
+                <div class="slds-grid slds-wrap">
+                <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-2 slds-large-size_1-of-2 ">
+                <h1 class="slds-p-top_medium slds-p-around_medium slds-text-heading_large owcHeadingStyle">
+                    {CustomLabelValues.OWC_Create_Account}
+                </h1>
+                </div>
+                </div>
+                <div class="slds-grid slds-wrap">
+                <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-3 slds-large-size_1-of-3 slds-p-around_medium">
+                    {CustomLabelValues.OWC_first_name} 
+                    <span class="requiredStyle"><abbr title="required">*</abbr></span>  
+                    <lightning-input data-id="firstName"
+                                     name="firstName" 
+                                     variant="label-hidden" 
+                                     value={firstName}
+                                     onblur={handleFirstNameBlur}
+                                     onchange={handleChange}></lightning-input>
+                    
+                </div>
+                
+                <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-3 slds-large-size_1-of-3 slds-p-around_medium">
+                    {CustomLabelValues.OWC_middle_name} 
+                    <span class="requiredStyle"><abbr title="required"></abbr></span> 
+                    <lightning-input data-id="middleName"
+                                     name="middleName" 
+                                     variant="label-hidden" 
+                                     value={middleName}
+                                     onchange={handleChange}
+                                     ></lightning-input>
+                </div>
+                
+                <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-3 slds-large-size_1-of-3 slds-p-around_medium">   
+                    {CustomLabelValues.OWC_last_name} 
+                    <span class="requiredStyle"><abbr title="required">*</abbr></span>   
+                    <lightning-input data-id="lastName" name="labelGarmentDelAdd" variant="label-hidden" value={lastName} onblur={handleMiddleNameBlur} onchange={handleChange}></lightning-input>
+                </div>
+                
+                <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-3 slds-large-size_1-of-3 slds-p-around_medium">   
+                    {CustomLabelValues.OWC_email}  
+                    <span class="requiredStyle"><abbr title="required">*</abbr></span>     
+                    <lightning-input name="Email" 
+                                    data-id="emailId"
+                                     variant="label-hidden" 
+                                     value={email}
+                                     onblur={handleConfirmEmailBlur}
+                                     onchange={handleChange}></lightning-input>
+                    
+                </div>
+    
+                <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-3 slds-large-size_1-of-3 slds-p-around_medium">   
+                    {CustomLabelValues.OWC_Confirm_Email}  
+                    <span class="requiredStyle"><abbr title="required">*</abbr></span>     
+                    <lightning-input name="confirmEmail" 
+                                    data-id="confirmEmailId"
+                                     variant="label-hidden" 
+                                     value={email}
+                                     onblur={handleEmailBlur}
+                                     onchange={handleChange}></lightning-input>
+                    
+                </div>
+                
+                <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-3 slds-large-size_1-of-3 slds-p-around_medium">  
+                    {CustomLabelValues.OWC_Cell_Phone_Number} 
+                    <span class="requiredStyle"><abbr title="required"></abbr></span>        
+                    <lightning-input name="phone" 
+                                    data-id="phoneId"
+                                     variant="label-hidden" 
+                                     value={phone}
+                                     onblur={handlePhoneBlur}
+                                     onchange={handleChange}></lightning-input>
+                    
+                </div>
+                </div>
+                <div class="slds-grid slds-wrap">
+                     <!--<c-owc-recaptcha-cmp oncallpasstoparent={passToParent} publickey={publicKey}></c-owc-recaptcha-cmp>-->
+                     <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-1 slds-large-size_1-of-1 slds-p-around_medium">
+                        <br />
+                        <div class="recaptchaInvisible" data-sitekey={publickey}></div>
+                    </div> 
+                    <template if:true={isError}>
+                        <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-1 slds-large-size_1-of-1">
+                            <div style="color: red;
+                            font-size: 15px;padding-left: 15px;" class="">  
+                                {ValidationMsg}
+                            </div>
+                        </div>
+                    </template>
+                    
+                    <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-3 slds-large-size_1-of-3 slds-p-around_medium">
+                        <lightning-button class="owcButtonStyle" onclick={doSubmit} label={CustomLabelValues.OWC_Submit} ></lightning-button>
+                    </div>
+                </div>
+            </div>
+         </div>
+        
+    </form>
+    
+</template>

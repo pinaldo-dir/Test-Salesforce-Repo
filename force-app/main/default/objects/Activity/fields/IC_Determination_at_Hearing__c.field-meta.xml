@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>IC_Determination_at_Hearing__c</fullName>
+    <externalId>false</externalId>
+    <label>IC Determination at Hearing</label>
+    <required>false</required>
+    <type>Picklist</type>
+    <valueSet>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>IC Established</fullName>
+                <default>false</default>
+                <label>IC Established</label>
+            </value>
+            <value>
+                <fullName>Employee Status Established</fullName>
+                <default>false</default>
+                <label>Employee Status Established</label>
+            </value>
+            <value>
+                <fullName>Settled - No IC Determination Made</fullName>
+                <default>false</default>
+                <label>Settled - No IC Determination Made</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Date_of_BOFE_Case_in_Pending_Status__c</fullName>
+    <description>Date that the BOFE case was moved to pending case status.  Used in a report.</description>
+    <externalId>false</externalId>
+    <label>Date of BOFE Case in Pending Status</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Date</type>
+</CustomField>

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Date_Formed__c</fullName>
+    <description>Registration form question</description>
+    <externalId>false</externalId>
+    <inlineHelpText>On what date was your Corporation or LLC officially formed or organized?</inlineHelpText>
+    <label>Date Formed</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Date</type>
+</CustomField>

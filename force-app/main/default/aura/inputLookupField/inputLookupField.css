@@ -1,0 +1,23 @@
+.THIS .record{
+    color: #4f4f4f;
+    /* border: 2px solid #ccc; */
+    padding: 5px;
+    cursor: crosshair;
+}
+.THIS .recordhighlight{
+    color: black;
+    border: 1px ridge black;
+    padding: 5px;
+    cursor: crosshair;
+}
+
+/* .THIS .records{ */
+    /* border: 1px solid #ccc; */
+    /* border: 1px solid black;
+    padding: 5px;
+} */
+
+.THIS .red{
+    border: 1px solid red;
+    padding: 5px;
+}

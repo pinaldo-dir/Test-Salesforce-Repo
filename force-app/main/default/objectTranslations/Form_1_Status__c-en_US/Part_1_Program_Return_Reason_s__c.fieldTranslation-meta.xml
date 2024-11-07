@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+        <label><!-- Part 1 Program Return Reason(s) --></label>
+        <name>Part_1_Program_Return_Reason_s__c</name>
+        <picklistValues>
+            <masterLabel>Duty Statement missing or revisions needed</masterLabel>
+            <translation><!-- Duty Statement missing or revisions needed --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Job Bulletin missing or revisions needed</masterLabel>
+            <translation><!-- Job Bulletin missing or revisions needed --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Justification revision needed or missing</masterLabel>
+            <translation><!-- Justification revision needed or missing --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Knowledge, Skills, Abilities</masterLabel>
+            <translation><!-- Knowledge, Skills, Abilities --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Org chart update needed</masterLabel>
+            <translation><!-- Org chart update needed --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Other (Legacy)</masterLabel>
+            <translation><!-- Other (Legacy) --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Other (See Status Notes)</masterLabel>
+            <translation><!-- Other (See Status Notes) --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Statement of Qualifications Missing or Revisions Needed</masterLabel>
+            <translation><!-- Statement of Qualifications Missing or Revisions Needed --></translation>
+        </picklistValues>
+    </CustomFieldTranslation>

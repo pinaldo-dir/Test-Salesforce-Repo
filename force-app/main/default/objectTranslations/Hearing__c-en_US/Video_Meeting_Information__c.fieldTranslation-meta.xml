@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+        <help><!-- Copy and paste only the Meeting ID and Passcode here. --></help>
+        <label><!-- Video Meeting ID and Passcode --></label>
+        <name>Video_Meeting_Information__c</name>
+    </CustomFieldTranslation>

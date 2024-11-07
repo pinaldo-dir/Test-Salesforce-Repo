@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Allegation_Type__c</fullName>
+    <externalId>false</externalId>
+    <label>Allegation Type</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Filing with Other Agency</fullName>
+                <default>false</default>
+                <label>Filing with Other Agency</label>
+            </value>
+            <value>
+                <fullName>Refusal to Perform Task</fullName>
+                <default>false</default>
+                <label>Refusal to Perform Task</label>
+            </value>
+            <value>
+                <fullName>Filing with Primary Agency</fullName>
+                <default>false</default>
+                <label>Filing with Primary Agency</label>
+            </value>
+            <value>
+                <fullName>Complaint with Management</fullName>
+                <default>false</default>
+                <label>Complaint with Management</label>
+            </value>
+            <value>
+                <fullName>Participation in S/H Activities</fullName>
+                <default>false</default>
+                <label>Participation in S/H Activities</label>
+            </value>
+            <value>
+                <fullName>Reporting Accident/Injury</fullName>
+                <default>false</default>
+                <label>Reporting Accident/Injury</label>
+            </value>
+            <value>
+                <fullName>Testifying in Proceedings</fullName>
+                <default>false</default>
+                <label>Testifying in Proceedings</label>
+            </value>
+            <value>
+                <fullName>Other</fullName>
+                <default>false</default>
+                <label>Other</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

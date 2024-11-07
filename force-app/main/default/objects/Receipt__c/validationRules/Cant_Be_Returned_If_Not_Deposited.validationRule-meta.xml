@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Cant_Be_Returned_If_Not_Deposited</fullName>
+    <active>true</active>
+    <description>If Returned_Item__c is checked from Deduction RCT, parent Net RCT must be Deposited or Returned,
+or
+if Returned_Item__c is checked from a regular or Net RCT, it must be Deposited or Returned.</description>
+    <errorConditionFormula>(
+Returned_Item__c = TRUE &amp;&amp;
+ISPICKVAL(Payment_Type__c, 'Deduction') &amp;&amp;
+NOT(ISPICKVAL(Net_Receipt__r.Status__c, 'Deposited')) &amp;&amp;
+NOT(ISPICKVAL(Net_Receipt__r.Status__c, 'Deposited-Returned'))
+)
+||
+(
+Returned_Item__c = TRUE &amp;&amp;
+NOT(ISPICKVAL(Payment_Type__c, 'Deduction')) &amp;&amp;
+NOT(ISPICKVAL(Status__c, 'Deposited')) &amp;&amp;
+NOT(ISPICKVAL(Status__c, 'Deposited-Returned'))
+)</errorConditionFormula>
+    <errorDisplayField>Returned_Item__c</errorDisplayField>
+    <errorMessage>Item can not be marked Returned if
+the Status is not Deposited, or
+the Net Receipt's Status is not Deposited.</errorMessage>
+</ValidationRule>

@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>Judgment Party</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Judgment Parties</value>
+    </caseValues>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <layouts>
+        <layout>Liability Judgement Layout</layout>
+        <sections>
+            <label><!-- Attachments Plus --></label>
+            <section>Attachments Plus</section>
+        </sections>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+        <sections>
+            <label><!-- Labor Code 2810.4 Info --></label>
+            <section>Labor Code 2810.4 Info</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>Related Business Judgment Layout</layout>
+        <sections>
+            <label><!-- Attachments Plus --></label>
+            <section>Attachments Plus</section>
+        </sections>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+        <sections>
+            <label><!-- Labor Code 2810.4 Info --></label>
+            <section>Labor Code 2810.4 Info</section>
+        </sections>
+    </layouts>
+    <recordTypes>
+        <label><!-- Liable Party --></label>
+        <name>Liable_Party</name>
+    </recordTypes>
+    <recordTypes>
+        <label><!-- Related Business --></label>
+        <name>Related_Business</name>
+    </recordTypes>
+    <startsWith>Consonant</startsWith>
+    <validationRules>
+        <errorMessage><!-- Enter other reasons, why party was added to the judgement? --></errorMessage>
+        <name>Required_Other_Reason</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- &apos;Other Reason&apos; only applicable if &apos;Judgment Party Type&apos; is selected as &apos;Other&apos;. --></errorMessage>
+        <name>Validate_the_Other_Reason_Field_criteria</name>
+    </validationRules>
+    <webLinks>
+        <label><!-- Generate_Documents --></label>
+        <name>Generate_Documents</name>
+    </webLinks>
+    <webLinks>
+        <label><!-- Generate_WCA_Documents --></label>
+        <name>Generate_WCA_Documents</name>
+    </webLinks>
+    <webLinks>
+        <label><!-- New_Judgment_Party --></label>
+        <name>New_Judgment_Party</name>
+    </webLinks>
+    <webLinks>
+        <label><!-- New_Judgment_Successor --></label>
+        <name>New_Judgment_Successor</name>
+    </webLinks>
+</CustomObjectTranslation>

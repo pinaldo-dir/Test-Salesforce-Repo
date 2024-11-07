@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FieldSet xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Information_III_Reviewed</fullName>
+    <description>FLC for Defects</description>
+    <displayedFields>
+        <field>Information_III_Reviewed__c</field>
+        <isFieldManaged>false</isFieldManaged>
+        <isRequired>false</isRequired>
+    </displayedFields>
+    <label>Information III Reviewed</label>
+</FieldSet>

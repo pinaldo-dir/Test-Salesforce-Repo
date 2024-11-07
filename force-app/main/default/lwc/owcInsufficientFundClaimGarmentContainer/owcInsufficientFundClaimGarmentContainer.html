@@ -1,0 +1,42 @@
+<template>
+    <div class="slds-p-left_medium slds-grid slds-wrap">
+        <div class="slds-col slds-medium-size_1-of-1 slds-large-size_1-of-1">
+            <template if:true={isrenderFundClaimSection}>
+                <template for:each={renderFundClaimSection} for:item="fundClaimObj">
+                    <div class="" key={fundClaimObj.Id}>
+                        <div class="slds-grid slds-wrap slds-p-top_medium">
+                                <h2 class="slds-col slds-medium-size_5-of-6 slds-large-size_5-of-6">
+                                    {fundClaimObj.heading}
+                                </h2>
+                            
+                            <div class="slds-col slds-medium-size_1-of-6 slds-large-size_1-of-6">
+                                <template if:false={iswagedefpreview}>
+                                    <!-- <template if:false={fundClaimObj.button}>
+                                        <lightning-button class="slds-float_right slds-m-around_medium owcButtonStyle" label={customLabelValues.OWC_save_as_draft_label} variant="brand" onclick={handleSaveAsDraft}></lightning-button>
+                                    </template> -->
+                                    <template if:true={fundClaimObj.button}>
+                                        <lightning-button variant="brand" label={customLabelValues.OWC_delete_claim_button} title={customLabelValues.OWC_delete_claim_button} name={fundClaimObj.sectionId} onclick={handleSectionDelete} class="slds-float_right owcButtonStyle"></lightning-button>
+                                    </template>
+                                </template>
+                            </div>
+                            <template if:false={fundClaimObj.button}>
+                                <div class="slds-p-bottom_medium slds-p-right_medium slds-p-top_medium slds-col slds-size_1-of-1 slds-medium-size_1-of-1 slds-large-size_1-of-1">
+                                    {customLabelValues.OWC_insufficient_screen_text}
+                                </div>
+                            </template>
+                        </div>
+                        <div>
+                            <c-owc-Insufficient-Fund-Claim-Garment-Child paidbycheck={paidbycheck} iswagedefpreview={iswagedefpreview} onovertimecustominfoevent={handleOverTimeInfoEvent} onovertimedefchildvalidityevent={handleOverTimeChildValidityEvent} sectionid={fundClaimObj.sectionId} onovertimesectiondeleteevent={handleEmployerSectionDeletedData}></c-owc-Insufficient-Fund-Claim-Garment-Child>
+                        </div>
+                    </div>
+                </template>
+            </template>
+        </div>
+        <div class="slds-col slds-medium-size_1-of-1 slds-large-size_1-of-1">
+            <template if:false={iswagedefpreview}>
+                {customLabelValues.OWC_insufficient_fund_claim_label}&nbsp;
+                <lightning-button class="owcAdditionalButtonStyle" icon-name="utility:add" variant="brand" label={customLabelValues.OWC_repeat_claim} onclick={addMoreSickLeaveSection}></lightning-button>
+            </template>
+        </div>
+    </div>
+</template>

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <description>Payment past due notification - 5 days</description>
+    <encodingKey>ISO-8859-1</encodingKey>
+    <name>Payment Plan - Payment 5 Days Overdue</name>
+    <style>none</style>
+    <subject>Payment is past due</subject>
+    <type>text</type>
+    <uiType>Aloha</uiType>
+</EmailTemplate>

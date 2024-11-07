@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <description>Used to store the picklist values of OWC Preliminary Section for filing wage claim for yourself or on behalf of others.</description>
+    <label>OWCPreliminaryWageClaimSubmit</label>
+    <pluralLabel>OWCPreliminaryWageClaimSubmits</pluralLabel>
+    <visibility>Public</visibility>
+</CustomObject>

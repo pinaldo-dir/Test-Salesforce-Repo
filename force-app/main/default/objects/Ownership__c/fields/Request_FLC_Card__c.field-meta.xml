@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Request_FLC_Card__c</fullName>
+    <defaultValue>false</defaultValue>
+    <description>Used to request for a FLC Card for a owner.</description>
+    <externalId>false</externalId>
+    <inlineHelpText>Check to request a card</inlineHelpText>
+    <label>Request FLC Card</label>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Checkbox</type>
+</CustomField>

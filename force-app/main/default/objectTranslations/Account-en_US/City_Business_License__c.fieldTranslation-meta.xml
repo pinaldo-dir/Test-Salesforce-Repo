@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+        <help><!-- Complete this field when requesting a city business license (WCA 10A) --></help>
+        <label><!-- City Business License --></label>
+        <name>City_Business_License__c</name>
+        <relationshipLabel><!-- Accounts (City Business License) --></relationshipLabel>
+    </CustomFieldTranslation>

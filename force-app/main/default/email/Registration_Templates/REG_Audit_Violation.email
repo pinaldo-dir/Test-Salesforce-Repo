@@ -1,0 +1,11 @@
+To {!License_Registration__c.Applicant__c}: 
+
+Your renewed registration {!License_Registration__c.License_Registration_Number__c} for {!License_Registration__c.Legal_Entity_Name__c} was audited and found to be in violation of labor code law. Your license/permit is no longer valid. Please visit DIR's website and submit a new registration application to obtain required credentials. 
+
+{!License_Registration__c.Registration_Site__c}
+
+Sincerely, 
+Licensing & Registration 
+Labor Commissioner's office 
+Department of Industrial Relations 
+State of California

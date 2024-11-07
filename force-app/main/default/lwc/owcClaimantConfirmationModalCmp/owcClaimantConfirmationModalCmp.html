@@ -1,0 +1,26 @@
+<!--
+  @description       : 
+  @author            : ChangeMeIn@UserSettingsUnder.SFDoc
+  @group             : 
+  @last modified on  : 11-15-2021
+  @last modified by  : ChangeMeIn@UserSettingsUnder.SFDoc
+-->
+<template>
+    <section role="dialog" tabindex="-1" aria-labelledby="modal-heading-01" aria-modal="true" aria-describedby="modal-content-id-1" class="slds-modal slds-fade-in-open">
+        <div class="slds-modal__container">
+            <header class="slds-modal__header">
+                <h2 id="modal-heading-01" class="slds-modal__title slds-hyphenate">{customLabelValues.OWC_Claimant_Confirmation}</h2>
+            </header>
+            <div class="slds-modal__content slds-p-around_medium" id="modal-content-id-1">
+                <p class=""> {customLabelValues.OWC_Claimant_Confirmation_Body} &nbsp;
+                    <!-- <a href="www.dir.ca.gov/od_pub/privacy.html" target="_blank">www.dir.ca.gov/od_pub/privacy.html</a> -->
+                </p>
+            </div>
+            <footer class="slds-modal__footer">
+                <button class="slds-button slds-button_neutral owcButtonStyle" onclick={handleCancel}>{customLabelValues.OWC_helptext_cancelbutton}</button>
+                <button class="slds-button slds-button_neutral owcButtonStyle" onclick={handleOk}>{customLabelValues.OWC_Ok}</button>
+            </footer>
+        </div>
+    </section>
+    <div class="slds-backdrop slds-backdrop_open"></div>
+</template>

@@ -1,0 +1,37 @@
+<apex:page controller="TransmittalBatchController" >
+    
+    <apex:form >
+        <!-- <div align="center">
+            <apex:pagemessages rendered="{!isRunning}"/>
+        </div> -->
+
+        <apex:pageBlock rendered="{!isRunning}" >
+            <apex:pagemessages rendered="{!isRunning}"/>
+        </apex:pageBlock>
+        
+        <apex:pageBlock rendered="{!NOT(isRunning)}" >
+            <!-- <apex:pageBlockSection columns="3" > -->
+                <!-- <apex:pageBlockSectionItem > -->
+                    <apex:outputPanel rendered="{!(cpList.size = 0)}" >
+                        <apex:outputText value="There are no Case Payments that fit the criteria for Transmittal batching at this time." /><br/><br/>
+                        <apex:outputText value="Please minimize or close this window." />
+                    </apex:outputPanel>
+
+                    <apex:outputPanel rendered="{!(cpList.size = 1)}" >
+                        <apex:outputText value="Only CCU staff may run Transmittal batches for CCU, JEU, and RCI." /><br/><br/>
+                        <apex:outputText value="One batchable Case Payment was found." /><br/><br/>
+                        <apex:outputText value="Clicking the 'Run Batch' button will execute the TransmittalBatch batch process." />&nbsp;&nbsp;&nbsp;&nbsp;
+                        <apex:commandButton value="Run Batch" action="{!runTransmittalBatch}" />
+                    </apex:outputPanel>
+
+                    <apex:outputPanel rendered="{!(cpList.size > 1)}" >
+                        <apex:outputText value="Only CCU staff may run Transmittal batches for CCU, JEU, and RCI." /><br/><br/>
+                        <apex:outputText value="{!(cpList.size)} batchable Case Payments were found." /><br/><br/>
+                        <apex:outputText value="Clicking the 'Run Batch' button will execute the TransmittalBatch batch process." />&nbsp;&nbsp;&nbsp;&nbsp;
+                        <apex:commandButton value="Run Batch" action="{!runTransmittalBatch}" />
+                    </apex:outputPanel>
+                <!-- </apex:pageBlockSectionItem> -->
+            <!-- </apex:pageBlockSection> -->
+        </apex:pageBlock>
+    </apex:form>
+</apex:page>

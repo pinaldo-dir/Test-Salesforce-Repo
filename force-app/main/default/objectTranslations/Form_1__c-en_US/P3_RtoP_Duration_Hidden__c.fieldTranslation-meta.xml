@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+        <label><!-- Part 3 Return to Program Duration --></label>
+        <name>P3_RtoP_Duration_Hidden__c</name>
+    </CustomFieldTranslation>

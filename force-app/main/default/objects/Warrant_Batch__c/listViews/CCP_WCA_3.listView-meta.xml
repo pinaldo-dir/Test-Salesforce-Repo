@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>CCP_WCA_3</fullName>
+    <columns>NAME</columns>
+    <columns>Status__c</columns>
+    <columns>Batch_Total__c</columns>
+    <columns>WB_Instructions__c</columns>
+    <columns>CREATEDBY_USER</columns>
+    <columns>CREATED_DATE</columns>
+    <columns>Requested_By__c</columns>
+    <columns>Office_Account__c</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>Office_Account__c</field>
+        <operation>contains</operation>
+        <value>17-113,13-113,06-113,06-114,18-113,633-114</value>
+    </filters>
+    <label>CCP WCA 3 (VNO, SBA, LAO, ANA, 633)</label>
+    <language>en_US</language>
+</ListView>

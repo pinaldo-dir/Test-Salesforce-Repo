@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <description>CIO approval for ITAP</description>
+    <encodingKey>ISO-8859-1</encodingKey>
+    <letterhead>Letterhead1</letterhead>
+    <name>ITAP Approval Request</name>
+    <style>freeForm</style>
+    <subject>Sample - Approval Requested: ITAP</subject>
+    <textOnly>*** Force.com Demo ***
+
+This is a request for CIO approval for an ITAP request submitted by {!01Id0000000uiW8.Name} for {!01Id0000000uiW8.00Nd0000004of1t}.
+
+Description of Services
+{!01Id0000000uiW8.00Nd0000004of1F}
+
+Summary of Work
+{!01Id0000000uiW8.00Nd0000004of1P}</textOnly>
+    <type>html</type>
+    <uiType>Aloha</uiType>
+</EmailTemplate>

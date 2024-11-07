@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Method_of_Service__c</fullName>
+    <description>Field to capture how the forms were sent via certified mail or service by mail; for the WCA 66 output.</description>
+    <externalId>false</externalId>
+    <label>Method of Service</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>MultiselectPicklist</type>
+    <valueSet>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>First Class</fullName>
+                <default>false</default>
+                <label>First Class</label>
+            </value>
+            <value>
+                <fullName>Certified</fullName>
+                <default>false</default>
+                <label>Certified</label>
+            </value>
+            <value>
+                <fullName>First Class and Certified</fullName>
+                <default>false</default>
+                <label>First Class and Certified</label>
+            </value>
+            <value>
+                <fullName>Personal</fullName>
+                <default>false</default>
+                <label>Personal</label>
+            </value>
+            <value>
+                <fullName>Electronically</fullName>
+                <default>false</default>
+                <label>Electronically</label>
+            </value>
+            <value>
+                <fullName>First Class, Certified &amp; Electronically</fullName>
+                <default>false</default>
+                <label>First Class, Certified &amp; Electronically</label>
+            </value>
+            <value>
+                <fullName>First Class &amp; Electronically</fullName>
+                <default>false</default>
+                <label>First Class &amp; Electronically</label>
+            </value>
+            <value>
+                <fullName>Email</fullName>
+                <default>false</default>
+                <label>Email</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+    <visibleLines>10</visibleLines>
+</CustomField>

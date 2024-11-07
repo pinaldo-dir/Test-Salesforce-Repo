@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+        <label><!-- Per unit --></label>
+        <name>Per_unit__c</name>
+        <picklistValues>
+            <masterLabel>Bin</masterLabel>
+            <translation><!-- Bin --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Bucket</masterLabel>
+            <translation><!-- Bucket --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Bunch</masterLabel>
+            <translation><!-- Bunch --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Foot</masterLabel>
+            <translation><!-- Foot --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Mile</masterLabel>
+            <translation><!-- Mile --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Other</masterLabel>
+            <translation><!-- Other --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Piece</masterLabel>
+            <translation><!-- Piece --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Pound</masterLabel>
+            <translation><!-- Pound --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Square</masterLabel>
+            <translation><!-- Square --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Yard</masterLabel>
+            <translation><!-- Yard --></translation>
+        </picklistValues>
+    </CustomFieldTranslation>

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Resend_Certificate__c</fullName>
+    <defaultValue>false</defaultValue>
+    <description>checking this triggers sending the certificate via the "Send New License" outbound message.</description>
+    <externalId>false</externalId>
+    <label>Resend Certificate</label>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Checkbox</type>
+</CustomField>

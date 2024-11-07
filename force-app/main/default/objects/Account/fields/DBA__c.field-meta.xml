@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>DBA__c</fullName>
+    <description>Name of the Corresponding DBA</description>
+    <externalId>false</externalId>
+    <inlineHelpText>Name of the Corresponding DBA</inlineHelpText>
+    <label>DBA (BOFE Only)</label>
+    <length>255</length>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

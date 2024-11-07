@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Minimum_Qualification_Withhold__c</fullName>
+    <description>Latest status, updated by DLRS 'HR Max Minimum Qualification Withhold'</description>
+    <externalId>false</externalId>
+    <label>Minimum Qualification Withhold</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Date</type>
+</CustomField>

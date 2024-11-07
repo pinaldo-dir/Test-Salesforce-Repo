@@ -1,0 +1,1 @@
+The payment plan: {!Payment_Plan__c.Link} has a payment 10 days past due. This is for case {!Payment_Plan__c.Case__c} and the party responsible for payment is {!Payment_Plan__c.Responsible_Party__c}.

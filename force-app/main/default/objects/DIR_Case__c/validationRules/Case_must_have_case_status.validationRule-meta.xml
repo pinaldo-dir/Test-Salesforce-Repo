@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Case_must_have_case_status</fullName>
+    <active>true</active>
+    <description>PAGA cases must have a case status if a case status was previously added.</description>
+    <errorConditionFormula>Record_Type_Name__c = "PAGA_Case"  &amp;&amp; ISPICKVAL(Status__c,"") &amp;&amp;  ISCHANGED(Status__c)</errorConditionFormula>
+    <errorMessage>Please enter a case status.</errorMessage>
+</ValidationRule>

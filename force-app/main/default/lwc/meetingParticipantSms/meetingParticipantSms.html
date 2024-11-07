@@ -1,0 +1,22 @@
+<template>
+    <div class="slds-p-horizontal_small">
+        <template if:true={showCaseRoleSMS}>
+            <div style="display: grid;">
+                <template for:each={messages} for:item="message">
+                    <c-sms-details sms={message} key={message.sms.Id}></c-sms-details>
+                </template>
+            </div>
+        </template>
+        <lightning-accordion active-section-name="A">
+            <template for:each={participants} for:item="participant">
+                    <lightning-accordion-section key={participant} name={participant} label={participant}>
+                        <!-- <div>
+                            <div class="outMessage"> Out Message</div>
+                            <div class="inMessage">In Message</div>
+                        </div> -->
+                        <c-participant-sms meeting-id={objKey} participant-id={participant} details={details}></c-participant-sms>
+                    </lightning-accordion-section>
+            </template>
+        </lightning-accordion>
+    </div>
+</template>

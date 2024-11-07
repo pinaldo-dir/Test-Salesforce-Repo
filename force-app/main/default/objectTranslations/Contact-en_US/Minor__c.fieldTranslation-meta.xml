@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+        <help><!-- Indicates the person is a minor. If the person is a minor, anonymity is required. --></help>
+        <label><!-- Minor? --></label>
+        <name>Minor__c</name>
+    </CustomFieldTranslation>

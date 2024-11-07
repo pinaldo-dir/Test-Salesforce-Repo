@@ -1,0 +1,6 @@
+A new Inspection Request Number {!Inspection_Request__c.Name} has been created and assigned to you.
+
+Case Number: {!Inspection_Request__c.Case__c}
+L&R File Number: {!Inspection_Request__c.L_R_File_Number__c}
+Deputy: {!Inspection_Request__c.Assigned_Deputy__c}
+{!Inspection_Request__c.Link}

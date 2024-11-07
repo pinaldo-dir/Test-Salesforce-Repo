@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+        <label><!-- Referred From --></label>
+        <name>Referred_From__c</name>
+        <picklistValues>
+            <masterLabel>3rd Party API</masterLabel>
+            <translation><!-- 3rd Party API --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>ALRB</masterLabel>
+            <translation><!-- ALRB --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Attorney General</masterLabel>
+            <translation><!-- Attorney General --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Claimant</masterLabel>
+            <translation><!-- Claimant --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>EDD</masterLabel>
+            <translation><!-- EDD --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Governor</masterLabel>
+            <translation><!-- Governor --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Legislator</masterLabel>
+            <translation><!-- Legislator --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Other</masterLabel>
+            <translation><!-- Other --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Representative - Individual</masterLabel>
+            <translation><!-- Representative - Individual --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Representative - Law Firm / Organization</masterLabel>
+            <translation><!-- Representative - Law Firm / Organization --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Representative - Organization</masterLabel>
+            <translation><!-- Representative - Organization --></translation>
+        </picklistValues>
+    </CustomFieldTranslation>

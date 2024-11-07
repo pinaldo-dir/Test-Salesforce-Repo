@@ -1,0 +1,289 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RecordType xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>HR_Part_1_Approved</fullName>
+    <active>true</active>
+    <compactLayoutAssignment>Form_1_Status_Compact</compactLayoutAssignment>
+    <label>HR – Part 1 Approved</label>
+    <picklistValues>
+        <picklist>Another_Candidate_in_Mind__c</picklist>
+        <values>
+            <fullName>No</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Yes</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Form1_Status_Type__c</picklist>
+        <values>
+            <fullName>CalHR - Approved</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>CalHR - Denied</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>CalHR - Under Review</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Canceled by Division</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Canceled by HR</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Candidate Accepts</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Candidate Declined</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Candidate Declined - Other</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Candidate Declined - Other Offer</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Candidate Declined - Salary</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>HR %E2%80%93 Part 1 Approved</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>HR - Job Offer Clearance Notification</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>HR Final Packet - Analyst Approved</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>HR Final Packet - Manager Approved</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Info Hold - Statement of Qualifications</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Interviews - Conducted</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Interviews - Scheduled</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Job Post Date</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Minimum Qualification Withhold</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Packet to HR - Part 1 Under Review</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Packet to HR - Part 2 Received</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Packet to HR - Part 2 Under Review</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Packet to HR - Part 3 Received</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Packet to HR - Part 3 Under Review</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Part 1 Return to Program</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Part 2 Return to Program</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Part 3 Return to Program</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Release Applications</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Request to Hire Submitted</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Salary Determination%2FTransfer Eligibility Check Review</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Hire_Type__c</picklist>
+        <values>
+            <fullName>Current DIR EE</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>New to State</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Previous State EE</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Transfer from other Department</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>On_Hold_Reason__c</picklist>
+        <values>
+            <fullName>Allocation Factors</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Other</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Pending Reorg Approval</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Part_1_Program_Return_Reason_s__c</picklist>
+        <values>
+            <fullName>Duty Statement missing or revisions needed</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Job Bulletin missing or revisions needed</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Justification revision needed or missing</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Knowledge%2C Skills%2C Abilities</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Org chart update needed</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Other %28See Status Notes%29</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Statement of Qualifications Missing or Revisions Needed</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Part_2_Program_Return_Reason_s__c</picklist>
+        <values>
+            <fullName>Identified Interview Panels Members Missing</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Missing Documents</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Screening Criteria</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Part_3_Program_Return_Reason_s__c</picklist>
+        <values>
+            <fullName>Additional Candidates to be Interviewed</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Eligibility See HR Hold</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Missing Documents</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>OPF Review</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Other %28See Status Notes%29</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Reference Checks</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Reason_for_Decline__c</picklist>
+        <values>
+            <fullName>Accepted other employment</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>No longer interested</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Personal reasons</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Salary level</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Withhold_Reason__c</picklist>
+        <values>
+            <fullName>Education Documentation</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Experience Clarification</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Withhold_Status__c</picklist>
+        <values>
+            <fullName>Minimum Qualifications Met</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Permanent Withhold</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+</RecordType>

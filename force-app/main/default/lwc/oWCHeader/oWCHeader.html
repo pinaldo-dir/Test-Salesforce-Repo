@@ -1,0 +1,133 @@
+<!--
+  @description       : 
+  @author            : ChangeMeIn@UserSettingsUnder.SFDoc
+  @group             : 
+  @last modified on  : 10-13-2021
+  @last modified by  : ChangeMeIn@UserSettingsUnder.SFDoc
+-->
+<template>
+    <template if:true={isLargeDevice}>
+
+    <div class="slds-grid slds-wrap headerBranding">
+        <div class="slds-col slds-size_5-of-10 slds-medium-size_5-of-10 slds-large-size_5-of-10">
+            <div class="slds-grid slds-wrap">
+                <div class="slds-col slds-size_3-of-15 slds-medium-size_3-of-15 slds-large-size_3-of-15">
+                    <div class="slds-grid slds-wrap" style="margin-left:2px;margin-top:2rem;">
+                        <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-1 slds-large-size_1-of-1">
+                            <img src={HeaderCaGov} class="dirLogoClass"/>
+                        </div>
+                        <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-1 slds-large-size_1-of-1">
+                            <img src={HeaderCaBear} class="dirBearLogoStyle"/>
+                        </div>
+                    </div>
+                </div>
+                <div class="slds-col slds-size_12-of-15 slds-medium-size_12-of-15 slds-large-size_12-of-15">
+                    <div class="slds-grid slds-wrap">
+                        <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-1 slds-large-size_1-of-1">
+                            <p class="slds-page-header__name-meta titlPart1"><a href="https://www.dir.ca.gov/">State of California</a></p>
+                        </div>
+                        <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-1 slds-large-size_1-of-1">
+                            <a href="https://www.dir.ca.gov/">
+                                <div class="slds-page-header__name">
+                                    <div class="slds-page-header__name-title">
+                                        <h1>
+                                            <span class="slds-page-header__title slds-wrap" style="font-size: 37px;" title="Department Of Industrial Relations">Department Of Industrial Relations</span>
+                                        </h1>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- <div class="slds-col slds-size_5-of-10 slds-medium-size_5-of-10 slds-large-size_5-of-10"></div> -->
+    </div>
+    </template>
+      <template if:true={isMediumDevice}>
+
+    <div class="slds-grid slds-wrap headerBranding">
+        <div class="slds-col slds-size_5-of-10 slds-medium-size_5-of-10 slds-large-size_5-of-10">
+            <div class="slds-grid slds-wrap">
+                <div class="slds-col slds-size_3-of-15 slds-medium-size_3-of-15 slds-large-size_3-of-15">
+                    <div class="slds-grid slds-wrap" style="margin-left:2px;margin-top:2rem;">
+                        <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-1 slds-large-size_1-of-1">
+                            <img src={HeaderCaGov} class="dirLogoClass"/>
+                        </div>
+                        <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-1 slds-large-size_1-of-1">
+                            <img src={HeaderCaBear} class="dirBearLogoStyle"/>
+                        </div>
+                    </div>
+                </div>
+                <div class="slds-col slds-size_12-of-15 slds-medium-size_12-of-15 slds-large-size_12-of-15">
+                    <div class="slds-grid slds-wrap">
+                        <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-1 slds-large-size_1-of-1">
+                            <p class="slds-page-header__name-meta titlPart1"><a href="https://www.dir.ca.gov/">State of California</a></p>
+                        </div>
+                        <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-1 slds-large-size_1-of-1">
+                            <a href="https://www.dir.ca.gov/">
+                                <div class="slds-page-header__name">
+                                    <div class="slds-page-header__name-title">
+                                        <h1>
+                                            <span class="slds-page-header__title slds-wrap" style="font-size: 2.7086383601756956vw;" title="Department Of Industrial Relations">Department Of Industrial Relations</span>
+                                        </h1>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- <div class="slds-col slds-size_5-of-10 slds-medium-size_5-of-10 slds-large-size_5-of-10"></div> -->
+    </div>
+    </template>
+        <template if:true={isSmallDevice}>
+            <div class="headerBrandingMobile" id="JudgmentSearch">
+        <div class="slds-page-header__row">
+            <div class="slds-page-header__col-title">
+                <div class="slds-media">
+                    <div>
+                            <div class="slds-grid slds-wrap " style="margin-top: 2rem;">
+                                <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-1 slds-large-size_2-of-10">
+                                     <div class="slds-grid slds-wrap">
+                                    <div class="slds-icon_container">  
+                                        <img src={HeaderCaGov} class="dirLogoClass"/>
+                                      
+                                        <!-- <span class="slds-assistive-text">Header Ca. Gov</span> -->
+                                    </div>
+                                </div>
+                                </div>
+                                 <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-1 slds-large-size_2-of-10">
+                                    <div class="slds-grid slds-wrap">
+                                    <div class="slds-icon_container" >
+                                        <img src={HeaderCaBear} class="dirBearLogoStyle"/>
+                                        <!-- <span class="slds-assistive-text">State of California</span> -->
+                                    </div>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                        <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-1 slds-large-size_6-of-10">
+                        <div class="slds-grid slds-wrap">
+                        <div class="slds-media__body">
+                            <p class="slds-page-header__name-meta titlPart1"><a href="https://www.dir.ca.gov/"  style="margin-left: 3rem;">State of California</a></p>
+                            <a href="https://www.dir.ca.gov/">
+                                <div class="slds-page-header__name">
+                                    <div class="slds-page-header__name-title">
+                                        <h1>
+                                            <span class="slds-page-header__title slds-wrap" style="font-size: 3.7086383601756956vw;margin-left: 3rem;" title="Department Of Industrial Relations">Department Of Industrial Relations</span>
+                                        </h1>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                        </div>
+             </div>
+                </div>
+            </div>
+        </div>
+    </div>
+        </template>
+</template>

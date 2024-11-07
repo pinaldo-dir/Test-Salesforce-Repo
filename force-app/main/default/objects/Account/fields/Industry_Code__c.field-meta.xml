@@ -1,0 +1,335 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Industry_Code__c</fullName>
+    <externalId>false</externalId>
+    <label>Industry Code</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Picklist</type>
+    <valueSet>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Order 1</fullName>
+                <default>false</default>
+                <label>Order 1</label>
+            </value>
+            <value>
+                <fullName>180     All manufacturing except computer and garment</fullName>
+                <default>false</default>
+                <label>180     All manufacturing except computer and garment</label>
+            </value>
+            <value>
+                <fullName>181 Garment Manufacturing except AB 633</fullName>
+                <default>false</default>
+                <label>181 Garment Manufacturing except AB 633</label>
+            </value>
+            <value>
+                <fullName>185 Printing &amp; Textile Products</fullName>
+                <default>false</default>
+                <label>185 Printing &amp; Textile Products</label>
+            </value>
+            <value>
+                <fullName>189 Computer Industry</fullName>
+                <default>false</default>
+                <label>189 Computer Industry</label>
+            </value>
+            <value>
+                <fullName>195 Other (auto wrecking, machine shops, tool die shops, sawmills)</fullName>
+                <default>false</default>
+                <label>195 Other (auto wrecking, machine shops, tool die shops, sawmills)</label>
+            </value>
+            <value>
+                <fullName>633 Garment under AB 633</fullName>
+                <default>false</default>
+                <label>633 Garment under AB 633</label>
+            </value>
+            <value>
+                <fullName>Order 2</fullName>
+                <default>false</default>
+                <label>Order 2</label>
+            </value>
+            <value>
+                <fullName>223 Beauty Shops &amp; Barber Shops</fullName>
+                <default>false</default>
+                <label>223 Beauty Shops &amp; Barber Shops</label>
+            </value>
+            <value>
+                <fullName>229  Other (funeral parlors, weight and health clubs)</fullName>
+                <default>false</default>
+                <label>229  Other (funeral parlors, weight and health clubs)</label>
+            </value>
+            <value>
+                <fullName>Order 3</fullName>
+                <default>false</default>
+                <label>Order 3</label>
+            </value>
+            <value>
+                <fullName>303 Canning, Freezing, and Preserving Establishments</fullName>
+                <default>false</default>
+                <label>303 Canning, Freezing, and Preserving Establishments</label>
+            </value>
+            <value>
+                <fullName>Order 4</fullName>
+                <default>false</default>
+                <label>Order 4</label>
+            </value>
+            <value>
+                <fullName>419 Communications, Utilities, Newspapers</fullName>
+                <default>false</default>
+                <label>419 Communications, Utilities, Newspapers</label>
+            </value>
+            <value>
+                <fullName>429 Banks, Finance, Mortgage Companies, Insurance, Real Estate, Travel Agencies</fullName>
+                <default>false</default>
+                <label>429 Banks, Finance, Mortgage Companies, Insurance, Real Estate, Travel Agencies</label>
+            </value>
+            <value>
+                <fullName>439 Other (chainsaw &amp; lawn mower repair, home health care, employment agencies, non boarding schools, cable TV)</fullName>
+                <default>false</default>
+                <label>439 Other (chainsaw &amp; lawn mower repair, home health care, employment agencies, non boarding schools, cable TV)</label>
+            </value>
+            <value>
+                <fullName>440 Health Care Industry</fullName>
+                <default>false</default>
+                <label>440 Health Care Industry</label>
+            </value>
+            <value>
+                <fullName>449 Professional Offices (architects, attorneys, CPAs, dentists, doctors)</fullName>
+                <default>false</default>
+                <label>449 Professional Offices (architects, attorneys, CPAs, dentists, doctors)</label>
+            </value>
+            <value>
+                <fullName>450 Computer Industry (non-manufacturing)</fullName>
+                <default>false</default>
+                <label>450 Computer Industry (non-manufacturing)</label>
+            </value>
+            <value>
+                <fullName>Order 5</fullName>
+                <default>false</default>
+                <label>Order 5</label>
+            </value>
+            <value>
+                <fullName>511 Eating &amp; Drinking Places (ice cream parlors, donut shops)</fullName>
+                <default>false</default>
+                <label>511 Eating &amp; Drinking Places (ice cream parlors, donut shops)</label>
+            </value>
+            <value>
+                <fullName>515 Hotels, Motels, Resorts, Organized Camps, Trailer Parks, Guest Ranches</fullName>
+                <default>false</default>
+                <label>515 Hotels, Motels, Resorts, Organized Camps, Trailer Parks, Guest Ranches</label>
+            </value>
+            <value>
+                <fullName>516 Health Care Industry, Hospitals</fullName>
+                <default>false</default>
+                <label>516 Health Care Industry, Hospitals</label>
+            </value>
+            <value>
+                <fullName>517 Rest Homes, Sanitariums, Board &amp; Care Homes for the aged, child care &amp; juvenile facilities</fullName>
+                <default>false</default>
+                <label>517 Rest Homes, Sanitariums, Board &amp; Care Homes for the aged, child care &amp; juvenile facilities</label>
+            </value>
+            <value>
+                <fullName>524 Animal Care, Pest Control, Landscaping (other than new construction), cemeteries, upholstery cleaning, mini storage, tree service</fullName>
+                <default>false</default>
+                <label>524 Animal Care, Pest Control, Landscaping (other than new construction), cemeteries, upholstery cleaning, mini storage, tree service</label>
+            </value>
+            <value>
+                <fullName>534 Janitorial</fullName>
+                <default>false</default>
+                <label>534 Janitorial</label>
+            </value>
+            <value>
+                <fullName>Order 6</fullName>
+                <default>false</default>
+                <label>Order 6</label>
+            </value>
+            <value>
+                <fullName>620 Dry Cleaning (carpets and draperies)</fullName>
+                <default>false</default>
+                <label>620 Dry Cleaning (carpets and draperies)</label>
+            </value>
+            <value>
+                <fullName>621 Laundry</fullName>
+                <default>false</default>
+                <label>621 Laundry</label>
+            </value>
+            <value>
+                <fullName>677 Other</fullName>
+                <default>false</default>
+                <label>677 Other</label>
+            </value>
+            <value>
+                <fullName>Order 7</fullName>
+                <default>false</default>
+                <label>Order 7</label>
+            </value>
+            <value>
+                <fullName>709 Wholesale</fullName>
+                <default>false</default>
+                <label>709 Wholesale</label>
+            </value>
+            <value>
+                <fullName>711 Retail (auto sales, gas stations, sand &amp; gravel, department stores, nurseries, auto wrecking, christmas tree sales)</fullName>
+                <default>false</default>
+                <label>711 Retail (auto sales, gas stations, sand &amp; gravel, department stores, nurseries, auto wrecking, christmas tree sales)</label>
+            </value>
+            <value>
+                <fullName>729 Other (including commodity rentals, storage, TV repair, recycling</fullName>
+                <default>false</default>
+                <label>729 Other (including commodity rentals, storage, TV repair, recycling</label>
+            </value>
+            <value>
+                <fullName>Order 8</fullName>
+                <default>false</default>
+                <label>Order 8</label>
+            </value>
+            <value>
+                <fullName>873 Packing/Processing agricultural commodites</fullName>
+                <default>false</default>
+                <label>873 Packing/Processing agricultural commodites</label>
+            </value>
+            <value>
+                <fullName>Order 9</fullName>
+                <default>false</default>
+                <label>Order 9</label>
+            </value>
+            <value>
+                <fullName>913 Transportation Companies (airplanes, ambulances, buses, disposal services, taxis, tours, trucks)</fullName>
+                <default>false</default>
+                <label>913 Transportation Companies (airplanes, ambulances, buses, disposal services, taxis, tours, trucks)</label>
+            </value>
+            <value>
+                <fullName>919 Government Employees</fullName>
+                <default>false</default>
+                <label>919 Government Employees</label>
+            </value>
+            <value>
+                <fullName>922 Warehousing (storage of commodities moved)</fullName>
+                <default>false</default>
+                <label>922 Warehousing (storage of commodities moved)</label>
+            </value>
+            <value>
+                <fullName>932 Other (delivery, parking, rentals, tow trucks)</fullName>
+                <default>false</default>
+                <label>932 Other (delivery, parking, rentals, tow trucks)</label>
+            </value>
+            <value>
+                <fullName>943 Auto Repair (garages and car washes)</fullName>
+                <default>false</default>
+                <label>943 Auto Repair (garages and car washes)</label>
+            </value>
+            <value>
+                <fullName>Order 10</fullName>
+                <default>false</default>
+                <label>Order 10</label>
+            </value>
+            <value>
+                <fullName>101 Other (carnivals, charter fishing, golf &amp; tennis facilities, marinas, ski lifts)</fullName>
+                <default>false</default>
+                <label>101 Other (carnivals, charter fishing, golf &amp; tennis facilities, marinas, ski lifts)</label>
+            </value>
+            <value>
+                <fullName>102 Theaters</fullName>
+                <default>false</default>
+                <label>102 Theaters</label>
+            </value>
+            <value>
+                <fullName>103 Amusement Parks</fullName>
+                <default>false</default>
+                <label>103 Amusement Parks</label>
+            </value>
+            <value>
+                <fullName>104 Stables and Horse Racing</fullName>
+                <default>false</default>
+                <label>104 Stables and Horse Racing</label>
+            </value>
+            <value>
+                <fullName>Order 11</fullName>
+                <default>false</default>
+                <label>Order 11</label>
+            </value>
+            <value>
+                <fullName>113 Broadcasting Industry-all</fullName>
+                <default>false</default>
+                <label>113 Broadcasting Industry-all</label>
+            </value>
+            <value>
+                <fullName>Order 12</fullName>
+                <default>false</default>
+                <label>Order 12</label>
+            </value>
+            <value>
+                <fullName>121 Motion Picture Industry</fullName>
+                <default>false</default>
+                <label>121 Motion Picture Industry</label>
+            </value>
+            <value>
+                <fullName>Order 13</fullName>
+                <default>false</default>
+                <label>Order 13</label>
+            </value>
+            <value>
+                <fullName>133 Packing, processing agricultural commodities on farmer's land</fullName>
+                <default>false</default>
+                <label>133 Packing, processing agricultural commodities on farmer's land</label>
+            </value>
+            <value>
+                <fullName>Order 14</fullName>
+                <default>false</default>
+                <label>Order 14</label>
+            </value>
+            <value>
+                <fullName>140 Occupations involved in growing/harvesting crops &amp; all maintenance</fullName>
+                <default>false</default>
+                <label>140 Occupations involved in growing/harvesting crops &amp; all maintenance</label>
+            </value>
+            <value>
+                <fullName>142 Irrigation Districts (employees involved in delivering water to farmers)</fullName>
+                <default>false</default>
+                <label>142 Irrigation Districts (employees involved in delivering water to farmers)</label>
+            </value>
+            <value>
+                <fullName>144 Commercial Fishing</fullName>
+                <default>false</default>
+                <label>144 Commercial Fishing</label>
+            </value>
+            <value>
+                <fullName>Order 15</fullName>
+                <default>false</default>
+                <label>Order 15</label>
+            </value>
+            <value>
+                <fullName>151 Private Households</fullName>
+                <default>false</default>
+                <label>151 Private Households</label>
+            </value>
+            <value>
+                <fullName>Order 16</fullName>
+                <default>false</default>
+                <label>Order 16</label>
+            </value>
+            <value>
+                <fullName>161 On-site Logging</fullName>
+                <default>false</default>
+                <label>161 On-site Logging</label>
+            </value>
+            <value>
+                <fullName>162 On-site Construction</fullName>
+                <default>false</default>
+                <label>162 On-site Construction</label>
+            </value>
+            <value>
+                <fullName>163 On-site Mining</fullName>
+                <default>false</default>
+                <label>163 On-site Mining</label>
+            </value>
+            <value>
+                <fullName>164 On-site Drilling</fullName>
+                <default>false</default>
+                <label>164 On-site Drilling</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

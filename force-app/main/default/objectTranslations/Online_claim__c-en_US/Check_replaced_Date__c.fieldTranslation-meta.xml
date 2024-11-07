@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+        <help><!-- When was the check replaced? --></help>
+        <label><!-- Check replaced Date --></label>
+        <name>Check_replaced_Date__c</name>
+    </CustomFieldTranslation>

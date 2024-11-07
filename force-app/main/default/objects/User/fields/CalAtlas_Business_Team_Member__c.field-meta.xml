@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>CalAtlas_Business_Team_Member__c</fullName>
+    <defaultValue>false</defaultValue>
+    <description>This checkbox will identify if the User is part of the CalAtlas Business Team used in the Service Management Application to automate process.</description>
+    <externalId>false</externalId>
+    <label>CalAtlas Business Team Member</label>
+    <trackFeedHistory>false</trackFeedHistory>
+    <type>Checkbox</type>
+</CustomField>

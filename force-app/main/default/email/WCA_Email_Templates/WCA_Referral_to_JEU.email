@@ -1,0 +1,11 @@
+A referral - {!Referral__c.Name} to JEU has been created from the  following Case - {!DIR_Case__c.Name}  
+
+Please use the links provided below to access the records. 
+
+Case ID : {!DIR_Case__c.Link}
+
+Referral ID : {!Referral__c.Link}
+
+Judgment ID (if any) : https://cadir.my.salesforce.com/{!Referral__c.JudgementId__c}
+
+To view all JEU referrals, please select the "WCA Referrals to JEU" view under the "Referrals" Tab.

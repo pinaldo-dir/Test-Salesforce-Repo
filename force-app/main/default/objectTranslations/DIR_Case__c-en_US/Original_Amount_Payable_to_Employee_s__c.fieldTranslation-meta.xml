@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+        <help><!-- Sum of &quot;Original Amount Payable to EE(s)&quot; from all Case Issues. --></help>
+        <label><!-- Original Amount Payable to Employee(s) --></label>
+        <name>Original_Amount_Payable_to_Employee_s__c</name>
+    </CustomFieldTranslation>

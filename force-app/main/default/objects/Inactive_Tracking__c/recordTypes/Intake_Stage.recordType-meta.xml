@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RecordType xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Intake_Stage</fullName>
+    <active>true</active>
+    <label>Intake Stage</label>
+    <picklistValues>
+        <picklist>Continuance_Reason__c</picklist>
+        <values>
+            <fullName>Requested by Defendant</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Requested by Plaintiff</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Status__c</picklist>
+        <values>
+            <fullName>Active</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Inactive</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Inactive-Closure</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>PCN-Pending</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Stay_Type__c</picklist>
+        <values>
+            <fullName>Arbitration</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>BOFE</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Bankruptcy</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Inactive</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Legal Hold</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Mechanic%E2%80%99s Lien</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Pending Settlement</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Personal Service</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Plaintiff Incarcerated</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Settlement - Payment Plan</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>X1st_Attempt_Method__c</picklist>
+        <values>
+            <fullName>Email</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Email %26 Mail</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Email %26 Phone</fullName>
+            <default>true</default>
+        </values>
+        <values>
+            <fullName>Mail</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Phone</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Phone %26 Mail</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>X1st_Attempt_Outcome__c</picklist>
+        <values>
+            <fullName>Successful</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Unsuccessful</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>X2nd_Attempt_Method__c</picklist>
+        <values>
+            <fullName>Email</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Email %26 Mail</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Email %26 Phone</fullName>
+            <default>true</default>
+        </values>
+        <values>
+            <fullName>Mail</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Phone</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Phone %26 Mail</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>X2nd_Attempt_Outcome__c</picklist>
+        <values>
+            <fullName>Successful</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Unsuccessful</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+</RecordType>

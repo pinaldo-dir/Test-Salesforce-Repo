@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>WCA_Related_Party_Confirmed_Prevent_Edit</fullName>
+    <active>true</active>
+    <description>Prevent WCA Users from modifying related party records that are in confirmed status.</description>
+    <errorConditionFormula>AND($Profile.Name = "WCA User",  ISPICKVAL(PRIORVALUE(Status__c), "Confirm"), OR(RecordType.DeveloperName = "Potential_Defendant", RecordType.DeveloperName = "Claimant"))</errorConditionFormula>
+    <errorMessage>WCA related party records with Status equal to confirm cannot be further modified.</errorMessage>
+</ValidationRule>

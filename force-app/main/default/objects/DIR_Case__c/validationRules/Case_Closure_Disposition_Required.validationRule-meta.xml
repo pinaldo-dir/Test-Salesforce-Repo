@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Case_Closure_Disposition_Required</fullName>
+    <active>true</active>
+    <description>Requires Case Closure Disposition on BOFE Cases, RCI, PAGA.</description>
+    <errorConditionFormula>(
+RecordType.DeveloperName = 'RCI'
+|| RecordType.DeveloperName = 'BOFE_Investigation'
+|| RecordType.DeveloperName = 'BOFE_Intake'
+|| RecordType.DeveloperName = 'PAGA_Case'
+)
+&amp;&amp;
+ISPICKVAL (Closure_Disposition__c , '' )
+&amp;&amp;
+ISCHANGED(Status__c)
+&amp;&amp;
+ISPICKVAL ( Status__c , 'Closed' )</errorConditionFormula>
+    <errorMessage>Please select a case closure disposition in order to close a case.</errorMessage>
+</ValidationRule>

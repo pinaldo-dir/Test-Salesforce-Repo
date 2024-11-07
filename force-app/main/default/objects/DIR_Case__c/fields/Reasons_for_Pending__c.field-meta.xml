@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Reasons_for_Pending__c</fullName>
+    <externalId>false</externalId>
+    <label>Reason for Pending</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Waiting on Legal to give clarification. Legal hold.</fullName>
+                <default>false</default>
+                <label>Waiting on Legal to give clarification. Legal hold.</label>
+            </value>
+            <value>
+                <fullName>RM Determination</fullName>
+                <default>false</default>
+                <label>RM Determination</label>
+            </value>
+            <value>
+                <fullName>Low priority</fullName>
+                <default>false</default>
+                <label>Low priority</label>
+            </value>
+            <value>
+                <fullName>Legal hold</fullName>
+                <default>false</default>
+                <label>Legal hold</label>
+            </value>
+            <value>
+                <fullName>DOL Investigation</fullName>
+                <default>false</default>
+                <label>DOL Investigation</label>
+            </value>
+            <value>
+                <fullName>City/County Investigation</fullName>
+                <default>false</default>
+                <label>City/County Investigation</label>
+            </value>
+            <value>
+                <fullName>CIU Hold</fullName>
+                <default>false</default>
+                <label>CIU Hold</label>
+            </value>
+            <value>
+                <fullName>Case is a medical Marijuana dispensary. Further review and consideration for investigation protocol needed by RM.  Legal hold, although we investigate dispensaries often, so not sure why on hold.</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>Case is a medical Marijuana dispensary. Further review and consideration for investigation protocol needed by RM.  Legal hold, although we investigate dispensaries often, so not sure why on hold.</label>
+            </value>
+            <value>
+                <fullName>Coordinate inspection wiht CUI due to potential weapons onsite We have a CIU referral field, that should have been used.</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>Coordinate inspection wiht CUI due to potential weapons onsite We have a CIU referral field, that should have been used.</label>
+            </value>
+            <value>
+                <fullName>Waiting for JEU Acceptance Cases are not put on hold to wait for JEU.</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>Waiting for JEU Acceptance Cases are not put on hold to wait for JEU.</label>
+            </value>
+            <value>
+                <fullName>Waiting on Legal to give clarification. on If an exemption is needed for this case based of the IWC order. Legal hold</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>Waiting on Legal to give clarification. on If an exemption is needed for this case based of the IWC order. Legal hold</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

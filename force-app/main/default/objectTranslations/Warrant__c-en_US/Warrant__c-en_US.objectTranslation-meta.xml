@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>Warrant</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Warrants</value>
+    </caseValues>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <layouts>
+        <layout>Approved Warrant Layout</layout>
+        <sections>
+            <label><!-- Check Approval Info --></label>
+            <section>Check Approval Info</section>
+        </sections>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+        <sections>
+            <label><!-- Void Request --></label>
+            <section>Void Request</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>Warrant Layout</layout>
+        <sections>
+            <label><!-- Check Approval Info --></label>
+            <section>Check Approval Info</section>
+        </sections>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+        <sections>
+            <label><!-- Void Request --></label>
+            <section>Void Request</section>
+        </sections>
+    </layouts>
+    <recordTypes>
+        <description><!-- Normal page layout for Warrant record type --></description>
+        <label><!-- Warrant --></label>
+        <name>Warrant</name>
+    </recordTypes>
+    <recordTypes>
+        <description><!-- Record type to lock fields on layout when Warrant is approved --></description>
+        <label><!-- Warrant Approved --></label>
+        <name>Warrant_Approved</name>
+    </recordTypes>
+    <startsWith>Consonant</startsWith>
+    <webLinks>
+        <label><!-- Generate_Document --></label>
+        <name>Generate_Document</name>
+    </webLinks>
+    <webLinks>
+        <label><!-- Generate_Documents --></label>
+        <name>Generate_Documents</name>
+    </webLinks>
+    <webLinks>
+        <label><!-- Generate_UWF_Schedule --></label>
+        <name>Generate_UWF_Schedule</name>
+    </webLinks>
+</CustomObjectTranslation>

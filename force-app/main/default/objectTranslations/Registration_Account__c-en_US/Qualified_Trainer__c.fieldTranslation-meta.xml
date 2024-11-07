@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+        <label><!-- Qualified Trainer --></label>
+        <name>Qualified_Trainer__c</name>
+        <picklistValues>
+            <masterLabel>No - Does not meet Qualification</masterLabel>
+            <translation><!-- No - Does not meet Qualification --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Yes - Meets Qualification</masterLabel>
+            <translation><!-- Yes - Meets Qualification --></translation>
+        </picklistValues>
+    </CustomFieldTranslation>

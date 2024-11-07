@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CompactLayout xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Meeting_Compact</fullName>
+    <fields>Case_Number__c</fields>
+    <fields>RecordTypeId</fields>
+    <fields>Meeting_Start_Date_Time__c</fields>
+    <fields>Meeting_Scheduled_For__c</fields>
+    <fields>Status__c</fields>
+    <label>Meeting Compact</label>
+</CompactLayout>

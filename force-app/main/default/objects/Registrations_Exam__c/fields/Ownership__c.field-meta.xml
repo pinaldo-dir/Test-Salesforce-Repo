@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Ownership__c</fullName>
+    <deleteConstraint>SetNull</deleteConstraint>
+    <description>Look up to Ownership__c object</description>
+    <externalId>false</externalId>
+    <label>Ownership</label>
+    <referenceTo>Ownership__c</referenceTo>
+    <relationshipLabel>Registrations Exams</relationshipLabel>
+    <relationshipName>Registrations_Exam</relationshipName>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Lookup</type>
+</CustomField>

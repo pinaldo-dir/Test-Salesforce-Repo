@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Subpoena43_URL__c</fullName>
+    <externalId>false</externalId>
+    <formula>"&amp;id=" + Id + 
+"&amp;reportid=[Employee]00Od0000004pzun?pv2=" + Case__r.Id 
++ ",[Employors]00Od0000004pzuo?pv2=" + Case__r.Id 
++ ",[All]00Od0000004pzup?pv2=" + Case__r.Id + 
+"&amp;queryid=[WCAOffice]a0md00000064cjOAAQ?pv0=" + Case__r.Id
++ ",[Complainant]a0md00000064cjQAAQ?pv0=" + Case__r.Id
++ ",[Defendant]a0md00000064cjRAAQ?pv0=" + Case__r.Id
++ ",[HearingInfo]a0md00000064cjuAAA?pv0=" + Case__r.Id 
++ ",[Governor]a0md0000003l2S0"
++ "&amp;qmode=Download"
++ "&amp;DefaultPDF=0"
++ "&amp;templateId=a0nd0000005OSvH" 
++ "&amp;OFN={Template.Label}" + " " + Case__r.Case_Number__c + " " + Case_Role__r.Account_Name__c
++ "&amp;SC0=1"</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>Subpoena43 URL</label>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

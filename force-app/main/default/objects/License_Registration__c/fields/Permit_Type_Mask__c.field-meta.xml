@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Permit_Type_Mask__c</fullName>
+    <description>This field is for ewp reg email template (approved sent out license) to add the word 'Permit' at the end of 'Entertainment Work"</description>
+    <externalId>false</externalId>
+    <formula>CASE( RecordType.DeveloperName 
+, 'Entertainment_Work_Permit', 'Permit' 
+, '')</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>Permit Type Mask</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

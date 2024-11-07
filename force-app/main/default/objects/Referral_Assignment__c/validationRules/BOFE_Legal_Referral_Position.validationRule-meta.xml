@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>BOFE_Legal_Referral_Position</fullName>
+    <active>true</active>
+    <description>Requires that the position of the assigned employee for a BOFE Legal referral is Legal</description>
+    <errorConditionFormula>( 
+  Referral__r.RecordType.DeveloperName = 'BOFE_Civil_Litigation_Referral'
+  ||
+  Referral__r.RecordType.DeveloperName = 'BOFE_Request_for_Legal_Court_Action'
+  ||
+  Referral__r.RecordType.DeveloperName = 'BOFE_Request_for_Legal_Services'
+)
+&amp;&amp;
+ 
+NOT ( ISPICKVAL( Assigned_Employee__r.Position__c , 'Legal' ) || ISPICKVAL( Assigned_Employee__r.Title__c , 'Attorney') )</errorConditionFormula>
+    <errorMessage>You can only assign a "Legal" employee to this type of referral</errorMessage>
+</ValidationRule>

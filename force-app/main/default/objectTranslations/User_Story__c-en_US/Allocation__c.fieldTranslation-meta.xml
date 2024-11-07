@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+        <label><!-- Allocation --></label>
+        <name>Allocation__c</name>
+        <picklistValues>
+            <masterLabel>Business Process</masterLabel>
+            <translation><!-- Business Process --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Config/Code</masterLabel>
+            <translation><!-- Config/Code --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Training</masterLabel>
+            <translation><!-- Training --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Website</masterLabel>
+            <translation><!-- Website --></translation>
+        </picklistValues>
+    </CustomFieldTranslation>

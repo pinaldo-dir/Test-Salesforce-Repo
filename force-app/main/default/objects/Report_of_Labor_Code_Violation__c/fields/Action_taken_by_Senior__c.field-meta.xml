@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Action_taken_by_Senior__c</fullName>
+    <externalId>false</externalId>
+    <label>Action Taken By Senior</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>MultiselectPicklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Track 1 - Assigned</fullName>
+                <default>false</default>
+                <label>Track 1 - Assigned</label>
+            </value>
+            <value>
+                <fullName>Track 2 - Another Case Open Against the Employer</fullName>
+                <default>false</default>
+                <label>Track 2 - Another Case Open Against the Employer</label>
+            </value>
+            <value>
+                <fullName>Track 3 - No action at this time</fullName>
+                <default>false</default>
+                <label>Track 3 - No action at this time</label>
+            </value>
+            <value>
+                <fullName>Track 4 - Decline to take action at this time</fullName>
+                <default>false</default>
+                <label>Track 4 - Decline to take action at this time</label>
+            </value>
+            <value>
+                <fullName>Track 5 - To Assign</fullName>
+                <default>false</default>
+                <label>Track 5 - To Assign</label>
+            </value>
+            <value>
+                <fullName>Track 1 - Other</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>Track 1 - Other</label>
+            </value>
+            <value>
+                <fullName>Track 2 - Regular Screening</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>Track 2 - Regular Screening</label>
+            </value>
+            <value>
+                <fullName>Track 3 - Other</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>Track 3 - Other</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+    <visibleLines>10</visibleLines>
+</CustomField>

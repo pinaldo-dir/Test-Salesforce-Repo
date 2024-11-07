@@ -1,0 +1,4 @@
+A deputy has requested dismissal of a Case Violation {!DIR_Violation__c.Name} which is on Case {!DIR_Violation__c.Case__c}
+
+You can view the Violation here and change the status to dismissed if appropriate.
+{!DIR_Violation__c.Link}

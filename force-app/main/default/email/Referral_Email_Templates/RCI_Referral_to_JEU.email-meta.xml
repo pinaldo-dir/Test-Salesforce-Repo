@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <description>Judgment Referral</description>
+    <encodingKey>ISO-8859-1</encodingKey>
+    <name>RCI Referral to JEU</name>
+    <style>none</style>
+    <subject>RCI Referral to JEU</subject>
+    <type>text</type>
+    <uiType>Aloha</uiType>
+</EmailTemplate>

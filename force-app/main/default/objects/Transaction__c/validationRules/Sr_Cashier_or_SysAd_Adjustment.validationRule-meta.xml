@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Sr_Cashier_or_SysAd_Adjustment</fullName>
+    <active>true</active>
+    <description>Only allow Sr Cashiers or SysAds to create Transactions of type 'Adjustment'</description>
+    <errorConditionFormula>ISPICKVAL(Transaction_Type__c, 'Adjustment') &amp;&amp;
+NOT($Permission.DLSE_Sr_Cashier || CONTAINS($Profile.Name, 'System Administrator'))</errorConditionFormula>
+    <errorMessage>Only Sr Cashiers can create adjustment transactions.</errorMessage>
+</ValidationRule>

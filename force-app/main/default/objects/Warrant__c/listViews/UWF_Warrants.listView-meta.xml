@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>UWF_Warrants</fullName>
+    <columns>NAME</columns>
+    <columns>Warrant_Batch__c</columns>
+    <columns>Office_Account__c</columns>
+    <columns>Status__c</columns>
+    <columns>Issue_Date__c</columns>
+    <columns>Amount__c</columns>
+    <columns>CREATED_DATE</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>Status__c</field>
+        <operation>equals</operation>
+        <value>Approved,Printed</value>
+    </filters>
+    <filters>
+        <field>Disbursement_Type__c</field>
+        <operation>equals</operation>
+        <value>Unpaid Wage Fund</value>
+    </filters>
+    <label>UWF Warrants</label>
+    <language>en_US</language>
+</ListView>

@@ -1,0 +1,221 @@
+<aura:component controller="JudgmentSearchDetailController" implements="force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId,forceCommunity:availableForAllPageTypes,force:lightningQuickAction" access="global" >
+    <aura:attribute name="recordId" type="String" default=""/>
+    <aura:attribute name="isPopOpen" type="boolean" default="false"/>
+    <aura:attribute name="jpId" type="String" default=""/>
+    <aura:attribute name="dbaName" type="String" default=""/>
+    <aura:attribute name="selectedJudgementDocumentContentList" type="list" access="public" default=""/>
+    <aura:attribute name="urlParamsForFilters" type="String" default="" />
+    <aura:attribute name="selectedJudgmentDetailObj" type="object" access="public"/>
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
+    <head><ltng:require styles="{!$Resource.JudgmentSearchCss}" /></head>
+    <div aura:id="judgmentModal">
+        <section role="dialog" tabindex="-1" aria-labelledby="modal-heading-01" aria-modal="true" aria-describedby="modal-content-id-1" class="slds-modal slds-fade-in-open">
+            <div class="slds-modal__container dir-modal-container">
+                <header class="slds-modal__header">
+                    <button class="slds-button slds-button_icon slds-modal__close slds-button_icon-inverse" title="Close" onclick="{!c.hideJudgmentDetailModal}">
+                        <lightning:icon iconName="action:remove" size="small"/> 
+                        <span class="slds-assistive-text">Close</span>
+                    </button>
+                </header>
+                <div class="slds-modal__content slds-p-around_medium" style="font-family: sans-serif;font-size: 15px;" id="modal-content-id-1">
+                    <article class="slds-card judgment-detail-container">
+                        <aura:if isTrue="{!not(empty(v.selectedJudgmentDetailObj))}">
+                            <div class="slds-card__header slds-grid">
+                                <header class="slds-has-flexi-truncate">
+                                    <div class="slds-media__body slds-truncate slds-grid slds-gutters">
+                                        <div class="slds-col slds-size_1-of-2">
+                                            <h1>
+                                                Judgment {!v.selectedJudgmentDetailObj.judgmentName}
+                                            </h1>
+                                        </div>
+                                        <div class="slds-col slds-size_1-of-2">
+                                            <div class="slds-float_right">
+                                                <button class="downloadButtons" onclick="{!c.handleDownloadPdf}">Download PDF</button>
+                                            </div>
+                                        </div>
+                                        
+                                    </div>
+                                </header>
+                            </div>
+                            <div class="slds-card__body slds-p-around_medium">
+                                <article class="slds-card mainSection">
+                                    <div class="slds-card__body slds-p-around_medium">
+                                        <div class="slds-grid slds-gutters gridStyle">
+                                            <div class="slds-col slds-size_1-of-2">
+                                                <span class="mainLabelStyle">Case Management Number</span><br/>
+                                                {!v.selectedJudgmentDetailObj.caseManagementName}
+                                            </div>
+                                            <div class="slds-col slds-size_1-of-2">
+                                                <span class="mainLabelStyle">Citation Number</span> <br/>
+                                                {!v.selectedJudgmentDetailObj.citationNumber}
+                                            </div>
+                                        </div>
+                                        <div class="slds-grid slds-gutters gridStyle">
+                                            <!--<div class="slds-col slds-size_1-of-2">
+                                                <span class="mainLabelStyle">Claimant/Plaintiff </span><br/>
+                                                {!v.selectedJudgmentDetailObj.accountName}
+                                            </div>-->
+                                            <div class="slds-col slds-size_1-of-2">
+                                                <span class="mainLabelStyle">Defendant/Employer</span> <br/>
+                                                {!v.selectedJudgmentDetailObj.defendantEmployer}
+                                            </div><br/>
+                                            <div class="slds-col slds-size_1-of-2">
+                                                <span class="mainLabelStyle">Judgment Status </span><br/>
+                                                {!v.selectedJudgmentDetailObj.judgmentStatus}
+                                            </div>
+                                        </div>
+                                        <div class="slds-grid slds-gutters gridStyle">
+                                            <div class="slds-col slds-size_1-of-2">
+                                                <span class="mainLabelStyle">Judgment Total</span> <br/>
+                                                <aura:if isTrue="{!v.selectedJudgmentDetailObj.totalDue == 0}">
+                                                    $0.00
+                                                    <aura:set attribute="else">
+                                                        $<ui:outputCurrency value="{!v.selectedJudgmentDetailObj.totalDue}" format="##,###,###.00"/>
+                                                    </aura:set>
+                                                </aura:if>
+                                            </div> <br/>
+                                        </div>
+                                    </div>
+                                </article>
+                                <article class="slds-card additionalSection">
+                                    <div class="slds-card__header slds-grid sectionHeader">
+                                        <header class="slds-has-flexi-truncate">
+                                            <div class="slds-col slds-small-size_10-of-12 slds-medium-size_10-of-12">
+                                                <h2>Additional Details</h2>
+                                            </div>
+                                        </header>
+                                    </div>
+                                    <div class="slds-card__body slds-p-around_medium">
+                                        <div class="slds-grid slds-gutters gridStyle">
+                                            <div class="slds-col slds-size_1-of-2">
+                                                <span class="labelStyle">Judgment Entry Date</span> <br/>
+                                                <ui:outputDate value="{!v.selectedJudgmentDetailObj.judgmentEntryDate}" format="MM/DD/YYYY"/>
+                                            </div>
+                                            <div class="slds-col slds-size_1-of-2">
+                                                <span class="labelStyle">Employer/Defendant Address </span><br/>
+                                                {!v.selectedJudgmentDetailObj.primaryAddress}
+                                            </div><br/>
+                                        </div>
+                                        <div class="slds-grid slds-gutters gridStyle">
+                                            <div class="slds-col slds-size_1-of-2">
+                                                <span class="labelStyle">Court </span><br/>
+                                                {!v.selectedJudgmentDetailObj.court}
+                                            </div>
+                                            <div class="slds-col slds-size_1-of-2">
+                                                <span class="labelStyle">Court Case Number</span> <br/>
+                                                {!v.selectedJudgmentDetailObj.courtCaseNumber}
+                                            </div><br/>
+                                        </div>
+                                        <div class="slds-grid slds-gutters gridStyle">
+                                            <div class="slds-col slds-size_1-of-2">
+                                                <span class="labelStyle">Industry (NAICS)</span> <br/>
+                                                {!v.selectedJudgmentDetailObj.naicsTitle}
+                                            </div>
+                                            <div class="slds-col slds-size_1-of-2">
+                                                <span class="labelStyle">NAICS Code </span><br/>
+                                                {!v.selectedJudgmentDetailObj.naicsCode}
+                                            </div> <br/>
+                                        </div>
+                                        <div class="slds-grid slds-gutters gridStyle">
+                                            <div class="slds-col slds-size_1-of-2">
+                                                <span class="labelStyle">Total Due to Employee </span><br/>
+                                                <aura:if isTrue="{!v.selectedJudgmentDetailObj.totalDueToEmployee != null}">
+                                                    $<ui:outputCurrency value="{!v.selectedJudgmentDetailObj.totalDueToEmployee}" format="##,###,###.00"/>
+                                                </aura:if>     
+                                                <aura:if isTrue="{!v.selectedJudgmentDetailObj.totalDueToEmployee == null}">
+                                                    $0.00
+                                                </aura:if>
+                                            </div>
+                                            <div class="slds-col slds-size_1-of-2">
+                                                <span class="labelStyle">Total Due to State </span><br/>
+                                                <aura:if isTrue="{!v.selectedJudgmentDetailObj.totalDueToState != null}">
+                                                    $<ui:outputCurrency value="{!v.selectedJudgmentDetailObj.totalDueToState}" format="##,###,###.00"/>
+                                                </aura:if>     
+                                                <aura:if isTrue="{!v.selectedJudgmentDetailObj.totalDueToState == null}">
+                                                    $0.00
+                                                </aura:if>
+                                            </div> <br/>
+                                        </div>
+                                        <div class="slds-grid slds-gutters gridStyle">
+                                            <div class="slds-col slds-size_1-of-2">
+                                                <span class="labelStyle">Total Due to Other(s) </span><br/>
+                                                <aura:if isTrue="{!v.selectedJudgmentDetailObj.totalDueToOthers != null}">
+                                                    $<ui:outputCurrency value="{!v.selectedJudgmentDetailObj.totalDueToOthers}" format="##,###,###.00"/>
+                                                </aura:if>     
+                                                <aura:if isTrue="{!v.selectedJudgmentDetailObj.totalDueToOthers == null}">
+                                                    $0.00
+                                                </aura:if>
+                                            </div>
+                                            <div class="slds-col slds-size_1-of-2">
+                                                <span class="labelStyle">DIR Office</span><br/>
+                                                <aura:if isTrue="{!v.selectedJudgmentDetailObj.dirOffice != null}">
+                                                    {!v.selectedJudgmentDetailObj.dirOffice}
+                                                </aura:if> 
+                                            </div>
+                                        </div>
+                                    </div>
+                                </article>
+                                <article class="slds-card additionalSection">
+                                    <div class="slds-card__header slds-grid sectionHeader">
+                                        <header class="slds-has-flexi-truncate">
+                                            <div class="slds-col slds-small-size_10-of-12 slds-medium-size_10-of-12">
+                                                <h2>Labor Code 2810.4 Details (for Port Drayage Motor Carriers)</h2>
+                                            </div>
+                                        </header>
+                                    </div>
+                                    <div class="slds-card__body slds-p-around_medium">
+                                        <div class="slds-grid slds-gutters gridStyle">
+                                            <div class="slds-col slds-size_1-of-2">
+                                                <span class="labelStyle">2810.4 Violation Status </span><br/>
+                                                {!v.selectedJudgmentDetailObj.portDrayageMotorCarrierJudgmentStatus}
+                                            </div>
+                                            <div class="slds-col slds-size_1-of-2"></div><br/>
+                                        </div>
+                                        <div class="slds-grid slds-gutters gridStyle">
+                                            <div class="slds-col slds-size_1-of-2">
+                                                <span class="labelStyle">Confirmed ON the List Date </span><br/>
+                                                <ui:outputDate value="{!v.selectedJudgmentDetailObj.beginningdateofviolationofLaborCode}" format="MM/DD/YYYY"/>
+                                            </div>
+                                            <div class="slds-col slds-size_1-of-2">
+                                                <span class="labelStyle">Confirmed OFF the list Date </span><br/>
+                                                <ui:outputDate value="{!v.selectedJudgmentDetailObj.dateofcompliancewithLaborCode}" format="MM/DD/YYYY"/>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </article>
+                                <!-- Download File Section -->
+                                <aura:if isTrue="{!not(empty(v.selectedJudgementDocumentContentList))}">
+                                    <article class="slds-card mainSection">
+                                        <div class="slds-card__body slds-p-around_medium">
+                                            <div class="slds-grid slds-gutters gridStyle">
+                                                <h2>Files</h2>
+                                            </div>
+                                            <aura:iteration items="{!v.selectedJudgementDocumentContentList}" var="item" indexVar="key">
+                                                <div class="slds-grid slds-gutters gridStyle">
+                                                    <span class="labelStyle"><a href="{!item.value}" target="_self">{!item.key}</a></span>
+                                                </div>
+                                            </aura:iteration>
+                                        </div>
+                                    </article>
+                                </aura:if>
+                            </div>
+                            <aura:set attribute="else">
+                                <div class="demo-only" style="height:6rem">
+                                    <div class="slds-spinner_container">
+                                        <div role="status" class="slds-spinner slds-spinner_medium slds-spinner_brand">
+                                            <span class="slds-assistive-text">Loading</span>
+                                            <div class="slds-spinner__dot-a"></div>
+                                            <div class="slds-spinner__dot-b"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </aura:set>
+                        </aura:if>
+                        <!-- <div class="slds-card__footer">Card Footer</div> -->
+                    </article>
+                </div>
+            </div>
+        </section>
+        <div class="slds-backdrop slds-backdrop_open"></div>
+    </div>
+</aura:component>

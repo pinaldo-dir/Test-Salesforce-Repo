@@ -1,0 +1,9 @@
+Hello,
+
+{!Support_Request__c.CreatedBy} has submitted a new Support Request for Registration Services. To access the Support Request record, please click on the link below.
+
+SR Number: {!Support_Request__c.Name}
+Subject: {!Support_Request__c.Subject__c}
+Priority: {!Support_Request__c.Urgency__c}
+Unit: {!Support_Request__c.Support_Request_For__c}
+Link: {!Support_Request__c.Link}

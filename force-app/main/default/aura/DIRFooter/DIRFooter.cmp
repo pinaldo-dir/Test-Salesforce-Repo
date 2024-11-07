@@ -1,0 +1,78 @@
+<aura:component implements="force:appHostable,flexipage:availableForAllPageTypes,forceCommunity:availableForAllPageTypes"  access="global" >
+    <div class="judgment-Footer-Container">
+        <div class="sectionClass">
+            <div class="slds-grid slds-wrap sectionFirstClass">
+                <div class="slds-col slds-size_1-of-3 sectionStyle">
+                    <h2>About DIR</h2>
+                    <ul>
+                        <li><a href="https://www.dir.ca.gov/aboutdir.html">Who we are</a></li>
+                        <li><a href="https://www.dir.ca.gov/divisions_and_programs.html">DIR Divisions, Boards &amp; Commissions</a></li>
+                        <li><a href="https://www.dir.ca.gov/Contactus.html">Contact DIR</a></li>
+                    </ul>
+                </div>
+                <div class="slds-col slds-size_1-of-3 sectionStyle">
+                    <h2>Work with Us</h2>
+                    <ul>
+                        <li><a href="https://www.dir.ca.gov/dirjobs/dirjobs.htm">Jobs at DIR</a></li>
+                        <li><a href="https://www.dir.ca.gov/permits-licenses-certifications.html">Licensing, registrations, certifications &amp; permits</a></li>
+                        <li><a href="https://www.dir.ca.gov/dosh/Required-Notifications.html">Required Notifications</a></li>
+                        <li><a href="https://www.dir.ca.gov/pra_request.html">Public Records Requests</a></li>
+                    </ul>
+                </div>
+                <div class="slds-col slds-size_1-of-3 sectionStyle">
+                    <h2>Learn More</h2>
+                    <ul>
+                        <li><a href="http://www.dir.ca.gov//Bilingual-Services-Act/default.html">Acceso al idioma</a></li>
+                        <li><a href="https://www.dir.ca.gov/faqslist.html">Frequently Asked Questions</a></li>
+                        <li><a href="https://www.dir.ca.gov/sitemap/sitemap.html">Site Map</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="link-Nav">
+                <div class="slds-grid slds-wrap">
+                    <div class="slds-col slds-size_5-of-6 navContainer">
+                        <div class="slds-grid slds-wrap">
+                            <div class="slds-col slds-size_1-of-7 anchorDivStyle">
+                                <a class="anchorStyle" href="#JudgmentSearch" target="_self">Back to Top</a>
+                            </div>
+                            <div class="slds-col slds-size_1-of-7 anchorDivStyle">
+                                <a class="anchorStyle" href="https://www.dir.ca.gov/od_pub/conditions.html">Conditions of Use</a>
+                            </div>
+                            <div class="slds-col slds-size_1-of-7 anchorDivStyle">
+                                <a class="anchorStyle" href="https://www.dir.ca.gov/od_pub/disclaimer.html">Disclaimer</a>
+                            </div>
+                            <div class="slds-col slds-size_1-of-7 anchorDivStyle">
+                                <a class="anchorStyle" href="https://www.dir.ca.gov/od_pub/privacy.html">Privacy Policy</a>
+                            </div>
+                            <div class="slds-col slds-size_1-of-7 anchorDivStyle">
+                                <a class="anchorStyle" href="https://www.dir.ca.gov/od_pub/accessibility.html">Accessibility</a>
+                            </div>
+                            <div class="slds-col slds-size_1-of-7 anchorDivStyle">
+                                <a class="anchorStyle" href="https://www.dir.ca.gov/od_pub/help.html">Site Help</a>
+                            </div>
+                            <div class="slds-col slds-size_1-of-7 anchorDivStyle">
+                                <a class="anchorStyle" href="https://www.dir.ca.gov/ContactUs.html">Contact Us</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="slds-col slds-size_1-of-6 socialMediaIconStyle">
+                        <div class="slds-grid slds-wrap ">
+                            <div class="slds-col slds-size_1-of-4">
+                                <a href="https://www.facebook.com/CaliforniaDIR"><img alt="Facebook image" src="{!$Resource.facebookLogo}" style="width:20px;"/></a>
+                            </div>
+                            <div class="slds-col slds-size_1-of-4">
+                                <a href="https://twitter.com/#!/CA_DIR"><img alt="Twitter image" src="{!$Resource.twitterLogo}" style="width:20px;"/></a>
+                            </div>
+                            <div class="slds-col slds-size_1-of-4">
+                                <a href="http://www.youtube.com/CaliforniaDIR"><img alt="Youtube image" src="{!$Resource.youtubeLogo}" style="width:20px;"/></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="copyrightClass">
+                Copyright © 2021 State of California
+            </div>
+        </div>
+    </div>
+</aura:component>

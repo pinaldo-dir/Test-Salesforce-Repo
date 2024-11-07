@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <description>Send an email with the Status of a 607</description>
+    <encodingKey>ISO-8859-1</encodingKey>
+    <name>607 Update Template</name>
+    <style>none</style>
+    <subject>*** Force.com Test *** Form 607 #{!X607__c.Name} Status Update ***</subject>
+    <type>text</type>
+    <uiType>Aloha</uiType>
+</EmailTemplate>

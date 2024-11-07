@@ -1,0 +1,14 @@
+The Division of Labor Standards Enforcement has not yet received fee payment for {!License_Registration__c.Record_Type_Name__c} {!License_Registration__c.Application_Type__c} {!License_Registration__c.License_Registration_Number__c} for {!License_Registration__c.Legal_Entity_Name__c}. Your submission will not be processed until fee payment is received in full. Once payment in full is received and your submission is processed, you will be notified of approval with an attached approval document, or defect notice with an attached explanation of the outstanding issues. 
+ 
+
+Total Amount Due: {!License_Registration__c.Amount_Due__c} 
+ 
+
+To submit payment, please log onto: {!License_Registration__c.Registration_Site__c} and click the Pay Now link under {!License_Registration__c.License_Registration_Number__c}.  
+
+
+Sincerely, 
+Licensing & Registration
+Labor Commissioner's office 
+Department of Industrial Relations 
+State of California

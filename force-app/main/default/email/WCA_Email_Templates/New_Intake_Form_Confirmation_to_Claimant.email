@@ -1,0 +1,18 @@
+<messaging:emailTemplate subject="Thank you for submitting your case for processing" recipientType="Contact" relatedToType="Case_Role__c">
+    <messaging:htmlEmailBody >
+        <html>
+            <body>
+            <p>Dear {!relatedTo.Case_Role_Account_Name__c},</p>
+            We are in receipt of your claim filed against &nbsp;<c:ListCaseRoleDefendants value="{!relatedTo.Case__c}"/>.
+            <br/><br/>
+            A representative from the Labor Commissioner's office will contact you regarding your claim.  Your claim number is {!relatedTo.Case__r.Name} 
+            and is assigned to the following Wage Office:
+            <p>{!relatedTo.Case__r.Office__r.Name}<br />
+               {!relatedTo.Case__r.Office__r.Address_1__c} {!relatedTo.Case__r.Office__r.Address_2__c}<br />
+               {!relatedTo.Case__r.Office__r.City__c}, {!relatedTo.Case__r.Office__r.State__c} {!relatedTo.Case__r.Office__r.Zip_Code__c}<br />
+               {!relatedTo.Case__r.DIR_Office_Phone_Number__c}</p>
+               <p>Please do not respond to this email as it is system generated and not a monitored email address.</p>
+            </body>
+        </html>
+    </messaging:htmlEmailBody>
+</messaging:emailTemplate>

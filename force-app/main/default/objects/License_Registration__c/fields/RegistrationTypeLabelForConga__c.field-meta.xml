@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>RegistrationTypeLabelForConga__c</fullName>
+    <externalId>false</externalId>
+    <formula>IF(ISPICKVAL(Service_Type__c, 'Temporary') , 'TEMPORARY ', '') 
++ CASE( Record_Type_Name__c 
+, 'Car_Wash', 'Car Washing and Polishing' 
+, 'Child_Performer_Services', 'Child Performer Services' 
+, 'Farm_Labor_Contractor', 'Farm Labor Contractor' 
+, 'Garment_Manufacturers_and_Contractors', 'Garment Manufacturers and Contractors' 
+, 'Janitorial', 'Janitorial Services' 
+, 'Other', 'Other' 
+, 'Talent_Agency', 'Talent Agency'
+, 'Entertainment_Work', 'Entertainment Work Permit'
+, 'Permit_to_Employ_Minors', 'Permit to Employ Minors' 
+, 'ERROR')</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>RegistrationTypeLabelForConga</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

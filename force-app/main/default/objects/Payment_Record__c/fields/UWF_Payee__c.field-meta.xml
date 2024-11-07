@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>UWF_Payee__c</fullName>
+    <deleteConstraint>SetNull</deleteConstraint>
+    <description>For UWF warrants</description>
+    <externalId>false</externalId>
+    <label>UWF Payee</label>
+    <referenceTo>Payee__c</referenceTo>
+    <relationshipLabel>Payment Records (UWF Payee)</relationshipLabel>
+    <relationshipName>Payment_Records_UWF</relationshipName>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Lookup</type>
+</CustomField>

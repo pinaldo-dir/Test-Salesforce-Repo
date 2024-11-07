@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Returned_Reason_Required</fullName>
+    <active>true</active>
+    <errorConditionFormula>(
+  Returned_Item__c &amp;&amp;
+  ISPICKVAL(Returned_Reason__c, '')
+)
+||
+(
+  !Returned_Item__c &amp;&amp;
+  !ISPICKVAL(Returned_Reason__c, '')
+)</errorConditionFormula>
+    <errorDisplayField>Returned_Item__c</errorDisplayField>
+    <errorMessage>A reason is required when returning a Receipt</errorMessage>
+</ValidationRule>

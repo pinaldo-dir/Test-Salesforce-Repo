@@ -1,0 +1,271 @@
+<apex:page controller="JudgmentSearchResultPageController" applyHtmlTag="false"     
+           sidebar="false"     
+           showHeader="false"  
+           readOnly="true"
+           language="english"
+           renderAs="advanced_pdf"
+           title="Judgment Results"
+           docType="html-5.0">
+    
+    <head>    
+        <meta http-equiv="Content-Type" content="text/html;charset=UTF-8" /> 
+        <meta name="viewport" content="width=device-width, initial-scale=1"/>
+        <style type="text/css">
+            .c_table{
+            -fs-table-paginate: paginate;
+            }
+            @page {    
+            margin-top: 5%;
+            @top-center{
+            content: element(header1);
+            }
+            @bottom-center{
+            content: "Page : " counter(page) " of " counter(pages);font-size: 80%; font-family: sans-serif;font-size: 16px;
+            }
+            size: A4 landscape;    
+            padding-left: 8px;    
+            padding-right: 8px;      
+            }  
+            th, td{
+            border: 1px solid black;
+            }
+            th {    
+            text-align: center;    
+            font-weight: bold;    
+            }    
+            td {    
+            text-align: center;    
+            font-size: 16px;    
+            }
+            .filter-container{
+            margin-bottom: 10px;
+            border: 1px solid black;
+            }
+            div{
+            margin-bottom: 5px;
+            }
+            div1 {
+            display: inline-block;
+            width: 300px;
+            padding: 6px;
+            margin: 3px;
+            vertical-align:top;
+            }
+            body{
+            font-family: sans-serif;
+            font-size: 16px;
+            language: english;
+            }
+        </style>   
+    </head> 
+    <body>
+        <div>
+            <b>Total Records:</b> {!judgmentRecordsLists.size}
+        </div>
+        <div>
+            <b>Search Date:</b> {!MONTH(TODAY())}/{!DAY(TODAY())}/{!YEAR(TODAY())}
+        </div>
+        <div>
+            <b>*Disclaimer: </b> Once the judgment is issued, the judgment balance is shown as due in the Labor Commissioner’s records.
+            This amount does not reflect post-judgment interest, costs or other amounts that may be added to the
+            judgment after issuance. Furthermore this does not reflect any payments that may have been made since the judgment 
+            was issued. Defendants often make payments to claimants directly without the knowledge of the Labor Commissioner's Office. 
+            Thus judgments shown as open/unpaid may have been paid in whole or in part.
+        </div>
+        <div>
+            <b>Filter Applied:</b>
+        </div>
+        <div class="filter-container">
+            <apex:outputPanel rendered="{!listStatus2810 != null}">
+                <div1>
+                    <b>
+                        Labor Code § 2810.4 :
+                    </b><br/>
+                    {!listStatus2810}
+                </div1>
+            </apex:outputPanel>
+            <apex:outputPanel rendered="{!county != null}">
+                <div1>
+                    <b>
+                        County :
+                    </b><br/>
+                    {!county}
+                </div1>
+            </apex:outputPanel>
+            <apex:outputPanel rendered="{!naicsCode != null}">
+                <div1> 
+                    <b>
+                        Naics Code :
+                    </b><br/> 
+                    {!naicsCode}
+                </div1>
+            </apex:outputPanel>
+            <apex:outputPanel rendered="{!naicsCodeTitle != null}">
+                <div1> 
+                    <b>
+                        Naics Code Title:
+                    </b><br/> 
+                    {!naicsCodeTitle}
+                </div1>
+            </apex:outputPanel>
+            <apex:outputPanel rendered="{!court != null}">
+                <div1>
+                    <b>
+                        Court :  
+                    </b><br/>
+                    {!court}
+                </div1>
+            </apex:outputPanel>
+            <apex:outputPanel rendered="{!OR(city != null,zipCode != null)}">
+                <div1>
+                    <b>
+                        Defendant Address :
+                    </b><br/>
+                    <apex:outputPanel rendered="{!city != null}">
+                        <span>
+                            <b>
+                                City : 
+                            </b>
+                        </span>
+                        <span>
+                            {!city}
+                        </span>
+                    </apex:outputPanel><br/>
+                    <apex:outputPanel rendered="{!zipCode != null}">
+                        <span>
+                            <b>
+                                ZipCode :
+                            </b>
+                        </span>
+                        <span>
+                            {!zipCode}
+                        </span>
+                    </apex:outputPanel>
+                </div1>
+            </apex:outputPanel>
+            <apex:outputPanel rendered="{!OR(judgmentEntryDateFrom != null,judgmentEntryDateTo != null)}">
+                <div1>
+                    <b>
+                        Judgment Entry Date :
+                    </b><br/>
+                    <apex:outputPanel rendered="{!judgmentEntryDateFrom != null}">
+                        <span>
+                            <b>
+                                judgmentEntryFromDate : 
+                            </b>
+                        </span>
+                        <span>
+                            {!MONTH(judgmentEntryDateFrom)} / {!DAY(judgmentEntryDateFrom)} / {!YEAR(judgmentEntryDateFrom)}
+                        </span>
+                    </apex:outputPanel><br/>
+                    <apex:outputPanel rendered="{!judgmentEntryDateTo != null}">
+                        <span>
+                            <b>
+                                judgmentEntryToDate : 
+                            </b>
+                        </span>
+                        <span>
+                            {!MONTH(judgmentEntryDateTo)} / {!DAY(judgmentEntryDateTo)} / {!YEAR(judgmentEntryDateTo)}
+                        </span>
+                    </apex:outputPanel>
+                </div1>
+            </apex:outputPanel>
+            <!--<apex:outputPanel rendered="{!cliamantPlaintiffName != null}">
+                <div1>
+                    <b>
+                        Claimant/Plaintiff Name :
+                    </b><br/>
+                    {!cliamantPlaintiffName}
+                </div1>
+            </apex:outputPanel>-->
+            <apex:outputPanel rendered="{!and(judgmentStatus != null,judgmentStatus != 'null')}">
+                <div1>
+                    <b>
+                        Judgment Status :
+                    </b><br/>
+                    {!judgmentStatus}
+                </div1>
+            </apex:outputPanel>
+            <apex:outputPanel rendered="{!defandantEmployerName != null}">
+                <div1>
+                    <b>
+                        Defandant Employer Name : 
+                    </b><br/>
+                    {!defandantEmployerName}
+                </div1>
+            </apex:outputPanel>
+            <apex:outputPanel rendered="{!citationNumber != null}">
+                <div1>
+                    <b>
+                        Citation Number : 
+                    </b><br/>
+                    {!citationNumber}
+                </div1>
+            </apex:outputPanel>
+            <apex:outputPanel rendered="{!dirOffice != null}">
+                <div1>
+                    <b>
+                        DIR Office : 
+                    </b><br/>
+                    {!dirOffice}
+                </div1>
+            </apex:outputPanel>
+            <apex:outputPanel rendered="{!or(judgmentTotalFrom != 0,judgmentTotalTo != 0)}">
+                <div1>
+                    <b>
+                        Judgment Total :
+                    </b><br/>
+                    <apex:outputPanel rendered="{!judgmentTotalFrom >= 0}">
+                        <span>
+                            <b>Judgment Total From : </b>
+                        </span>
+                        <span>
+                            ${!judgmentTotalFrom}
+                        </span>
+                    </apex:outputPanel><br/>
+                    <apex:outputPanel rendered="{!judgmentTotalTo >= 0}">
+                        <span>
+                            <b>Judgment Total To : </b>
+                        </span>
+                        <span>
+                            ${!judgmentTotalTo}
+                        </span>
+                    </apex:outputPanel>
+                </div1>
+            </apex:outputPanel>
+        </div>
+        <table cellspacing="0" cellpadding="4" class="c_table" width='100%' style='width:100%'>
+            <thead>
+                <tr style="page-break-inside:avoid;">
+                    <th>Labor Code § 2810.4</th>
+                    <th>Judgment Name</th>
+                    <th>Judgment Status</th>
+                    <th>Court</th>
+                    <th>Defendant/Employer Name</th>
+                    <th>Primary Address</th>
+                    <th>Judgment Total*</th>
+                </tr>
+            </thead>
+            <apex:repeat value="{!judgmentRecordsLists}" var="item">   
+                <tbody>
+                    <tr style="page-break-inside:avoid;">    
+                        <td>{!item.PortDrayageMotorCarrierJudgmentStatus}</td>
+                        <td>{!item.JudgmentName}</td>
+                        <td>{!item.JudgmentStatus}</td>
+                        <td>{!item.Court}</td>
+                        <td>{!item.Defendant_EmployerName}</td>
+                        <td>{!item.PrimaryAddress}</td>
+                        <td>
+                            <apex:outputPanel rendered="{!item.JudgmentTotal != null}">
+                                <apex:outputText value="${0, number, ##,##,##,##0.00}"><apex:param value="{!item.JudgmentTotal}" /></apex:outputText>
+                            </apex:outputPanel>
+                            <apex:outputPanel rendered="{!item.JudgmentTotal == null}">
+                                $ 0.0
+                            </apex:outputPanel>
+                        </td> 
+                    </tr>  
+                </tbody>
+            </apex:repeat>
+        </table>
+    </body>
+</apex:page>

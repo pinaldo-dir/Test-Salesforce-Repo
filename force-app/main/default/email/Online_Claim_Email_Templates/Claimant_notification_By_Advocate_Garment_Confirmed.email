@@ -1,0 +1,9 @@
+Hello {!Claimant},<br></br>
+
+A wage claim has been submitted on your behalf by {!advocate/rep} against {!Defendant}. Your case number is {!case number}. Your claim is assigned to the following Wage Office:
+<br></br>
+{!DIR_Case__c.Office__c }
+{!DIR_Case__c.DIR_WCA_Office_Address__c}
+{!DIR_Case__c.DIR_Office_Phone_Number__c}
+A representative from the Garment Enforcement Unit of the Labor Commissioner's office will contact you regarding your claim.<br></br>
+Labor Commissioner's Office

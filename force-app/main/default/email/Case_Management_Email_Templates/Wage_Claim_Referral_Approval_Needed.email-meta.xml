@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <encodingKey>ISO-8859-1</encodingKey>
+    <name>Wage Claim Referral Approval Needed</name>
+    <style>none</style>
+    <subject>BR13-322 Wage Claim Referral Approval Needed: {!Report_of_Labor_Code_Violation__c.Wage_Claim__c}</subject>
+    <type>text</type>
+    <uiType>Aloha</uiType>
+</EmailTemplate>

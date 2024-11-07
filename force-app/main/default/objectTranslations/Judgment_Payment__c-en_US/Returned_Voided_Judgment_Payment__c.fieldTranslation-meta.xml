@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+        <help><!-- If this JP is a Corrective Entry, this field looks up to the original JP that this JP negates. --></help>
+        <label><!-- Returned/Voided Judgment Payment --></label>
+        <name>Returned_Voided_Judgment_Payment__c</name>
+        <relationshipLabel><!-- Negating Judgment Payments --></relationshipLabel>
+    </CustomFieldTranslation>

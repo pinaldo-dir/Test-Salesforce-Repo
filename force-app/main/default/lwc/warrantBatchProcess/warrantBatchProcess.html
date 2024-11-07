@@ -1,0 +1,301 @@
+<template>
+    <div class="wbContainerDiv">
+        <p id="demo"></p>
+
+        <lightning-card title="Warrant Batch"> 
+            <template if:true={recordId}>
+                <div class="wbLayoutDiv">
+                    </br>
+                    <lightning-record-view-form record-id={recordId} object-api-name="Warrant_Batch__c">
+                        <div class="slds-grid">
+                            <div class="slds-col slds-size_1-of-2">
+                                <div class="slds-border_bottom" style="margin-top:20px;">
+                                    <label style="padding-left:5px;">Name</label><br>
+                                    <a style="padding-left:5px;" href={wbLink}>{wbName}</a><br>
+                                </div>
+                                <lightning-output-field field-name="Batch_Total__c" class="slds-border_bottom" style="padding-bottom:5px;padding-top:10px;"></lightning-output-field>
+                                <lightning-output-field field-name="Void_Reason__c" class="slds-border_bottom" style="padding-bottom:5px;padding-top:10px;"></lightning-output-field>
+                            </div>
+                            <div class="slds-col slds-size_1-of-2" style="padding-left:70px;">
+                                <lightning-output-field field-name="OwnerId" class="slds-border_bottom" style="padding-bottom:5px;padding-top:10px;"></lightning-output-field>
+                                <lightning-output-field field-name="Requesting_Cashier__c" class="slds-border_bottom" style="padding-bottom:5px;padding-top:10px;"></lightning-output-field>
+                                <lightning-output-field field-name="Reviewed_By__c" class="slds-border_bottom" style="padding-bottom:5px;padding-top:10px;"></lightning-output-field>
+                            </div>
+                        </div>
+                    </lightning-record-view-form>
+                </div>
+
+                <template if:true={currStatus}>
+                    <template if:true={currStatus}>
+                        <div class="actionBtnDiv">
+
+                            <template if:true={status_New}>
+                                <lightning-button variant="brand-outline" label="Submit for Approval"
+                                    onclick={handleSubmitClick} class="slds-m-left_x-small"></lightning-button>
+                                <lightning-button variant="brand-outline" label="Void Batch" onclick={handleVoidClick}
+                                    class="slds-m-left_x-small"></lightning-button>
+                            </template>
+                        
+                            <template if:true={status_Pending}>
+                                <lightning-button variant="brand-outline" label="Start Approval" onclick={handleApprovalClick}
+                                    class="slds-m-left_x-small"></lightning-button>
+                                <lightning-button variant="brand-outline" label="Void Batch" onclick={handleVoidClick}
+                                    class="slds-m-left_x-small"></lightning-button>
+                            </template>
+
+                            <template if:true={status_UnderRev}>
+                                <lightning-button variant="brand-outline" label="Start Approval" onclick={handleApprovalClick}
+                                    class="slds-m-left_x-small"></lightning-button>
+                                <lightning-button variant="brand-outline" label="Secondary Approval"
+                                    onclick={handleSecApprovalClick} class="slds-m-left_x-small"></lightning-button>
+                                <lightning-button variant="brand-outline" label="Void Batch" onclick={handleVoidClick}
+                                    class="slds-m-left_x-small"></lightning-button>
+                            </template>
+
+                            <template if:true={status_RevComp}>
+                                <lightning-button variant="brand-outline" label="Update Warrants to Printed" onclick={handlePrintClick}
+                                    class="slds-m-left_x-small"></lightning-button>
+                                <!--<lightning-button variant="brand-outline" label="Update Warrants to Printed"
+                                    onclick={handleUpdatePrintClick} class="slds-m-left_x-small"></lightning-button>-->
+                                <lightning-button variant="brand-outline" label="Void Batch" onclick={handleVoidClick}
+                                    class="slds-m-left_x-small"></lightning-button>
+                            </template>
+
+                            <template if:true={status_Printed}>
+                                <lightning-button variant="brand-outline" label="Void Batch" onclick={handleVoidClick}
+                                    class="slds-m-left_x-small"></lightning-button>
+                            </template>
+
+                            <!--SubmitApprovalBtn - Use template if:true to display/hide popup based on isModalOpen value-->
+                            <template if:true={SubmitApprovalBtn}>
+                                <template if:true={isModalOpen}>
+                                    <div class="modalpopupDiv">
+                                        <!--Modal/Popup Box LWC starts here -->
+                                        <section role="dialog" tabindex="-1" aria-labelledby="modal-heading-01"
+                                            aria-modal="true" aria-describedby="modal-content-id-1"
+                                            class="slds-modal slds-fade-in-open">
+                                            <div class="slds-modal__container">
+                                                <!--Modal/Popup Box LWC header here -->
+                                                <header class="slds-modal__header">
+                                                    <h2 class="slds-text-heading_medium slds-hyphenate">Submit {wbName} for Approval</h2>
+                                                </header>
+                                                <!--Modal/Popup Box LWC body starts here -->
+                                                <div class="slds-modal__content slds-p-around_medium"
+                                                    id="modal-content-submit" style="height: 250px;">
+                                                    <c-wb-Submit-Approval getwbid={recordId}></c-wb-Submit-Approval>
+                                                </div>
+                                                <!--Modal/Popup Box LWC footer starts here-->
+                                                <footer class="slds-modal__footer">
+                                                    <!--<button class="slds-button slds-button_neutral" onclick={closeModal}
+                                                        title="Cancel">Cancel</button>-->
+                                                    <button class="slds-button slds-button_brand" onclick={closeModal} title="OK">Close</button>
+                                                </footer>
+                                            </div>
+                                        </section>
+                                        <div class="slds-backdrop slds-backdrop_open"></div>
+                                    </div>
+                                </template>
+                            </template>
+
+                            <!--voidBtn - Use template if:true to display/hide popup based on isModalOpen value-->
+                            <template if:true={voidBtn}>
+                                <template if:true={isModalOpen}>
+                                    <div class="modalpopupDiv">
+                                        <!--Modal/Popup Box LWC starts here -->
+                                        <section role="dialog" tabindex="-1" aria-labelledby="modal-heading-01"
+                                            aria-modal="true" aria-describedby="modal-content-id-1"
+                                            class="slds-modal slds-fade-in-open">
+                                            <div class="slds-modal__container">
+                                                <!--Modal/Popup Box LWC header here -->
+                                                <header class="slds-modal__header">
+                                                    <h2
+                                                    class="slds-text-heading_medium slds-hyphenate">Void {wbName} 
+                                                    </h2>
+                                                </header>
+                                                <!--Modal/Popup Box LWC body starts here -->
+                                                <div class="slds-modal__content slds-p-around_medium"
+                                                    id="modal-content-void" style="height: 200px;">
+                                                    <c-wb-Void getwbid={recordId}></c-wb-Void>
+                                                </div>
+                                                <!--Modal/Popup Box LWC footer starts here-->
+                                                <footer class="slds-modal__footer">
+                                                    <!--<button class="slds-button slds-button_neutral" onclick={closeModal}
+                                                        title="Cancel">Cancel</button>-->
+                                                    <button class="slds-button slds-button_brand" onclick={closeModal} title="OK">Close</button>
+                                                </footer>
+                                            </div>
+                                        </section>
+                                        <div class="slds-backdrop slds-backdrop_open"></div>
+                                    </div>
+                                </template>
+                            </template>
+
+                            <!--approvalBtn - Use template if:true to display/hide popup based on isModalOpen value-->
+                            <template if:true={approvalBtn}>
+                                <template if:true={isModalOpen}>
+                                    <div class="modalpopupDiv">
+                                        <!--Modal/Popup Box LWC starts here -->
+                                        <section role="dialog" tabindex="-1" aria-labelledby="modal-heading-01"
+                                            aria-modal="true" aria-describedby="modal-content-id-1"
+                                            class="slds-modal slds-fade-in-open">
+                                            <div class="slds-modal__container">
+                                                <!--Modal/Popup Box LWC header here -->
+                                                <header class="slds-modal__header">
+                                                    <h2
+                                                    class="slds-text-heading_medium slds-hyphenate">Start Approval {wbName} 
+                                                    </h2>
+                                                </header>
+                                                <!--Modal/Popup Box LWC body starts here -->
+                                                <div class="slds-modal__content slds-var-p-around_medium"
+                                                    id="modal-content-approve" style="height: 550px">
+                                                    <c-wb-Approval getwbid={recordId}></c-wb-Approval>
+                                                </div>
+                                                <!--Modal/Popup Box LWC footer starts here-->
+                                                <footer class="slds-modal__footer">
+                                                    <!--<button class="slds-button slds-button_neutral" onclick={closeModal}
+                                                        title="Cancel">Cancel</button>-->
+                                                    <button class="slds-button slds-button_brand" onclick={closeModal} title="OK">Close</button>
+                                                </footer>
+                                            </div>
+                                        </section>
+                                        <div class="slds-backdrop slds-backdrop_open"></div>
+                                    </div>
+                                </template>
+                            </template>
+
+                            <!--secApprovalBtn - Use template if:true to display/hide popup based on isModalOpen value-->
+                            <template if:true={secApprovalBtn}>
+                                <template if:true={isModalOpen}>
+                                    <div class="modalpopupDiv">
+                                        <!--Modal/Popup Box LWC starts here -->
+                                        <section role="dialog" tabindex="-1" aria-labelledby="modal-heading-01"
+                                            aria-modal="true" aria-describedby="modal-content-id-1"
+                                            class="slds-modal slds-fade-in-open">
+                                            <div class="slds-modal__container">
+                                                <!--Modal/Popup Box LWC header here -->
+                                                <header class="slds-modal__header">
+                                                    <h2
+                                                    class="slds-text-heading_medium slds-hyphenate">Secondary Approve {wbName} 
+                                                    </h2>
+                                                </header>
+                                                <!--Modal/Popup Box LWC body starts here -->
+                                                <div class="slds-modal__content slds-p-around_medium"
+                                                    id="modal-content-secApprove" style="height: 550px">
+                                                    <c-wb-Secondary-Approval getwbid={recordId}></c-wb-Secondary-Approval>
+                                                </div>
+                                                <!--Modal/Popup Box LWC footer starts here-->
+                                                <footer class="slds-modal__footer">
+                                                    <!--<button class="slds-button slds-button_neutral" onclick={closeModal}
+                                                        title="Cancel">Cancel</button>-->
+                                                    <button class="slds-button slds-button_brand" onclick={closeModal} title="OK">Close</button>
+                                                </footer>
+                                            </div>
+                                        </section>
+                                        <div class="slds-backdrop slds-backdrop_open"></div>
+                                    </div>
+                                </template>
+                            </template>
+                            
+                            <!--printBtn - Use template if:true to display/hide popup based on isModalOpen value-->
+                            <template if:true={printBtn}>
+                                <template if:true={isModalOpen}>
+                                    <div class="modalpopupDiv">
+                                        <!--Modal/Popup Box LWC starts here -->
+                                        <section role="dialog" tabindex="-1" aria-labelledby="modal-heading-01"
+                                            aria-modal="true" aria-describedby="modal-content-id-1"
+                                            class="slds-modal slds-fade-in-open">
+                                            <div class="slds-modal__container popup_printcontainer">
+                                                <!--Modal/Popup Box LWC header here -->
+                                                <header class="slds-modal__header">
+                                                    <h2
+                                                    class="slds-text-heading_medium slds-hyphenate">Print/Update Warrants to Printed {wbName} 
+                                                    </h2>
+                                                </header>
+                                                <!--Modal/Popup Box LWC body starts here -->
+                                                <div class="slds-modal__content slds-p-around_medium"
+                                                    id="modal-content-printWR" style="height: 180px;">
+                                                    <c-wb-print-update getwbid={recordId}></c-wb-print-update>
+                                                </div>
+                                                <!--Modal/Popup Box LWC footer starts here-->
+                                                <footer class="slds-modal__footer">
+                                                    <!--<button class="slds-button slds-button_neutral" onclick={closeModal}
+                                                        title="Cancel">Cancel</button>-->
+                                                    <button class="slds-button slds-button_brand" onclick={closeModal}
+                                                        title="OK">Close</button>
+                                                </footer>
+                                            </div>
+                                        </section>
+                                        <div class="slds-backdrop slds-backdrop_open"></div>
+                                    </div>
+                                </template>
+                            </template>
+
+                            <!--updatePrintBtn - Use template if:true to display/hide popup based on isModalOpen value-->
+                            <!--
+                            <template if:true={updatePrintBtn}>
+                                <template if:true={isModalOpen}>
+                                    <div class="modalpopupDiv">
+                                        
+                                        <section role="dialog" tabindex="-1" aria-labelledby="modal-heading-01"
+                                            aria-modal="true" aria-describedby="modal-content-id-1"
+                                            class="slds-modal slds-fade-in-open">
+                                            <div class="slds-modal__container">
+                                                
+                                                <header class="slds-modal__header">
+                                                    <h2
+                                                    class="slds-text-heading_medium slds-hyphenate">Update Warrant Status under {wbName} to Printed
+                                                    </h2>
+                                                </header>
+                                                
+                                                <div class="slds-modal__content slds-p-around_medium"
+                                                    id="modal-content-updatePrint" style="height: 80px;">
+                                                    <template if:false={allowUserPrint}>
+                                                        <label class="sbmtWRlbl" style="color: red;">Sorry! Contact Admin to get access to perform this action </label>
+                                                    </template>
+                                                    <template if:true={allowUserPrint}>
+                                                        <template if:true={wrReadytoPrint}>
+                                                            <label style="color: rgb(255, 102, 0); font-size: 20px;">Confirm if all the Warrants had been printed already.</label><br><br>
+                                                        </template>
+                                                        <template if:false={wrReadytoPrint}>
+                                                            <label style="color: red; font-size: 20px;">There is no valid Warrants to be updated to Printed</label><br><br>
+                                                        </template>
+                                                        <template if:true={printStatusNotUpdated}>
+                                                            <label class="sbmtWRlbl" style="color: red;">Contact Admin! There was a problem saving the changes</label>
+                                                        </template>
+                                                    </template>
+                                                </div>
+                                                
+                                                <footer class="slds-modal__footer">
+                                                    <template if:true={allowUserPrint}>
+                                                        <template if:true={wrReadytoPrint}>
+                                                            <button class="slds-button slds-button_neutral" onclick={confirmStatusPrintModal} title="Confirm">Confirm</button>
+                                                        </template>
+                                                    </template>
+                                                    <button class="slds-button slds-button_brand" onclick={closeModal}
+                                                        title="Cancel">Cancel</button>
+                                                </footer>
+                                            </div>
+                                        </section>
+                                        <div class="slds-backdrop slds-backdrop_open"></div>
+                                    </div>
+                                </template>
+                            </template>
+                            -->
+                        </div>
+                    </template>
+                </template>
+
+                <div class="wrContainerDiv">
+                    <c-warrants-process getwbid={recordId}></c-warrants-process>
+                </div>
+            </template>
+
+            <template if:true={errormsg}>
+                <p style="color: red; padding-left: 40px;">{errormsg}</p>
+            </template>
+
+        </lightning-card>
+    </div>
+
+
+</template>

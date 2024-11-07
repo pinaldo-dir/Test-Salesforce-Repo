@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Only_Sr_can_modify_Case_Status_in_OIS</fullName>
+    <active>true</active>
+    <description>Only Senior Deputy can modify Case Status in OIS</description>
+    <errorConditionFormula>AND(
+	(NOT(ISPICKVAL(Case_Status_in_OIS__c, "")) &amp;&amp; ISCHANGED(Case_Status_in_OIS__c)), 
+NOT($Permission.LCO_Senior),
+NOT( CONTAINS($Profile.Name, 'System Administrator') ),LEFT(RecordType.Name, 3) ='RCI')</errorConditionFormula>
+    <errorDisplayField>Case_Status_in_OIS__c</errorDisplayField>
+    <errorMessage>Only RCI Senior Deputy can modify Case Status in OIS field</errorMessage>
+</ValidationRule>

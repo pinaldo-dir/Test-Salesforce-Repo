@@ -1,0 +1,722 @@
+<!--
+  @description       : 
+  @author            : ChangeMeIn@UserSettingsUnder.SFDoc
+  @group             : 
+  @last modified on  : 03-28-2022
+  @last modified by  : ChangeMeIn@UserSettingsUnder.SFDoc
+-->
+<template>
+    <form class="slds-p-top_medium slds-grid slds-wrap">
+            <div class="slds-p-bottom_medium slds-p-left_medium slds-p-right_medium slds-col slds-size_1-of-1 slds-medium-size_1-of-1 slds-large-size_1-of-1">
+                <h3>{customLabelValues.OWC_wage_deficiencies_your_claim}</h3>
+            </div>
+
+        <template if:true={isLatePayroll}>
+            <div class="slds-p-left_medium slds-p-right_medium slds-col slds-size_1-of-1 slds-medium-size_1-of-1 slds-large-size_1-of-1">
+                <div><h2>{customLabelValues.OWC_late_payroll}</h2></div>
+                <div class="slds-grid slds-wrap slds-p-top_medium">
+                    <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-1 slds-large-size_1-of-1">
+                        {customLabelValues.OWC_latepayroll_screen_text}
+                    </div>
+                    <template for:each={violationTypeVariablesForLatePayroll} for:item="varObj">
+                        <template if:true={varObj.isShow}>
+                            <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-2 slds-large-size_1-of-2" key={varObj.recordId}>
+                                <div class="slds-p-top_medium slds-p-bottom_medium slds-p-right_medium">
+                                    <span class="">{varObj.label} </span> 
+                                    <template if:true={varObj.dateFormat}>
+                                        <lightning-input date-style="short" type={varObj.dataType} variant="label-hidden" data-id={varObj.name} name={varObj.name} value={varObj.value} onchange={handleChange}></lightning-input>
+                                    </template>
+                                </div>
+                            </div>
+                        </template>
+                    </template>
+                </div>
+            </div>
+        </template>
+        
+        <div class="slds-grid slds-wrap">
+            <template if:true={isHeatRestDef}>
+                <div class="">
+                    <c-owc-Not-Allowed-Heat-Rest-Garment-Container powdetails={paymentOfWagesDetails} onrestclaimparentvalidityevent={handleRestClaimParentValidityCheck} onrestclaimparentinfoevent={handleRestClaimParentInfo} ></c-owc-Not-Allowed-Heat-Rest-Garment-Container>
+                </div>
+            </template>
+            <template if:true={isWrittenStatement}>
+                <div class="slds-p-around_medium  slds-col slds-p-bottom_medium slds-size_1-of-1 slds-medium-size_1-of-1 slds-large-size_1-of-1">
+                    <h2>{customLabelValues.OWC_written_statement}</h2>
+                    <div class="slds-p-top_medium">{customLabelValues.OWC_written_statement_help_msg}</div>
+                </div>
+            </template>
+            
+            <template if:true={paidbycheck}>
+                <div class="slds-col slds-p-bottom_medium slds-size_1-of-1 slds-medium-size_1-of-1 slds-large-size_1-of-1">
+                    <c-owc-Insufficient-Fund-Claim-Garment-Container paidbycheck={paidbycheck} onfundclaimparentvalidityevent={handleFundClaimParentValidityCheck} onfundclaimparentinfoevent={handleFundClaimParentInfo}></c-owc-Insufficient-Fund-Claim-Garment-Container>
+                </div>
+            </template>
+
+            <template if:true={showWaitingTimeClaim}>
+                <div class="slds-p-around_medium slds-col slds-p-bottom_medium slds-size_1-of-1 slds-medium-size_1-of-1 slds-large-size_1-of-1">
+                    <c-owc-Waiting-Time-Claim-Garment finalpaymentdate={finalpaymentdate} onwaitinginfoevent={handleWaitingInfoCustomEvent} onwaitingtimevalidityevent={handleWaitingValidityEvent} noticebeforequit={noticebeforequit} quitdatevalue={quitdatevalue} dischargeddate={dischargeddate} isnotidentifyemployer={isnotidentifyemployer} powdetails={paymentOfWagesDetails}></c-owc-Waiting-Time-Claim-Garment>
+                </div>
+            </template>
+        </div>
+
+        <div class="slds-p-left_medium slds-p-right_medium slds-col slds-size_1-of-1 slds-medium-size_1-of-1 slds-large-size_1-of-1">
+            <b>{customLabelValues.OWC_other_claims_label}</b>
+            <span class="slds-p-left_x-small">
+            <lightning-icon icon-name="utility:info" class="my-icon" size="x-small" alternative-text="info"  label={customLabelValues.OWC_learnmore_button} name="listedClaimHelptext" onclick={handleHelpText} ></lightning-icon>
+         </span> 
+        </div>
+        <div class="slds-p-top_medium slds-p-left_medium slds-p-right_medium slds-col slds-size_1-of-1 slds-medium-size_1-of-1 slds-large-size_1-of-1">
+            <div class="">
+                <span><input type="checkbox" style="width:15px;height:15px;" name="notPaidForWork" value={notPaidForWork} data-id="notPaidForWork" checked={notPaidForWork} onchange={handleChange}/></span>
+                <span class="slds-p-left_x-small">{customLabelValues.OWC_wage_deficiencies_notpaid_for_worked}</span>
+                <span class="slds-p-left_x-small">
+                    <lightning-icon icon-name="utility:info" class="my-icon" size="x-small" alternative-text="info"  label={customLabelValues.OWC_learnmore_button} name="regularClaimHelpText" onclick={handleHelpText} ></lightning-icon>
+                </span>
+            </div>
+        </div>
+        <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-1 slds-large-size_1-of-1">
+            <template if:true={isFirstOptionTrue}>
+                    <div class="">
+                        <template if:true={isRenderWorkedNotPaidSection}>
+                            <template for:each={renderWorkedNotPaidSection} for:item="notPaidObj">
+                                <div key={notPaidObj.Id}>
+                                    <div class="slds-grid slds-wrap">
+                                        <h2 class="slds-col slds-medium-size_5-of-6 slds-large-size_5-of-6 slds-p-left_medium slds-p-top_medium slds-p-right_medium">
+                                            {notPaidObj.heading}
+                                        </h2>
+                                        <div class="slds-col slds-medium-size_1-of-6 slds-large-size_1-of-6">
+                                            <template if:false={iswagedefpreview}>
+                                                <template if:true={notPaidObj.button}>
+                                                    <lightning-button variant="brand" label={customLabelValues.OWC_delete_claim_button} title={customLabelValues.OWC_delete_claim_button} name={notPaidObj.sectionId} onclick={handleSectionDelete} class="slds-float_right owcButtonStyle"></lightning-button>
+                                                </template>
+                                            </template>
+                                        </div>
+                                        <template if:false={notPaidObj.button}>
+                                            <div class="slds-p-left_medium">{customLabelValues.OWC_regular_wage_heading_text}</div> 
+                                        </template>
+                                    </div>
+                                    <div>
+                                        <c-owc-Wage-Deficiencies-For-Hourly-Rate-Garment wageclaimsubmit={wageclaimsubmit} paidbreaks={paidbreaks} heatrecovery={heatrecovery} iswagedefpreview={iswagedefpreview} isspinner={isSpinner} staterate={staterate} minimumrates={minimumrates} onwagehourlynodataevent={handleWageHourlyNoData} otherworkcity={otherworkcity} salaryratelist={salaryratelist} hourlyratelist={hourlyratelist} multiplehourlyrate={multiplehourlyrate} stateminimumwagerate={stateminwagerate} localminimumwagerate={minimumwage} onhidehourlyspinner={handleSpinnerHide} onwagedefsectiondeleteevent={handleWageDefDeleteEvent} onworknotpaidvalidityevent={handleWorkNotPaidValidityEvent} onwagedeficienciesfirstoptionevent={handleWageDeficienciesInforEvent} paymentofwagedetails={paymentOfWagesDetails} sectionid={notPaidObj.sectionId} ></c-owc-Wage-Deficiencies-For-Hourly-Rate-Garment>
+                                    </div>
+                                </div>
+                            </template>
+                        </template>
+                        <div class="slds-p-left_medium slds-p-bottom_medium slds-col slds-medium-size_1-of-1 slds-large-size_1-of-1">
+                            <template if:false={iswagedefpreview}>
+                                {customLabelValues.OWC_another_regular_wage_button}&nbsp;
+                                <lightning-button class="owcAdditionalButtonStyle" icon-name="utility:add" variant="brand" label={customLabelValues.OWC_repeat_claim} onclick={repeatClaim}></lightning-button>
+                            </template>
+                        </div>
+                    </div>
+            </template>
+        </div>
+        <div class="slds-p-left_medium slds-p-right_medium slds-col slds-size_1-of-1 slds-medium-size_1-of-1 slds-large-size_1-of-1">
+            <div class="">
+                <input style="width:15px;height:15px;" type="checkbox" disabled={iswagedefpreview} name="noOvertimePaid" value={noOvertimePaid} data-id="noOvertimePaid" checked={noOvertimePaid} onchange={handleChange}/>
+                <span class="slds-p-left_x-small">{customLabelValues.OWC_wage_deficiencies_regular_paid}</span>
+                <span class="slds-p-left_x-small">
+                    <lightning-icon icon-name="utility:info" class="my-icon" size="x-small" alternative-text="info"  label={customLabelValues.OWC_learnmore_button} name="otOrDtClaimHelpText" onclick={handleHelpText} ></lightning-icon>
+                 </span>
+            </div>
+        </div>
+        <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-1 slds-large-size_1-of-1">
+            <template if:true={isSecondOptionTrue}>
+                <c-owc-Over-Time-Or-Double-Time-Garment-Def is_domestic_worker={is_domestic_worker} isfarmlabour={isfarmlabour} iswagedefpreview={iswagedefpreview} powdetails={paymentOfWagesDetails} userworkedhours={userworkedhours} onovertimedefparentvalidityevent={handleOverTimeParentValidityCheck} onovertimeparentinfoevent={handleOverTimeParentInfo}></c-owc-Over-Time-Or-Double-Time-Garment-Def>
+            </template>
+        </div>
+        
+        <div class="slds-p-left_medium slds-p-right_medium slds-col slds-size_1-of-1 slds-medium-size_1-of-1 slds-large-size_1-of-1">
+            <div class="">
+                <span><input style="width:15px;height:15px;" type="checkbox" disabled={iswagedefpreview} name="noSickLeavePaid" value={noSickLeavePaid} data-id="noSickLeavePaid" checked={noSickLeavePaid} onchange={handleChange}/></span>
+                <span class="slds-p-left_x-small">{customLabelValues.OWC_wage_deficiencies_sickleave_paid}</span>
+                <span class="slds-p-left_x-small">
+                    <lightning-icon icon-name="utility:info" class="my-icon" size="x-small" alternative-text="info"  label={customLabelValues.OWC_learnmore_button} name="sickLeaveOptionHelpText" onclick={handleHelpText} ></lightning-icon>
+                 </span>
+            </div>
+        </div>
+        <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-1 slds-large-size_1-of-1">
+            <template if:true={isThirdOptionTrue}>
+                <c-owc-Not-Paid-Sick-Leave-Garment-Container iswagedefpreview={iswagedefpreview} paystubsickrecord={paystubsickrecord} onsickleaveparentvalidityevent={handleSickLeaveParentValidityCheck} onsickleaveparentinfoevent={handleSickLeaveParentInfo}></c-owc-Not-Paid-Sick-Leave-Garment-Container>
+            </template>
+        </div>
+
+        <div class="slds-p-left_medium slds-p-right_medium slds-col slds-size_1-of-1 slds-medium-size_1-of-1 slds-large-size_1-of-1">
+            <div class="">
+                <span><input style="width:15px;height:15px;" type="checkbox" disabled={iswagedefpreview} name="notPaidForVacationTime" value={notPaidForVacationTime} data-id="notPaidForVacationTime" checked={notPaidForVacationTime} onchange={handleChange}/></span>
+                <span class="slds-p-left_x-small">{customLabelValues.owc_not_paid_vacation}</span>
+                <span class="slds-p-left_x-small">
+                    <lightning-icon icon-name="utility:info" class="my-icon" size="x-small" alternative-text="info"  label={customLabelValues.OWC_learnmore_button} name="vacationHelpText" onclick={handleHelpText} ></lightning-icon>
+                 </span>
+            </div>
+        </div>
+        <template if:true={isFourthOptionTrue}>
+            <template if:false={isEmployeeWorkedDateValid}>
+                <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-1 slds-large-size_1-of-1">
+                    <div class="slds-p-left_large slds-p-top_large slds-p-bottom_large" style="color:red;">
+                        <b>{customLabelValues.OWC_one_calendar_year_span}</b>
+                    </div>
+                </div>
+            </template>
+            <template if:true={isEmployeeWorkedDateValid}>
+                <div class="slds-p-left_medium slds-p-right_medium slds-col slds-size_1-of-1 slds-medium-size_1-of-1 slds-large-size_1-of-1">
+                    <div class="slds-p-top_medium slds-p-bottom_medium">
+                        <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-1 slds-large-size_1-of-1">
+                            <fieldset class="">
+                                <div>
+                                    <h2>
+                                        <span class="">{customLabelValues.OWC_typically_worked_vacation_time_claims}</span>
+                                        <template if:false={iswagedefpreview}>
+                                            <span class="slds-p-left_x-small">
+                                                <lightning-icon icon-name="utility:info" class="my-icon" size="x-small" alternative-text="info"  label={customLabelValues.OWC_learnmore_button} name="vacationTimeClaim" onclick={handleHelpText} ></lightning-icon>
+                                             </span>
+                                        </template>
+                                    </h2>
+                                </div>
+                                
+                                <div>
+                                    <a href="https://www.dir.ca.gov/dlse/Vac-Pay-Sched.pdf" target="_blank">https://www.dir.ca.gov/dlse/Vac-Pay-Sched.pdf</a>
+                                </div>
+                                <template if:false={iswagedefpreview}>
+                                    <lightning-file-upload name="vacationTimeClaimDoc"
+                                        accept={acceptedFormats}
+                                        disabled={isVacationFileUpload}
+                                        data-id="vacationTimeClaimDoc"
+                                        record-id={myRecordId}
+                                        onuploadfinished={handleVacationTimeClaimDoc}
+                                        multiple>
+                                </lightning-file-upload>
+                                <template if:true={isVacationFileUpload}>
+                                    <span style="color:red;">{customLabelValues.OWC_file_size_error}</span>
+                                </template>
+                                </template>
+                            </fieldset>
+                            <template if:false={isVacationTimeClaimUpload}>
+                                <c-owc-Multiple-File-Upload-Details-Cmp data-id="vacationTimeClaimId" name="vacationTimeClaimId" isfileuploaded={isVacationTimeClaimUpload} onuploaddocumentevent={handleVacationTimeClaimEvent}></c-owc-Multiple-File-Upload-Details-Cmp>
+                            </template>
+                        </div>
+                    </div>
+                </div>
+                <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-1 slds-large-size_1-of-1">
+                    <div class="slds-grid slds-wrap">
+                        <template for:each={violationTypeVariablesForVacationTime} for:item="varObj">
+                            <template if:true={varObj.isShow}>
+                                <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-2 slds-large-size_1-of-2" key={varObj.recordId}>
+                                    <div class="slds-p-around_medium">
+                                        <span class="">{varObj.label} </span> 
+                                        <template if:true={varObj.helpText}>
+                                            <span class="slds-p-left_x-small">
+                                                <lightning-icon icon-name="utility:info" class="my-icon" size="x-small" alternative-text="info"  label={customLabelValues.OWC_learnmore_button} name="vacationTimeTotalHourHelpMsg" onclick={handleHelpText} ></lightning-icon>
+                                             </span>
+                                        </template>
+                                        <template if:true={varObj.dateFormat}>
+                                            <lightning-input date-style="short" type={varObj.dataType} variant="label-hidden" data-id={varObj.name} name={varObj.name} value={varObj.value} onchange={handleChange}></lightning-input>
+                                        </template>
+                                        <template if:true={varObj.currencyFormat}>
+                                            <lightning-input variant="label-hidden" placeholder="$0.00" formatter="currency" step="0.01" type="number" data-id={varObj.name} name={varObj.name} value={varObj.value} onchange={handleChange}></lightning-input>
+                                        </template>
+                                        <template if:true={varObj.numberFormat}>
+                                            <lightning-input variant="label-hidden" type="number" data-id={varObj.name} name={varObj.name} value={varObj.value} onchange={handleChange}></lightning-input>
+                                        </template>
+                                        <template if:true={varObj.inputFormat}>
+                                            <lightning-input variant="label-hidden" type={varObj.dataType} data-id={varObj.name} name={varObj.name} value={varObj.value} onchange={handleChange}></lightning-input>
+                                        </template>
+                                    </div>
+                                </div>
+                            </template>
+                        </template>
+                    </div>
+                </div>
+            </template>
+        </template>
+        
+
+        <div class="slds-p-left_medium slds-p-right_medium slds-col slds-size_1-of-1 slds-medium-size_1-of-1 slds-large-size_1-of-1">
+            <div class="">
+                <span><input style="width:15px;height:15px;" type="checkbox" name="notPaidForHoliday" value={notPaidForHoliday} data-id="notPaidForHoliday" checked={notPaidForHoliday} onchange={handleChange}/></span>
+                <span class="slds-p-left_x-small">{customLabelValues.owc_not_paid_Holiday}</span>
+                <span class="slds-p-left_x-small">
+                    <lightning-icon icon-name="utility:info" class="my-icon" size="x-small" alternative-text="info"  label={customLabelValues.OWC_learnmore_button} name="holidayHelpText" onclick={handleHelpText} ></lightning-icon>
+                 </span>
+            </div>
+        </div>
+        <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-1 slds-large-size_1-of-1">
+           <template if:true={isHolidayPay}>
+               <div class="slds-p-left_medium slds-p-top_medium slds-p-bottom_medium">
+                    <h2 class="slds-p-bottom_medium">{customLabelValues.OWC_holiday_claim}</h2>
+                    <span class="">{customLabelValues.OWC_not_promised_holiday_pay}</span>
+                    <lightning-radio-group 
+                                        name="holidayPay"
+                                        data-id="holidayPay"
+                                        class=""
+                                        options={options}
+                                        value={holidayPay}
+                                        variant="label-hidden" 
+                                        onchange={handleChange}
+                                        onblur={handleFocus}>
+                    </lightning-radio-group>
+               </div>
+           </template>
+        </div>
+        <div class="slds-p-left_medium slds-p-right_medium slds-col slds-size_1-of-1 slds-medium-size_1-of-1 slds-large-size_1-of-1">
+            <div class="">
+                <span><input style="width:15px;height:15px;" type="checkbox" name="notAllowedBathBreak" value={notAllowedBathBreak} data-id="notAllowedBathBreak" checked={notAllowedBathBreak} onchange={handleChange}/></span>
+                <span class="slds-p-left_x-small">{customLabelValues.OWC_wage_deficiencies_bathroom_break}</span>
+                <span class="slds-p-left_x-small">
+                    <lightning-icon icon-name="utility:info" class="my-icon" size="x-small" alternative-text="info"  label={customLabelValues.OWC_learnmore_button} name="restBreakHelpText" onclick={handleHelpText} ></lightning-icon>
+                 </span>
+            </div>
+        </div>
+        <template if:true={isSixthOptionTrue}>
+            <div class="slds-p-bottom_medium slds-col slds-size_1-of-1 slds-medium-size_1-of-1 slds-large-size_1-of-1">
+                <c-owc-Not-Allowed-Rest-Break-Garment-Container iwcinfoobj={iwcinfoobj} onrestbreakparentvalidityevent={handleRestBreakParentValidityCheck} onrestbreakparentinfoevent={handleReatBreakParentInfo}></c-owc-Not-Allowed-Rest-Break-Garment-Container>
+            </div>
+        </template>
+        
+
+        <div class="slds-p-left_medium slds-p-right_medium slds-col slds-size_1-of-1 slds-medium-size_1-of-1 slds-large-size_1-of-1">
+            <div class="">
+                <span><input style="width:15px;height:15px;" type="checkbox" name="notAllowedMealBreak" value={notAllowedMealBreak} data-id="notAllowedMealBreak" checked={notAllowedMealBreak} onchange={handleChange}/></span>
+                <span class="slds-p-left_x-small">{customLabelValues.OWC_wage_deficiencies_mealbreak}</span>
+                <span class="slds-p-left_x-small">
+                    <lightning-icon icon-name="utility:info" class="my-icon" size="x-small" alternative-text="info"  label={customLabelValues.OWC_learnmore_button} name="mealBreakHelp" onclick={handleHelpText} ></lightning-icon>
+                 </span>
+            </div>
+        </div>
+        <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-1 slds-large-size_1-of-1">
+            <template if:true={isSeventhOptionTrue}>
+                <c-owc-Not-Allowed-For-Meal-Break-Garment-Container iwcinfoobj={iwcinfoobj} onmealbreakparentvalidityevent={handleMealBreakParentValidityCheck} onmealbreakparentinfoevent={handleMealBreakParentInfo}></c-owc-Not-Allowed-For-Meal-Break-Garment-Container>
+            </template>
+        </div>
+
+        <div class="slds-p-left_medium slds-p-right_medium slds-col slds-size_1-of-1 slds-medium-size_1-of-1 slds-large-size_1-of-1">
+            <div class="">
+                <span><input style="width:15px;height:15px;" type="checkbox" name="notAllowedForHeatRest" value={notAllowedForHeatRest} data-id="notAllowedForHeatRest" checked={notAllowedForHeatRest} onchange={handleChange}/></span>
+                <span class="slds-p-left_x-small">{customLabelValues.owc_not_allowed_heat_rest}</span>
+                <span class="slds-p-left_x-small">
+                    <lightning-icon icon-name="utility:info" class="my-icon" size="x-small" alternative-text="info"  label={customLabelValues.OWC_learnmore_button} name="heatHelp" onclick={handleHelpText} ></lightning-icon>
+                 </span>
+            </div>
+        </div>
+        <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-1 slds-large-size_1-of-1">
+            <template if:true={isEightOptionTrue}>
+                <c-owc-Not-Allowed-Heat-Rest-Garment-Container powdetails={paymentOfWagesDetails} onrestclaimparentvalidityevent={handleRestClaimParentValidityCheck} onrestclaimparentinfoevent={handleRestClaimParentInfo}></c-owc-Not-Allowed-Heat-Rest-Garment-Container>
+            </template>
+        </div>
+
+        <div class="slds-p-left_medium slds-p-right_medium slds-col slds-size_1-of-1 slds-medium-size_1-of-1 slds-large-size_1-of-1">
+            <div class="">
+                <span><input style="width:15px;height:15px;" type="checkbox" name="notPaidSeverancePay" value={notPaidSeverancePay} data-id="notPaidSeverancePay" checked={notPaidSeverancePay} onchange={handleChange}/></span>
+                <span class="slds-p-left_x-small">{customLabelValues.OWC_wage_deficiencies_severancepay}</span>
+                <span class="slds-p-left_x-small">
+                    <lightning-icon icon-name="utility:info" class="my-icon" size="x-small" alternative-text="info"  label={customLabelValues.OWC_learnmore_button} name="sevHelp" onclick={handleHelpText} ></lightning-icon>
+                 </span>
+            </div>
+        </div>
+        <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-1 slds-large-size_1-of-1">
+            <template if:true={isSeverancePay}>
+                <div class="slds-p-left_medium slds-p-top_medium slds-grid slds-wrap">
+                    
+                    <div class="slds-col slds-size_1-of-1 slds-p-bottom_medium slds-medium-size_1-of-1 slds-large-size_1-of-1 slds-p-bottom_medium">
+                        <h2>{customLabelValues.OWC_severance_pay_claim_heading}</h2>
+                    </div>
+                    <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-1 slds-large-size_1-of-1 slds-p-bottom_medium">
+                        {customLabelValues.OWC_wage_deficiencies_severancepay_offered}
+                        <lightning-radio-group 
+                                            name="serverancePay"
+                                            data-id="serverancePay"
+                                            class=""
+                                            options={options}
+                                            value={serverancePay}
+                                            variant="label-hidden" 
+                                            onchange={handleChange}
+                                            onblur={handleFocus}>
+                        </lightning-radio-group>
+                    </div>
+                    <template if:true={isSeverancePayTrue}>
+                        <div class="slds-p-top_medium slds-p-bottom_medium slds-p-right_medium slds-col slds-size_1-of-1 slds-medium-size_1-of-2 slds-large-size_1-of-2">
+                            {customLabelValues.OWC_how_label}
+                            <lightning-combobox 
+                                            variant="label-hidden"
+                                            name="severancePayOffered"
+                                            placeholder={customLabelValues.OWC_select_picklist_label}
+                                            data-id="severancePayOffered"
+                                            value={severancePayOffered}
+                                            options={severancePayOfferedOptions}
+                                            onchange={handleChange} 
+                                            onblur={handleEmployementSevercePay}>
+                            </lightning-combobox>
+                        </div>
+                        <div class="slds-col slds-p-top_medium slds-p-bottom_medium slds-p-right_medium slds-size_1-of-1 slds-medium-size_1-of-2 slds-large-size_1-of-2">
+                            {customLabelValues.OWC_total_severance_pay_amount}
+                            <lightning-input variant="label-hidden" placeholder="$0.00" formatter="currency" step="0.01" type="number" data-id="totalAmountPaid" name="totalAmountPaid" value={totalAmountPaid} onchange={handleChange}></lightning-input>
+                        </div>
+                    </template>
+                </div>
+            </template>
+        </div>
+
+        <div class="slds-p-left_medium slds-p-right_medium slds-col slds-size_1-of-1 slds-medium-size_1-of-1 slds-large-size_1-of-1">
+            <div class="">
+                <span><input style="width:15px;height:15px;" type="checkbox" name="deniedShareTips" value={deniedShareTips} data-id="deniedShareTips" checked={deniedShareTips} onchange={handleChange}/></span>
+                <span class="slds-p-left_x-small">{customLabelValues.OWC_wage_deficiencies_sharetips}</span>
+                <span class="slds-p-left_x-small">
+                    <lightning-icon icon-name="utility:info" class="my-icon" size="x-small" alternative-text="info"  label={customLabelValues.OWC_learnmore_button} name="shareHp" onclick={handleHelpText} ></lightning-icon>
+                 </span>
+            </div>
+        </div>
+        <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-1 slds-large-size_1-of-1">
+            <template if:true={isTenthOptionTrue}>
+                <template if:true={isShareTips}>
+                    <h2 class="slds-p-left_medium slds-p-top_medium">{customLabelValues.OWC_tip_claim_heading}</h2>
+                    <div class="slds-grid slds-wrap slds-p-left_medium slds-p-top_medium slds-p-bottom_medium">
+                        <template for:each={violationTypeVariablesForShareTips} for:item="varObj">
+                            <template if:true={varObj.isShow}>
+                                <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-2 slds-large-size_1-of-2" key={varObj.recordId}>
+                                    <div class="slds-p-top_medium slds-p-bottom_medium slds-p-right_medium">
+                                    <span class="">{varObj.label} </span> 
+                                    <template if:true={varObj.dateFormat}>
+                                        <lightning-input date-style="short" type={varObj.dataType} variant="label-hidden" data-id={varObj.name} name={varObj.name} value={varObj.value} onchange={handleChange}></lightning-input>
+                                    </template>
+                                    <template if:true={varObj.currencyFormat}>
+                                        <lightning-input variant="label-hidden" placeholder="$0.00" formatter="currency" step="0.01" type="number" data-id={varObj.name} name={varObj.name} value={varObj.value} onchange={handleChange}></lightning-input>
+                                    </template>
+                                    <template if:true={varObj.numberFormat}>
+                                        <lightning-input variant="label-hidden" type="number" data-id={varObj.name} name={varObj.name} value={varObj.value} onchange={handleChange}></lightning-input>
+                                    </template>
+                                    <template if:true={varObj.inputFormat}>
+                                        <lightning-input variant="label-hidden" type={varObj.dataType} data-id={varObj.name} name={varObj.name} value={varObj.value} onchange={handleChange}></lightning-input>
+                                    </template>
+                                </div>
+                                </div>
+                            </template>
+                        </template>
+                    </div>
+                    <div class="slds-grid slds-wrap slds-p-left_medium slds-p-bottom_medium">
+                        <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-2 slds-large-size_1-of-2">
+                            {customLabelValues.OWC_wage_deficiencies_pooltips} 
+                                                <lightning-radio-group 
+                                                        name="claimPoolTips"
+                                                        data-id="claimPoolTips"
+                                                        options={options}
+                                                        value={claimPoolTips}
+                                                        variant="label-hidden" 
+                                                        type="radio"
+                                                        onchange={handleChange}>
+                                                </lightning-radio-group>
+                        </div>
+                        <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-2 slds-large-size_1-of-2">
+                            {customLabelValues.OWC_wage_deficiencies_receive_tips}          
+                                                <lightning-radio-group 
+                                                    name="claimTipReceived"
+                                                    data-id="claimTipReceived"
+                                                    options={options}
+                                                    value={claimTipReceived}
+                                                    variant="label-hidden" 
+                                                    type="radio"
+                                                    onchange={handleChange}>
+                                                </lightning-radio-group>
+                        </div>
+                                        </div>
+                </template>
+            </template>
+        </div>
+
+        <div class="slds-p-left_medium slds-p-right_medium slds-col slds-size_1-of-1 slds-medium-size_1-of-1 slds-large-size_1-of-1">
+            <div class="">
+                <span><input style="width:15px;height:15px;" type="checkbox" name="deniedBusinessCost" value={deniedBusinessCost} data-id="deniedBusinessCost" checked={deniedBusinessCost} onchange={handleChange}/></span>
+                <span class="slds-p-left_x-small">{customLabelValues.OWC_wage_deficiencies_payment_denied}</span>
+                <span class="slds-p-left_x-small">
+                    <lightning-icon icon-name="utility:info" class="my-icon" size="x-small" alternative-text="info"  label={customLabelValues.OWC_learnmore_button} name="paymentDenied" onclick={handleHelpText} ></lightning-icon>
+                 </span>
+            </div>
+        </div>
+        <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-1 slds-large-size_1-of-1">
+            <template if:true={isEleventhOptionTrue}>
+                <template if:true={isBusinessCost}>
+                    <div class="slds-p-top_medium slds-p-left_medium">
+                        <h2>{customLabelValues.OWC_business_expense_claim_heading}</h2>
+                    </div>
+                    <div class="slds-grid slds-wrap slds-p-top_medium slds-p-bottom_medium">
+                        <template for:each={violationTypeVariablesForBusinessCost} for:item="varObj">
+                            <template if:true={varObj.isShow}>
+                                <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-2 slds-large-size_1-of-2" key={varObj.recordId}>
+                                    <div class="slds-p-around_medium">
+                                    <span class="">{varObj.label} </span> 
+                                    <template if:true={varObj.dateFormat}>
+                                        <lightning-input date-style="short" type={varObj.dataType} variant="label-hidden" data-id={varObj.name} name={varObj.name} value={varObj.value} onchange={handleChange}></lightning-input>
+                                    </template>
+                                    <template if:true={varObj.currencyFormat}>
+                                        <lightning-input variant="label-hidden" placeholder="$0.00" formatter="currency" step="0.01" type="number" data-id={varObj.name} name={varObj.name} value={varObj.value} onchange={handleChange}></lightning-input>
+                                    </template>
+                                    <template if:true={varObj.numberFormat}>
+                                        <lightning-input variant="label-hidden" type="number" data-id={varObj.name} name={varObj.name} value={varObj.value} onchange={handleChange}></lightning-input>
+                                    </template>
+                                    <template if:true={varObj.inputFormat}>
+                                        <lightning-input variant="label-hidden" type={varObj.dataType} data-id={varObj.name} name={varObj.name} value={varObj.value} onchange={handleChange}></lightning-input>
+                                    </template>
+                                </div>
+                                </div>
+                            </template>		
+                        </template>
+                    </div>
+                    <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-1 slds-large-size_1-of-1">
+
+                        <fieldset class="slds-p-bottom_medium slds-p-left_medium">
+                            <span>{customLabelValues.OWC_typically_worked_unreimbursed_business}</span>&nbsp;
+                            <span>
+                                <a href="https://www.dir.ca.gov/dlse/Schedule-of-Expenses.pdf" target="_blank">https://www.dir.ca.gov/dlse/Schedule-of-Expenses.pdf</a>
+                            </span>&nbsp;
+                            <span>{customLabelValues.OWC_complete_saveit_label}</span>
+                            <span class="slds-p-left_x-small">
+                                <lightning-icon icon-name="utility:info" class="my-icon" size="x-small" alternative-text="info"  label={customLabelValues.OWC_learnmore_button} name="unreimbursedBusiness" onclick={handleHelpText} ></lightning-icon>
+                             </span>
+                            <lightning-file-upload name="unreimbursedDoc"
+                                accept={acceptedFormats}
+                                disabled={isUnremburisedFileUpload}
+                                data-id="unreimbursedDoc"
+                                record-id={myRecordId}
+                                onuploadfinished={handleunreimbursedDoc}
+                                multiple>
+                            </lightning-file-upload>
+                            <template if:true={isUnremburisedFileUpload}>
+                                <span style="color:red;">{customLabelValues.OWC_file_size_error}</span>
+                            </template>
+                        </fieldset>
+                        <template if:false={isUnreimbursedUpload}>
+                            <div class="slds-p-left_medium slds-p-bottom_medium">
+                                <c-owc-Multiple-File-Upload-Details-Cmp data-id="unreimbursedDocId" name="unreimbursedDocId" isfileuploaded={isUnreimbursedUpload} onuploaddocumentevent={handleUnreimbursedDocEvent}></c-owc-Multiple-File-Upload-Details-Cmp>
+                            </div>
+                        </template>
+                    </div>
+                </template>
+            </template>
+        </div>
+
+        <div class="slds-p-left_medium slds-p-right_medium slds-col slds-size_1-of-1 slds-medium-size_1-of-1 slds-large-size_1-of-1">
+            <div class="">
+                <span><input style="width:15px;height:15px;" type="checkbox" name="deniedPaymentMilega" value={deniedPaymentMilega} data-id="deniedPaymentMilega" checked={deniedPaymentMilega} onchange={handleChange}/></span>
+                <span class="slds-p-left_x-small">{customLabelValues.OWC_wage_deficiencies_denied_payment}</span>
+                <span class="slds-p-left_x-small">
+                    <lightning-icon icon-name="utility:info" class="my-icon" size="x-small" alternative-text="info"  label={customLabelValues.OWC_learnmore_button} name="deniedPaymentText" onclick={handleHelpText} ></lightning-icon>
+                 </span>
+            </div>
+        </div>
+        <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-1 slds-large-size_1-of-1">
+            <template if:true={isTwelveOptionTrue}>
+                <c-owc-Denied-Milega-Pay-Garment-Container onmileageclaimparentvalidityevent={handleMileageClaimParentValidityCheck} onmileageclaimparentinfoevent={handleMileageClaimParentInfo}></c-owc-Denied-Milega-Pay-Garment-Container>
+            </template>
+        </div>
+
+        <div class="slds-p-left_medium slds-p-right_medium slds-col slds-size_1-of-1 slds-medium-size_1-of-1 slds-large-size_1-of-1">
+            <div class="">
+                <span><input style="width:15px;height:15px;" type="checkbox" name="paycheckDeduction" value={paycheckDeduction} data-id="paycheckDeduction" checked={paycheckDeduction} onchange={handleChange}/></span>
+                <span class="slds-p-left_x-small">{customLabelValues.OWC_wage_deficiencies_paycheck_deduction} </span>
+                <span class="slds-p-left_x-small">
+                    <lightning-icon icon-name="utility:info" class="my-icon" size="x-small" alternative-text="info"  label={customLabelValues.OWC_learnmore_button} name="checkDecHp" onclick={handleHelpText} ></lightning-icon>
+                 </span>
+            </div>
+        </div>
+        <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-1 slds-large-size_1-of-1">
+            <template if:true={isThirteenthOptionTrue}>
+                <div class="slds-p-left_medium slds-p-top_medium">
+                    <h2>{customLabelValues.OWC_deduction_claim_heading}</h2>
+                </div>
+                <template if:true={isPayCheck}>
+                    <div class="slds-grid slds-wrap slds-p-left_medium slds-p-top_medium slds-p-bottom_medium">
+                        
+                        <template for:each={violationTypeVariablesForPayCheck} for:item="varObj">
+                            <template if:true={varObj.isShow}>
+                                <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-2 slds-large-size_1-of-2" key={varObj.recordId}>
+                                    <div class="slds-p-top_medium slds-p-right_medium slds-p-bottom_medium">
+                                    <span class="">{varObj.label} </span> 
+                                    <template if:true={varObj.dateFormat}>
+                                        <lightning-input date-style="short" type={varObj.dataType} variant="label-hidden" data-id={varObj.name} name={varObj.name} value={varObj.value} onchange={handleChange}></lightning-input>
+                                    </template>
+                                    <template if:true={varObj.currencyFormat}>
+                                        <lightning-input variant="label-hidden" placeholder="$0.00" formatter="currency" step="0.01" type="number" data-id={varObj.name} name={varObj.name} value={varObj.value} onchange={handleChange}></lightning-input>
+                                    </template>
+                                    <template if:true={varObj.numberFormat}>
+                                        <lightning-input variant="label-hidden" type="number" data-id={varObj.name} name={varObj.name} value={varObj.value} onchange={handleChange}></lightning-input>
+                                    </template>
+                                    <template if:true={varObj.inputFormat}>
+                                        <lightning-input variant="label-hidden" type={varObj.dataType} data-id={varObj.name} name={varObj.name} value={varObj.value} onchange={handleChange}></lightning-input>
+                                    </template>
+                                </div>
+                                </div>
+                            </template>	
+                        </template>
+                    </div>
+                </template>
+            </template>
+        </div>
+
+        <div class="slds-p-left_medium slds-col slds-size_1-of-1 slds-medium-size_1-of-1 slds-large-size_1-of-1">
+            <div class="">
+                <span><input style="width:15px;height:15px;" type="checkbox" name="deniedPayrollInfo" value={deniedPayrollInfo} data-id="deniedPayrollInfo" checked={deniedPayrollInfo} onchange={handleChange}/></span>
+                <span class="slds-p-left_x-small">{customLabelValues.OWC_wage_deficiencies_payroll_information}</span>
+                <span class="slds-p-left_x-small">
+                    <lightning-icon icon-name="utility:info" class="my-icon" size="x-small" alternative-text="info"  label={customLabelValues.OWC_learnmore_button} name="deniedPayroll" onclick={handleHelpText} ></lightning-icon>
+                 </span>
+            </div>
+        </div>
+        <div class="slds-p-left_medium slds-p-right_medium slds-col slds-size_1-of-1 slds-medium-size_1-of-1 slds-large-size_1-of-1">
+            <template if:true={isFouteenOptionTrue}>
+                <div class="slds-grid slds-wrap">
+                    <div class="slds-p-top_medium slds-p-right_medium slds-p-bottom_medium slds-col slds-size_1-of-1 slds-medium-size_1-of-2 slds-large-size_1-of-2">
+                        {customLabelValues.OWC_demand_date_label}
+                        <span class="dateFormatLabel">{dateFormatLabel}</span>
+                        <lightning-input type="date" date-style="short" variant="label-hidden" data-id="payrollDemandDate" name="payrollDemandDate" value={payrollDemandDate} onchange={handleChange}></lightning-input>
+                    </div>
+                    <div class="slds-p-top_medium slds-p-right_medium slds-p-bottom_medium slds-col slds-size_1-of-1 slds-medium-size_1-of-2 slds-large-size_1-of-2">
+                        {customLabelValues.OWC_employer_response_label}
+                        <lightning-input type="text" variant="label-hidden" data-id="employerResponse" name="employerResponse" value={employerResponse} onchange={handleChange}></lightning-input>
+                    </div>
+                </div>
+            </template>
+        </div>
+
+        <div class="slds-p-left_medium slds-p-right_medium slds-col slds-size_1-of-1 slds-medium-size_1-of-1 slds-large-size_1-of-1">
+            <div class="">
+                <span><input style="width:15px;height:15px;" type="checkbox" name="deniedPersonnelFile" value={deniedPersonnelFile} data-id="deniedPersonnelFile" checked={deniedPersonnelFile} onchange={handleChange}/></span>
+                <span class="slds-p-left_x-small">{customLabelValues.OWC_wage_deficiencies_personnel_file}</span>
+                <span class="slds-p-left_x-small">
+                    <lightning-icon icon-name="utility:info" class="my-icon" size="x-small" alternative-text="info"  label={customLabelValues.OWC_learnmore_button} name="deniedPersonalFile" onclick={handleHelpText} ></lightning-icon>
+                 </span>
+            </div>
+        </div>
+        <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-1 slds-large-size_1-of-1">
+            <template if:true={isFifteenOptionTrue}>
+                <div class="slds-grid slds-wrap slds-p-left_medium slds-p-right_medium">
+                    <div class="slds-p-top_medium slds-p-right_medium slds-p-bottom_medium slds-col slds-size_1-of-1 slds-medium-size_1-of-2 slds-large-size_1-of-2">
+                        {customLabelValues.OWC_demand_date_label}
+                        <span class="dateFormatLabel">{dateFormatLabel}</span>
+                        <lightning-input type="date" date-style="short" variant="label-hidden" data-id="personalFileDemandDate" name="personalFileDemandDate" value={personalFileDemandDate} onchange={handleChange}></lightning-input>
+                    </div>
+                    <div class=" slds-p-top_medium slds-p-right_medium slds-p-bottom_medium slds-col slds-size_1-of-1 slds-medium-size_1-of-2 slds-large-size_1-of-2">
+                        {customLabelValues.OWC_employer_response_label}
+                        <lightning-input type="text" variant="label-hidden" data-id="personalEmployerResponse" name="personalEmployerResponse" value={personalEmployerResponse} onchange={handleChange}></lightning-input>
+                    </div>
+                </div>
+            </template>
+        </div>
+
+        <div class="slds-p-left_medium slds-p-right_medium slds-col slds-size_1-of-1 slds-medium-size_1-of-1 slds-large-size_1-of-1">
+            <div class="">
+                <span><input style="width:15px;height:15px;" type="checkbox" name="employerDeniedWork" value={employerDeniedWork} data-id="employerDeniedWork" checked={employerDeniedWork} onchange={handleChange}/></span>
+                <span class="slds-p-left_x-small">{customLabelValues.OWC_wage_deficiencies_paystub_payment}</span>
+            </div>
+        </div>
+        
+        <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-1 slds-large-size_1-of-1">
+            <template if:true={isSixteenOptionTrue}>
+                <div class="slds-p-top_medium">
+                    <c-owc-Split-Shift-Premium-Garment-Container iwcinfoobj={iwcinfoobj} otherworkcity={otherworkcity} onsplitshiftparentvalidityevent={handleSplitShiftValidity} onsplitshiftparentinfoevent={handleSplitShiftInfoEvent}></c-owc-Split-Shift-Premium-Garment-Container>
+                </div>
+            </template>
+        </div>
+
+        <div class="slds-p-left_medium slds-p-right_medium slds-col slds-size_1-of-1 slds-medium-size_1-of-1 slds-large-size_1-of-1">
+            <div class="">
+                <span><input style="width:15px;height:15px;" type="checkbox" name="productionBonus" value={productionBonus} data-id="productionBonus" checked={productionBonus} onchange={handleChange}/></span>
+                <span class="slds-p-left_x-small">{customLabelValues.owc_Production_Bonus}</span>
+                <span class="slds-p-left_x-small">
+                    <lightning-icon icon-name="utility:info" class="my-icon" size="x-small" alternative-text="info"  label={customLabelValues.OWC_learnmore_button} name="productionBonus" onclick={handleHelpText} ></lightning-icon>
+                 </span>
+            </div>
+        </div>
+        <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-1 slds-large-size_1-of-1">
+            <template if:true={isSeventeenOptionTrue}>
+                <template if:true={isProductionBonus}>
+                    <div class="slds-grid slds-wrap slds-p-left_medium slds-p-top_medium slds-p-bottom_medium">
+                        <template for:each={violationTypeVariablesForProductionBonus} for:item="varObj">
+                            <template if:true={varObj.isShow}>
+                                <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-2 slds-large-size_1-of-2" key={varObj.recordId}>
+                                    <div class="slds-p-top_medium slds-p-right_medium slds-p-bottom_medium">
+                                    <span class="">{varObj.label} </span> 
+                                    <template if:true={varObj.dateFormat}>
+                                        <lightning-input date-style="short" type={varObj.dataType} variant="label-hidden" data-id={varObj.name} name={varObj.name} value={varObj.value} onchange={handleChange}></lightning-input>
+                                    </template>
+                                    <template if:true={varObj.currencyFormat}>
+                                        <lightning-input variant="label-hidden" placeholder="$0.00" formatter="currency" step="0.01" type="number" data-id={varObj.name} name={varObj.name} value={varObj.value} onchange={handleChange}></lightning-input>
+                                    </template>
+                                    <template if:true={varObj.numberFormat}>
+                                        <lightning-input variant="label-hidden" type="number" data-id={varObj.name} name={varObj.name} value={varObj.value} onchange={handleChange}></lightning-input>
+                                    </template>
+                                    <template if:true={varObj.inputFormat}>
+                                        <lightning-input variant="label-hidden" type={varObj.dataType} data-id={varObj.name} name={varObj.name} value={varObj.value} onchange={handleChange}></lightning-input>
+                                    </template>
+                                </div>
+                                </div>
+                            </template>	
+                        </template>
+                    </div>
+                    <div class="slds-p-left_medium slds-p-bottom_medium">
+                        {customLabelValues.OWC_additional_claim_bonus}
+                        <lightning-radio-group 
+                                            name="additionalClaimEarn"
+                                            data-id="additionalClaimEarn"
+                                            options={options}
+                                            value={additionalClaimEarn}
+                                            variant="label-hidden" 
+                                            type="radio"
+                                            onchange={handleChange}>
+                        </lightning-radio-group>
+                    </div>
+                    <template if:true={isExplain}>
+                        <div class=" slds-grid slds-wrap slds-p-left_medium slds-p-bottom_medium">
+                            <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-1 slds-large-size_1-of-1">
+                                {customLabelValues.OWC_explain_label}
+                            </div>
+                            <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-2 slds-large-size_1-of-2">
+                                <lightning-input name="explainBonus" variant="label-hidden" type="text" value={explainBonus} onchange={handleChange}></lightning-input>
+                            </div>
+                        </div>
+                    </template>
+                </template>
+            </template>
+            
+        </div>
+
+        <div class="slds-p-left_medium slds-p-right_medium slds-col slds-size_1-of-1 slds-medium-size_1-of-1 slds-large-size_1-of-1">
+            <div class="">
+                <span><input style="width:15px;height:15px;" type="checkbox" name="reportedToWork" value={reportedToWork} data-id="reportedToWork" checked={reportedToWork} onchange={handleChange}/></span>
+                <span class="slds-p-left_x-small">{customLabelValues.owc_reported_to_work} </span>
+                <span class="slds-p-left_x-small">
+                    <lightning-icon icon-name="utility:info" class="my-icon" size="x-small" alternative-text="info"  label={customLabelValues.OWC_learnmore_button} name="reportHp" onclick={handleHelpText} ></lightning-icon>
+                 </span>
+            </div>
+        </div>
+        <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-1 slds-large-size_1-of-1">
+            <template if:true={isEighteenOptionTrue}>
+                <c-owc-Reporting-Time-Pay-Claim-Garment-Container iwcinfoobj={iwcinfoobj} onpayclaimparentvalidityevent={handlePayClaimParentValidityCheck} onpayclaimparentinfoevent={handlePayClaimParentInfo}></c-owc-Reporting-Time-Pay-Claim-Garment-Container>
+            </template>
+        </div>
+
+        <!--!9th Step-->
+        <template if:true={is_wage_def_garment_claim}>
+            <div class="slds-p-left_medium slds-p-right_medium slds-col slds-size_1-of-1 slds-medium-size_1-of-1 slds-large-size_1-of-1">
+                <div class="">
+                    <span><input style="width:15px;height:15px;" type="checkbox" name="garmentWageClaim" value={garmentWageClaim} data-id="garmentWageClaim" checked={garmentWageClaim} onchange={handleChange}/></span>
+                    <span class="slds-p-left_x-small">{customLabelValues.owc_garmentEmp} </span>
+                    <span class="slds-p-left_x-small">
+                        <lightning-icon icon-name="utility:info" class="my-icon" size="x-small" alternative-text="info"  label={customLabelValues.OWC_learnmore_button} name="reportGarmentEmp" onclick={handleHelpText} ></lightning-icon>
+                     </span>
+                </div>
+            </div>
+            <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-1 slds-large-size_1-of-1">
+                <template if:true={isNinteenOptionTrue}>
+                    <c-o-w-c-garment-employee-option-cmp  ongarmentempinfoevent={handleGaremtEmpParentInfo}></c-o-w-c-garment-employee-option-cmp>
+                </template>
+            </div>
+        </template>
+        
+        <div class="slds-p-top_medium slds-p-right_medium slds-p-left_medium slds-col slds-size_1-of-1 slds-medium-size_1-of-1 slds-large-size_1-of-1">
+            {customLabelValues.OWC_listed_another_claim}
+            <lightning-textarea name="anotherClaimExplain" value={anotherClaimExplain} variant="label-hidden" maxlength="500" message-when-too-long="A maximum of 500 characters are allowed." onchange={handleChange}></lightning-textarea>
+        </div>
+        <template if:true={isHelpText}>
+            <c-owc-Help-Text-Cmp helptext={helpText} issickleavehelptext={issickleavehelptext} onhelptextevent={handleHelpTextEvent}></c-owc-Help-Text-Cmp>
+        </template>
+    </form>
+</template>

@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+        <help><!-- Have you received all your wages owed to you? --></help>
+        <label><!-- Received all your wages owed --></label>
+        <name>Received_all_your_wages_owed__c</name>
+    </CustomFieldTranslation>

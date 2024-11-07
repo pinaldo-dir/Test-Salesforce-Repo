@@ -1,0 +1,171 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Reason_for_No_Determination__c</fullName>
+    <description>Reason why "No" was selected for "Determination Made"</description>
+    <externalId>false</externalId>
+    <label>Reason for No Determination</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <controllingField>Determination_Made__c</controllingField>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Claims for unlawful withholdings where the employer was required or empowered to withhold by state or federal law</fullName>
+                <default>false</default>
+                <label>Claims for unlawful withholdings where the employer was required or empowered to withhold by state or federal law</label>
+            </value>
+            <value>
+                <fullName>Claims for unreimbursed medical expenses (where the expenses are not characterized as a withholding)</fullName>
+                <default>false</default>
+                <label>Claims for unreimbursed medical expenses (where the expenses are not characterized as a withholding)</label>
+            </value>
+            <value>
+                <fullName>Claims involving class actions</fullName>
+                <default>false</default>
+                <label>Claims involving class actions</label>
+            </value>
+            <value>
+                <fullName>Claims where there is an executed private settlement agreement</fullName>
+                <default>false</default>
+                <label>Claims where there is an executed private settlement agreement</label>
+            </value>
+            <value>
+                <fullName>Claims against public employment entities</fullName>
+                <default>false</default>
+                <label>Claims against public employment entities</label>
+            </value>
+            <value>
+                <fullName>Claims against previous or current private employers filed by current staff</fullName>
+                <default>false</default>
+                <label>Claims against previous or current private employers filed by current staff</label>
+            </value>
+            <value>
+                <fullName>Claims against DIR/DLSE filed by current or former staff</fullName>
+                <default>false</default>
+                <label>Claims against DIR/DLSE filed by current or former staff</label>
+            </value>
+            <value>
+                <fullName>Claims involving a concurrent court action with overlapping wage claim issues</fullName>
+                <default>false</default>
+                <label>Claims involving a concurrent court action with overlapping wage claim issues</label>
+            </value>
+            <value>
+                <fullName>Claims involving probate issues</fullName>
+                <default>false</default>
+                <label>Claims involving probate issues</label>
+            </value>
+            <value>
+                <fullName>Claims filed by workers who have engaged in misconduct, threats and/or disrespectful treatment of team members and/or the public</fullName>
+                <default>false</default>
+                <label>Claims filed by workers who have engaged in misconduct, threats and/or disrespectful treatment of team members and/or the public</label>
+            </value>
+            <value>
+                <fullName>Filed by owners and/or corporate officers</fullName>
+                <default>false</default>
+                <label>Filed by owners and/or corporate officers</label>
+            </value>
+            <value>
+                <fullName>Filed by workers who are also alleged employers in other actions</fullName>
+                <default>false</default>
+                <label>Filed by workers who are also alleged employers in other actions</label>
+            </value>
+            <value>
+                <fullName>Involves complex compensation plans/schemes or conditions</fullName>
+                <default>false</default>
+                <label>Involves complex compensation plans/schemes or conditions</label>
+            </value>
+            <value>
+                <fullName>Names deceased plaintiffs or defendants</fullName>
+                <default>false</default>
+                <label>Names deceased plaintiffs or defendants</label>
+            </value>
+            <value>
+                <fullName>Names employers with pending bankruptcy and/or receivership actions.</fullName>
+                <default>false</default>
+                <label>Names employers with pending bankruptcy and/or receivership actions.</label>
+            </value>
+            <value>
+                <fullName>Work was performed outside of California</fullName>
+                <default>false</default>
+                <label>Work was performed outside of California</label>
+            </value>
+            <value>
+                <fullName>N/A</fullName>
+                <default>true</default>
+                <label>N/A</label>
+            </value>
+        </valueSetDefinition>
+        <valueSettings>
+            <controllingFieldValue>Yes</controllingFieldValue>
+            <valueName>N/A</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>No</controllingFieldValue>
+            <valueName>Claims for unlawful withholdings where the employer was required or empowered to withhold by state or federal law</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>No</controllingFieldValue>
+            <valueName>Claims for unreimbursed medical expenses (where the expenses are not characterized as a withholding)</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>No</controllingFieldValue>
+            <valueName>Claims involving class actions</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>No</controllingFieldValue>
+            <valueName>Claims where there is an executed private settlement agreement</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>No</controllingFieldValue>
+            <valueName>Claims against public employment entities</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>No</controllingFieldValue>
+            <valueName>Claims against previous or current private employers filed by current staff</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>No</controllingFieldValue>
+            <valueName>Claims against DIR/DLSE filed by current or former staff</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>No</controllingFieldValue>
+            <valueName>Claims involving a concurrent court action with overlapping wage claim issues</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>No</controllingFieldValue>
+            <valueName>Claims involving probate issues</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>No</controllingFieldValue>
+            <valueName>Claims filed by workers who have engaged in misconduct, threats and/or disrespectful treatment of team members and/or the public</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>No</controllingFieldValue>
+            <valueName>Filed by owners and/or corporate officers</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>No</controllingFieldValue>
+            <valueName>Filed by workers who are also alleged employers in other actions</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>No</controllingFieldValue>
+            <valueName>Involves complex compensation plans/schemes or conditions</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>No</controllingFieldValue>
+            <valueName>Names deceased plaintiffs or defendants</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>No</controllingFieldValue>
+            <valueName>Names employers with pending bankruptcy and/or receivership actions.</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>No</controllingFieldValue>
+            <valueName>Work was performed outside of California</valueName>
+        </valueSettings>
+    </valueSet>
+</CustomField>

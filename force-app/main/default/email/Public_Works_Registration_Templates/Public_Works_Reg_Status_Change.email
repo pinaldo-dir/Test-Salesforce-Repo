@@ -1,0 +1,11 @@
+Public Works Registration Number: {!License_Registration__c.License_Registration_Number__c}
+
+Your contractor registration has been changed to {!License_Registration__c.Status__c}. Please contact publicworks@dir.ca.gov for any questions or concerns.
+
+
+
+Sincerely, 
+Public Works Unit 
+Division of Labor Standards Enforcement 
+Department of Industrial Relations 
+State of California

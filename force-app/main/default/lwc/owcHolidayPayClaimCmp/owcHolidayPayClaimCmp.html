@@ -1,0 +1,52 @@
+<!--
+  @description       : 
+  @author            : ChangeMeIn@UserSettingsUnder.SFDoc
+  @group             : 
+  @last modified on  : 09-17-2021
+  @last modified by  : ChangeMeIn@UserSettingsUnder.SFDoc
+-->
+<template>
+    <div class="slds-grid slds-wrap">
+      <!--  <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-2 slds-large-size_1-o>f-2"> -->
+                  <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-2 slds-large-size_1-of-2">
+                   <fieldset class="slds-p-around_medium slds-p-left_xx-large">
+                        <span>
+                            {customLabelValues.OWC_holiday_beg_date}
+                        </span>
+                        <span>
+                            &nbsp;&nbsp;&nbsp;{dateFormatLabel}
+                        </span>
+                 <lightning-input type= "date" date-style="short" variant="label-hidden" onchange={handleChange}></lightning-input></fieldset>
+                  </div>
+                   <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-2 slds-large-size_1-of-2">
+                  <fieldset class="slds-p-around_medium slds-p-left_xx-large">
+                    <span>
+                        {customLabelValues.OWC_holiday_end_date}
+                    </span>
+                    <span>
+                        &nbsp;&nbsp;&nbsp;{dateFormatLabel}
+                    </span>
+                 <lightning-input type= "date" date-style="short" variant="label-hidden" onchange={handleChange}></lightning-input></fieldset></div>
+                   <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-2 slds-large-size_1-of-2"><fieldset class="slds-p-around_medium slds-p-left_xx-large">{customLabelValues.OWC_holiday_total_unpaid}
+                 <lightning-input type= "text" variant="label-hidden" onchange={handleChange}></lightning-input></fieldset></div>
+                   <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-2 slds-large-size_1-of-2"><fieldset class="slds-p-around_medium slds-p-left_xx-large">{customLabelValues.OWC_holiday_total_hour_claimed}
+                 <lightning-input type= "text" variant="label-hidden" onchange={handleChange}></lightning-input></fieldset></div>
+                  <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-2 slds-large-size_1-of-2"><fieldset class="slds-p-around_medium slds-p-left_xx-large">
+                     {customLabelValues.OWC_holiday_hourly_claim}
+                     <span class="slds-p-left_x-small">
+                        <lightning-icon icon-name="utility:info" class="my-icon" size="small" alternative-text="info"  label={customLabelValues.OWC_learnmore_button} name="hourlyRateMsg" onclick={handleHelpText} ></lightning-icon>
+                     </span>
+                 <lightning-input type= "text" variant="label-hidden" onchange={handleChange}></lightning-input></fieldset></div>
+                 <!--<fieldset class="slds-p-around_medium slds-p-left_xx-large">{customLabelValues.OWC_holiday_hourly_claim}
+                 <lightning-input type= "text" variant="label-hidden" onchange={handleChange}></lightning-input></fieldset>
+                 <fieldset class="slds-p-around_medium slds-p-left_xx-large">{customLabelValues.OWC_holiday_hourly_claim} -->
+                 <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-2 slds-large-size_1-of-2"> <fieldset class="slds-p-around_medium slds-p-left_xx-large">{customLabelValues.OWC_holiday_amount_paid}
+                 <lightning-input type= "currency" variant="label-hidden" onchange={handleChange}></lightning-input></fieldset></div>
+            
+        
+    </div>
+    <!--Help Text Section--> 
+    <template if:true={isHelpText}>
+        <c-owc-Help-Text-Cmp helptext={helpText} ismultiplefileuploadhelptext={isMultipleFileUploadHelpText} onhelptextevent={handleHelpTextEvent}></c-owc-Help-Text-Cmp>
+    </template>
+</template>

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Rejection_Letter_PDF__c</fullName>
+    <description>##Conga updated btn:00br0000000IUUR</description>
+    <externalId>false</externalId>
+    <formula>"&amp;id=" + Id +
+"&amp;templateid=a0n35000000K0ru" +
+"&amp;defaultpdf=1" +
+"&amp;queryid=[Rejections]a0m350000002lLw,[RejectionDefect]a0m350000002lLx,[Manager]a0mt00000000sKt" +
+"&amp;EmailTemplateId=[00X35000000MIKy]" +
+"&amp;EmailAdditionalTo=" + Registration__r.Applicant__r.Email +
+"&amp;EmailRelatedToId=" +  Registration__r.Id  +
+"&amp;qmode=SendEmail" +
+"DS7=2"</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>Rejection Letter PDF</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

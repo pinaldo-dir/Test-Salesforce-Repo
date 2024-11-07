@@ -1,0 +1,9 @@
+To: {!DIR_Case__c.Assigned_Deputy_Email__c}
+CC: {!DIR_Case__c.Senior_Deputy_Email__c}
+CC: PAGA Unit Screeners
+
+A PAGA case has been received for an OPEN BOFE Case where you are the Assigned Deputy.  PAGA case investigations are required to be concluded in 120 days with a possible 60 day extension which requires notification to the PAGA Notice Filer.  Please review the case, note the investigation deadline, and contact the PAGA Unit with any questions at PAGA@dir.ca.gov. 
+ 
+PAGA CASE NUMBER:    {!DIR_Case__c.Case_Number__c}
+LINK TO PAGA CASE:      {!DIR_Case__c.Link}
+RELATED BOFE CASE:   {!DIR_Case__c.Related_BOFE_Case__c}

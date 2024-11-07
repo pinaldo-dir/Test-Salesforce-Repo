@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PermissionSet xmlns="http://soap.sforce.com/2006/04/metadata">
+    <description>For end users to be able to switch b/n LEX and Classic</description>
+    <hasActivationRequired>false</hasActivationRequired>
+    <label>LEX-Classic Switch</label>
+    <userPermissions>
+        <enabled>true</enabled>
+        <name>LightningExperienceUser</name>
+    </userPermissions>
+    <userPermissions>
+        <enabled>true</enabled>
+        <name>LtngPromoReserved01UserPerm</name>
+    </userPermissions>
+</PermissionSet>

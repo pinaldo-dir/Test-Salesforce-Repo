@@ -1,0 +1,7 @@
+The approval date was missed and a recalculation of wages and interest is required.
+
+LC Approval Required By:  {!DIR_Case__c.LC_Approval_Required_By__c}
+Approval Date:  {!DIR_Case__c.Approval_Date__c}
+Approval Date Met:  {!DIR_Case__c.Approval_Date_Met__c}
+
+Link to Case:  {!DIR_Case__c.Link}

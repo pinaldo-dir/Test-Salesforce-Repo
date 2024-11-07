@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Gross_Sales_for_Contractors__c</fullName>
+    <description>Used by Garment to collect information on Gross Sales Receipts for the prior 12 Months</description>
+    <externalId>false</externalId>
+    <inlineHelpText>Please select one</inlineHelpText>
+    <label>Gross Sales for Contractors</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>$100,000 or less</fullName>
+                <default>false</default>
+                <label>$100,000 or less</label>
+            </value>
+            <value>
+                <fullName>$100,001 to $500,000</fullName>
+                <default>false</default>
+                <label>$100,001 to $500,000</label>
+            </value>
+            <value>
+                <fullName>$500,001 to $1,000,000</fullName>
+                <default>false</default>
+                <label>$500,001 to $1,000,000</label>
+            </value>
+            <value>
+                <fullName>$1,000,001 or more</fullName>
+                <default>false</default>
+                <label>$1,000,001 or more</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

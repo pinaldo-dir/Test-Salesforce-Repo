@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <description>Hearing Not Set For Appea</description>
+    <encodingKey>ISO-8859-1</encodingKey>
+    <name>Hearing Not Set For Appea</name>
+    <style>none</style>
+    <subject>Hearing Not Set For Appeal {!Appeal__c.Name}</subject>
+    <type>text</type>
+    <uiType>Aloha</uiType>
+</EmailTemplate>

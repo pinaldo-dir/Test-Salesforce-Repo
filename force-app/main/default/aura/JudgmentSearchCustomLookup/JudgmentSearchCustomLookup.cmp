@@ -1,0 +1,75 @@
+<aura:component controller="JudgmentSearchController" implements="force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId,forceCommunity:availableForAllPageTypes,force:lightningQuickAction" access="global">
+    <aura:attribute name="naicsCodeTitle" type="String"/>
+    <!--declare attributes--> 
+    <aura:attribute name="selectedRecord" type="JudgmentSearchController.resultWrapper" default="{}" description="Use,for store SELECTED sObject Record"/>
+    <aura:attribute name="listOfSearchRecords" type="JudgmentSearchController.resultWrapper[]" description="Use,for store the list of search records which returns from apex class"/>
+    <aura:attribute name="SearchKeyWord" type="string"/>
+    <aura:attribute name="searchType" type="string"/>
+    <aura:attribute name="selectedRecordId" type="string"/>
+    <aura:attribute name="naicsTitleName" type="String"/>
+    <aura:attribute name="objectAPIName" type="string" default=""/>
+    <aura:attribute name="fieldAPIName" type="string" default="Name"/>
+    <aura:attribute name="IconName" type="string" default=""/>
+    <aura:attribute name="ObjectName" type="string"/>
+    <aura:attribute name="inputLabel" type="string" default=""/>
+    <aura:attribute name="Message" type="String" default=""/>
+    <aura:attribute name="county" type="String" default=""/>
+    <aura:attribute name="showNAICStitle" type="Boolean" default="false"/>
+    
+    <!--declare events hendlers-->  
+    <aura:handler name="oSelectedRecordEvent" event="c:JudgmentSearchLookupEvent" action="{!c.handleComponentEvent}"/>
+    
+    <!--define aura method -->
+    <aura:method name="clearLookupPill" action="{!c.clear}" />
+    <aura:method name="getLookupValueById" action="{!c.fetchLookupValueById}">
+        <aura:attribute name="recordId" type="String"/>
+    </aura:method>
+        
+    
+    
+    <div class="slds-col slds-size_12-of-12">
+        <span>
+            <div class="slds-form-element">
+                <aura:if isTrue="{!v.inputLabel != ''}">
+                    <label class="slds-form-element__label formStyle" for="accountName">
+                        {!v.inputLabel}
+                    </label>
+                </aura:if>
+                <div onmouseleave="{!c.onblur}" aura:id="searchRes" class="slds-form-element slds-lookup slds-is-close breakStyle" data-select="single">
+                    <!--This part is for display search bar for lookup-->  
+                    <div class="slds-form-element__control">
+                        <div class="slds-input-has-icon slds-input-has-icon--right">
+                            <!-- This markup is for when an record is selected -->
+                            <div aura:id="lookup-pill" class="slds-pill-container slds-hide">
+                                <lightning:pill class="pillSize" label="{! v.selectedRecord.label}" name="{!v.selectedRecord.label}" onremove="{! c.clear }"/>
+                            </div>
+                            <div aura:id="lookupField" class="slds-show">
+                                <ui:inputText updateOn="keyup" keyup="{!c.keyPressController}" class="slds-lookup__search-input slds-input " value="{!v.SearchKeyWord}" placeholder="Search.."/>
+                            </div> 
+                        </div>
+                    </div>
+                    <!--This part is for Display typehead lookup result List-->  
+                    <ul style="min-height:40px;margin-top:0px !important" class="slds-listbox slds-listbox_vertical slds-dropdown slds-dropdown_fluid slds-lookup__menu slds" role="listbox">
+                        <lightning:spinner class="slds-hide" variant="brand" size="small" aura:id="mySpinner"/>
+                        <center> {!v.Message}</center>
+                        <aura:iteration items="{!v.listOfSearchRecords}" var="singleRec">
+                            <c:JudgmentNaicsCodeLookupList oRecord="{!singleRec}" IconName="{!v.IconName}" objectAPIName="{!v.objectAPIName}"/> 
+                        </aura:iteration>
+                    </ul>
+                </div>
+            </div>
+        </span>
+    </div>
+    <aura:if isTrue="{!v.showNAICStitle}">
+        <div class="slds-col slds-size_12-of-12 breakStyle">
+            <span>
+                <div class="slds-form-element">
+                    <label class="slds-form-element__label formStyle" for="naicsCodeTitle"><aura:if isTrue="{!v.naicsTitleName}">NAICS Industry<aura:set attribute="else">NAICS Code Title</aura:set></aura:if></label>
+                    <div class="slds-form-element__control">
+                        <ui:inputText class="slds-input" value="{!v.naicsCodeTitle}" disabled="true"/>
+                    </div>
+                </div>
+            </span>
+        </div>
+    </aura:if>
+</aura:component>

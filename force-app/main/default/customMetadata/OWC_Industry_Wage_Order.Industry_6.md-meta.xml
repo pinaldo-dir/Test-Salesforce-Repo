@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomMetadata xmlns="http://soap.sforce.com/2006/04/metadata" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <label>Industry 6</label>
+    <protected>false</protected>
+    <values>
+        <field>NaicsCodeLevel1EnglishTranslation__c</field>
+        <value xsi:type="xsd:string">Professional, Technical or Clerical</value>
+    </values>
+    <values>
+        <field>NaicsCodeLevel1SpanishTranslation__c</field>
+        <value xsi:type="xsd:string">Profesional Técnico o Administrativo</value>
+    </values>
+    <values>
+        <field>NaicsCodeLevel2EnglishTranslation__c</field>
+        <value xsi:type="xsd:string">Clerical~Clerical;Religious, Grantmaking, and Similar Organizations~Religious, Grantmaking, Civic, Professional, and Similar Organizations;Public Administration / Government~Public Administration/goverment;Educational Services~Educational Services;Legal Services~Legal Services;Computer Systems Design and Related Services~Computer Systems Design and Related Services;Management, Scientific, and Technical Consulting Services~Management, Scientific, and Technical Consulting Services;Advertising, Public Relations, and Related Services~Advertising, Public Relations, and Related Services;Photographic Services~Photographic Services;Translation and Interpretation Services~Translation and Interpretation Services</value>
+    </values>
+    <values>
+        <field>NaicsCodeLevel2SpanishTranslation__c</field>
+        <value xsi:type="xsd:string">Administrativo; Organizaciones Religiosas, de Subvenciones y Similares; Administración Pública/Gubernamental; Servicios Educativos; Servicios Legales; Diseño de Sistemas Informáticos y Servicios Relacionados; Servicios de Consultoría Administrativa, Científica y Técnica; Publicidad, Relaciones Públicas y Servicios Relacionados; Servicios Fotográficos; Servicios de Traducción e Interpretación</value>
+    </values>
+    <values>
+        <field>OWC_Industry__c</field>
+        <value xsi:type="xsd:string">Professional, Technical or Clerical</value>
+    </values>
+    <values>
+        <field>OWC_NAICS_Discription__c</field>
+        <value xsi:type="xsd:string">Clerical;Religious, Grantmaking, and Similar Organizations;Public Administration/goverment;Educational Services;Legal Services;Computer Systems Design and Related Services;Management, Scientific, and Technical Consulting Services;Advertising, Public Relations, and Related Services;Photographic Services;Translation and Interpretation Services</value>
+    </values>
+    <values>
+        <field>Order_Number__c</field>
+        <value xsi:type="xsd:double">6.0</value>
+    </values>
+</CustomMetadata>

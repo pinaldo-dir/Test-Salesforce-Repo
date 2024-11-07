@@ -1,0 +1,5 @@
+The following case has been appealed.
+
+{!Appeal__c.Link}
+
+Case: {!Appeal__c.Case__c}

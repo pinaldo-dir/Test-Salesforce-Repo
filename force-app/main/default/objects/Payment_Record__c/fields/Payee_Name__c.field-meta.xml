@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Payee_Name__c</fullName>
+    <description>Populated by CashCreatePrsQable.cls from Payee__c.Payee_Name__c on Payment Record creation when posting Case Payments; or in some instances, by the ReturnedVoidedReceipt.cls when creating Buyback PRs. Used primarily for summing PRs under Payees on the UWF Schedule, and for some verifications during Case Payment posting.</description>
+    <externalId>false</externalId>
+    <inlineHelpText>Used for summing PR amounts under Payees on the UWF Schedule.</inlineHelpText>
+    <label>Payee Name</label>
+    <length>255</length>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

@@ -1,0 +1,90 @@
+<apex:page Controller="Attachment_Widget_Controller" sidebar="false" showHeader="false" applyHtmlTag="true" id="RegAttmentPage">
+    <apex:composition template="{! $Page.VIPForm__VIP_FormWizardTemplate }">
+        <apex:define name="styles">
+            
+            <style>
+                body {background: #fff;padding-top:0;}
+                .panel-custom {
+                min-height: 120mvh;
+                background-color: #eee;
+                }
+                .headerRow {
+                background-color:#f9f9f9;
+                border:0;
+                font-weight:normal;
+                }
+                .headerRow div {
+                color:rgb(88, 94, 101);
+                }
+                .dataCell {
+                border:0;
+                }
+            </style>
+        </apex:define>
+        
+        <apex:define name="scripts">
+            <!-- including this script will automatically resize the parent iframe to the size of the contents of this page -->
+            <script src="{!$Label.iFrameResizer}"/>
+            <script>
+                function showMessage(msgId){
+                document.getElementById(msgId).style.visibility = "visible";
+            }
+            </script>    
+        </apex:define>
+        
+        <apex:define name="body">
+            <div class="panel-body">
+
+        <apex:form id="attForm">
+            <apex:pageMessages />
+            
+            <apex:pageBlock rendered="{!NOT(ISNULL(attTable))}" id="pageBlockId">
+                <apex:pageBlockButtons style="width:100%;text-align:right;" id="pageBlockButtonsId">
+                    <apex:outputLabel id="SaveRegDocumentMessage" value="{!$Label.Registration_Upload_Save_Message}" style="color:red;font-weight:bold;visibility:hidden;"/>
+
+                </apex:pageBlockButtons>
+                <apex:pageBlockTable value="{!attTable}" var="att" border="2" cellpadding="20" align="center" width="90%" styleClass="table">
+                  <!--  <apex:column value="{!att.attP.Id}" />  -->
+                    <apex:column value="{!att.attP.Type__c}" />
+                    <apex:column value="{!att.attP.Attachment_Name__c}"  />
+                    <apex:column value="{!att.attP.Instructions__c}"  />
+                    <!--<apex:column headerValue="{!$ObjectType.Attachments_Plus__c.fields.Expiration_Date__c.Label}">
+                        <apex:inputField value="{!att.attP.Expiration_Date__c}" rendered="{!IF(CONTAINS(att.attP.Type__c,'FEIN'),FALSE,TRUE)}"/>
+                    </apex:column>-->
+                    <apex:column width="80px"  >
+                        <apex:inputFile value="{!att.att.body}" fileName="{!att.att.Name}" contentType="{!att.att.ContentType}" accept=".pdf,.jpg,.tif,.doc,docx,.png,.gif,.xls,.xlsx" rendered="{!NOT(att.hasAttachment)}" 
+                                        onchange="showMessage('RegAttmentPage:T:attForm:pageBlockId:pageBlockButtonsId:SaveRegDocumentMessage');showMessage('RegAttmentPage:T:attForm:pageBlockId:pageBlockButtonsId:bottom:SaveRegDocumentMessage')"/>
+                        
+                        <apex:commandLink rendered="{!NOT(att.hasAttachment)}" styleClass="btn-primary" style="background:#e8e8e9;border:1px solid black;" value="Upload & Save" action="{!attachPDF2}">
+                            <apex:param name="attPId" value="{!att.attP.id}"/>
+                        </apex:commandLink>
+              
+                        <apex:panelGroup rendered="{!att.hasAttachment}">
+                            <apex:outputLink value="/sfc/servlet.shepherd/version/download/{!att.ContentVersionId}" styleClass="btn-primary" style="background:#e8e8e9;border:1px solid black;" target="_blank">View</apex:outputLink>
+                            <apex:outputText value=" | "/>
+                                      
+                            <apex:actionRegion >
+                                <apex:actionStatus id="pageStatus">
+                                    <apex:facet name="start">
+                                        <apex:outputPanel >
+                                            <apex:outputLabel value="Deleting..."/>
+                                        </apex:outputPanel>            
+                                    </apex:facet>
+                                </apex:actionStatus>
+                                <apex:commandLink value="Delete" action="{!deleteAttachment}" styleClass="btn-primary" style="background:#e8e8e9;border:1px solid black;">
+                                    <apex:param name="delID" value="{!att.attP.id}"/>
+                                </apex:commandLink>
+                            </apex:actionRegion>
+                        </apex:panelGroup>
+                    </apex:column>
+                    <apex:column value="{!att.attP.Attachment_Required__c}" width="80px" />
+                </apex:pageBlockTable>
+               
+                
+            </apex:pageBlock>
+            
+        </apex:form>
+        </div>
+        </apex:define>
+    </apex:composition>
+</apex:page>

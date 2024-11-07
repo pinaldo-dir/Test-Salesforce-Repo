@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Starting_Warrant_Number__c</fullName>
+    <description>Allows the user to set the starting warrant number when printing the batch. Upon populating or changing the starting warrant number, apex updates the warrants in the batch to set the warrant number on each warrant</description>
+    <externalId>false</externalId>
+    <inlineHelpText>Enter the starting check number for this batch when printing</inlineHelpText>
+    <label>Starting Warrant Number</label>
+    <length>8</length>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

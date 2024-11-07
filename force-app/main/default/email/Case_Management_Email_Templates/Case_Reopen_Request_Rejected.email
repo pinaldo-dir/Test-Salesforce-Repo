@@ -1,0 +1,8 @@
+The following Case Re-Open Request has been Rejected.
+
+Case Status:  {!DIR_Case__c.Status__c}
+Case Type:  {!DIR_Case__c.Case_Type__c}
+Case Priority:  {!DIR_Case__c.Case_Priority__c}
+DIR Office:  {!DIR_Case__c.Office__c}
+
+Link to Case:  {!DIR_Case__c.Link}

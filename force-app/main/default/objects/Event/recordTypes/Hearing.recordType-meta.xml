@@ -1,0 +1,469 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RecordType xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Hearing</fullName>
+    <active>true</active>
+    <label>Hearing</label>
+    <picklistValues>
+        <picklist>Conference_Outcome__c</picklist>
+        <values>
+            <fullName>Dismissed - Claimant Did Not Appear</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Dismissed - Claimant Withdrew</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Dismissed - No Jurisdiction</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Referred to Hearing - no Settlement</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Referred to hearing - Claimant Only Appeared</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Settled</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Date_of_Determination__c</picklist>
+        <values>
+            <fullName>Claim Closed - No Determination Made</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>IC Established - Dismissed</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Referred to hearing for IC Determination</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Settled - Employee status established</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Settled - No IC Determination Made</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Dismissal_Prior_to_Hearing__c</picklist>
+        <values>
+            <fullName>Dismissed - Full Payment by Defendant</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Dismissed - Lack of Jurisdiction</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Dismissed - Other</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Dismissed - Plaintiff Failed to Appear</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Dismissed - Stipulated Settlement</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Dismissed - Withdrawal</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Document_Type__c</picklist>
+        <values>
+            <fullName>Letter</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Notice</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Subpoena</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Event_Status__c</picklist>
+        <values>
+            <fullName>Canceled</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Held</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Hearing_Duration__c</picklist>
+        <values>
+            <fullName>Full Day</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>One Hour</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>One-Half Day</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Other</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Three Hours</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Two Hours</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>IC_Determination_at_Hearing__c</picklist>
+        <values>
+            <fullName>Employee Status Established</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>IC Established</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Settled - No IC Determination Made</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Just_and_Equitable_Postponement__c</picklist>
+        <values>
+            <fullName>Commissions not due at the time the claim was filed</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Communication Difficulty %26 Record Review</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Continuance request</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Correction%28s%29 to Complaint needed</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Criminal charges pending</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Def%2E delay response%3B Plaintiff perfecting Complnt%2E</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Defendant Failure to Respond</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Defendant delayed provision of records</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Defendant resides outside of the country</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Defendant%27s counsel indicates a potential filing of bankruptcy</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Delay due to Plaintiff perfecting Complaint</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Delay for resolution of secondary civil case</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Delay in return of other correspondence</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Delay in the return of the complaint</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Due to Lengthy Audit</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Illness of one of the parties</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Inability to determine legal entity</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Incomplete evidence%2Fexhibits</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Incorrect party named</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Legal referral response time</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Lengthy Detailed Audit %26 Parties Attempting Settlement</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Out of state employer</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Parties attempting settlement</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Plaintiff amended complaint</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Plaintiff out of the country</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Plaintiff resides out of the state</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Related litigation</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Translation of documents needed</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Unable to obtain service</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Unreported address change</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Mail_Received_From__c</picklist>
+        <values>
+            <fullName>Mail Received From Non-Party</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Mail received from Defendant%2FRepresentative</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Mail received from Plaintiff%2FRepresentative</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Mail_Received_Type__c</picklist>
+        <values>
+            <fullName>Address Correction from USPS</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Appeal by Defendant</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Appeal by Plaintiff</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Bankruptcy Notice</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Change of Address</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Completed Workers%E2%80%99 Comp%2E Form</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Hearing Answer</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Judgment Received from Court</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Payment Received</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Reassignment of Judgment from court</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Request for Attorney Representation</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Request for Continuance</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Request for Continuance %E2%80%93Citing Deputy</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Request for LC 98 %28f%29 Relief</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Response from City Business License</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Response from County Registrar%2FRecorder</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Response from Legal</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Response from other DLSE Unit</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Response to claim from Defendant</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Returned mail addressed to Defendant%2FRep</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Returned mail addressed to Plaintiff%2FRep</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Settlement Offer Received</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Signed Certified Mail Waiver</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Signed Complaint Form</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Signed Release</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Supplemental Claim Information</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Service_Method__c</picklist>
+        <values>
+            <fullName>1st Class</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>1st Class %26 Certified</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Certified</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Email</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Fax</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Personal Service</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Registered Mail</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Substitute</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Subject</picklist>
+        <values>
+            <fullName>Berman Hearing</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Citation Hearing</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Rescheduled Berman Hearing</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Rescheduled Citation Hearing</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Type</picklist>
+        <values>
+            <fullName>Call</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Email</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Meeting</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Other</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+</RecordType>

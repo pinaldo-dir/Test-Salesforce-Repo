@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <description>Send an email when a case is dismissed due to full payment</description>
+    <encodingKey>ISO-8859-1</encodingKey>
+    <name>Case Dismissal Notification</name>
+    <style>none</style>
+    <subject>Case is Dismissed due to full payment on case {!DIR_Case__c.Name}</subject>
+    <textOnly>This is an update on the status of Case  {!DIR_Case__c.Name}
+
+A full payment of {!DIR_Case__c.Total_Amount_Paid__c} has been received on this case.
+
+Thank you.</textOnly>
+    <type>custom</type>
+    <uiType>Aloha</uiType>
+</EmailTemplate>

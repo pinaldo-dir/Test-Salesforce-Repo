@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Only_Senior_Deputies_Can_Close_a_Case</fullName>
+    <active>true</active>
+    <description>Only Senior Deputies can Close a case = BOFE</description>
+    <errorConditionFormula>AND (
+ISCHANGED( Status__c ),
+ISPICKVAL( Status__c , "Closed"),
+NOT($Permission.LCO_Senior ),
+NOT( CONTAINS($Profile.Name, 'System Administrator') ),
+LEFT( RecordType.Name , 4) = 'BOFE'
+)</errorConditionFormula>
+    <errorDisplayField>Status__c</errorDisplayField>
+    <errorMessage>Only a Senior Deputy can close a BOFE case.</errorMessage>
+</ValidationRule>

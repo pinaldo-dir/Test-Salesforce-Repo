@@ -1,0 +1,17 @@
+<template>
+    <div class="voidDiv">
+        <template if:true={allowUserVoid}>
+            <lightning-input  class="slds-var-p-left_xx-large voidwblbl" style="padding-left:20px;" type="Text" label="Void Reason" onchange={handleReasonChange}></lightning-input><br>
+            <lightning-button variant="brand-outline" label="Submit" disabled={buttonsDisabled} onclick={handleVoidSbmtClick} class="slds-var-m-left_x-small voidwblbl"></lightning-button><br>
+            <template if:false={reasonEntered}>
+                <label class="voidwblbl" style="color: red;">The reason for voiding this Warrant Batch is required </label>
+            </template>
+            <template if:true={pendingUpdated}>
+                <label class="voidwblbl" style="color: darkgreen;">This Warrant Batch is Voided, All the related Warrants have been Voided. <br> An email confirmation will be sent once the updates are complete. </label><br><br>
+            </template>
+        </template>
+        <template if:false={allowUserVoid}>
+            <label class="voidwblbl" style="color: red;">Sorry! Contact Admin to get access to perform this action </label>
+        </template>
+    </div>
+</template>

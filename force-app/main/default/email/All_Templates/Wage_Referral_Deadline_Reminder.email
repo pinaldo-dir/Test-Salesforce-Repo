@@ -1,0 +1,5 @@
+You have been assigned to a case with wage referral.  Action on these cases is required after 5 days.  Please see details below and follow the link provided to begin processing the case.
+
+Case: {!DIR_Case__c.Name}
+
+Link to Case: {!DIR_Case__c.Link}

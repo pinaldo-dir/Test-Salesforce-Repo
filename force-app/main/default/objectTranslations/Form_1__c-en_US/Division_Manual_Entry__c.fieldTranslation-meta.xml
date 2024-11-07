@@ -1,0 +1,549 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+        <label><!-- Division (Manual Entry) --></label>
+        <name>Division_Manual_Entry__c</name>
+        <picklistValues>
+            <masterLabel>ACCT</masterLabel>
+            <translation><!-- ACCT --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>BSO</masterLabel>
+            <translation><!-- BSO --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>BUDGET</masterLabel>
+            <translation><!-- BUDGET --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>CHSWC</masterLabel>
+            <translation><!-- CHSWC --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>DAS</masterLabel>
+            <translation><!-- DAS --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>DAS/AEU</masterLabel>
+            <translation><!-- DAS/AEU --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>DAS/AEU-IEC</masterLabel>
+            <translation><!-- DAS/AEU-IEC --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>DAS/DO</masterLabel>
+            <translation><!-- DAS/DO --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>DAS/HQ</masterLabel>
+            <translation><!-- DAS/HQ --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>DAS/PPRU</masterLabel>
+            <translation><!-- DAS/PPRU --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>DLSE</masterLabel>
+            <translation><!-- DLSE --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>DLSE/ADMIN</masterLabel>
+            <translation><!-- DLSE/ADMIN --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>DLSE/BOFE</masterLabel>
+            <translation><!-- DLSE/BOFE --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>DLSE/BOFE-Cash</masterLabel>
+            <translation><!-- DLSE/BOFE-Cash --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>DLSE/CIU</masterLabel>
+            <translation><!-- DLSE/CIU --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>DLSE/DLSE</masterLabel>
+            <translation><!-- DLSE/DLSE --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>DLSE/ECU</masterLabel>
+            <translation><!-- DLSE/ECU --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>DLSE/IWC</masterLabel>
+            <translation><!-- DLSE/IWC --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>DLSE/JEU</masterLabel>
+            <translation><!-- DLSE/JEU --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>DLSE/LEGAL</masterLabel>
+            <translation><!-- DLSE/LEGAL --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>DLSE/LETF</masterLabel>
+            <translation><!-- DLSE/LETF --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>DLSE/LRU</masterLabel>
+            <translation><!-- DLSE/LRU --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>DLSE/PAGA</masterLabel>
+            <translation><!-- DLSE/PAGA --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>DLSE/PIU</masterLabel>
+            <translation><!-- DLSE/PIU --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>DLSE/PW</masterLabel>
+            <translation><!-- DLSE/PW --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>DLSE/RCIU</masterLabel>
+            <translation><!-- DLSE/RCIU --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>DLSE/WCA</masterLabel>
+            <translation><!-- DLSE/WCA --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>DLSR</masterLabel>
+            <translation><!-- DLSR --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>DOSH</masterLabel>
+            <translation><!-- DOSH --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>DOSH/ACR-HQ</masterLabel>
+            <translation><!-- DOSH/ACR-HQ --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>DOSH/ACU</masterLabel>
+            <translation><!-- DOSH/ACU --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>DOSH/ADM-HQ</masterLabel>
+            <translation><!-- DOSH/ADM-HQ --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>DOSH/ART</masterLabel>
+            <translation><!-- DOSH/ART --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>DOSH/CALICO</masterLabel>
+            <translation><!-- DOSH/CALICO --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>DOSH/CFOI</masterLabel>
+            <translation><!-- DOSH/CFOI --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>DOSH/CO-HQ</masterLabel>
+            <translation><!-- DOSH/CO-HQ --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>DOSH/CONS</masterLabel>
+            <translation><!-- DOSH/CONS --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>DOSH/CONS-HQ</masterLabel>
+            <translation><!-- DOSH/CONS-HQ --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>DOSH/CONS-PTS</masterLabel>
+            <translation><!-- DOSH/CONS-PTS --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>DOSH/CRANE</masterLabel>
+            <translation><!-- DOSH/CRANE --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>DOSH/CVPP</masterLabel>
+            <translation><!-- DOSH/CVPP --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>DOSH/DO</masterLabel>
+            <translation><!-- DOSH/DO --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>DOSH/DOSH</masterLabel>
+            <translation><!-- DOSH/DOSH --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>DOSH/ECU</masterLabel>
+            <translation><!-- DOSH/ECU --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>DOSH/ELVTR</masterLabel>
+            <translation><!-- DOSH/ELVTR --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>DOSH/ELVTR-ART</masterLabel>
+            <translation><!-- DOSH/ELVTR-ART --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>DOSH/HH</masterLabel>
+            <translation><!-- DOSH/HH --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>DOSH/HH-RO</masterLabel>
+            <translation><!-- DOSH/HH-RO --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>DOSH/LBI</masterLabel>
+            <translation><!-- DOSH/LBI --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>DOSH/LETF</masterLabel>
+            <translation><!-- DOSH/LETF --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>DOSH/MT</masterLabel>
+            <translation><!-- DOSH/MT --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>DOSH/MU</masterLabel>
+            <translation><!-- DOSH/MU --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>DOSH/PSM</masterLabel>
+            <translation><!-- DOSH/PSM --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>DOSH/PTD</masterLabel>
+            <translation><!-- DOSH/PTD --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>DOSH/PV</masterLabel>
+            <translation><!-- DOSH/PV --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>DOSH/PV-HQ</masterLabel>
+            <translation><!-- DOSH/PV-HQ --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>DOSH/RO</masterLabel>
+            <translation><!-- DOSH/RO --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>DOSH/RSH</masterLabel>
+            <translation><!-- DOSH/RSH --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>DOSH/RSH-HQ</masterLabel>
+            <translation><!-- DOSH/RSH-HQ --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>DOSH/RSS-HQ</masterLabel>
+            <translation><!-- DOSH/RSS-HQ --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>DOSH/SPU-R</masterLabel>
+            <translation><!-- DOSH/SPU-R --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>DWC</masterLabel>
+            <translation><!-- DWC --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>DWC/ACR-HQ</masterLabel>
+            <translation><!-- DWC/ACR-HQ --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>DWC/ACU</masterLabel>
+            <translation><!-- DWC/ACU --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>DWC/ADM-HQ</masterLabel>
+            <translation><!-- DWC/ADM-HQ --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>DWC/ADMIN</masterLabel>
+            <translation><!-- DWC/ADMIN --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>DWC/ART</masterLabel>
+            <translation><!-- DWC/ART --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>DWC/AUDITS</masterLabel>
+            <translation><!-- DWC/AUDITS --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>DWC/CA</masterLabel>
+            <translation><!-- DWC/CA --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>DWC/CALICO</masterLabel>
+            <translation><!-- DWC/CALICO --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>DWC/CC</masterLabel>
+            <translation><!-- DWC/CC --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>DWC/CFOI</masterLabel>
+            <translation><!-- DWC/CFOI --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>DWC/CO-HQ</masterLabel>
+            <translation><!-- DWC/CO-HQ --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>DWC/CONS</masterLabel>
+            <translation><!-- DWC/CONS --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>DWC/CONS-HQ</masterLabel>
+            <translation><!-- DWC/CONS-HQ --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>DWC/CONS-PTS</masterLabel>
+            <translation><!-- DWC/CONS-PTS --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>DWC/CRANE</masterLabel>
+            <translation><!-- DWC/CRANE --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>DWC/CRM</masterLabel>
+            <translation><!-- DWC/CRM --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>DWC/CVPP</masterLabel>
+            <translation><!-- DWC/CVPP --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>DWC/DEU</masterLabel>
+            <translation><!-- DWC/DEU --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>DWC/DO</masterLabel>
+            <translation><!-- DWC/DO --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>DWC/ECU</masterLabel>
+            <translation><!-- DWC/ECU --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>DWC/ELVTR</masterLabel>
+            <translation><!-- DWC/ELVTR --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>DWC/ELVTR-ART</masterLabel>
+            <translation><!-- DWC/ELVTR-ART --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>DWC/HH</masterLabel>
+            <translation><!-- DWC/HH --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>DWC/HH-RO</masterLabel>
+            <translation><!-- DWC/HH-RO --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>DWC/IA</masterLabel>
+            <translation><!-- DWC/IA --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>DWC/LBI</masterLabel>
+            <translation><!-- DWC/LBI --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>DWC/LETF</masterLabel>
+            <translation><!-- DWC/LETF --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>DWC/MC</masterLabel>
+            <translation><!-- DWC/MC --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>DWC/MT</masterLabel>
+            <translation><!-- DWC/MT --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>DWC/MU</masterLabel>
+            <translation><!-- DWC/MU --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>DWC/PSM</masterLabel>
+            <translation><!-- DWC/PSM --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>DWC/PTD</masterLabel>
+            <translation><!-- DWC/PTD --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>DWC/PV</masterLabel>
+            <translation><!-- DWC/PV --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>DWC/PV-HQ</masterLabel>
+            <translation><!-- DWC/PV-HQ --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>DWC/RO</masterLabel>
+            <translation><!-- DWC/RO --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>DWC/RSH</masterLabel>
+            <translation><!-- DWC/RSH --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>DWC/RSH-HQ</masterLabel>
+            <translation><!-- DWC/RSH-HQ --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>DWC/RSS-HQ</masterLabel>
+            <translation><!-- DWC/RSS-HQ --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>DWC/RTWSP</masterLabel>
+            <translation><!-- DWC/RTWSP --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>DWC/SPU-R</masterLabel>
+            <translation><!-- DWC/SPU-R --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>FFC</masterLabel>
+            <translation><!-- FFC --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>HR</masterLabel>
+            <translation><!-- HR --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>LEGACY</masterLabel>
+            <translation><!-- LEGACY --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>OAS/AS</masterLabel>
+            <translation><!-- OAS/AS --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>OAS/BS</masterLabel>
+            <translation><!-- OAS/BS --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>OAS/CNTRS</masterLabel>
+            <translation><!-- OAS/CNTRS --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>OAS/FCLTS</masterLabel>
+            <translation><!-- OAS/FCLTS --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>OAS/HR</masterLabel>
+            <translation><!-- OAS/HR --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>OAS/RTW</masterLabel>
+            <translation><!-- OAS/RTW --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>OAS/TPSSB</masterLabel>
+            <translation><!-- OAS/TPSSB --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>OD</masterLabel>
+            <translation><!-- OD --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>OD/AFU</masterLabel>
+            <translation><!-- OD/AFU --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>OD/ARC</masterLabel>
+            <translation><!-- OD/ARC --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>OD/DF</masterLabel>
+            <translation><!-- OD/DF --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>OD/DIO</masterLabel>
+            <translation><!-- OD/DIO --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>OD/HQ</masterLabel>
+            <translation><!-- OD/HQ --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>OD/L(N)</masterLabel>
+            <translation><!-- OD/L(N) --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>OD/L(S)</masterLabel>
+            <translation><!-- OD/L(S) --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>OD/PAGA</masterLabel>
+            <translation><!-- OD/PAGA --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>OD/PIO</masterLabel>
+            <translation><!-- OD/PIO --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>OD/RESEARCH</masterLabel>
+            <translation><!-- OD/RESEARCH --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>ODR</masterLabel>
+            <translation><!-- ODR --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>OFS/ACCTG</masterLabel>
+            <translation><!-- OFS/ACCTG --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>OFS/BUDGETS</masterLabel>
+            <translation><!-- OFS/BUDGETS --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>OFS/OCFO</masterLabel>
+            <translation><!-- OFS/OCFO --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>OIS</masterLabel>
+            <translation><!-- OIS --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>OSHAB</masterLabel>
+            <translation><!-- OSHAB --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>OSHAB/NORTH</masterLabel>
+            <translation><!-- OSHAB/NORTH --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>OSHAB/SOUTH</masterLabel>
+            <translation><!-- OSHAB/SOUTH --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>OSHSB</masterLabel>
+            <translation><!-- OSHSB --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>OSIP</masterLabel>
+            <translation><!-- OSIP --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>RTWSP</masterLabel>
+            <translation><!-- RTWSP --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>SIP</masterLabel>
+            <translation><!-- SIP --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>WCAB</masterLabel>
+            <translation><!-- WCAB --></translation>
+        </picklistValues>
+    </CustomFieldTranslation>

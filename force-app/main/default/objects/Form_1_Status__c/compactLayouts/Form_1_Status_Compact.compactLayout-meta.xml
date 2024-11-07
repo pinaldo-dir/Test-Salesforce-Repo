@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CompactLayout xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Form_1_Status_Compact</fullName>
+    <fields>Date_of_Status__c</fields>
+    <fields>Form1_Status_Type__c</fields>
+    <fields>Form_1__c</fields>
+    <label>Form 1 Status Compact</label>
+</CompactLayout>

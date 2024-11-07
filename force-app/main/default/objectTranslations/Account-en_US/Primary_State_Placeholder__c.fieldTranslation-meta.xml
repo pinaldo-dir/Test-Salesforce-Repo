@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+        <help><!-- Hidden Placeholder for Primary state to update on new form assembly submissions. --></help>
+        <label><!-- Primary State Placeholder --></label>
+        <name>Primary_State_Placeholder__c</name>
+    </CustomFieldTranslation>

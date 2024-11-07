@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>BOFE_Advocate__c</fullName>
+    <defaultValue>false</defaultValue>
+    <description>indicates that the account is flagged as an advocate group</description>
+    <externalId>false</externalId>
+    <inlineHelpText>Check this box if this entity is an "Advocate" group for BOFE</inlineHelpText>
+    <label>BOFE Advocate</label>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Checkbox</type>
+</CustomField>

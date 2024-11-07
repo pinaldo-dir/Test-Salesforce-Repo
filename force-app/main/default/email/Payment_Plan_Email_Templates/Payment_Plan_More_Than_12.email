@@ -1,0 +1,9 @@
+Please review the following Payment Plan:
+
+Number of Payments Requested:  {!Payment_Plan__c.Number_of_Payments__c}
+Due Date:  {!Payment_Plan__c.Due_Date__c}
+Frequency:  {!Payment_Plan__c.Frequency__c}
+
+Case:  {!Payment_Plan__c.Case__c}
+
+Link to Payment Plan:  {!Payment_Plan__c.Link}

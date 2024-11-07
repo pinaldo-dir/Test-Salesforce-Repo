@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Date_Probation_Ends__c</fullName>
+    <description>Updated by probation record, if there's no probation it remains blank. This field is used to determine when appraisal report starts</description>
+    <externalId>false</externalId>
+    <label>Date Probation Ends</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>true</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Date</type>
+</CustomField>

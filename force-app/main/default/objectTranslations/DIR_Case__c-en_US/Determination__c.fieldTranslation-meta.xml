@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+        <label><!-- Determination --></label>
+        <name>Determination__c</name>
+        <picklistValues>
+            <masterLabel>Violation Cured</masterLabel>
+            <translation><!-- Violation Cured --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Violation Not Cured</masterLabel>
+            <translation><!-- Violation Not Cured --></translation>
+        </picklistValues>
+    </CustomFieldTranslation>

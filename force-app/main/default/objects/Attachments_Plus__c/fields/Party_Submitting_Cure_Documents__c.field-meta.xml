@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Party_Submitting_Cure_Documents__c</fullName>
+    <externalId>false</externalId>
+    <label>Party Submitting Cure Documents</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Plaintiff/Aggrieved Employee</fullName>
+                <default>false</default>
+                <label>Plaintiff/Aggrieved Employee</label>
+            </value>
+            <value>
+                <fullName>Defendant/Employer</fullName>
+                <default>false</default>
+                <label>Defendant/Employer</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

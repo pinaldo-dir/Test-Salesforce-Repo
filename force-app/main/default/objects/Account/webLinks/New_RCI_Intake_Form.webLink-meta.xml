@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<WebLink xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>New_RCI_Intake_Form</fullName>
+    <availability>online</availability>
+    <displayType>button</displayType>
+    <encodingKey>UTF-8</encodingKey>
+    <height>600</height>
+    <linkType>url</linkType>
+    <masterLabel>New RCI Intake Form</masterLabel>
+    <openType>sidebar</openType>
+    <protected>false</protected>
+    <url>https://dir.govfa.net/349?accountid={!Account.Id}&amp;firstname={!$User.FirstName}&amp;lastname={!$User.LastName}&amp;userid={!$User.Id}</url>
+</WebLink>

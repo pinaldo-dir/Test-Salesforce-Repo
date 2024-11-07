@@ -1,0 +1,37 @@
+<!--
+  @description       : 
+  @author            : ChangeMeIn@UserSettingsUnder.SFDoc
+  @group             : 
+  @last modified on  : 11-21-2021
+  @last modified by  : ChangeMeIn@UserSettingsUnder.SFDoc
+-->
+<template>
+    <div class="slds-context-bar" style="margin-left: -2.7rem;">
+          <nav class="slds-context-bar__secondary" role="navigation">
+              <ul class="slds-grid slds-p-top_xxx-small" >
+                         <li class="slds-context-bar__item" >
+                             <template if:true={isSmallDevice}>                            
+                                  <div class="slds-float_left">
+                                      <lightning-button-menu icon-name="utility:list"
+                                                            icon-size="large"
+                                                            alternative-text="List" menu-alignment="auto" onselect= {handleSelect}>
+                                          <lightning-menu-item value="Dashboard" label="My Dashboard" href="" ></lightning-menu-item>
+                                          <!--lightning-menu-item value="Submitted Claim" label="Submitted Claims"></lightning-menu-item>-->
+                                          <!--lightning-menu-item value="Draft Claim" label="Draft Claims"></lightning-menu-item>-->
+                                          <!--lightning-menu-item value="Meeting" label="Meetings"></lightning-menu-item>-->
+                                      </lightning-button-menu>
+                                     <!-- <lightning:icon iconName="utility:list" size="medium" class="slds-m-left_none" alternativeText="List" title="List" style="padding:0;width:52px;height:61px;cursor:pointer;color:#fff;" onclick="{!c.onNavClick}" />-->
+                                  </div>
+                              </template>
+                              <template if:true={isLargeDevice}>
+                                  <a href={communityBasePath}  class="slds-p-left_medium slds-context-bar__label-action" style="font-size:1.2em; font-weight: bold;margin-left:-0.5rem;" title="Dashboard">
+                                      <span class="slds-assistive-text">{label.RS_dashboard_label}</span>
+                                      <span class="slds-truncate" title="Dashboard">{label.RS_dashboard_label}</span>
+                                  </a>
+                              </template>
+                          </li>
+              </ul>
+          </nav>
+      </div>
+      
+  </template>

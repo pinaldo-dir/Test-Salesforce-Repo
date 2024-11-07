@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Status__c</fullName>
+    <externalId>false</externalId>
+    <inlineHelpText>If Status = Admin Dismissed, must decide if associated violations should be Admin Dismissed as well and Penalties zeroed out.</inlineHelpText>
+    <label>Status</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>true</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <valueSetDefinition>
+            <sorted>true</sorted>
+            <value>
+                <fullName>Administrative Dismissal</fullName>
+                <default>false</default>
+                <label>Administrative Dismissal</label>
+            </value>
+            <value>
+                <fullName>Affirmed</fullName>
+                <default>false</default>
+                <label>Affirmed</label>
+            </value>
+            <value>
+                <fullName>Appeal Withdrawn</fullName>
+                <default>false</default>
+                <label>Appeal Withdrawn</label>
+            </value>
+            <value>
+                <fullName>Canceled-Invalid</fullName>
+                <default>false</default>
+                <label>Canceled-Invalid</label>
+            </value>
+            <value>
+                <fullName>Demand Non-citable</fullName>
+                <default>false</default>
+                <label>Demand Non-citable</label>
+            </value>
+            <value>
+                <fullName>Dismissed</fullName>
+                <default>false</default>
+                <label>Dismissed</label>
+            </value>
+            <value>
+                <fullName>Final</fullName>
+                <default>false</default>
+                <label>Final</label>
+            </value>
+            <value>
+                <fullName>Hearing Complete</fullName>
+                <default>false</default>
+                <label>Hearing Complete</label>
+            </value>
+            <value>
+                <fullName>Judgment Accepted</fullName>
+                <default>false</default>
+                <label>Judgment Accepted</label>
+            </value>
+            <value>
+                <fullName>Judgment Rejected</fullName>
+                <default>false</default>
+                <label>Judgment Rejected</label>
+            </value>
+            <value>
+                <fullName>Modified</fullName>
+                <default>false</default>
+                <label>Modified</label>
+            </value>
+            <value>
+                <fullName>New</fullName>
+                <default>true</default>
+                <label>New</label>
+            </value>
+            <value>
+                <fullName>Out of Statute</fullName>
+                <default>false</default>
+                <label>Out of Statute</label>
+            </value>
+            <value>
+                <fullName>Paid Off</fullName>
+                <default>false</default>
+                <label>Paid Off</label>
+            </value>
+            <value>
+                <fullName>Payment Plan</fullName>
+                <default>false</default>
+                <label>Payment Plan</label>
+            </value>
+            <value>
+                <fullName>Pending Writ</fullName>
+                <default>false</default>
+                <label>Pending Writ</label>
+            </value>
+            <value>
+                <fullName>Referred for Judgment</fullName>
+                <default>false</default>
+                <label>Referred for Judgment</label>
+            </value>
+            <value>
+                <fullName>Request Dismissal</fullName>
+                <default>false</default>
+                <label>Request Dismissal</label>
+            </value>
+            <value>
+                <fullName>Settled</fullName>
+                <default>false</default>
+                <label>Settled</label>
+            </value>
+            <value>
+                <fullName>Stop Order Only</fullName>
+                <default>false</default>
+                <label>Stop Order Only</label>
+            </value>
+            <value>
+                <fullName>Under Appeal</fullName>
+                <default>false</default>
+                <label>Under Appeal</label>
+            </value>
+            <value>
+                <fullName>Under Writ</fullName>
+                <default>false</default>
+                <label>Under Writ</label>
+            </value>
+            <value>
+                <fullName>Writ Affirmed</fullName>
+                <default>false</default>
+                <label>Writ Affirmed</label>
+            </value>
+            <value>
+                <fullName>Writ Modified</fullName>
+                <default>false</default>
+                <label>Writ Modified</label>
+            </value>
+            <value>
+                <fullName>Writ Received</fullName>
+                <default>false</default>
+                <label>Writ Received</label>
+            </value>
+            <value>
+                <fullName>Writ Remanded</fullName>
+                <default>false</default>
+                <label>Writ Remanded</label>
+            </value>
+            <value>
+                <fullName>Writ Settled</fullName>
+                <default>false</default>
+                <label>Writ Settled</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

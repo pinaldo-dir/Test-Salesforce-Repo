@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+        <label><!-- UWF Payee --></label>
+        <name>UWF_Payee__c</name>
+        <relationshipLabel><!-- Payment Records (UWF Payee) --></relationshipLabel>
+    </CustomFieldTranslation>

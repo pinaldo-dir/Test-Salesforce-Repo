@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomMetadata xmlns="http://soap.sforce.com/2006/04/metadata" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <label>Industry 5</label>
+    <protected>false</protected>
+    <values>
+        <field>NaicsCodeLevel1EnglishTranslation__c</field>
+        <value xsi:type="xsd:string">Retail, Wholesale or Services</value>
+    </values>
+    <values>
+        <field>NaicsCodeLevel1SpanishTranslation__c</field>
+        <value xsi:type="xsd:string">Venta al Por Menor, al Por Mayor o Servicios</value>
+    </values>
+    <values>
+        <field>NaicsCodeLevel2EnglishTranslation__c</field>
+        <value xsi:type="xsd:string">Automotive Service and Maintenance~Automotive Repair and Maintenance;Car Washes~Car Washes;Hotels and Motels~Hotels (except Casino Hotels) and Motels;Casino Hotels~Gambling Industries;Nail Salons~Nail Salons;Barber Shops~Barber Shops;Beauty Salons~Beauty Salons;Personal Services Industry~Other Personal Care Services;Retail~Retail;Pet Care (except Veterinary) Services~Pet Care (except Veterinary) Services;Veterinary Services~Veterinary Services;Amusement &amp; Recreation~Amusement Parks and Arcades;Arts or Entertainment~Arts, Entertainment, and Recreation;Child Day Care Services~Child Day Care Services;Cannabis Retail~Cannabis Retail;Wholesale Trade~Wholesale Trade</value>
+    </values>
+    <values>
+        <field>NaicsCodeLevel2SpanishTranslation__c</field>
+        <value xsi:type="xsd:string">Servicio y Mantenimiento Automático; Lavadero de Auto; Hoteles y Moteles; Hoteles de Casinos;
+Salones de Manicura; Barberías; Salones de Belleza; Industria de Servicios Personales; Minoristas; Servicios del Cuidado de Mascotas (excepto veterinarias); Servicios de Veterinarias; Diversión y Recreación; Arte o Entretenimiento; Servicios de Guarderías Infantiles; Minoristas de Cannabis; Comercio Mayorista</value>
+    </values>
+    <values>
+        <field>OWC_Industry__c</field>
+        <value xsi:type="xsd:string">Retail, Wholesale or Services</value>
+    </values>
+    <values>
+        <field>OWC_NAICS_Discription__c</field>
+        <value xsi:type="xsd:string">Automotive Repair and Maintenance;Car Washes;Hotels and Motels;Casino Hotels;
+Nail Salons;Barber Shops;Beauty Salons;Personal Services Industry;Retail;Pet Care (except Veterinary) Services;Veterinary Services;Amusement &amp; Recreation;Arts or Entertainment;Child Day Care Services;Cannabis Retail;Wholesale Trade</value>
+    </values>
+    <values>
+        <field>Order_Number__c</field>
+        <value xsi:type="xsd:double">5.0</value>
+    </values>
+</CustomMetadata>

@@ -1,0 +1,6 @@
+The following CIU Referral has been Rejected.
+
+Rejected Date:  {!Referral__c.Rejected_Date__c}
+Referral Status:  {!Referral__c.Request_Status__c}
+
+Link to Referral:  {!Referral__c.Link}

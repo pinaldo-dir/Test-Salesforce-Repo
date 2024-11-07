@@ -1,0 +1,546 @@
+<!--
+  @description       : 
+  @author            : ChangeMeIn@UserSettingsUnder.SFDoc
+  @group             : 
+  @last modified on  : 02-28-2022
+  @last modified by  : ChangeMeIn@UserSettingsUnder.SFDoc
+-->
+<template>
+    
+    <template if:true={isFormPreviewMode}>
+        <form class="slds-p-left_small slds-p-top_medium slds-p-bottom_medium">
+            <div class="slds-grid slds-wrap">
+                 <!--0-->
+                <template if:true={labelName}>
+                    <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-1 slds-large-size_1-of-1">
+                        <fieldset class="slds-p-top_medium slds-p-right_medium slds-p-bottom_medium">
+                            {customLabelValues.OWC_Info_For_RN} 
+                            
+                            <span class="slds-p-left_x-small">
+                                <lightning-icon icon-name="utility:info" class="my-icon" size="x-small" alternative-text="info"  label={customLabelValues.OWC_learnmore_button} name="LabelNameText" onclick={handleHelpText} ></lightning-icon>
+                            </span>
+                            <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-2 slds-large-size_1-of-2">
+                                <lightning-input data-id="labelName" name="labelName"  variant="label-hidden"  value={labelName} onchange={handleChange} onblur={handleFocus}></lightning-input>
+                            </div> 
+                        </fieldset>
+                    </div>
+                </template>
+                <!--1-->
+                <template if:true={isFileUploaded}>
+                    <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-1 slds-large-size_1-of-1">
+                        <fieldset class="slds-p-top_medium slds-p-right_medium slds-p-bottom_medium">
+                            {customLabelValues.OWC_RnUploadDoc}                         
+                            <span class="slds-p-left_x-small">
+                                <lightning-icon icon-name="utility:info" class="my-icon" size="x-small" alternative-text="info"  label={customLabelValues.OWC_learnmore_button} name="RNHelpText" onclick={handleHelpText} ></lightning-icon>
+                            </span>
+
+                            <lightning-file-upload data-id="uploadLabelSection" name="fileUploader" accept={acceptedFormats} record-id={myRecordId} onuploadfinished={handleUploadFinished} multiple> </lightning-file-upload>
+                            
+                        </fieldset>
+                        <template if:false={isFileUploaded}>
+                            <fieldset class="slds-p-top_medium slds-p-right_medium slds-p-bottom_medium">
+                                <c-owc-Multiple-File-Upload-Details-Cmp data-id="additionalDocId" isfileuploaded={isFileUploaded} onuploaddocumentevent={handleUploadedDocData}></c-owc-Multiple-File-Upload-Details-Cmp>
+                        </fieldset>
+                        </template>
+                    </div>
+                </template>
+        
+                <!--2-->
+                <template if:true={labelGarmentDescription}>
+                    <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-2 slds-large-size_1-of-2">
+                        <fieldset class="slds-p-top_medium slds-p-right_medium slds-p-bottom_medium">
+                            <div class="">
+                                {customLabelValues.OWC_Garments_Description}
+                            </div>
+                                <lightning-input disabled data-id="labelGarmentDescription" name="labelGarmentDescription"  variant="label-hidden"  value={labelGarmentDescription} onchange={handleChange} onblur={handleFocus}></lightning-input>
+                        </fieldset>
+                    </div>
+                </template>
+                <!--3-->
+                <template if:true={labelGarmentsDuration}>
+                    <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-1 slds-large-size_1-of-1">
+                        <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-2 slds-large-size_1-of-2">
+                            <fieldset class="slds-p-top_medium slds-p-right_medium slds-p-bottom_medium">
+                                <div class="">{customLabelValues.OWC_Make_Garments}</div>
+                                    <lightning-combobox disabled name="labelGarmentsDuration" data-id="labelGarmentsDuration" onchange={handleChange} onblur={handleFocus} value={labelGarmentsDuration}     placeholder={customLabelValues.OWC_select_picklist_label} options={garmentLabelOptions}  variant="label-hidden"></lightning-combobox>  
+                            </fieldset>
+                            <template if:true={isOther}>
+                                <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-1 slds-large-size_1-of-1">
+                                    <fieldset class="slds-p-top_medium slds-p-right_medium slds-p-bottom_medium">
+                                        {customLabelValues.OWC_Other}                            
+                                        <lightning-input data-id="Other" 
+                                                        name="Other" 
+                                                        type="text" 
+                                                        variant="label-hidden"  
+                                                        value={Other} 
+                                                        onchange={handleChange} ></lightning-input>
+                                    </fieldset>
+                                </div>
+                            </template>
+                        </div>
+                    </div>
+                </template>
+                <!--4-->
+                <template if:true={sampleOfGarment}>
+                    <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-2 slds-large-size_1-of-2">
+                        <fieldset class="slds-p-top_medium slds-p-right_medium slds-p-bottom_medium">
+                            <div class="">{customLabelValues.OWC_Garment_SewedSample}</div>
+                            <lightning-radio-group disabled name="sampleOfGarment" data-id="sampleOfGarment"  options={options} value={sampleOfGarment} variant="label-hidden" onchange={handleChange}></lightning-radio-group>  
+                        </fieldset>
+                    </div>
+                </template>
+                <!--5-->
+                <template if:true={labelGarmentDelAddCompName}>
+                    <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of- slds-large-size_1-of-1">
+                        <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-2 slds-large-size_1-of-2">
+                            <fieldset class="slds-p-top_medium slds-p-right_medium slds-p-bottom_medium">
+                                {customLabelValues.OWC_Delivery_Comp_Name}
+                                    <lightning-input data-id="labelGarmentDelAddCompName" name="labelGarmentDelAddCompName"  variant="label-hidden"  value={labelGarmentDelAddCompName} onchange={handleChange} onblur={handleFocus}></lightning-input>
+                            </fieldset>
+                        </div>
+                    </div>
+                </template>
+                <!--6-->
+                <template if:true={labelGarmentDelAdd}>
+                    <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of- slds-large-size_1-of-1">
+                        <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-2 slds-large-size_1-of-2">
+                            <fieldset class="slds-p-top_medium slds-p-right_medium slds-p-bottom_medium">
+                                <div class="">{customLabelValues.OWC_Delivery_Address}</div>
+                                    <lightning-input disabled data-id="labelGarmentDelAdd" name="labelGarmentDelAdd"  variant="label-hidden"  value={labelGarmentDelAdd} onchange={handleChange} onblur={handleFocus}></lightning-input>
+                            </fieldset>
+                        </div>
+                    </div>
+                </template>
+                
+                <!-- <template if:true={labelGarmentDelAddCompName}>
+                    <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-2 slds-large-size_1-of-2">
+                        <fieldset class="slds-p-top_medium slds-p-right_medium slds-p-bottom_medium">
+                            <div class="">{customLabelValues.OWC_Delivery_Company}</div>
+                                <lightning-input disabled data-id="labelGarmentDelAddCompName" name="labelGarmentDelAddCompName"  variant="label-hidden"  value={labelGarmentDelAddCompName} onchange={handleChange} onblur={handleFocus}></lightning-input>
+                        </fieldset>
+                    </div>
+                </template> -->
+                <!--7-->
+                <template if:true={superVisorCheck}>
+                    <div class="slds-col slds-size_1-of-1 slds-medium-size_8-of-8 slds-large-size_8-of-8">
+                        <fieldset class="slds-p-top_medium slds-p-right_medium slds-p-bottom_medium">
+                            <div class="">{customLabelValues.OWC_Apart_FromSupervisorCheck}</div>
+                            <lightning-radio-group disabled  name="superVisorCheck"  options={options} data-id="superVisorCheck" value={superVisorCheck} variant="label-hidden" onchange={handleChange}>
+                            </lightning-radio-group>
+                        </fieldset>
+                        <div class="slds-grid slds-wrap">
+                            <template if:true={isSuperVisorCheck}>
+                                <div class="slds-grid slds-wrap">
+                                    <!--7.1-->
+                                    <template if:true={namePersonVisit}>
+                                        <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-2 slds-large-size_1-of-2">
+                                            <fieldset class="slds-p-top_medium slds-p-right_medium slds-p-bottom_medium">
+                                                <div class="">{customLabelValues.OWC_Person_Name}</div>
+                                                    <lightning-input disabled data-id="namePersonVisit" name="namePersonVisit"  variant="label-hidden"  value={namePersonVisit} onchange={handleChange} onblur={handleFocus}></lightning-input>
+                                            </fieldset>
+                                        </div>
+                                    </template>
+                                    
+                                    <!--7.2-->
+                                    <template if:true={labelPersonVisit}>
+                                        <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-2 slds-large-size_1-of-2">
+                                            <fieldset class="slds-p-top_medium slds-p-right_medium slds-p-bottom_medium">
+                                                <div class="">{customLabelValues.OWC_Person_Visit}</div>
+                                                    <lightning-input disabled data-id="labelPersonVisit" name="labelPersonVisit"  variant="label-hidden"  value={labelPersonVisit} onchange={handleChange} onblur={handleFocus}></lightning-input>
+                                            </fieldset>
+                                        </div>
+                                    </template>
+                                    <!--7.3-->
+                                    <template if:true={labelTheyWereWorking}>
+                                        <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-2 slds-large-size_1-of-2">
+                                            <fieldset class="slds-p-top_medium slds-p-right_medium slds-p-bottom_medium">   
+                                                <div class="">{customLabelValues.OWC_WorkingWithLabel}</div>
+                                                    <lightning-input disabled data-id="labelTheyWereWorking" name="labelTheyWereWorking"  variant="label-hidden"  value={labelTheyWereWorking} onchange={handleChange} onblur={handleFocus}></lightning-input> 
+                                            </fieldset>
+                                        </div>
+                                    </template>
+                                    <!--7.4-->
+                                    <template if:true={labelWhatTheySay}>
+                                        <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-2 slds-large-size_1-of-2">
+                                            <fieldset class="slds-p-top_medium slds-p-right_medium slds-p-bottom_medium">
+                                                <div class="">{customLabelValues.OWC_IfSpokeWhatSay}</div>
+                                                    <lightning-input disabled data-id="labelWhatTheySay" name="labelWhatTheySay"  variant="label-hidden"  value={labelWhatTheySay} onchange={handleChange} onblur={handleFocus}></lightning-input>
+                                            </fieldset>
+                                        </div>
+                                    </template>
+                                    <!--7.5-->
+                                    <template if:true={labelWhatIfMistakFound}>
+                                        <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-2 slds-large-size_1-of-2">
+                                            <fieldset class="slds-p-top_medium slds-p-right_medium slds-p-bottom_medium">
+                                                <div class="">{customLabelValues.OWC_Found_Mistake}</div>
+                                                    <lightning-input disabled data-id="labelWhatIfMistakFound" name="labelWhatIfMistakFound"  variant="label-hidden"  value={labelWhatIfMistakFound} onchange={handleChange} onblur={handleFocus}></lightning-input>
+                                            </fieldset>
+                                        </div>
+                                    </template>
+                                </div>
+                            </template>
+                        </div>
+                    </div>
+                </template>  
+                
+                <!--10-->
+                <template if:true={labelWorkOverTime}>
+                    <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-2 slds-large-size_1-of-2">
+                        <fieldset class="slds-p-top_medium slds-p-right_medium slds-p-bottom_medium">
+                            <div class="">{customLabelValues.OWC_OvertimeToCorrectMistake}</div>
+                                    <lightning-input disabled data-id="labelWorkOverTime" name="labelWorkOverTime"  variant="label-hidden"  value={labelWorkOverTime} onchange={handleChange} onblur={handleFocus}></lightning-input>
+                        </fieldset>
+                    </div>
+                </template>
+                
+                <!--11-->
+                <template if:true={labelWorkOverTimeDeadline}>
+                    <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-2 slds-large-size_1-of-2">
+                        <fieldset class="slds-p-top_medium slds-p-right_medium slds-p-bottom_medium">
+                            <div class="">{customLabelValues.OWC_OvertimeToMeetDeadline}</div>
+                                    <lightning-input disabled data-id="labelWorkOverTimeDeadline" name="labelWorkOverTimeDeadline"  variant="label-hidden"  value={labelWorkOverTimeDeadline} onchange={handleChange} onblur={handleFocus}></lightning-input>
+                        </fieldset>
+                    </div>
+                </template>
+                <!--12-->
+                <template if:true={labelPriority}>
+                    <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-2 slds-large-size_1-of-2">
+                        <fieldset class="slds-p-top_medium slds-p-right_medium slds-p-bottom_medium">
+                            <div class="">{customLabelValues.OWC_Label_Priority}</div>
+                                    <lightning-input disabled data-id="labelPriority" name="labelPriority"  variant="label-hidden"  value={labelPriority} onchange={handleChange} onblur={handleFocus}></lightning-input>
+                        </fieldset>
+                    </div>
+                </template>
+                <!--13-->
+                <template if:true={labelPercProvided}>
+                    <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-1 slds-large-size_1-of-1">
+                        <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-2 slds-large-size_1-of-2">
+                            <fieldset class="slds-p-top_medium slds-p-right_medium slds-p-bottom_medium">
+                                <div class="">{customLabelValues.OWC_WorkOnSpecificLabel}</div>
+                                <lightning-radio-group  disabled name="labelPercProvided"  options={options} data-id="labelPercProvided" value={labelPercProvided} variant="label-hidden" onchange={handleChange}>
+                                </lightning-radio-group>
+                            </fieldset>
+                        </div>                      
+                    </div>
+                </template>
+                <!--Label Date Section-->
+                
+                <!--14-->
+                <template if:true={labelStartDate}>
+                    <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-1 slds-large-size_1-of-1">
+                            <fieldset class="slds-p-top_medium slds-p-right_medium slds-p-bottom_medium">
+                                    {customLabelValues.OWC_WorkOnLabel}
+                            </fieldset>
+                    </div> 
+                    <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-1 slds-large-size_1-of-1">
+                        <div class="slds-grid slds-wrap ">
+                            <template if:true={labelStartDate}>
+                                <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-2 slds-large-size_1-of-2">
+                                    <!--Label Start Date-->
+                                    <fieldset class="slds-p-top_medium slds-p-right_medium slds-p-bottom_medium">
+                                            {customLabelValues.OWC_Start_Date}
+                                            <span class="slds-p-left_medium dateFormatLabel">{dateFormatLabel}</span>
+                                            <lightning-input disabled variant="label-hidden" 
+                                                                        date-style="short"
+                                                                        name="labelStartDate"
+                                                                        type="date"
+                                                                        value ={labelStartDate}
+                                                                        data-id="labelStartDate"
+                                                                        onchange={handleChange}
+                                                                        >
+                                            </lightning-input>
+                                    </fieldset>        
+                                </div>
+                            </template>
+                            <!--Label End Date-->
+                                
+                            <!--14.2-->
+                            <template if:true={labelEndDate}>
+                                <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-2 slds-large-size_1-of-2">
+                                    <fieldset class="slds-p-top_medium slds-p-right_medium slds-p-bottom_medium"> 
+                                            {customLabelValues.OWC_End_Date}
+                                            <span class="slds-p-left_medium dateFormatLabel">{dateFormatLabel}</span>
+                                            <lightning-input disabled variant="label-hidden" 
+                                                                        date-style="short"
+                                                                        name="labelEndDate"
+                                                                        type="date"
+                                                                        value ={labelEndDate}
+                                                                        data-id="labelEndDate"
+                                                                        onchange={handleChange}
+                                                                        >
+                                            </lightning-input>
+                                    </fieldset>
+                                </div> 
+                            </template>
+                        </div>
+                    </div>
+                </template>
+                         
+            </div>
+                <!--Help TExt Section-->
+                <template if:true={isHelpText}>
+                    <c-owc-Help-Text-Cmp helptext={helpText} ismultiplefileuploadhelptext={isMultipleFileUploadHelpText} onhelptextevent={handleHelpTextEvent}></c-owc-Help-Text-Cmp>
+                </template>
+        </form>
+    </template>
+
+    <template if:false={isFormPreviewMode}>
+        <form class="slds-p-left_small slds-p-top_medium slds-p-bottom_medium">
+            <div class="slds-grid slds-wrap">
+                <!--0-->
+                <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-2 slds-large-size_1-of-2">
+                    <fieldset class="slds-p-top_medium slds-p-right_medium slds-p-bottom_medium">
+                        {customLabelValues.OWC_Info_For_RN} 
+                        
+                        <span class="slds-p-left_x-small">
+                            <lightning-icon icon-name="utility:info" class="my-icon" size="x-small" alternative-text="info"  label={customLabelValues.OWC_learnmore_button} name="LabelNameText" onclick={handleHelpText} ></lightning-icon>
+                         </span>
+                         
+                            <lightning-input data-id="labelName" name="labelName"  variant="label-hidden"  value={labelName} onchange={handleChange} onblur={handleFocus}></lightning-input>
+                         
+                    </fieldset>
+                </div>
+                <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-2 slds-large-size_1-of-2"></div>
+                <!-- Hide all fields if label name is not entered -->
+                <template if:true={showLabelFields}>
+                    <!--1-->
+                <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-2 slds-large-size_1-of-2">
+                    <fieldset class="">
+                        <!-- {customLabelValues.OWC_RnUploadDoc}                          -->
+                        <div class="slds-grid slds-wrap">
+                            <div style="width:max-content;">
+                                <span></span>
+                                <lightning-file-upload variant="label-hidden" data-id="uploadLabelSection" name="fileUploader" accept={acceptedFormats} record-id={myRecordId} onuploadfinished={handleUploadFinished} multiple> </lightning-file-upload>
+                            </div>
+                            <div style="width:max-content;padding: 28px 10px;">
+                                <span class="">
+                                    <lightning-icon icon-name="utility:info" class="my-icon" size="x-small" alternative-text="info"  label={customLabelValues.OWC_learnmore_button} name="RNHelpText" onclick={handleHelpText} ></lightning-icon>
+                                </span>
+                            </div>
+                        </div>
+                    </fieldset>
+                </div>
+                <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-1 slds-large-size_1-of-1">
+                    <template if:false={isFileUploaded}>
+                        <c-owc-Multiple-File-Upload-Details-Cmp data-id="additionalDocId" isfileuploaded={isFileUploaded} onuploaddocumentevent={handleUploadedDocData}></c-owc-Multiple-File-Upload-Details-Cmp>       
+                    </template>
+                </div>
+
+                <!--2-->
+                <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-2 slds-large-size_1-of-2">
+                    <fieldset class="slds-p-top_medium slds-p-right_medium slds-p-bottom_medium">
+                        
+                            {customLabelValues.OWC_Garments_Description}
+                            <span class="requiredStyle"><abbr title="required">*</abbr></span> 
+                        
+                            <lightning-input data-id="labelGarmentDescription" name="labelGarmentDescription"  variant="label-hidden"  value={labelGarmentDescription} onchange={handleChange} onblur={handleFocus}></lightning-input>
+                    </fieldset>
+                </div>
+                
+                <!--3-->
+                <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of- slds-large-size_1-of-1">
+                    <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-2 slds-large-size_1-of-2">
+                        <fieldset class="slds-p-top_medium slds-p-right_medium slds-p-bottom_medium">
+                            
+                                {customLabelValues.OWC_Make_Garments}
+                                <span class="requiredStyle"><abbr title="required">*</abbr></span>
+                            
+                                <lightning-combobox name="labelGarmentsDuration" data-id="labelGarmentsDuration" onchange={handleChange} onblur={handleFocus} value={labelGarmentsDuration}     placeholder={customLabelValues.OWC_select_picklist_label} options={garmentLabelOptions}  variant="label-hidden"></lightning-combobox>  
+                        </fieldset>
+
+                        <template if:true={isOther}>
+                            <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-1 slds-large-size_1-of-1">
+                                <fieldset class="slds-p-top_medium slds-p-right_medium slds-p-bottom_medium">
+                                    {customLabelValues.OWC_Other}                            
+                                    <lightning-input data-id="Other" 
+                                                    name="Other" 
+                                                    type="text" 
+                                                    variant="label-hidden"  
+                                                    value={Other} 
+                                                    onchange={handleChange} ></lightning-input>
+                                </fieldset>
+                            </div>
+                        </template>
+                    </div>
+                </div>
+                <!--4-->
+                <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-2 slds-large-size_1-of-2">
+                    <fieldset class="slds-p-top_medium slds-p-right_medium slds-p-bottom_medium">
+                        {customLabelValues.OWC_Garment_SewedSample}
+                        <lightning-radio-group name="sampleOfGarment" data-id="sampleOfGarment"  options={options} value={sampleOfGarment} variant="label-hidden" onchange={handleChange}></lightning-radio-group>  
+                    </fieldset>
+                </div>
+                <!--5-->
+                <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of- slds-large-size_1-of-1">
+                    <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-2 slds-large-size_1-of-2">
+                        <fieldset class="slds-p-top_medium slds-p-right_medium slds-p-bottom_medium">
+                            {customLabelValues.OWC_Delivery_Comp_Name}
+                                <lightning-input data-id="labelGarmentDelAddCompName" name="labelGarmentDelAddCompName"  variant="label-hidden"  value={labelGarmentDelAddCompName} onchange={handleChange} onblur={handleFocus}></lightning-input>
+                        </fieldset>
+                    </div>
+                </div>
+                <!--6-->
+                <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of- slds-large-size_1-of-1">
+                    <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-2 slds-large-size_1-of-2">
+                        <fieldset class="slds-p-top_medium slds-p-right_medium slds-p-bottom_medium">
+                            {customLabelValues.OWC_Delivery_Address}
+                                <lightning-input data-id="labelGarmentDelAdd" name="labelGarmentDelAdd"  variant="label-hidden"  value={labelGarmentDelAdd} onchange={handleChange} onblur={handleFocus}></lightning-input>
+                        </fieldset>
+                    </div>
+                </div>
+                
+                <!-- <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-2 slds-large-size_1-of-2">
+                    <fieldset class="slds-p-top_medium slds-p-right_medium slds-p-bottom_medium">
+                        {customLabelValues.OWC_Delivery_Company}
+                            <lightning-input data-id="labelGarmentDelAddCompName" name="labelGarmentDelAddCompName"  variant="label-hidden"  value={labelGarmentDelAddCompName} onchange={handleChange} onblur={handleFocus}></lightning-input>
+                    </fieldset>
+                </div> -->
+                
+                <!--7-->
+                <div class="slds-col slds-size_1-of-1 slds-medium-size_8-of-8 slds-large-size_8-of-8">
+                    <fieldset class="slds-p-top_medium slds-p-right_medium slds-p-bottom_medium">
+                        {customLabelValues.OWC_Apart_FromSupervisorCheck}
+                        <lightning-radio-group  name="superVisorCheck"  options={options} data-id="superVisorCheck" value={superVisorCheck} variant="label-hidden" onchange={handleChange}>
+                        </lightning-radio-group>
+                    </fieldset>
+                    <template if:true={isSuperVisorCheck}>
+                        <div class="slds-grid slds-wrap">
+                            <!--7.1-->
+                            <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-2 slds-large-size_1-of-2">
+                                <fieldset class="slds-p-top_medium slds-p-right_medium slds-p-bottom_medium">
+                                    {customLabelValues.OWC_Person_Name}
+                                        <lightning-input data-id="namePersonVisit" name="namePersonVisit"  variant="label-hidden"  value={namePersonVisit} onchange={handleChange} onblur={handleFocus}></lightning-input>
+                                </fieldset>
+                            </div>
+                            
+                            <!--7.2-->
+                            <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-2 slds-large-size_1-of-2">
+                                <fieldset class="slds-p-top_medium slds-p-right_medium slds-p-bottom_medium">
+                                    {customLabelValues.OWC_Person_Visit}
+                                        <lightning-input data-id="labelPersonVisit" name="labelPersonVisit"  variant="label-hidden"  value={labelPersonVisit} onchange={handleChange} onblur={handleFocus}></lightning-input>
+                                </fieldset>
+                            </div>
+                            <!--7.3-->
+                            <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-2 slds-large-size_1-of-2">
+                                <fieldset class="slds-p-top_medium slds-p-right_medium slds-p-bottom_medium">   
+                                    {customLabelValues.OWC_WorkingWithLabel}
+                                        <lightning-input data-id="labelTheyWereWorking" name="labelTheyWereWorking"  variant="label-hidden"  value={labelTheyWereWorking} onchange={handleChange} onblur={handleFocus}></lightning-input> 
+                                </fieldset>
+                            </div>
+                            <!--7.4-->
+                            <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-2 slds-large-size_1-of-2">
+                                <fieldset class="slds-p-top_medium slds-p-right_medium slds-p-bottom_medium">   
+                                    {customLabelValues.OWC_IfSpokeWhatSay}
+                                        <lightning-input data-id="labelWhatTheySay" name="labelWhatTheySay"  variant="label-hidden"  value={labelWhatTheySay} onchange={handleChange} onblur={handleFocus}></lightning-input> 
+                                </fieldset>
+                            </div>
+                            <!--7.5-->
+                            <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-2 slds-large-size_1-of-2">
+                                <fieldset class="slds-p-top_medium slds-p-right_medium slds-p-bottom_medium">   
+                                    {customLabelValues.OWC_Found_Mistake}
+                                        <lightning-input data-id="labelWhatIfMistakFound" name="labelWhatIfMistakFound"  variant="label-hidden"  value={labelWhatIfMistakFound} onchange={handleChange} onblur={handleFocus}></lightning-input> 
+                                </fieldset>
+                            </div>
+                        </div>
+                    </template>
+                </div>
+                <!--  -->
+                
+                
+                <!--10-->
+                <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-2 slds-large-size_1-of-2">
+                    <fieldset class="slds-p-top_medium slds-p-right_medium slds-p-bottom_medium">
+                        {customLabelValues.OWC_OvertimeToCorrectMistake}
+                                <lightning-input data-id="labelWorkOverTime" name="labelWorkOverTime"  variant="label-hidden"  value={labelWorkOverTime} onchange={handleChange} onblur={handleFocus}></lightning-input>
+                    </fieldset>
+                </div>
+
+                
+                <!--11-->
+                <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-2 slds-large-size_1-of-2">
+                    <fieldset class="slds-p-top_medium slds-p-right_medium slds-p-bottom_medium">
+                        {customLabelValues.OWC_OvertimeToMeetDeadline}
+                                <lightning-input data-id="labelWorkOverTimeDeadline" name="labelWorkOverTimeDeadline"  variant="label-hidden"  value={labelWorkOverTimeDeadline} onchange={handleChange} onblur={handleFocus}></lightning-input>
+                    </fieldset>
+                </div>
+                
+                <!--12-->
+                <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-2 slds-large-size_1-of-2">
+                    <fieldset class="slds-p-top_medium slds-p-right_medium slds-p-bottom_medium">
+                        {customLabelValues.OWC_Label_Priority}
+                        <lightning-input data-id="labelPriority" name="labelPriority"  variant="label-hidden"  value={labelPriority} onchange={handleChange} onblur={handleFocus}></lightning-input>
+                    </fieldset>
+                </div>
+                
+                <!--13-->
+                <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-2 slds-large-size_1-of-2">
+                    <fieldset class="slds-p-top_medium slds-p-right_medium slds-p-bottom_medium">                        
+                        {customLabelValues.OWC_WorkOnSpecificLabel}
+                        <span class="requiredStyle"><abbr title="required">*</abbr></span>
+
+                        <lightning-input data-id="labelPercProvided" placeholder = "%"
+                                                name="labelPercProvided" 
+                                                type="text" 
+                                                variant="label-hidden"  
+                                                value={labelPercProvided} 
+                                                onchange={handleChange} ></lightning-input>
+                    </fieldset>
+                </div>
+
+                <!--Label Date Section-->                
+                <!--14-->
+                <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-1 slds-large-size_1-of-1">
+                        <fieldset class="slds-p-top_medium slds-p-right_medium slds-p-bottom_medium">
+                                {customLabelValues.OWC_WorkOnLabel}
+                        </fieldset>
+                </div> 
+                <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-1 slds-large-size_1-of-1">
+                    <div class="slds-grid slds-wrap ">
+                        <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-2 slds-large-size_1-of-2">
+                            <!--Label Start Date-->
+                            <fieldset class="slds-p-top_medium slds-p-right_medium slds-p-bottom_medium">
+                                    {customLabelValues.OWC_Start_Date}
+                                    <span class="slds-p-left_medium dateFormatLabel">{dateFormatLabel}</span>
+                                    <span class="requiredStyle"><abbr title="required">*</abbr></span>
+                                    <lightning-input variant="label-hidden" 
+                                                                date-style="short"
+                                                                name="labelStartDate"
+                                                                type="date"
+                                                                value ={labelStartDate}
+                                                                data-id="labelStartDate"
+                                                                onchange={handleChange}
+                                                                >
+                                    </lightning-input>
+                            </fieldset>        
+                        </div>
+                        <!--Label End Date-->
+                            
+                        <!--14.2-->
+                        <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-2 slds-large-size_1-of-2">
+                            <fieldset class="slds-p-top_medium slds-p-right_medium slds-p-bottom_medium"> 
+                                    {customLabelValues.OWC_End_Date}
+                                    <span class="slds-p-left_medium dateFormatLabel">{dateFormatLabel}</span>
+                                    <span class="requiredStyle"><abbr title="required">*</abbr></span>
+                                    <lightning-input variant="label-hidden" 
+                                                                date-style="short"
+                                                                name="labelEndDate"
+                                                                type="date"
+                                                                value ={labelEndDate}
+                                                                data-id="labelEndDate"
+                                                                onchange={handleChange}
+                                                                >
+                                    </lightning-input>
+                            </fieldset>
+                        </div> 
+                    </div>
+                </div>
+                </template>
+                         
+            </div>
+                <!--Help TExt Section-->
+                <template if:true={isHelpText}>
+                    <c-owc-Help-Text-Cmp helptext={helpText} ismultiplefileuploadhelptext={isMultipleFileUploadHelpText} onhelptextevent={handleHelpTextEvent}></c-owc-Help-Text-Cmp>
+                </template>
+        </form>
+    </template>
+</template>

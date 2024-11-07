@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+        <help><!-- Please check if Defects are corrected --></help>
+        <label><!-- WCI and Bond DA --></label>
+        <name>WCI_and_BondDA__c</name>
+    </CustomFieldTranslation>

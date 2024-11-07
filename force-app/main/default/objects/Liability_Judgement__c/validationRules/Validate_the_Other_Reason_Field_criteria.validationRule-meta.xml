@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Validate_the_Other_Reason_Field_criteria</fullName>
+    <active>true</active>
+    <description>This validation is used to verify the 'Other Reason' only valid if the 'Judgment Party Type' field value is selected as 'Other'.</description>
+    <errorConditionFormula>AND( NOT(ISPICKVAL(Judgment_Party_Type__c, 'Other')) ,   Other_Reason__c != null )</errorConditionFormula>
+    <errorDisplayField>Other_Reason__c</errorDisplayField>
+    <errorMessage>'Other Reason' only applicable if 'Judgment Party Type' is selected as 'Other'.</errorMessage>
+</ValidationRule>

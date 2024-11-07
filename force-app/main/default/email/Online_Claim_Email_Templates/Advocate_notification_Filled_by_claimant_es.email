@@ -1,0 +1,8 @@
+Hola {!Advocate}, <br></br>                                                                                       
+
+El o la demandante, {!Claimant}, de un reclamo de sueldo ha indicado que usted es su representante o defensor contra {!Defendant}.  El número de caso es {!case number}. Este reclamo está asignado a la siguiente Oficina de Sueldos:
+<br></br>
+{!DIR_Case__c.Office__c }
+{!DIR_Case__c.DIR_WCA_Office_Address__c}
+{!DIR_Case__c.DIR_Office_Phone_Number__c}                                                                     
+Oficina de la Comisionada Laboral

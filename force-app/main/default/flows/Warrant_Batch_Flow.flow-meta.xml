@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionCalls>
+        <description>The check batch approvers of the Warrant Batch should receive the email alert</description>
+        <name>WB_Approval_Alert</name>
+        <label>WB Approval Alert</label>
+        <locationX>50</locationX>
+        <locationY>408</locationY>
+        <actionName>Warrant_Batch__c.Warrant_Batch_Approval_Request</actionName>
+        <actionType>emailAlert</actionType>
+        <flowTransactionModel>CurrentTransaction</flowTransactionModel>
+        <inputParameters>
+            <name>SObjectRowId</name>
+            <value>
+                <elementReference>$Record.Id</elementReference>
+            </value>
+        </inputParameters>
+        <nameSegment>Warrant_Batch__c.Warrant_Batch_Approval_Request</nameSegment>
+        <versionSegment>1</versionSegment>
+    </actionCalls>
+    <actionCalls>
+        <name>WB_Approval_Reminder</name>
+        <label>WB Approval Reminder</label>
+        <locationX>490</locationX>
+        <locationY>408</locationY>
+        <actionName>Warrant_Batch__c.Warrant_Batch_Approval_Request</actionName>
+        <actionType>emailAlert</actionType>
+        <flowTransactionModel>CurrentTransaction</flowTransactionModel>
+        <inputParameters>
+            <name>SObjectRowId</name>
+            <value>
+                <elementReference>$Record.Id</elementReference>
+            </value>
+        </inputParameters>
+        <nameSegment>Warrant_Batch__c.Warrant_Batch_Approval_Request</nameSegment>
+        <versionSegment>1</versionSegment>
+    </actionCalls>
+    <apiVersion>57.0</apiVersion>
+    <decisions>
+        <description>Warrant Batch is submitted for approval and the status is updated to Pending Approval</description>
+        <name>Warrant_Batch_Submitted</name>
+        <label>Warrant Batch Submitted</label>
+        <locationX>182</locationX>
+        <locationY>288</locationY>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>Warrant_Batch_Pending</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.Status__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Pending Approval</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>WB_Approval_Alert</targetReference>
+            </connector>
+            <label>Warrant Batch Submitted</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <name>Warrant_Batch_Submitted_for_Approval</name>
+        <label>Warrant Batch Submitted for Approval</label>
+        <locationX>622</locationX>
+        <locationY>288</locationY>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>Warrant_Batch_Still_Pending</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.Status__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Pending Approval</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>WB_Approval_Reminder</targetReference>
+            </connector>
+            <label>Warrant Batch Still Pending</label>
+        </rules>
+    </decisions>
+    <description>Process builder of Warrant Batch is moved to Flow</description>
+    <environments>Default</environments>
+    <interviewLabel>Warrant Batch Flow {!$Flow.CurrentDateTime}</interviewLabel>
+    <label>Warrant Batch Flow</label>
+    <processMetadataValues>
+        <name>BuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>CanvasMode</name>
+        <value>
+            <stringValue>AUTO_LAYOUT_CANVAS</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>OriginBuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processType>AutoLaunchedFlow</processType>
+    <start>
+        <locationX>276</locationX>
+        <locationY>0</locationY>
+        <connector>
+            <targetReference>Warrant_Batch_Submitted</targetReference>
+        </connector>
+        <doesRequireRecordChangedToMeetCriteria>true</doesRequireRecordChangedToMeetCriteria>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Status__c</field>
+            <operator>EqualTo</operator>
+            <value>
+                <stringValue>Pending Approval</stringValue>
+            </value>
+        </filters>
+        <object>Warrant_Batch__c</object>
+        <recordTriggerType>CreateAndUpdate</recordTriggerType>
+        <scheduledPaths>
+            <name>Warrant_Approval_Reminder</name>
+            <connector>
+                <targetReference>Warrant_Batch_Submitted_for_Approval</targetReference>
+            </connector>
+            <label>Warrant Approval Reminder</label>
+            <offsetNumber>1</offsetNumber>
+            <offsetUnit>Days</offsetUnit>
+            <timeSource>RecordTriggerEvent</timeSource>
+        </scheduledPaths>
+        <triggerType>RecordAfterSave</triggerType>
+    </start>
+    <status>Active</status>
+</Flow>

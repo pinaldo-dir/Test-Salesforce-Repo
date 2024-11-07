@@ -1,0 +1,385 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>Form 1 Status</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Form 1 Status</value>
+    </caseValues>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <layouts>
+        <layout>Candidate Accepts Layout</layout>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>Candidate Declined Layout</layout>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>Form 1 Status Layout</layout>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>HR - Part 1 Approved Layout</layout>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>HR - Part 2 Approved Layout</layout>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>HR Job Offer Clearance Notification Layout</layout>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>Interviews Conducted Layout</layout>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>Interviews Scheduled Layout</layout>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>Job Post Date Layout</layout>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>Minimum Qualification Withhold Layout</layout>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>On Hold Layout</layout>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>Packet to HR - Part 1 Under Review  Layout</layout>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>Packet to HR - Part 2 Under Review  Layout</layout>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>Packet to HR - Part 3 Under Review  Layout</layout>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>Packet to HR - Part X Received Layout</layout>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>Part 1 - Return to Program  Layout</layout>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>Part 2 - Return to Program  Layout</layout>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>Part 3 - Return to Program  Layout</layout>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>Salary Determination Transfer Eligibility Check Layout</layout>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+    </layouts>
+    <recordTypes>
+        <label><!-- CalHR - Approved --></label>
+        <name>CalHR_Approved</name>
+    </recordTypes>
+    <recordTypes>
+        <label><!-- CalHR - Denied --></label>
+        <name>CalHR_Denied</name>
+    </recordTypes>
+    <recordTypes>
+        <label><!-- CalHR - Under Review --></label>
+        <name>CalHR_Under_Review</name>
+    </recordTypes>
+    <recordTypes>
+        <label><!-- Canceled by Division --></label>
+        <name>Canceled_by_Division</name>
+    </recordTypes>
+    <recordTypes>
+        <label><!-- Canceled by HR --></label>
+        <name>Canceled_by_HR</name>
+    </recordTypes>
+    <recordTypes>
+        <label><!-- Candidate Accepts --></label>
+        <name>Candidate_Accepts</name>
+    </recordTypes>
+    <recordTypes>
+        <label><!-- Candidate Declined --></label>
+        <name>Candidate_Declined</name>
+    </recordTypes>
+    <recordTypes>
+        <label><!-- HR Final Packet - Analyst Approved --></label>
+        <name>HR_Final_Packet_Analyst_Approved</name>
+    </recordTypes>
+    <recordTypes>
+        <label><!-- HR Final Packet - Manager Approved --></label>
+        <name>HR_Final_Packet_Manager_Approved</name>
+    </recordTypes>
+    <recordTypes>
+        <label><!-- HR Final Packet - Submitted to CalHR --></label>
+        <name>HR_Final_Packet_Submitted_to_CalHR</name>
+    </recordTypes>
+    <recordTypes>
+        <label><!-- HR - Job Offer Clearance Notification --></label>
+        <name>HR_Job_Offer_Clearance_Notification</name>
+    </recordTypes>
+    <recordTypes>
+        <label><!-- HR – Part 1 Approved --></label>
+        <name>HR_Part_1_Approved</name>
+    </recordTypes>
+    <recordTypes>
+        <label><!-- HR – Part 2 Approved --></label>
+        <name>HR_Part_2_Approved</name>
+    </recordTypes>
+    <recordTypes>
+        <label><!-- Interviews - Conducted --></label>
+        <name>Interviews_Conducted</name>
+    </recordTypes>
+    <recordTypes>
+        <label><!-- Interviews - Scheduled --></label>
+        <name>Interviews_Scheduled</name>
+    </recordTypes>
+    <recordTypes>
+        <label><!-- Job Post Date --></label>
+        <name>Job_Post_Date</name>
+    </recordTypes>
+    <recordTypes>
+        <label><!-- Legacy --></label>
+        <name>Legacy</name>
+    </recordTypes>
+    <recordTypes>
+        <label><!-- Minimum Qualification Withhold --></label>
+        <name>Minimum_Qualification_Withhold</name>
+    </recordTypes>
+    <recordTypes>
+        <label><!-- On Hold --></label>
+        <name>On_Hold</name>
+    </recordTypes>
+    <recordTypes>
+        <label><!-- Packet to HR - Part 1 Received --></label>
+        <name>Packet_to_HR_Part_1_Received</name>
+    </recordTypes>
+    <recordTypes>
+        <label><!-- Packet to HR - Part 1 Under Review --></label>
+        <name>Packet_to_HR_Part_1_Under_Review</name>
+    </recordTypes>
+    <recordTypes>
+        <label><!-- Packet to HR - Part 2 Received --></label>
+        <name>Packet_to_HR_Part_2_Received</name>
+    </recordTypes>
+    <recordTypes>
+        <label><!-- Packet to HR - Part 2 Under Review --></label>
+        <name>Packet_to_HR_Part_2_Under_Review</name>
+    </recordTypes>
+    <recordTypes>
+        <label><!-- Packet to HR - Part 3 Received --></label>
+        <name>Packet_to_HR_Part_3_Received</name>
+    </recordTypes>
+    <recordTypes>
+        <label><!-- Packet to HR - Part 3 Under Review --></label>
+        <name>Packet_to_HR_Part_3_Under_Review</name>
+    </recordTypes>
+    <recordTypes>
+        <label><!-- Part 1 Return to Program --></label>
+        <name>Part_1_Return_to_Program</name>
+    </recordTypes>
+    <recordTypes>
+        <label><!-- Part 2 Return to Program --></label>
+        <name>Part_2_Return_to_Program</name>
+    </recordTypes>
+    <recordTypes>
+        <label><!-- Part 3 Return to Program --></label>
+        <name>Part_3_Return_to_Program</name>
+    </recordTypes>
+    <recordTypes>
+        <label><!-- Release  Applications --></label>
+        <name>Release_Applications</name>
+    </recordTypes>
+    <recordTypes>
+        <label><!-- Release of Applications --></label>
+        <name>Release_of_Applications</name>
+    </recordTypes>
+    <recordTypes>
+        <label><!-- Salary Determination/Transfer Eligibility Check Review --></label>
+        <name>Salary_Determination_Transfer_Eligibility_Check_Review</name>
+    </recordTypes>
+    <startsWith>Consonant</startsWith>
+    <validationRules>
+        <errorMessage><!-- Please fill out the following fields:  Name of Alternate Candidate, Date Received from Program, Date Under Review by HR, Job Offered Date. --></errorMessage>
+        <name>Another_Candidate_yes</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Data missing from previous status.  Please complete before creating a new status. --></errorMessage>
+        <name>Before_Next_Verification</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Date of Status field cannot be modified after save. Please create a new record. --></errorMessage>
+        <name>Changing_Status_Date_is_not_allowed</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Status field cannot be modified after save. Please create a new status record --></errorMessage>
+        <name>Changing_Status_is_not_allowed</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Deleting Status End Date is not allowed --></errorMessage>
+        <name>Deleting_Status_End_Date_is_not_allowed</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Date of Status cannot be greater than Status End Date --></errorMessage>
+        <name>End_Date_Greater_Return_to_Program</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Review Packet Received Date cannot be greater than Status End Date --></errorMessage>
+        <name>End_Date_Greater_Under_Review</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Record Type field cannot be modified after save. Please create a new status record. --></errorMessage>
+        <name>Form_1_Status_Record_Type_Change_Stop</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- This Status Type is not available to your profile. --></errorMessage>
+        <name>HR_Liaison_permission_to_F1_Sta_Statue</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Please fill out the Training Confirmed by C&amp;P checkbox. --></errorMessage>
+        <name>Need_checkbox_training_confirmed_CP</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Please enter a date equal to or before today&apos;s date. --></errorMessage>
+        <name>No_Future_Date_for_Date_Of_Status</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Please enter a date for Review Packet Received Date equal to or before today&apos;s date. --></errorMessage>
+        <name>No_Future_Date_for_Received_Date</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Please enter notes --></errorMessage>
+        <name>Note_is_required_for_certain_statuses</name>
+    </validationRules>
+</CustomObjectTranslation>

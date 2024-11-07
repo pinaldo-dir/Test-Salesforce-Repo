@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>CovidReferralOther_Reason</fullName>
+    <active>true</active>
+    <errorConditionFormula>AND( ISBLANK( Covid_Referral_Other_Reason__c ) ,INCLUDES(Covid_Referral_Reason__c , 'Other'))</errorConditionFormula>
+    <errorDisplayField>Covid_Referral_Other_Reason__c</errorDisplayField>
+    <errorMessage>Please enter a reason</errorMessage>
+</ValidationRule>

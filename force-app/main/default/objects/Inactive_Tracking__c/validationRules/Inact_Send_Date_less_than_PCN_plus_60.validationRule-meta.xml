@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Inact_Send_Date_less_than_PCN_plus_60</fullName>
+    <active>true</active>
+    <errorConditionFormula>AND(
+AND(NOT ISNULL(Inactive_Notice_Sent_Date__c ), NOT ISNULL(PCN_Sent_Date__c )),
+(Inactive_Notice_Sent_Date__c &lt;= PCN_Sent_Date__c + 60)
+)</errorConditionFormula>
+    <errorMessage>Inactive Notice Sent Date must be greater than 60 days from PCN Sent Date</errorMessage>
+</ValidationRule>

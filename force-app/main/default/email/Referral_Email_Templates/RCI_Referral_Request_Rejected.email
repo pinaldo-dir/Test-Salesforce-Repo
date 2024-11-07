@@ -1,0 +1,7 @@
+The following RCI Referral has been Rejected.
+
+Rejected Date:  {!Referral__c.Rejected_Date__c}
+Referral Status:  {!Referral__c.Request_Status__c}
+Record Type:  {!Referral__c.RecordType}
+
+Link to Referral:  {!Referral__c.Link}

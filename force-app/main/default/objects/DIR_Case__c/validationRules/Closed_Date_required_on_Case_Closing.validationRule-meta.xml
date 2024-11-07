@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Closed_Date_required_on_Case_Closing</fullName>
+    <active>true</active>
+    <description>When a case is closed, a close date is required</description>
+    <errorConditionFormula>(RecordType.Name = "WCA"||RecordType.Name = "Garment"|| RecordType.Name = "RCI") &amp;&amp; 
+(ISPICKVAL(Status__c, "Closed")) &amp;&amp;
+(ISCHANGED(Status__c)) &amp;&amp;
+(ISNULL(Case_Closed_Date__c))</errorConditionFormula>
+    <errorDisplayField>Case_Closed_Date__c</errorDisplayField>
+    <errorMessage>When closing a case, Closed date is required. Please enter Case Closed Date</errorMessage>
+</ValidationRule>

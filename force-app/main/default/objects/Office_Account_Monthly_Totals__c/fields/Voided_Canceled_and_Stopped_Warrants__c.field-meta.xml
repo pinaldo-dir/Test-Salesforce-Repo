@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Voided_Canceled_and_Stopped_Warrants__c</fullName>
+    <description>Populated by CreateOAMTRecords apex class. Sum of issued Warrants where the Status was changed to 'Voided', 'Canceled', or 'Stopped' in the previous month.</description>
+    <externalId>false</externalId>
+    <inlineHelpText>Sum of issued Warrants that were voided, canceled or stopped in the previous month.</inlineHelpText>
+    <label>+ Voided, Canceled, and Stopped Warrants</label>
+    <precision>18</precision>
+    <required>false</required>
+    <scale>2</scale>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Currency</type>
+</CustomField>

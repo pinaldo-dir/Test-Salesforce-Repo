@@ -1,0 +1,10 @@
+Please review the following approval request:
+
+
+Case: {!Referral__c.Case__c}
+Referral Date: {!Referral__c.Referral_Date__c}
+Referral Description: {!Referral__c.Request_Description__c}
+Referring Deputy: {!Referral__c.Referring_Deputy__c}
+ 
+
+Link to Referral: {!Referral__c.Link}

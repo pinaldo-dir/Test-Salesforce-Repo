@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Client_Employer_Joint_Employer_Name__c</fullName>
+    <deleteConstraint>SetNull</deleteConstraint>
+    <externalId>false</externalId>
+    <label>Client Employer/Joint Employer Name</label>
+    <lookupFilter>
+        <active>true</active>
+        <filterItems>
+            <field>Case_Role__c.Case__c</field>
+            <operation>equals</operation>
+            <valueField>$Source.Case__c</valueField>
+        </filterItems>
+        <filterItems>
+            <field>Case_Role__c.Role__c</field>
+            <operation>equals</operation>
+            <value>Case Employer, Client Employer, Defendant, Defendant - Joint Employer, Joint Employer, PAGA Additional Employer, PAGA Employer</value>
+        </filterItems>
+        <isOptional>false</isOptional>
+    </lookupFilter>
+    <referenceTo>Case_Role__c</referenceTo>
+    <relationshipLabel>Legal Actions</relationshipLabel>
+    <relationshipName>Legal_Actions</relationshipName>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Lookup</type>
+</CustomField>

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Complete_2__c</fullName>
+    <defaultValue>false</defaultValue>
+    <description>Updated by PB "HR Update Form 1 w Latest F1 Status and Date"</description>
+    <externalId>false</externalId>
+    <label>Complete</label>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Checkbox</type>
+</CustomField>

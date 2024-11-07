@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+        <label><!-- Share Point Item Id --></label>
+        <name>Share_Point_Item_Id__c</name>
+    </CustomFieldTranslation>

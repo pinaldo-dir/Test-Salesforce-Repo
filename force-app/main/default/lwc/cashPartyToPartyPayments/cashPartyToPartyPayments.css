@@ -1,0 +1,20 @@
+.custom-required-label::before {
+    content: "* ";
+    color: red;
+}
+
+.casePaymentStatusRed {
+    color: red;
+}
+
+.casePaymentStatusGreen {
+    color: green;
+}
+
+.amountRemainingToAllocateRed {
+    color: red;
+}
+
+.amountRemainingToAllocateGreen {
+    color: green;
+}

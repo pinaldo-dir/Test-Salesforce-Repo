@@ -1,0 +1,8 @@
+.slds-has-error .slds-form-element__help{
+    visibility: hidden;
+}
+.slds-has-error .slds-input{
+    background-color: var(--sds-c-input-color-background, var(--lwc-colorBackgroundInput,rgb(255, 255, 255)));
+    color: var(--sds-c-input-text-color);
+    background-clip: padding-box;
+}

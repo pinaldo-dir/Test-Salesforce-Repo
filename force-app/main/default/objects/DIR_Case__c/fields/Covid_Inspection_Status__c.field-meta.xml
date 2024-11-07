@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Covid_Inspection_Status__c</fullName>
+    <externalId>false</externalId>
+    <label>Covid Inspection Status</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>MultiselectPicklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Covid-19 SO</fullName>
+                <default>false</default>
+                <label>Covid-19 SO</label>
+            </value>
+            <value>
+                <fullName>Covid-19 RCI Referral</fullName>
+                <default>false</default>
+                <label>Covid-19 RCI Referral</label>
+            </value>
+            <value>
+                <fullName>Covid-19 PSL</fullName>
+                <default>false</default>
+                <label>Covid-19 PSL</label>
+            </value>
+            <value>
+                <fullName>Covid-19 SPSL</fullName>
+                <default>false</default>
+                <label>Covid-19 SPSL</label>
+            </value>
+            <value>
+                <fullName>Covid-19 Misclass</fullName>
+                <default>false</default>
+                <label>Covid-19 Misclass</label>
+            </value>
+            <value>
+                <fullName>Covid-19 Recheck</fullName>
+                <default>false</default>
+                <label>Covid-19 Recheck</label>
+            </value>
+            <value>
+                <fullName>Covid-19 NTD</fullName>
+                <default>false</default>
+                <label>Covid-19 NTD</label>
+            </value>
+            <value>
+                <fullName>Covid-19 Appeal Hrg</fullName>
+                <default>false</default>
+                <label>Covid-19 Appeal Hrg</label>
+            </value>
+            <value>
+                <fullName>Covid-19 DOSH Referral</fullName>
+                <default>false</default>
+                <label>Covid-19 DOSH Referral</label>
+            </value>
+            <value>
+                <fullName>Covid-19 Legal Referral</fullName>
+                <default>false</default>
+                <label>Covid-19 Legal Referral</label>
+            </value>
+            <value>
+                <fullName>Other</fullName>
+                <default>false</default>
+                <label>Other</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+    <visibleLines>10</visibleLines>
+</CustomField>

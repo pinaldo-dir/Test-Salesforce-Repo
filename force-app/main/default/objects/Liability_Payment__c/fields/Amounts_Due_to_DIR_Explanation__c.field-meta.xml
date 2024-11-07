@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Amounts_Due_to_DIR_Explanation__c</fullName>
+    <description>DIR Fees Explanation field is getting changed to Amounts Due to DIR Explanation field</description>
+    <externalId>false</externalId>
+    <label>Amounts Due to DIR Explanation</label>
+    <length>32768</length>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>LongTextArea</type>
+    <visibleLines>3</visibleLines>
+</CustomField>

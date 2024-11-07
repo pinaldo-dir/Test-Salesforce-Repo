@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>All_Hearing_Dates__c</fullName>
+    <description>Stores all hearing dates</description>
+    <externalId>false</externalId>
+    <inlineHelpText>Please key in dates in Month Day, YYYY; followed by a comma to separate multi-hearing dates (excluding the Meeting Start and Meeting End Dates).</inlineHelpText>
+    <label>All Hearing Dates</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>TextArea</type>
+</CustomField>

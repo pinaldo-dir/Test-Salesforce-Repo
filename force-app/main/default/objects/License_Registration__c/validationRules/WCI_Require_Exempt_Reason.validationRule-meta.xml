@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>WCI_Require_Exempt_Reason</fullName>
+    <active>true</active>
+    <description>Requires a reason be selected when a company is exempt from WCI</description>
+    <errorConditionFormula>/* Evaluate in these conditions */
+(
+ (/* Exempt new imported records */
+  ISNEW() &amp;&amp; !ISBLANK(TEXT (Imported_From__c))
+ )
+||
+/* or ready to submit */
+ISPICKVAL( Ready_to_Submit__c, 'Yes' )
+
+/* Or the field value has changed */
+||
+ISCHANGED ( Workers_Comp_Selection__c )
+)
+
+&amp;&amp;
+/* Core of validation rule */
+
+ISPICKVAL( Workers_Comp_Selection__c , "Exempt from workers' compensation insurance" ) 
+&amp;&amp;
+ISPICKVAL (  Exempt_Reason__c , '')</errorConditionFormula>
+    <errorMessage>Please select the reason why your company is exempt from Workers' Compensation Insurance</errorMessage>
+</ValidationRule>

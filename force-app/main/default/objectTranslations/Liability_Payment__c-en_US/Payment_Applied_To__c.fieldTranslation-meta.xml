@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+        <label><!-- Payment Applied To --></label>
+        <name>Payment_Applied_To__c</name>
+        <picklistValues>
+            <masterLabel>Amounts Due to DIR</masterLabel>
+            <translation><!-- Amounts Due to DIR --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Buyback</masterLabel>
+            <translation><!-- Buyback --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Hold Amount</masterLabel>
+            <translation><!-- Hold Amount --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Interest</masterLabel>
+            <translation><!-- Interest --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Other Amount</masterLabel>
+            <translation><!-- Other Amount --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Penalties</masterLabel>
+            <translation><!-- Penalties --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Refund Amount</masterLabel>
+            <translation><!-- Refund Amount --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Wage Interest</masterLabel>
+            <translation><!-- Wage Interest --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Wages</masterLabel>
+            <translation><!-- Wages --></translation>
+        </picklistValues>
+    </CustomFieldTranslation>

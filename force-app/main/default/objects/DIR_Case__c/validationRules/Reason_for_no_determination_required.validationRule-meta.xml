@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Reason_for_no_determination_required</fullName>
+    <active>true</active>
+    <description>Reason for no determination is required</description>
+    <errorConditionFormula>if(ISPICKVAL(Determination_Made__c, 'No')&amp;&amp; ispickval( Reason_for_No_Determination__c,''),true,false)</errorConditionFormula>
+    <errorDisplayField>Reason_for_No_Determination__c</errorDisplayField>
+    <errorMessage>"Reason for No Determination" is required when "No" is selected for "Determination Made"</errorMessage>
+</ValidationRule>

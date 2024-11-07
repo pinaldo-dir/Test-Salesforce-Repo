@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>ALL_VIOLATION_TYPES</fullName>
+    <columns>NAME</columns>
+    <columns>Help_Text__c</columns>
+    <columns>Short_Description__c</columns>
+    <columns>RECORDTYPE</columns>
+    <filterScope>Everything</filterScope>
+    <label>ALL VIOLATION TYPES</label>
+</ListView>

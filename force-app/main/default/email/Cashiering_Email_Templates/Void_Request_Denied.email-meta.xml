@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <description>The void requested was denied via approval process. This notifies the submitter their request was denied.</description>
+    <encodingKey>ISO-8859-1</encodingKey>
+    <name>Void Request Denied</name>
+    <style>none</style>
+    <subject>Your Void Request was denied</subject>
+    <type>text</type>
+    <uiType>Aloha</uiType>
+</EmailTemplate>

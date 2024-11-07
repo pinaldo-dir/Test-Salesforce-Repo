@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<WebLink xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Generate_Warrant_Batch_Document</fullName>
+    <availability>online</availability>
+    <description>For Daily Warrant Log, Warrants, and UWF Warrants</description>
+    <displayType>button</displayType>
+    <encodingKey>UTF-8</encodingKey>
+    <height>600</height>
+    <linkType>url</linkType>
+    <masterLabel>Generate Warrant Batch Document</masterLabel>
+    <openType>sidebar</openType>
+    <protected>false</protected>
+    <url>/apex/loop__looplus?&amp;eid={!Warrant_Batch__c.Id}&amp;filter={!Warrant_Batch__c.Status__c},WB</url>
+</WebLink>

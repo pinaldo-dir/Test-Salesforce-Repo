@@ -1,0 +1,6 @@
+Hello {!DIR_Case__c.OwnerFirstName},
+
+You are the deputy assigned to case {!DIR_Case__c.Case_Number__c}.  The appeal deadline of {!Liability__c.Appeal_Deadline__c} has passed.  Please start the collections process.
+
+You may visit the corresponding Case at: {!DIR_Case__c.Link}
+You may visit the corresponding Liability at: {!Liability__c.Link}

@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Deactivated_records_cannot_reactivate</fullName>
+    <active>true</active>
+    <description>An Ownership record cannot be reactivated after it is deactivated.</description>
+    <errorConditionFormula>NOT(CONTAINS($Profile.Name,'System Administrator')) &amp;&amp; ISCHANGED(Status__c) &amp;&amp;  ISPICKVAL(PRIORVALUE(Status__c), 'Inactive')</errorConditionFormula>
+    <errorMessage>This Ownership record may not be reactivated.</errorMessage>
+</ValidationRule>

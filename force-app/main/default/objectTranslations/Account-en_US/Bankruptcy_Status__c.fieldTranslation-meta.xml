@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+        <label><!-- Bankruptcy Status --></label>
+        <name>Bankruptcy_Status__c</name>
+        <picklistValues>
+            <masterLabel>Chapter 11</masterLabel>
+            <translation><!-- Chapter 11 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Chapter 12</masterLabel>
+            <translation><!-- Chapter 12 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Chapter 13</masterLabel>
+            <translation><!-- Chapter 13 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Chapter 7</masterLabel>
+            <translation><!-- Chapter 7 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Discharged</masterLabel>
+            <translation><!-- Discharged --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Dismissed</masterLabel>
+            <translation><!-- Dismissed --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>None</masterLabel>
+            <translation><!-- None --></translation>
+        </picklistValues>
+    </CustomFieldTranslation>

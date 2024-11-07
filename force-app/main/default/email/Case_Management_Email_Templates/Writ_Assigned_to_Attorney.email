@@ -1,0 +1,3 @@
+Hello {!Writ__c.OwnerFirstName},
+
+{!Writ__c.Name} has been assigned to you in Salesforce on case {!Writ__c.Case_Management__c}.  You may access the writ directly by clicking here {!Writ__c.Link}

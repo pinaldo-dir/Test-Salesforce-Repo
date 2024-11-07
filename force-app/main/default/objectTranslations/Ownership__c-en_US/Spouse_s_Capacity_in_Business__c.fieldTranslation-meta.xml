@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+        <help><!-- Enter Spouse&apos;s Capacity in Business --></help>
+        <label><!-- Spouse&apos;s Capacity in Business --></label>
+        <name>Spouse_s_Capacity_in_Business__c</name>
+    </CustomFieldTranslation>

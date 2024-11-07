@@ -1,0 +1,346 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Workflow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <alerts>
+        <fullName>HR_Send_CEA_Leadership_Training_Notification</fullName>
+        <ccEmails>ble@dir.ca.gov</ccEmails>
+        <description>HR Send CEA Leadership Training Notification</description>
+        <protected>false</protected>
+        <recipients>
+            <field>Email__c</field>
+            <type>email</type>
+        </recipients>
+        <senderAddress>humanresources@dir.ca.gov</senderAddress>
+        <senderType>OrgWideEmailAddress</senderType>
+        <template>unfiled$public/HR_MTT_CEA_Leadership_Training</template>
+    </alerts>
+    <alerts>
+        <fullName>HR_Send_Hiring_Series_Training_Email_Reminder</fullName>
+        <description>HR Send Hiring Series Training Email Reminder</description>
+        <protected>false</protected>
+        <recipients>
+            <field>Email__c</field>
+            <type>email</type>
+        </recipients>
+        <senderAddress>humanresources@dir.ca.gov</senderAddress>
+        <senderType>OrgWideEmailAddress</senderType>
+        <template>unfiled$public/HR_Sup_Hiring_Series_Training_Reminder</template>
+    </alerts>
+    <alerts>
+        <fullName>HR_Send_Leadership_Training_Notification</fullName>
+        <ccEmails>ble@dir.ca.gov</ccEmails>
+        <description>HR Send Leadership Training Notification</description>
+        <protected>false</protected>
+        <recipients>
+            <field>Email__c</field>
+            <type>email</type>
+        </recipients>
+        <senderAddress>humanresources@dir.ca.gov</senderAddress>
+        <senderType>OrgWideEmailAddress</senderType>
+        <template>unfiled$public/HR_MTT_Leadership_Training</template>
+    </alerts>
+    <alerts>
+        <fullName>HR_Send_Manager_Leadership_Training_Notification</fullName>
+        <ccEmails>ble@dir.ca.gov</ccEmails>
+        <description>HR Send Manager Leadership Training Notification</description>
+        <protected>false</protected>
+        <recipients>
+            <field>Email__c</field>
+            <type>email</type>
+        </recipients>
+        <senderAddress>humanresources@dir.ca.gov</senderAddress>
+        <senderType>OrgWideEmailAddress</senderType>
+        <template>unfiled$public/HR_MTT_Manager_Leadership_Training</template>
+    </alerts>
+    <alerts>
+        <fullName>HR_Send_New_Training_Email_Notification</fullName>
+        <description>HR Send New Training Email Notification</description>
+        <protected>false</protected>
+        <recipients>
+            <field>Email__c</field>
+            <type>email</type>
+        </recipients>
+        <senderAddress>humanresources@dir.ca.gov</senderAddress>
+        <senderType>OrgWideEmailAddress</senderType>
+        <template>All_Templates/HR_New_Sup_Training_Notification</template>
+    </alerts>
+    <alerts>
+        <fullName>HR_Send_New_Training_Email_Notification_Hiring_Series</fullName>
+        <description>HR Send New Training Email Notification Hiring Series</description>
+        <protected>false</protected>
+        <recipients>
+            <field>Email__c</field>
+            <type>email</type>
+        </recipients>
+        <senderAddress>humanresources@dir.ca.gov</senderAddress>
+        <senderType>OrgWideEmailAddress</senderType>
+        <template>unfiled$public/HR_New_Sup_Training_Notifcation_Hiring_Series</template>
+    </alerts>
+    <alerts>
+        <fullName>HR_Send_New_Training_Notification_Basic_Supervision</fullName>
+        <ccEmails>Training@dir.ca.gov</ccEmails>
+        <description>HR Send New Training Notification Basic Supervision</description>
+        <protected>false</protected>
+        <recipients>
+            <field>Email__c</field>
+            <type>email</type>
+        </recipients>
+        <senderAddress>training@dir.ca.gov</senderAddress>
+        <senderType>OrgWideEmailAddress</senderType>
+        <template>HR_Email_Templates/HR_New_Training_Notification_Basic_Supervision</template>
+    </alerts>
+    <alerts>
+        <fullName>HR_Send_New_Training_Notification_CEA_Leadership</fullName>
+        <ccEmails>Training@dir.ca.gov</ccEmails>
+        <description>HR Send New Training Notification CEA Leadership</description>
+        <protected>false</protected>
+        <recipients>
+            <field>Email__c</field>
+            <type>email</type>
+        </recipients>
+        <senderAddress>training@dir.ca.gov</senderAddress>
+        <senderType>OrgWideEmailAddress</senderType>
+        <template>HR_Email_Templates/HR_New_Training_Notification_CEA_Leadership</template>
+    </alerts>
+    <alerts>
+        <fullName>HR_Send_New_Training_Notification_Hiring_Series</fullName>
+        <description>HR Send New Training Notification Hiring Series</description>
+        <protected>false</protected>
+        <recipients>
+            <field>Email__c</field>
+            <type>email</type>
+        </recipients>
+        <senderAddress>training@dir.ca.gov</senderAddress>
+        <senderType>OrgWideEmailAddress</senderType>
+        <template>HR_Email_Templates/HR_New_Training_Notification_Hiring_Series</template>
+    </alerts>
+    <alerts>
+        <fullName>HR_Send_New_Training_Notification_Manager_Leadership</fullName>
+        <ccEmails>Training@dir.ca.gov</ccEmails>
+        <description>HR Send New Training Notification Manager Leadership</description>
+        <protected>false</protected>
+        <recipients>
+            <field>Email__c</field>
+            <type>email</type>
+        </recipients>
+        <senderAddress>training@dir.ca.gov</senderAddress>
+        <senderType>OrgWideEmailAddress</senderType>
+        <template>HR_Email_Templates/HR_New_Training_Notification_Manager_Leadership</template>
+    </alerts>
+    <alerts>
+        <fullName>HR_Send_Training_Email_Notification_First_Reminder</fullName>
+        <description>HR Send Training Email Notification First Reminder</description>
+        <protected>false</protected>
+        <recipients>
+            <field>Email__c</field>
+            <type>email</type>
+        </recipients>
+        <senderAddress>humanresources@dir.ca.gov</senderAddress>
+        <senderType>OrgWideEmailAddress</senderType>
+        <template>All_Templates/HR_Sup_Training_Reminder</template>
+    </alerts>
+    <alerts>
+        <fullName>HR_Send_Training_Email_Notification_Second_Reminder</fullName>
+        <description>HR Send Training Email Notification Second Reminder</description>
+        <protected>false</protected>
+        <recipients>
+            <field>Email__c</field>
+            <type>email</type>
+        </recipients>
+        <senderAddress>humanresources@dir.ca.gov</senderAddress>
+        <senderType>OrgWideEmailAddress</senderType>
+        <template>All_Templates/HR_Sup_Training_Reminder</template>
+    </alerts>
+    <alerts>
+        <fullName>HR_Send_Training_Reminder_Basic_Supervision</fullName>
+        <ccEmails>Training@dir.ca.gov</ccEmails>
+        <description>HR Send Training Reminder Basic Supervision</description>
+        <protected>false</protected>
+        <recipients>
+            <field>Email__c</field>
+            <type>email</type>
+        </recipients>
+        <senderAddress>training@dir.ca.gov</senderAddress>
+        <senderType>OrgWideEmailAddress</senderType>
+        <template>HR_Email_Templates/HR_Training_Reminder_Basic_Supervision</template>
+    </alerts>
+    <alerts>
+        <fullName>HR_Send_Training_Reminder_CEA_Leadership</fullName>
+        <ccEmails>Training@dir.ca.gov</ccEmails>
+        <description>HR Send Training Reminder CEA Leadership</description>
+        <protected>false</protected>
+        <recipients>
+            <field>Email__c</field>
+            <type>email</type>
+        </recipients>
+        <senderAddress>training@dir.ca.gov</senderAddress>
+        <senderType>OrgWideEmailAddress</senderType>
+        <template>HR_Email_Templates/HR_Training_Reminder_CEA_Leadership</template>
+    </alerts>
+    <alerts>
+        <fullName>HR_Send_Training_Reminder_Hiring_Series</fullName>
+        <description>HR Send Training Reminder Hiring Series</description>
+        <protected>false</protected>
+        <recipients>
+            <field>Email__c</field>
+            <type>email</type>
+        </recipients>
+        <senderAddress>training@dir.ca.gov</senderAddress>
+        <senderType>OrgWideEmailAddress</senderType>
+        <template>HR_Email_Templates/HR_Training_Reminder_Hiring_Series</template>
+    </alerts>
+    <alerts>
+        <fullName>HR_Send_Training_Reminder_Manager_Leadership</fullName>
+        <ccEmails>Training@dir.ca.gov</ccEmails>
+        <description>HR Send Training Reminder Manager Leadership</description>
+        <protected>false</protected>
+        <recipients>
+            <field>Email__c</field>
+            <type>email</type>
+        </recipients>
+        <senderAddress>training@dir.ca.gov</senderAddress>
+        <senderType>OrgWideEmailAddress</senderType>
+        <template>HR_Email_Templates/HR_Training_Reminder_Manager_Leadership</template>
+    </alerts>
+    <fieldUpdates>
+        <fullName>HR_Update_Due_Date_All_Types_of_Training</fullName>
+        <description>Update training due date base on record type and whether training is first time or recurring.</description>
+        <field>Due_Date__c</field>
+        <formula>if(RecordType.Name = "Basic Supervision",
+Appointment__r.Start_Date__c + 365,
+
+if(RecordType.Name = "Manager Leadership",
+Appointment__r.Start_Date__c + 365,
+
+if(RecordType.Name = "Hiring Training Series",
+Appointment__r.Start_Date__c + 365,
+
+if(RecordType.Name = "CEA Leadership Training",
+Appointment__r.Start_Date__c + 365,
+
+if(RecordType.Name  = "Ethics"  &amp;&amp; MOD(YEAR( DATEVALUE (CreatedDate)),2)&lt;&gt;0,
+DateValue(CreatedDate)  + 30,
+
+if(RecordType.Name  = "Ethics" &amp;&amp; MOD(YEAR( DATEVALUE (CreatedDate)),2)= 0,
+DateValue(TEXT(YEAR(DateValue(CreatedDate))) &amp; "-12-31"),
+
+
+
+if(RecordType.Name = "Sexual Harassment Prevention for California Supervisors",
+DateValue(CreatedDate)  + 182,
+
+
+
+if(RecordType.Name = "Unlawful Harassment Prevention",
+DateValue(CreatedDate)  + 182,
+
+
+
+if(RecordType.Name = "EEO Laws and Discrimination Prevention",
+DateValue(CreatedDate)  + 182,
+
+
+
+if(RecordType.Name = "EEO Laws and Discrimination Prevention Supervisor Supplement",
+DateValue(CreatedDate)  + 182,
+
+
+
+if(RecordType.Name = "Workplace Bullying and Violence Prevention",
+DateValue(CreatedDate)  + 182,
+
+Null
+)))))))))))</formula>
+        <name>HR Update Due Date All Types of Training</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Formula</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Start_Date_is_ODD_or_EVEN</fullName>
+        <description>Update MTT "Start Date ODD or EVEN"</description>
+        <field>Start_Date_ODD_or_EVEN__c</field>
+        <formula>If( MOD( YEAR( DATEVALUE(CreatedDate )),2)=0,"EVEN", 
+If( MOD( YEAR( DATEVALUE(CreatedDate)),2)&lt;&gt;0,"ODD", 
+NULL 
+))</formula>
+        <name>Start Date is ODD or EVEN</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Formula</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Update_Class_Title</fullName>
+        <field>Class_Title__c</field>
+        <formula>Appointment__r.Position__r.Class_Title__c</formula>
+        <name>Update Class Title</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Formula</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Update_Email</fullName>
+        <description>Update Email with Appt's</description>
+        <field>Email__c</field>
+        <formula>Appointment__r.Email__c</formula>
+        <name>Update Email</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Formula</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Update_Employee_Name</fullName>
+        <description>Appointment Name Update from Appointment</description>
+        <field>Employee__c</field>
+        <formula>Appointment__r.Employee_Contact__r.FirstName &amp;" "&amp; Appointment__r.Employee_Contact__r.LastName</formula>
+        <name>Update Employee Name</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Formula</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Update_Position_Class_Code</fullName>
+        <field>Position_Class_Code__c</field>
+        <formula>Appointment__r.Position__r.Class_Title_CodeNo__c</formula>
+        <name>Update Position Class Code</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Formula</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <rules>
+        <fullName>HR Update MTT All Fields</fullName>
+        <actions>
+            <name>HR_Update_Due_Date_All_Types_of_Training</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <actions>
+            <name>Start_Date_is_ODD_or_EVEN</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <actions>
+            <name>Update_Class_Title</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <actions>
+            <name>Update_Email</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <actions>
+            <name>Update_Employee_Name</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <actions>
+            <name>Update_Position_Class_Code</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>true</active>
+        <description>Update all fields in MTT with values from Appointment including Due Date which needs logic</description>
+        <formula>true</formula>
+        <triggerType>onCreateOnly</triggerType>
+    </rules>
+</Workflow>

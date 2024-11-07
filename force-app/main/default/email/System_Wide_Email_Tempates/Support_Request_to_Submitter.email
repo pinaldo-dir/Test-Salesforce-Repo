@@ -1,0 +1,7 @@
+Your request has been submitted. Once the ticket is assigned to a Support Team, you will be contacted via email or chatter.
+
+Subject: {!Support_Request__c.Subject__c}
+Assigned To: {!Support_Request__c.OwnerFullName}
+Requestor: {!Support_Request__c.CreatedBy}
+
+You may also check on the status of your Support Request by accessing the record: Support Request Link: {!Support_Request__c.Link}

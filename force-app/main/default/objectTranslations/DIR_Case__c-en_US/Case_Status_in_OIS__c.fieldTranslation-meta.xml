@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+        <label><!-- Case Status in OIS --></label>
+        <name>Case_Status_in_OIS__c</name>
+        <picklistValues>
+            <masterLabel>Case has been closed in OIS</masterLabel>
+            <translation><!-- Case has been closed in OIS --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Case has been created in OIS</masterLabel>
+            <translation><!-- Case has been created in OIS --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Case has been deleted from OIS</masterLabel>
+            <translation><!-- Case has been deleted from OIS --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Case needs to be created in OIS</masterLabel>
+            <translation><!-- Case needs to be created in OIS --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Case needs to be deleted from OIS</masterLabel>
+            <translation><!-- Case needs to be deleted from OIS --></translation>
+        </picklistValues>
+    </CustomFieldTranslation>

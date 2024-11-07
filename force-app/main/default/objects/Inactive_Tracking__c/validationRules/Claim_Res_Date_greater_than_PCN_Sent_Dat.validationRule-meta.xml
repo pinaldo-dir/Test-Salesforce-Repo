@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Claim_Res_Date_greater_than_PCN_Sent_Dat</fullName>
+    <active>false</active>
+    <description>Claim Respond Date is greater than Inactive Closure Sent Date</description>
+    <errorConditionFormula>Claimant_Respond_Date__c &gt;  ( PCN_Sent_Date__c + 180)</errorConditionFormula>
+    <errorMessage>Claim Respond Date is greater than 180 days of the PCN Sent Date</errorMessage>
+</ValidationRule>

@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+        <help><!-- The date the PCN notice is sent. This triggers a 60-day waiting period where the claim is on hold pending the Claimant&apos;s response. If the Claimant fails to respond, the case goes into an inactivity period of up to 120 days. --></help>
+        <label><!-- PCN - Inactive Start Date --></label>
+        <name>PCN_Inactive_Start_Date__c</name>
+    </CustomFieldTranslation>

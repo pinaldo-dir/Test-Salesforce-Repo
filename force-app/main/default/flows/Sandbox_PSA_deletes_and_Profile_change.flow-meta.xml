@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>55.0</apiVersion>
+    <decisions>
+        <name>decision_Production_or_Sandbox</name>
+        <label>decision Production or Sandbox</label>
+        <locationX>182</locationX>
+        <locationY>278</locationY>
+        <defaultConnectorLabel>Production - No changes</defaultConnectorLabel>
+        <rules>
+            <name>Delete_and_Edit_in_Sandbox_Only</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>get_Organization.IsSandbox</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>delete_Permission_Set_Assignments_SSO_and_MFA</targetReference>
+            </connector>
+            <label>Delete and Edit in Sandbox Only</label>
+        </rules>
+    </decisions>
+    <description>Deletes permission set assignments for Single Sign-On &amp; MFA. Changes user profiles of &apos;System Administrator LTD&apos; to &apos;System Administrator&apos;.</description>
+    <environments>Default</environments>
+    <interviewLabel>Sandbox - PSA deletes and Profile change {!$Flow.CurrentDateTime}</interviewLabel>
+    <label>Sandbox - PSA deletes and Profile change</label>
+    <processMetadataValues>
+        <name>BuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>CanvasMode</name>
+        <value>
+            <stringValue>AUTO_LAYOUT_CANVAS</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>OriginBuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processType>AutoLaunchedFlow</processType>
+    <recordDeletes>
+        <description>PS: Single Sign-On 0PSt00000010yTb
+PS: MFA Require Additional Verification 0PSt00000010yU5</description>
+        <name>delete_Permission_Set_Assignments_SSO_and_MFA</name>
+        <label>delete Permission Set Assignments - SSO and MFA</label>
+        <locationX>50</locationX>
+        <locationY>398</locationY>
+        <connector>
+            <targetReference>update_User_Profiles_from_Sys_Admin_LTD_to_Sys_Admin</targetReference>
+        </connector>
+        <filterLogic>or</filterLogic>
+        <filters>
+            <field>PermissionSetId</field>
+            <operator>EqualTo</operator>
+            <value>
+                <stringValue>0PSt00000010yTb</stringValue>
+            </value>
+        </filters>
+        <filters>
+            <field>PermissionSetId</field>
+            <operator>EqualTo</operator>
+            <value>
+                <stringValue>0PSt00000010yU5</stringValue>
+            </value>
+        </filters>
+        <object>PermissionSetAssignment</object>
+    </recordDeletes>
+    <recordLookups>
+        <name>get_Organization</name>
+        <label>get Organization</label>
+        <locationX>182</locationX>
+        <locationY>158</locationY>
+        <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
+        <connector>
+            <targetReference>decision_Production_or_Sandbox</targetReference>
+        </connector>
+        <getFirstRecordOnly>true</getFirstRecordOnly>
+        <object>Organization</object>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </recordLookups>
+    <recordUpdates>
+        <description>System Administrator LTD 00et0000000UBtg
+System Administrator 00ed00000013xgX</description>
+        <name>update_User_Profiles_from_Sys_Admin_LTD_to_Sys_Admin</name>
+        <label>update User Profiles from Sys Admin LTD to Sys Admin</label>
+        <locationX>50</locationX>
+        <locationY>518</locationY>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>ProfileId</field>
+            <operator>EqualTo</operator>
+            <value>
+                <stringValue>00et0000000UBtg</stringValue>
+            </value>
+        </filters>
+        <filters>
+            <field>IsActive</field>
+            <operator>EqualTo</operator>
+            <value>
+                <booleanValue>true</booleanValue>
+            </value>
+        </filters>
+        <inputAssignments>
+            <field>ProfileId</field>
+            <value>
+                <stringValue>00ed00000013xgX</stringValue>
+            </value>
+        </inputAssignments>
+        <object>User</object>
+    </recordUpdates>
+    <start>
+        <locationX>56</locationX>
+        <locationY>0</locationY>
+        <connector>
+            <targetReference>get_Organization</targetReference>
+        </connector>
+    </start>
+    <status>Active</status>
+</Flow>

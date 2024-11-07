@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>UserName_Exclude_Online_Claim_prefix__c</fullName>
+    <externalId>false</externalId>
+    <formula>IF(CONTAINS(Username,'.oc') ,  SUBSTITUTE(Username, '.oc','')  , Username)</formula>
+    <label>UserName (Exclude Online Claim prefix)</label>
+    <required>false</required>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

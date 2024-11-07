@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>IC_related_fields_required</fullName>
+    <active>true</active>
+    <errorConditionFormula>ISPICKVAL(IC_Alleged_at_Hearing__c, 'Yes') &amp;&amp;  RecordType.DeveloperName == 'WCA_Hearing' &amp;&amp; (  ISBLANK(Date_IC_alleged_at_hearing__c) || ISPICKVAL( IC_Determination__c ,"") ||  ISBLANK(IC_Determination_Date__c))</errorConditionFormula>
+    <errorMessage>Date IC alleged at hearing, IC determination &amp; IC determination date fields are required when IC alleged at hearing = "yes"</errorMessage>
+</ValidationRule>

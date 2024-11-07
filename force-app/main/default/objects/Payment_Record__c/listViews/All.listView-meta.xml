@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>All</fullName>
+    <columns>NAME</columns>
+    <columns>Payee__c</columns>
+    <columns>Warrant__c</columns>
+    <columns>Warrant_Issued__c</columns>
+    <columns>Payment_Amount__c</columns>
+    <columns>Payment_Applied_To__c</columns>
+    <columns>Liability_Payment__c</columns>
+    <columns>Judgment_Payment__c</columns>
+    <filterScope>Everything</filterScope>
+    <label>All</label>
+</ListView>

@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+        <help><!-- Please key in dates in Month Day, YYYY; followed by a comma to separate multi-hearing dates (excluding the Meeting Start and Meeting End Dates). --></help>
+        <label><!-- All Hearing Dates --></label>
+        <name>All_Hearing_Dates__c</name>
+    </CustomFieldTranslation>

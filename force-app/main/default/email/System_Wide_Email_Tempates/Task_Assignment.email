@@ -1,0 +1,4 @@
+{!Project_Task__c.Name}
+{!Project_Task__c.Subject__c}
+Priority: {!Project_Task__c.Priority__c}
+Link: {!Project_Task__c.Link}

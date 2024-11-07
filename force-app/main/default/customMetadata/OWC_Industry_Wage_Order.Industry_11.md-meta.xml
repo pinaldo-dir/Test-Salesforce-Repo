@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomMetadata xmlns="http://soap.sforce.com/2006/04/metadata" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <label>Industry 11</label>
+    <protected>false</protected>
+    <values>
+        <field>NaicsCodeLevel1EnglishTranslation__c</field>
+        <value xsi:type="xsd:string">Transportation</value>
+    </values>
+    <values>
+        <field>NaicsCodeLevel1SpanishTranslation__c</field>
+        <value xsi:type="xsd:string">Transporte</value>
+    </values>
+    <values>
+        <field>NaicsCodeLevel2EnglishTranslation__c</field>
+        <value xsi:type="xsd:string">Air Transportation~Air Transportation;Rail Transportation~Rail Transportation;Water Transportation~Water Transportation;Truck Transportation~Truck Transportation;Transit and Ground Passenger Transportation~Transit and Ground Passenger Transportation;Scenic and Sightseeing Transportation~Scenic and Sightseeing Transportation;Airport Operations~Airport Operations;Port and Harbor Operations~Port and Harbor Operations;Motor Vehicle Towing~Motor Vehicle Towing</value>
+    </values>
+    <values>
+        <field>NaicsCodeLevel2SpanishTranslation__c</field>
+        <value xsi:type="xsd:string">Transporte Aéreo; Transporte por Ferrocarril; Transporte por Agua; Transporte por Camiones; Tránsito y Transporte Rerrestre de Pasajeros; Transporte Panorámico y Turístico;Operaciones Aeroportuarias; Operaciones Portuarias; Remolque de Vehículos Motorizados</value>
+    </values>
+    <values>
+        <field>OWC_Industry__c</field>
+        <value xsi:type="xsd:string">Transportation</value>
+    </values>
+    <values>
+        <field>OWC_NAICS_Discription__c</field>
+        <value xsi:type="xsd:string">Air Transportation;Rail Transportation;Water Transportation;Truck Transportation;Transit and Ground Passenger Transportation;Scenic and Sightseeing Transportation;Airport Operations;Port and Harbor Operations;Motor Vehicle Towing</value>
+    </values>
+    <values>
+        <field>Order_Number__c</field>
+        <value xsi:type="xsd:double">11.0</value>
+    </values>
+</CustomMetadata>

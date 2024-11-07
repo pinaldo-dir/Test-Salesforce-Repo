@@ -1,0 +1,119 @@
+<apex:page controller="RegistrationImportController" sidebar="false" showHeader="Boolean">
+    <style>
+        .loader {
+        border: 16px solid #f3f3f3; /* Light grey */
+        border-top: 16px solid #3498db; /* Blue */
+        border-radius: 50%;
+        width: 50px;
+        height: 50px;
+        animation: spin 2s linear infinite;
+        }
+        
+        @keyframes spin {
+        0% { transform: rotate(0deg); }
+        100% { transform: rotate(360deg); }
+        }
+        
+        .show{
+        display:inline-block;
+        
+        }
+        
+        .hidden{
+        display:none;
+        }
+        
+        
+        
+        
+    </style>
+    
+    <script>
+    function startLoading(){
+        document.getElementById("ldr").className = "loader show";
+        //document.getElementById('{!$Component.theForm.pblock.upload}').setAttribute("disabled", "disabled");
+        document.getElementById('{!$Component.theForm.pblock.upload}').className = "btnDisabled";
+        document.getElementById('{!$Component.theForm.pblock.process}').className = "btnDisabled";
+    }
+    
+    function closeWin() {
+        window.close();
+    }
+    
+    </script>
+    <apex:form id="theForm">
+        <apex:actionRegion id="theRegion">
+            
+            <apex:sectionHeader title="Upload data from CSV file"/>
+            <center>
+                <div id="ldr" class="loader hidden"></div>
+                <apex:pagemessages />
+            </center>    
+         
+            <apex:pageBlock id="pblock">
+               
+                <!--  Component to allow user to upload file from local machine -->
+                <center>
+                    <apex:inputFile value="{!contentFile}" filename="{!nameFile}" accept=".csv" /> <br />
+
+                    <br /> 
+                    <apex:outputPanel layout="block" id="growerOutputPanel">
+                        <apex:commandButton rendered="true" action="{!ImportGrower}" onclick="startLoading();" value="Process Grower File" id="uploadGrower" status="inserting"/>
+ 
+                    </apex:outputPanel>
+                </center>
+                
+                <apex:pageBlock id="pblock2">
+                    <center>
+                        <apex:inputFile value="{!contentFile}" filename="{!nameFile}" accept=".csv" /> <br />
+                        <br /> 
+                        <apex:outputPanel layout="block" id="driverOutputPanel">
+                            <apex:commandButton rendered="true" action="{!ImportDriver}" onclick="startLoading();" value="Process Driver File" id="uploadDriver" status="inserting"/>
+ 
+                        </apex:outputPanel>
+                    </center>
+                </apex:pageBlock>
+                
+                <apex:pageBlock id="pblock3">
+                    <center>
+                        <apex:inputFile value="{!contentFile}" filename="{!nameFile}" accept=".csv" /> <br />
+                        <br /> 
+                        <apex:outputPanel layout="block" id="subcontractorOutputPanel">
+                            <apex:commandButton rendered="true" action="{!ImportSubcontractor}" onclick="startLoading();" value="Process Subcontractor File" id="uploadSubcontractor" status="inserting"/>
+  
+                        </apex:outputPanel>
+                    </center>
+                </apex:pageBlock>
+                
+                <apex:pageBlock id="pblock4">
+                    <center>
+                        <apex:inputFile value="{!contentFile}" filename="{!nameFile}" accept=".csv" /> <br />
+                        <br /> 
+                        <apex:outputPanel layout="block" id="customerBusinessOutputPanel">
+                            <apex:commandButton rendered="true" action="{!ImportCustomerBusiness}" onclick="startLoading();" value="Process Customer or Business File" id="uploadCustomerBusiness" status="inserting"/>
+ 
+                        </apex:outputPanel>
+                    </center>
+                </apex:pageBlock>
+                
+                <apex:pageBlock id="pblock5">
+                    <center>
+                        <apex:inputFile value="{!contentFile}" filename="{!nameFile}" accept=".csv" /> <br />
+                        <br /> 
+                        <apex:outputPanel layout="block" id="vehicleOutputPanel">
+                            <apex:commandButton rendered="true" action="{!ImportVehicle}" onclick="startLoading();" value="Process Vehicle File" id="uploadVehicle" status="inserting"/>
+ 
+                        </apex:outputPanel>
+                    </center>
+                </apex:pageBlock>
+                
+                <center>
+                    <apex:outputPanel layout="block" id="closeOutputPanel">
+                        <apex:commandButton action="{!Close}" value="Close" id="close"/>
+                    </apex:outputPanel>
+                </center>
+                
+            </apex:pageBlock> 
+        </apex:actionRegion>  
+    </apex:form>   
+</apex:page>

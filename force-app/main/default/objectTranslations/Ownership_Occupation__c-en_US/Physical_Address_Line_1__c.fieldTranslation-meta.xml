@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+        <help><!-- Enter Physical Address Line 1 --></help>
+        <label><!-- Physical Address Line 1 --></label>
+        <name>Physical_Address_Line_1__c</name>
+    </CustomFieldTranslation>

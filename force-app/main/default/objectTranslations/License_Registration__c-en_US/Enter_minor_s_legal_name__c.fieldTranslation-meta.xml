@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+        <help><!-- Enter minor&apos;s legal name --></help>
+        <label><!-- Enter minor&apos;s legal name --></label>
+        <name>Enter_minor_s_legal_name__c</name>
+    </CustomFieldTranslation>

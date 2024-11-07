@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>X180DayReminderEmailSent__c</fullName>
+    <defaultValue>false</defaultValue>
+    <description>Set to true if reminder email sent</description>
+    <externalId>false</externalId>
+    <label>180DayReminderEmailSent</label>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Checkbox</type>
+</CustomField>

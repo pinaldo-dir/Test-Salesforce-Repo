@@ -1,0 +1,30 @@
+<template>
+    <div class="sbmtApprvalDiv">
+        <!--{userId}-->
+        <template if:true={allowUserSubmit}>
+            <template if:true={cashVerified}>
+                <label class="sbmtWRlbl" style="color: darkgreen;">The Cash Balance on all Cases are Verified</label><br><br>
+                <lightning-input  class="slds-p-left_xx-large sbmtWRlbl" style="padding-left:20px;" type="checkbox" label="By requesting this Warrant Batch, 
+                I attest that I have provided supporting documentation for each Warrants" onchange={handleUserAttestWB}></lightning-input>
+                <!--<label class="sbmtWRlbl" for="wrAttest">By requesting this Warrant Batch, 
+                I attest that I have provided supporting documentation for each Warrants</label><br><br>-->
+                <lightning-button variant="brand-outline" label="Submit" onclick={handleUpdSbmtClick} disabled={buttonsDisabled} class="slds-m-left_x-small"></lightning-button> <br><br>
+                <template if:true={pendingUpdated}>
+                    <label class="sbmtWRlbl" style="color: darkgreen;">An email confirmation will be sent once Warrant Batch & Warrants are updated and ready for Approval.</label><br><br>
+                </template>
+            </template>
+            <template if:false={cashVerified}>
+                <label class="sbmtWRlbl" style="color: red;">The Cash Balance on {insuffCases} is not sufficient</label><br><br>
+            </template>
+            <template if:false={canSubmitChange}>
+                <label class="sbmtWRlbl" style="color:peru;">Check the checkbox to attest the Warrant Batch for approval</label>
+            </template><br><br>
+            <template if:true={warrantNotEligible}>
+                <label class="sbmtWRlbl" style="color: red;">There are no warrants eligible to submit</label><br><br>
+            </template>
+        </template>
+        <template if:false={allowUserSubmit}>
+            <label class="sbmtWRlbl" style="color: red;">Sorry! Contact Admin to get access to perform this action </label>
+        </template>
+    </div>
+</template>

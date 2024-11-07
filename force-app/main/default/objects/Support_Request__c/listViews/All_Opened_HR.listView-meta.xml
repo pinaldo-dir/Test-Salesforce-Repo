@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>All_Opened_HR</fullName>
+    <columns>NAME</columns>
+    <columns>Assigned_To__c</columns>
+    <columns>Description__c</columns>
+    <columns>Status__c</columns>
+    <columns>Submitted_By__c</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>Status__c</field>
+        <operation>notEqual</operation>
+        <value>Canceled,Closed,Duplicate,Added to a Release,Rejected,Confirmed,Accepted</value>
+    </filters>
+    <filters>
+        <field>Support_Request_For__c</field>
+        <operation>equals</operation>
+        <value>HR</value>
+    </filters>
+    <label>All Opened HR</label>
+    <language>en_US</language>
+    <sharedTo>
+        <role>HR</role>
+        <role>System_Administrators</role>
+    </sharedTo>
+</ListView>

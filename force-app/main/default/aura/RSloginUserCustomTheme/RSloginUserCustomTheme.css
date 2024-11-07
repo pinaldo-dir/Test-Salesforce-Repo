@@ -1,0 +1,19 @@
+.THIS .selfServiceProfileMenuTrigger a {
+    color: black !important;
+}
+.THIS .myAccount{
+    display: none;
+}
+.THIS .mainContentArea{
+    min-height: calc(100vh - 70px);
+}
+.THIS .owc-profile-menu{
+    display: flex;
+    align-items: center;
+    font-size: 1.8em;
+}
+
+.THIS .owc-notifications{
+    display: flex;
+    align-items: center;
+}

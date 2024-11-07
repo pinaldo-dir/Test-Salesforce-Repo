@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+        <label><!-- Stay Type --></label>
+        <name>Stay_Type__c</name>
+        <picklistValues>
+            <masterLabel>Arbitration</masterLabel>
+            <translation><!-- Arbitration --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>BOFE</masterLabel>
+            <translation><!-- BOFE --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Bankruptcy</masterLabel>
+            <translation><!-- Bankruptcy --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Continuance - by Defendant</masterLabel>
+            <translation><!-- Continuance - by Defendant --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Continuance - by Plaintiff</masterLabel>
+            <translation><!-- Continuance - by Plaintiff --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Inactive</masterLabel>
+            <translation><!-- Inactive --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Legal Hold</masterLabel>
+            <translation><!-- Legal Hold --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Mechanic’s Lien</masterLabel>
+            <translation><!-- Mechanic’s Lien --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Pending Settlement</masterLabel>
+            <translation><!-- Pending Settlement --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Personal Service</masterLabel>
+            <translation><!-- Personal Service --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Plaintiff Incarcerated</masterLabel>
+            <translation><!-- Plaintiff Incarcerated --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Settlement - Payment Plan</masterLabel>
+            <translation><!-- Settlement - Payment Plan --></translation>
+        </picklistValues>
+    </CustomFieldTranslation>

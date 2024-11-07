@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+        <label><!-- Calc PCN 60 X --></label>
+        <name>Calc_PCN_60_X__c</name>
+    </CustomFieldTranslation>

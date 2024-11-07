@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>CBT_Severity_Cannot_Be_Blank</fullName>
+    <active>true</active>
+    <description>If SR/CR being updated by CBT, Severity Cannot be blan</description>
+    <errorConditionFormula>$User.CalAtlas_Business_Team_Member__c = True
+
+&amp;&amp;
+
+ISPICKVAL(Severity__c, "")
+
+&amp;&amp;
+
+RecordType.DeveloperName &lt;&gt; "Change_Request"
+
+&amp;&amp;
+
+RecordType.DeveloperName &lt;&gt; "User_Account_Request"</errorConditionFormula>
+    <errorDisplayField>Severity__c</errorDisplayField>
+    <errorMessage>You must complete the Type</errorMessage>
+</ValidationRule>

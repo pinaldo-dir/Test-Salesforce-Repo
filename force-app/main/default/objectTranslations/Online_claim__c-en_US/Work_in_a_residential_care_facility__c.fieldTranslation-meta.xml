@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+        <label><!-- Work in a residential care facility? --></label>
+        <name>Work_in_a_residential_care_facility__c</name>
+    </CustomFieldTranslation>

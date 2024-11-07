@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Sec_Attpt_Method_Needed_for_PCN_Date</fullName>
+    <active>true</active>
+    <errorConditionFormula>AND(
+ISBLANK(TEXT( X2nd_Attempt_Outcome__c )),
+NOT(ISNULL( PCN_Sent_Date__c)),
+DATEVALUE(CreatedDate) &gt;  DATEVALUE("2024-02-01")
+)</errorConditionFormula>
+    <errorMessage>2nd Attempt Outcome must be filled when entering PCN Sent Date</errorMessage>
+</ValidationRule>

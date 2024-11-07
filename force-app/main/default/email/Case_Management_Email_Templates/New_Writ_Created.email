@@ -1,0 +1,5 @@
+Hello,
+
+A New Writ ({!Writ__c.Name}) was opened for Case {!Writ__c.Case_Management__c}
+
+You may view details on this Writ at {!Writ__c.Link}

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+        <help><!-- Used for JEU processing of restitution/unpaid wage fund payments only. --></help>
+        <label><!-- ITIN/SSN Status --></label>
+        <name>ITIN_SSN_status__c</name>
+        <picklistValues>
+            <masterLabel>ITIN on File</masterLabel>
+            <translation><!-- ITIN on File --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Requested</masterLabel>
+            <translation><!-- Requested --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>SSN on File</masterLabel>
+            <translation><!-- SSN on File --></translation>
+        </picklistValues>
+    </CustomFieldTranslation>

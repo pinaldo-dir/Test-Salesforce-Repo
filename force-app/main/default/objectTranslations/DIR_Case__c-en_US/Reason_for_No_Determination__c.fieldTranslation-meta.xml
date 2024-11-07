@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+        <label><!-- Reason for No Determination --></label>
+        <name>Reason_for_No_Determination__c</name>
+        <picklistValues>
+            <masterLabel>Claims against DIR/DLSE filed by current or former staff</masterLabel>
+            <translation><!-- Claims against DIR/DLSE filed by current or former staff --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Claims against previous or current private employers filed by current staff</masterLabel>
+            <translation><!-- Claims against previous or current private employers filed by current staff --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Claims against public employment entities</masterLabel>
+            <translation><!-- Claims against public employment entities --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Claims filed by workers who have engaged in misconduct, threats and/or disrespectful treatment of team members and/or the public</masterLabel>
+            <translation><!-- Claims filed by workers who have engaged in misconduct, threats and/or disrespectful treatment of team members and/or the public --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Claims for unlawful withholdings where the employer was required or empowered to withhold by state or federal law</masterLabel>
+            <translation><!-- Claims for unlawful withholdings where the employer was required or empowered to withhold by state or federal law --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Claims for unreimbursed medical expenses (where the expenses are not characterized as a withholding)</masterLabel>
+            <translation><!-- Claims for unreimbursed medical expenses (where the expenses are not characterized as a withholding) --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Claims involving a concurrent court action with overlapping wage claim issues</masterLabel>
+            <translation><!-- Claims involving a concurrent court action with overlapping wage claim issues --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Claims involving class actions</masterLabel>
+            <translation><!-- Claims involving class actions --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Claims involving probate issues</masterLabel>
+            <translation><!-- Claims involving probate issues --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Claims where there is an executed private settlement agreement</masterLabel>
+            <translation><!-- Claims where there is an executed private settlement agreement --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Filed by owners and/or corporate officers</masterLabel>
+            <translation><!-- Filed by owners and/or corporate officers --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Filed by workers who are also alleged employers in other actions</masterLabel>
+            <translation><!-- Filed by workers who are also alleged employers in other actions --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Involves complex compensation plans/schemes or conditions</masterLabel>
+            <translation><!-- Involves complex compensation plans/schemes or conditions --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>N/A</masterLabel>
+            <translation><!-- N/A --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Names deceased plaintiffs or defendants</masterLabel>
+            <translation><!-- Names deceased plaintiffs or defendants --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Names employers with pending bankruptcy and/or receivership actions.</masterLabel>
+            <translation><!-- Names employers with pending bankruptcy and/or receivership actions. --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Work was performed outside of California</masterLabel>
+            <translation><!-- Work was performed outside of California --></translation>
+        </picklistValues>
+    </CustomFieldTranslation>

@@ -1,0 +1,3 @@
+The Support Request you submitted {!Support_Request__c.Name} has been assigned to {!Support_Request__c.OwnerFullName}. Please Communicate with {!Support_Request__c.OwnerFullName} if you have any question about your request.
+
+{!Support_Request__c.Link}

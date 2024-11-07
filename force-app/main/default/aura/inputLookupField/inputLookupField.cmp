@@ -1,0 +1,42 @@
+<aura:component controller="inputLookupFieldController">
+
+    <!-- Used by the ICL aura component, NOT the CashPartyToPartyPayments LWC.
+        Do not confuse this "inputLookupField" aura sub-component with the old
+        "inputLookup" aura sub-component formerly on the ICL.
+        Stolen from https://github.com/anil-ajax/Lightning-Lookup-Field -->
+
+    <!-- <ltng:require scripts="{!$Resource.jquery331}" /> -->
+    <ltng:require scripts="/resource/jquery214" />
+
+    <aura:registerEvent name="inputLookupFieldEvent" type="c:inputLookupFieldEvent" />
+
+    <aura:attribute name="objNameAttr" type="string" />
+    <lightning:input value="{!v.objNameAttr}" class="slds-hide" />
+ 
+    <aura:attribute name="inputTxtAttr" type="string" />
+    <span onkeydown="{!c.showHints}" >
+        <lightning:input required="true" value="{!v.inputTxtAttr}" name="inputTxt" />
+    </span>
+
+    <aura:attribute name="selectedRecordId" type="string" />
+    <lightning:input value="{!v.selectedRecordId}" class="selectedRecordId, slds-hide" id="selectedRecordId" />
+ 
+    <aura:attribute name="recordsList" type="sObject" />
+    <div class="payorSearchList slds-scrollable" style="height:175px;">
+        <div class="records">
+            <aura:iteration items="{!v.recordsList}" var="record" indexVar="index" >
+                <div aura:id="resultItem" data-id="{!index}" class="record"
+                    onclick="{!c.selectRecord}" onmouseover="{!c.handleMouseOver}" onmouseout="{!c.handleMouseOut}" data-value="{!record.Id}" >
+                    {!record.Name}: {!record.ShippingStreet}, {!record.ShippingCity}</div>
+            </aura:iteration>
+        </div>
+    </div>
+
+    <div id="loadSpinner" class="loadingSpinner slds-hide">
+        <lightning:spinner alternativeText="Loading" size="medium" />
+    </div>
+    <div id="noPayorFound" class="slds-hide">
+        <label class="errLabel" style="color: red;">Sorry! No Payors found. Verify your Input </label>
+    </div>
+
+</aura:component>

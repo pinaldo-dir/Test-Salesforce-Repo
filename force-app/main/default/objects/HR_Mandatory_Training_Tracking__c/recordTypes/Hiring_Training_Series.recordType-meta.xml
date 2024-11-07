@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RecordType xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Hiring_Training_Series</fullName>
+    <active>true</active>
+    <description>Hiring Training Series</description>
+    <label>Hiring Training Series</label>
+</RecordType>

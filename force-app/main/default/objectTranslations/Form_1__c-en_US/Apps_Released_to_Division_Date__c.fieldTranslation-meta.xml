@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+        <label><!-- Apps Released to Division Date --></label>
+        <name>Apps_Released_to_Division_Date__c</name>
+    </CustomFieldTranslation>

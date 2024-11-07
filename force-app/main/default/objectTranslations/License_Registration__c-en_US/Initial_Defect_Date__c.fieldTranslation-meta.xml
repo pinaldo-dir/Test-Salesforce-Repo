@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+        <help><!-- The first date that application was placed in &quot;Defect&quot; status. --></help>
+        <label><!-- Initial Defect Date --></label>
+        <name>Initial_Defect_Date__c</name>
+    </CustomFieldTranslation>

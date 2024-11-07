@@ -1,0 +1,5 @@
+This is an update on the status of Case  {!DIR_Case__c.Name} <br>
+<br>
+A full payment of {!DIR_Case__c.Total_Amount_Paid__c} has been received on this case. <br>
+<br>
+Thank you.

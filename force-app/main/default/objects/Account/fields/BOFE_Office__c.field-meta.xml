@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>BOFE_Office__c</fullName>
+    <deleteConstraint>SetNull</deleteConstraint>
+    <description>This field is used in the Wage Claim Referral Flow to tie a Wage office Account Record to the DIR Office Record in order for a WCA Claim Referral to go to the right group.  This should be removed after Wage is changed, and the Flow changed.</description>
+    <externalId>false</externalId>
+    <inlineHelpText>This field is used in the Wage Claim Referral Flow to tie a Wage office Account Record to the DIR Office Record in order for a WCA Claim Referral to go to the right group.  This should be removed after Wage is changed, and the Flow changed.</inlineHelpText>
+    <label>BOFE Office</label>
+    <referenceTo>Office__c</referenceTo>
+    <relationshipLabel>Accounts</relationshipLabel>
+    <relationshipName>BOFE_Office_Account</relationshipName>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Lookup</type>
+</CustomField>

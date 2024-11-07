@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+        <label><!-- Covid Reason --></label>
+        <name>Covid_Reason__c</name>
+        <picklistValues>
+            <masterLabel>2020 + 2021 SPSL</masterLabel>
+            <translation><!-- 2020 + 2021 SPSL --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>2020 SPSL</masterLabel>
+            <translation><!-- 2020 SPSL --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>2021 + 2022 SPSL</masterLabel>
+            <translation><!-- 2021 + 2022 SPSL --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>2021 SPSL</masterLabel>
+            <translation><!-- 2021 SPSL --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>2022 SPSL</masterLabel>
+            <translation><!-- 2022 SPSL --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Business Layoff</masterLabel>
+            <translation><!-- Business Layoff --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Business Shut Down</masterLabel>
+            <translation><!-- Business Shut Down --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Business layoff + Sick leave unpaid/denied</masterLabel>
+            <translation><!-- Business layoff + Sick leave unpaid/denied --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Business layoff - Other (specify):</masterLabel>
+            <translation><!-- Business layoff - Other (specify): --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Business shutdown + Sick leave</masterLabel>
+            <translation><!-- Business shutdown + Sick leave --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Business shutdown - Other (specify):</masterLabel>
+            <translation><!-- Business shutdown - Other (specify): --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Other – please explain</masterLabel>
+            <translation><!-- Other – please explain --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Sick leave unpaid/denied</masterLabel>
+            <translation><!-- Sick leave unpaid/denied --></translation>
+        </picklistValues>
+    </CustomFieldTranslation>

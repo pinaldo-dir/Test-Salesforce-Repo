@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>PR_Must_Be_Parented_To_An_LP_Or_JP</fullName>
+    <active>false</active>
+    <description>No unparented PRs!</description>
+    <errorConditionFormula>(ISBLANK(Judgment_Payment__c) &amp;&amp; ISBLANK(Liability_Payment__c)) 
+||
+(NOT(ISBLANK(Judgment_Payment__c)) &amp;&amp; NOT(ISBLANK(Liability_Payment__c)))</errorConditionFormula>
+    <errorMessage>This Payment Record must be parented to a Liability Payment or a Judgment Payment.</errorMessage>
+</ValidationRule>

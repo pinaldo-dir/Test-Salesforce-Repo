@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Prior_Month_Returned_Receipts__c</fullName>
+    <defaultValue>0</defaultValue>
+    <description>As of Sept 2023, this field is no longer queried, but user editable as needed. Before Sept 2023, was 'RCTs returned in the previous month that were deposited prior to the previous month: (Deposit_Date__c &lt;= :lastOf2MonthsPrevious) AND (Returned_Date__c &gt;= :firstOfPreviousMonth AND Returned_Date__c &lt;= :lastOfPreviousMonth) AND Returned_Item__c = TRUE</description>
+    <externalId>false</externalId>
+    <inlineHelpText>User editable as needed.</inlineHelpText>
+    <label>+ Prior Month Returned Receipts</label>
+    <precision>18</precision>
+    <required>false</required>
+    <scale>2</scale>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Currency</type>
+</CustomField>

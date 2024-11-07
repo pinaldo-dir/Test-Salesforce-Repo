@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Employee_Tenure__c</fullName>
+    <externalId>false</externalId>
+    <formula>IF(
+ISBLANK(Adverse_Action_Date__c),
+(TEXT(FLOOR((DATEVALUE(File_Date_Time__c) - Date_of_Hire__c)/365.2425)) &amp; " year(s)"&amp;", " &amp; 
+TEXT(FLOOR(MOD((DATEVALUE(File_Date_Time__c) - Date_of_Hire__c),365.2425)/30)) &amp; " month(s)"&amp;", "&amp; 
+TEXT(Floor(MOD(Floor(MOD((DATEVALUE(File_Date_Time__c) - Date_of_Hire__c),365.2425)),30))) &amp; " day(s)"&amp;"; total of "&amp;TEXT(DATEVALUE(File_Date_Time__c) - Date_of_Hire__c)&amp;" day(s)"),
+
+
+TEXT(FLOOR((Adverse_Action_Date__c - Date_of_Hire__c)/365.2425)) &amp; " year(s)"&amp;", " &amp; 
+TEXT(FLOOR(MOD((Adverse_Action_Date__c - Date_of_Hire__c),365.2425)/30)) &amp; " month(s)"&amp;", "&amp; 
+TEXT(Floor(MOD(Floor(MOD((Adverse_Action_Date__c - Date_of_Hire__c),365.2425)),30))) &amp; " day(s)"&amp;"; total of "&amp;TEXT(Adverse_Action_Date__c - Date_of_Hire__c)&amp;" day(s)" )</formula>
+    <inlineHelpText>Adverse Action Date Minus Date of Hire. If Adverse Action Date is blank, leave field blank.</inlineHelpText>
+    <label>Employee Tenure</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

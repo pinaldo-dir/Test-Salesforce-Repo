@@ -1,0 +1,7 @@
+You have been requested to grant access to Registration Number: {!Access_Approval__c.Registration_Number__c}
+
+Please Follow link below to approve access:
+
+https://cadir.my.site.com/registrations/vipform__VIP_FormWizard?id={!Access_Approval__c.Id}
+
+You will need to login with an account to approve access. If you do not already have an account, you will need to create one before approving access. You will have the option to create an account with the link above.

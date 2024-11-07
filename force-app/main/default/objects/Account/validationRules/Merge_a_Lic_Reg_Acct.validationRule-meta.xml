@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Merge_a_Lic_Reg_Acct</fullName>
+    <active>true</active>
+    <description>When merging with a lic reg acct, the master needs to carry Registration lookup over from the non master account</description>
+    <errorConditionFormula>ISBLANK( Registration__c ) 
+&amp;&amp; 
+Mark_as_duplicate__c = TRUE 
+&amp;&amp; 
+NOT(ISBLANK(Merge_Into_Account__c)) 
+&amp;&amp; 
+NOT(ISBLANK(Merge_Into_Account__r.Registration__c))</errorConditionFormula>
+    <errorMessage>You are merging this account with an account that has License Registration, please look up the Registration record from the other account before saving</errorMessage>
+</ValidationRule>

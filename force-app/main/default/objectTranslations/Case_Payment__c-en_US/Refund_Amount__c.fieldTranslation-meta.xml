@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+        <help><!-- Amount of this Case Payment intended to be refunded back to the parent Receipt&apos;s Payor. --></help>
+        <label><!-- Refund Amount --></label>
+        <name>Refund_Amount__c</name>
+    </CustomFieldTranslation>

@@ -1,0 +1,242 @@
+<template>
+    <div class="reqWRdiv">
+        <label style="font-size: large; color:rgb(0, 0, 0); font-weight:bold">Request Warrants</label><br><br>
+
+        <template if:true={errorMessage}>
+            <br><br>
+            <lightning-icon icon-name="utility:error" alternative-text="Error!" variant="error" title="error variant small" size="small"></lightning-icon>
+            <label style="color: rgb(255, 0, 0);">Warrants cannot be requested. Below errors need to be addressed before proceeding...</label><br>
+        </template>
+
+        <template if:false={errorMessage}>
+            <template if:true={warningMessage}>
+                <lightning-icon icon-name="utility:warning" alternative-text="Warning!" variant="warning" title="warning variant small" size="small"></lightning-icon>
+                <label style="color: rgb(255, 153, 0);">Proceed excluding the Payees mentioned below and continue ...</label><br>
+            </template>
+        </template>
+
+        <div class="selPayees">
+            <!-- <p>These are the list view ids passed: {payeeListViewIds}</p> -->
+            <template if:false={allowUserRequest}>
+                <p style="color: rgb(255, 0, 0); padding-left: 40px;">Disbursement Clerks can only request Warrants</p><br>
+            </template>
+            <template if:true={payeeNotSelected}>
+                <p style="color: rgb(255, 0, 0); padding-left: 40px;">No Payees selected. Select at least one Payee before requesting Warrants</p><br>
+            </template>
+            <template if:true={payeeOAerror}>
+                <p style="color: rgb(255, 0, 0); padding-left: 40px;">Payees with multiple office accounts (WCA) cannot be batched together</p><br>
+            </template>
+            <template if:true={officeAccountUndefined}>
+                <p style="color: rgb(255, 0, 0); padding-left: 40px;">One or more Payment Record's Office Account of the selected Payee is undefined and this breaks the process</p><br>
+            </template>
+            
+            <!--
+            <template if:true={paymentAmountNull}>
+                <p style="color: rgb(255, 174, 0); padding-left: 40px;">Warrant Amount in Payee(s) {nullPmtAmtPR} is/are Null</p><br>
+            </template>
+            -->
+
+            <template if:true={allowUserRequest}>
+                <template if:false={payeeOAerror}>
+                    <template if:true={noPRinPayee}>
+                        <p style="color: rgb(255, 174, 0); padding-left: 40px;">Either Payment Record(s) don’t exist or Warrant(s) have already been issued to Payee(s) {payeeWithNoPR}</p><br>
+                    </template>
+                    <template if:true={paymentAmountNull}>
+                        <p style="color: rgb(255, 174, 0); padding-left: 40px;">The Payment Amount in one or more Payment Record(s) are Null in these Payee(s) {nullPmtAmtPR}</p><br>
+                    </template>
+                    <template if:true={payeeNoDirOffice}>
+                        <p style="color: rgb(255, 174, 0); padding-left: 40px;">The DIR Office field is undefined in Payee(s) {payeeWithoutOffice}</p><br>
+                    </template>
+                    <template if:true={rctHoldDateisFuture}>
+                        <p style="color: rgb(255, 174, 0); padding-left: 40px;">The Receipt Hold Date is future date in one of the Payment Records in Payee(s) {payeeWithFutureHoldDate}</p><br>
+                    </template>
+                    <template if:true={prHasNoOA}>
+                        <p style="color: rgb(255, 174, 0); padding-left: 40px;">Office Account doesn’t exist in one or more Payment Record for the following Payee(s) {payeeWithNoOA}</p><br>
+                    </template>
+                    <template if:true={payeeNoCashBalance}>
+                        <p style="color: rgb(255, 174, 0); padding-left: 40px;">Cash balance on case is not sufficient in the following Payee(s) {payeeInsuffCashOnCase}</p><br>
+                    </template>
+                </template>
+            </template>
+
+            <template if:false={errorMessage}>
+                <template if:true={successMessage}>
+                    <lightning-icon icon-name="utility:success" alternative-text="Success!" variant="success" title="success variant small" size="small"></lightning-icon>
+                    <label style="color: rgb(28, 158, 61);">Proceed to create Warrant Batch...</label></br></br>
+                </template>
+                <template if:true={unsuccessMessage}>
+                    <lightning-icon icon-name="utility:error" alternative-text="Error!" variant="error" title="error variant small" size="small"></lightning-icon>
+                    <label style="color: rgb(255, 0, 0);">No valid Payees are available to proceed to Warrant Batch...</label></br></br>
+                </template>
+            </template>
+
+            <div class="slds-page-header">
+                <div class="slds-page-header__row">
+                    <div class="slds-page-header__col-title">
+                        <div class="slds-media">
+                            <div class="slds-media__figure">
+                                <!--<lightning-icon icon-name="custom:custom42" alternative-text="Warrant Request" title="Warrant Request"></lightning-icon> &nbsp;-->
+                                <span class="slds-icon_container slds-icon-standard-account" title="Description of icon when needed">
+                                    <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="35px" height="35px" viewBox="0 0 100 100" enable-background="new 0 0 100 100" xml:space="preserve">
+                                        <path fill="#FFFFFF" d="M79,51.1c0.1-2.1-1.4-2.7-2-2.7H55.2c-1.9,0-2.2,2-2.2,2.2V74h26L79,51.1z M64,67.9c0,1.1-0.9,2-2,2h-2
+                                            c-1.1,0-2-0.9-2-2v-2c0-1.1,0.9-2,2-2h2c1.1,0,2,0.9,2,2V67.9z M64,57.7c0,1.1-0.9,2-2,2h-2c-1.1,0-2-0.9-2-2v-2c0-1.1,0.9-2,2-2h2
+                                            c1.1,0,2,0.9,2,2V57.7z M74,67.9c0,1.1-0.9,2-2,2h-2c-1.1,0-2-0.9-2-2v-2c0-1.1,0.9-2,2-2h2c1.1,0,2,0.9,2,2V67.9z M74,57.7
+                                            c0,1.1-0.9,2-2,2h-2c-1.1,0-2-0.9-2-2v-2c0-1.1,0.9-2,2-2h2c1.1,0,2,0.9,2,2V57.7z" />
+                                        <path fill="#FFFFFF" d="M59,40.3c0-0.8,0-11.6,0-11.6c0.1-2.1-1.4-2.7-2-2.7H23.2c-1.9,0-2.2,2-2.2,2.2V74h26V44.7
+                                            c0,0,0-2.4,2.2-2.4c0,0,6.8,0,7.9,0S59,41.1,59,40.3z M32,66.9c0,1.1-0.9,2-2,2h-2c-1.1,0-2-0.9-2-2v-2c0-1.1,0.9-2,2-2h2
+                                            c1.1,0,2,0.9,2,2V66.9z M32,56.6c0,1.1-0.9,2-2,2h-2c-1.1,0-2-0.9-2-2v-2c0-1.1,0.9-2,2-2h2c1.1,0,2,0.9,2,2V56.6z M32,46.4
+                                            c0,1.1-0.9,2-2,2h-2c-1.1,0-2-0.9-2-2v-2c0-1.1,0.9-2,2-2h2c1.1,0,2,0.9,2,2V46.4z M32,36.2c0,1.1-0.9,2-2,2h-2c-1.1,0-2-0.9-2-2
+                                            v-2c0-1.1,0.9-2,2-2h2c1.1,0,2,0.9,2,2V36.2z M43,66.9c0,1.1-0.9,2-2,2h-2c-1.1,0-2-0.9-2-2v-2c0-1.1,0.9-2,2-2h2c1.1,0,2,0.9,2,2
+                                            V66.9z M43,56.6c0,1.1-0.9,2-2,2h-2c-1.1,0-2-0.9-2-2v-2c0-1.1,0.9-2,2-2h2c1.1,0,2,0.9,2,2V56.6z M43,46.4c0,1.1-0.9,2-2,2h-2
+                                            c-1.1,0-2-0.9-2-2v-2c0-1.1,0.9-2,2-2h2c1.1,0,2,0.9,2,2V46.4z M43,36.2c0,1.1-0.9,2-2,2h-2c-1.1,0-2-0.9-2-2v-2c0-1.1,0.9-2,2-2h2
+                                            c1.1,0,2,0.9,2,2V36.2z M54,36.2c0,1.1-0.9,2-2,2h-2c-1.1,0-2-0.9-2-2v-2c0-1.1,0.9-2,2-2h2c1.1,0,2,0.9,2,2V36.2z" />
+                                    </svg>
+                                </span>
+                            </div>
+                            <div class="slds-media__body">
+                                <div class="slds-page-header__name">
+                                    <div class="slds-page-header__name-title">
+                                        <h1>
+                                        <span>Payees</span>
+                                        <span class="slds-page-header__title slds-truncate" style="font-size: large; color:rgb(0, 0, 0); font-weight:bold" title="Payees Selected">Payees Selected</span>
+                                        </h1>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="slds-page-header__row">
+                    <div class="slds-page-header__col-meta">
+                        <template if:false={payeeNotSelected}>
+                            <p class="slds-page-header__meta-text">Requesting Warrant(s) for {numberOfPayeeSelected} Payees under {numberOfOfficeAccount} Office Account from {numberOfCases} Case(s)</p>
+                        </template>
+                    </div>
+                </div>
+            </div>
+        </div>
+            
+        
+        <div class="payeeDetailTbl slds-scrollable">
+            <table class="slds-table slds-table_cell-buffer slds-table_bordered">
+                <thead>
+                    <tr class="slds-line-height_reset">
+                        <th class="" scope="col">
+                            <div class="slds-truncate" title="ID">ID</div>
+                        </th>
+                        <th class="" scope="col">
+                            <div class="slds-truncate" title="Name">Payee Name</div>
+                        </th>
+                        <th class="" scope="col">
+                            <div class="slds-truncate" title="Warrant Amount">Warrant Amount</div>
+                        </th>
+                        <th class="" scope="col">
+                            <div class="slds-truncate" title="Office">Office</div>
+                        </th>
+                        <th class="" scope="col">
+                            <div class="slds-truncate" title="Case">Case</div>
+                        </th>
+                        <th class="" scope="col">
+                            <div class="slds-truncate" title="Type">Type</div>
+                        </th>
+                        <th class="" scope="col">
+                            <div class="slds-truncate" title="Status">Status</div>
+                        </th>
+                        <th class="" scope="col">
+                            <div class="slds-truncate" title="RCT Hold Date">Latest RCT Hold Date</div>
+                        </th>
+                        <th class="" scope="col">
+                            <div class="slds-truncate" title="Garnish/Lien">Subject to Garnish/Lien</div>
+                        </th>
+                        <th class="" scope="col">
+                            <div class="slds-truncate" title="Wage Payable Bal">Wage Payable Bal</div>
+                        </th>
+                        <th class="" scope="col">
+                            <div class="slds-truncate" title="Wage Payable Bal">Wage Interest Payable Balance</div>
+                        </th>
+                        <th class="" scope="col">
+                            <div class="slds-truncate" title="Penalty Payable Bal">Penalty Payable Bal</div>
+                        </th>
+                        <th class="" scope="col">
+                            <div class="slds-truncate" title="Interest/Other Payable Bal">Interest/Other Payable Bal</div>
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <template for:each={strPayeelist} for:item="payee">
+                        <tr key={payee.Id}>
+                            <th scope="col">
+                                <div>{payee.Name}</div>
+                            </th>
+                            <th scope="col">
+                                <div>{payee.Payee_Name__c}</div>
+                            </th>
+                            <th scope="col">
+                                <div>{payee.warrantAmount}</div>
+                            </th>
+                            <th scope="col">
+                                <div>{payee.DIR_Office__c}</div>
+                            </th>
+                            <th scope="col">
+                                <div>{payee.Case_Management__r.Name}</div>
+                            </th>
+                            <th scope="col">
+                                <div>{payee.Payee_Type__c}</div>
+                            </th>
+                            <th scope="col">
+                                <div>{payee.Status__c}</div>
+                            </th>
+                            <th scope="col">
+                                <div>{payee.latestReceiptHoldDate}</div>
+                            </th>
+                            <th scope="col">
+                                <div><lightning-input type="checkbox" name="subjGarnishLien" class="slds-var-p-left_xx-large" checked={payee.payeeGarnishLien}></lightning-input></div>
+                            </th>
+                            <th scope="col">
+                                <div>{payee.Wage_Payable_Balance_New__c}</div>
+                            </th>
+                            <th scope="col">
+                                <div>{payee.Wage_Interest_Payable_Balance__c}</div>
+                            </th>
+                            <th scope="col">
+                                <div>{payee.Penalty_Payable_Balance_New__c}</div>
+                            </th>
+                            <th scope="col">
+                                <div>{payee.Interest_Other_Payable_Balance__c}</div>
+                            </th>
+                        </tr>
+                    </template>
+                </tbody>
+            </table>
+        </div>
+        <br>
+        <div>
+            <lightning-button variant="neutral" class="slds-var-m-left_x-small" label="Return to List View" onclick={close}></lightning-button>
+            
+            <template if:false={errorMessage}>
+                <lightning-button variant="brand" class="slds-var-m-left_x-small" label="Create Warrant Batch" disabled={buttonsDisabled} onclick={createWarrantBatch}></lightning-button><br><br>
+
+                <template if:true={wbFailed}>
+                    <label style="color: rgb(255, 0, 0);">Someting went wrong while inserting Warrant Batch. Contact the Admin...</label><br>
+                </template>
+                
+                <template if:true={wrFailed}>
+                    <label style="color: rgb(255, 0, 0);">Someting went wrong while inserting Warrants. Contact the Admin...</label><br>
+                </template>
+                
+                <template if:true={prFailed}>
+                    <label style="color: rgb(255, 0, 0);">Someting went wrong while updating Payment Records. Contact the Admin...</label><br>
+                </template>
+
+                <template if:true={cmFailed}>
+                    <label style="color: rgb(255, 0, 0);">Someting went wrong while updating the Pending Cash Balance on Case. Contact the Admin...</label><br>
+                </template>
+                
+                <template if:true={emailSentFailed}>
+                    <label style="color: rgb(255, 0, 0);">Something went wrong while sending the email confirmation to the User. Contact the Admin...</label><br>
+                </template>
+            </template>
+        </div>
+    </div>
+    
+</template>

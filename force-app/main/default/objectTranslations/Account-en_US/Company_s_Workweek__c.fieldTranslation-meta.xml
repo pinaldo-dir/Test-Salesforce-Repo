@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+        <help><!-- Seven day period. --></help>
+        <label><!-- Company&apos;s Workweek --></label>
+        <name>Company_s_Workweek__c</name>
+    </CustomFieldTranslation>

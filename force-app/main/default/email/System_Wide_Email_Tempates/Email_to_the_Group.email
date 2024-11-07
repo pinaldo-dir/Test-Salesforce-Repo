@@ -1,0 +1,7 @@
+A new support request has been added to the Unassigned - Support Request Queue. Please review the request as soon as possible. If you have a question about the request, please communicate with the User via Chatter. <br><br>
+
+Subject: {!Support_Request__c.Subject__c}<br> 
+Created By: {!Support_Request__c.CreatedBy}<br> 
+Unit: {!Support_Request__c.Support_Request_For__c}<br> 
+Priority: {!Support_Request__c.Urgency__c}<br>
+Link: {!Support_Request__c.Link}<br>

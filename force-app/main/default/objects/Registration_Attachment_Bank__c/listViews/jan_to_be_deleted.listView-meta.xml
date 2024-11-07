@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>jan_to_be_deleted</fullName>
+    <columns>NAME</columns>
+    <columns>Attachment_Name__c</columns>
+    <columns>Registration_Type__c</columns>
+    <columns>VIP_Form_Section__c</columns>
+    <columns>Active__c</columns>
+    <filterScope>Everything</filterScope>
+    <label>For Changing VIP Form Section</label>
+</ListView>

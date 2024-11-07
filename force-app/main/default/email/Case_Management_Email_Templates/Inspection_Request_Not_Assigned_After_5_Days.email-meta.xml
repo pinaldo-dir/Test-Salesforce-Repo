@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <description>Inspection Request Not Assigned after 5 Days Notification to Case Management Owner</description>
+    <encodingKey>ISO-8859-1</encodingKey>
+    <name>Inspection Request Not Assigned After 5 Days</name>
+    <style>none</style>
+    <subject>Inspection Request {!Inspection_Request__c.Name} 5 Days Old and Not Assigned</subject>
+    <type>text</type>
+    <uiType>Aloha</uiType>
+</EmailTemplate>

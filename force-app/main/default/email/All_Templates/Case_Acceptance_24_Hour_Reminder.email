@@ -1,0 +1,7 @@
+Hello,
+
+The following DIR Case has been assigned to you: {!DIR_Case__c.Name}
+
+It has been more than 24 hours since the case was initially assigned to you and you must accept it before you may begin to work on it.  To accept, navigate to the record via the link below and check the "Case Accepted" checkbox.  
+
+Record Link: {!DIR_Case__c.Link}

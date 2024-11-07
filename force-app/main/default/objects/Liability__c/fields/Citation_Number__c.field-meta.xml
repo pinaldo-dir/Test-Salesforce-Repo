@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Citation_Number__c</fullName>
+    <description>Sets the citation number for display on output documents using the required prefixes based on the citation type. Required for use by BOFE AR.</description>
+    <externalId>false</externalId>
+    <formula>IF( !ISBLANK ( Manual_Citation_Number__c ), Manual_Citation_Number__c, 
+IF(ISPICKVAL( Citation_Type__c, "Civil" ), "", 
+Case( Citation_Form_Assessment_Conga__c ,
+'NTD', 'NTD ',
+'BOFE 240A', 'PA ',
+'BOFE 240B', 'WA ',
+'BOFE 335', 'WC ',
+'BOFE 336', 'SO ',
+'BOFE 815', 'HC ', 
+'BOFE 816', 'HR ',
+'BOFE 812', 'C ',
+'BOFE 814', 'JL ',
+'JEU 238e', 'JS ',
+'JEU 238', 'J ',
+'LR 240A', 'LR ',
+'PW 336', 'PW SO ',
+'PW 240A', 'PW PA ', 
+'')
++ Right (  Name , 6)
+)
+)</formula>
+    <label>Citation Number</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

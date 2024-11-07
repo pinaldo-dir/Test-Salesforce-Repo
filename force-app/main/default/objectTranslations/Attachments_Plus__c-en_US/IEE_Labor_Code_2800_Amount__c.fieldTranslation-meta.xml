@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+        <label><!-- IEE (Labor Code §2800) - Amount --></label>
+        <name>IEE_Labor_Code_2800_Amount__c</name>
+    </CustomFieldTranslation>

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Additional_rules_for_closing_RCI_case</fullName>
+    <active>true</active>
+    <description>Validation rule to prevent users from changing Case Status to Closed if the Determination Type field does NOT equal NULL AND the Determination Issued Date field equal NULL OR the Determination Served Date field equals NULL.</description>
+    <errorConditionFormula>((ISCHANGED(Status__c)&amp;&amp; ISPICKVAL(Status__c, "Closed")&amp;&amp; !ISPICKVAL(Determination_Type__c,'') &amp;&amp;  ISPICKVAL(Citation_Status__c, '' )) &amp;&amp; (ISBLANK(Determination_Issued_Date__c) || ISBLANK(Determination_Served_Date__c)))
+
+||
+
+(ISCHANGED(Status__c)&amp;&amp; ISPICKVAL(Status__c, "Closed")&amp;&amp; !ISPICKVAL(Determination_Type__c,'') &amp;&amp;  !ISPICKVAL(Citation_Status__c, '') &amp;&amp;  ISBLANK(Citation_Served_Date__c))</errorConditionFormula>
+    <errorMessage>Review the errors on this page. You have chosen a Determination Type.
+If a Determination was issued, please complete the Determination Issued Date and Determination Served Date fields. If a Citation was issued, please complete the Citation Served Date.</errorMessage>
+</ValidationRule>

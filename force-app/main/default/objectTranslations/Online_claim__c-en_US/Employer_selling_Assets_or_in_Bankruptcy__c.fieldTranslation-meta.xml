@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+        <label><!-- Employer selling Assets or in Bankruptcy --></label>
+        <name>Employer_selling_Assets_or_in_Bankruptcy__c</name>
+    </CustomFieldTranslation>

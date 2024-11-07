@@ -1,0 +1,5 @@
+Hello {!Writ__c.Case_Assigned_Deputy__c},
+
+{!Writ__c.Name} has had a legal outcome of {!Writ__c.Final_Legal_Outcome__c} specified.  This is on Case {!Writ__c.Case_Management__c}
+
+Click here {!Writ__c.Link} to view the writ

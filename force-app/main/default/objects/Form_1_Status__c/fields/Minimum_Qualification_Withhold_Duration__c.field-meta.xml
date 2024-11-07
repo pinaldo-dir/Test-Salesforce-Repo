@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Minimum_Qualification_Withhold_Duration__c</fullName>
+    <externalId>false</externalId>
+    <formula>IF ( RecordType.DeveloperName = 'Minimum_Qualification_Withhold',
+
+(
+
+IF ( Error_or_Invalid__c = TRUE, 0,
+
+
+IF ( Status_End_Date__c = DATE(1700,01,01), 0,
+
+
+IF ( ISBLANK( Status_End_Date__c ) , ( Todays_Date_Hidden__c - Date_of_Status__c + 1 ) ,
+
+
+Status_End_Date__c - Date_of_Status__c + 1 ) ) )
+
+), 0)</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>Minimum Qualification Withhold Duration</label>
+    <precision>18</precision>
+    <required>false</required>
+    <scale>0</scale>
+    <trackTrending>false</trackTrending>
+    <type>Number</type>
+    <unique>false</unique>
+</CustomField>

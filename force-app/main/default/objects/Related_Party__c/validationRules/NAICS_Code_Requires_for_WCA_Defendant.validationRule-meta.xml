@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>NAICS_Code_Requires_for_WCA_Defendant</fullName>
+    <active>true</active>
+    <description>When the Related Parties are confirmed, Case Roles are created. Before case roles are created validate and verify if the Business accounts NAICS code is not null for all WCA cases</description>
+    <errorConditionFormula>AND(not(isnew()), Case_Management__r.RecordType.DeveloperName = 'WCA',  $Profile.Name = 'WCA User',  ISPICKVAL(Role__c, 'Defendant'),  ISPICKVAL(PRIORVALUE
+(Status__c), 'Pending'),  ISPICKVAL(Status__c, 'Confirm'),  ISBLANK( NAICS_Code__c ),  OR( ISBLANK( Account__c ), AND(NOT(ISBLANK( Account__c )),ISBLANK( Account__r.NAICS_Code__c ))))</errorConditionFormula>
+    <errorDisplayField>NAICS_Code__c</errorDisplayField>
+    <errorMessage>NAICS CODE is required for the Related Party</errorMessage>
+</ValidationRule>

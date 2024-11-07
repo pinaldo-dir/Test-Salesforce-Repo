@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+        <help><!-- Expected number of payments on this plan, excluding initial down payment. --></help>
+        <label><!-- Number of Payments --></label>
+        <name>Number_of_Payments__c</name>
+    </CustomFieldTranslation>

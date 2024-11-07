@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+        <label><!-- LC 226 Violations Cured --></label>
+        <name>LC_226_Violations_Cured__c</name>
+        <picklistValues>
+            <masterLabel>All applicable hourly rates + Number of hrs at each rate</masterLabel>
+            <translation><!-- All applicable hourly rates + Number of hrs at each rate --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Deductions</masterLabel>
+            <translation><!-- Deductions --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Employer legal entity name/address</masterLabel>
+            <translation><!-- Employer legal entity name/address --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Gross Wages Earned</masterLabel>
+            <translation><!-- Gross Wages Earned --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Net Wages Earned</masterLabel>
+            <translation><!-- Net Wages Earned --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Pay period dates</masterLabel>
+            <translation><!-- Pay period dates --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Piece Rate Units</masterLabel>
+            <translation><!-- Piece Rate Units --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Total Hours Worked</masterLabel>
+            <translation><!-- Total Hours Worked --></translation>
+        </picklistValues>
+    </CustomFieldTranslation>

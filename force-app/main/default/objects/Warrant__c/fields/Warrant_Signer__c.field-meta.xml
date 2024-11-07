@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Warrant_Signer__c</fullName>
+    <deleteConstraint>Restrict</deleteConstraint>
+    <description>Lookup field to Internal Employee</description>
+    <externalId>false</externalId>
+    <label>Warrant Signer</label>
+    <lookupFilter>
+        <active>true</active>
+        <filterItems>
+            <field>DIR_Employee__c.Authorized_Signer__c</field>
+            <operation>equals</operation>
+            <value>True</value>
+        </filterItems>
+        <isOptional>false</isOptional>
+    </lookupFilter>
+    <referenceTo>DIR_Employee__c</referenceTo>
+    <relationshipLabel>Warrants (Warrant Signer)</relationshipLabel>
+    <relationshipName>Warrants_Signed</relationshipName>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Lookup</type>
+</CustomField>

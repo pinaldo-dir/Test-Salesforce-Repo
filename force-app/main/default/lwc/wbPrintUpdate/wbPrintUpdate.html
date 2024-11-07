@@ -1,0 +1,32 @@
+<template>
+    <div class="printDiv">
+        <template if:false={allowUserPrint}>
+            <label class="printwblbl" style="color: red;">Sorry! Contact Admin to get access to perform this action </label>
+        </template>
+        <template if:true={allowUserPrint}>
+            <template if:true={wrReadytoPrint}>
+                <label class="printwblbl" style="font-weight: bold;">Warrants printed already? </label>
+                <lightning-radio-group name="radioGroup" style="font-size: medium; padding-left: 10px; padding-right: 10px;"
+                    options={options}
+                    value={value}
+                    type="radio"
+                    onchange={handlePrintRadioBtn}>
+                </lightning-radio-group> <br>
+                <lightning-button variant="brand-outline" label="Update Warrants" onclick={updateWRStatusPrint} disabled={buttonsDisabled} class="slds-var-m-left_x-small" icon-position="center"></lightning-button><br>
+                <template if:true={warrantsNotPrinted}>
+                    <label  class="printwblbl" style="color: green;">Warrants are ready to Print. Click "Print Warrants" button on top right of Warrant Batch to print the Warrants. </label><br><br>
+                </template>
+                <template if:true={printStatusNotUpdated}>
+                    <label class="printwblbl" style="color: red;">Contact Admin! There was a problem saving the changes</label>
+                </template>
+                <template if:true={printStatusUpdated}>
+                    <label class="printwblbl" style="color: green;">This Warrant Batch is Printed, All the related Warrants have been updated to printed. <br> An email confirmation will be sent once the updates are complete.</label>
+                </template>
+            </template>
+            <template if:false={wrReadytoPrint}>
+                <label  class="printwblbl" style="color: red;">There is no valid Warrants to be updated to Printed</label><br><br>
+            </template>
+            
+        </template>
+    </div>
+</template>

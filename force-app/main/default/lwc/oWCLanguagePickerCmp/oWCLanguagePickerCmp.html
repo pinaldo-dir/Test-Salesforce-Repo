@@ -1,0 +1,17 @@
+<template>
+    <template if:true={isNotGuestUser}>
+        <div class="slds-grid slds-wrap">
+                <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-1 slds-large-size_1-of-1 ">
+                <lightning-combobox
+                                    name="progress"
+                                    class="slds-float_right slds-p-right_small"
+                                    data-id="communityLanguage"
+                                    label={OWC_ChangeLanguage_Label}
+                                    value={communityLanguage}
+                                    placeholder="Select Language"
+                                    options={languagesOptions}
+                                    onchange={handleLanguageChange} ></lightning-combobox>
+            </div>
+        </div>
+    </template>
+</template>

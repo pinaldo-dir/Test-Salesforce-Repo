@@ -1,0 +1,32 @@
+.fieldSetStyle{
+    width: 450px;
+}
+.specifyOtherReasonStyle{
+    padding-left: 55px;
+}
+.formStyle{
+    padding-left: 150px;
+    padding-right: 150px;
+}
+.headingStyle{
+    font-size: 34px;
+    line-height: 44px;
+    font-family: Avenir Next forINTUIT,Avenir,Helvetica,Arial,sans-serif;
+    font-style: normal;
+    font-weight: lighter;
+    color: #393a3d;
+    margin: 0;
+    overflow-wrap: break-word;
+}
+.learnMoreStyle{
+    font-size: 15px;
+}
+.requiredMsgStyle{
+    color:red;
+    padding: 15px 0 0 15px;
+}
+.requiredErrorMag{
+    color: red;
+    padding: 0 0 0 6px;
+    font-size: 15px;
+}

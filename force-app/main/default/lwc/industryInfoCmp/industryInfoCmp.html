@@ -1,0 +1,1051 @@
+<!--
+  @description       : 
+  @author            : ChangeMeIn@UserSettingsUnder.SFDoc
+  @group             : 
+  @last modified on  : 03-21-2022
+  @last modified by  : ChangeMeIn@UserSettingsUnder.SFDoc
+-->
+<template> 
+
+    <template if:true={isFormPreviewMode}>
+        <Form class="">
+            <div class="slds-grid slds-wrap">
+                <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-8 slds-large-size_1-of-8"></div>
+                <div class="slds-col slds-size_1-of-1 slds-medium-size_6-of-8 slds-large-size_6-of-8"> 
+                    <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-1 slds-large-size_1-of-1">
+                        <div class="slds-grid slds-wrap">
+                            <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-1 slds-large-size_1-of-1">
+                                <h1 class="slds-p-around_medium slds-text-heading_large owcHeadingStyle">
+                                    {customLabelValues.OWC_industryinfo}
+                                </h1>
+                            </div>
+                        </div>
+                    </div>     
+                    <!--Industry Category PickList-->
+                    <template if:true={selectedIndustry}>
+                    <fieldset class="slds-p-around_medium slds-p-left_xx-large">
+                        <div class="slds-grid slds-wrap">
+                            <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-2 slds-large-size_1-of-2 slds-p-bottom_small ">
+                                {customLabelValues.OWC_industryinfo_IndustryCategory}
+                                <lightning-combobox disabled name="industryInfoCategory" data-id="industryInfoCategory" onchange={handleChange} onblur={handleFocus} value={selectedIndustryValue} placeholder={customLabelValues.OWC_select_picklist_label} options={industryMapdata} variant="label-hidden"></lightning-combobox>
+                            </div>
+                        </div>
+                    </fieldset>       
+                    </template>  
+                    
+                    <!--Second Part After Industry Selection-->
+                    <template if:true={industryInfoSectionDetails.selectedOption}>
+                    <template  if:true={isIndustrySpec}>
+                        <!--Industry Specific PickList-->
+                        <fieldset class="slds-p-around_medium slds-p-left_xx-large">
+                            <div class="slds-grid slds-wrap">
+                                <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-2 slds-large-size_1-of-2 slds-p-bottom_small ">
+                                    <!-- <span class="requiredStyle"><abbr title="required">*</abbr></span> -->
+                                   <span class=""> {customLabelValues.OWC_industryinfo_category}</span>
+                                    <lightning-combobox 
+                                        disabled
+                                        name="industrySubFields"
+                                        data-id="industrySubFields"
+                                        onchange={handleChange}
+                                        onblur={handleFocus}
+                                        value={selectedOption}
+                                        placeholder={customLabelValues.OWC_select_picklist_label}
+                                        options={selectedValues} 
+                                        variant="label-hidden">
+                                    </lightning-combobox>
+                                </div>
+                            </div>
+                        </fieldset>
+                    </template> 
+                    </template>
+                    
+                    <!--Farm Labour Area-->
+                    <template if:true={industryInfoSectionDetails.isFarmLaborContractors}>
+                    <template  if:true={isFarmLaborContractors}>
+                        <div class="slds-p-left_medium">
+                            <template if:true={industryInfoSectionDetails.farmWorker}>
+                            <fieldset class="">
+                                <div class="slds-grid slds-wrap">
+                                    <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-2 slds-large-size_1-of-2 slds-p-bottom_small ">
+                                        <!-- <span class="requiredStyle"><abbr title="required">*</abbr></span> -->
+                                        {customLabelValues.OWC_industryinfo_farmlaborer}
+                                        <lightning-radio-group disabled 
+                                            class="customRadioCls" 
+                                            name="farmWorker"
+                                            options={options}
+                                            data-id="farmWorker"
+                                            variant="label-hidden" 
+                                            value={farmWorker}
+                                            onchange={handleChange}
+                                            onblur={handleFocus}>
+                                        </lightning-radio-group>  
+                                    </div>
+                                </div>
+                            </fieldset>   
+                            </template> 
+                            <!--recovery period Area-->
+                            <template if:true={industryInfoSectionDetails.isYouFarmLaborer}>
+                            <template if:true={isYouFarmLaborer}>
+                                <div class="sdls-grid slds-wrap">
+                                    <template if:true={industryInfoSectionDetails.heatRecovery}>
+                                    <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-1 slds-large-size_1-of-1 slds-p-bottom_small ">
+                                        {customLabelValues.OWC_industryinfo_heatrecoveryperiods}
+                                        <lightning-radio-group disabled 
+                                            class="customRadioCls" name="heatRecovery"
+                                                                options={options}
+                                                                data-id="heatRecovery"
+                                                                variant="label-hidden" 
+                                                                value={heatRecovery}
+                                                                onchange={handleChange}
+                                                                onblur={handleFocus}></lightning-radio-group>
+                                    </div>
+                                    </template>
+                                    <template if:true={industryInfoSectionDetails.paidBreaks}>
+                                    <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-1 slds-large-size_1-of-1 slds-p-bottom_small ">
+                                        {customLabelValues.OWC_industry_paid_breaks}
+                                            <lightning-radio-group disabled 
+                                            class="customRadioCls" name="paidBreaks"
+                                                                options={options}
+                                                                data-id="paidBreaks"
+                                                                variant="label-hidden" 
+                                                                value={paidBreaks}
+                                                                onchange={handleChange}
+                                                                onblur={handleFocus}></lightning-radio-group>
+                                    </div>
+                                    </template>
+                                    <template if:true={industryInfoSectionDetails.rateOfCompensation}>
+                                    <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-1 slds-large-size_1-of-1 slds-p-bottom_small ">
+                                        {customLabelValues.OWC_industryinfo_request}
+                                        <lightning-radio-group disabled 
+                                        class="customRadioCls" name="rateOfCompensation"
+                                                            options={options}
+                                                            data-id="rateOfCompensation"
+                                                            value={rateOfCompensation}
+                                                            variant="label-hidden" 
+                                                            onchange={handleChange}
+                                                            onblur={handleFocus}></lightning-radio-group>
+                                    </div> 
+                                    </template>
+                                </div>
+                            </template>
+                            </template>
+                            <!--Writtten Rate Compnesation Area Section 1.1.2-->
+                            <template if:true={industryInfoSectionDetails.writtenReqDate}>
+                            <div class="slds-grid slds-wrap" >
+                                <template if:true={isRateOfCompensation} >
+                                        <fieldset class="">
+                                            <div class="slds-grid slds-wrap">
+                                                <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-1 slds-large-size_1-of-1 slds-p-top_large ">
+                                                    <fieldset class="slds-p-right_medium">
+                                                                {customLabelValues.OWC_industryinfo_writtenrequest}
+                                                                <span class="slds-p-left_medium dateFormatLabel">{dateFormatLabel}</span>
+                                                                <lightning-input disabled name="writtenReqDate"
+                                                                            type="date" 
+                                                                            date-style="short"
+                                                                            value={writtenReqDate}
+                                                                            variant="label-hidden"
+                                                                            data-id="writtenReqDate"
+                                                                            onchange={handleChange}
+                                                                            >
+                                                                </lightning-input>   
+                                                    </fieldset>
+                                                </div>
+                                                <template if:true={industryInfoSectionDetails.empStatementProvided}>
+                                                    <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-1 slds-large-size_1-of-1 slds-p-top_large ">
+                                                        <fieldset class="slds-p-around-small ">
+                                                            {customLabelValues.OWC_industryinfo_employerneverstatement}
+                                                            <lightning-radio-group disabled 
+                                                            class="customRadioCls" name="empStatementProvided"
+                                                                                options={options}
+                                                                                value={empStatementProvided}
+                                                                                data-id="empStatementProvided"
+                                                                                variant="label-hidden" 
+                                                                                onchange={handleChange}
+                                                                                onblur={handleWrittenRateValidityChecker}></lightning-radio-group>
+                                                        </fieldset>
+                                                    </div>
+                                                </template>
+                                                
+                                                <template if:true={isEmployerProvideStatement}>
+                                                    <template if:true={industryInfoSectionDetails.statementDate}>
+                                                        <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-1 slds-large-size_1-of-1">
+                                                            <fieldset class="slds-p-right_medium">
+                                                                        {customLabelValues.OWC_industryinfo_employerstatement}
+                                                                        <span class="slds-p-left_medium dateFormatLabel">{dateFormatLabel}</span>
+                                                                        <lightning-input disabled name="statementDate"
+                                                                                    type="date"
+                                                                                    date-style="short"
+                                                                                    value={statementDate}
+                                                                                    variant="label-hidden"
+                                                                                    data-id="statementDate"
+                                                                                    onchange={handleChange}
+                                                                                    >
+                                                                        </lightning-input>    
+                                                            </fieldset>
+                                                        </div>
+                                                    </template>
+                                                </template>
+                                            </div>
+                                        </fieldset>
+                                </template>
+                            </div>
+                            </template>
+                        </div>    
+                    </template>
+                    </template>
+                    
+                    <!--Household/Domestic Worker-->
+                    <template if:true={industryInfoSectionDetails.isHouseDomesticWorker}>
+                    <template if:true={isHouseDomesticWorker}>                    
+                        <div class="slds-grid slds-wrap slds-p-left_xx-small">        
+                            <template if:true={industryInfoSectionDetails.domesticWorkType}>                
+                            <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-1 slds-large-size_1-of-1">
+                                <fieldset class="slds-p-around_small slds-p-left_xx-large">
+                                    <div class="slds-grid slds-wrap">
+                                        <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-2 slds-large-size_1-of-2 ">
+                                            {customLabelValues.OWC_industryinfo_typeofwork}
+                                            <lightning-input disabled name="domesticWorkType" 
+                                                             data-id="domesticWorkType"
+                                                             value={domesticWorkType}
+                                                             variant="label-hidden" 
+                                                             onchange={handleChange}
+                                                             onblur={handleFocus}></lightning-input>
+                                        </div>
+                                    </div>
+                                </fieldset>
+                            </div>
+                            </template>
+                            <!--Live in Home where you work-->
+                            <template if:true={industryInfoSectionDetails.domesticLiveInWorkHome}>   
+                            <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-1 slds-large-size_1-of-1 ">
+                                <fieldset class="slds-p-around_small slds-p-left_xx-large">    
+                                    <div class="slds-grid slds-wrap">
+                                        <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-2 slds-large-size_1-of-2 ">
+                                            {customLabelValues.OWC_industryinfo_homeworked}
+                                            <lightning-radio-group disabled 
+                                            class="customRadioCls" name="domesticLiveInWorkHome"
+                                                                options={options}
+                                                                data-id="domesticLiveInWorkHome"
+                                                                value={domesticLiveInWorkHome}
+                                                                variant="label-hidden" 
+                                                                onchange={handleChange}
+                                                                onblur={handleFocus}></lightning-radio-group>
+                                        </div>                     
+                                    </div>
+                                </fieldset>
+                            </div>
+                            </template>
+                            <!--Sent by home agency-->
+                            <template if:true={industryInfoSectionDetails.domesticSentByHomeAgency}>  
+                            <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-1 slds-large-size_1-of-1 ">
+                                <fieldset class="slds-p-around_small slds-p-left_xx-large">    
+                                    <div class="slds-grid slds-wrap">
+                                        <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-2 slds-large-size_1-of-2 slds-p-bottom_small">
+                                            {customLabelValues.OWC_industryinfo_homeagency}
+                                            <lightning-radio-group disabled 
+                                            class="customRadioCls" name="domesticSentByHomeAgency"
+                                                                options={options}
+                                                                data-id="domesticSentByHomeAgency"
+                                                                value={domesticSentByHomeAgency}
+                                                                variant="label-hidden" 
+                                                                onchange={handleChange}
+                                                                onblur={handleFocus}></lightning-radio-group>
+                                        </div>                  
+                                    </div>
+                                </fieldset>
+                            </div>
+                            </template>
+                            <template if:true={industryInfoSectionDetails.domesticRegisteredNurse}>  
+                            <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-1 slds-large-size_1-of-1 ">
+                                <fieldset class="slds-p-around_small slds-p-left_xx-large">    
+                                    <div class="slds-grid slds-wrap">
+                                        <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-2 slds-large-size_1-of-2 ">
+                                            <!-- <span class="requiredStyle"><abbr title="required">*</abbr></span> -->
+                                            {customLabelValues.OWC_industryinfo_registerednurse}
+                                            <lightning-radio-group disabled 
+                                            class="customRadioCls" name="domesticRegisteredNurse"
+                                                                   options={options}
+                                                                   data-id="domesticRegisteredNurse"
+                                                                   value={domesticRegisteredNurse}
+                                                                   variant="label-hidden" 
+                                                                   onchange={handleChange}
+                                                                   onblur={handleFocus}></lightning-radio-group>
+                                        </div>                    
+                                    </div>
+                                </fieldset>
+                            </div>
+                            </template>
+                            
+                        </div>    
+                    </template>
+                    </template>
+                    
+                    <!--Household Personal Attendant-->
+                    <template if:true={industryInfoSectionDetails.isHousePersonalAttendent}>
+                    <template if:true={isHousePersonalAttendent}>                    
+                        <div class="slds-grid slds-wrap slds-p-left_medium ">  
+                            <template if:true={industryInfoSectionDetails.personalAttendentWorkType}>                      
+                            <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-2 slds-large-size_1-of-2">
+                                <fieldset class="slds-p-around_medium">
+                                            <!-- <span class="requiredStyle"><abbr title="required">*</abbr></span> -->
+                                            {customLabelValues.OWC_industryinfo_typeofwork}
+                                            <lightning-input disabled name="personalAttendentWorkType"
+                                                             data-id="personalAttendentWorkType" 
+                                                             value={personalAttendentWorkType}
+                                                             variant="label-hidden" 
+                                                             onchange={handleChange}
+                                                             onblur={handleFocus}></lightning-input>
+                                       
+                                </fieldset>
+                            </div>
+                            </template>
+                            <template if:true={industryInfoSectionDetails.personalAttendentRegisteredNurse}> 
+                            <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-2 slds-large-size_1-of-2">
+                                <fieldset class="slds-p-around_medium slds-p-left_xx-large">    
+                                            <!-- <span class="requiredStyle"><abbr title="required">*</abbr></span> -->
+                                            {customLabelValues.OWC_industryinfo_registerednurse}
+                                            <lightning-radio-group disabled 
+                                            class="customRadioCls" name="personalAttendentRegisteredNurse"
+                                                                   options={options}
+                                                                   data-id="personalAttendentRegisteredNurse"
+                                                                   value={personalAttendentRegisteredNurse}
+                                                                   variant="label-hidden" 
+                                                                   onchange={handleChange}
+                                                                   onblur={handleFocus}></lightning-radio-group>
+                                        
+                                </fieldset>
+                            </div>
+                            </template>
+                            <template if:true={industryInfoSectionDetails.personalAttendentLiveInWorkHome}> 
+                            <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-2 slds-large-size_1-of-2">
+                                <fieldset class="slds-p-around_medium slds-p-left_xx-large">    
+                                            <!-- <span class="requiredStyle"><abbr title="required">*</abbr></span> -->
+                                            {customLabelValues.OWC_industryinfo_homeworked}
+                                            <lightning-radio-group disabled 
+                                            class="customRadioCls" name="personalAttendentLiveInWorkHome"
+                                                                   data-id="personalAttendentLiveInWorkHome"
+                                                                   options={options}
+                                                                   value={personalAttendentLiveInWorkHome}
+                                                                   variant="label-hidden" 
+                                                                   onchange={handleChange}
+                                                                   onblur={handleFocus}></lightning-radio-group>
+                                       
+                                </fieldset>
+                            </div>
+                            </template>
+                            <template if:true={industryInfoSectionDetails.personalAttendentSentByHomeAgency}> 
+                            <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-2 slds-large-size_1-of-2">    
+                                <fieldset class="slds-p-around_medium slds-p-left_xx-large">    
+                                            <!-- <span class="requiredStyle"><abbr title="required">*</abbr></span> -->
+                                            {customLabelValues.OWC_industryinfo_homeagency}
+                                            <lightning-radio-group disabled 
+                                            class="customRadioCls" name="personalAttendentSentByHomeAgency"
+                                                                   data-id="personalAttendentSentByHomeAgency"
+                                                                   options={options}
+                                                                   value={personalAttendentSentByHomeAgency}
+                                                                   variant="label-hidden" 
+                                                                   onchange={handleChange}
+                                                                   onblur={handleFocus}></lightning-radio-group>
+                                        
+                                </fieldset>
+                            </div>
+                            </template>
+                        </div>    
+                    </template>
+                    </template>
+                    
+                    <!--Facility Personal Attendant-->
+                    <template if:true={industryInfoSectionDetails.isFacilityPersonalAttendent}> 
+                    <template if:true={isFacilityPersonalAttendent}>                    
+                        <div class="slds-grid slds-wrap slds-p-left_medium">  
+                            <template if:true={industryInfoSectionDetails.facilityPersonalAttendentWorkType}>                     
+                            <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-2 slds-large-size_1-of-2">
+                                <fieldset class="slds-p-around_medium slds-p-left_xx-large">
+                                            <!-- <span class="requiredStyle"><abbr title="required">*</abbr></span> -->
+                                            {customLabelValues.OWC_industryinfo_typeofwork}
+                                            <lightning-input disabled data-id="facilityPersonalAttendentWorkType"
+                                                             name="facilityPersonalAttendentWorkType" 
+                                                             variant="label-hidden" 
+                                                             value={facilityPersonalAttendentWorkType}
+                                                             onchange={handleChange}
+                                                             onblur={handleFocus}></lightning-input>
+                                        
+                                </fieldset>
+                            </div>
+                            </template>
+                            <template if:true={industryInfoSectionDetails.facilityWorkResidential}> 
+                            <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-2 slds-large-size_1-of-2">
+                                <fieldset class="slds-p-around_medium slds-p-left_xx-large">    
+                                            <!-- <span class="requiredStyle"><abbr title="required">*</abbr></span> -->
+                                            {customLabelValues.OWC_industryinfo_residential}
+                                            <lightning-radio-group disabled 
+                                            class="customRadioCls" name="facilityWorkResidential"
+                                                                   options={options}
+                                                                   data-id="facilityWorkResidential"
+                                                                   value={facilityWorkResidential}
+                                                                   variant="label-hidden" 
+                                                                   onchange={handleChange}
+                                                                   onblur={handleFocus}></lightning-radio-group>
+                                        
+                                </fieldset>
+                            </div>
+                            </template>
+                            <template if:true={industryInfoSectionDetails.facilityAttendentRegisteredNurse}> 
+                            <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-2 slds-large-size_1-of-2">
+                                <fieldset class="slds-p-around_medium slds-p-left_xx-large">    
+                                            <!-- <span class="requiredStyle"><abbr title="required">*</abbr></span> -->
+                                            {customLabelValues.OWC_industryinfo_registerednurse}
+                                            <lightning-radio-group disabled 
+                                            class="customRadioCls" name="facilityAttendentRegisteredNurse"
+                                                                   options={options}
+                                                                   data-id="facilityAttendentRegisteredNurse"
+                                                                   value={facilityAttendentRegisteredNurse}
+                                                                   variant="label-hidden" 
+                                                                   onchange={handleChange}
+                                                                   onblur={handleFocus}></lightning-radio-group>
+                                       
+                                </fieldset>
+                            </div>
+                            </template>
+                        </div>    
+                    </template>
+                    </template>
+                    
+                    <template if:true={industryInfoSectionDetails.listOfDuties}> 
+                    <fieldset class="slds-p-around_medium slds-p-left_xx-large">
+                        <div class="slds-grid slds-wrap">
+                            <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-2 slds-large-size_1-of-2 slds-p-bottom_small ">
+                                <div class="">
+                                {customLabelValues.OWC_industryinfo_jobduties}
+                                <span class="requiredStyle"><abbr title="required">*</abbr></span>
+                            </div>
+                                                    <lightning-input disabled data-id="listOfDuties"
+                                                             name="listOfDuties" 
+                                                             variant="label-hidden" 
+                                                             value={listOfDuties}
+                                                             onchange={handleChange}
+                                                            ></lightning-input> 
+                            </div>
+                        </div>
+                    </fieldset>
+                    </template>
+
+                    <!-- Construction Trades: Enter CSLB License Number -->
+                    <template if:true={industryInfoSectionDetails.OtherIndividualConstructionTrades}> 
+                    <template if:true={isCSLBShow}>
+                        <fieldset class="slds-p-around_medium">
+                            <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-1 slds-large-size_1-of-1 ">
+                                {customLabelValues.OWC_empinfo_ConstructionTrades}
+                            </div>
+                            <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-2 slds-large-size_1-of-2">
+                                <lightning-input disabled type="text" value={OtherIndividualConstructionTrades}  variant="label-hidden" name="OtherIndividualConstructionTrades" onchange={handleChange}></lightning-input>
+                            </div>
+                        </fieldset>
+                    </template> 
+                    </template>
+                </div>
+            </div>
+        </Form>
+    </template>
+
+    
+    <template if:false={isFormPreviewMode}>
+        <Form class="">
+            <div class="slds-grid slds-wrap">
+                <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-8 slds-large-size_1-of-8"></div>
+                <div class="slds-col slds-size_1-of-1 slds-medium-size_6-of-8 slds-large-size_6-of-8"> 
+                    <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-1 slds-large-size_1-of-1">
+                        <div class="slds-grid slds-wrap">
+                            <div class="slds-col slds-size_1-of-1 slds-medium-size_5-of-6 slds-large-size_5-of-6">
+                                <h1 class="slds-p-around_medium slds-text-heading_large owcHeadingStyle">
+                                    {customLabelValues.OWC_industryinfo}
+                                </h1>
+                            </div>
+                            <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-6 slds-large-size_1-of-6">
+                                <lightning-button class="slds-float_right slds-m-top_medium slds-m-bottom_medium slds-m-left_medium owcButtonStyle" label={customLabelValues.OWC_save_as_draft_label} variant="brand" onclick={handleSaveAsDraft}></lightning-button>
+                            </div>
+                        </div>
+                    </div>  
+                    <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-1 slds-large-size_1-of-1">
+                        <!--Industry Category PickList-->
+                        <fieldset class="slds-p-around_medium">
+                            <div class="slds-grid slds-wrap">
+                                <div class="slds-col slds-size_1-of-1 slds-medium-size_8-of-12 slds-large-size_8-of-12 slds-p-bottom_small ">
+                                    <span>{customLabelValues.OWC_industryinfo_IndustryCategory}</span>
+                                    <!--Domestic House Worker Help Text Section-->
+                                    <template if:true={isHouseDomesticWorker}>
+                                        <span class="slds-p-left_x-small">
+                                            <lightning-icon icon-name="utility:info" class="my-icon" size="x-small" alternative-text="info"  label={customLabelValues.OWC_learnmore_button} name="domesticWokerHelpText" onclick={handleHelpText} ></lightning-icon>
+                                        </span>
+                                        <!-- <span class="slds-p-left_large learnMoreStyle">
+                                            <lightning-button variant="base" label={customLabelValues.OWC_learnmore_button} name="domesticWokerHelpText" onclick={handleHelpText} class="slds-m-left_x-small"></lightning-button>
+                                        </span> -->
+                                    </template>
+                                    <!--Personal Attendent Help Text Section-->
+                                    <template if:true={isHousePersonalAttendent}>
+                                        <span class="slds-p-left_x-small">
+                                            <lightning-icon icon-name="utility:info" class="my-icon" size="x-small" alternative-text="info"  label={customLabelValues.OWC_learnmore_button} name="personalAttendentHelpText" onclick={handleHelpText} ></lightning-icon>
+                                        </span>
+                                        <!-- <span class="slds-p-left_large learnMoreStyle">
+                                            <lightning-button variant="base" label={customLabelValues.OWC_learnmore_button} name="personalAttendentHelpText" onclick={handleHelpText} class="slds-m-left_x-small"></lightning-button>
+                                        </span> -->
+                                    </template>
+                                    <!--Facility Personal Attendent Help Text Section-->
+                                    <template if:true={isFacilityPersonalAttendent}>
+                                        <span class="slds-p-left_x-small">
+                                            <lightning-icon icon-name="utility:info" class="my-icon" size="x-small" alternative-text="info"  label={customLabelValues.OWC_learnmore_button} name="facilityAttendentHelpText" onclick={handleHelpText} ></lightning-icon>
+                                        </span>
+                                        <!-- <span class="slds-p-left_large learnMoreStyle">
+                                            <lightning-button variant="base" label={customLabelValues.OWC_learnmore_button} name="facilityAttendentHelpText" onclick={handleHelpText} class="slds-m-left_x-small"></lightning-button>
+                                        </span> -->
+                                    </template>
+                                    <!--Public HouseKeeping Help Text Section-->
+                                    <template if:true={isPublicHouseKeeping}>
+                                        <span class="slds-p-left_x-small">
+                                            <lightning-icon icon-name="utility:info" class="my-icon" size="x-small" alternative-text="info"  label={customLabelValues.OWC_learnmore_button} name="publicHousekeepingHelpText" onclick={handleHelpText} ></lightning-icon>
+                                        </span>
+                                        <!-- <span class="slds-p-left_large learnMoreStyle">
+                                            <lightning-button variant="base" label={customLabelValues.OWC_learnmore_button} name="publicHousekeepingHelpText" onclick={handleHelpText} class="slds-m-left_x-small"></lightning-button>
+                                        </span> -->
+                                    </template>
+                                    <lightning-combobox name="industryInfoCategory" data-id="industryInfoCategory" onchange={handleChange} onblur={handleFocus} value={selectedIndustryValue} placeholder={customLabelValues.OWC_select_picklist_label} options={industryMapdata} variant="label-hidden"></lightning-combobox>
+                                </div>
+                            </div>
+                        </fieldset> 
+                    </div>     
+                    
+                    <!-- Garment Manufacturing duties -->
+                    <template if:true={isLabelsInfo}>
+                        <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-1 slds-large-size_1-of-1">
+                            <div class="slds-grid slds-wrap slds-p-left_medium slds-p-right_medium">
+                                <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-1 slds-large-size_1-of-1 slds-p-bottom_medium">
+                                    <span>{customLabelValues.OWC_manufacturing_duties}</span>
+                                    <span class="requiredStyle"><abbr title="required">*</abbr></span>
+                                </div>
+                                <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-1 slds-large-size_1-of-1 slds-p-bottom_medium">
+                                    <ul class="slds-list_dotted">
+                                        <li>{customLabelValues.OWC_manufacturing_duties1}</li>
+                                        <li>{customLabelValues.OWC_manufacturing_duties2}</li>
+                                        <li>{customLabelValues.OWC_manufacturing_duties3}</li>
+                                        <li>{customLabelValues.OWC_manufacturing_duties4}</li>
+                                        <li>{customLabelValues.OWC_manufacturing_duties5}</li>
+                                        <li>{customLabelValues.OWC_manufacturing_duties6}</li>
+                                        <li>{customLabelValues.OWC_manufacturing_duties7}</li>
+                                        <li>{customLabelValues.OWC_manufacturing_duties8}</li>
+                                      </ul>  
+                                </div>
+                                <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-2 slds-large-size_1-of-2">
+                                    <lightning-radio-group 
+                                    class="customRadioCls" name="isGarmentDutyFollow"
+                                                        options={options}
+                                                        data-id="isGarmentDutyFollow"
+                                                        variant="label-hidden" 
+                                                        value={isGarmentDutyFollow}
+                                                        onchange={handleChange}
+                                                        onblur={handleFocus}></lightning-radio-group>
+                                </div>
+                                <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-2 slds-large-size_1-of-2"></div>
+                            </div>
+                        </div>
+                    </template>
+
+                    <!--Second Part After Industry Selection-->
+                    <!-- <template  if:true={isIndustrySpec}>
+                        <fieldset class="slds-p-around_medium slds-p-top_medium slds-p-bottom_medium slds-p-right_medium">
+                            <div class="slds-grid slds-wrap">
+                                <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-2 slds-large-size_1-of-2 slds-p-bottom_small ">
+                                   <span class=""> {customLabelValues.OWC_industryinfo_category}</span>
+    
+                                    
+                                    <lightning-combobox
+                                                        name="industrySubFields"
+                                                        data-id="industrySubFields"
+                                                        onchange={handleChange}
+                                                        onblur={handleFocus}
+                                                        value={selectedOption}
+                                                        placeholder={customLabelValues.OWC_select_picklist_label}
+                                                        options={selectedValues} 
+                                                        variant="label-hidden"></lightning-combobox>
+                                </div>
+                            </div>
+                        </fieldset>
+                    </template>  -->
+                    
+                    <!--Farm Labour Area-->
+                    <template  if:true={isFarmLaborContractors}>
+                        <div class="slds-p-left_medium">
+                            <fieldset class="">
+                                <div class="slds-grid slds-wrap">
+                                    <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-2 slds-large-size_1-of-2 slds-p-bottom_small ">
+                                        <!-- <span class="requiredStyle"><abbr title="required">*</abbr></span> -->
+                                        {customLabelValues.OWC_industryinfo_farmlaborer}
+                                        <span class="slds-p-left_x-small">
+                                            <lightning-icon icon-name="utility:info" class="my-icon" size="x-small" alternative-text="info"  label={customLabelValues.OWC_learnmore_button} name="farmLaborerHelpText" onclick={handleHelpText} ></lightning-icon>
+                                         </span>
+                                        <!-- <span class="slds-p-left_medium learnMoreStyle">
+                                            <lightning-button variant="base" label={customLabelValues.OWC_learnmore_button} name="farmLaborerHelpText" onclick={handleHelpText} class="slds-m-left_x-small"></lightning-button>
+                                        </span> -->
+                                        <lightning-radio-group 
+                                        class="customRadioCls" name="farmWorker"
+                                                            options={options}
+                                                            data-id="farmWorker"
+                                                            variant="label-hidden" 
+                                                            value={farmWorker}
+                                                            onchange={handleChange}
+                                                            onblur={handleFocus}></lightning-radio-group>  
+                                    </div>
+                                </div>
+                            </fieldset>    
+                            <!--recovery period Area-->
+                            <template if:true={isYouFarmLaborer}>
+                                <div class="sdls-grid slds-wrap">
+                                    <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-1 slds-large-size_1-of-1 slds-p-bottom_small ">
+                                        {customLabelValues.OWC_industryinfo_heatrecoveryperiods}
+                                        <span class="slds-p-left_x-small">
+                                            <lightning-icon icon-name="utility:info" class="my-icon" size="x-small" alternative-text="info"  label={customLabelValues.OWC_learnmore_button} name="heatRecPeriodHelpText" onclick={handleHelpText} ></lightning-icon>
+                                         </span>
+                                            <!-- <span class="slds-p-left_medium learnMoreStyle">
+                                                <lightning-button variant="base" label={customLabelValues.OWC_learnmore_button} name="heatRecPeriodHelpText" onclick={handleHelpText} class="slds-m-left_x-small"></lightning-button>
+                                            </span> -->
+                                            <lightning-radio-group 
+                                            class="customRadioCls" name="heatRecovery"
+                                                                options={options}
+                                                                data-id="heatRecovery"
+                                                                variant="label-hidden" 
+                                                                value={heatRecovery}
+                                                                onchange={handleChange}
+                                                                onblur={handleFocus}></lightning-radio-group>
+                                    </div>
+                                    <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-1 slds-large-size_1-of-1 slds-p-bottom_small ">
+                                        {customLabelValues.OWC_industry_paid_breaks}
+                                            <lightning-radio-group 
+                                            class="customRadioCls" name="paidBreaks"
+                                                                options={options}
+                                                                data-id="paidBreaks"
+                                                                variant="label-hidden" 
+                                                                value={paidBreaks}
+                                                                onchange={handleChange}
+                                                                onblur={handleFocus}></lightning-radio-group>
+                                    </div>
+                                    <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-1 slds-large-size_1-of-1 slds-p-bottom_small ">
+                                        {customLabelValues.OWC_industryinfo_request}
+                                        <lightning-radio-group 
+                                        class="customRadioCls" name="rateOfCompensation"
+                                                            options={options}
+                                                            data-id="rateOfCompensation"
+                                                            value={rateOfCompensation}
+                                                            variant="label-hidden" 
+                                                            onchange={handleChange}
+                                                            onblur={handleFocus}></lightning-radio-group>
+                                    </div> 
+                                </div>
+                                <!-- <fieldset class="slds-p-around_medium slds-p-left_xx-large">
+                                    <div class="slds-grid slds-wrap slds-p-left_medium">
+                                        <div class="">
+                                            
+                                        </div>                        
+                                    </div>
+                                </fieldset> -->
+                            </template>
+                            <!--separted Paid recovery period Area-->
+                            <!-- <template if:true={isHeatRecPeriod}>
+                                <fieldset class="slds-p-around_medium slds-p-left_xx-large">
+                                    <div class="slds-grid slds-wrap slds-p-left_medium">
+                                        <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-2 slds-large-size_1-of-2 slds-p-bottom_small ">
+                                            {customLabelValues.OWC_industryinfo_paidseparatelyforheatrecoveryperiods}
+                                            <lightning-radio-group 
+                                            class="customRadioCls" name="separateHeatRecovery"
+                                                                options={options}
+                                                                data-id="separateHeatRecovery"
+                                                                value={separateHeatRecovery}
+                                                                variant="label-hidden" 
+                                                                onchange={handleChange}
+                                                                onblur={handleFocus}></lightning-radio-group>
+                                        </div>                       
+                                    </div>
+                                </fieldset> 
+                            </template>     -->
+                            
+                            <!--Writtten Rate Compnesation Area Section 1.1.2-->
+                            <div class="slds-grid slds-wrap" >
+                                <template if:true={isRateOfCompensation} >
+                                        <fieldset class="">
+                                            <div class="slds-grid slds-wrap">
+                                                <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-1 slds-large-size_1-of-1 slds-p-top_large ">
+                                                    <fieldset class="slds-p-around-small">
+                                                                {customLabelValues.OWC_industryinfo_writtenrequest}
+                                                                <span class="slds-p-left_medium dateFormatLabel">{dateFormatLabel}</span>
+                                                                <lightning-input name="writtenReqDate"
+                                                                            type="date" 
+                                                                            date-style="short"
+                                                                            value={writtenReqDate}
+                                                                            variant="label-hidden"
+                                                                            data-id="writtenReqDate"
+                                                                            onchange={handleChange}
+                                                                            >
+                                                                </lightning-input>   
+                                                    </fieldset>
+                                                </div>
+                                                <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-1 slds-large-size_1-of-1 slds-p-top_large ">
+                                                    <fieldset class="slds-p-around-small ">
+                                                        {customLabelValues.OWC_industryinfo_employerneverstatement}
+                                                        <lightning-radio-group 
+                                                        class="customRadioCls" name="empStatementProvided"
+                                                                            options={options}
+                                                                            value={empStatementProvided}
+                                                                            data-id="empStatementProvided"
+                                                                            variant="label-hidden" 
+                                                                            onchange={handleChange}
+                                                                            onblur={handleWrittenRateValidityChecker}></lightning-radio-group>
+                                                    </fieldset>
+                                                </div>
+                                                <template if:true={isEmployerProvideStatement}>
+                                                    <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-1 slds-large-size_1-of-1 slds-p-top_small">
+                                                        <fieldset class="slds-p-around-small">
+                                                                    {customLabelValues.OWC_industryinfo_employerstatement}
+                                                                    <span class="slds-p-left_medium dateFormatLabel">{dateFormatLabel}</span>
+                                                                    <lightning-input name="statementDate"
+                                                                                type="date"
+                                                                                date-style="short"
+                                                                                value={statementDate}
+                                                                                variant="label-hidden"
+                                                                                data-id="statementDate"
+                                                                                onchange={handleChange}
+                                                                                >
+                                                                    </lightning-input>    
+                                                        </fieldset>
+                                                    </div>
+                                                </template>
+                                            </div>
+                                        </fieldset>
+                                </template>
+                            </div>
+                        </div>    
+                    </template>
+                    
+                    <!--Household/Domestic Worker-->
+                    <template if:true={isHouseDomesticWorker}>                    
+                        <div class="slds-grid slds-wrap slds-p-left_xx-small">                        
+                            <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-1 slds-large-size_1-of-1">
+                                <fieldset class="">
+                                    <div class="slds-grid slds-wrap slds-p-left_medium slds-p-right_medium">
+                                        <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-2 slds-large-size_1-of-2 ">
+                                            {customLabelValues.OWC_industryinfo_typeofwork}
+                                            <lightning-input name="domesticWorkType" 
+                                                             data-id="domesticWorkType"
+                                                             value={domesticWorkType}
+                                                             variant="label-hidden" 
+                                                             onchange={handleChange}
+                                                             onblur={handleFocus}></lightning-input>
+                                        </div>
+                                    </div>
+                                </fieldset>
+                            </div>
+                            <!--Live in Home where you work-->
+                            <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-1 slds-large-size_1-of-1 ">
+                                <fieldset class="">    
+                                    <div class="slds-grid slds-wrap slds-p-left_medium slds-p-top_medium">
+                                        <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-2 slds-large-size_1-of-2 ">
+                                            {customLabelValues.OWC_industryinfo_homeworked}
+                                            <lightning-radio-group 
+                                            class="customRadioCls" name="domesticLiveInWorkHome"
+                                                                options={options}
+                                                                data-id="domesticLiveInWorkHome"
+                                                                value={domesticLiveInWorkHome}
+                                                                variant="label-hidden" 
+                                                                onchange={handleChange}
+                                                                onblur={handleFocus}></lightning-radio-group>
+                                        </div>                     
+                                    </div>
+                                </fieldset>
+                            </div>
+                            <!--Sent by home agency-->
+                            <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-1 slds-large-size_1-of-1 ">
+                                <fieldset class="">    
+                                    <div class="slds-grid slds-wrap slds-p-left_medium">
+                                        <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-2 slds-large-size_1-of-2 slds-p-bottom_small">
+                                            {customLabelValues.OWC_industryinfo_homeagency}
+                                            <lightning-radio-group 
+                                            class="customRadioCls" name="domesticSentByHomeAgency"
+                                                                options={options}
+                                                                data-id="domesticSentByHomeAgency"
+                                                                value={domesticSentByHomeAgency}
+                                                                variant="label-hidden" 
+                                                                onchange={handleChange}
+                                                                onblur={handleFocus}></lightning-radio-group>
+                                        </div>                  
+                                    </div>
+                                </fieldset>
+                            </div>
+                            <!-- <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-1 slds-large-size_1-of-1 ">
+                                <fieldset class="slds-p-around_small slds-p-left_xx-large">    
+                                    <div class="slds-grid slds-wrap slds-p-left_medium">
+                                        <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-2 slds-large-size_1-of-2 ">
+                                            {customLabelValues.OWC_industryinfo_workhome}
+                                            <lightning-radio-group 
+                                            class="customRadioCls" name="domesticWorkHome"
+                                                                   options={options}
+                                                                   data-id="domesticWorkHome"
+                                                                   value={domesticWorkHome}
+                                                                   variant="label-hidden" 
+                                                                   onchange={handleChange}
+                                                                   onblur={handleFocus}></lightning-radio-group>
+                                        </div> 
+                                    </div>
+                                </fieldset>
+                                <template if:true={isDomesticWorkInHome}>
+                                    <div  class="slds-grid slds-wrap slds-p-left_medium" >
+                                        <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-1 slds-large-size_1-of-1">
+                                            <fieldset class="slds-p-around_small slds-p-left_xx-large">    
+                                                <div class="slds-grid slds-wrap slds-p-left_medium">
+                                                    <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-2 slds-large-size_1-of-2 ">
+                                                        {customLabelValues.OWC_industryinfo_homeworked}
+                                                        <lightning-radio-group 
+                                                        class="customRadioCls" name="domesticLiveInWorkHome"
+                                                                            options={options}
+                                                                            data-id="domesticLiveInWorkHome"
+                                                                            value={domesticLiveInWorkHome}
+                                                                            variant="label-hidden" 
+                                                                            onchange={handleChange}
+                                                                            onblur={handleFocus}></lightning-radio-group>
+                                                    </div>                     
+                                                </div>
+                                            </fieldset>
+                                        </div>
+                                        <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-1 slds-large-size_1-of-1">
+                                            <fieldset class="slds-p-around_small slds-p-left_xx-large">    
+                                                <div class="slds-grid slds-wrap slds-p-left_medium">
+                                                    <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-2 slds-large-size_1-of-2 slds-p-bottom_small">
+                                                        {customLabelValues.OWC_industryinfo_homeagency}
+                                                        <lightning-radio-group 
+                                                        class="customRadioCls" name="domesticSentByHomeAgency"
+                                                                            options={options}
+                                                                            data-id="domesticSentByHomeAgency"
+                                                                            value={domesticSentByHomeAgency}
+                                                                            variant="label-hidden" 
+                                                                            onchange={handleChange}
+                                                                            onblur={handleFocus}></lightning-radio-group>
+                                                    </div>                    
+                                                </div>
+                                            </fieldset>
+                                        </div>
+                                    </div>
+                                </template>
+                            </div> -->
+                            <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-1 slds-large-size_1-of-1 ">
+                                <fieldset class="">    
+                                    <div class="slds-grid slds-wrap slds-p-left_medium">
+                                        <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-2 slds-large-size_1-of-2 ">
+                                            <!-- <span class="requiredStyle"><abbr title="required">*</abbr></span> -->
+                                            {customLabelValues.OWC_industryinfo_registerednurse}
+                                            <lightning-radio-group 
+                                            class="customRadioCls" name="domesticRegisteredNurse"
+                                                                   options={options}
+                                                                   data-id="domesticRegisteredNurse"
+                                                                   value={domesticRegisteredNurse}
+                                                                   variant="label-hidden" 
+                                                                   onchange={handleChange}
+                                                                   onblur={handleFocus}></lightning-radio-group>
+                                        </div>                    
+                                    </div>
+                                </fieldset>
+                            </div>
+                            
+                        </div>    
+                    </template>
+                    
+                    <!--Household Personal Attendant-->
+                    <template if:true={isHousePersonalAttendent}>                    
+                        <div class="slds-grid slds-wrap slds-p-left_medium ">                        
+                            <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-2 slds-large-size_1-of-2">
+                                <fieldset class="slds-p-around_medium slds-p-left_xx-large">
+                                            <!-- <span class="requiredStyle"><abbr title="required">*</abbr></span> -->
+                                            {customLabelValues.OWC_industryinfo_typeofwork}
+                                            <lightning-input name="personalAttendentWorkType"
+                                                             data-id="personalAttendentWorkType" 
+                                                             value={personalAttendentWorkType}
+                                                             variant="label-hidden" 
+                                                             onchange={handleChange}
+                                                             onblur={handleFocus}></lightning-input>
+                                       
+                                </fieldset>
+                            </div>
+                            <!-- <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-2 slds-large-size_1-of-2">
+                                <fieldset class="slds-p-around_medium slds-p-left_xx-large">    
+                                            {customLabelValues.OWC_industryinfo_workhome}
+                                            <lightning-radio-group 
+                                            class="customRadioCls" name="personalAttendentWorkHome"
+                                                                   options={options}
+                                                                   data-id="personalAttendentWorkHome"
+                                                                   value={personalAttendentWorkHome}
+                                                                   variant="label-hidden" 
+                                                                   onchange={handleChange}
+                                                                   onblur={handleFocus}></lightning-radio-group>
+                                        
+                                </fieldset>
+                            </div> -->
+                            <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-2 slds-large-size_1-of-2">
+                                <fieldset class="slds-p-around_medium slds-p-left_xx-large">    
+                                            <!-- <span class="requiredStyle"><abbr title="required">*</abbr></span> -->
+                                            {customLabelValues.OWC_industryinfo_registerednurse}
+                                            <lightning-radio-group 
+                                            class="customRadioCls" name="personalAttendentRegisteredNurse"
+                                                                   options={options}
+                                                                   data-id="personalAttendentRegisteredNurse"
+                                                                   value={personalAttendentRegisteredNurse}
+                                                                   variant="label-hidden" 
+                                                                   onchange={handleChange}
+                                                                   onblur={handleFocus}></lightning-radio-group>
+                                        
+                                </fieldset>
+                            </div>
+                            <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-2 slds-large-size_1-of-2">
+                                <fieldset class="slds-p-around_medium slds-p-left_xx-large">    
+                                            <!-- <span class="requiredStyle"><abbr title="required">*</abbr></span> -->
+                                            {customLabelValues.OWC_industryinfo_homeworked}
+                                            <lightning-radio-group 
+                                            class="customRadioCls" name="personalAttendentLiveInWorkHome"
+                                                                   data-id="personalAttendentLiveInWorkHome"
+                                                                   options={options}
+                                                                   value={personalAttendentLiveInWorkHome}
+                                                                   variant="label-hidden" 
+                                                                   onchange={handleChange}
+                                                                   onblur={handleFocus}></lightning-radio-group>
+                                       
+                                </fieldset>
+                            </div>
+                            <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-2 slds-large-size_1-of-2">    
+                                <fieldset class="slds-p-around_medium slds-p-left_xx-large">    
+                                            <!-- <span class="requiredStyle"><abbr title="required">*</abbr></span> -->
+                                            {customLabelValues.OWC_industryinfo_homeagency}
+                                            <lightning-radio-group 
+                                            class="customRadioCls" name="personalAttendentSentByHomeAgency"
+                                                                   data-id="personalAttendentSentByHomeAgency"
+                                                                   options={options}
+                                                                   value={personalAttendentSentByHomeAgency}
+                                                                   variant="label-hidden" 
+                                                                   onchange={handleChange}
+                                                                   onblur={handleFocus}></lightning-radio-group>
+                                        
+                                </fieldset>
+                            </div>
+                        </div>    
+                    </template>
+                    
+                    <!--Facility Personal Attendant-->
+                    <template if:true={isFacilityPersonalAttendent}>                    
+                        <div class="slds-grid slds-wrap slds-p-left_medium">                       
+                            <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-2 slds-large-size_1-of-2">
+                                <fieldset class="slds-p-around_medium slds-p-left_xx-large">
+                                            <!-- <span class="requiredStyle"><abbr title="required">*</abbr></span> -->
+                                            {customLabelValues.OWC_industryinfo_typeofwork}
+                                            <lightning-input data-id="facilityPersonalAttendentWorkType"
+                                                             name="facilityPersonalAttendentWorkType" 
+                                                             variant="label-hidden" 
+                                                             value={facilityPersonalAttendentWorkType}
+                                                             onchange={handleChange}
+                                                             onblur={handleFocus}></lightning-input>
+                                        
+                                </fieldset>
+                            </div>
+                            
+                            <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-2 slds-large-size_1-of-2">
+                                <fieldset class="slds-p-around_medium slds-p-left_xx-large">    
+                                            <!-- <span class="requiredStyle"><abbr title="required">*</abbr></span> -->
+                                            {customLabelValues.OWC_industryinfo_registerednurse}
+                                            <lightning-radio-group 
+                                            class="customRadioCls" name="facilityAttendentRegisteredNurse"
+                                                                   options={options}
+                                                                   data-id="facilityAttendentRegisteredNurse"
+                                                                   value={facilityAttendentRegisteredNurse}
+                                                                   variant="label-hidden" 
+                                                                   onchange={handleChange}
+                                                                   onblur={handleFocus}></lightning-radio-group>
+                                       
+                                </fieldset>
+                            </div>
+                        </div>    
+                    </template>
+    
+    
+                    <!--Label Section-->
+                    <!-- <div class="slds-grid slds-wrap">
+                        <template if:true={isClaimantAdvocate}>
+                            <template if:true={isLabelsInfo}>
+                                <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-1 slds-large-size_1-of-1">
+                                    <template if:true={isRenderLabelInformationSection}>
+                                        <template for:each={renderLabelInformationSection} for:item="labelObj">
+                                            <div key={labelObj.Id}>
+                                                <c-owc-Label-Section-Cmp sectionid={labelObj.sectionId} labelheading={labelObj.heading} onlabelsectioncustomevent={handleLabelSectionEvent} onlabelsectionvalidity={handleLabelSectionValidity} oncustomlabeldeleteevent={handleLabelSectionDelete} deletebutton={labelObj.button} onlabelsectiondeleteevent={handleLabelSectionDeletedData}></c-owc-Label-Section-Cmp>
+                                            </div>
+                                        </template>
+                                    </template>
+                                </div>
+                                <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-1 slds-large-size_1-of-1">
+                                    <lightning-button class="slds-float_left slds-m-around_medium buttonStyle" variant="brand" label={customLabelValues.OWC_addanotherlabel_button} onclick={addMoreLabel}></lightning-button>
+                                </div>
+                            
+                            
+                                <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-1 slds-large-size_1-of-1">
+                                    <template if:true={isRenderSuccessorInfoSection}>
+                                        <template for:each={renderSuccessorSection} for:item="successorObj">
+                                            <div key={successorObj.Id}>
+                                                <c-owc-Successor-Section-Cmp sectionid={successorObj.sectionId} successorheading={successorObj.heading} onsuccessorsectioncustomevent={handleSuccessorSectionEvent} onsuccessorsectionvalidity={handleSuccessorSectionValidity} deletebutton={successorObj.button} oncustomsuccessordeleteevent={handleSuccessorSectionDelete} onsuccessorsectiondeleteevent={handleSuccessorSectionDeletedData}></c-owc-Successor-Section-Cmp>
+                                        </div>
+                                        </template>
+                                    </template>
+                                </div>
+                                <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-1 slds-large-size_1-of-1">
+                                    <lightning-button class="slds-float_left slds-m-around_medium buttonStyle" variant="brand" label={customLabelValues.OWC_addanothersuccessor_buttton} onclick={addMoreSuccessor}></lightning-button>
+                                </div>
+                            </template>
+                        </template> 
+                    </div>                   -->
+                            
+                            
+    
+                    <fieldset class="slds-p-around_medium slds-p-left_xx-large">
+                        <div class="slds-grid slds-wrap">
+                            <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-2 slds-large-size_1-of-2 slds-p-bottom_small ">
+                                <div class="">
+                                {customLabelValues.OWC_industryinfo_jobduties}
+                                <span class="requiredStyle"><abbr title="required">*</abbr></span>
+                            </div>
+                                                    <lightning-input data-id="listOfDuties"
+                                                             name="listOfDuties" 
+                                                             variant="label-hidden" 
+                                                             value={listOfDuties}
+                                                             onchange={handleChange}
+                                                            ></lightning-input> 
+                            </div>
+                        </div>
+                    </fieldset>
+
+                    <!-- Construction Trades: Enter CSLB License Number -->
+                    <template if:true={isCSLBShow}>
+                        <fieldset class="slds-p-around_medium">
+                            <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-1 slds-large-size_1-of-1 ">
+                                {customLabelValues.OWC_empinfo_ConstructionTrades}
+                                <span class="slds-p-left_x-small">
+                                    <lightning-icon icon-name="utility:info" class="my-icon" size="x-small" alternative-text="info"  label={customLabelValues.OWC_learnmore_button} name="ConstructionTradesHelpText" onclick={handleHelpText} ></lightning-icon>
+                                 </span>
+                                <!-- <span class="slds-p-left_medium learnMoreStyle">
+                                    <lightning-button variant="base" label={customLabelValues.OWC_learnmore_button} name="ConstructionTradesHelpText" onclick={handleHelpText} class="slds-m-left_x-small"></lightning-button>
+                                </span> -->
+                            </div>
+                            <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-2 slds-large-size_1-of-2">
+                                <lightning-input type="text" value={OtherIndividualConstructionTrades}  variant="label-hidden" name="OtherIndividualConstructionTrades" onchange={handleChange}></lightning-input>
+                            </div>
+                        </fieldset>
+                    </template> 
+                </div>
+                <template if:true={isHelpText}>
+                    <c-owc-Help-Text-Cmp helptext={helpText} onhelptextevent={handleHelpTextEvent}></c-owc-Help-Text-Cmp>
+                </template>
+                <!--Jobs Performed by the user list section-->
+                
+            </div>
+        </Form>
+    </template>
+    
+</template>

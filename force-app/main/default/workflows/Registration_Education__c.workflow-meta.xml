@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Workflow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <alerts>
+        <fullName>REG_60_day_exam_expiration_notification</fullName>
+        <description>REG: 60 day exam expiration notification</description>
+        <protected>false</protected>
+        <recipients>
+            <field>Applicant_Email__c</field>
+            <type>email</type>
+        </recipients>
+        <senderAddress>dlseregistrationservices@dir.ca.gov</senderAddress>
+        <senderType>OrgWideEmailAddress</senderType>
+        <template>Registration_Templates/X60_day_exam_expiration_notification</template>
+    </alerts>
+    <fieldUpdates>
+        <fullName>Exam_Notification_Sent_TRUE</fullName>
+        <field>Exam_Notification_Sent__c</field>
+        <literalValue>1</literalValue>
+        <name>Exam Notification Sent = TRUE</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <outboundMessages>
+        <fullName>Registration_Send_Exam_Auth_Nintex</fullName>
+        <apiVersion>51.0</apiVersion>
+        <description>Sends exam auth. required by CW of Garment
+WFR - Registration Education - Exam Required</description>
+        <endpointUrl>https://apps.drawloop.com/package/111</endpointUrl>
+        <fields>Drawloop_Next_Exam_Auth__c</fields>
+        <fields>Id</fields>
+        <includeSessionId>true</includeSessionId>
+        <integrationUser>cbae@dir.ca.gov.integ</integrationUser>
+        <name>Registration Send Exam Auth Nintex</name>
+        <protected>false</protected>
+        <useDeadLetterQueue>false</useDeadLetterQueue>
+    </outboundMessages>
+    <outboundMessages>
+        <fullName>Send_Exam_Authorization</fullName>
+        <apiVersion>41.0</apiVersion>
+        <endpointUrl>https://workflow.congamerge.com/OBMListener.ashx</endpointUrl>
+        <fields>Drawloop_Next_Exam_Auth__c</fields>
+        <fields>Id</fields>
+        <includeSessionId>true</includeSessionId>
+        <integrationUser>cbae@dir.ca.gov.integ</integrationUser>
+        <name>Send Exam Authorization</name>
+        <protected>false</protected>
+        <useDeadLetterQueue>false</useDeadLetterQueue>
+    </outboundMessages>
+    <rules>
+        <fullName>REG%3A 60 day exam expiration notice</fullName>
+        <actions>
+            <name>REG_60_day_exam_expiration_notification</name>
+            <type>Alert</type>
+        </actions>
+        <active>true</active>
+        <formula>(Expiration_Date__c - TODAY()= 60)</formula>
+        <triggerType>onCreateOrTriggeringUpdate</triggerType>
+    </rules>
+    <rules>
+        <fullName>Registration Education - Exam Required</fullName>
+        <actions>
+            <name>Exam_Notification_Sent_TRUE</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <actions>
+            <name>Registration_Send_Exam_Auth_Nintex</name>
+            <type>OutboundMessage</type>
+        </actions>
+        <active>false</active>
+        <criteriaItems>
+            <field>Registration_Education__c.Exam_Notification_Sent__c</field>
+            <operation>equals</operation>
+            <value>False</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Registration_Education__c.Send_Notification__c</field>
+            <operation>equals</operation>
+            <value>True</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>License_Registration__c.RecordTypeId</field>
+            <operation>notEqual</operation>
+            <value>Farm Labor Contractor</value>
+        </criteriaItems>
+        <description>Notice to Applicant upon registration submission that a Garment Manufacturers and Contractors exam is required. Attaches conga workflow template with merged Registration Exam Authorization document.</description>
+        <triggerType>onCreateOrTriggeringUpdate</triggerType>
+    </rules>
+</Workflow>

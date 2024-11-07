@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <description>Email to be sent to applicant after the payment is completed.  The registration status is equal to Submitted</description>
+    <encodingKey>ISO-8859-1</encodingKey>
+    <name>REG: Final Submission</name>
+    <style>none</style>
+    <subject>{!License_Registration__c.Legal_Entity_Name__c} {!License_Registration__c.License_Registration_Type__c} {!License_Registration__c.Application_Type__c} Submission</subject>
+    <type>text</type>
+    <uiType>Aloha</uiType>
+</EmailTemplate>

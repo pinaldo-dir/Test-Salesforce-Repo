@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <description>For Email Alert &apos;HR Appraisal Reminder 1&apos;</description>
+    <encodingKey>ISO-8859-1</encodingKey>
+    <letterhead>Blank_Letterhead</letterhead>
+    <name>HR Appraisal Reminder 1 Template</name>
+    <style>freeForm</style>
+    <subject>Performance Appraisal Summary Due – REMINDER</subject>
+    <textOnly>Hello,
+
+This is a reminder that employee Performance Appraisal Summary (PAS) reports are due to the Human Resources Office (HRO) no later than March 31st. A review of our records shows that a report has not been received in the HRO for {!Performance_Appraisal_Tracking__c.Employee_Full_Name__c} .
+
+Please email the completed PAS (STD 638) to PerformanceAppraisals-HR@dir.ca.gov no later than March 31st.
+
+Thank you.
+
+Human Resources</textOnly>
+    <type>html</type>
+    <uiType>Aloha</uiType>
+</EmailTemplate>

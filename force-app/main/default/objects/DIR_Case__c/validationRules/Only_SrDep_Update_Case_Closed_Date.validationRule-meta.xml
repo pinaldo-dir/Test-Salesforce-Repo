@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Only_SrDep_Update_Case_Closed_Date</fullName>
+    <active>true</active>
+    <description>Only Sr.Deputy can Enter or Update Case Closed Date on BOFE Cases</description>
+    <errorConditionFormula>AND(
+(NOT(ISBLANK(Case_Closed_Date__c)) &amp;&amp; ISCHANGED( Case_Closed_Date__c)), 
+NOT($Permission.LCO_Senior),
+NOT( CONTAINS($Profile.Name, 'System Administrator') ),(OR (LEFT(RecordType.Name, 4) ='BOFE', RecordType.Name = 'JEU')
+))</errorConditionFormula>
+    <errorMessage>Only Senior Deputy can enter or update Case Closed Date</errorMessage>
+</ValidationRule>

@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Stay_Type__c</fullName>
+    <externalId>false</externalId>
+    <label>Stay Type</label>
+    <required>false</required>
+    <trackHistory>true</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Arbitration</fullName>
+                <default>false</default>
+                <label>Arbitration</label>
+            </value>
+            <value>
+                <fullName>Bankruptcy</fullName>
+                <default>false</default>
+                <label>Bankruptcy</label>
+            </value>
+            <value>
+                <fullName>BOFE</fullName>
+                <default>false</default>
+                <label>BOFE</label>
+            </value>
+            <value>
+                <fullName>Continuance - by Plaintiff</fullName>
+                <default>false</default>
+                <label>Continuance - by Plaintiff</label>
+            </value>
+            <value>
+                <fullName>Continuance - by Defendant</fullName>
+                <default>false</default>
+                <label>Continuance - by Defendant</label>
+            </value>
+            <value>
+                <fullName>Inactive</fullName>
+                <default>false</default>
+                <label>Inactive</label>
+            </value>
+            <value>
+                <fullName>Legal Hold</fullName>
+                <default>false</default>
+                <label>Legal Hold</label>
+            </value>
+            <value>
+                <fullName>Mechanic’s Lien</fullName>
+                <default>false</default>
+                <label>Mechanic’s Lien</label>
+            </value>
+            <value>
+                <fullName>Pending Settlement</fullName>
+                <default>false</default>
+                <label>Pending Settlement</label>
+            </value>
+            <value>
+                <fullName>Personal Service</fullName>
+                <default>false</default>
+                <label>Personal Service</label>
+            </value>
+            <value>
+                <fullName>Plaintiff Incarcerated</fullName>
+                <default>false</default>
+                <label>Plaintiff Incarcerated</label>
+            </value>
+            <value>
+                <fullName>Settlement - Payment Plan</fullName>
+                <default>false</default>
+                <label>Settlement - Payment Plan</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

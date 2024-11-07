@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <encodingKey>ISO-8859-1</encodingKey>
+    <name>Expiration of the Business License</name>
+    <style>none</style>
+    <subject>{!Registration_Location__c.Legal_Entity_Name__c} {!Registration_Location__c.Registration_Type__c} Business License Update Required</subject>
+    <type>text</type>
+    <uiType>Aloha</uiType>
+</EmailTemplate>

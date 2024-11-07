@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Non_Interest_Wage_Balance_Due__c</fullName>
+    <externalId>false</externalId>
+    <formula>Wages_Due__c - Wage_Payments_Received__c</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <inlineHelpText>EE(s) Amt Assessed - EE Payments Rec'd.</inlineHelpText>
+    <label>Non-Interest Wage Balance Due</label>
+    <precision>18</precision>
+    <required>false</required>
+    <scale>2</scale>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Currency</type>
+</CustomField>

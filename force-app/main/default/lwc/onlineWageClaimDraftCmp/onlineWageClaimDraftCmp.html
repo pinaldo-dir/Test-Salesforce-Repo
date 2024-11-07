@@ -1,0 +1,53 @@
+<!--
+  @description       : 
+  @author            : ChangeMeIn@UserSettingsUnder.SFDoc
+  @group             : 
+  @last modified on  : 10-05-2021
+  @last modified by  : ChangeMeIn@UserSettingsUnder.SFDoc
+-->
+<template >
+  <div id="onlineWageDraft">
+    <h1 class="slds-p-bottom_medium slds-text-heading_large owcHeadingStyle">{customLabelValues.OWC_online_draft_label}</h1>
+    <div class="tableFixHead">
+      <table class="slds-table slds-table_cell-buffer slds-table_bordered slds-border_left slds-border_right" aria-labelledby="element-with-table-label other-element-with-table-label">
+        <thead>
+          <tr class="slds-line-height_reset">
+            <th class="" scope="col">
+              <div class="slds-truncate" title="Draft">{customLabelValues.OWC_draft_number_label}</div>
+            </th>
+            <th class="" scope="col">
+              <div class="slds-truncate" title="Draft">{customLabelValues.OWC_Date_Modified}</div>
+            </th>
+          </tr>
+        </thead>
+        <tbody>
+          <template if:false={isDraftRecord}>
+            <tr>
+              <th scope="col" class="slds-cell-wrap slds-table_fixed-layout ">
+                <div>
+                  {customLabelValues.OWC_no_record_error}
+                </div>
+              </th>
+            </tr>
+          </template>
+          <template if:true={isDraftRecord}>
+            <template for:each={draftRecords} for:item="draftObj">
+              <tr key={draftObj.recordId}>
+                  <th scope="col" class="">
+                      <div>
+                        <a href="javascript:void(0);" name={draftObj.recordId} onclick={handleOWCForm} tabindex="-1">{draftObj.draftName}</a>
+                      </div>
+                  </th>
+                  <th scope="col" class="">
+                    <div>
+                      {draftObj.lastModifiedDate}
+                    </div>
+                </th>
+              </tr>
+            </template>
+          </template>
+        </tbody>
+      </table>
+    </div>
+    </div>
+  </template>

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomPageWebLink xmlns="http://soap.sforce.com/2006/04/metadata">
+    <availability>online</availability>
+    <displayType>link</displayType>
+    <encodingKey>UTF-8</encodingKey>
+    <height>600</height>
+    <linkType>url</linkType>
+    <masterLabel>Daily Calendar</masterLabel>
+    <openType>noSidebar</openType>
+    <protected>false</protected>
+    <url>/apex/loop__looplus?&amp;eid=a1Hr0000002W2qj&amp;filter=Calendar&amp;ddpid=a1Hd000000BWWla&amp;autorun=true&amp;retURL=a0O?fcf=00Bt0000000RhnX</url>
+</CustomPageWebLink>

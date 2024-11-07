@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Urgency_High_Impact_if_Not_Implemented</fullName>
+    <active>true</active>
+    <description>Impact if Not implemented is required if user selects High for Urgency</description>
+    <errorConditionFormula>ISPICKVAL(Urgency__c , "High") &amp;&amp;
+
+LEN(Impact_if_not_Implemented__c)= 0
+
+&amp;&amp;
+
+
+RecordType.DeveloperName  &lt;&gt; "User_Account_Request"</errorConditionFormula>
+    <errorDisplayField>Impact_if_not_Implemented__c</errorDisplayField>
+    <errorMessage>If the Urgency is High, provide the impact if not implemented</errorMessage>
+</ValidationRule>

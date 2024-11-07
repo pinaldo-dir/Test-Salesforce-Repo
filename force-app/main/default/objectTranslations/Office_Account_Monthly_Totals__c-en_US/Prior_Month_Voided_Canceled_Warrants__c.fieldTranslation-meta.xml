@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+        <help><!-- Sum of Warrant.Amount where Issue Date is 𝘣𝘦𝘧𝘰𝘳𝘦 the previous month, Status Date is 𝘪𝘯 the previous month, and Status = &apos;Voided&apos;, &apos;Canceled&apos;, or &apos;Stopped&apos;. --></help>
+        <label><!-- + Prior Month Voided &amp; Canceled Warrants --></label>
+        <name>Prior_Month_Voided_Canceled_Warrants__c</name>
+    </CustomFieldTranslation>

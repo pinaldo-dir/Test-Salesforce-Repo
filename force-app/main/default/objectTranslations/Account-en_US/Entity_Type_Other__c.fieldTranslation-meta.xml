@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+        <help><!-- Used to populate output forms --></help>
+        <label><!-- Entity Type - Other --></label>
+        <name>Entity_Type_Other__c</name>
+    </CustomFieldTranslation>

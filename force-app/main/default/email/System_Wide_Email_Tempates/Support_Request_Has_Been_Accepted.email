@@ -1,0 +1,3 @@
+The Support Request {!Support_Request__c.Name} which was assigned to {!Support_Request__c.Assigned_To__c} has been Accepted by the User. 
+
+{!Support_Request__c.Link}

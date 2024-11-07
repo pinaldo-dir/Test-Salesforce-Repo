@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Only_H_Os_and_LCO_Users_Status</fullName>
+    <active>true</active>
+    <description>Only Hearing Officers and LCO Users can change a Case Violation to Dismissed, Affirmed, or Modified including Hearing Results page.</description>
+    <errorConditionFormula>AND ( OR ((ISPICKVAL( Status__c, 'Dismissed')), (ISPICKVAL( Status__c, 'Affirmed')),(ISPICKVAL( Status__c, 'Modified'))), (ISCHANGED( Status__c)), ( $User.ProfileId != '00ed0000000X4rh' ),( $User.ProfileId != '00e8y000000M2VF' ))</errorConditionFormula>
+    <errorDisplayField>Status__c</errorDisplayField>
+    <errorMessage>Only hearing officers can update status to affirmed, modified, or dismissed.</errorMessage>
+</ValidationRule>

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>COVID_19_Rehire_Violation_s_Employer__c</fullName>
+    <defaultValue>false</defaultValue>
+    <description>COVID-19 Rehire Violation(s) - Employer failed to rehire EE employed for at least 6 months laid off due to COVID-19</description>
+    <externalId>false</externalId>
+    <inlineHelpText>COVID-19 Rehire Violation(s) - Employer failed to rehire EE employed for at least 6 months laid off due to COVID-19</inlineHelpText>
+    <label>COVID-19 Rehire Violation(s) - Employer</label>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Checkbox</type>
+</CustomField>

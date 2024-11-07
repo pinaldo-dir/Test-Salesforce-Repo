@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Video_Meeting_Information__c</fullName>
+    <description>This is used to get Meeting ID and Passcode.</description>
+    <externalId>false</externalId>
+    <inlineHelpText>Copy and paste only the Meeting ID and Passcode here.</inlineHelpText>
+    <label>Video Meeting ID and Passcode</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>TextArea</type>
+</CustomField>

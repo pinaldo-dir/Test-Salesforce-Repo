@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+        <label><!-- LC 226 Cure Determination --></label>
+        <name>LC_226_Cure_Determination__c</name>
+        <picklistValues>
+            <masterLabel>Other</masterLabel>
+            <translation><!-- Other --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Violations Cured</masterLabel>
+            <translation><!-- Violations Cured --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Violations Not Cured</masterLabel>
+            <translation><!-- Violations Not Cured --></translation>
+        </picklistValues>
+    </CustomFieldTranslation>

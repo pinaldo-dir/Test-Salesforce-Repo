@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+        <label><!-- Continuance Reason --></label>
+        <name>Continuance_Reason__c</name>
+        <picklistValues>
+            <masterLabel>Requested by Defendant</masterLabel>
+            <translation><!-- Requested by Defendant --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Requested by Plaintiff</masterLabel>
+            <translation><!-- Requested by Plaintiff --></translation>
+        </picklistValues>
+    </CustomFieldTranslation>

@@ -1,0 +1,47 @@
+<!--
+  @description       : 
+  @author            : ChangeMeIn@UserSettingsUnder.SFDoc
+  @group             : 
+  @last modified on  : 09-28-2022
+  @last modified by  : ChangeMeIn@UserSettingsUnder.SFDoc
+-->
+<template>
+    <template if:true={isFormPreviewMode}>
+        <div class="slds-grid slds-wrap">
+            <template if:true={additinalPersonFirstName}>
+                <div class="slds-col slds-p-top_medium slds-p-right_medium slds-p-bottom_medium slds-size_1-of-1 slds-medium-size_1-of-2 slds-large-size_1-of-2">
+                    {customLabelValues.OWC_first_name}
+                    <lightning-input type="text" disabled data-id="additinalPersonFirstName" value={additinalPersonFirstName}  variant="label-hidden" name="additinalPersonFirstName" onchange={handleChange}></lightning-input>
+                </div>
+            </template>
+            <template if:true={additinalPersonLastName}>
+                <div class="slds-col slds-p-top_medium slds-p-right_medium slds-p-bottom_medium slds-size_1-of-1 slds-medium-size_1-of-2 slds-large-size_1-of-2">
+                    {customLabelValues.OWC_last_name}
+                    <lightning-input type="text" disabled data-id="additinalPersonLastName" value={additinalPersonLastName}  variant="label-hidden" name="additinalPersonLastName" onchange={handleChange}></lightning-input>
+                </div>
+            </template>
+            <template if:true={claimantRelatedRoleActions}>
+                <div class="slds-col slds-p-top_medium slds-p-right_medium slds-p-bottom_medium slds-size_1-of-1 slds-medium-size_1-of-2 slds-large-size_1-of-2">
+                    {customLabelValues.OWC_employee_additional_bank_claimrelated_action}
+                    <lightning-input disabled type="text" data-id="claimantRelatedRoleActions" value={claimantRelatedRoleActions}  variant="label-hidden" name="claimantRelatedRoleActions" onchange={handleChange}></lightning-input>
+                </div>
+            </template>
+        </div>
+    </template>
+    <template if:false={isFormPreviewMode}>
+        <div class="slds-grid slds-wrap">
+            <div class="slds-col slds-p-top_medium slds-p-right_medium slds-p-bottom_medium slds-size_1-of-1 slds-medium-size_1-of-2 slds-large-size_1-of-2">
+                {customLabelValues.OWC_first_name}
+                <lightning-input max-length="120" type="text" data-id="additinalPersonFirstName" value={additinalPersonFirstName}  variant="label-hidden" name="additinalPersonFirstName" onchange={handleChange}></lightning-input>
+            </div>
+            <div class="slds-col slds-p-top_medium slds-p-right_medium slds-p-bottom_medium slds-size_1-of-1 slds-medium-size_1-of-2 slds-large-size_1-of-2">
+                {customLabelValues.OWC_last_name}
+                <lightning-input max-length="120" type="text" data-id="additinalPersonLastName" value={additinalPersonLastName}  variant="label-hidden" name="additinalPersonLastName" onchange={handleChange}></lightning-input>
+            </div>
+            <div class="slds-col slds-p-top_medium slds-p-right_medium slds-p-bottom_medium slds-size_1-of-1 slds-medium-size_1-of-2 slds-large-size_1-of-2">
+                {customLabelValues.OWC_employee_additional_bank_claimrelated_action}
+                <lightning-input max-length="255" type="text" data-id="claimantRelatedRoleActions" value={claimantRelatedRoleActions}  variant="label-hidden" name="claimantRelatedRoleActions" onchange={handleChange}></lightning-input>
+            </div>
+        </div>
+    </template>
+</template>

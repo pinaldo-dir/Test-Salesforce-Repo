@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Business_does_not_have_customers__c</fullName>
+    <defaultValue>false</defaultValue>
+    <description>Janitorial registrations who do not have customers</description>
+    <externalId>false</externalId>
+    <label>No customers/businesses</label>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Checkbox</type>
+</CustomField>

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <description>This email alerts DIR SF support team of new request for account rt conversion</description>
+    <encodingKey>ISO-8859-1</encodingKey>
+    <name>Account: Account RT Convert</name>
+    <style>none</style>
+    <subject>Account RT Convert Request</subject>
+    <type>text</type>
+    <uiType>Aloha</uiType>
+</EmailTemplate>

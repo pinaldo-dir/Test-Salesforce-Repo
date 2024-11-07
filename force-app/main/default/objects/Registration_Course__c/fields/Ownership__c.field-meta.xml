@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Ownership__c</fullName>
+    <description>Master Detail relationship to Ownership object</description>
+    <externalId>false</externalId>
+    <label>Ownership</label>
+    <referenceTo>Ownership__c</referenceTo>
+    <relationshipLabel>Registration Courses</relationshipLabel>
+    <relationshipName>Registration_Courses</relationshipName>
+    <relationshipOrder>0</relationshipOrder>
+    <reparentableMasterDetail>false</reparentableMasterDetail>
+    <trackTrending>false</trackTrending>
+    <type>MasterDetail</type>
+    <writeRequiresMasterRead>false</writeRequiresMasterRead>
+</CustomField>

@@ -1,0 +1,47 @@
+<apex:page standardController="Meeting_Participant__c" recordSetVar="selectedRecords">
+<apex:includeScript value="/soap/ajax/40.0/connection.js"/>
+<apex:includeScript value="/support/console/40.0/integration.js"/>
+
+<script type="text/javascript">
+    (function() {
+        debugger;
+        var selectedRecordIds = '{!selected}';
+        selectedRecordIds = selectedRecordIds.substr(1).slice(0, -1);
+        var ids = selectedRecordIds.split(', ');
+
+        if (ids[0] == "" || ids[0] == null) {
+            var url = "{!$CurrentPage.URL}";
+            url = url.split('?');
+            const urlParams = new URLSearchParams(url[1]);
+            var caseId = urlParams.get('id');
+            sforce.connection.sessionId = '{!$Api.Session_ID}';
+            
+            var query = "SELECT Id from Meeting_Participant__c WHERE Case__c = '" + caseId + "' AND Role__c = 'Case employer'";
+            var records = sforce.connection.query(query);
+            var crIdArray = records.getArray('records'); 
+
+            if (crIdArray.length > 0) {
+                fullId = crIdArray[0].Id;
+                ids[0] = fullId;
+            } else {
+                alert('Please select one record.');
+            }
+        } else if (ids.length > 1) {
+            alert('Please select only one record.');
+        }
+        
+        if (ids[0] != "") {
+            var redirectUrl = '/apex/loop__looplus?eid=';
+            redirectUrl += ids[0];
+            redirectUrl += '&sessionId={!$Api.Session_ID}';
+
+            if (sforce && sforce.one && sforce.one.navigateToURL) {
+                sforce.one.navigateToURL(redirectUrl);
+            } else {
+                window.location.href = redirectUrl;
+            }
+        }
+        
+    })();
+</script>
+</apex:page>

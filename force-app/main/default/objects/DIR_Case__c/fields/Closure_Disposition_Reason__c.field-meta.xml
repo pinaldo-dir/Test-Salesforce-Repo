@@ -1,0 +1,197 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Closure_Disposition_Reason__c</fullName>
+    <externalId>false</externalId>
+    <label>Closure Disposition Reason</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <controllingField>Closure_Disposition__c</controllingField>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Dismissed - Inactive</fullName>
+                <default>false</default>
+                <label>Dismissed - Inactive</label>
+            </value>
+            <value>
+                <fullName>Dismissed - Plaintiff Withdrew</fullName>
+                <default>false</default>
+                <label>Dismissed - Plaintiff Withdrew</label>
+            </value>
+            <value>
+                <fullName>Dismissed - Plaintiff Abandoned</fullName>
+                <default>false</default>
+                <label>Dismissed - Plaintiff Abandoned</label>
+            </value>
+            <value>
+                <fullName>Dismissed - No Jurisdiction</fullName>
+                <default>false</default>
+                <label>Dismissed - No Jurisdiction</label>
+            </value>
+            <value>
+                <fullName>Dismissed - Plaintiff failed to appear</fullName>
+                <default>false</default>
+                <label>Dismissed - Plaintiff failed to appear</label>
+            </value>
+            <value>
+                <fullName>Dismissed - Plaintiff cannot be located</fullName>
+                <default>false</default>
+                <label>Dismissed - Plaintiff cannot be located</label>
+            </value>
+            <value>
+                <fullName>Dismissed - Employer cannot be located</fullName>
+                <default>false</default>
+                <label>Dismissed - Employer cannot be located</label>
+            </value>
+            <value>
+                <fullName>Dismissed - Other</fullName>
+                <default>false</default>
+                <label>Dismissed - Other</label>
+            </value>
+            <value>
+                <fullName>Judgment - JEU</fullName>
+                <default>false</default>
+                <label>Judgment - JEU</label>
+            </value>
+            <value>
+                <fullName>Judgment - Plaintiff Collect</fullName>
+                <default>false</default>
+                <label>Judgment - Plaintiff Collect</label>
+            </value>
+            <value>
+                <fullName>Paid in Full - Post Judgment Entry</fullName>
+                <default>false</default>
+                <label>Paid in Full - Post Judgment Entry</label>
+            </value>
+            <value>
+                <fullName>Paid in Full - Post ODA but prior to judgment entry</fullName>
+                <default>false</default>
+                <label>Paid in Full - Post ODA but prior to judgment entry</label>
+            </value>
+            <value>
+                <fullName>Paid in Full - Pre-Hearing</fullName>
+                <default>false</default>
+                <label>Paid in Full - Pre-Hearing</label>
+            </value>
+            <value>
+                <fullName>Settled - Pre-Conference</fullName>
+                <default>false</default>
+                <label>Settled - Pre-Conference</label>
+            </value>
+            <value>
+                <fullName>Settled - At Conference</fullName>
+                <default>false</default>
+                <label>Settled - At Conference</label>
+            </value>
+            <value>
+                <fullName>Settled - Pre-hearing</fullName>
+                <default>false</default>
+                <label>Settled - Pre-hearing</label>
+            </value>
+            <value>
+                <fullName>Settled - At hearing</fullName>
+                <default>false</default>
+                <label>Settled - At hearing</label>
+            </value>
+            <value>
+                <fullName>Settled - Post Hearing but prior to ODA</fullName>
+                <default>false</default>
+                <label>Settled - Post Hearing but prior to ODA</label>
+            </value>
+            <value>
+                <fullName>Settled - Post ODA but prior to Judgment entry</fullName>
+                <default>false</default>
+                <label>Settled - Post ODA but prior to Judgment entry</label>
+            </value>
+            <value>
+                <fullName>Settled - Post Judgment but prior to JEU referral</fullName>
+                <default>false</default>
+                <label>Settled - Post Judgment but prior to JEU referral</label>
+            </value>
+        </valueSetDefinition>
+        <valueSettings>
+            <controllingFieldValue>Judgment</controllingFieldValue>
+            <valueName>Judgment - JEU</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Judgment</controllingFieldValue>
+            <valueName>Judgment - Plaintiff Collect</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>PAID IN FULL</controllingFieldValue>
+            <valueName>Paid in Full - Post Judgment Entry</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>PAID IN FULL</controllingFieldValue>
+            <valueName>Paid in Full - Post ODA but prior to judgment entry</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>PAID IN FULL</controllingFieldValue>
+            <valueName>Paid in Full - Pre-Hearing</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Settled</controllingFieldValue>
+            <valueName>Settled - Pre-Conference</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Settled</controllingFieldValue>
+            <valueName>Settled - At Conference</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Settled</controllingFieldValue>
+            <valueName>Settled - Pre-hearing</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Settled</controllingFieldValue>
+            <valueName>Settled - At hearing</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Settled</controllingFieldValue>
+            <valueName>Settled - Post Hearing but prior to ODA</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Settled</controllingFieldValue>
+            <valueName>Settled - Post ODA but prior to Judgment entry</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Settled</controllingFieldValue>
+            <valueName>Settled - Post Judgment but prior to JEU referral</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>DISMISSED</controllingFieldValue>
+            <valueName>Dismissed - Inactive</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>DISMISSED</controllingFieldValue>
+            <valueName>Dismissed - Plaintiff Withdrew</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>DISMISSED</controllingFieldValue>
+            <valueName>Dismissed - Plaintiff Abandoned</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>DISMISSED</controllingFieldValue>
+            <valueName>Dismissed - No Jurisdiction</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>DISMISSED</controllingFieldValue>
+            <valueName>Dismissed - Plaintiff failed to appear</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>DISMISSED</controllingFieldValue>
+            <valueName>Dismissed - Plaintiff cannot be located</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>DISMISSED</controllingFieldValue>
+            <valueName>Dismissed - Employer cannot be located</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>DISMISSED</controllingFieldValue>
+            <valueName>Dismissed - Other</valueName>
+        </valueSettings>
+    </valueSet>
+</CustomField>

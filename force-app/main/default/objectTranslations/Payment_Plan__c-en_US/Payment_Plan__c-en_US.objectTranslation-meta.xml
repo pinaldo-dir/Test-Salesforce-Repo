@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>Payment Plan</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Payment Plans</value>
+    </caseValues>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <layouts>
+        <layout>Payment Plan Layout</layout>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+        <sections>
+            <label><!-- Dates and Frequency --></label>
+            <section>Dates and Frequency</section>
+        </sections>
+        <sections>
+            <label><!-- Restitution --></label>
+            <section>Restitution</section>
+        </sections>
+        <sections>
+            <label><!-- Self-Audit Details --></label>
+            <section>Self-Audit Details</section>
+        </sections>
+    </layouts>
+    <startsWith>Consonant</startsWith>
+    <validationRules>
+        <errorMessage><!-- For a monthly Frequency, the day number of Date of First Payment must be the same as the Day of Monthly Payment Due --></errorMessage>
+        <name>Day_of_1st_Pay_Same_as_Monthly_Day</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- For a Semi-monthly Frequency, the day number of Date of First Payment must be the same as either the Day of Monthly Payment Due or Day of Second Monthly Payment Due --></errorMessage>
+        <name>Day_of_1st_Pay_Same_as_SemiMonthly_Day</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- For a Semi-monthly Frequency, the day of the 1st payment must be earlier than that of the 2nd. --></errorMessage>
+        <name>First_SemiMonthly_Date_Must_Be_Lesser</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- You can not refer a case to JEU when the payment plan is current. --></errorMessage>
+        <name>JEU_Refer_can_not_be_Current</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Payment Plans cannot be created/edited for a closed case. Please submit the case for approval to be re-opened. --></errorMessage>
+        <name>No_Payment_Plans_on_Closed_Case</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- You may not edit the record while the Payment Plan is Pending Approval. --></errorMessage>
+        <name>RCI_to_JEU_Approval_Status_Pending</name>
+    </validationRules>
+</CustomObjectTranslation>

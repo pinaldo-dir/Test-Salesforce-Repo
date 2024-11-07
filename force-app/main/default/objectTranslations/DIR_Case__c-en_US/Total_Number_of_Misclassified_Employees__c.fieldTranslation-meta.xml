@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+        <help><!-- If the field IC Determination/AB5 has the picklist option &quot;AB-5 not 226.8&quot;, or &quot;AB-5 Final&quot; the deputy must enter the &quot;total number of misclassifed employess&quot; before they can enter case issues --></help>
+        <label><!-- Total Number of Misclassified Employees --></label>
+        <name>Total_Number_of_Misclassified_Employees__c</name>
+    </CustomFieldTranslation>

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <description>Notification that a Referral has been assigned to a BOFE Division Investigator</description>
+    <encodingKey>ISO-8859-1</encodingKey>
+    <name>PAGA Referral Assigned</name>
+    <style>none</style>
+    <subject>PAGA Referral Assigned: {!Referral__c.Name}</subject>
+    <type>text</type>
+    <uiType>Aloha</uiType>
+</EmailTemplate>

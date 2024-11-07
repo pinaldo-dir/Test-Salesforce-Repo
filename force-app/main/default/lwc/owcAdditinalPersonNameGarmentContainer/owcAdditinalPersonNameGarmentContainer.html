@@ -1,0 +1,31 @@
+<template>
+    <div class="slds-p-bottom_medium slds-grid slds-wrap">
+        <div class="slds-col slds-medium-size_1-of-1 slds-large-size_1-of-1">
+            <template if:true={isrenderMilegaClaimSection}>
+                <template for:each={renderMilegaClaimSection} for:item="mileageClaimObj">
+                    <div class="" key={mileageClaimObj.Id}>
+                        <div class="slds-grid slds-wrap">
+                            <div class="slds-col slds-medium-size_5-of-6 slds-large-size_5-of-6">
+                                <c-owc-Additinal-Person-Name-Garment-Cmp isadditionalpreview={isadditionalpreview} onovertimecustominfoevent={handleOverTimeInfoEvent} onovertimedefchildvalidityevent={handleOverTimeChildValidityEvent} sectionid={mileageClaimObj.sectionId} onovertimesectiondeleteevent={handleEmployerSectionDeletedData}></c-owc-Additinal-Person-Name-Garment-Cmp>
+                            </div>
+                        <template if:false={isFormPreviewMode}>
+                            <div class="slds-col slds-p-top_x-large slds-medium-size_1-of-6 slds-large-size_1-of-6">
+                            <template if:true={mileageClaimObj.button}>
+                                
+                            <lightning-button variant="brand" label={customLabelValues.OWC_delete_responsible_person} title={customLabelValues.OWC_delete_responsible_person} name={mileageClaimObj.sectionId} onclick={handleSectionDelete} class="slds-float_right owcButtonStyle"></lightning-button>                            
+                            
+                        </template>
+                        </div>
+                        </template>
+                        </div>
+                    </div>
+                </template>
+            </template>
+        </div>
+        <div class="slds-col slds-medium-size_1-of-1 slds-large-size_1-of-1">
+            <template if:false={isFormPreviewMode}>
+                <lightning-button class="owcAdditionalButtonStyle" variant="brand" label={customLabelValues.OWC_additional_responsible_person} onclick={addMoreSickLeaveSection}></lightning-button>
+            </template>
+        </div>
+    </div>
+</template>

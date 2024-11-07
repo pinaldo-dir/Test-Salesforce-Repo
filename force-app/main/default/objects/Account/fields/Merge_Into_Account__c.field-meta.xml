@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Merge_Into_Account__c</fullName>
+    <deleteConstraint>SetNull</deleteConstraint>
+    <description>This is the account that this account will be merged into when demand tools runs</description>
+    <externalId>false</externalId>
+    <inlineHelpText>Select the "master" account that this account should be merged into. You must complete this field when selecting "Mark as Duplicate"</inlineHelpText>
+    <label>Merge Into Account</label>
+    <referenceTo>Account</referenceTo>
+    <relationshipLabel>Accounts</relationshipLabel>
+    <relationshipName>Accounts</relationshipName>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>true</trackHistory>
+    <type>Lookup</type>
+</CustomField>

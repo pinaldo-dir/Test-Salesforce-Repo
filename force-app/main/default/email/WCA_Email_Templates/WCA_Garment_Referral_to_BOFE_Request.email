@@ -1,0 +1,4 @@
+Go to the link below to complete the referral
+
+Case: {!Referral__c.Case__c}
+Link to Referral request: {!Referral__c.Link}

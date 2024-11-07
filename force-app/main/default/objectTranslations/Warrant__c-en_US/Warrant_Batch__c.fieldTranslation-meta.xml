@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+        <label><!-- Warrant Batch --></label>
+        <name>Warrant_Batch__c</name>
+        <relationshipLabel><!-- Warrants --></relationshipLabel>
+    </CustomFieldTranslation>

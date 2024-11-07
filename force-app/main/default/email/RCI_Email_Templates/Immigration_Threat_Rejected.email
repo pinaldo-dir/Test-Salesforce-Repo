@@ -1,0 +1,8 @@
+This is being requested to be converted to a case for further investigation was rejected. . 
+
+Record: {!RCI_Only__c.Name}
+Rejected Date: {!RCI_Only__c.Rejection_Date__c}
+
+See Link to Record: 
+
+{!RCI_Only__c.Link}

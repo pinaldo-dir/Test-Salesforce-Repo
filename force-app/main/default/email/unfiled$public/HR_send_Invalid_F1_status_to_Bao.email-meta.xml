@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <encodingKey>ISO-8859-1</encodingKey>
+    <name>HR send Invalid F1 status to Bao</name>
+    <style>none</style>
+    <subject>Invalid/Error Form 1 Status</subject>
+    <textOnly>This Form 1 Status {!Form_1_Status__c.Link} has been marked as Invalid/Error on {!Form_1_Status__c.LastModifiedDate} by {!Form_1_Status__c.LastModifiedBy}.</textOnly>
+    <type>custom</type>
+    <uiType>Aloha</uiType>
+</EmailTemplate>

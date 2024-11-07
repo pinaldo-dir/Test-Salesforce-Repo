@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <description>Used to show the picklist value records on the Online Wage Claim (OWC) form.</description>
+    <label>OWCPrimaryIndustrySelection</label>
+    <pluralLabel>OWCPrimaryIndustrySelections</pluralLabel>
+    <visibility>Public</visibility>
+</CustomObject>

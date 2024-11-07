@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+        <label><!-- Medical Status --></label>
+        <name>Medical_Status__c</name>
+        <picklistValues>
+            <masterLabel>Not Required - Older than 30 days old</masterLabel>
+            <translation><!-- Not Required - Older than 30 days old --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Required - 15-30 Day Infant, medical approval needed</masterLabel>
+            <translation><!-- Required - 15-30 Day Infant, medical approval needed --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Required - Older than 30 days, but medical approval needed</masterLabel>
+            <translation><!-- Required - Older than 30 days, but medical approval needed --></translation>
+        </picklistValues>
+    </CustomFieldTranslation>

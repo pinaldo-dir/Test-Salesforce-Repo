@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <description>Send FLC Approval email</description>
+    <encodingKey>ISO-8859-1</encodingKey>
+    <letterhead>Blank_Letterhead</letterhead>
+    <name>Registration FLC Approval Email</name>
+    <style>freeForm</style>
+    <subject>FLC License Approved</subject>
+    <textOnly>For: {!License_Registration__c.Legal_Entity_Name__c}
+Application ID: {!License_Registration__c.License_Registration_Number__c}
+We have approved your Farm Labor Contractor License. Your picture license will be issued and mailed to you as soon as possible.
+
+To print a verification of your license please go the the State&apos;s website to print a verification.
+https://cadir.my.salesforce-sites.com/RegistrationSearch
+
+
+Thank you,
+Licensing &amp; Registration Unit</textOnly>
+    <type>html</type>
+    <uiType>Aloha</uiType>
+</EmailTemplate>

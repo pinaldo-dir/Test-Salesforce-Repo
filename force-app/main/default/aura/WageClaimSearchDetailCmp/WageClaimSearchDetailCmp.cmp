@@ -1,0 +1,133 @@
+<aura:component controller="WageClaimSearchDetailController" implements="forceCommunity:availableForAllPageTypes" access="global" >
+    <aura:attribute name="selectedCaseId" type="String" default=""/>
+    <aura:attribute name="selectedCaseRoleId" type="String" default=""/>
+    <aura:attribute name="isPopOpen" type="boolean" default="false"/>	
+    <aura:attribute name="selectedWageClaimObj" type="object" access="public"/>
+    <aura:attribute name="selectedWageClaimDocumentUrl" type="list" access="public"/>
+    <aura:attribute name="urlParamsForFilters" type="String" default="" />
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
+    <head><ltng:require styles="{!$Resource.JudgmentSearchCss}" /></head>
+    <div aura:id="wageClaimModal">
+        <section role="dialog" tabindex="-1" aria-labelledby="modal-heading-01" aria-modal="true" aria-describedby="modal-content-id-1" class="slds-modal slds-fade-in-open sectionStyle">
+            <div class="slds-modal__container dir-modal-container">
+                <header class="slds-modal__header">
+                    <button class="slds-button slds-button_icon slds-modal__close slds-button_icon-inverse" title="Close" onclick="{!c.hideWageClaimDetailModal}">
+                        <lightning:icon iconName="action:remove" size="small"/> 
+                        <span class="slds-assistive-text">Close</span>
+                    </button>
+                </header>
+                <div class="slds-modal__content slds-p-around_medium" style="font-family: sans-serif;font-size: 15px;" id="modal-content-id-1">
+                    <article class="slds-card wage-detail-container">
+                        
+                        <aura:if isTrue="{!not(empty(v.selectedWageClaimObj))}">
+                            <div class="slds-card__header slds-grid">
+                                <header class="slds-has-flexi-truncate">
+                                    <div class="slds-media__body slds-truncate slds-grid slds-gutters">
+                                        <div class="slds-col slds-size_1-of-2">
+                                            <h1>
+                                                Case {!v.selectedWageClaimObj.caseName}
+                                            </h1>
+                                        </div>
+                                        <div class="slds-col slds-size_1-of-2">
+                                            <button class="downloadButtons slds-float_right" onclick="{!c.handleDownloadPdf}">Download PDF</button>
+                                            <aura:iteration items="{!v.selectedWageClaimDocumentUrl}" var="item">
+                                                <div class="slds-grid slds-gutters gridStyle">
+                                                    {!v.item}
+                                                </div>
+                                            </aura:iteration>
+                                        </div>
+                                    </div>
+                                </header>
+                            </div>
+                            <div class="slds-card__body slds-p-around_medium">
+                                
+                                <article class="slds-card mainSection">
+                                    <div class="slds-card__body slds-p-around_medium">
+                                        <div class="slds-grid slds-gutters gridStyle">
+                                            <div class="slds-col slds-size_1-of-2">
+                                                <span class="labelStyle">Defendant Name</span> <br/>
+                                                {!v.selectedWageClaimObj.accountName}
+                                            </div>
+                                            <div class="slds-col slds-size_1-of-2">
+                                                <span class="labelStyle">Party Type</span> <br/>
+                                                {!v.selectedWageClaimObj.caseRole}
+                                            </div>
+                                        </div>
+                                        <div class="slds-grid slds-gutters gridStyle">
+                                            <div class="slds-col slds-size_1-of-2">
+                                                <span class="labelStyle">Case Number</span> <br/>
+                                                {!v.selectedWageClaimObj.caseNumber}
+                                            </div>
+                                            <div class="slds-col slds-size_1-of-2">
+                                                <span class="labelStyle">DIR Office</span> <br/>
+                                                {!v.selectedWageClaimObj.dirOffice}
+                                            </div><br/>
+                                        </div>
+                                        <div class="slds-grid slds-gutters gridStyle">
+                                            <div class="slds-col slds-size_1-of-2">
+                                                <span class="labelStyle">Assigned Deputy</span> <br/>
+                                                {!v.selectedWageClaimObj.assignedDeputy}
+                                            </div>
+                                            <div class="slds-col slds-size_1-of-2">
+                                                <span class="labelStyle">Date Filed</span> <br/>
+                                                <ui:outputDate value="{!v.selectedWageClaimObj.dateOfDocket}" format="MM/DD/YYYY"/>
+                                            </div> <br/>
+                                        </div>
+                                        <div class="slds-grid slds-gutters gridStyle">
+                                            <div class="slds-col slds-size_1-of-2">
+                                                <span class="labelStyle">NAICS Code</span> <br/>
+                                                {!v.selectedWageClaimObj.naicsCode}
+                                            </div>
+                                            <div class="slds-col slds-size_1-of-2">
+                                                <span class="labelStyle">NAICS Industry</span> <br/>
+                                                {!v.selectedWageClaimObj.naicsTitle}
+                                            </div> <br/>
+                                        </div>
+                                        <div class="slds-grid slds-gutters gridStyle">
+                                            <div class="slds-col slds-size_1-of-2">
+                                                <span class="labelStyle">Low Wage Industry</span> <br/>
+                                                {!v.selectedWageClaimObj.lowWageOccupation}
+                                            </div> <br/>
+                                            <div class="slds-col slds-size_1-of-2">
+                                                <span class="labelStyle">Case Status</span> <br/>
+                                                {!v.selectedWageClaimObj.caseStatus}
+                                            </div> <br/>
+                                        </div>
+                                    </div>
+                                </article>
+                                <!-- Download File Section -->
+                                <aura:if isTrue="{!not(empty(v.selectedWageClaimDocumentUrl))}">
+                                    <article class="slds-card mainSection">
+                                        <div class="slds-card__body slds-p-around_medium">
+                                            <div class="slds-grid slds-gutters gridStyle">
+                                                <h2>Files</h2>
+                                            </div>
+                                            <aura:iteration items="{!v.selectedWageClaimDocumentUrl}" var="item" indexVar="key">
+                                                <div class="slds-grid slds-gutters gridStyle">
+                                                    <span class="labelStyle"><a href="{!item.value}" target="_self">{!item.key}</a></span>
+                                                </div>
+                                            </aura:iteration>
+                                        </div>
+                                    </article>
+                                </aura:if>
+                            </div>
+                            <aura:set attribute="else">
+                                <div class="demo-only" style="height:6rem">
+                                    <div class="slds-spinner_container">
+                                        <div role="status" class="slds-spinner slds-spinner_medium slds-spinner_brand">
+                                            <span class="slds-assistive-text">Loading</span>
+                                            <div class="slds-spinner__dot-a"></div>
+                                            <div class="slds-spinner__dot-b"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </aura:set>
+                        </aura:if>
+                        <!-- <div class="slds-card__footer">Card Footer</div> -->
+                    </article>
+                </div>
+            </div>
+        </section>
+        <div class="slds-backdrop slds-backdrop_open"></div>
+    </div>
+</aura:component>

@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>WB_Instructions__c</fullName>
+    <description>Warrant Batch instructions</description>
+    <externalId>false</externalId>
+    <label>WB Instructions</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Mail to Payees</fullName>
+                <default>false</default>
+                <label>Mail to Payees</label>
+            </value>
+            <value>
+                <fullName>Return to Requesting Office</fullName>
+                <default>false</default>
+                <label>Return to Requesting Office</label>
+            </value>
+            <value>
+                <fullName>UWF</fullName>
+                <default>false</default>
+                <label>UWF</label>
+            </value>
+            <value>
+                <fullName>BOFE Penalty</fullName>
+                <default>false</default>
+                <label>BOFE Penalty</label>
+            </value>
+            <value>
+                <fullName>Court</fullName>
+                <default>false</default>
+                <label>Court</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

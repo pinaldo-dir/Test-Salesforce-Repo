@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Date_of_Determination__c</fullName>
+    <externalId>false</externalId>
+    <label>Date of Determination</label>
+    <required>false</required>
+    <type>Picklist</type>
+    <valueSet>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>IC Established - Dismissed</fullName>
+                <default>false</default>
+                <label>IC Established - Dismissed</label>
+            </value>
+            <value>
+                <fullName>Settled - No IC Determination Made</fullName>
+                <default>false</default>
+                <label>Settled - No IC Determination Made</label>
+            </value>
+            <value>
+                <fullName>Settled - Employee status established</fullName>
+                <default>false</default>
+                <label>Settled - Employee status established</label>
+            </value>
+            <value>
+                <fullName>Referred to hearing for IC Determination</fullName>
+                <default>false</default>
+                <label>Referred to hearing for IC Determination</label>
+            </value>
+            <value>
+                <fullName>Claim Closed - No Determination Made</fullName>
+                <default>false</default>
+                <label>Claim Closed - No Determination Made</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

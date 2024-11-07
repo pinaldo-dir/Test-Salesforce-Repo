@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Quota_prevents_compliance_with_meal_peri__c</fullName>
+    <defaultValue>false</defaultValue>
+    <description>Warehouse Dist Ctr - Quota prevents compliance with meal period</description>
+    <externalId>false</externalId>
+    <label>Quota prevents compliance with meal peri</label>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Checkbox</type>
+</CustomField>

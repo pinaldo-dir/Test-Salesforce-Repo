@@ -1,0 +1,215 @@
+<apex:page controller="WageClaimSearchResultPageCtrl" applyHtmlTag="false"     
+           sidebar="false"     
+           showHeader="false"  
+           readOnly="true"
+           language="english"
+           renderAs="advanced_pdf"
+           title="Judgment Results"
+           docType="html-5.0">
+    
+    <head>    
+        <meta http-equiv="Content-Type" content="text/html;charset=UTF-8" /> 
+        <meta name="viewport" content="width=device-width, initial-scale=1"/>
+        <style type="text/css">
+            .c_table{
+            -fs-table-paginate: paginate; 
+            }
+            .page-break{
+            page-break-after: auto;
+            }
+            @page {    
+            margin-top: 5%;
+            @top-center{
+            @top-center { content: element(header) }
+            }
+            @bottom-center{
+            content: "Page: " counter(page) " of " counter(pages);
+            font-family: Source Sans Pro,sans-serif;
+            font-size: 16px
+            }
+            size: A4 landscape;    
+            padding-left: 8px;    
+            padding-right: 8px;      
+            }  
+            th, td{
+            border: 1px solid black;
+            }
+            th {    
+            text-align: center;    
+            font-weight: bold;    
+            }    
+            td {    
+            text-align: center;    
+            font-size: 14px;    
+            }
+            .filter-container{
+            margin-bottom: 10px;
+            border: 1px solid black;
+            }
+            div{
+            margin-bottom: 5px;
+            }
+            div1 {
+            display: inline-block;
+            width: 300px;
+            padding: 6px;
+            margin: 3px;
+            vertical-align:top;
+            }
+            body{
+            font-family: sans-serif;
+            font-size: 16px;
+            language: english;
+            }
+        </style>   
+    </head> 
+    <body class="page-break">
+        <div>
+            <b>Total Records:</b> {!wageClaimList.size}
+        </div>
+        <div>
+            <b>Search Date:</b> {!MONTH(TODAY())}/{!DAY(TODAY())}/{!YEAR(TODAY())}
+        </div>
+        <div>
+            <b>Filter Applied:</b>
+        </div>
+        <div class="filter-container">
+            <apex:outputPanel rendered="{!accountName != null}">
+                <div1>
+                    <b>
+                        Defendant Name
+                    </b><br/>
+                    {!accountName}
+                </div1>
+            </apex:outputPanel>
+            <apex:outputPanel rendered="{!caseNumber != null}">
+                <div1>
+                    <b>
+                        Case Number
+                    </b><br/>
+                    {!caseNumber}
+                </div1>
+            </apex:outputPanel>
+            <apex:outputPanel rendered="{!naicsCode != null}">
+                <div1> 
+                    <b>
+                        NAICS Code
+                    </b><br/> 
+                    {!naicsCode}
+                </div1>
+            </apex:outputPanel>
+            <apex:outputPanel rendered="{!and(naicsIndustry != null,naicsIndustry != 'null')}">
+                <div1> 
+                    <b>
+                        NAICS Industry
+                    </b><br/> 
+                    {!naicsIndustry}
+                </div1>
+            </apex:outputPanel>
+            <apex:outputPanel rendered="{!lowWageIndustry != null}">
+                <div1>
+                    <b>
+                        Low Wage Industry
+                    </b><br/>
+                    {!lowWageIndustry}
+                </div1>
+            </apex:outputPanel>
+            <apex:outputPanel rendered="{!OR(docketFromDate != null,docketToDate != null)}">
+                <div1>
+                    <b>
+                        Date Filed
+                    </b><br/>
+                    <apex:outputPanel rendered="{!docketFromDate != null}">
+                        <span>
+                            <b>
+                                From: 
+                            </b>
+                        </span>
+                        <span>
+                            {!MONTH(docketFromDate)}/{!DAY(docketFromDate)}/{!YEAR(docketFromDate)}
+                        </span>
+                    </apex:outputPanel><br/>
+                    <apex:outputPanel rendered="{!docketToDate != null}">
+                        <span>
+                            <b>
+                                To: 
+                            </b>
+                        </span>
+                        <span>
+                            {!MONTH(docketToDate)}/{!DAY(docketToDate)}/{!YEAR(docketToDate)}
+                        </span>
+                    </apex:outputPanel>
+                </div1>
+            </apex:outputPanel>
+            <apex:outputPanel rendered="{!OR(closedFromDate != null,closedToDate != null)}">
+                <div1>
+                    <b>
+                        Case Closed Date
+                    </b><br/>
+                    <apex:outputPanel rendered="{!closedFromDate != null}">
+                        <span>
+                            <b>
+                                From: 
+                            </b>
+                        </span>
+                        <span>
+                            {!MONTH(closedFromDate)}/{!DAY(closedFromDate)}/{!YEAR(closedFromDate)}
+                        </span>
+                    </apex:outputPanel><br/>
+                    <apex:outputPanel rendered="{!closedToDate != null}">
+                        <span>
+                            <b>
+                                To: 
+                            </b>
+                        </span>
+                        <span>
+                            {!MONTH(closedToDate)}/{!DAY(closedToDate)}/{!YEAR(closedToDate)}
+                        </span>
+                    </apex:outputPanel>
+                </div1>
+            </apex:outputPanel>
+            <apex:outputPanel rendered="{!dirOffice != null}">
+                <div1>
+                    <b>
+                        Dir Office  
+                    </b><br/>
+                    {!dirOffice}
+                </div1>
+            </apex:outputPanel>
+        </div>
+        <table cellspacing="0" cellpadding="4" class="c_table" width='100%' style='width:100%'>
+            <thead>
+                <tr style="page-break-inside:avoid;">
+                    <th>Defendant Name</th>
+                    <th>Party Type</th>
+                    <th>Case Number</th>
+                    <th>NAICS Code</th>
+                    <th>NAICS Industry</th>
+                    <th>Date Filed</th>
+                    <th>Assigned Deputy</th>
+                    <th>DIR Office</th>
+                    <th>Case Status</th>
+                </tr>
+            </thead>
+            
+            <apex:repeat value="{!wageClaimList}" var="item">  
+                <tbody>
+                    <tr style="page-break-inside:avoid;">    
+                        <td>{!item.accountName}</td>
+                        <td>{!item.caseRole}</td>
+                        <td>{!item.caseNumber}</td>
+                        <td>{!item.naicsCode}</td>
+                        <td>{!item.naicsTitle}</td>
+                        <td>
+                            <apex:outputText value="{0,date,MM/dd/yyyy}" >  
+                                <apex:param value="{!item.dateofDocket}"/>  
+                            </apex:outputText></td>
+                        <td>{!item.assignedDeputy}</td>
+                        <td>{!item.dirOffice}</td>
+                        <td>{!item.caseStatus}</td>
+                    </tr> 
+                </tbody>
+            </apex:repeat>
+        </table>
+    </body>
+</apex:page>

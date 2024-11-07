@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Case_must_have_IRR</fullName>
+    <active>true</active>
+    <errorConditionFormula>AND(
+NOT($Profile.Name = "System Administrator"),
+NOT($Profile.Name = "System Administrator LTD"),
+Record_Type_Name__c = 'Intake Stage',
+ISBLANK(Case_Management__r.Intake_Deputy__c)
+)</errorConditionFormula>
+    <errorMessage>Intake Deputy must be filled before creating Inactive Tracking record</errorMessage>
+</ValidationRule>

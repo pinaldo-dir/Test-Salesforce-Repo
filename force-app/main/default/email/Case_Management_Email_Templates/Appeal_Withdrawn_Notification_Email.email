@@ -1,0 +1,6 @@
+Greetings,
+
+The Appeal {!Appeal__c.Name} has been withdrawn. Please check if this appeal has any scheduled hearings. If there are scheduled hearings, please contact the Hearing Officer for each scheduled hearing, and ask them to cancel the hearing.
+
+To access this Appeal, please navigate to the link below:
+{!Appeal__c.Link}

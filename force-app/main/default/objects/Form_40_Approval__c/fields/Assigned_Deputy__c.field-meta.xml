@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Assigned_Deputy__c</fullName>
+    <externalId>false</externalId>
+    <formula>HYPERLINK("/" &amp; Case_Management__r.Assigned_Deputy__c, Case_Management__r.Assigned_Deputy_Name__c, "_blank")</formula>
+    <label>Assigned Deputy</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

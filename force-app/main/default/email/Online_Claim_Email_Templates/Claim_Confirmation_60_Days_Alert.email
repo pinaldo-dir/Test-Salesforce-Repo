@@ -1,0 +1,8 @@
+Hello {!DIR_Case__c.Claimant_Name_in_Text__c},
+
+A wage claim was submitted on your behalf by {!DIR_Case__c.Advocate_Name_in_Text__c} against {!DIR_Case__c.Related_Party_Employer_Name__c} on {!DIR_Case__c.CreatedDate}. Our office has yet to receive confirmation that you wish to proceed with this wage claim. Please reply to this email with CONFIRM to move forward or DENY to close this case. If no confirmation is received from you within 30 days, your case will be closed. 
+
+If you have any questions or concerns about your decision, please call us at 833-LCO-INFO (833-526-4636).
+
+
+Labor Commissioner's Office

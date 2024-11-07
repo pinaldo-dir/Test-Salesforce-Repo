@@ -1,0 +1,136 @@
+<apex:page controller="PortDrayageSearchResultPageCtrl" applyHtmlTag="false"     
+           sidebar="false"     
+           showHeader="false"     
+           cache="true" 
+           readOnly="false"
+           renderAs="pdf">
+    <head>    
+        <meta http-equiv="Content-Type" content="text/html;charset=UTF-8" /> 
+        <meta name="viewport" content="width=device-width, initial-scale=1"/>
+        <style type="text/css"> 
+            .c_table{
+            -fs-table-paginate: paginate;
+            }
+            @page {    
+            margin-top: 5%;
+            @top-center{
+            content: element(header1);
+            }
+            @bottom-center{
+            content: "Page : " counter(page) " / " counter(pages);font-size: 80%; font-family: sans-serif;font-size: 16px;
+            }
+            size: A4 landscape;    
+            padding-left: 8px;    
+            padding-right: 8px;      
+            }  
+            th, td{
+            border: 1px solid black;
+            }
+            th {    
+            text-align: center;    
+            font-weight: bold;    
+            }    
+            td {    
+            text-align: center;    
+            font-size: 16px;    
+            }
+            .filter-container{
+            margin-bottom: 10px;
+            border: 1px solid black;
+            }
+            div{
+            margin-bottom: 5px;
+            }
+            div1 {
+            display: inline-block;
+            width: 300px;
+            padding: 6px;
+            margin: 3px;
+            vertical-align:top;
+            }
+            body{
+            font-family: sans-serif;;
+            font-size: 16px;
+            }
+        </style>   
+    </head>
+    <body>
+        <div>
+            <b>Total Records:</b> {!portDrayageSearchDetail.size}
+        </div>
+        <div>
+            <b>Search Date:</b> {!MONTH(TODAY())} / {!DAY(TODAY())} / {!YEAR(TODAY())}
+        </div>
+        <div>
+            <b>*Disclaimer: </b> Once the judgment is issued, the judgment balance is shown as due in the Labor Commissioner’s records.
+            This amount does not reflect post-judgment interest, costs or other amounts that may be added to the
+            judgment after issuance.
+        </div>
+        <div>
+            <b>Filter Applied:</b>
+        </div>
+        <div class="filter-container">
+            <apex:outputPanel rendered="{!fromdate!= null}">
+                <div1>
+                    <b>
+                        From Date :
+                    </b><br/>
+                    {!MONTH(fromdate)} / {!DAY(fromdate)} / {!YEAR(fromdate)}
+                </div1>
+            </apex:outputPanel>
+            <apex:outputPanel rendered="{!todate != null}">
+                <div1> 
+                    <b>
+                        To Date :
+                    </b><br/> 
+                    {!MONTH(todate)} / {!DAY(todate)} / {!YEAR(todate)}
+                </div1>
+            </apex:outputPanel>
+            <apex:outputPanel rendered="{!asofdate!= null}">
+                <div1> 
+                    <b>
+                        As Of Date :
+                    </b><br/> 
+                    {!MONTH(asofdate)} / {!DAY(asofdate)} / {!YEAR(asofdate)}
+                </div1>
+            </apex:outputPanel>
+        </div>
+        <table cellspacing="0" cellpadding="4" class="c_table">
+            <thead>
+                <tr style="page-break-inside:avoid;">
+                    <th>Judgment Name</th>
+                    <th>Defendant/Employer Name</th>
+                    <th>Defendant Address</th>
+                    <th>As Successor To</th>
+                    <th>Judgment Total*</th>
+                    <th>Confirmed ON List Date</th>
+                    <!--<th>Confirmed Off List Date</th>-->
+                </tr>
+            </thead>
+            <apex:repeat value="{!portDrayageSearchDetail}" var="item">
+                <tbody>
+                    <tr style="page-break-inside:avoid;">    
+                        <td>{!item.JudgmentName}</td>
+                        <td>{!item.Defendant_EmployerName}</td>
+                        <td>{!item.PrimaryAddress}</td>
+                        <td>{!item.asSuccessorTo}</td>
+                        <td>
+                            <apex:outputPanel rendered="{!item.JudgmentTotal != null}">
+                                <apex:outputText value="${0, number, ##,##,##,##0.00}"><apex:param value="{!item.JudgmentTotal}" /></apex:outputText>
+                            </apex:outputPanel>
+                            <apex:outputPanel rendered="{!item.JudgmentTotal == null}">
+                                $ 0.0
+                            </apex:outputPanel>
+                        </td>
+                        <td><apex:outputText value="{0,date,MM/dd/yyyy}" >  
+                            <apex:param value="{!item.confirmedOnListDate}"/>  
+                            </apex:outputText> </td>
+                       <!-- <td><apex:outputText value="{0,date,MM/dd/yyyy}" >  
+                            <apex:param value="{!item.confirmedOffListDate}"/>  
+                            </apex:outputText></td>-->
+                    </tr>   
+                </tbody>
+            </apex:repeat>
+        </table>
+    </body>
+</apex:page>

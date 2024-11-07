@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Mail_Received_From__c</fullName>
+    <externalId>false</externalId>
+    <label>Mail Received From</label>
+    <required>false</required>
+    <type>Picklist</type>
+    <valueSet>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Mail received from Plaintiff/Representative</fullName>
+                <default>false</default>
+                <label>Mail received from Plaintiff/Representative</label>
+            </value>
+            <value>
+                <fullName>Mail received from Defendant/Representative</fullName>
+                <default>false</default>
+                <label>Mail received from Defendant/Representative</label>
+            </value>
+            <value>
+                <fullName>Mail Received From Non-Party</fullName>
+                <default>false</default>
+                <label>Mail Received From Non-Party</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

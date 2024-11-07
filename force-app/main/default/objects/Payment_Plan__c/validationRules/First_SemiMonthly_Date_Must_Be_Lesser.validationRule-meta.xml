@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>First_SemiMonthly_Date_Must_Be_Lesser</fullName>
+    <active>true</active>
+    <description>For a Semi-monthly Frequency, the day of the 1st payment must be earlier than that of the 2nd.</description>
+    <errorConditionFormula>ISPICKVAL(Frequency__c, 'Semi-monthly') &amp;&amp;
+(VALUE(TEXT(Day_of_Monthly_Payment_Due__c)) &gt;=  VALUE(TEXT(Day_of_Second_Monthly_Payment_Due__c)))</errorConditionFormula>
+    <errorDisplayField>Day_of_Monthly_Payment_Due__c</errorDisplayField>
+    <errorMessage>For a Semi-monthly Frequency, the day of the 1st payment must be earlier than that of the 2nd.</errorMessage>
+</ValidationRule>

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Primary_City_Placeholder__c</fullName>
+    <description>Hidden Field to update Primary Address if Account is new. Used on form assembly submissions.</description>
+    <externalId>false</externalId>
+    <inlineHelpText>Hidden Field to update Primary Address if Account is new. Used on form assembly submissions.</inlineHelpText>
+    <label>Primary City Placeholder</label>
+    <length>255</length>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

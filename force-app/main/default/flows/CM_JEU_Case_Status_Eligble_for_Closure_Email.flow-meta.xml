@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionCalls>
+        <name>Send_Nofication</name>
+        <label>Send Nofication</label>
+        <locationX>513</locationX>
+        <locationY>310</locationY>
+        <actionName>DIR_Case__c.CM_Companion_Case_Notification</actionName>
+        <actionType>emailAlert</actionType>
+        <flowTransactionModel>CurrentTransaction</flowTransactionModel>
+        <inputParameters>
+            <name>SObjectRowId</name>
+            <value>
+                <elementReference>$Record.Id</elementReference>
+            </value>
+        </inputParameters>
+        <nameSegment>DIR_Case__c.CM_Companion_Case_Notification</nameSegment>
+        <versionSegment>1</versionSegment>
+    </actionCalls>
+    <apiVersion>57.0</apiVersion>
+    <environments>Default</environments>
+    <interviewLabel>CM JEU Case Status Eligble for Closure Email {!$Flow.CurrentDateTime}</interviewLabel>
+    <label>CM JEU Case Status Eligble for Closure Email</label>
+    <processMetadataValues>
+        <name>BuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>CanvasMode</name>
+        <value>
+            <stringValue>FREE_FORM_CANVAS</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>OriginBuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processType>AutoLaunchedFlow</processType>
+    <start>
+        <locationX>650</locationX>
+        <locationY>48</locationY>
+        <connector>
+            <targetReference>Send_Nofication</targetReference>
+        </connector>
+        <filterFormula>(
+ISNEW() &amp;&amp; ({!$Record.Companion_Case__c} =TRUE) &amp;&amp; NOT(ISNULL({!$Record.Assigned_Deputies_Senior__c}))
+)
+||
+(
+ISCHANGED({!$Record.Companion_Case__c}) &amp;&amp; ({!$Record.Companion_Case__c} =TRUE) &amp;&amp; NOT(ISNULL({!$Record.Assigned_Deputies_Senior__c}))
+)</filterFormula>
+        <object>DIR_Case__c</object>
+        <recordTriggerType>CreateAndUpdate</recordTriggerType>
+        <triggerType>RecordAfterSave</triggerType>
+    </start>
+    <status>Draft</status>
+</Flow>

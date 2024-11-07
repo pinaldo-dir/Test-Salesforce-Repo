@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>County_Registrar__c</fullName>
+    <deleteConstraint>SetNull</deleteConstraint>
+    <description>To link to the office record where the employer business information is obtained from</description>
+    <externalId>false</externalId>
+    <inlineHelpText>Complete this field when requesting a fictitious business name or completing a lien</inlineHelpText>
+    <label>County Registrar</label>
+    <lookupFilter>
+        <active>true</active>
+        <filterItems>
+            <field>Office__c.RecordType.Name</field>
+            <operation>equals</operation>
+            <value>County Registrar</value>
+        </filterItems>
+        <isOptional>false</isOptional>
+    </lookupFilter>
+    <referenceTo>Office__c</referenceTo>
+    <relationshipLabel>Accounts (County Registrar)</relationshipLabel>
+    <relationshipName>Accounts</relationshipName>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Lookup</type>
+</CustomField>

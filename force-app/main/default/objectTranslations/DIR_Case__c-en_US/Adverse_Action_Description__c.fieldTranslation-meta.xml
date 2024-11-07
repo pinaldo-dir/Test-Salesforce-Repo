@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+        <help><!-- 500 character limit
+Used on FIR/Citation --></help>
+        <label><!-- Allegation Summary --></label>
+        <name>Adverse_Action_Description__c</name>
+    </CustomFieldTranslation>

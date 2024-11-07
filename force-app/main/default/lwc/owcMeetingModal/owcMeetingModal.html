@@ -1,0 +1,50 @@
+<!--
+  @description       : 
+  @author            : ChangeMeIn@UserSettingsUnder.SFDoc
+  @group             : 
+  @last modified on  : 05-12-2022
+  @last modified by  : ChangeMeIn@UserSettingsUnder.SFDoc
+-->
+<template>  
+    <div class="slds-modal slds-fade-in-open slds-backdrop">  
+      <div class="slds-modal__container">  
+        <div class="slds-modal__header">  
+          <lightning-button-icon icon-name="utility:close" alternative-text="Close this window" size="large"  
+            variant="bare-inverse" onclick={closeModal} class="slds-modal__close">  
+          </lightning-button-icon>  
+          <h2>Meeting Details</h2>  
+        </div>  
+        <div class="slds-modal__content slds-p-around_medium"> 
+          <lightning-layout horizontal-align="space" key={day} multiple-rows="true">
+              <lightning-layout-item size="6">
+                <c-owc-custom-output-field label="Case Name:" value={meetingDetails.caseName}></c-owc-custom-output-field>
+            </lightning-layout-item>
+            <lightning-layout-item size="6" >
+                <c-owc-custom-output-field label="Meeting Type:" value={meetingDetails.rtName}></c-owc-custom-output-field>
+            </lightning-layout-item>
+            <template if:true={isInPerson}>
+              <lightning-layout-item size="6">
+                  <c-owc-custom-output-field label="Meeting Location:" value={meetingDetails.location}></c-owc-custom-output-field>
+              </lightning-layout-item>
+            </template>
+            <template if:true={isVideoMeeting}>
+              <lightning-layout-item size="6">
+                <!--videourl={videoUrl} meetingid={meetingId} passcode={passCode}-->
+                <c-owc-custom-output-field label="Video URL:" meetinginfo={meetingDetails.meetingInfo} videourl={meetingDetails.videoURL} video={isVideoMeeting}></c-owc-custom-output-field>
+              </lightning-layout-item>
+            </template>
+            <template if:true={isAudioTelePhone}>
+              <lightning-layout-item size="6">
+                <c-owc-custom-output-field label="Audio (telephone):" value={meetingDetails.audioTelePhone}></c-owc-custom-output-field>
+              </lightning-layout-item>
+            </template>
+            <lightning-layout-item size="6" >
+              <c-owc-custom-output-field label="Meeting Date/Time:" value={meetingDetails.mdt}></c-owc-custom-output-field>
+          </lightning-layout-item>
+            
+            <lightning-layout-item size="6" ></lightning-layout-item>
+          </lightning-layout>
+        </div>  
+      </div>  
+    </div>  
+</template>

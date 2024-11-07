@@ -1,0 +1,42 @@
+<table border="0" cellpadding="5" width="550" cellspacing="5" height="400" >
+<tr valign="top" height="400" >
+<td tEditID="c1r1" style=" background-color:#FFFFFF; color:#000000; bEditID:r3st1; bLabel:main; font-size:12pt; font-family:arial;" aEditID="c1r1" locked="0" >
+<![CDATA[<p class="MsoNormal" style="color: rgb(0, 0, 0); font-family: arial; font-size: 12pt;"><span style="font-size:12.0pt;line-height:115%">This is to
+inform you of the probationary report due dates for your newly appointed
+employee. The probationary report is used to help you provide performance
+feedback to your probationary employee and it is also required by the
+California Government Code section 19172. <o:p></o:p></span></p>
+
+<p class="MsoNormal" style="color: rgb(0, 0, 0); font-family: arial; font-size: 12pt;"><span style="font-size:12.0pt;line-height:115%">&nbsp;</span></p>
+
+<p class="MsoNormal" style="color: rgb(0, 0, 0); font-family: arial; font-size: 12pt;"><span style="font-size:12.0pt;line-height:115%">Please
+complete the&nbsp;<span style="color:#0070C0"><a href="http://www.documents.dgs.ca.gov/dgs/fmc/pdf/std636.pdf"><span style="color:#0070C0">Report of Performance for Probationary Employee</span></a></span>
+(STD 636) attached for:<o:p></o:p></span></p>
+
+<p class="MsoNormal" style="color: rgb(0, 0, 0); font-family: arial; font-size: 12pt;"><span style="font-size:12.0pt;line-height:115%">&nbsp;</span></p>
+
+<p class="MsoNormal" style="color: rgb(0, 0, 0); font-family: arial; font-size: 12pt;"><span style="font-size:12.0pt;line-height:115%">Employee
+Name: &nbsp; &nbsp; &nbsp; &nbsp;{!HR_Probe_Report_Tracking__c.Employee_Name__c}</span></p>
+
+<p class="MsoNormal" style="color: rgb(0, 0, 0); font-family: arial; font-size: 12pt;"><span style="font-size:12.0pt;line-height:115%">Position
+Number:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; {!HR_Probe_Report_Tracking__c.Position_Number__c}<o:p></o:p></span></p>
+
+<p class="MsoNormal" style="color: rgb(0, 0, 0); font-family: arial; font-size: 12pt;"><span style="font-size:12.0pt;line-height:115%">&nbsp;</span></p>
+
+<p class="MsoNormal" style="color: rgb(0, 0, 0); font-family: arial; font-size: 12pt;"><span style="color: rgb(0, 0, 0); font-family: arial; font-size: 12pt; line-height: 115%;">1<sup>st</sup>
+Report Due: &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</span><font face="arial">{!HR_Probe_Report_Tracking__c.X1st_Probe_due_date__c}</font></p>
+
+<p class="MsoNormal" style="color: rgb(0, 0, 0); font-family: arial; font-size: 12pt;"><span style="color: rgb(0, 0, 0); font-family: arial; font-size: 12pt; line-height: 115%;">2<sup>nd</sup>
+Report Due: &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;<o:p></o:p></span><font face="arial">{!HR_Probe_Report_Tracking__c.X2nd_Probe_Due_Date__c}</font></p>
+
+<p class="MsoNormal" style="color: rgb(0, 0, 0); font-family: arial; font-size: 12pt;"><span style="color: rgb(0, 0, 0); font-family: arial; font-size: 12pt; line-height: 115%;">3<sup>rd</sup>
+Report Due: &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;<o:p></o:p></span><font face="arial">{!HR_Probe_Report_Tracking__c.X3rd_Probe_Due_Date__c}</font></p><p class="MsoNormal" style="color: rgb(0, 0, 0); font-family: arial; font-size: 12pt;"><font face="arial"><br></font></p><p class="MsoNormal" style="color: rgb(0, 0, 0); font-family: arial; font-size: 12pt;"><span style="background-color: rgb(255, 255, 255);"><span style="font-family: Arial, sans-serif; background-image: initial; background-position: initial; background-size: initial; background-repeat: initial; background-attachment: initial; background-origin: initial; background-clip: initial;">For more information and assistance in filling out the form, visit
+CalHR’s website: </span><span style="font-family: Arial, sans-serif; background-image: initial; background-position: initial; background-size: initial; background-repeat: initial; background-attachment: initial; background-origin: initial; background-clip: initial;"><a href="https://www.calhr.ca.gov/Training/Pages/supervisors-probation-period.aspx">https://www.calhr.ca.gov/Training/Pages/supervisors-probation-period.aspx</a></span></span><span style="font-family: Arial, sans-serif;"> <o:p></o:p></span></p><p class="MsoNormal" style="color: rgb(0, 0, 0); font-family: arial; font-size: 12pt;"><span style="background-color: rgb(255, 255, 255);"><br></span></p><p class="MsoNormal" style=""><font face="arial">Please email the completed Standard Form 636 to PerformanceAppraisals-HR@dir.ca.gov.</font></p>
+
+<p class="MsoNormal" style="color: rgb(0, 0, 0); font-family: arial; font-size: 12pt;"><span style="font-size:12.0pt;line-height:115%">&nbsp;</span></p>
+
+<p class="MsoNormal" style="color: rgb(0, 0, 0); font-family: arial; font-size: 12pt;"><span style="font-size:12.0pt;line-height:115%">If you have
+any questions, please contact the Personnel Specialist for your unit.</span><o:p></o:p></p><p class="MsoNormal" style="color: rgb(0, 0, 0); font-family: arial; font-size: 12pt;"><span style="font-size:12.0pt;line-height:115%"><br></span></p><p class="MsoNormal" style="color: rgb(0, 0, 0); font-family: arial; font-size: 12pt;">Thank you.</p><p class="MsoNormal" style="color: rgb(0, 0, 0); font-family: arial; font-size: 12pt;"><br></p><p class="MsoNormal" style="color: rgb(0, 0, 0); font-family: arial; font-size: 12pt;">Please do not reply to this message. This notification is
+automatically generated.<o:p></o:p></p>]]></td>
+</tr>
+</table>

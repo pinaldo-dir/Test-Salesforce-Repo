@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Garment_Registration_Number__c</fullName>
+    <description>Used in Garment Registration</description>
+    <externalId>false</externalId>
+    <inlineHelpText>Enter Garment Registration Number</inlineHelpText>
+    <label>Garment Registration Number</label>
+    <length>255</length>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

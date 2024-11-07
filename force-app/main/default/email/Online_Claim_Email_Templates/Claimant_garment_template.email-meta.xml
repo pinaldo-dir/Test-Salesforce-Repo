@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>false</available>
+    <encodingKey>ISO-8859-1</encodingKey>
+    <name>Claimant garment template</name>
+    <style>none</style>
+    <subject>Thank you for submitting your Claim.</subject>
+    <textOnly>Hello {!Claimant}, &lt;br&gt;&lt;/br&gt;
+A representative from the Labor Commissioner&apos;s office will contact you regarding your claim.&lt;br&gt;&lt;/br&gt;
+Labor Commissioner&apos;s Office</textOnly>
+    <type>custom</type>
+    <uiType>Aloha</uiType>
+</EmailTemplate>

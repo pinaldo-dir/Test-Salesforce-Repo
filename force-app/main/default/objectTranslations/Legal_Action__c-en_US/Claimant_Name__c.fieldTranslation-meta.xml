@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+        <label><!-- Claimant Name --></label>
+        <name>Claimant_Name__c</name>
+        <relationshipLabel><!-- Legal Actions (Claimant Name) --></relationshipLabel>
+    </CustomFieldTranslation>

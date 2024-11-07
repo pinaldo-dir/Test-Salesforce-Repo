@@ -1,0 +1,125 @@
+<template>    
+    <div class="slds-grid slds-wrap slds-p-left_medium">
+        <div class="slds-col slds-small-size_1-of-1 slds-medium-size_1-of-1">
+            Garment:                                        
+        </div>                                         
+        <!--lowest amount paid-->
+        <div class="slds-col slds-small-size_3-of-12 slds-medium-size_3-of-12">
+            <fieldset class="slds-p-around_medium slds-p-left_xx-large">
+                {customlabels.Owc_lowestAmntPaid}                                         
+                <lightning-input variant="label-hidden" 
+                                    name="lowAmntPaid"
+                                    type="currency"
+                                    formatter="currency" 
+                                    step="0.01"
+                                    value ={lowAmntPaid}
+                                    data-id="lowAmntPaid"
+                                    onchange={handleChange}
+                                    onblur={handlelowAmntPaidFocus}>
+                </lightning-input>
+            </fieldset>
+        </div>
+        <!--Highest amount paid-->
+        <div class="slds-col slds-small-size_3-of-12 slds-medium-size_3-of-12">
+            <fieldset class="slds-p-around_medium slds-p-left_xx-large">
+                {customlabels.Owc_highestAmntPaid}   
+                <lightning-input variant="label-hidden" 
+                                 name="highestAmntPaid"
+                                 type="currency"
+                                 formatter="currency" 
+                                 step="0.01" 
+                                 value ={highestAmntPaid}
+                                 data-id="highestAmntPaid"
+                                 onchange={handleChange}
+                                 onblur={handlehighestAmntPaidFocus}>
+                </lightning-input>
+            </fieldset>
+        </div>                                       
+
+        <!--payPerPeriod-->
+        <div class="slds-col slds-small-size_3-of-12 slds-medium-size_3-of-12">
+            <fieldset class="slds-p-around_medium slds-p-left_xx-large">
+                Pay per period 
+                <lightning-combobox
+                                        variant="label-hidden" 
+                                        name="payPerPeriod"
+                                        data-id="payPerPeriod"
+                                        value={payPerPeriod}
+                                        placeholder = {customLabelValues.OWC_select_picklist_label}
+                                        options={frequency_list_type}
+                                        onchange={handleChange}
+                                        ></lightning-combobox> 
+            </fieldset>
+        </div>
+
+        <!--Total Paid-->
+        <div class="slds-col slds-small-size_3-of-12 slds-medium-size_3-of-12">
+            <fieldset class="slds-p-around_medium slds-p-left_xx-large">
+                {customLabelValues.OWC_Other}  
+                <lightning-input variant="label-hidden" 
+                                                name="garmentOther"
+                                                type="Text"
+                                                value ={garmentOther} 
+                                                data-id="garmentOther"
+                                                onchange={handleChange}
+                                                onblur={handlegarmentOtherFocus}>
+                </lightning-input>
+            </fieldset>
+        </div>
+
+        <div class="slds-col slds-small-size_1-of-1 slds-medium-size_1-of-1">
+            <div class="slds-form-element radioSetStyle">
+                {customlabels.Owc_paidAtleasrMin}
+                <span class="requiredStyle"><abbr title="required">*</abbr></span>
+                <lightning-radio-group type="radio"
+                                       name="paidAtleastMin"
+                                       data-id="paidAtleastMin"
+                                       options={YesOrNoOptions}
+                                       value={paidAtleastMin}
+                                       onchange={handleChange}
+                                       onblur={handlepaidAtleastMinFocus}>
+                </lightning-radio-group>
+            </div>
+        </div>
+
+        <div class="slds-col slds-small-size_1-of-1 slds-medium-size_1-of-1">
+                <div class="slds-form-element radioSetStyle">
+                    {customLabelValues.OWC_RecieveRestPeriod}
+                    <span class="requiredStyle"><abbr title="required">*</abbr></span>
+                    <span class="slds-p-left_medium learnMoreStyle">
+                        <lightning-button variant="base" label={customLabelValues.OWC_learnmore_button} name="RecieveRestPeriodHelpText" onclick={handleHelpText} class="slds-m-left_x-small"></lightning-button>
+                    </span>
+                    <lightning-radio-group type="radio"
+                                           name="recRestPeriod"
+                                           data-id="recRestPeriod"
+                                           options={YesOrNoOptions}
+                                           value={recRestPeriod}
+                                           onchange={handleChange}
+                                           onblur={handleReceiveRestPeriodFocus}>
+                    </lightning-radio-group>
+                </div>
+
+                
+                <!--Follow-up question: Were you paid separately for rest periods?-->
+                <template if:true={isRecRestPeriod}>                                                
+                    <div class="slds-col slds-small-size_1-of-1 slds-medium-size_1-of-1 slds-p-left_xx-large breakStyle">
+                        <span>
+                            <div class="slds-form-element">
+                                <div>
+                                    {customLabelValues.OWC_FollowUp_PaidSeparately}   
+                                </div> 
+                                <lightning-radio-group type="radio"
+                                                        name="paidSepartlyForRestPeriod"
+                                                        data-id="paidSepartlyForRestPeriod"
+                                                        options={YesOrNoOptions}
+                                                        value={paidSepartlyForRestPeriod}
+                                                        onchange={handleChange}
+                                                        onblur={handlepaidSepartlyForRestPeriodFocus}>
+                                </lightning-radio-group>                                           
+                            </div>
+                        </span>
+                    </div>
+                </template> 
+        </div>
+    </div>  
+</template>

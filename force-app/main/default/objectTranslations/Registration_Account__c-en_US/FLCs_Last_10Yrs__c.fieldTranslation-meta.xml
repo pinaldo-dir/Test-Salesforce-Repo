@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+        <help><!-- Enter FLCs Last 10 Years --></help>
+        <label><!-- FLCs Last 10Yrs --></label>
+        <name>FLCs_Last_10Yrs__c</name>
+    </CustomFieldTranslation>

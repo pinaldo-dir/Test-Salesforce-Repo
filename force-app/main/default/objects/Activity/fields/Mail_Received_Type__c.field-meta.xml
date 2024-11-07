@@ -1,0 +1,250 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Mail_Received_Type__c</fullName>
+    <externalId>false</externalId>
+    <label>Mail Received Type</label>
+    <required>false</required>
+    <type>Picklist</type>
+    <valueSet>
+        <controllingField>Mail_Received_From__c</controllingField>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Supplemental Claim Information</fullName>
+                <default>false</default>
+                <label>Supplemental Claim Information</label>
+            </value>
+            <value>
+                <fullName>Change of Address</fullName>
+                <default>false</default>
+                <label>Change of Address</label>
+            </value>
+            <value>
+                <fullName>Returned mail addressed to Plaintiff/Rep</fullName>
+                <default>false</default>
+                <label>Returned mail addressed to Plaintiff/Rep</label>
+            </value>
+            <value>
+                <fullName>Signed Complaint Form</fullName>
+                <default>false</default>
+                <label>Signed Complaint Form</label>
+            </value>
+            <value>
+                <fullName>Signed Certified Mail Waiver</fullName>
+                <default>false</default>
+                <label>Signed Certified Mail Waiver</label>
+            </value>
+            <value>
+                <fullName>Request for Continuance</fullName>
+                <default>false</default>
+                <label>Request for Continuance</label>
+            </value>
+            <value>
+                <fullName>Signed Release</fullName>
+                <default>false</default>
+                <label>Signed Release</label>
+            </value>
+            <value>
+                <fullName>Request for Attorney Representation</fullName>
+                <default>false</default>
+                <label>Request for Attorney Representation</label>
+            </value>
+            <value>
+                <fullName>Appeal by Plaintiff</fullName>
+                <default>false</default>
+                <label>Appeal by Plaintiff</label>
+            </value>
+            <value>
+                <fullName>Response to claim from Defendant</fullName>
+                <default>false</default>
+                <label>Response to claim from Defendant</label>
+            </value>
+            <value>
+                <fullName>Bankruptcy Notice</fullName>
+                <default>false</default>
+                <label>Bankruptcy Notice</label>
+            </value>
+            <value>
+                <fullName>Completed Workers’ Comp. Form</fullName>
+                <default>false</default>
+                <label>Completed Workers’ Comp. Form</label>
+            </value>
+            <value>
+                <fullName>Payment Received</fullName>
+                <default>false</default>
+                <label>Payment Received</label>
+            </value>
+            <value>
+                <fullName>Returned mail addressed to Defendant/Rep</fullName>
+                <default>false</default>
+                <label>Returned mail addressed to Defendant/Rep</label>
+            </value>
+            <value>
+                <fullName>Settlement Offer Received</fullName>
+                <default>false</default>
+                <label>Settlement Offer Received</label>
+            </value>
+            <value>
+                <fullName>Hearing Answer</fullName>
+                <default>false</default>
+                <label>Hearing Answer</label>
+            </value>
+            <value>
+                <fullName>Appeal by Defendant</fullName>
+                <default>false</default>
+                <label>Appeal by Defendant</label>
+            </value>
+            <value>
+                <fullName>Request for LC 98 (f) Relief</fullName>
+                <default>false</default>
+                <label>Request for LC 98 (f) Relief</label>
+            </value>
+            <value>
+                <fullName>Response from City Business License</fullName>
+                <default>false</default>
+                <label>Response from City Business License</label>
+            </value>
+            <value>
+                <fullName>Response from County Registrar/Recorder</fullName>
+                <default>false</default>
+                <label>Response from County Registrar/Recorder</label>
+            </value>
+            <value>
+                <fullName>Response from Legal</fullName>
+                <default>false</default>
+                <label>Response from Legal</label>
+            </value>
+            <value>
+                <fullName>Response from other DLSE Unit</fullName>
+                <default>false</default>
+                <label>Response from other DLSE Unit</label>
+            </value>
+            <value>
+                <fullName>Request for Continuance –Citing Deputy</fullName>
+                <default>false</default>
+                <label>Request for Continuance –Citing Deputy</label>
+            </value>
+            <value>
+                <fullName>Address Correction from USPS</fullName>
+                <default>false</default>
+                <label>Address Correction from USPS</label>
+            </value>
+            <value>
+                <fullName>Judgment Received from Court</fullName>
+                <default>false</default>
+                <label>Judgment Received from Court</label>
+            </value>
+            <value>
+                <fullName>Reassignment of Judgment from court</fullName>
+                <default>false</default>
+                <label>Reassignment of Judgment from court</label>
+            </value>
+        </valueSetDefinition>
+        <valueSettings>
+            <controllingFieldValue>Mail received from Plaintiff/Representative</controllingFieldValue>
+            <valueName>Supplemental Claim Information</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Mail received from Plaintiff/Representative</controllingFieldValue>
+            <controllingFieldValue>Mail received from Defendant/Representative</controllingFieldValue>
+            <valueName>Change of Address</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Mail received from Plaintiff/Representative</controllingFieldValue>
+            <valueName>Returned mail addressed to Plaintiff/Rep</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Mail received from Plaintiff/Representative</controllingFieldValue>
+            <valueName>Signed Complaint Form</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Mail received from Plaintiff/Representative</controllingFieldValue>
+            <valueName>Signed Certified Mail Waiver</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Mail received from Plaintiff/Representative</controllingFieldValue>
+            <controllingFieldValue>Mail received from Defendant/Representative</controllingFieldValue>
+            <valueName>Request for Continuance</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Mail received from Plaintiff/Representative</controllingFieldValue>
+            <valueName>Signed Release</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Mail received from Plaintiff/Representative</controllingFieldValue>
+            <valueName>Request for Attorney Representation</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Mail received from Plaintiff/Representative</controllingFieldValue>
+            <valueName>Appeal by Plaintiff</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Mail received from Defendant/Representative</controllingFieldValue>
+            <valueName>Response to claim from Defendant</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Mail received from Defendant/Representative</controllingFieldValue>
+            <valueName>Bankruptcy Notice</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Mail received from Defendant/Representative</controllingFieldValue>
+            <valueName>Completed Workers’ Comp. Form</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Mail received from Defendant/Representative</controllingFieldValue>
+            <valueName>Payment Received</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Mail received from Defendant/Representative</controllingFieldValue>
+            <valueName>Returned mail addressed to Defendant/Rep</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Mail received from Defendant/Representative</controllingFieldValue>
+            <valueName>Settlement Offer Received</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Mail received from Defendant/Representative</controllingFieldValue>
+            <valueName>Hearing Answer</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Mail received from Defendant/Representative</controllingFieldValue>
+            <valueName>Appeal by Defendant</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Mail received from Defendant/Representative</controllingFieldValue>
+            <valueName>Request for LC 98 (f) Relief</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Mail Received From Non-Party</controllingFieldValue>
+            <valueName>Response from City Business License</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Mail Received From Non-Party</controllingFieldValue>
+            <valueName>Response from County Registrar/Recorder</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Mail Received From Non-Party</controllingFieldValue>
+            <valueName>Response from Legal</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Mail Received From Non-Party</controllingFieldValue>
+            <valueName>Response from other DLSE Unit</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Mail Received From Non-Party</controllingFieldValue>
+            <valueName>Request for Continuance –Citing Deputy</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Mail Received From Non-Party</controllingFieldValue>
+            <valueName>Address Correction from USPS</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Mail Received From Non-Party</controllingFieldValue>
+            <valueName>Judgment Received from Court</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Mail Received From Non-Party</controllingFieldValue>
+            <valueName>Reassignment of Judgment from court</valueName>
+        </valueSettings>
+    </valueSet>
+</CustomField>

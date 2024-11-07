@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PermissionSet xmlns="http://soap.sforce.com/2006/04/metadata">
+    <description>SCR-902 - only allow the Position Control analysts (Nedra Bryan, Tra Loc, and Yesica DeLeon) to create new Pay Period records.</description>
+    <hasActivationRequired>false</hasActivationRequired>
+    <label>HR Allow Pay Period Creation</label>
+    <license>Salesforce Platform</license>
+    <objectPermissions>
+        <allowCreate>true</allowCreate>
+        <allowDelete>false</allowDelete>
+        <allowEdit>false</allowEdit>
+        <allowRead>true</allowRead>
+        <modifyAllRecords>false</modifyAllRecords>
+        <object>Pay_Period__c</object>
+        <viewAllRecords>false</viewAllRecords>
+    </objectPermissions>
+</PermissionSet>

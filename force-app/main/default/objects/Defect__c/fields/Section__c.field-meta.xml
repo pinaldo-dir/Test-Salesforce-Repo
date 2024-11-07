@@ -1,0 +1,329 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Section__c</fullName>
+    <externalId>false</externalId>
+    <label>Section</label>
+    <required>true</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Agent Authorization</fullName>
+                <default>false</default>
+                <label>Agent Authorization</label>
+            </value>
+            <value>
+                <fullName>Agreements</fullName>
+                <default>false</default>
+                <label>Agreements</label>
+            </value>
+            <value>
+                <fullName>Branch Locations</fullName>
+                <default>false</default>
+                <label>Branch Locations</label>
+            </value>
+            <value>
+                <fullName>Company Address Information</fullName>
+                <default>false</default>
+                <label>Company Address Information</label>
+            </value>
+            <value>
+                <fullName>Company Address Information - JS</fullName>
+                <default>false</default>
+                <label>Company Address Information - JS</label>
+            </value>
+            <value>
+                <fullName>Company Contact</fullName>
+                <default>false</default>
+                <label>Company Contact</label>
+            </value>
+            <value>
+                <fullName>Company Entity</fullName>
+                <default>false</default>
+                <label>Company Entity</label>
+            </value>
+            <value>
+                <fullName>Company Finances</fullName>
+                <default>false</default>
+                <label>Company Finances</label>
+            </value>
+            <value>
+                <fullName>Company Information</fullName>
+                <default>false</default>
+                <label>Company Information</label>
+            </value>
+            <value>
+                <fullName>Company Information -TA</fullName>
+                <default>false</default>
+                <label>Company Information -TA</label>
+            </value>
+            <value>
+                <fullName>Company Locations</fullName>
+                <default>false</default>
+                <label>Company Locations</label>
+            </value>
+            <value>
+                <fullName>Company Managers</fullName>
+                <default>false</default>
+                <label>Company Managers</label>
+            </value>
+            <value>
+                <fullName>Company Managers Documentation - TA</fullName>
+                <default>false</default>
+                <label>Company Managers Documentation - TA</label>
+            </value>
+            <value>
+                <fullName>Company Type</fullName>
+                <default>false</default>
+                <label>Company Name &amp; Type</label>
+            </value>
+            <value>
+                <fullName>Company Owners</fullName>
+                <default>false</default>
+                <label>Company Owners</label>
+            </value>
+            <value>
+                <fullName>Company Owners Documentation</fullName>
+                <default>false</default>
+                <label>Company Owners Documentation</label>
+            </value>
+            <value>
+                <fullName>Company People</fullName>
+                <default>false</default>
+                <label>Company People</label>
+            </value>
+            <value>
+                <fullName>Disclaimer</fullName>
+                <default>false</default>
+                <label>Disclaimer</label>
+            </value>
+            <value>
+                <fullName>Download Documents To Be Completed</fullName>
+                <default>false</default>
+                <label>Download Documents To Be Completed</label>
+            </value>
+            <value>
+                <fullName>Education</fullName>
+                <default>false</default>
+                <label>Education</label>
+            </value>
+            <value>
+                <fullName>Exam</fullName>
+                <default>false</default>
+                <label>Exam</label>
+            </value>
+            <value>
+                <fullName>Fees</fullName>
+                <default>false</default>
+                <label>Fees</label>
+            </value>
+            <value>
+                <fullName>Follow up Questions</fullName>
+                <default>false</default>
+                <label>Follow up Questions</label>
+            </value>
+            <value>
+                <fullName>Live Scan</fullName>
+                <default>false</default>
+                <label>Live Scan</label>
+            </value>
+            <value>
+                <fullName>Location Documentation</fullName>
+                <default>false</default>
+                <label>Location Documentation</label>
+            </value>
+            <value>
+                <fullName>Medical Information</fullName>
+                <default>false</default>
+                <label>Medical Information</label>
+            </value>
+            <value>
+                <fullName>Minor Information</fullName>
+                <default>false</default>
+                <label>Minor Information</label>
+            </value>
+            <value>
+                <fullName>Owners &amp; Management</fullName>
+                <default>false</default>
+                <label>Owners &amp; Management</label>
+            </value>
+            <value>
+                <fullName>Parent/Guardian Information</fullName>
+                <default>false</default>
+                <label>Parent/Guardian Information</label>
+            </value>
+            <value>
+                <fullName>Permit Applicant</fullName>
+                <default>false</default>
+                <label>Permit Applicant</label>
+            </value>
+            <value>
+                <fullName>Production Titles</fullName>
+                <default>false</default>
+                <label>Production Titles</label>
+            </value>
+            <value>
+                <fullName>Qualifying Question</fullName>
+                <default>false</default>
+                <label>Qualifying Question</label>
+            </value>
+            <value>
+                <fullName>Questionnaire</fullName>
+                <default>false</default>
+                <label>Questionnaire</label>
+            </value>
+            <value>
+                <fullName>Registration Duration</fullName>
+                <default>false</default>
+                <label>Registration Duration</label>
+            </value>
+            <value>
+                <fullName>Related Documents</fullName>
+                <default>false</default>
+                <label>Related Documents</label>
+            </value>
+            <value>
+                <fullName>School Information</fullName>
+                <default>false</default>
+                <label>School Information</label>
+            </value>
+            <value>
+                <fullName>Upload Documentation</fullName>
+                <default>false</default>
+                <label>Upload Documentation</label>
+            </value>
+            <value>
+                <fullName>Upload Documents</fullName>
+                <default>false</default>
+                <label>Upload Documents</label>
+            </value>
+            <value>
+                <fullName>WCI Documentation</fullName>
+                <default>false</default>
+                <label>WCI Documentation</label>
+            </value>
+            <value>
+                <fullName>Workers Compensation Insurance</fullName>
+                <default>false</default>
+                <label>Workers Compensation Insurance</label>
+            </value>
+            <value>
+                <fullName>Owner Exams</fullName>
+                <default>false</default>
+                <label>Owner Exams</label>
+            </value>
+            <value>
+                <fullName>Owner Courses</fullName>
+                <default>false</default>
+                <label>Owner Courses</label>
+            </value>
+            <value>
+                <fullName>Information I</fullName>
+                <default>false</default>
+                <label>Information I</label>
+            </value>
+            <value>
+                <fullName>Information II</fullName>
+                <default>false</default>
+                <label>Information II</label>
+            </value>
+            <value>
+                <fullName>Documentation I</fullName>
+                <default>false</default>
+                <label>Documentation I</label>
+            </value>
+            <value>
+                <fullName>Documentation II</fullName>
+                <default>false</default>
+                <label>Documentation II</label>
+            </value>
+            <value>
+                <fullName>Sexual Harassment Prevention</fullName>
+                <default>false</default>
+                <label>Sexual Harassment Prevention</label>
+            </value>
+            <value>
+                <fullName>WCI and Bond</fullName>
+                <default>false</default>
+                <label>WCI and Bond</label>
+            </value>
+            <value>
+                <fullName>WCI and Bond Documentation</fullName>
+                <default>false</default>
+                <label>WCI and Bond Documentation</label>
+            </value>
+            <value>
+                <fullName>Information III</fullName>
+                <default>false</default>
+                <label>Information III</label>
+            </value>
+            <value>
+                <fullName>Documentation III</fullName>
+                <default>false</default>
+                <label>Documentation III</label>
+            </value>
+            <value>
+                <fullName>Ready to Submit - External - EWP</fullName>
+                <default>false</default>
+                <label>Ready to Submit - External - EWP</label>
+            </value>
+            <value>
+                <fullName>Ready to Submit - Internal - EWP</fullName>
+                <default>false</default>
+                <label>Ready to Submit - Internal - EWP</label>
+            </value>
+            <value>
+                <fullName>Company Details</fullName>
+                <default>false</default>
+                <label>Company Details</label>
+            </value>
+            <value>
+                <fullName>Documentation</fullName>
+                <default>false</default>
+                <label>Documentation</label>
+            </value>
+            <value>
+                <fullName>Submission</fullName>
+                <default>false</default>
+                <label>Submission</label>
+            </value>
+            <value>
+                <fullName>Owners and Managers</fullName>
+                <default>false</default>
+                <label>Owners and Managers</label>
+            </value>
+            <value>
+                <fullName>Owners, Managers, and Agents for Process</fullName>
+                <default>false</default>
+                <label>Owners, Managers, and Agents for Process</label>
+            </value>
+            <value>
+                <fullName>Company Entity - GA</fullName>
+                <default>false</default>
+                <label>Company Entity - GA</label>
+            </value>
+            <value>
+                <fullName>Company Tax Information</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>Company Tax Information</label>
+            </value>
+            <value>
+                <fullName>Workers Comp</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>Workers Comp</label>
+            </value>
+            <value>
+                <fullName>Workers Comp - CW</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>Workers Comp - CW</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

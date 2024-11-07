@@ -1,0 +1,8 @@
+This is being requested to be converted to a case for further investigation. 
+
+Record: {!RCI_Only__c.Name}
+Owner: {!RCI_Only__c.OwnerFullName}
+
+See Link to Record: 
+
+{!RCI_Only__c.Link}

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Day_of_1st_Pay_Same_as_SemiMonthly_Day</fullName>
+    <active>true</active>
+    <description>For a Semi-monthly Frequency, the day number of Date_of_First_Payment__c must be the same as either the Day_of_Monthly_Payment_Due__c or Day_of_Second_Monthly_Payment_Due__c, so the CP Flow to properly calculate the next due date &amp; overdue status.</description>
+    <errorConditionFormula>ISPICKVAL(Frequency__c, 'Semi-monthly') &amp;&amp;
+(
+    DAY(Date_of_First_Payment__c) &lt;&gt; VALUE(TEXT(Day_of_Monthly_Payment_Due__c)) &amp;&amp;
+    DAY(Date_of_First_Payment__c) &lt;&gt; VALUE(TEXT(Day_of_Second_Monthly_Payment_Due__c))
+)</errorConditionFormula>
+    <errorDisplayField>Date_of_First_Payment__c</errorDisplayField>
+    <errorMessage>For a Semi-monthly Frequency, the day number of Date of First Payment must be the same as either the Day of Monthly Payment Due or Day of Second Monthly Payment Due</errorMessage>
+</ValidationRule>

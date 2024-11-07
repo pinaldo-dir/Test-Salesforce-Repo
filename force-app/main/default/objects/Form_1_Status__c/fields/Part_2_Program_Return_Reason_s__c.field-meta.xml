@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Part_2_Program_Return_Reason_s__c</fullName>
+    <externalId>false</externalId>
+    <label>Part 2 Program Return Reason(s)</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackTrending>false</trackTrending>
+    <type>MultiselectPicklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Screening Criteria</fullName>
+                <default>false</default>
+                <label>Screening Criteria</label>
+            </value>
+            <value>
+                <fullName>Missing Documents</fullName>
+                <default>false</default>
+                <label>Missing Documents</label>
+            </value>
+            <value>
+                <fullName>Identified Interview Panels Members Missing</fullName>
+                <default>false</default>
+                <label>Identified Interview Panels Members Missing</label>
+            </value>
+            <value>
+                <fullName>Interview Questions Missing or Revisions Needed</fullName>
+                <default>false</default>
+                <label>Interview Questions Missing or Revisions Needed</label>
+            </value>
+            <value>
+                <fullName> Other (See Status Notes)</fullName>
+                <default>false</default>
+                <label> Other (See Status Notes)</label>
+            </value>
+            <value>
+                <fullName>Other (Legacy)</fullName>
+                <default>false</default>
+                <label>Other (Legacy)</label>
+            </value>
+            <value>
+                <fullName>Interview Questions</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>Interview Questions</label>
+            </value>
+            <value>
+                <fullName>OPF Review</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>OPF Review</label>
+            </value>
+            <value>
+                <fullName>Other (See Status Notes)</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>Other (See Status Notes)</label>
+            </value>
+            <value>
+                <fullName>Reference Checks</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>Reference Checks</label>
+            </value>
+            <value>
+                <fullName>Screening Matrix Revisions Needed</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>Screening Matrix Revisions Needed</label>
+            </value>
+            <value>
+                <fullName>Statement of Qualifications</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>Statement of Qualifications</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+    <visibleLines>4</visibleLines>
+</CustomField>

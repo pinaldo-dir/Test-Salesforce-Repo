@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Refer_To_JEU_Check_Low_Wage_Industry</fullName>
+    <active>false</active>
+    <description>Before the referral record type WCA Referral to JEU can be complete, the fields “Low-Wage Industry”, and “Low-Wage Industry Selection” on case management must be populated</description>
+    <errorConditionFormula>RecordType.Name = 'WCA Referral to JEU'
+&amp;&amp; ( OR(ISBLANK( LowWageIndustry__c ),ISBLANK( LowWageIndustrySelection__c)))
+&amp;&amp; (CreatedDate &gt; DATETIMEVALUE( "2024-02-20 12:00:00" ))</errorConditionFormula>
+    <errorMessage>Employer Low-Wage Industry and Low-Wage Industry Selection cannot be blank</errorMessage>
+</ValidationRule>

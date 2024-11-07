@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>BOFE_Approve_referral_before_assigning</fullName>
+    <active>true</active>
+    <description>Ensure that the referral has been approved before assignments are made.</description>
+    <errorConditionFormula>(
+  Referral__r.RecordType.DeveloperName = 'BOFE_Civil_Litigation_Referral'
+  ||
+  Referral__r.RecordType.DeveloperName = 'BOFE_Request_for_Legal_Court_Action'
+  ||
+  Referral__r.RecordType.DeveloperName = 'BOFE_Request_for_Legal_Services'
+)
+&amp;&amp;
+(
+  ISPICKVAL (  Referral__r.Request_Status__c , 'Pending Approval' ) 
+  || 
+  ISPICKVAL (  Referral__r.Request_Status__c , 'Denied' )
+  ||
+  ISPICKVAL (  Referral__r.Request_Status__c , 'Closed' )
+)
+&amp;&amp; 
+( 
+  ISNEW() 
+  || 
+  ( 
+    Currently_Assigned__c 
+    &amp;&amp; 
+    !PRIORVALUE( Currently_Assigned__c) 
+  )
+)</errorConditionFormula>
+    <errorMessage>Please approve the referral before assigning to an attorney. A referral must also be active in order to be assigned.</errorMessage>
+</ValidationRule>

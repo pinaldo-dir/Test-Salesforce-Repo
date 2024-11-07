@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <description>Notification template used in flow to notify cashiering that payment allocation recommendations have been made</description>
+    <encodingKey>ISO-8859-1</encodingKey>
+    <name>Case Payment Allocations Recommended</name>
+    <style>none</style>
+    <subject>Allocations have been recommended for a case payment</subject>
+    <type>text</type>
+    <uiType>Aloha</uiType>
+</EmailTemplate>

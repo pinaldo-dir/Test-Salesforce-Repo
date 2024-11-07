@@ -1,0 +1,49 @@
+<!--
+  @description       : 
+  @author            : ChangeMeIn@UserSettingsUnder.SFDoc
+  @group             : 
+  @last modified on  : 01-20-2022
+  @last modified by  : ChangeMeIn@UserSettingsUnder.SFDoc
+-->
+<template>
+    <div class="slds-grid slds-wrap">
+        <div class="slds-col slds-medium-size_1-of-1 slds-large-size_1-of-1">
+            <template if:true={isrenderOverTimeSection}>
+                <template for:each={renderOverTimeSection} for:item="overtimeObj">
+                    <div class="" key={overtimeObj.Id}>
+                        <div class="slds-grid slds-wrap">
+                                <h2 class="slds-col slds-medium-size_5-of-6 slds-large-size_5-of-6 slds-p-around_medium">
+                                    {overtimeObj.heading}
+                                </h2>
+                            
+                            <div class="slds-col slds-p-top_medium slds-p-bottom_medium slds-medium-size_1-of-6 slds-large-size_1-of-6">
+                                <template if:false={iswagedefpreview}>
+                                    <template if:true={overtimeObj.button}>
+                                        <lightning-button variant="brand" label={customLabelValues.OWC_delete_claim_button} title={customLabelValues.OWC_delete_claim_button} name={overtimeObj.sectionId} onclick={handleSectionDelete} class="slds-float_right owcButtonStyle"></lightning-button>
+                                    </template>
+                                </template>
+                            </div>
+                            <template if:false={overtimeObj.button}>
+                                <div class="slds-p-left_medium slds-p-right_medium">
+                                    {customLabelValues.OWC_overtime_text}
+                                </div>
+                                <div class="slds-p-top_medium slds-p-left_medium slds-p-right_medium">
+                                    {customLabelValues.OWC_claim_period_alert_msg}
+                                </div>
+                            </template>
+                        </div>
+                        <div class="slds-p-left_medium">
+                            <c-owc-Over-Time-Or-Double-Time-Def-Garment-Child is_domestic_worker={is_domestic_worker} isfarmlabour={isfarmlabour} iswagedefpreview={iswagedefpreview} powdetails={powdetails} userworkedhours={userworkedhours} onovertimecustominfoevent={handleOverTimeInfoEvent} onovertimedefchildvalidityevent={handleOverTimeChildValidityEvent} sectionid={overtimeObj.sectionId} onovertimesectiondeleteevent={handleEmployerSectionDeletedData}></c-owc-Over-Time-Or-Double-Time-Def-Garment-Child>
+                        </div>
+                    </div>
+                </template>
+            </template>
+        </div>
+        <div class="slds-p-left_medium slds-p-top_medium slds-col slds-medium-size_1-of-1 slds-large-size_1-of-1">
+            <template if:false={iswagedefpreview}>
+                {customLabelValues.OWC_overtime_pay_claim_label}&nbsp;
+                <lightning-button class="owcAdditionalButtonStyle" icon-name="utility:add" variant="brand" label={customLabelValues.OWC_repeat_claim} onclick={addMoreOverTimeSection}></lightning-button>
+            </template>
+        </div>
+    </div>
+</template>

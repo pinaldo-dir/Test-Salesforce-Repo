@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <encodingKey>ISO-8859-1</encodingKey>
+    <name>Claim Email Reply INVALID</name>
+    <style>none</style>
+    <subject>Confirmation notification for ({Case.Name})</subject>
+    <textOnly>Hello &lt;Claimant&gt;,&lt;br&gt;&lt;/br&gt;
+&lt;br&gt;&lt;/br&gt;
+Thank you for your timely response to our request. However, your reply did not give us sufficient direction on whether to CONFIRM or DENY the claim submitted on your behalf by &lt;advocate/rep&gt; against &lt;Defendant&gt; on &lt;filed date&gt;. Until we receive one of the two instructions, CONFIRM to move forward or DENY to close this case, from you, we will hold the claim in a pending status for 60 days after which the case will be closed. &lt;br&gt;&lt;/br&gt;
+&lt;br&gt;&lt;/br&gt;
+If you have any questions or concerns about your decision, please call us at 833-LCO-INFO (833-526-4636).&lt;br&gt;&lt;/br&gt;
+&lt;br&gt;&lt;/br&gt;
+
+Labor Commissioner&apos;s Office</textOnly>
+    <type>custom</type>
+    <uiType>Aloha</uiType>
+</EmailTemplate>

@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Case_Source_LETF_Number_Call_Email</fullName>
+    <active>true</active>
+    <description>LETF Team Number is required when the "Case Source" is "LETF Call/Email"</description>
+    <errorConditionFormula>ISPICKVAL ( Case_Source__c , "LETF Call/Email")
+&amp;&amp; ISBLANK( TEXT(LETF_Team_Number__c) )</errorConditionFormula>
+    <errorDisplayField>LETF_Team_Number__c</errorDisplayField>
+    <errorMessage>LETF Team Number is required when the "Case Source" is "LETF Call/Email"</errorMessage>
+</ValidationRule>

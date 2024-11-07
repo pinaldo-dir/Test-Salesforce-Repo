@@ -1,0 +1,166 @@
+<!--
+  @description       : 
+  @author            : ChangeMeIn@UserSettingsUnder.SFDoc
+  @group             : 
+  @last modified on  : 09-28-2022
+  @last modified by  : ChangeMeIn@UserSettingsUnder.SFDoc
+-->
+<template>
+    <template if:true={iswagedefpreview}>
+        <template if:true={isOneHourlyRatePOW}>
+            <div class="slds-grid slds-wrap">
+                <template for:each={violationTypeVariablesForOneHourlyRate} for:item="varObj">
+                    <template if:true={varObj.isShow}>
+	
+                    </template>
+                    <template if:true={varObj.value}>
+                        <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-2 slds-large-size_1-of-2" key={varObj.recordId}>
+                            <div class="slds-p-around_medium">
+                                {varObj.label} 
+                                <template if:false={varObj.currencyFormat}>
+                                    <span class="requiredStyle"><abbr title="required">*</abbr></span>
+                                </template>
+                                <template if:true={varObj.dateFormat}>
+                                    <lightning-input disabled date-style="short" type={varObj.dataType} variant="label-hidden" data-id={varObj.name} name={varObj.name} value={varObj.value} onchange={handleChange}></lightning-input>
+                                </template>
+                                <template if:true={varObj.currencyFormat}>
+                                    <lightning-input disabled variant="label-hidden" placeholder="$0.00" formatter="currency" step="0.01" type="number" data-id={varObj.name} name={varObj.name} value={varObj.value} onchange={handleChange}></lightning-input>
+                                </template>
+                                <template if:true={varObj.numberFormat}>
+                                    <lightning-input disabled variant="label-hidden" type="number" data-id={varObj.name} name={varObj.name} value={varObj.value} onchange={handleChange}></lightning-input>
+                                </template>
+                                <template if:true={varObj.inputFormat}>
+                                    <lightning-input disabled variant="label-hidden" type={varObj.dataType} data-id={varObj.name} name={varObj.name} value={varObj.value} onchange={handleChange}></lightning-input>
+                                </template>
+                                
+                            </div>
+                        </div>
+                    </template>
+                    <!-- <template if:true={varObj.isMileageRate}>
+                        <template if:true={mileageReimbursement}>
+                            <div class="slds-p-around_medium slds-col slds-size_1-of-1 slds-medium-size_1-of-2 slds-large-size_1-of-2" key={varObj.recordId}>
+                                {customLabelValues.OWC_mileage_rate}
+                                <lightning-input disabled variant="label-hidden" placeholder="$0.00" formatter="currency" step="0.01" type="number" data-id="mileageReimbursement" name="mileageReimbursement" value={mileageReimbursement} onchange={handleChange}></lightning-input>
+                            </div>
+                        </template>
+                    </template> -->
+                </template>
+                <template if:true={isMoreThanOneCalendar}>
+                    <div class="slds-col slds-p-around_medium slds-size_1-of-1 slds-medium-size_1-of-1 slds-large-size_1-of-1">
+                        <div style="color:red;">
+                            {msg}
+                        </div>
+                    </div>
+                </template>
+                <template if:true={mileageLog}>
+                    <div class="slds-col slds-p-around_medium slds-size_1-of-1 slds-medium-size_1-of-2 slds-large-size_1-of-2">
+                        {customLabelValues.OWC_do_you_mileage_claim}
+                        <lightning-radio-group 
+                            disabled
+                            variant="label-hidden" 
+                            name="mileageLog"
+                            options={radioOptions}
+                            data-id="mileageLog"
+                            value={mileageLog}
+                            type="radio"
+                            class="radioGroupStyle"
+                            onchange={handleChange}>
+                        </lightning-radio-group>
+                    </div>
+                </template>
+                
+                <!-- <div class="slds-col slds-p-around_medium slds-size_1-of-1 slds-medium-size_1-of-2 slds-large-size_1-of-2"> -->
+                    
+                    <!-- <lightning-radio-group 
+                        variant="label-hidden" 
+                        name="mileageReimbursement"
+                        options={radioOptions}
+                        data-id="mileageReimbursement"
+                        value={mileageReimbursement}
+                        type="radio"
+                        class="radioGroupStyle"
+                        onchange={handleChange}>
+                    </lightning-radio-group> -->
+                <!-- </div> -->
+                <!-- <div class="slds-col slds-p-around_medium slds-size_1-of-1 slds-medium-size_1-of-2 slds-large-size_1-of-2">
+                    Total amount of mileage claimed for this deficiency period
+                    <lightning-input variant="label-hidden" placeholder="$0.00" formatter="currency" step="0.01" type="number" data-id="totalMileageRate" name="totalMileageRate" value={totalMileageRate} onchange={handleChange}></lightning-input>
+                </div> -->
+            </div>
+        </template>
+    </template>
+    <template if:false={iswagedefpreview}>
+        <template if:true={isOneHourlyRatePOW}>
+            <div class="slds-grid slds-wrap">
+                <template for:each={violationTypeVariablesForOneHourlyRate} for:item="varObj">
+                    <template if:true={varObj.isShow}>
+                        <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-2 slds-large-size_1-of-2" key={varObj.recordId}>
+                            <div class="slds-p-around_medium">
+                                {varObj.label} 
+                                <template if:false={varObj.currencyFormat}>
+                                    <span class="requiredStyle"><abbr title="required">*</abbr></span>
+                                </template>
+                                <template if:true={varObj.dateFormat}>
+                                    <lightning-input max-length="255" date-style="short" type={varObj.dataType} variant="label-hidden" data-id={varObj.name} name={varObj.name} value={varObj.value} onchange={handleChange}></lightning-input>
+                                </template>
+                                <template if:true={varObj.currencyFormat}>
+                                    <lightning-input max-length="255" variant="label-hidden" placeholder="$0.00" formatter="currency" step="0.01" type="number" data-id={varObj.name} name={varObj.name} value={varObj.value} onchange={handleChange}></lightning-input>
+                                </template>
+                                <template if:true={varObj.numberFormat}>
+                                    <lightning-input max-length="255" variant="label-hidden" type="number" data-id={varObj.name} name={varObj.name} value={varObj.value} onchange={handleChange}></lightning-input>
+                                </template>
+                                <template if:true={varObj.inputFormat}>
+                                    <lightning-input max-length="255" variant="label-hidden" type={varObj.dataType} data-id={varObj.name} name={varObj.name} value={varObj.value} onchange={handleChange}></lightning-input>
+                                </template>
+                                
+                            </div>
+                        </div>
+                    </template>
+                    <template if:true={varObj.isMileageRate}>
+                        <div class="slds-p-around_medium slds-col slds-size_1-of-1 slds-medium-size_1-of-2 slds-large-size_1-of-2" key={varObj.recordId}>
+                            {customLabelValues.OWC_mileage_rate}
+                            <lightning-input max-length="255" variant="label-hidden" placeholder="$0.00" formatter="currency" step="0.01" type="number" data-id="mileageReimbursement" name="mileageReimbursement" value={mileageReimbursement} onchange={handleChange}></lightning-input>
+                        </div>
+                    </template>
+                </template>
+                <template if:true={isMoreThanOneCalendar}>
+                    <div class="slds-col slds-p-around_medium slds-size_1-of-1 slds-medium-size_1-of-1 slds-large-size_1-of-1">
+                        <div style="color:red;">
+                            {msg}
+                        </div>
+                    </div>
+                </template>
+                <div class="slds-col slds-p-around_medium slds-size_1-of-1 slds-medium-size_1-of-2 slds-large-size_1-of-2">
+                    {customLabelValues.OWC_do_you_mileage_claim}
+                    <lightning-radio-group 
+                        variant="label-hidden" 
+                        name="mileageLog"
+                        options={radioOptions}
+                        data-id="mileageLog"
+                        value={mileageLog}
+                        type="radio"
+                        class="radioGroupStyle"
+                        onchange={handleChange}>
+                    </lightning-radio-group>
+                </div>
+                <!-- <div class="slds-col slds-p-around_medium slds-size_1-of-1 slds-medium-size_1-of-2 slds-large-size_1-of-2"> -->
+                    
+                    <!-- <lightning-radio-group 
+                        variant="label-hidden" 
+                        name="mileageReimbursement"
+                        options={radioOptions}
+                        data-id="mileageReimbursement"
+                        value={mileageReimbursement}
+                        type="radio"
+                        class="radioGroupStyle"
+                        onchange={handleChange}>
+                    </lightning-radio-group> -->
+                <!-- </div> -->
+                <!-- <div class="slds-col slds-p-around_medium slds-size_1-of-1 slds-medium-size_1-of-2 slds-large-size_1-of-2">
+                    Total amount of mileage claimed for this deficiency period
+                    <lightning-input variant="label-hidden" placeholder="$0.00" formatter="currency" step="0.01" type="number" data-id="totalMileageRate" name="totalMileageRate" value={totalMileageRate} onchange={handleChange}></lightning-input>
+                </div> -->
+            </div>
+        </template>
+    </template>
+</template>

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+        <help><!-- Please select one --></help>
+        <label><!-- Gross Sales for Contractors --></label>
+        <name>Gross_Sales_for_Contractors__c</name>
+        <picklistValues>
+            <masterLabel>$1,000,001 or more</masterLabel>
+            <translation><!-- $1,000,001 or more --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>$100,000 or less</masterLabel>
+            <translation><!-- $100,000 or less --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>$100,001 to $500,000</masterLabel>
+            <translation><!-- $100,001 to $500,000 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>$500,001 to $1,000,000</masterLabel>
+            <translation><!-- $500,001 to $1,000,000 --></translation>
+        </picklistValues>
+    </CustomFieldTranslation>

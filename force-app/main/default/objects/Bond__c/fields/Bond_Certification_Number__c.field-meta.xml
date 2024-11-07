@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Bond_Certification_Number__c</fullName>
+    <description>Bond Certification number use in Registration Services</description>
+    <externalId>false</externalId>
+    <inlineHelpText>Enter Bond Certification Number</inlineHelpText>
+    <label>Bond Certification Number</label>
+    <length>20</length>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

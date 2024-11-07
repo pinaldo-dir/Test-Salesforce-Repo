@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>First_Scheduled_Interview_Date__c</fullName>
+    <description>Updated by "HR Update Form 1 with F1 Status Reasons and Others"</description>
+    <externalId>false</externalId>
+    <label>First Scheduled Interview Date</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackTrending>false</trackTrending>
+    <type>Date</type>
+</CustomField>

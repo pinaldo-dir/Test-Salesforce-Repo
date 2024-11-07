@@ -1,0 +1,910 @@
+<!--
+  @description       : 
+  @author            : ChangeMeIn@UserSettingsUnder.SFDoc
+  @group             : 
+  @last modified on  : 10-21-2021
+  @last modified by  : ChangeMeIn@UserSettingsUnder.SFDoc
+-->
+<template>
+    
+    <template if:true={isFormPreview}>
+        <form class="">
+            <div class="slds-grid slds-wrap">
+                <div class="slds-col slds-medium-size_1-of-8 slds-large-size_1-of-8"></div>
+                <div class="slds-col slds-size_1-of-1 slds-medium-size_6-of-8 slds-large-size_6-of-8">
+                    <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-1 slds-large-size_1-of-1">
+                        <div class="slds-grid slds-wrap">
+                            <div class="slds-col slds-size_1-of-1 slds-medium-size_5-of-6 slds-large-size_5-of-6">
+                                <h1 class="slds-p-around_medium slds-text-heading_large owcHeadingStyle">
+                                    {customLabelValues.OWC_PaymentOfWages}
+                                </h1>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Please select the payment type(s) that you are paid by your employer: -->
+                        <!-- <div class="slds-p-around_medium slds-col slds-small-size_1-of-1 slds-medium-size_1-of-1 breakStyle" >
+                            <span >
+                                <div class="slds-form-element">
+                                    {customLabelValues.OWC_SelectPayment}
+                                    <span class="requiredStyle"><abbr title="required">*</abbr></span>
+                                    <div class="slds-form-element__control" >
+                                        <lightning-checkbox-group name="empPaymentType"
+                                                                class="radioGroupStyle"
+                                                                data-id="empPaymentType"
+                                                                disabled
+                                                                variant="label-hidden"
+                                                                options={options}
+                                                                value={value}
+                                                                onblur={handleempPaymentTypeFocus}
+                                                                onchange={handleChange}>
+                                        </lightning-checkbox-group>    
+                                    </div>
+                                </div>
+                            </span>
+                        </div> -->
+                        <!-- Please select the payment type(s) that you are paid by your employer: -->
+                        <div class="slds-p-around_medium slds-col slds-small-size_1-of-1 slds-medium-size_1-of-1" >
+                            <span>
+                                <div class="slds-form-element">
+                                    <div class="slds-p-bottom_medium">
+                                        {customLabelValues.OWC_SelectPayment}
+                                        <span class="requiredStyle"><abbr title="required">*</abbr></span>
+                                    </div>
+                                    
+                                    <!--One Hourly CheckBox-->
+                                    <template if:true={paymentWagesDetailPreview.HourlyOptionValue}>
+                                        <div class="slds-wrap slds-grid ">
+                                            <lightning-input 
+                                                    name="HourlyOption"
+                                                    disabled
+                                                    label={customLabelValues.OWC_one_hourly_rate_label}
+                                                    type="checkbox"
+                                                    value ={paymentWagesDetailPreview.HourlyOptionValue}
+                                                    data-id="HourlyOption"
+                                                    checked={paymentWagesDetailPreview.HourlyOptionValue}
+                                                    onchange={handleChange}>
+                                            </lightning-input>
+                                            <!-- <span class="slds-p-left_x-small">
+                                                <lightning-icon icon-name="utility:info" class="my-icon" size="x-small" alternative-text="info"  label={customLabelValues.OWC_learnmore_button} name="oneHourlyOptionsHelpText" onclick={handleHelpText} ></lightning-icon>
+                                            </span> -->
+                                        </div>
+                                        <!--One hourly rate of pay for all regular hours-->
+                                        <template if:true={isOneHourly}>
+                                            <fieldset class="">
+                                                <div class="slds-grid slds-wrap">
+                                                        <div class="slds-col slds-size_8-of-8 slds-small-size_8-of-8 slds-medium-size_8-of-8 slds-large-size_2-of-8">
+                                                            <div class="slds-grid slds-wrap">
+                                                                <!--1. I was paid $ for-->
+                                                                <template if:true={paymentWagesDetailPreview.paidAmountPerHour}>
+                                                                    <div class="slds-col slds-small-size_1-of-1 slds-medium-size_1-of-1">
+                                                                        <fieldset class="slds-p-top_medium slds-p-bottom_medium slds-p-right_medium">
+                                                                        {customLabelValues.OWC_PaidPerHour}
+                                                                            <lightning-input variant="label-hidden"
+                                                                                                name="paidAmountPerHour"
+                                                                                                placeholder="$0.00"
+                                                                                                disabled
+                                                                                                type="currency"
+                                                                                                value ={paymentWagesDetailPreview.paidAmountPerHour}
+                                                                                                formatter="currency"
+                                                                                                step="0.01"
+                                                                                                data-id="paidAmountPerHour"
+                                                                                                onchange={handleChange}
+                                                                                                onblur={handlepaidAmountPerHourFocus}>
+                                                                            </lightning-input>
+                                                                        </fieldset>
+                                                                    </div>
+                                                                </template>
+                                                                <!--I was promised $ for-->
+                                                                <template if:true={paymentWagesDetailPreview.promisedAmountPerHour}>
+                                                                    <div class="slds-col slds-small-size_1-of-1 slds-medium-size_1-of-1">
+                                                                        <fieldset class="slds-p-top_medium slds-p-bottom_medium slds-p-right_medium">
+                                                                            {customLabelValues.OWC_PromisedPerHour}
+                                                                            <lightning-input variant="label-hidden"
+                                                                            disabled
+                                                                                                name="promisedAmountPerHour"
+                                                                                                placeholder="$0.00"
+                                                                                                type="currency"
+                                                                                                formatter="currency"
+                                                                                                step="0.01"
+                                                                                                value ={paymentWagesDetailPreview.promisedAmountPerHour}
+                                                                                                data-id="promisedAmountPerHour"
+                                                                                                onchange={handleChange}
+                                                                                                onblur={handlepromisedAmountPerHourFocus}>
+                                                                            </lightning-input>
+                                                                        </fieldset>
+                                                                    </div>
+                                                                </template>
+                                                            </div>  
+                                                        </div>
+                                                        
+                                                    <!--per Hour-->
+                                                    <template if:true={paymentWagesDetailPreview.hourlyRateBegDate}>
+                                                        <div class="slds-col slds-size_8-of-8 slds-small-size_8-of-8 slds-medium-size_8-of-8 slds-large-size_2-of-8">
+                                                            <fieldset class="slds-p-top_medium slds-p-bottom_medium slds-p-right_medium slds-align_absolute-center">
+                                                                {customLabelValues.Owc_perHour}
+                                                            </fieldset>
+                                                        </div>
+                                                    </template>
+                                                    <!--Beginning Date-->
+                                                    <template if:true={paymentWagesDetailPreview.hourlyRateBegDate}>
+                                                        <div class="slds-col slds-size_8-of-8 slds-small-size_8-of-8 slds-medium-size_8-of-8 slds-large-size_2-of-8">
+                                                            <fieldset class="slds-p-top_medium slds-p-bottom_medium slds-p-right_medium">
+                                                                {customLabelValues.Owc_Beginning}
+                                                                <lightning-input variant="label-hidden"
+                                                                disabled
+                                                                                            placeholder="MM/DD/YYYY"
+                                                                                            name="hourlyRateBegDate"
+                                                                                            type="date"
+                                                                                            value ={paymentWagesDetailPreview.hourlyRateBegDate}
+                                                                                            data-id="hourlyRateBegDate"
+                                                                                            onchange={handleChange}
+                                                                                            onblur={handlehourlyRateBegDateFocus}>
+                                                                </lightning-input>
+                                                            </fieldset>
+                                                        </div>
+                                                    </template>
+                                                    <!--Ending Date-->
+                                                    <template if:true={paymentWagesDetailPreview.hourlyRateEndDate}>
+                                                        <div class="slds-col slds-size_8-of-8 slds-small-size_8-of-8 slds-medium-size_8-of-8 slds-large-size_2-of-8">
+                                                            <fieldset class="slds-p-top_medium slds-p-bottom_medium slds-p-right_medium">
+                                                                {customLabelValues.Owc_Ending}
+                                                                <lightning-input variant="label-hidden"
+                                                                disabled
+                                                                                            placeholder="MM/DD/YYYY"
+                                                                                            name="hourlyRateEndDate"
+                                                                                            type="date"
+                                                                                            value ={paymentWagesDetailPreview.hourlyRateEndDate}
+                                                                                            data-id="hourlyRateEndDate"
+                                                                                            onchange={handleChange}
+                                                                                            onblur={handlehourlyRateEndDateFocus}
+                                                                                            >
+                                                                </lightning-input>
+                                                            </fieldset>
+                                                        </div>
+                                                    </template>
+
+
+                                                    <!--isOneHourlyRateClicked Additional part-->
+                                                    <div class="slds-col slds-small-size_1-of-1 slds-medium-size_1-of-1">
+                                                        <template if:true={paymentWagesDetailPreview.isOneHourlyAdditionalSection}>
+                                                            <template for:each={paymentWagesDetailPreview.renderOneHourlyAdditonalSection} for:item="oneHourlyAddObj">
+                                                                <div key={oneHourlyAddObj.Id}>
+                                                                    <c-owc-One-Hour-Additional-Cmp 
+                                                                                hoursectionid={oneHourlyAddObj.oneHourSectionId}
+                                                                                ononehouradditionalvalidityevent={handleOneHourlyAddSectionValidity} 
+                                                                                ononehourlyadditionalevent={handleOneHourlyAddSectionInfoEvent}
+                                                                                oncustomonehouradddeleteevent={handleOneHourlySectionDeletion}
+                                                                                ononehourlydataafterdelete={handleOneHourlySectionData}>
+                                                                    </c-owc-One-Hour-Additional-Cmp>
+                                                                </div>
+                                                            </template>
+                                                        </template>
+                                                    </div>
+                                                </div>
+                                            </fieldset>
+                                        </template>
+                                    </template>
+
+                                    <!--Different Hour CheckBox-->
+                                    <template if:true={paymentWagesDetailPreview.differentHourOptionValue}>
+                                        <div class="slds-wrap slds-grid ">
+                                            <lightning-input 
+                                                    label={customLabelValues.OWC_different_hourly_rate_label}
+                                                    name="differentHourOption"
+                                                    disabled
+                                                    type="checkbox"
+                                                    value ={paymentWagesDetailPreview.differentHourOptionValue}
+                                                    data-id="differentHourOption"
+                                                    checked={paymentWagesDetailPreview.differentHourOptionValue}
+                                                    onchange={handleChange}>
+                                            </lightning-input>
+                                            <!-- <span class="slds-p-left_x-small">
+                                                <lightning-icon icon-name="utility:info" class="my-icon" size="x-small" alternative-text="info"  label={customLabelValues.OWC_learnmore_button} name="differentHourlyOptionsHelpText" onclick={handleHelpText} ></lightning-icon>
+                                            </span> -->
+                                        </div>
+
+                                        <!--Different hourly rates depending on tasks performed-->
+                                        <template if:true={isDifferentHour}>
+                                                <fieldset class="">
+                                                    <div class="slds-grid slds-wrap">
+                                                        <div class="slds-col slds-small-size_1-of-1 slds-medium-size_1-of-1">
+                                                            {customLabelValues.OWC_ProvideDifferentRates}    
+                                                        </div>
+                                                        <div class="slds-col slds-small-size_2-of-8 slds-medium-size_2-of-8">
+                                                            <div class="slds-grid slds-wrap">
+                                                                <!--1. I was paid $ for-->
+                                                                <template if:true={paymentWagesDetailPreview.paidAmountDifferentHour}>
+                                                                    <div class="slds-col slds-small-size_1-of-1 slds-medium-size_1-of-1">
+                                                                        <fieldset class="slds-p-top_medium slds-p-bottom_medium slds-p-right_medium">
+                                                                        {customLabelValues.OWC_PaidPerHour}
+                                                                            <lightning-input variant="label-hidden"
+                                                                            placeholder="$0.00"
+                                                                            disabled
+                                                                                                name="paidAmountDifferentHour"
+                                                                                                type="currency"
+                                                                                                value ={paymentWagesDetailPreview.paidAmountDifferentHour}
+                                                                                                formatter="currency"
+                                                                                                step="0.01"
+                                                                                                data-id="paidAmountDifferentHour"
+                                                                                                onchange={handleChange}
+                                                                                                onblur={handlepaidAmountDifferentHourFocus}>
+                                                                            </lightning-input>
+                                                                        </fieldset>
+                                                                    </div>
+                                                                </template>
+                                                                <!--I was promised $ for-->
+                                                                <template if:true={paymentWagesDetailPreview.promisedAmountDifferentHour}>
+                                                                <div class="slds-col slds-small-size_1-of-1 slds-medium-size_1-of-1">
+                                                                        <fieldset class="slds-p-top_medium slds-p-bottom_medium slds-p-right_medium">
+                                                                            {customLabelValues.OWC_PromisedPerHour}
+                                                                            <lightning-input variant="label-hidden"
+                                                                            placeholder="$0.00"
+                                                                            disabled
+                                                                                                name="promisedAmountDifferentHour"
+                                                                                                type="currency"
+                                                                                                formatter="currency"
+                                                                                                step="0.01"
+                                                                                                value ={paymentWagesDetailPreview.promisedAmountDifferentHour}
+                                                                                                data-id="promisedAmountDifferentHour"
+                                                                                                onchange={handleChange}
+                                                                                                onblur={handlepromisedAmountDifferentHourFocus}>
+                                                                            </lightning-input>
+                                                                        </fieldset>
+                                                                    </div>
+                                                                </template>
+                                                            </div>  
+                                                        </div>
+                                                        <!--per Hour-->
+                                                        <template if:true={paymentWagesDetailPreview.forActivity}>
+                                                            <div class="slds-col slds-small-size_2-of-8 slds-medium-size_2-of-8">
+                                                                <fieldset class="slds-p-top_medium slds-p-bottom_medium slds-p-right_medium">
+                                                                    {customLabelValues.Owc_forActivity}
+                                                                    <lightning-input variant="label-hidden"
+                                                                    disabled
+                                                                                                name="forActivity"
+                                                                                                type="Text"
+                                                                                                value ={paymentWagesDetailPreview.forActivity}
+                                                                                                data-id="forActivity"
+                                                                                                onchange={handleChange}
+                                                                                                onblur={handleforActivityFocus}>
+                                                                    </lightning-input>
+                                                                </fieldset>
+                                                            </div>
+                                                        </template>
+                                                        <!--Beginning Date-->
+                                                        <template if:true={paymentWagesDetailPreview.differentHourlyRateBegDate}>
+                                                            <div class="slds-col slds-small-size_2-of-8 slds-medium-size_2-of-8">
+                                                                <fieldset class="slds-p-top_medium slds-p-bottom_medium slds-p-right_medium">
+                                                                    {customLabelValues.Owc_Beginning}
+                                                                    <lightning-input variant="label-hidden"
+                                                                    disabled
+                                                                                                placeholder="MM/DD/YYYY"
+                                                                                                name="differentHourlyRateBegDate"
+                                                                                                type="date"
+                                                                                                value ={paymentWagesDetailPreview.differentHourlyRateBegDate}
+                                                                                                data-id="differentHourlyRateBegDate"
+                                                                                                onchange={handleChange}
+                                                                                                onblur={handledifferentHourlyRateBegDateFocus}>
+                                                                    </lightning-input>
+                                                                </fieldset>
+                                                            </div>
+                                                        </template>
+                                                        <!--Ending Date-->
+                                                        <template if:true={paymentWagesDetailPreview.differentHourlyRateEndDate}>
+                                                            <div class="slds-col slds-small-size_2-of-8 slds-medium-size_2-of-8">
+                                                                <fieldset class="slds-p-top_medium slds-p-bottom_medium slds-p-right_medium">
+                                                                    {customLabelValues.Owc_Ending}
+                                                                    <lightning-input variant="label-hidden"
+                                                                    disabled
+                                                                                                placeholder="MM/DD/YYYY"
+                                                                                                name="differentHourlyRateEndDate"
+                                                                                                type="date"
+                                                                                                value ={paymentWagesDetailPreview.differentHourlyRateEndDate}
+                                                                                                data-id="differentHourlyRateEndDate"
+                                                                                                onchange={handleChange}
+                                                                                                onblur={handledifferentHourlyRateEndDateFocus}
+                                                                                                >
+                                                                    </lightning-input>
+                                                                </fieldset>
+                                                            </div>
+                                                        </template>
+
+                                                        <!--Additional PArt-->
+                                                        <div class="slds-col slds-small-size_1-of-1 slds-medium-size_1-of-1">
+                                                            <template if:true={paymentWagesDetailPreview.isDifferentHourAdditionalInfoSection}>
+                                                                <template for:each={paymentWagesDetailPreview.renderDifferentHourAdditonalSection} for:item="differentHourObj">
+                                                                    <div key={differentHourObj.Id}>
+                                                                        <c-Owc-Different-Hour-Rate-Additional  sectionid={differentHourObj.sectionId}
+                                                                                        ondifferenthouradditionalvalidityevent={handleDifferentHourAddSectionValidity} 
+                                                                                        ondifferenthouradditionalevent={handleDifferentHourAddSectionInfoEvent}
+                                                                                        oncustomdifferenthouradddeleteevent={handleDifferentHourAdditionalSectionDelete}
+                                                                                        ondifferenthouradditionaldeleteevent={handleDifferentHourAddSectionDeletedData}>
+                                                                        </c-Owc-Different-Hour-Rate-Additional>
+                                                                    </div>
+                                                                </template>
+                                                            </template>
+                                                        </div>
+                                                    </div>
+                                                </fieldset>
+                                        </template>
+                                    </template>
+
+                                    <!--Salary Rate CheckBox-->
+                                    <template if:true={paymentWagesDetailPreview.salaryRateOptionValue}>
+                                        <div class="slds-wrap slds-grid ">
+                                            <lightning-input
+                                                    disabled
+                                                    label={customLabelValues.OWC_salary_rate_label}
+                                                    name="salaryRateOption"
+                                                    type="checkbox"
+                                                    value ={paymentWagesDetailPreview.salaryRateOptionValue}
+                                                    data-id="salaryRateOption"
+                                                    checked ={paymentWagesDetailPreview.salaryRateOptionValue}
+                                                    onchange={handleChange}>
+                                            </lightning-input>
+                                        </div>
+                                        <!--Salary rate for each pay period-->
+                                        <template if:true={isSalaryRate}>
+                                                <fieldset class="">
+                                                    <div class="slds-grid slds-wrap">
+                                                        <div class="slds-col slds-small-size_1-of-1 slds-medium-size_1-of-1">
+                                                            {customLabelValues.OWC_FixedAmountWages}  
+                                                        </div>
+                                                        <div class="slds-col slds-small-size_2-of-8 slds-medium-size_2-of-8">
+                                                            <div class="slds-grid slds-wrap">
+                                                                <!--1. I was paid $ for--> 
+                                                                <template if:true={paymentWagesDetailPreview.paidAmountForEachDay}>
+                                                                    <div class="slds-col slds-small-size_1-of-1 slds-medium-size_1-of-1">
+                                                                        <fieldset class="slds-p-top_medium slds-p-bottom_medium slds-p-right_medium">
+                                                                        {customLabelValues.OWC_PaidPerHour}
+                                                                            <lightning-input variant="label-hidden"
+                                                                            disabled
+                                                                                                name="paidAmountForEachDay"
+                                                                                                type="currency"
+                                                                                                value ={paymentWagesDetailPreview.paidAmountForEachDay}
+                                                                                                formatter="currency"
+                                                                                                step="0.01"
+                                                                                                placeholder="$0.00"
+                                                                                                data-id="paidAmountForEachDay"
+                                                                                                onchange={handleChange}
+                                                                                                onblur={handlepaidAmountForEachDayFocus}>
+                                                                            </lightning-input>
+                                                                        </fieldset>
+                                                                    </div>
+                                                                </template>
+                                                                <!--I was promised $ for-->
+
+                                                                <template if:true={paymentWagesDetailPreview.promisedAmountForEachDay}>
+                                                                    <div class="slds-col slds-small-size_1-of-1 slds-medium-size_1-of-1">
+                                                                        <fieldset class="slds-p-top_medium slds-p-bottom_medium slds-p-right_medium">
+                                                                            {customLabelValues.OWC_PromisedPerHour}
+                                                                            <lightning-input variant="label-hidden"
+                                                                                                name="promisedAmountForEachDay"
+                                                                                                disabled
+                                                                                                type="currency"
+                                                                                                formatter="currency"
+                                                                                                step="0.01"
+                                                                                                placeholder="$0.00"
+                                                                                                value ={paymentWagesDetailPreview.promisedAmountForEachDay}
+                                                                                                data-id="promisedAmountForEachDay"
+                                                                                                onchange={handleChange}
+                                                                                                onblur={handlepromisedAmountForEachDayFocus}>
+                                                                            </lightning-input>
+                                                                        </fieldset>
+                                                                    </div>
+                                                                </template>
+                                                            </div>  
+                                                        </div>
+                                                        <!--per Hour-->
+                                                        <template if:true={paymentWagesDetailPreview.frequencyOfEachDay}>
+                                                            <div class="slds-col slds-small-size_2-of-8 slds-medium-size_2-of-8">
+                                                                <fieldset class="slds-p-top_medium slds-p-bottom_medium slds-p-right_medium">
+                                                                    {customLabelValues.Owc_forActivity}
+                                                                    <lightning-combobox  variant="label-hidden" name="frequencyOfEachDay"
+                                                                    disabled
+                                                                                                                placeholder={customLabelValues.OWC_select_picklist_label}
+                                                                                                                data-id="frequencyOfEachDay"
+                                                                                                                options={frequency_list_type}
+                                                                                                                value={paymentWagesDetailPreview.frequencyOfEachDay}
+                                                                                                                onchange={handleChange}>
+                                                                    </lightning-combobox>
+                                                                </fieldset>
+                                                            </div>
+                                                        </template>
+                                                        <!--Beginning Date-->
+                                                        <template if:true={paymentWagesDetailPreview.eachPayRateBegDate}>
+                                                            <div class="slds-col slds-small-size_2-of-8 slds-medium-size_2-of-8">
+                                                                <fieldset class="slds-p-top_medium slds-p-bottom_medium slds-p-right_medium">
+                                                                    {customLabelValues.Owc_Beginning}
+                                                                    <lightning-input variant="label-hidden"
+                                                                    disabled
+                                                                                                placeholder="MM/DD/YYYY"
+                                                                                                name="eachPayRateBegDate"
+                                                                                                type="date"
+                                                                                                value ={paymentWagesDetailPreview.eachPayRateBegDate}
+                                                                                                data-id="eachPayRateBegDate"
+                                                                                                onchange={handleChange}
+                                                                                                onblur={handleeachPayRateBegDateFocus}>
+                                                                    </lightning-input>
+                                                                </fieldset>
+                                                            </div>
+                                                        </template>
+                                                        <!--Ending Date-->
+                                                        <template if:true={paymentWagesDetailPreview.eachPayRateEndDate}>
+                                                            <div class="slds-col slds-small-size_2-of-8 slds-medium-size_2-of-8">
+                                                                <fieldset class="slds-p-top_medium slds-p-bottom_medium slds-p-right_medium">
+                                                                    {customLabelValues.Owc_Ending}
+                                                                    <lightning-input variant="label-hidden"
+                                                                    disabled
+                                                                                                placeholder="MM/DD/YYYY"
+                                                                                                name="eachPayRateEndDate"
+                                                                                                type="date"
+                                                                                                value ={paymentWagesDetailPreview.eachPayRateEndDate}
+                                                                                                data-id="eachPayRateEndDate"
+                                                                                                onchange={handleChange}
+                                                                                                onblur={handleeachPayRateEndDateFocus}
+                                                                                                >
+                                                                    </lightning-input>
+                                                                </fieldset>
+                                                            </div>
+                                                        </template>
+
+                                                        <div class="slds-col slds-small-size_1-of-1 slds-medium-size_1-of-1">
+                                                            <template if:true={paymentWagesDetailPreview.isSalaryRateAdditionalSection}>
+                                                                <template for:each={paymentWagesDetailPreview.renderSalaryRateAdditonalSection} for:item="salaryRateAddObj">
+                                                                    <div key={salaryRateAddObj.Id}>
+                                                                        <c-owc-Salary-Rate-Additional-Cmp 
+                                                                                    salaryratesectionid={salaryRateAddObj.salaryRateSectionId}
+                                                                                    onsalaryrateadditionalvalidityevent={salaryRateAddSectionValidity} 
+                                                                                    onsalaryrateadditionalevent={handleSalaryRateAddSectionInfoEvent}
+                                                                                    oncustomsalaryrateadddeleteevent={handleSalaryRateSectionDeletion}
+                                                                                    onsalaryratedataafterdelete={handleSalaryRateSectionData}>
+                                                                        </c-owc-Salary-Rate-Additional-Cmp>
+                                                                    </div>
+                                                                </template>
+                                                            </template>
+                                                        </div>
+                                                    </div>
+                                                </fieldset> 
+                                        </template>
+                                    </template>
+
+                                    <!--Commission Rate CheckBox-->
+                                    <template if:true={paymentWagesDetailPreview.commissionRateOptionValue}>
+                                        <div class="slds-wrap slds-grid ">
+                                            <lightning-input 
+                                            disabled
+                                                    label={customLabelValues.OWC_commission_rate_label}
+                                                    name="commissionRateOption"
+                                                    type="checkbox"
+                                                    value ={paymentWagesDetailPreview.commissionRateOptionValue}
+                                                    checked ={paymentWagesDetailPreview.commissionRateOptionValue}
+                                                    data-id="commissionRateOption"
+                                                    onchange={handleChange}>
+                                            </lightning-input>
+                                        </div>
+                                    
+                                        <!--Please provide the commission rates with the related services-->
+                                        <template if:true={commissionRate}>
+                                                <fieldset class="">
+                                                    <div class="slds-grid slds-wrap">
+                                                        <div class="slds-col slds-small-size_1-of-1 slds-medium-size_1-of-1">
+                                                            {customLabelValues.OWC_ProvideCommissionRate}
+                                                        </div>
+                                                        <div class="slds-col slds-small-size_2-of-8 slds-medium-size_2-of-8">
+                                                            <div class="slds-grid slds-wrap">
+                                                                <!--1. I was paid $ for--> 
+                                                                <template if:true={paymentWagesDetailPreview.paidCommissionRate}>
+                                                                    <div class="slds-col slds-small-size_1-of-1 slds-medium-size_1-of-1">
+                                                                        <fieldset class="slds-p-top_medium slds-p-bottom_medium slds-p-right_medium">
+                                                                            {customLabelValues.OWC_Paid}
+                                                                            <lightning-input variant="label-hidden"
+                                                                            disabled
+                                                                                                placeholder="$0.00"
+                                                                                                name="paidCommissionRate"
+                                                                                                type="currency"
+                                                                                                formatter="currency"
+                                                                                                step="0.01"
+                                                                                                value ={paymentWagesDetailPreview.paidCommissionRate}
+                                                                                                data-id="paidCommissionRate"
+                                                                                                onchange={handleChange}
+                                                                                                onblur={handlepaidCommissionRateFocus}>
+                                                                            </lightning-input>
+                                                                        </fieldset>
+                                                                    </div>
+                                                                </template>
+                                                                <!--I was promised $ for-->
+                                                                <template if:true={paymentWagesDetailPreview.promisedCommissionRate}>
+                                                                    <div class="slds-col slds-small-size_1-of-1 slds-medium-size_1-of-1">
+                                                                        <fieldset class="slds-p-top_medium slds-p-bottom_medium slds-p-right_medium">
+                                                                            {customLabelValues.OWC_Promised}  
+                                                                            <lightning-input variant="label-hidden"
+                                                                            disabled
+                                                                                                            placeholder="$0.00"
+                                                                                                            name="promisedCommissionRate"
+                                                                                                            type="currency"
+                                                                                                            formatter="currency"
+                                                                                                            step="0.01"
+                                                                                                            value ={paymentWagesDetailPreview.promisedCommissionRate}
+                                                                                                            data-id="promisedCommissionRate"
+                                                                                                            onchange={handleChange}
+                                                                                                            onblur={handlepromisedCommissionRateFocus}>
+                                                                            </lightning-input>
+                                                                        </fieldset>
+                                                                    </div>
+                                                                </template>
+                                                            </div>  
+                                                        </div>
+                                                        <!--Beginning Date-->
+                                                        <template if:true={paymentWagesDetailPreview.commissionRateBegDate}>
+                                                            <div class="slds-col slds-small-size_2-of-8 slds-medium-size_2-of-8">
+                                                                <fieldset class="slds-p-top_medium slds-p-bottom_medium slds-p-right_medium">
+                                                                    {customLabelValues.Owc_Beginning}
+                                                                    <lightning-input variant="label-hidden"
+                                                                    disabled
+                                                                                                placeholder="MM/DD/YYYY"
+                                                                                                name="commissionRateBegDate"
+                                                                                                type="date"
+                                                                                                value ={paymentWagesDetailPreview.commissionRateBegDate}
+                                                                                                data-id="commissionRateBegDate"
+                                                                                                onchange={handleChange}
+                                                                                                onblur={handlecommissionRateBegDateFocus}>
+                                                                    </lightning-input>
+                                                                </fieldset>
+                                                            </div>
+                                                        </template>
+                                                        <!--Ending Date-->
+                                                        <template if:true={paymentWagesDetailPreview.commissionRateEndDate}>
+                                                            <div class="slds-col slds-small-size_2-of-8 slds-medium-size_2-of-8">
+                                                                <fieldset class="slds-p-top_medium slds-p-bottom_medium slds-p-right_medium">
+                                                                    {customLabelValues.Owc_Ending}
+                                                                    <lightning-input variant="label-hidden"
+                                                                    disabled
+                                                                                                placeholder="MM/DD/YYYY"
+                                                                                                name="commissionRateEndDate"
+                                                                                                type="date"
+                                                                                                value ={paymentWagesDetailPreview.commissionRateEndDate}
+                                                                                                data-id="commissionRateEndDate"
+                                                                                                onchange={handleChange}
+                                                                                                onblur={handlecommissionRateEndDateFocus}
+                                                                                                >
+                                                                    </lightning-input>
+                                                                </fieldset>
+                                                            </div>
+                                                        </template>
+
+                                                        <template if:false={paymentWagesDetailPreview.isCommissionReciptFileUpload}>
+                                                            <div class="slds-col slds-small-size_1-of-1 slds-medium-size_1-of-1">
+                                                                <fieldset class="slds-p-top_medium slds-p-bottom_medium slds-p-right_medium">
+                                                                    <div>
+                                                                        Upload Recipt of commission summary
+                                                                    </div> 
+                                                                    <div>
+                                                                        <a href="https://www.dir.ca.gov/dlse/COMMISSION-SUMMARY-ES.pdf" target="_blank">https://www.dir.ca.gov/dlse/COMMISSION-SUMMARY-ES.pdf</a>
+                                                                        
+                                                                    </div>
+                                                                    <!--Upload Agrrement--> 
+                                                                    <template if:false={paymentWagesDetailPreview.isCommissionReciptFileUpload}>
+                                                                        <c-owc-Multiple-File-Upload-Details-Cmp data-id="summaryDocId" name="summaryDoc" isfileuploaded={isCommissionReciptFileUpload} onuploaddocumentevent={handleCommissionReciptDocsUpload}></c-owc-Multiple-File-Upload-Details-Cmp>
+                                                                    </template>
+                                                                </fieldset>
+                                                            </div>
+                                                        </template>
+                        
+                                                        <div class="slds-col slds-small-size_1-of-1 slds-medium-size_1-of-1">
+                                                            <fieldset class="slds-p-top_medium slds-p-bottom_medium slds-p-right_medium">
+                                                                <template if:true={paymentWagesDetailPreview.writtenCommission}>
+                                                                    {customLabelValues.OWC_WrittenCommissionAgreement}
+                                                                    
+                                                                        <!-- <span class="slds-p-left_medium learnMoreStyle">
+                                                                            <lightning-button variant="base" label={customLabelValues.OWC_learnmore_button} name="ProvideComissionRate" onclick={handleHelpText} class="slds-m-left_x-small"></lightning-button>
+                                                                        </span> -->
+                                                                    
+                                                                    <lightning-radio-group type="radio"
+                                                                    disabled
+                                                                                        variant="label-hidden" 
+                                                                                        name="writtenCommission"
+                                                                                        data-id="writtenCommission"
+                                                                                        options={YesOrNoOptions}
+                                                                                        value={paymentWagesDetailPreview.writtenCommission}
+                                                                                        onchange={handleChange}>
+                                                                    </lightning-radio-group>
+                                                                </template>
+                                                                <!--Upload Agrrement-->
+                                                                <template if:true={paymentWagesDetailPreview.isWrittenCommission}>   
+                                                                    <div class="slds-col slds-small-size_1-of-1 slds-medium-size_1-of-1">
+                                                                        <span>
+                                                                            <div class="slds-form-element">
+                                                                                <div>
+                                                                                    {customLabelValues.OWC_UploadAgreementFunction}    
+                                                                                    <span class="requiredStyle"><abbr title="required">*</abbr></span>
+                                                                                    <!-- <span class="slds-p-left_medium learnMoreStyle">
+                                                                                        <lightning-button variant="base" label={customLabelValues.OWC_learnmore_button} name="multiFileUploadHelpText" onclick={handleHelpText} class="slds-m-left_x-small"></lightning-button>
+                                                                                    </span> -->
+                                                                                </div> 
+                                                                                <template if:true={paymentWagesDetailPreview.isAgreementRequired}>
+                                                                                    <div class="requiredErrorMag">
+                                                                                        {customLabelValues.OWC_required_field_error_msg}
+                                                                                    </div>
+                                                                                </template>
+                                                                                <template if:false={paymentWagesDetailPreview.isAgreementFileUpload}>
+                                                                                    <c-owc-Multiple-File-Upload-Details-Cmp data-id="additionalDocId" name="additionalDoc" isfileuploaded={isAgreementFileUpload} onuploaddocumentevent={handleAgreementDocsUpload}></c-owc-Multiple-File-Upload-Details-Cmp>
+                                                                                </template>
+                                                                            </div>
+                                                                        </span>
+                                                                    </div>
+                                                                </template>
+                                                            </fieldset>
+                                                        </div>
+
+                                                        
+                                                    </div>
+                                                </fieldset>
+                                        </template>  
+                                    </template>
+
+                                    <!--piece Rate CheckBox-->
+                                    <template if:true={paymentWagesDetailPreview.pieceRateOptionValue}>
+                                        <div class="slds-wrap slds-grid ">
+                                            <lightning-input 
+                                            disabled
+                                                    label={customLabelValues.OWC_piece_rate_label}
+                                                    name="pieceRateOption"
+                                                    type="checkbox"
+                                                    value ={paymentWagesDetailPreview.pieceRateOptionValue}
+                                                    data-id="pieceRateOption"
+                                                    checked ={paymentWagesDetailPreview.pieceRateOptionValue}
+                                                    onchange={handleChange}>
+                                            </lightning-input>
+                                        </div>
+                                        <!--Please provide the piece rates with the related services:-->
+                                        <template if:true={paymentWagesDetailPreview.isPieceRate}>
+                                                <fieldset class="">
+                                                    <div class="slds-grid slds-wrap">
+                                                        <template if:true={paymentWagesDetailPreview.providePriceRate}>
+                                                            <div class="slds-col slds-small-size_1-of-1 slds-medium-size_1-of-1">                                                
+                                                                    <lightning-input type="checkbox"
+                                                                    disabled
+                                                                                        name="providePriceRate"
+                                                                                        label={customLabelValues.OWC_ProvidePriceRate}
+                                                                                        title={customLabelValues.OWC_ProvidePriceRate}
+                                                                                        data-id="providePriceRateId"
+                                                                                        value={value} onchange={handleChange} >
+                                                                    </lightning-input>                                                
+                                                                </div>
+                                                        </template>
+                                                
+                                                        <div class="slds-grid slds-wrap">
+                                                            <template if:false={paymentWagesDetailPreview.isProvidePriceRate}>
+                                                                <div class="slds-col slds-small-size_1-of-5 slds-medium-size_1-of-5">
+                                                                    <div class="slds-grid slds-wrap">
+                                                                        <!--1. I was paid $ for--> 
+                                                                        <template if:true={paymentWagesDetailPreview.paidPieceRate}>
+                                                                            <div class="slds-col slds-small-size_1-of-1 slds-medium-size_1-of-1">
+                                                                                <fieldset class="slds-p-top_medium slds-p-bottom_medium slds-p-right_medium">
+                                                                                    {customLabelValues.Owc_ratePaid}
+                                                                                    <lightning-input variant="label-hidden"
+                                                                                    disabled
+                                                                                                        placeholder="$0.00"
+                                                                                                        name="paidPieceRate"
+                                                                                                        type="currency"
+                                                                                                        formatter="currency"
+                                                                                                        step="0.01"
+                                                                                                        value ={paymentWagesDetailPreview.paidPieceRate}
+                                                                                                        data-id="paidPieceRate"
+                                                                                                        onchange={handleChange}
+                                                                                                        onblur={handlepaidPieceRateFocus}>
+                                                                                    </lightning-input>
+                                                                                </fieldset>
+                                                                            </div>
+                                                                        </template>
+                                                                        <!--I was promised $ for-->
+                                                                        <template if:true={paymentWagesDetailPreview.promisedPieceRate}>
+                                                                            <div class="slds-col slds-small-size_1-of-1 slds-medium-size_1-of-1">
+                                                                                <fieldset class="slds-p-top_medium slds-p-bottom_medium slds-p-right_medium">
+                                                                                    {customLabelValues.Owc_ratePromised}  
+                                                                                    <lightning-input variant="label-hidden"
+                                                                                                                    placeholder="$0.00"
+                                                                                                                    disabled
+                                                                                                                    name="promisedPieceRate"
+                                                                                                                    type="currency"
+                                                                                                                    formatter="currency"
+                                                                                                                    step="0.01"
+                                                                                                                    value ={paymentWagesDetailPreview.promisedPieceRate}
+                                                                                                                    data-id="promisedPieceRate"
+                                                                                                                    onchange={handleChange}
+                                                                                                                    onblur={handlepromisedPieceRateFocus}>
+                                                                                    </lightning-input>
+                                                                                </fieldset>
+                                                                            </div>
+                                                                        </template>
+                                                                    </div>  
+                                                                </div>
+
+                                                                <!--jyg-->                                                
+                                                                    <div class="slds-col slds-small-size_1-of-5 slds-medium-size_1-of-5">
+                                                                            <div class="slds-grid slds-wrap">
+                                                                                <template if:true={paymentWagesDetailPreview.perUnitPaymentOfWages}>
+                                                                                    <div class="slds-col slds-small-size_1-of-1 slds-medium-size_1-of-1">
+                                                                                        <fieldset class="slds-p-top_medium slds-p-bottom_medium slds-p-right_medium">
+                                                                                            {customLabelValues.Owc_perUnit}
+                                                                                            <lightning-combobox
+                                                                                                variant="label-hidden"
+                                                                                                disabled
+                                                                                                name="perUnitPaymentOfWages"
+                                                                                                data-id="perUnitPaymentOfWages"
+                                                                                                value={paymentWagesDetailPreview.perUnitPaymentOfWages}
+                                                                                                placeholder = {customLabelValues.OWC_select_picklist_label}
+                                                                                                options={perUnitPaymentOfWagesValue}
+                                                                                                onchange={handleChange}
+                                                                                                ></lightning-combobox>
+                                                                                            </fieldset>                                                              
+                                                                                    </div>
+                                                                                </template>
+                                                                                <template if:true={paymentWagesDetailPreview.isPerUnitOther}>
+                                                                                    <template if:true={isPerUnitOther}>
+                                                                                        <template if:true={paymentWagesDetailPreview.other}>
+                                                                                            <div class="slds-col slds-small-size_1-of-1 slds-medium-size_1-of-1">
+                                                                                                <fieldset class="slds-p-top_medium slds-p-bottom_medium slds-p-right_medium">
+                                                                                                    {customLabelValues.OWC_Other}
+                                                                                                    <lightning-input variant="label-hidden"
+                                                                                                                                name="other"
+                                                                                                                                type="text"
+                                                                                                                                value ={paymentWagesDetailPreview.other}
+                                                                                                                                data-id="other"
+                                                                                                                                onchange={handleChange}
+                                                                                                                                onblur={handleotherFocus}>
+                                                                                                    </lightning-input>
+                                                                                                </fieldset>
+                                                                                            </div>
+                                                                                        </template>
+                                                                                    </template>
+                                                                                </template>                                                        
+                                                                            </div>
+                                                                    </div>
+
+                                                                <template if:true={paymentWagesDetailPreview.numberOfUnits}>
+                                                                    <div class="slds-col slds-small-size_1-of-5 slds-medium-size_1-of-5">
+                                                                                <fieldset class="slds-p-top_medium slds-p-bottom_medium slds-p-right_medium">
+                                                                                    {customLabelValues.Owc_noOfUnits}
+                                                                                    <lightning-input variant="label-hidden"
+                                                                                    disabled
+                                                                                                        name="numberOfUnits"
+                                                                                                        type="Text"
+                                                                                                        value ={paymentWagesDetailPreview.numberOfUnits}
+                                                                                                        data-id="numberOfUnits"
+                                                                                                        onchange={handleChange}
+                                                                                                        onblur={handlenumberOfUnitsFocus}></lightning-input>
+                                                                                    </fieldset>                                                        
+                                                                    </div>
+                                                                </template>
+                                                            </template>
+                                                        
+                                                            <!--Beginning Date-->
+                                                            <template if:true={paymentWagesDetailPreview.pieceRateBegDate}>
+                                                                <div class="slds-col slds-small-size_1-of-5 slds-medium-size_1-of-5">
+                                                                    <fieldset class="slds-p-top_medium slds-p-bottom_medium slds-p-right_medium">
+                                                                        {customLabelValues.Owc_Beginning}
+                                                                        <lightning-input variant="label-hidden"
+                                                                        disabled
+                                                                                                    placeholder="MM/DD/YYYY"
+                                                                                                    name="pieceRateBegDate"
+                                                                                                    type="date"
+                                                                                                    value ={paymentWagesDetailPreview.pieceRateBegDate}
+                                                                                                    data-id="pieceRateBegDate"
+                                                                                                    onchange={handleChange}
+                                                                                                    onblur={handlepieceRateBegDateFocus}>
+                                                                        </lightning-input>
+                                                                    </fieldset>
+                                                                </div>
+                                                            </template>
+                                                            <!--Ending Date-->
+                                                            <template if:true={paymentWagesDetailPreview.pieceRateEndDate}>
+                                                                <div class="slds-col slds-small-size_1-of-5 slds-medium-size_1-of-5">
+                                                                    <fieldset class="slds-p-top_medium slds-p-bottom_medium slds-p-right_medium">
+                                                                        {customLabelValues.Owc_Ending}
+                                                                        <lightning-input variant="label-hidden"
+                                                                                                    placeholder="MM/DD/YYYY"
+                                                                                                    disabled
+                                                                                                    name="pieceRateEndDate"
+                                                                                                    type="date"
+                                                                                                    value ={paymentWagesDetailPreview.pieceRateEndDate}
+                                                                                                    data-id="pieceRateEndDate"
+                                                                                                    onchange={handleChange}
+                                                                                                    onblur={handlepieceRateEndDateFocus}
+                                                                                                    >
+                                                                        </lightning-input>
+                                                                    </fieldset>
+                                                                </div>  
+                                                            </template>                                    
+
+                                                                <!--Total Earned-->
+                                                            <template if:true={paymentWagesDetailPreview.pieceRateTotalEarned}>
+                                                                <div class="slds-col slds-small-size_1-of-5 slds-medium-size_1-of-5">
+                                                                    <fieldset class="slds-p-top_medium slds-p-bottom_medium slds-p-right_medium">
+                                                                        {customLabelValues.Owc_pieceRateTotalEarned}
+                                                                        <span class="requiredStyle1"><abbr title="required">*</abbr></span>  
+                                                                        <lightning-input variant="label-hidden"
+                                                                        disabled
+                                                                                                        placeholder="$0.00"
+                                                                                                        name="pieceRateTotalEarned"
+                                                                                                        type="currency"
+                                                                                                        formatter="currency"
+                                                                                                        step="0.01"
+                                                                                                        value ={paymentWagesDetailPreview.pieceRateTotalEarned}
+                                                                                                        data-id="pieceRateTotalEarned"
+                                                                                                        onchange={handleChange}
+                                                                                                        onblur={handlepieceRateTotalEarnedFocus}>
+                                                                        </lightning-input>
+                                                                    </fieldset>
+                                                                </div>
+                                                            </template>
+
+                                                            <!--Total Paid-->
+                                                            <template if:true={paymentWagesDetailPreview.pieceRateTotalPaid}>
+                                                                <div class="slds-col slds-small-size_1-of-5 slds-medium-size_1-of-5">
+                                                                    <fieldset class="slds-p-top_medium slds-p-bottom_medium slds-p-right_medium">
+                                                                        {customLabelValues.Owc_pieceRateTotalPaid}
+                                                                        <span class="requiredStyle1"><abbr title="required">*</abbr></span>  
+                                                                        <lightning-input variant="label-hidden"
+                                                                        disabled
+                                                                                                        placeholder="$0.00"
+                                                                                                        name="pieceRateTotalPaid"
+                                                                                                        type="currency"
+                                                                                                        formatter="currency"
+                                                                                                        step="0.01"
+                                                                                                        value ={paymentWagesDetailPreview.pieceRateTotalPaid}
+                                                                                                        data-id="pieceRateTotalPaid"
+                                                                                                        onchange={handleChange}
+                                                                                                        onblur={handlepieceRateTotalPaidFocus}>
+                                                                        </lightning-input>
+                                                                    </fieldset>
+                                                                </div>
+                                                            </template>
+
+                                                        
+
+                                                            <!--Garment User onnly-->
+                                                            <!-- <template if:true={paymentWagesDetailPreview.isGrament}>
+                                                                <template if:true={isGrament}>
+                                                                    <c-owc-payment-of-wages-for-garment-cmp onpowgarmentcustomevent={handlePaymentOfWagesForGarmentSectionEvent} onpaymentofwagesforgarmentvalidityevent={handlePaymentOfWagesForGramentSectionValidity} ></c-owc-payment-of-wages-for-garment-cmp>
+                                                                </template>
+                                                            </template> -->
+
+                                                            <!--Addditional Part-->
+                                                            <div class="slds-col slds-small-size_1-of-1 slds-medium-size_1-of-1">
+                                                                <template if:true={paymentWagesDetailPreview.isPieceRateAdditionalSection}>
+                                                                            <template for:each={paymentWagesDetailPreview.renderPieceRateAdditonalSection} for:item="pieceRateAddObj">
+                                                                                <div key={pieceRateAddObj.Id}>
+                                                                                    <c-owc-Piece-Rate-Additional-Cmp 
+                                                                                                pieceratesectionid={pieceRateAddObj.pieceRateSectionId}
+                                                                                                onpiecerateadditionalvalidityevent={pieceRateAddSectionValidity} 
+                                                                                                onpiecerateadditionalevent={handlePieceRateAddSectionInfoEvent}
+                                                                                                deletebutton={pieceRateAddObj.button}
+                                                                                                oncustompiecerateadddeleteevent={handlePieceRateSectionDeletion}
+                                                                                                onpieceratedataafterdelete={handlePieceRateSectionData}>
+                                                                                    </c-owc-Piece-Rate-Additional-Cmp>
+                                                                            </div>
+                                                                            </template>
+                                                                        </template>
+                                                            </div>
+                                                        
+                                                        </div>
+                                                    </div>
+
+                                                </fieldset> 
+                                        </template>
+                                    </template>
+                                </div>
+                            </span>
+                        </div>
+                <!--Help Text Section-->
+                <template if:true={isHelpText}>
+                    <c-owc-Help-Text-Cmp helptext={helpText} onhelptextevent={handleHelpTextEvent}></c-owc-Help-Text-Cmp>
+                </template>
+            </div>  
+        </div>          
+        </form>
+    </template>
+</template>

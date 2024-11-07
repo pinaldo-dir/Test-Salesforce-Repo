@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomMetadata xmlns="http://soap.sforce.com/2006/04/metadata" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <label>Industry 8</label>
+    <protected>false</protected>
+    <values>
+        <field>NaicsCodeLevel1EnglishTranslation__c</field>
+        <value xsi:type="xsd:string">Support Services</value>
+    </values>
+    <values>
+        <field>NaicsCodeLevel1SpanishTranslation__c</field>
+        <value xsi:type="xsd:string">Servicios de Apoyo</value>
+    </values>
+    <values>
+        <field>NaicsCodeLevel2EnglishTranslation__c</field>
+        <value xsi:type="xsd:string">General Warehousing and Storage~General Warehousing and Storage;Business Support Services~Business Support Services;Private Mail Centers~Private Mail Centers; Collection Agencies~Collection Agencies;Exterminating and Pest Control Services~Exterminating and Pest Control Services;Janitorial Services~Janitorial Services;Landscaping Services~Landscaping Services;Carpet and Upholstery Cleaning Services~Carpet and Upholstery Cleaning Services;Electronic and Precision Equipment Repair and Maintenance~Electronic and Precision Equipment Repair and Maintenance;Death Care Services~Death Care Services;Investigation and Security Services~Investigation and Security Services;Consumer Goods Rental~Consumer Goods Rental;Waste Management and Remediation Services~Waste Management and Remediation Services</value>
+    </values>
+    <values>
+        <field>NaicsCodeLevel2SpanishTranslation__c</field>
+        <value xsi:type="xsd:string">Almacenamiento General y Depósito;Servicios de Apoyo Comercial; Centros Privados de Correo Agencias de Cobro; Servicios de Exterminio y Control de Pestes; Servicios de Limpieza; Servicios de Paisajismo; Servicios de Limpieza de Alfombras y Tapicería; Reparación y Mantenimiento de Equipos Electrónicos y de Precisión; Servicios de Atencio de la Muerte; Servicios de Investigación y Seguridad; Alquiler de Productos de Consumo; Servicios de Gestión y Remediación de Residuos; Agencias de Cobranza</value>
+    </values>
+    <values>
+        <field>OWC_Industry__c</field>
+        <value xsi:type="xsd:string">Support Services</value>
+    </values>
+    <values>
+        <field>OWC_NAICS_Discription__c</field>
+        <value xsi:type="xsd:string">General Warehousing and Storage;Business Support Services;Private Mail Centers
+Collection Agencies;Exterminating and Pest Control Services;Janitorial Services;Landscaping Services;Carpet and Upholstery Cleaning Services;Electronic and Precision Equipment Repair and Maintenance;
+Death Care Services;Investigation and Security Services;Consumer Goods Rental;Waste Management and Remediation Services;Collection Agencies</value>
+    </values>
+    <values>
+        <field>Order_Number__c</field>
+        <value xsi:type="xsd:double">8.0</value>
+    </values>
+</CustomMetadata>

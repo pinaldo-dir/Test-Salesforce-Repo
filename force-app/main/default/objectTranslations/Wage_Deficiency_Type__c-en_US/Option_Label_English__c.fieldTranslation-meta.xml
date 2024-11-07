@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+        <label><!-- Option Label English --></label>
+        <name>Option_Label_English__c</name>
+    </CustomFieldTranslation>

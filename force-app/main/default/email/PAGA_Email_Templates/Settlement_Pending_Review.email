@@ -1,0 +1,10 @@
+TO: PAGA Attorneys 
+RE: Settlement Review Notification 
+
+There has been a Settlement received by the PAGA unit. Following are links for you to locate the document(s): 
+
+Link to Attachments Plus Record: {!Attachments_Plus__c.Link}
+Link to Case (if the Settlement matched to a case): {!DIR_Case__c.Link} 
+Case Number (if the Settlement matched to a case): {!DIR_Case__c.Name} {!Attachments_Plus__c.Case_Management__c}
+
+Alternatively you may also locate the Settlement from the Attachments Plus tab using the List View, “PAGA Attorney Review – Settlement”

@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <encodingKey>ISO-8859-1</encodingKey>
+    <name>HR New Training Notification Hiring Series</name>
+    <style>none</style>
+    <subject>Best Hiring Practices and Writing Effective and Compliant Duty Statements Training Courses</subject>
+    <textOnly>Greetings,
+
+
+You are receiving this email because our records indicate that you have recently been appointed to a supervisory or managerial classification at the Department of Industrial Relations (DIR). In line with the State’s merit-based principles and the California Department of Human Resources (CalHR) best hiring practices, all DIR supervisors and managers must complete CalHR’s Best Hiring Practices for Supervisors and Writing Effective and Compliant Duty Statements training courses within the first 60 days of appointment and before participating in DIR’s recruitment and hiring process.
+
+
+Step 1 – CalHR CalLearns Registration and Course Enrollment
+
+To register for these training courses, you must create an account on CalHR’s online learning management system CalLearns using your DIR email address.
+
+Once you have created a CalLearns account, log into the CalLearns system, find the mandatory trainings, and add them to your cart. Upon checkout, designate your direct supervisor to approve the courses. Your supervisor will then receive an email notification from CalHR Statewide Training to review your training request. If approved, your supervisor should select the Direct Transfer payment option and enter the following information:
+
+
+Department Division/Unit/Board or Contract*: (Identify your applicable division)
+
+Training Coordinator or Supervisor*: Elizabeth Rodriguez
+
+Telephone Number*: (510) 853-1569
+
+Email Address*: Training@dir.ca.gov
+
+Comments: (Optional)
+
+After your supervisor approves the courses, you will receive an email from CalHR Statewide Training confirming your registration for the courses. You should save this email for your records.
+
+Step 2 - Payment Request
+
+Once you receive the registration confirmation email and prior to the scheduled course date, you must complete DIR’s Request for OutService Training (OSTR) form and submit the completed form to the Office of Administrative Services (OAS) Training Unit at Training@dir.ca.gov.
+
+When completing the OSTR form, you must include your applicable service location number and reporting structure number located on the DIR Accounting Intranet page. You must also ensure the form has all required signatures prior to submitting it to the OAS Training Unit.
+
+Step 3 – Tracking Completion of Mandatory Training
+
+After completing the mandatory training and to receive course credit, you must email a copy of your certificate of completion to the OAS Training Unit at Training@dir.ca.gov.
+
+If you have any questions, you may contact the OAS Training Unit at Training@dir.ca.gov.
+
+Thank you!</textOnly>
+    <type>custom</type>
+    <uiType>Aloha</uiType>
+</EmailTemplate>

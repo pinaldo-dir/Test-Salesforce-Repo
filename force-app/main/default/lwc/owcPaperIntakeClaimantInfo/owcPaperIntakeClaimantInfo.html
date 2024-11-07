@@ -1,0 +1,286 @@
+<!--
+  @description       : 
+  @author            : ChangeMeIn@UserSettingsUnder.SFDoc
+  @group             : 
+  @last modified on  : 10-25-2021
+  @last modified by  : ChangeMeIn@UserSettingsUnder.SFDoc
+-->
+<template>
+    <div class="spinner">
+        <template if:true={isLoading}>
+             <lightning-spinner alternative-text="Loading" variant="brand" size="large">
+             </lightning-spinner>
+        </template>
+    </div>
+    <template if:false={isLoading}>
+        <div class="slds-p-left_medium">   
+            <div class="slds-grid slds-wrap">
+                <h2 class="slds-p-around_medium slds-col slds-size_1-of-1 slds-medium-size_1-of-1 slds-large-size_1-of-1">
+                    {customLabelValues.OWC_claimant_employee_heading}
+                </h2>
+                <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-2 slds-large-size_1-of-2">
+                    <fieldset class="slds-p-around_medium slds-p-left_xx-large">
+                                {customLabelValues.OWC_first_name}
+                                <span class="requiredStyle"><abbr title="required">*</abbr></span>
+                                <lightning-input variant="label-hidden" type="text" data-id="yourselfFirstName" name="yourselfFirstName" value={yourselfFirstName} read-only={isaccountid} title="First Name" onchange={handleChange}></lightning-input>
+                    </fieldset>
+                </div>
+                
+                <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-2 slds-large-size_1-of-2">
+                    <fieldset class="slds-p-around_medium slds-p-left_xx-large">
+                                {customLabelValues.OWC_middle_name}
+                                <lightning-input variant="label-hidden" type="text" data-id="yourselfMiddleName" name="yourselfMiddleName" value={yourselfMiddleName} read-only={isaccountid} title="Middle Name" onchange={handleChange}></lightning-input>
+                    </fieldset>
+                </div>
+                
+                <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-2 slds-large-size_1-of-2">
+                    <fieldset class="slds-p-around_medium slds-p-left_xx-large">
+                                {customLabelValues.OWC_last_name}
+                                <span class="requiredStyle"><abbr title="required">*</abbr></span>
+                                <lightning-input variant="label-hidden" type="text" data-id="yourselfLastName" name="yourselfLastName" value={yourselfLastName} read-only={isaccountid} title="Last Name" onchange={handleChange}></lightning-input>
+                    </fieldset>
+                </div>
+                
+                <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-2 slds-large-size_1-of-2">
+                    <fieldset class="slds-p-around_medium slds-p-left_xx-large">
+                                {customLabelValues.OWC_claimant_employee_birthdate}
+                                <span class="requiredStyle"><abbr title="required">*</abbr></span>
+                                <span class="slds-p-left_medium dateFormatLabel">{dateFormatLabel}</span>
+                                <lightning-input variant="label-hidden" date-style="short" type="date" data-id="yourselfBirthDate" name="yourselfBirthDate" read-only={isaccountid} value={yourselfBirthDate} title="BirthDate" onchange={handleChange}></lightning-input>
+                    </fieldset>
+                </div>
+                
+                <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-2 slds-large-size_1-of-2">
+                    <fieldset class="slds-p-around_medium slds-p-left_xx-large">
+                                {customLabelValues.OWC_CellPhone}
+                                <div class="slds-grid slds-wrap">
+                                    <div class="slds-col slds-size_3-of-7 slds-medium-size_1-of-2 slds-large-size_2-of-8 slds-p-right_xxx-small">
+                                        <lightning-combobox
+                                                variant="label-hidden" 
+                                                name="countryCodeyourselfCellPhone"
+                                                data-id="countryCodeyourselfCellPhone"
+                                                value={countryCodeyourselfCellPhone}
+                                                placeholder ={customLabelValues.OWC_select_picklist_label}
+                                                options={countryCodeValue}
+                                                onchange={handleChange} 
+                                                disabled={isaccountid}>
+                                        </lightning-combobox>
+                                    </div>
+                                    
+                                    <div class="slds-col slds-size_4-of-7 slds-medium-size_1-of-2 slds-large-size_6-of-8">
+                                        <lightning-input variant="label-hidden" data-id="yourselfCellPhone" name="yourselfCellPhone" value={yourselfCellPhone} read-only={isaccountid} type="tel" max-length="10" title="Cell Phone" onchange={handleChange}></lightning-input>
+                                    </div>
+                                </div>
+                    </fieldset>
+                </div>
+            
+                
+                <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-2 slds-large-size_1-of-2">
+                    <fieldset class="slds-p-around_medium slds-p-left_xx-large">
+                        {customLabelValues.OWC_claimant_employee_home_phone}
+                        <div class="slds-grid slds-wrap">
+                            <div class="slds-col slds-size_3-of-7 slds-medium-size_1-of-2 slds-large-size_2-of-8 slds-p-right_xxx-small">
+                                <lightning-combobox
+                                        variant="label-hidden" 
+                                        name="countryCodeyourselfHomePhone"
+                                        data-id="countryCodeyourselfHomePhone"
+                                        value={countryCodeyourselfHomePhone}
+                                        placeholder ={customLabelValues.OWC_select_picklist_label}
+                                        options={countryCodeValue}
+                                        onchange={handleChange} 
+                                        disabled={isaccountid}>
+                                </lightning-combobox>
+                            </div>
+                            
+                            <div class="slds-col slds-size_4-of-7 slds-medium-size_1-of-2 slds-large-size_6-of-8">
+                                <lightning-input read-only={isaccountid} variant="label-hidden" type="tel" max-length="10" data-id="yourselfHomePhone" name="yourselfHomePhone" value={yourselfHomePhone} title="Home Phone" onchange={handleChange}></lightning-input>
+                            </div>
+                        </div>
+                    </fieldset>
+                </div>
+                
+                <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-2 slds-large-size_1-of-2">
+                <fieldset class="slds-p-around_medium slds-p-left_xx-large">
+                            {customLabelValues.OWC_email}
+                            <span class="slds-p-left_x-small">
+                                <lightning-icon icon-name="utility:info" class="my-icon" size="x-small" alternative-text="info"  label={customLabelValues.OWC_learnmore_button} name="yourselfEmailHelpText" onclick={handleHelpText} ></lightning-icon>
+                                </span>
+                            <lightning-input read-only={isaccountid} variant="label-hidden" type="email" data-id="yourselfEmail" name="yourselfEmail" value={yourselfEmail} title="Email" onchange={handleChange}></lightning-input>
+                </fieldset>
+                </div>
+                
+                <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-2 slds-large-size_1-of-2">
+                <fieldset class="slds-p-around_medium slds-p-left_xx-large">
+                            {customLabelValues.OWC_street_address}
+                            <lightning-textarea read-only={isaccountid} variant="label-hidden" type="text" name="yourselfStreetAddress" value={yourselfStreetAddress} title="Street Address" onchange={handleChange}></lightning-textarea>
+                </fieldset>
+                </div>
+                
+                <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-2 slds-large-size_1-of-2">
+                <fieldset class="slds-p-around_medium slds-p-left_xx-large">
+                            {customLabelValues.OWC_city}
+                            <lightning-input read-only={isaccountid} variant="label-hidden" type="text" name="yourselfCity" value={yourselfCity} title="City" onchange={handleChange}></lightning-input>
+                </fieldset>
+                </div>
+                
+                <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-2 slds-large-size_1-of-2">
+                <fieldset class="slds-p-around_medium slds-p-left_xx-large">
+                            {customLabelValues.OWC_state}
+                            <lightning-combobox
+                            variant="label-hidden" 
+                                        name="yourselfState"
+                                        data-id="yourselfState"
+                                        value={yourselfState}
+                                        placeholder={customLabelValues.OWC_select_picklist_label}
+                                        options={statePicklistValues}
+                                        onchange={handleChange} 
+                                        disabled={isaccountid}
+                                ></lightning-combobox>
+                </fieldset>
+                </div>
+                
+                <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-2 slds-large-size_1-of-2">
+                    <fieldset class="slds-p-around_medium slds-p-left_xx-large">
+                                {customLabelValues.OWC_zipcode}
+                                <span class="requiredStyle"><abbr title="required">*</abbr></span>
+                                <span class="slds-p-left_x-small">
+                                    <lightning-icon icon-name="utility:info" class="my-icon" size="x-small" alternative-text="info"  label={customLabelValues.OWC_learnmore_button} name="yourselfZipCodeHelpText" onclick={handleHelpText} ></lightning-icon>
+                                    </span>
+                                <!-- <span class="slds-p-left_medium learnMoreStyle">
+                                    <lightning-button variant="base" label={customLabelValues.OWC_learnmore_button} name="yourselfZipCodeHelpText" onclick={handleHelpText} class="slds-m-left_x-small"></lightning-button>
+                                </span> -->
+                                <lightning-input read-only={isaccountid} variant="label-hidden" type="text" data-id="yourselfZipCode" max-length="10" name="yourselfZipCode" value={yourselfZipCode} title="Zip Code" onchange={handleChange} ></lightning-input>
+                    </fieldset>
+                </div>
+            </div>
+            <div class="slds-grid slds-wrap">
+                <h2 class="slds-p-around_medium slds-col slds-size_1-of-1 slds-medium-size_1-of-1 slds-large-size_1-of-1">
+                    Additional Information
+                    <!-- {customLabelValues.OWC_language_assistance_heading} -->
+                </h2>
+                <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-1 slds-large-size_1-of-1">
+                    <fieldset class="slds-p-around_medium slds-p-left_xx-large">
+                        {customLabelValues.OWC_language_assistance_interpreter}
+                        <lightning-radio-group name="needLanguageInterpreter"
+                        variant="label-hidden" 
+                                                                    options={options}
+                                                                    data-id="needLanguageInterpreter"
+                                                                    value={needLanguageInterpreter}
+                                                                    type="radio"
+                                                                    class="radioGroupStyle"
+                                                                    onchange={handleChange}></lightning-radio-group>
+                    </fieldset>
+                </div>
+                
+                <template if:true={isPrefferedLanguage}>
+                    <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-2 slds-large-size_1-of-2">
+                        <fieldset class="slds-p-around_medium slds-p-left_xx-large">
+                            {customLabelValues.OWC_language_assistance_preferred_language}
+                            <lightning-combobox
+                            variant="label-hidden" 
+                            placeholder={customLabelValues.OWC_select_picklist_label}
+                                                    name="prefferedLanguageSelection"
+                                                    data-id="prefferedLanguageSelection"
+                                                    value={value}
+                                                    options={OWCPrefferedLanguageAssistantDatas}
+                                                    onchange={handleChange} 
+                                                    ></lightning-combobox>
+                </fieldset>
+                    </div>
+                    
+                </template>
+                
+                <template if:true={isOtherPrefferedLanguage}>
+                    <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-2 slds-large-size_1-of-2">
+                        <fieldset class="slds-p-around_medium slds-p-left_xx-large">
+                            {customLabelValues.OWC_language_assistance_preferred_language_other}
+                            <span class="requiredStyle"><abbr title="required">*</abbr></span>
+                            <lightning-input variant="label-hidden" type="text" data-id="otherPrefferedLanguage" name="otherPrefferedLanguage" value={otherPrefferedLanguage} onchange={handleChange} title="Other Language" ></lightning-input>
+                        </fieldset>
+                    </div>
+                </template>
+                <!--WorkLocation ZipCode-->
+                <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-1 slds-large-size_1-of-1">
+                    <fieldset class="slds-p-around_medium slds-p-left_xx-large slds-col slds-size_1-of-2">
+                        Work Location Zip Code
+                        <lightning-input variant="label-hidden" type="text" data-id="workLocationZipCode" max-length="10" name="workLocationZipCode" value={workLocationZipCode}  onchange={handleChange} ></lightning-input>
+                    </fieldset>
+                </div>
+                <!--Case Recieved Date-->
+                <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-1 slds-large-size_1-of-1">
+                    <fieldset class="slds-p-around_medium slds-p-left_xx-large slds-col slds-size_1-of-2">
+                        Date case received
+                        <span class="requiredStyle"><abbr title="required">*</abbr></span>
+                        <lightning-input variant="label-hidden" date-style="short" type="date" data-id="caseRecDate" name="caseRecDate" value={caseRecDate}  onchange={handleChange}></lightning-input>
+                    </fieldset>
+                </div>
+                <!--Intake Origin List-->
+                <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-1 slds-large-size_1-of-1">
+                    <fieldset class="slds-p-around_medium slds-p-left_xx-large slds-col slds-size_1-of-2">
+                        Intake Origin
+                        <span class="requiredStyle"><abbr title="required">*</abbr></span>
+                        <lightning-combobox name="intakeOrigin" data-id="intakeOrigin" onchange={handleChange} onblur={handleFocus} value={intakeOrigin} placeholder={customLabelValues.OWC_select_picklist_label} options={intakeOriginList} variant="label-hidden"></lightning-combobox>
+                    </fieldset>
+                </div>
+                <!--File upload-->
+                <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-1 slds-large-size_1-of-1">
+                    <!-- Upload certification and Authorization -->
+                    <fieldset class="slds-p-around_medium slds-p-left_xx-large slds-col slds-size_1-of-2">
+                        Kindly attach scan copy of paper claim.
+                        <span class="slds-p-left_x-small">
+                            <lightning-icon icon-name="utility:info" class="my-icon" size="x-small" alternative-text="info"  label={customLabelValues.OWC_learnmore_button} name="multiFileUploadHelpText" onclick={handleHelpText} ></lightning-icon>
+                         </span>
+                        <lightning-file-upload name="additionalClaimDocs"
+                                               accept={acceptedFormats}
+                                               data-id="additionalClaimDocs"
+                                               onuploadfinished={handleAdditionalClaimDoc}
+                                               multiple> 
+                        </lightning-file-upload>
+                    </fieldset>
+                    <!-- Show uploaded fiels in SLDS Datatable -->
+                    <template if:false={isAdditionalClaimDocUpload}>
+                        <c-owc-Multiple-File-Upload-Details-Cmp isfileuploaded={isAdditionalClaimDocUpload} onuploaddocumentevent={handleAdditonalClaimDocEvent}></c-owc-Multiple-File-Upload-Details-Cmp>
+                    </template>
+                </div>
+    
+                <div class="slds-col slds-align_absolute-center slds-size_1-of-1 slds-medium-size_1-of-1 slds-large-size_1-of-1">
+                    <div class="slds-grid slds-wrap">
+                        <div class="slds-col slds-align_absolute-center slds-size_1-of-2 slds-medium-size_1-of-2 slds-large-size_1-of-2">
+                            <fieldset class="slds-p-around_medium slds-p-left_xx-large">
+                                <lightning-button
+                                    class="slds-m-top_small"
+                                    variant="brand"
+                                    type="Cancel"
+                                    name="Cancel"
+                                    label="Cancel"
+                                    onclick={handelCancel}>
+                                </lightning-button>
+                            </fieldset>
+                        </div>
+                        <div class="slds-col slds-align_absolute-center slds-size_1-of-2 slds-medium-size_1-of-2 slds-large-size_1-of-2">
+                            <fieldset class="slds-p-around_medium slds-p-left_xx-large">
+                                <lightning-button
+                                    class="slds-m-top_small"
+                                    variant="brand"
+                                    type="submit"
+                                    name="Submit"
+                                    label="Submit"                                    
+                                    onclick={handleFormSubmit}>
+                                </lightning-button>
+                            </fieldset>
+                        </div>                        
+                    </div>                    
+                </div>
+            </div>
+        </div>
+    </template>
+    
+    <template if:true={isHelpText}>
+        <c-owc-Help-Text-Cmp helptext={helpText} onhelptextevent={handleHelpTextEvent}></c-owc-Help-Text-Cmp>
+    </template>
+    <!-- <template if:true={isMultipleRequiredCheck}>
+        <div class="requiredMsgStyle">
+            {ValidationMsg}
+        </div>
+    </template> -->
+</template>

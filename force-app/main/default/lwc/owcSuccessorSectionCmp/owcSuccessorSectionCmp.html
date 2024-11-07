@@ -1,0 +1,358 @@
+<!--
+  @description       : 
+  @author            : ChangeMeIn@UserSettingsUnder.SFDoc
+  @group             : 
+  @last modified on  : 12-13-2021
+  @last modified by  : ChangeMeIn@UserSettingsUnder.SFDoc
+-->
+<template> 
+
+    <template if:true={isFormPreviewMode}>
+        <form>
+            <div class="slds-p-top_medium">
+                <!--Worked in more than one company-->
+                <div class="slds-grid slds-wrap">
+                    <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-1 slds-large-size_1-of-1 ">
+                        <div class="slds-grid slds-wrap">
+                            <h1 class="slds-text-heading_large owcHeadingStyle slds-col slds-size_1-of-1 slds-medium-size_4-of-5 slds-large-size_4-of-5">
+                                {customLabelValues.OWC_successor_employer_heading}
+                            </h1>
+                        </div>
+                    </div>
+                    <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-1 slds-large-size_1-of-1 ">
+                        <c-owc-Employer-Name-After-Employement onemployernameafteremployementevent={handleEmployerNameAfterEmployement} onemployernameafteremployementvakidityevent={handleEmployerNameAfterEmployementValidity} isclaimantgarment={isclaimantgarment}></c-owc-Employer-Name-After-Employement>
+                    </div>         
+                    
+                    <!--BR082 Section-->
+                            <div class="slds-grid slds-wrap ">
+                                <template if:true={successorSectionDetails.workForThisComp}>
+                                    <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-1 slds-large-size_1-of-1">
+                                        <fieldset class="slds-p-top_medium slds-p-bottom_medium">
+                                            <div class="">
+                                                {customLabelValues.OWC_successorinfo_WorkForThisComp}
+                                            </div>
+                                            <div class="">
+                                                <lightning-radio-group 
+                                                disabled
+                                                name="workForThisComp"
+                                                                class=""
+                                                                data-id="workForThisComp"
+                                                                options={options}
+                                                                value={workForThisComp}
+                                                                variant="label-hidden" 
+                                                                onchange={handleChange}
+                                                                onblur={handleFocus}></lightning-radio-group>
+                                            </div>
+                                        </fieldset>
+                                    </div>
+
+                                </template>
+                                <template if:true={successorSectionDetails.workWithSameWorokers}>
+                                    <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-1 slds-large-size_1-of-1">
+                                        <fieldset class="slds-p-top_medium slds-p-bottom_medium">
+                                                <div class="">
+                                                {customLabelValues.OWC_successorinfo_WorkWithSameCoWorkerComp}
+                                                </div>
+                                                <div class="">
+                                                    <lightning-radio-group 
+                                                    disabled
+                                                    name="workWithSameWorokers"
+                                                                    data-id="workWithSameWorokers"
+                                                                    class=""
+                                                                    options={options}
+                                                                    value={workWithSameWorokers}
+                                                                    variant="label-hidden" 
+                                                                    onchange={handleChange}
+                                                                    onblur={handleFocus}></lightning-radio-group>
+                                                </div>
+                                        </fieldset>
+                                        </div>
+                                </template>
+
+                                <template if:true={successorSectionDetails.ownershipOfCompRelated}>
+                                    <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-1 slds-large-size_1-of-1">
+                                        <fieldset class="slds-grid slds-wrap slds-p-top_medium slds-p-bottom_medium">
+                                            <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-1 slds-large-size_1-of-1">
+                                                {customLabelValues.OWC_successorinfo_BothCompOwnershipRelated}
+                                            </div>
+                                            
+                                                <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-2 slds-large-size_1-of-2">
+                                                    <lightning-combobox
+                                                    disabled
+                                                                    name="ownershipOfCompRelated"
+                                                                    data-id="ownershipOfCompRelated"
+                                                                    onchange={handleChange}
+                                                                    onblur={handleFocus}
+                                                                    value={ownershipOfCompRelated}
+                                                                    placeholder={customLabelValues.OWC_select_picklist_label}
+                                                                    options={ownershipOptions} 
+                                                                    variant="label-hidden"></lightning-combobox>
+                                                </div>    
+                                        </fieldset>
+                                    </div>
+                                </template>
+                                    
+                                </div>
+                            </div> 
+                    
+                    <!--Additional Successor Info Section-->
+                    <div class="slds-grid slds-wrap ">
+                        <!-- <h1 class="slds-p-around_medium slds-text-heading_large slds-p-left_xx-large headingStyle slds-col slds-size_1-of-1 slds-medium-size_1-of-1 slds-large-size_1-of-1">
+                            {customLabelValues.OWC_successoraddinfo_heading}
+                        </h1> -->
+        
+                        <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-1 slds-large-size_1-of-1">
+                            <fieldset class="slds-p-around_medium slds-p-left_xx-large ">
+                                    {customLabelValues.OWC_Additional_Info}
+                            </fieldset> 
+                        </div>
+                        <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-1 slds-large-size_1-of-1">
+                            <div class="slds-grid slds-wrap slds-p-left_medium  ">
+                                <!--Name of Person in charge-->
+                                <template if:true={successorSectionDetails.nameOfPersonInCharge}>
+                                    <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-2 slds-large-size_1-of-2">
+                                        <fieldset class="slds-p-around_medium slds-p-left_xx-large">    
+                                                    {customLabelValues.OWC_successoraddinfo_nameofperson}
+                                                    <!-- <span class="slds-p-left_medium learnMoreStyle">
+                                                        <lightning-button variant="base" label={customLabelValues.OWC_learnmore_button} name="nameOfPersonInChargeHelpText" value={nameOfPersonInChargeHelpText} onclick={handleHelpText} class="slds-m-left_x-small"></lightning-button>
+                                                    </span> -->
+                                                    <div class="">
+                                                        <lightning-input read-only="true" name="nameOfPersonInCharge" value={nameOfPersonInCharge}
+                                                                                variant="label-hidden"  
+                                                                                data-id="nameOfPersonInCharge"
+                                                                                onchange={handleChange}>
+                                                        </lightning-input>
+                                                    </div>
+                                        </fieldset>        
+                                    </div>
+                                </template>
+                                
+                                <!--Job Title of Person in charge-->
+                                <template if:true={successorSectionDetails.jobTitleOfPersonInCharge}>
+                                    <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-2 slds-large-size_1-of-2">
+                                        <fieldset class="slds-p-around_medium slds-p-left_xx-large">  
+                                                    {customLabelValues.OWC_successoraddinfo_personincharge}
+                                                    <div class="">
+                                                        <lightning-input read-only="true" name="jobTitleOfPersonInCharge"
+                                                                                variant="label-hidden"  
+                                                                                data-id="jobTitleOfPersonInCharge"
+                                                                                value={jobTitleOfPersonInCharge}
+                                                                                onchange={handleChange}>
+                                                        </lightning-input>
+                                                    </div>
+                                        </fieldset>
+                                    </div>
+                                </template>
+                                
+                                <!--Who paid you?-->
+                                <template if:true={successorSectionDetails.whoPaidYou}>
+                                    <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-2 slds-large-size_1-of-2">
+                                        <fieldset class="slds-p-around_medium slds-p-left_xx-large">
+                                            {customLabelValues.OWC_successoraddinfo_whopaidyou}
+                                            <div class="">
+                                                <lightning-input read-only="true" name="whoPaidYou" value={whoPaidYou}
+                                                                        variant="label-hidden"  
+                                                                        data-id="whoPaidYou"
+                                                                        onchange={handleChange}>
+                                                </lightning-input>
+                                            </div>
+                                        </fieldset>
+                                    </div>
+                                </template>
+                                
+                                <!--Who set your work schedule?-->
+                                <template if:true={successorSectionDetails.workSchedule}>
+                                    <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-2 slds-large-size_1-of-2">
+                                        <fieldset class="slds-p-around_medium slds-p-left_xx-large">
+                                                {customLabelValues.OWC_successoraddinfo_workschedule}
+                                                <div class="">
+                                                    <lightning-input read-only="true" name="workSchedule"
+                                                                            variant="label-hidden"  
+                                                                            data-id="workSchedule" value={workSchedule}
+                                                                            onchange={handleChange}>
+                                                    </lightning-input>
+                                                </div>   
+                                        </fieldset>
+                                    </div>
+                                </template>
+                                
+                                <!--How were your hours worked recorded?-->
+                                <template if:true={successorSectionDetails.workHours}>
+                                    <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-2 slds-large-size_1-of-2">
+                                        <fieldset class="slds-p-around_medium slds-p-left_xx-large">
+                                                {customLabelValues.OWC_successoraddinfo_workhours}
+                                                <div class="">
+                                                    <lightning-combobox
+                                                    disabled
+                                                                    name="workHours"
+                                                                    data-id="workHoursId"
+                                                                    onchange={handleChange}
+                                                                    onblur={handleFocus}
+                                                                    value={workHours}
+                                                                    placeholder={customLabelValues.OWC_select_picklist_label}
+                                                                    options={hoursWorkRecordedOptions} 
+                                                                    variant="label-hidden"></lightning-combobox>
+                                                </div>    
+                                        </fieldset>
+                                    </div>
+                                </template>
+                                
+                                <!--Were you ever told to sign the time card before the hours worked were recorded?-->
+                                <template if:true={successorSectionDetails.timeCard}>
+                                    <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-2 slds-large-size_1-of-2">
+                                        <fieldset class="slds-p-around_medium slds-p-left_xx-large">
+                                                {customLabelValues.OWC_successoraddinfo_timecard}
+                                                <div class="">
+                                                    <lightning-radio-group 
+                                                    disabled
+                                                    name="timeCard"
+                                                                        class="slds-p-left_medium"
+                                                                    data-id="timeCard"
+                                                                    options={options}
+                                                                    value={timeCard}
+                                                                    variant="label-hidden" 
+                                                                    onchange={handleChange}
+                                                                    onblur={handleFocus}>
+                                                        </lightning-radio-group>
+                                                </div>    
+                                        </fieldset>
+                                    </div>
+                                </template>
+                                
+                                <!--If someone else recorded your work others for you.-->
+                                <template if:true={successorSectionDetails.workRecorded}>
+                                    <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-2 slds-large-size_1-of-2">
+                                        <fieldset class="slds-p-around_medium slds-p-left_xx-large">
+                                                {customLabelValues.OWC_successoraddinfo_workrecorded}
+                                                <div class="">
+                                                    <lightning-input read-only="true" name="workRecorded" value={workRecorded}
+                                                                            variant="label-hidden"  
+                                                                            data-id="workRecorded"
+                                                                            onchange={handleChange}>
+                                                    </lightning-input>
+                                                </div>    
+                                        </fieldset>
+                                    </div>
+                                </template>
+                                
+                                <!--Total Number of Employees-->
+                                <template if:true={successorSectionDetails.totalEmployees}>
+                                    <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-2 slds-large-size_1-of-2">
+                                        <fieldset class="slds-p-around_medium slds-p-left_xx-large">
+                                                    {customLabelValues.OWC_successoraddinfo_totalemployees}
+                                                    <!-- <span class="slds-p-left_medium learnMoreStyle">
+                                                        <lightning-button variant="base" label={customLabelValues.OWC_learnmore_button} name="totalEmployeesHelpText" onclick={handleHelpText} class="slds-m-left_x-small"></lightning-button>
+                                                    </span> -->
+                                                    <div class="">
+                                                        <lightning-input read-only="true" name="totalEmployees" value={totalEmployees}
+                                                                                variant="label-hidden"  
+                                                                                data-id="totalEmployees"
+                                                                                onchange={handleChange}>
+                                                        </lightning-input>
+                                                   </div>  
+                                        </fieldset>
+                                    </div>
+                                </template>
+                                
+                            </div>
+                        </div>
+                    </div>           
+            </div> 
+            <template if:true={isHelpText}>
+                <c-owc-Help-Text-Cmp helptext={helpText} onhelptextevent={handleHelpTextEvent}></c-owc-Help-Text-Cmp>
+            </template>
+        </form> 
+    </template>
+
+    <template if:false={isFormPreviewMode}>
+        <form>
+            <div class="slds-p-top_medium">
+                <!--Worked in more than one company-->
+                <div class="slds-grid slds-wrap">
+                    <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-1 slds-large-size_1-of-1 ">
+                        <div class="slds-grid slds-wrap">
+                            <h2 class="slds-col slds-size_1-of-1 slds-medium-size_4-of-5 slds-large-size_4-of-5">
+                                {customLabelValues.OWC_successor_employer_heading}
+                            </h2>
+                            <template if:true={deletebutton}>
+                                <div class="slds-p-top_medium slds-col slds-size_1-of-1 slds-medium-size_1-of-5 slds-large-size_1-of-5">
+                                    <lightning-button variant="brand" label={customLabelValues.OWC_successor_delete_button} title={customLabelValues.OWC_successor_delete_button} onclick={handleSuccessorDelete} class="slds-float_right owcButtonStyle"></lightning-button>
+                                </div>
+                            </template>
+                        </div>
+                    </div>
+                    <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-1 slds-large-size_1-of-1 ">
+                        <c-owc-Employer-Name-After-Employement onemployernameafteremployementevent={handleEmployerNameAfterEmployement} onemployernameafteremployementvakidityevent={handleEmployerNameAfterEmployementValidity} isclaimantgarment={isclaimantgarment}></c-owc-Employer-Name-After-Employement>
+                    </div>         
+                    
+                    <!--BR082 Section-->
+                            <div class="slds-grid slds-wrap ">
+                                    <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-1 slds-large-size_1-of-1">
+                                        <fieldset class="">
+                                            <div class="">
+                                                {customLabelValues.OWC_successorinfo_WorkForThisComp}
+                                            </div>
+                                            <div class="">
+                                                <lightning-radio-group name="workForThisComp"
+                                                                class="slds-p-left_medium"
+                                                                data-id="workForThisComp"
+                                                                options={options}
+                                                                value={workForThisComp}
+                                                                variant="label-hidden" 
+                                                                onchange={handleChange}
+                                                                onblur={handleFocus}></lightning-radio-group>
+                                            </div>
+                                        </fieldset>
+                                    </div>
+
+                                    
+                                    <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-1 slds-large-size_1-of-1">
+                                    <fieldset class="">
+                                            <div class="">
+                                            {customLabelValues.OWC_successorinfo_WorkWithSameCoWorkerComp}
+                                            </div>
+                                            <div class="">
+                                                <lightning-radio-group name="workWithSameWorokers"
+                                                                data-id="workWithSameWorokers"
+                                                                class="slds-p-left_medium"
+                                                                options={options}
+                                                                value={workWithSameWorokers}
+                                                                variant="label-hidden" 
+                                                                onchange={handleChange}
+                                                                onblur={handleFocus}></lightning-radio-group>
+                                            </div>
+                                    </fieldset>
+                                    </div>
+
+                                
+                                    <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-1 slds-large-size_1-of-1">
+                                        <fieldset class="slds-grid slds-wrap ">
+                                            <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-1 slds-large-size_1-of-1">
+                                                {customLabelValues.OWC_successorinfo_BothCompOwnershipRelated}
+                                            </div>
+                                            
+                                                <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-2 slds-large-size_1-of-2">
+                                                    <lightning-combobox
+                                                                    name="ownershipOfCompRelated"
+                                                                    data-id="ownershipOfCompRelated"
+                                                                    onchange={handleChange}
+                                                                    onblur={handleFocus}
+                                                                    value={ownershipOfCompRelated}
+                                                                    placeholder={customLabelValues.OWC_select_picklist_label}
+                                                                    options={ownershipOptions} 
+                                                                    variant="label-hidden"></lightning-combobox>
+                                                </div>    
+                                        </fieldset>
+                                    </div>
+                                </div>
+                            </div> 
+                    
+                    <!--Additional Successor Info Section-->
+                              
+            </div> 
+            <template if:true={isHelpText}>
+                <c-owc-Help-Text-Cmp helptext={helpText} onhelptextevent={handleHelpTextEvent}></c-owc-Help-Text-Cmp>
+            </template>
+        </form> 
+    </template>
+</template>

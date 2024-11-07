@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Name_UsedInTemplates__c</fullName>
+    <externalId>false</externalId>
+    <formula>IF(IsPersonAccount,  FirstName &amp; " " &amp; IF (ISBLANK(MiddleName), LastName, MiddleName &amp; " " &amp; LastName), Name)</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>Name_UsedInTemplates</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

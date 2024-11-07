@@ -1,0 +1,46 @@
+<apex:page standardController="DIR_Case__c" extensions="DIRNewRelatedBusinessesCreateOnCM" >
+    <apex:pageMessages ></apex:pageMessages>
+    <apex:form id="thisForm">
+        <style>
+            .inputText{
+            width:100px !important;
+            }
+            select{
+            width:150px !important;
+            }
+            .lookupIcon, .lookupIconOn{
+            background-image: url(/img/func_icons/util/lookup20.gif);
+            width: 20px;
+            height: 20px;
+            background-position: top left;
+            }
+        </style>
+        <script>
+        function openCustomRelatedBusinessLookup(relatedBusinessName,businessid ,caseManagementId){
+            var url= '/apex/RelatedBusinessLookup?name='+ (document.getElementById(relatedBusinessName).value)+'&rbname='+relatedBusinessName + '&bid='+businessid +'&casemgtid='+caseManagementId
+            var popup = window.open(url,'Popup','height=400,width=500,left=100,top=100,scrollbars=yes,toolbar=no,\status=no');
+            popup.onblur = function(){popup.close();}
+        }
+        </script>
+        <apex:pageBlock title="New Related Businesses">  
+            <apex:pageBlockButtons >
+                <apex:commandButton action="{!saveRelatedBusinessesRecord}" value="Save"/>
+                <apex:commandButton action="{!cancel}" value="Cancel"/>
+            </apex:pageBlockButtons>
+            <apex:pageBlockSection title="Information" columns="2" collapsible="false">
+                <apex:inputHidden id="relatedBusinessId" value="{!relatedBusinesses.Business__c}" />
+                <apex:inputText label="Business" id="relatedBusinessName" value="{!businessName}" style="float:left;" required="true">
+                <a href="javascript: openCustomRelatedBusinessLookup('{!$Component.relatedBusinessName}','{!$Component.relatedBusinessId}','{!caseManagementId}');" 
+                   id="con4_lkwgt" onclick="setLastMousePosition(event)" tabindex="6" title="Account Search Lookup (New Window)">
+                    <img src="/s.gif" alt="Account Search Lookup (New Window)" class="lookupIcon" onblur="this.className = 'lookupIcon';" 
+                         onfocus="this.className = 'lookupIconOn';" onmouseout="this.className = 'lookupIcon';this.className = 'lookupIcon';" 
+                         onmouseover="this.className = 'lookupIconOn';this.className = 'lookupIconOn';" title="Call Script Lookup (New Window)" />
+                    </a></apex:inputText>
+                <apex:inputField value="{!relatedBusinesses.Related_Business__c }" required="true"/>
+                <apex:inputField value="{!relatedBusinesses.Type__c}" required="true"/>
+                <apex:inputField value="{!relatedBusinesses.Additional_Information__c}"  required="false" />
+                
+            </apex:pageBlockSection>
+        </apex:pageBlock> 
+    </apex:form>
+</apex:page>

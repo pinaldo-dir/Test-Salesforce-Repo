@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Only_Sr_Deputies_Can_dismiss_liability</fullName>
+    <active>true</active>
+    <description>Part of Requirement 17493: This validation rule insures that only senior deputies can mark a liability as dismissed. Updated for BOFE Senior Deputy Permissions</description>
+    <errorConditionFormula>IF (RecordType.DeveloperName == 'BOFE_Liability', 
+  IF (ISPICKVAL(Status__c , 'Administrative Dismissal'),
+    IF ($Permission.LCO_Senior, FALSE, TRUE),
+    FALSE),
+  FALSE)</errorConditionFormula>
+    <errorDisplayField>Status__c</errorDisplayField>
+    <errorMessage>Only BOFE Senior Deputies can update the status of liabilities to Administrative Dismissal.</errorMessage>
+</ValidationRule>

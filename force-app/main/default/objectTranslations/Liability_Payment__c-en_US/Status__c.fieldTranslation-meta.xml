@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+        <label><!-- Status --></label>
+        <name>Status__c</name>
+        <picklistValues>
+            <masterLabel>Corrective Entry</masterLabel>
+            <translation><!-- Corrective Entry --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Deposited-Returned</masterLabel>
+            <translation><!-- Deposited-Returned --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Deposited-Returned Deduction</masterLabel>
+            <translation><!-- Deposited-Returned Deduction --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>New</masterLabel>
+            <translation><!-- New --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Posted</masterLabel>
+            <translation><!-- Posted --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Recommended</masterLabel>
+            <translation><!-- Recommended --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Voided</masterLabel>
+            <translation><!-- Voided --></translation>
+        </picklistValues>
+    </CustomFieldTranslation>

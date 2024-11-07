@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionCalls>
+        <name>Pending_Closure_Review_Notification</name>
+        <label>Pending Closure Review Notification</label>
+        <locationX>449</locationX>
+        <locationY>466</locationY>
+        <actionName>emailSimple</actionName>
+        <actionType>emailSimple</actionType>
+        <flowTransactionModel>CurrentTransaction</flowTransactionModel>
+        <inputParameters>
+            <name>emailAddresses</name>
+            <value>
+                <elementReference>JEUseniordepEmail</elementReference>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>emailSubject</name>
+            <value>
+                <stringValue>Pending Closure Review Referral</stringValue>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>emailBody</name>
+            <value>
+                <elementReference>EmailBody</elementReference>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>sendRichBody</name>
+            <value>
+                <booleanValue>true</booleanValue>
+            </value>
+        </inputParameters>
+        <nameSegment>emailSimple</nameSegment>
+        <versionSegment>1</versionSegment>
+    </actionCalls>
+    <apiVersion>60.0</apiVersion>
+    <environments>Default</environments>
+    <formulas>
+        <name>JEUseniordepEmail</name>
+        <dataType>String</dataType>
+        <expression>{!$Record.Referring_Deputy_s_Senior__r.User__r.Email}</expression>
+    </formulas>
+    <interviewLabel>Referral Alert Deputy on Status Pending Closure Review {!$Flow.CurrentDateTime}</interviewLabel>
+    <label>Referral Alert Deputy on Status Pending Closure Review</label>
+    <processMetadataValues>
+        <name>BuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>CanvasMode</name>
+        <value>
+            <stringValue>FREE_FORM_CANVAS</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>OriginBuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processType>AutoLaunchedFlow</processType>
+    <start>
+        <locationX>458</locationX>
+        <locationY>48</locationY>
+        <connector>
+            <targetReference>Pending_Closure_Review_Notification</targetReference>
+        </connector>
+        <filterFormula>(ISNEW() &amp;&amp; ISPICKVAL({!$Record.Request_Status__c}, &quot;Pending Closure Review&quot;))
+||
+(ISCHANGED({!$Record.Request_Status__c}) &amp;&amp; ISPICKVAL({!$Record.Request_Status__c}, &quot;Pending Closure Review&quot;))</filterFormula>
+        <object>Referral__c</object>
+        <recordTriggerType>CreateAndUpdate</recordTriggerType>
+        <triggerType>RecordAfterSave</triggerType>
+    </start>
+    <status>Draft</status>
+    <textTemplates>
+        <name>EmailBody</name>
+        <isViewedAsPlainText>false</isViewedAsPlainText>
+        <text>&lt;p&gt;&lt;span style=&quot;background-color: rgb(255, 255, 255); font-size: 14px; font-family: -apple-system, BlinkMacSystemFont, &amp;quot;Segoe UI&amp;quot;, Roboto, Oxygen, Ubuntu, &amp;quot;Fira Sans&amp;quot;, &amp;quot;Droid Sans&amp;quot;, &amp;quot;Helvetica Neue&amp;quot;, sans-serif; color: rgb(23, 43, 77);&quot;&gt;A JEU deputy has set referral number ({!$Record.Name}) to status “Pending Closure Review”.  Please see case number ({!$Record.Case__r.Name}) for your review.&lt;/span&gt;&lt;/p&gt;</text>
+    </textTemplates>
+</Flow>

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Date_ODA_Final_Approved__c</fullName>
+    <description>Stores date when Status is changed to 'Final Approved/Download'. ODA Automation project's reports</description>
+    <externalId>false</externalId>
+    <label>Date ODA Final Approved</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Date</type>
+</CustomField>

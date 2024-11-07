@@ -1,0 +1,123 @@
+<template>
+    <div>
+        <template if:true={caseId} >
+            <div class={poClass} style={poStyle} role="tooltip" id="caseTooltip" >
+                <div class="slds-popover__header slds-p-around_none">
+                    <header class="slds-media slds-media_center">
+                        <span class="slds-icon_container slds-icon-standard-account slds-media__figure slds-m-vertical_xx-small slds-m-left_xx-small" >
+                            <lightning-icon icon-name='custom:custom19' alternative-text='DIR Case icon' size='medium' title='DIR Case Icon'></lightning-icon>
+                        </span>
+                        <div class="slds-media__body">
+                            <h2 class="slds-text-heading_small slds-hyphenate" id="casePopoverHeading">
+                                <p><b>Case Management</b></p>
+                            </h2>
+                        </div>
+                    </header>
+                </div>
+
+                <div class="slds-popover__body slds-m-horizontal_large">
+                    <table>
+                        <tr class="slds-border_bottom">
+                            <td class="popupFieldLabel">Status</td>
+                            <td>{caseStatus}</td>
+                        </tr>
+                        <tr class="slds-border_bottom">
+                            <td class="popupFieldLabel">Employer</td>
+                            <td>
+                                <lightning-formatted-url value={caseEmployerUrl} label={caseEmployerName} target="_blank" ></lightning-formatted-url>
+                            </td>
+                        </tr>
+                        <tr class="slds-border_bottom">
+                            <td class="popupFieldLabel">Assigned Deputy&nbsp;&nbsp;</td>
+                            <td>
+                                <lightning-formatted-url value={caseAssignedDeputyUrl} label={caseAssignedDeputyName} target="_blank"></lightning-formatted-url>
+                            </td>
+                        </tr>
+                        <tr class="slds-border_bottom">
+                            <td class="popupFieldLabel">DIR Office</td>
+                            <td>
+                                <lightning-formatted-url value={caseDirOfficeUrl} label={caseDirOfficeName} target="_blank"></lightning-formatted-url>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+        </template>
+        
+
+        <template if:true={ciId} >
+            <div class={poClass} style={poStyle} role="tooltip" id="ciTooltip" >
+                <div class="slds-popover__header slds-p-around_none">
+                    <header class="slds-media slds-media_center">
+                        <span class="slds-icon_container slds-icon-standard-account slds-media__figure slds-m-vertical_xx-small slds-m-left_xx-small" >
+                            <lightning-icon icon-name='custom:custom13' alternative-text='DIR Violation (Case Issue) icon' size='medium' title='DIR Violation (Case Issue) Icon'></lightning-icon>
+                        </span>
+                        <div class="slds-media__body">
+                            <h2 class="slds-text-heading_small slds-hyphenate" id="ciPopoverHeading">
+                                <p><b>Case Issue</b></p>
+                            </h2>
+                        </div>
+                    </header>
+                </div>
+
+                <div class="slds-popover__body slds-m-horizontal_large">
+                    <table>
+                        <tr class="slds-border_bottom">
+                            <td class="popupFieldLabel">Assessment Description&nbsp;&nbsp;</td>
+                            <td>{ciAssessmentDescription}</td>
+                        </tr>
+                        <tr class="slds-border_bottom">
+                            <td class="popupFieldLabel">Status</td>
+                            <td>{ciStatus}</td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+        </template>
+
+
+        <template if:true={jId} >
+            <div class={poClass} style={poStyle} role="tooltip" id="jTooltip" >
+                <div class="slds-popover__header slds-p-around_none">
+                    <header class="slds-media slds-media_center">
+                        <span class="slds-icon_container slds-icon-standard-account slds-media__figure slds-m-vertical_xx-small slds-m-left_xx-small" >
+                            <lightning-icon icon-name='custom:custom53' alternative-text='Judgment icon' size='medium' title='Judgment Icon'></lightning-icon>
+                        </span>
+                        <div class="slds-media__body">
+                            <h2 class="slds-text-heading_small slds-hyphenate" id="jPopoverHeading">
+                                <p><b>Judgment</b></p>
+                            </h2>
+                        </div>
+                    </header>
+                </div>
+
+                <div class="slds-popover__body slds-m-horizontal_large">
+                    <table>
+                        <tr class="slds-border_bottom">
+                            <td class="popupFieldLabel">Judgment Party&nbsp;&nbsp;</td>
+                            <td>
+                                <lightning-formatted-url value={jPartyUrl} label={jPartyName} target="_blank" ></lightning-formatted-url>
+                            </td>
+                        </tr>
+                        <tr class="slds-border_bottom">
+                            <td class="popupFieldLabel">Type</td>
+                            <td>{jType}</td>
+                        </tr>
+                        <tr class="slds-border_bottom">
+                            <td class="popupFieldLabel">Court Case Number&nbsp;&nbsp;</td>
+                            <td>{jCourtCaseNumber}</td>
+                        </tr>
+                        <tr class="slds-border_bottom">
+                            <td class="popupFieldLabel">Court</td>
+                            <td>
+                                <lightning-formatted-url value={jCourtUrl} label={jCourtName} target="_blank"></lightning-formatted-url>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+        </template>
+
+
+    </div>
+</template>

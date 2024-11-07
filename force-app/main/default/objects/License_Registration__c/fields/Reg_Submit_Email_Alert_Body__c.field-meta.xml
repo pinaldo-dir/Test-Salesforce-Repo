@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Reg_Submit_Email_Alert_Body__c</fullName>
+    <externalId>false</externalId>
+    <formula>IF((ISPICKVAL( License_Registration_Type__c , 'Entertainment Work') &amp;&amp; ISPICKVAL(Registration_Duration__c , '6 Months - Permit')) || (ISPICKVAL( License_Registration_Type__c , 'Permit to Employ Minors'))
+, "Your "
+&amp; TEXT(License_Registration_Type__c)
+&amp; " "
+&amp; Application_Type__c
+&amp; " application, "
+&amp; License_Registration_Number__c
+&amp; " for "
+&amp; Legal_Entity_Name__c
+&amp; " has been received by the Division of Labor Standards Enforcement. "
+, "Your "
+&amp; TEXT(License_Registration_Type__c)
+&amp; " "
+&amp; Application_Type__c
+&amp; " application, "
+&amp; License_Registration_Number__c
+&amp; " for "
+&amp; Legal_Entity_Name__c
+&amp; " is ready for payment. You can access the payment portal by logging into the registration site and clicking the payment link located in the corresponding registration row. Once payment is complete, you will be able to submit your application to the Division of Labor Standards Enforcement for review. You cannot submit your application until fee payment is received in full."
+)</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>Reg Submit Email Alert Body</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

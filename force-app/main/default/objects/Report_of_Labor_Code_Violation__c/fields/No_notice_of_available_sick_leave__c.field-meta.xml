@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>No_notice_of_available_sick_leave__c</fullName>
+    <defaultValue>false</defaultValue>
+    <description>No notice of available sick leave on itemized wage statement or separate writing</description>
+    <externalId>false</externalId>
+    <label>No notice of available sick leave</label>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Checkbox</type>
+</CustomField>

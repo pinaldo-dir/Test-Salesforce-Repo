@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Acknowledgement_Date_rule</fullName>
+    <active>true</active>
+    <errorConditionFormula>AND(($UserRole.Name = 'Registration Services'),
+NOT(ISPICKVAL(Status__c,'Incomplete')),
+ISCHANGED(Acknowledgement_Date__c))</errorConditionFormula>
+    <errorDisplayField>Acknowledgement_Date__c</errorDisplayField>
+    <errorMessage>Acknowledgement date can not be edited.</errorMessage>
+</ValidationRule>

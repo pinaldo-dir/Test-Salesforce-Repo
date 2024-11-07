@@ -1,0 +1,6 @@
+A new approval request has been submitted.
+
+Support Request Number: {!Support_Request__c.Name}
+Assigned To: {!Support_Request__c.Assigned_To__c}
+Support Request Type: {!Support_Request__c.Type__c}
+Link: {!Support_Request__c.Link}

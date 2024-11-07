@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <description>RCI Payment Plans</description>
+    <encodingKey>ISO-8859-1</encodingKey>
+    <name>Payment Plan 10 Days Past Due RCI</name>
+    <style>none</style>
+    <subject>Payment Plan {!Payment_Plan__c.Name} 10 Days Past Due</subject>
+    <type>text</type>
+    <uiType>Aloha</uiType>
+</EmailTemplate>

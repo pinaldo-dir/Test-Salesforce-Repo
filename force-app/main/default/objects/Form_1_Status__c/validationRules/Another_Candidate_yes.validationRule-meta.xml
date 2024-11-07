@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Another_Candidate_yes</fullName>
+    <active>true</active>
+    <description>Validation rule that forces a HR user to fill out Name of Secondary candidate field, Date received from program field, date under review by HR field, Job offered date field when the Another Candidate field = Yes.</description>
+    <errorConditionFormula>AND(RecordType.DeveloperName = "Candidate_Declined", 
+ISPICKVAL(Another_Candidate_in_Mind__c	
+, "Yes"),OR(Name_of_Alternate_Candidate__c = "",  ISBLANK(Date_Received_from_Program__c), ISBLANK(Date_Under_Review_by_HR__c), ISBLANK( Job_Offered_Date__c )))</errorConditionFormula>
+    <errorMessage>Please fill out the following fields:  Name of Alternate Candidate, Date Received from Program, Date Under Review by HR, Job Offered Date.</errorMessage>
+</ValidationRule>

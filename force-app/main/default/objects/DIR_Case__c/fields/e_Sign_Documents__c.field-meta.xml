@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>e_Sign_Documents__c</fullName>
+    <description>This field will be used to store the selected Documents Name for Electronic Signature via AssureSign.</description>
+    <externalId>false</externalId>
+    <label>e-Sign Documents</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>MultiselectPicklist</type>
+    <valueSet>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>SETTLEMENT- WCA 026A</fullName>
+                <default>false</default>
+                <label>SETTLEMENT- WCA 026A</label>
+            </value>
+            <value>
+                <fullName>RELEASE- WCA 023</fullName>
+                <default>false</default>
+                <label>RELEASE- WCA 023</label>
+            </value>
+            <value>
+                <fullName>DIRCase- WCA 055</fullName>
+                <default>false</default>
+                <label>DIRCase- WCA 055</label>
+            </value>
+            <value>
+                <fullName>DIRCase- 633 055</fullName>
+                <default>false</default>
+                <label>DIRCase- 633 055</label>
+            </value>
+            <value>
+                <fullName>SETTLEMENT- WCA 026C-1</fullName>
+                <default>false</default>
+                <label>SETTLEMENT- WCA 026C-1</label>
+            </value>
+            <value>
+                <fullName>SETTLEMENT- WCA 026B-1</fullName>
+                <default>false</default>
+                <label>SETTLEMENT- WCA 026B-1</label>
+            </value>
+            <value>
+                <fullName>SETTLEMENT- WCA 026A-1</fullName>
+                <default>false</default>
+                <label>SETTLEMENT- WCA 026A-1</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+    <visibleLines>4</visibleLines>
+</CustomField>

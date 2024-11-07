@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Agent_for_Service_of_Process__c</fullName>
+    <defaultValue>false</defaultValue>
+    <description>used in Garment Registration if Corp or LLC</description>
+    <externalId>false</externalId>
+    <inlineHelpText>Check if Agent for Service of Process</inlineHelpText>
+    <label>Agent for Service of Process</label>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Checkbox</type>
+</CustomField>

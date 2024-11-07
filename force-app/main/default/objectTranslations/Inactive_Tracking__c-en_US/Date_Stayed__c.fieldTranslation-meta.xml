@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+        <help><!-- Effective date of the stay --></help>
+        <label><!-- Date Stayed --></label>
+        <name>Date_Stayed__c</name>
+    </CustomFieldTranslation>

@@ -1,0 +1,6 @@
+Lorem ipsum
+
+Go to the referral link below to view or update the referral. You can submit for approval again if desired.
+
+Case: {!Referral__c.Case__c}
+Link to Referral request: {!Referral__c.Link}

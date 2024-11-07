@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Age__c</fullName>
+    <externalId>false</externalId>
+    <formula>IF(Today()&lt;Birth_Date__c, "Check the Date!",
+
+TEXT(FLOOR((TODAY() + 1 - Birth_Date__c)/365.2425) ) &amp; " years, " &amp;
+
+TEXT(IF(YEAR(Today())=YEAR(Birth_Date__c),IF(MONTH(Today())=MONTH(Birth_Date__c),0,IF(MONTH(Today())&gt;MONTH(Birth_Date__c),IF(DAY(Today())&lt;DAY(Birth_Date__c),MONTH(Today())-MONTH(Birth_Date__c)-1,MONTH(Today())-MONTH(Birth_Date__c)),0)),IF(MONTH(Today())=MONTH(Birth_Date__c),IF(DAY(Today())&lt;DAY(Birth_Date__c),11,0),IF(MONTH(Today())&gt;MONTH(Birth_Date__c),IF(DAY(Today())&lt;DAY(Birth_Date__c),MONTH(Today())-MONTH(Birth_Date__c)-1,MONTH(Today())-MONTH(Birth_Date__c)),IF(MONTH(Today())&lt;MONTH(Birth_Date__c),IF(DAY(Today())&lt;DAY(Birth_Date__c),11-(MONTH(Birth_Date__c)-MONTH(Today())),12-(MONTH(Birth_Date__c)-MONTH(Today()))),12-(MONTH(Birth_Date__c)-MONTH(Today()))))))) &amp; " months, " &amp;
+
+TEXT(IF(DAY(Today())&gt;=DAY(Birth_Date__c),DAY(Today())-DAY(Birth_Date__c),31-(DAY(Birth_Date__c)-DAY(Today())))) &amp; " days"
+
+)</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>Age</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

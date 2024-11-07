@@ -1,0 +1,304 @@
+<template>
+    <template if:true={isFormPreviewMode}>
+        <template if:true={showWorkWeekHeading}>
+            <Form class="">
+                <div class="slds-grid slds-wrap">
+                    <div class="slds-col slds-medium-size_1-of-8 slds-large-size_1-of-8"></div>
+                    <div class="slds-col slds-size_1-of-1 slds-medium-size_6-of-8 slds-large-size_6-of-8">
+                        <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-1 slds-large-size_1-of-1">
+                            <div class="slds-grid slds-wrap">
+                                <div class="slds-col slds-size_1-of-1 slds-medium-size_5-of-6 slds-large-size_5-of-6">
+                                    <h1 class="slds-p-around_medium slds-text-heading_large owcHeadingStyle">
+                                        {customLabelValues.OWC_WorkweekAndWorkday_Heading}
+                                    </h1>
+                                </div>
+                                <!-- <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-6 slds-large-size_1-of-6">
+                                    <lightning-button class="slds-float_right slds-m-around_medium owcButtonStyle" label={customLabelValues.OWC_save_as_draft_label} variant="brand" onclick={handleSaveAsDraft}></lightning-button>
+                                </div> -->
+                            </div>
+                        </div>
+                        <template if:true={EmpFollowSatToSunDetails.EmpFollowSatToSun}>
+                            <fieldset class="slds-p-around_medium slds-p-left_xx-large  ">
+                                <div class="slds-grid slds-wrap">
+                                    <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-1 slds-large-size_1-of-1 ">
+                                        {customLabelValues.OWC_WorkweekAndWorkday_EmpFollowSatToSun}
+                                    </div>
+                                    <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-2 slds-large-size_1-of-2 slds-p-top_xx-small">
+                                        <lightning-combobox disabled
+                                                            variant="label-hidden"
+                                                            name="EmpFollowSatToSun"
+                                                            placeholder={customLabelValues.OWC_select_picklist_label}
+                                                            data-id="EmpFollowSatToSun"
+                                                            value={EmpFollowSatToSun}
+                                                            options={options}
+                                                            onchange={handleChange} 
+                                                            onblur={handleEmpFollowSatToSunPicklistFocus}></lightning-combobox>
+                                        
+                                    </div>
+                                </div>
+                            </fieldset>
+                        </template>
+    
+                        <!--Emp do not follow sat to sun-->
+                        <template if:true={EmpFollowSatToSunDetails.EmpDefinedWorkweek}>
+                        <template if:true={isEmpFollowSatToSun}>
+                            <div class="">   
+                                <div class="slds-grid slds-wrap">
+                                    <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-2 slds-large-size_1-of-2">
+                                        <fieldset class="slds-p-around_medium slds-p-left_xx-large ">
+                                            {customLabelValues.OWC_WorkweekAndWorkday_EmpDefinedWorkweek}
+                                            <span class="requiredStyle"><abbr title="required">*</abbr></span> 
+                                            <lightning-combobox disabled
+                                                                    variant="label-hidden"
+                                                                    name="EmpDefinedWorkweek"
+                                                                    placeholder={customLabelValues.OWC_select_picklist_label}
+                                                                    data-id="EmpDefinedWorkweek"
+                                                                    value={EmpDefinedWorkweek}
+                                                                    options={WorkWeek_And_WorkDay_List}
+                                                                    onchange={handleChange} 
+                                                                    onblur={handleFocus}></lightning-combobox>
+                                        </fieldset>
+                                    </div>
+                                </div>
+                            </div>        
+                        </template>
+                        </template>
+    
+                        <!--Standard  Workweek midnight to midnight-->
+                        <template if:true={EmpFollowSatToSunDetails.EmpFollowMidnightToMidnight}>
+                        <fieldset class="slds-p-around_medium slds-p-left_xx-large ">
+                            <div class="slds-grid slds-wrap">
+                                <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-1 slds-large-size_1-of-1 ">
+                                    {customLabelValues.OWC_WorkweekAndWorkday_EmpFollowMidnightToMidnight}
+                                </div>
+                                <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-2 slds-large-size_1-of-2 slds-p-top_xx-small">
+                                    <lightning-combobox
+                                    disabled
+                                        variant="label-hidden"
+                                        name="EmpFollowMidnightToMidnight"
+                                        placeholder={customLabelValues.OWC_select_picklist_label}
+                                        data-id="EmpFollowMidnightToMidnight"
+                                        value={EmpFollowMidnightToMidnight}
+                                        options={options}
+                                        onchange={handleChange} 
+                                        onblur={handleEmpDefinedWorkweekFocus}>
+                                    </lightning-combobox>
+                                </div>
+                            </div>
+                        </fieldset>
+                        </template>
+    
+                        <!--When the answer is  no-->
+                        <template if:true={EmpFollowSatToSunDetails.isEmpFollowMidnightToMidnight}>
+                        <template if:true={isEmpFollowMidnightToMidnight}>
+                            <div class="">
+                                <fieldset class="slds-p-left_medium slds-p-top_small">
+                                    <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-1 slds-large-size_1-of-1">
+                                        {customLabelValues.OWC_WorkweekAndWorkday_ProvideEmpDefWorkday}
+                                    </div>
+                                </fieldset>
+    
+                                <fieldset class="">
+                                    <div class="slds-grid slds-wrap">
+                                        <!--Beginign  Date-->
+                        <template if:true={EmpFollowSatToSunDetails.BegDate}>
+                                        <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-2 slds-large-size_1-of-2">
+                                            <fieldset class="slds-p-around_medium">
+                                                {customLabelValues.OWC_WorkweekAndWorkday_BegDate}  
+                                                <span class="requiredStyle"><abbr title="required">*</abbr></span>                                        
+                                                <div class="slds-p-top_xxx-small">
+                                                    <lightning-input name="BegDate"
+                                                    disabled
+                                                        variant="label-hidden" 
+                                                        type="time" 
+                                                        value={BegDate}
+                                                        data-id="BegDate"
+                                                        onchange={handleChange}
+                                                        onblur={handleBegDateFocus}>
+                                                    </lightning-input>
+                                                </div>
+                                            </fieldset>
+                                        </div>
+                                        </template>
+    
+                                        <!--Ending Date-->
+                                        
+                        <template if:true={EmpFollowSatToSunDetails.EndDate}>
+                                        <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-2 slds-large-size_1-of-2">
+                                            <fieldset class="slds-p-around_medium">
+                                                {customLabelValues.OWC_WorkweekAndWorkday_EndDate}                                  
+                                                <div class="slds-p-top_xx-small">
+                                                    <lightning-input name="EndDate"
+                                                    disabled
+                                                        variant="label-hidden" 
+                                                        type="time"
+                                                        value={EndDate} 
+                                                        data-id="EndDate"
+                                                        onchange={handleChange}
+                                                        onblur={handleEndDateFocus}>
+                                                    </lightning-input>
+                                                </div>
+                                            </fieldset>
+                                        </div>
+                                        </template>
+    
+                                    </div>
+                                </fieldset>
+                            </div>        
+                        </template>
+                        </template>
+    
+                    </div>
+                </div>
+                
+            </Form>
+        </template>
+    </template>
+    <template if:false={isFormPreviewMode}>
+        <Form class="">
+            <div class="slds-grid slds-wrap">
+                <div class="slds-col slds-medium-size_1-of-8 slds-large-size_1-of-8"></div>
+                <div class="slds-col slds-size_1-of-1 slds-medium-size_6-of-8 slds-large-size_6-of-8">
+                    <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-1 slds-large-size_1-of-1">
+                        <div class="slds-grid slds-wrap">
+                            <div class="slds-col slds-size_1-of-1 slds-medium-size_5-of-6 slds-large-size_5-of-6">
+                                <h1 class="slds-p-around_medium slds-text-heading_large owcHeadingStyle">
+                                    {customLabelValues.OWC_WorkweekAndWorkday_Heading}
+                                </h1>
+                            </div>
+                            <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-6 slds-large-size_1-of-6">
+                                <lightning-button class="slds-float_right slds-m-top_medium slds-m-bottom_medium slds-m-left_medium owcButtonStyle" label={customLabelValues.OWC_save_as_draft_label} variant="brand" onclick={handleSaveAsDraft}></lightning-button>
+                            </div>
+                        </div>
+                    </div>
+                    <fieldset class="slds-p-around_medium slds-p-left_xx-large  ">
+                        <div class="slds-grid slds-wrap">
+                            <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-1 slds-large-size_1-of-1 ">
+                                {customLabelValues.OWC_WorkweekAndWorkday_EmpFollowSatToSun}
+                                <span class="slds-p-left_x-small">
+                                    <lightning-icon icon-name="utility:info" class="my-icon" size="x-small" alternative-text="info"  label={customLabelValues.OWC_learnmore_button} name="workweekHelptext" onclick={handleHelpText} ></lightning-icon>
+                                 </span>
+                            </div>
+                            <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-2 slds-large-size_1-of-2 slds-p-top_xx-small">
+                                <lightning-combobox
+                                                    variant="label-hidden"
+                                                    name="EmpFollowSatToSun"
+                                                    placeholder={customLabelValues.OWC_select_picklist_label}
+                                                    data-id="EmpFollowSatToSun"
+                                                    value={EmpFollowSatToSun}
+                                                    options={options}
+                                                    onchange={handleChange} 
+                                                    onblur={handleEmpFollowSatToSunPicklistFocus}></lightning-combobox>
+                                
+                            </div>
+                        </div>
+                    </fieldset>
+
+                    <!--Emp do not follow sat to sun-->
+                    <template if:true={isEmpFollowSatToSun}>
+                        <div class="">   
+                            <div class="slds-grid slds-wrap">
+                                <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-2 slds-large-size_1-of-2">
+                                    <fieldset class="slds-p-around_medium slds-p-left_xx-large ">
+                                        {customLabelValues.OWC_WorkweekAndWorkday_EmpDefinedWorkweek}
+                                        
+                                        <lightning-combobox
+                                                                variant="label-hidden"
+                                                                name="EmpDefinedWorkweek"
+                                                                placeholder={customLabelValues.OWC_select_picklist_label}
+                                                                data-id="EmpDefinedWorkweek"
+                                                                value={EmpDefinedWorkweek}
+                                                                options={WorkWeek_And_WorkDay_List}
+                                                                onchange={handleChange} 
+                                                                ></lightning-combobox>
+                                    </fieldset>
+                                </div>
+                            </div>
+                        </div>        
+                    </template>
+
+                    <!--Standard  Workweek midnight to midnight-->
+                    <fieldset class="slds-p-around_medium slds-p-left_xx-large ">
+                        <div class="slds-grid slds-wrap">
+                            <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-1 slds-large-size_1-of-1 ">
+                                {customLabelValues.OWC_WorkweekAndWorkday_EmpFollowMidnightToMidnight}
+                                <span class="slds-p-left_x-small">
+                                    <lightning-icon icon-name="utility:info" class="my-icon" size="x-small" alternative-text="info"  label={customLabelValues.OWC_learnmore_button} name="WorkDaysHelptext" onclick={handleHelpText} ></lightning-icon>
+                                 </span>
+                            </div>
+                            <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-2 slds-large-size_1-of-2 slds-p-top_xx-small">
+                                <lightning-combobox
+                                    variant="label-hidden"
+                                    name="EmpFollowMidnightToMidnight"
+                                    placeholder={customLabelValues.OWC_select_picklist_label}
+                                    data-id="EmpFollowMidnightToMidnight"
+                                    value={EmpFollowMidnightToMidnight}
+                                    options={options}
+                                    onchange={handleChange} >
+                                </lightning-combobox>
+                            </div>
+                        </div>
+                    </fieldset>
+
+                    <!--When the answer is  no-->
+                    <template if:true={isEmpFollowMidnightToMidnight}>
+                        <div class="">
+                            <fieldset class="slds-p-left_medium slds-p-top_small">
+                                <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-1 slds-large-size_1-of-1">
+                                    {customLabelValues.OWC_WorkweekAndWorkday_ProvideEmpDefWorkday}
+                                </div>
+                            </fieldset>
+
+                            <fieldset class="fieldsetStyle">
+                                <div class="slds-grid slds-wrap">
+                                    <!--Beginign  Date-->
+                                    <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-2 slds-large-size_1-of-2">
+                                        <fieldset class="slds-p-around_medium slds-p-left_xx-large ">
+                                            {customLabelValues.OWC_WorkweekAndWorkday_BegDate}  
+                                                                                  
+                                            <div class="slds-p-top_xxx-small">
+                                                <lightning-input name="BegDate"
+                                                    variant="label-hidden" 
+                                                    type="time" 
+                                                    value={BegDate}
+                                                    data-id="BegDate"
+                                                    onchange={handleChange}
+                                                    onblur={handleBegDateFocus}>
+                                                </lightning-input>
+                                            </div>
+                                        </fieldset>
+                                    </div>
+
+                                    <!--Ending Date-->
+                                    
+                                    <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-2 slds-large-size_1-of-2">
+                                        <fieldset class="slds-p-around_medium slds-p-left_xx-large ">
+                                            {customLabelValues.OWC_WorkweekAndWorkday_EndDate}                                  
+                                            <div class="slds-p-top_xx-small">
+                                                <lightning-input name="EndDate"
+                                                disabled
+                                                    variant="label-hidden" 
+                                                    type="time"
+                                                    value={EndDate} 
+                                                    data-id="EndDate"
+                                                    onchange={handleChange}
+                                                    onblur={handleEndDateFocus}>
+                                                </lightning-input>
+                                            </div>
+                                        </fieldset>
+                                    </div>
+
+                                </div>
+                            </fieldset>
+                        </div>        
+                    </template>
+
+                </div>
+            </div>
+            
+        </Form>
+    </template>    
+    <template if:true={isHelpText}>
+        <c-owc-Help-Text-Cmp helptext={helpText} issickleavehelptext={issickleavehelptext} onhelptextevent={handleHelpTextEvent}></c-owc-Help-Text-Cmp>
+    </template>    
+</template>

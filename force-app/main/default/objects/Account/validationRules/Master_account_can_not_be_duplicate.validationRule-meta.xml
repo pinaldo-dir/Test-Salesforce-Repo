@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Master_account_can_not_be_duplicate</fullName>
+    <active>true</active>
+    <errorConditionFormula>CONTAINS(UPPER(Action__c) , 'MASTER') &amp;&amp;  Mark_as_duplicate__c</errorConditionFormula>
+    <errorMessage>This is a Master Account, you may not mark this as a duplicate.</errorMessage>
+</ValidationRule>

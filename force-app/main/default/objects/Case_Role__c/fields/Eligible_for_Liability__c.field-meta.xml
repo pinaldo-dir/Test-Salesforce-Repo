@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Eligible_for_Liability__c</fullName>
+    <description>Used in query on the violation engine to provide a subset of case roles eligible for a liability</description>
+    <externalId>false</externalId>
+    <formula>IF( 
+	(
+		CASE ( Role__c ,
+            'Brand Guarantor' , 'TRUE' ,
+			'Business' , 'TRUE' , 
+			'CEO' , 'TRUE' , 
+			'CFO' , 'TRUE' , 
+			'Chief' , 'TRUE' , 
+			'Corporate Officer' , 'TRUE' , 
+			'Guarantor' , 'TRUE' , 
+			'Manager' , 'TRUE' , 
+			'Managing Member' , 'TRUE' ,
+			'Manufacturer' , 'TRUE' ,
+			'Owner' , 'TRUE' , 
+			'Secretary' , 'TRUE' , 
+			'Subsidiary' , 'TRUE' , 
+                        'Treasurer' , 'TRUE' , 
+                        'President' , 'TRUE' ,
+                        'Vice President' , 'TRUE' , 
+                        'Case Employer' , 'TRUE' ,      
+                        'Partner' , 'TRUE' ,
+                        'Partnership' , 'TRUE' ,
+			'FALSE' ) = 'TRUE'
+	||	 
+	( CONTAINS ( TEXT ( Role__c ), 'Defendant' ) &amp;&amp; !CONTAINS ( TEXT ( Role__c ) , 'Attorney' ) &amp;&amp; !CONTAINS ( TEXT ( Role__c ) , 'Representative' ))
+	||
+	CONTAINS ( TEXT ( Role__c ), 'Successor' )
+        ||
+	CONTAINS ( TEXT ( Role__c ), 'Employer' )
+
+	) , 
+TRUE, FALSE )
+&amp;&amp; (  !ISPICKVAL(Case_Role_Status__c, 'No Longer Active On Case') )</formula>
+    <inlineHelpText>This field is set by a formula. contact your administrator if you need to add or remove roles from those eligible to be liable parties.</inlineHelpText>
+    <label>Eligible for Liability</label>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Checkbox</type>
+</CustomField>

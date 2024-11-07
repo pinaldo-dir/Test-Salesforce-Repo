@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+        <help><!-- Total number of months an employee worked in DIR for all their appointments since the use of Salesforce beginning June 2013 --></help>
+        <label><!-- Number of Months Worked --></label>
+        <name>Number_of_Months_Worked__c</name>
+    </CustomFieldTranslation>

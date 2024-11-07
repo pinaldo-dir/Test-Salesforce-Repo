@@ -1,0 +1,7 @@
+A new Inspection Request Number {!Inspection_Request__c.Name} has been created.  You will be notified in 5 days if this is not assigned to a deputy.  The final due date will be set for {!Inspection_Request__c.Due_Date__c}.
+
+L&R File Number: {!Inspection_Request__c.L_R_File_Number__c}
+{!Inspection_Request__c.Link}
+
+Case Number: {!DIR_Case__c.Name}
+{!DIR_Case__c.Link}

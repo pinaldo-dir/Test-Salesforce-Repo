@@ -1,0 +1,202 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionCalls>
+        <name>SendEmailNotification</name>
+        <label>Send Email Notification</label>
+        <locationX>182</locationX>
+        <locationY>743</locationY>
+        <actionName>HearingTriggerHandler</actionName>
+        <actionType>apex</actionType>
+        <flowTransactionModel>CurrentTransaction</flowTransactionModel>
+        <inputParameters>
+            <name>newHearings</name>
+            <value>
+                <elementReference>$Record</elementReference>
+            </value>
+        </inputParameters>
+        <nameSegment>HearingTriggerHandler</nameSegment>
+        <versionSegment>1</versionSegment>
+    </actionCalls>
+    <apiVersion>55.0</apiVersion>
+    <decisions>
+        <name>Send_7_Days_Before_Meetinig</name>
+        <label>Send 7 Days Before Meetinig</label>
+        <locationX>50</locationX>
+        <locationY>288</locationY>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>Send_Email_7_Days_Before_Meeting</name>
+            <conditionLogic>or</conditionLogic>
+            <conditions>
+                <leftValueReference>ChecktoSend7daysNotification</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>SendEmailNotification</targetReference>
+            </connector>
+            <label>Send Email 7 Days Before Meeting</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <name>Send_Email_21_Days_Before_Meeting</name>
+        <label>Send Email 21 Days Before Meeting</label>
+        <locationX>666</locationX>
+        <locationY>288</locationY>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>Send_Email_21_Days_Before</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>ChecktoSend21daysNotification</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>SendEmailNotification</targetReference>
+            </connector>
+            <label>Send Email 21 Days Before</label>
+        </rules>
+    </decisions>
+    <environments>Default</environments>
+    <formulas>
+        <name>Checkifstatusisthesame</name>
+        <dataType>Boolean</dataType>
+        <expression>IF({!$Record.Meeting_Start_Date_Time__c} != {!$Record__Prior.Meeting_Start_Date_Time__c},true,false)</expression>
+    </formulas>
+    <formulas>
+        <name>ChecktoSend21daysNotification</name>
+        <dataType>Boolean</dataType>
+        <expression>IF(DATEVALUE({!$Record.Meeting_Start_Date_Time__c}) - 21 &gt;= Today(), true, false)</expression>
+    </formulas>
+    <formulas>
+        <name>ChecktoSend7daysNotification</name>
+        <dataType>Boolean</dataType>
+        <expression>IF(DATEVALUE({!$Record.Meeting_Start_Date_Time__c}) - 7 &gt;= Today(), true, false)</expression>
+    </formulas>
+    <interviewLabel>Meeting: Send Email for Rescheduled Meeting {!$Flow.CurrentDateTime}</interviewLabel>
+    <label>Meeting: Send Email for Rescheduled Meeting</label>
+    <processMetadataValues>
+        <name>BuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>CanvasMode</name>
+        <value>
+            <stringValue>AUTO_LAYOUT_CANVAS</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>OriginBuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processType>AutoLaunchedFlow</processType>
+    <start>
+        <locationX>56</locationX>
+        <locationY>0</locationY>
+        <filterLogic>(1 OR 2 OR 3 OR 4) AND 5 AND 6</filterLogic>
+        <filters>
+            <field>Record_Type_Name__c</field>
+            <operator>EqualTo</operator>
+            <value>
+                <stringValue>Conference</stringValue>
+            </value>
+        </filters>
+        <filters>
+            <field>Record_Type_Name__c</field>
+            <operator>EqualTo</operator>
+            <value>
+                <stringValue>Garment Conference</stringValue>
+            </value>
+        </filters>
+        <filters>
+            <field>Record_Type_Name__c</field>
+            <operator>EqualTo</operator>
+            <value>
+                <stringValue>WCA Hearing</stringValue>
+            </value>
+        </filters>
+        <filters>
+            <field>Record_Type_Name__c</field>
+            <operator>EqualTo</operator>
+            <value>
+                <stringValue>Garment Hearing</stringValue>
+            </value>
+        </filters>
+        <filters>
+            <field>Status__c</field>
+            <operator>EqualTo</operator>
+            <value>
+                <stringValue>Rescheduled</stringValue>
+            </value>
+        </filters>
+        <filters>
+            <field>Meeting_Start_Date_Time__c</field>
+            <operator>IsNull</operator>
+            <value>
+                <booleanValue>false</booleanValue>
+            </value>
+        </filters>
+        <object>Hearing__c</object>
+        <recordTriggerType>CreateAndUpdate</recordTriggerType>
+        <scheduledPaths>
+            <name>Send_7_Days_before_meeting</name>
+            <connector>
+                <targetReference>Send_7_Days_Before_Meetinig</targetReference>
+            </connector>
+            <label>Send 7 Days before meeting</label>
+            <offsetNumber>-7</offsetNumber>
+            <offsetUnit>Days</offsetUnit>
+            <recordField>Meeting_Start_Date_Time__c</recordField>
+            <timeSource>RecordField</timeSource>
+        </scheduledPaths>
+        <scheduledPaths>
+            <name>Send_1_Day_before_meeting</name>
+            <connector>
+                <targetReference>SendEmailNotification</targetReference>
+            </connector>
+            <label>Send 1 Day before meeting</label>
+            <offsetNumber>-1</offsetNumber>
+            <offsetUnit>Days</offsetUnit>
+            <recordField>Meeting_Start_Date_Time__c</recordField>
+            <timeSource>RecordField</timeSource>
+        </scheduledPaths>
+        <scheduledPaths>
+            <name>Send_21_Days_before_meeting</name>
+            <connector>
+                <targetReference>Send_Email_21_Days_Before_Meeting</targetReference>
+            </connector>
+            <label>Send 21 Days before meeting</label>
+            <offsetNumber>-21</offsetNumber>
+            <offsetUnit>Days</offsetUnit>
+            <recordField>Meeting_Start_Date_Time__c</recordField>
+            <timeSource>RecordField</timeSource>
+        </scheduledPaths>
+        <triggerType>RecordAfterSave</triggerType>
+    </start>
+    <status>Active</status>
+    <variables>
+        <name>NewHearings</name>
+        <dataType>SObject</dataType>
+        <isCollection>true</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+        <objectType>Hearing__c</objectType>
+    </variables>
+    <variables>
+        <name>oldHearings</name>
+        <dataType>SObject</dataType>
+        <isCollection>true</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+        <objectType>Hearing__c</objectType>
+    </variables>
+</Flow>

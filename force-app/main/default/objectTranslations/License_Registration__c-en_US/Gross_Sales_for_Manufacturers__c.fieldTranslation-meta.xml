@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+        <help><!-- Please select one --></help>
+        <label><!-- Gross Sales for Manufacturers --></label>
+        <name>Gross_Sales_for_Manufacturers__c</name>
+        <picklistValues>
+            <masterLabel>$3,000,001 to $7,000,000</masterLabel>
+            <translation><!-- $3,000,001 to $7,000,000 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>$500,000 or less</masterLabel>
+            <translation><!-- $500,000 or less --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>$500,001 to $3,000,000</masterLabel>
+            <translation><!-- $500,001 to $3,000,000 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>$7,000,001 or more</masterLabel>
+            <translation><!-- $7,000,001 or more --></translation>
+        </picklistValues>
+    </CustomFieldTranslation>

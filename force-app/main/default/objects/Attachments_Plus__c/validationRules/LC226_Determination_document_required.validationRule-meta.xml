@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>LC226_Determination_document_required</fullName>
+    <active>true</active>
+    <errorConditionFormula>Uploaded_the_LC_226_Cure_Determination__c=FALSE &amp;&amp;  NOT(ISPICKVAL(LC_226_Cure_Determination__c, ""))</errorConditionFormula>
+    <errorDisplayField>Uploaded_the_LC_226_Cure_Determination__c</errorDisplayField>
+    <errorMessage>Please upload cure determination</errorMessage>
+</ValidationRule>

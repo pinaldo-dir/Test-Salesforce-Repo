@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>NAICS_Code_Requires_for_WCA_Defendant</fullName>
+    <active>true</active>
+    <description>When a new Case is created by using the New button, with business account, verify that the business account has NAICS code.</description>
+    <errorConditionFormula>AND(ISNEW(), RecordType.DeveloperName = 'WCA', $Profile.Name = 'WCA User', AND(NOT(ISBLANK(Employer__c)), ISBLANK(Employer__r.NAICS_Code__c)) )</errorConditionFormula>
+    <errorDisplayField>Employer__c</errorDisplayField>
+    <errorMessage>NAICS CODE field is required for Employer's Account before creating the case.</errorMessage>
+</ValidationRule>

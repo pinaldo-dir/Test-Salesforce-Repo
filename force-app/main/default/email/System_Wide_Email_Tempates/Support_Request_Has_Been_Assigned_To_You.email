@@ -1,0 +1,7 @@
+The below Support Request has been assigned to you.
+
+Support Request Number: {!Support_Request__c.Name} 
+Subject: {!Support_Request__c.Subject__c}
+Requested By: {!Support_Request__c.Submitted_By__c}
+
+{!Support_Request__c.Link}

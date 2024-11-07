@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Uploaded_the_Cure_Hearing_Determination__c</fullName>
+    <defaultValue>false</defaultValue>
+    <description>Uploaded the Cure Hearing Determination document in Upload PAGA Documents tab in Case Management (it is required)</description>
+    <externalId>false</externalId>
+    <inlineHelpText>Uploaded the Cure Hearing Determination document in Upload PAGA Documents tab in Case Management (it is required)</inlineHelpText>
+    <label>Uploaded the Cure Hearing Determination</label>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Checkbox</type>
+</CustomField>

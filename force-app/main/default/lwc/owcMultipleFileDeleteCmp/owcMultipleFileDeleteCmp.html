@@ -1,0 +1,24 @@
+<template>
+  <section role="dialog" tabindex="-1" aria-labelledby="modal-heading-01" aria-modal="true" aria-describedby="modal-content-id-1" class="slds-modal slds-fade-in-open">
+      <div class="slds-modal__container">
+        <header class="slds-modal__header">
+          <button class="slds-button slds-button_icon slds-modal__close slds-button_icon-inverse" title="Close" onclick={closeModal}>
+            <lightning-icon icon-name="utility:close"
+                alternative-text="close"
+                variant="inverse"
+                size="small" ></lightning-icon>
+            <span class="slds-assistive-text">Close</span>
+        </button>
+          <h2 id="modal-heading-01" class="slds-modal__title slds-hyphenate">{customLabelValues.OWC_filedelete_popup_header}</h2>
+        </header>
+        <div class="slds-modal__content slds-p-around_medium" id="modal-content-id-1">
+          <p class="slds-align_absolute-center">{customLabelValues.OWC_filedelete_confirmation_msg}</p>
+        </div>
+        <footer class="slds-modal__footer">
+          <button class="slds-button slds-button_neutral owcButtonStyle" onclick={handleDeleteFile}>{customLabelValues.OWC_file_delete_yes_button}</button>
+          <button class="slds-button slds-button_neutral owcButtonStyle" onclick={handleCloseModal}>{customLabelValues.OWC_file_delete_no_button}</button>
+        </footer>
+      </div>
+    </section>
+    <div class="slds-backdrop slds-backdrop_open"></div>
+</template>

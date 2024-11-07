@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>PAGA_Independent_Contractor__c</fullName>
+    <defaultValue>false</defaultValue>
+    <description>Misclassification [Employee classified as independent contractor]</description>
+    <externalId>false</externalId>
+    <inlineHelpText>Misclassification [Employee classified as independent contractor]</inlineHelpText>
+    <label>Classified as Independent Contractor</label>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Checkbox</type>
+</CustomField>

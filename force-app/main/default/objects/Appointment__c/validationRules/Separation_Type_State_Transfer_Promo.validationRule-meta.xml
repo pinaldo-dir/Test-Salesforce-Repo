@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Separation_Type_State_Transfer_Promo</fullName>
+    <active>true</active>
+    <description>when Transfer/promo within state, "Vacated Position" is required.</description>
+    <errorConditionFormula>AND ( (NOT(CONTAINS($Profile.Name,'System Administrator'))),
+(
+
+(
+ISPICKVAL(Type_of_Separation__c , "Transfer/Promotion within DIR")
+||
+ISPICKVAL(Type_of_Separation__c , "Transfer to another Agency/Department")
+||
+ISPICKVAL(Type_of_Separation__c , "120 Position # change")
+||
+ISPICKVAL(Type_of_Separation__c , "S05-Resignation Without Fault")
+)
+&amp;&amp;
+(
+Vacated_Position__c =''
+||
+   ISPICKVAL(Transferred_to_Division_or_Dept__c,'')
+)
+
+))</errorConditionFormula>
+    <errorMessage>Please provide 'Transferred to Division or Dept' and 'Vacated Position' information'</errorMessage>
+</ValidationRule>

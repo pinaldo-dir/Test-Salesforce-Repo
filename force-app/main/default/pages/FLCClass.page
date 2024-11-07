@@ -1,0 +1,122 @@
+<apex:page controller="FLCClassController" docType="HTML-5.0" applyHtmlTag="false" applyBodyTag="false" sidebar="false" showHeader="false" standardStylesheets="false">
+    
+    <apex:composition template="CommunityRegistrationTemplate">
+
+        <apex:define name="body">
+            <style>
+                .input {  <!-- text-align:center -->
+                padding:5px}
+                .field { align:top }
+                .lbl { font-weight:bold}
+                h2 {font-weight:bold }
+                .req::after {content:"*"; color:red }
+                .spaced { text-align:center; margin:10px}
+            </style>
+            <apex:form >
+                
+                <ol class="breadcrumb">
+                    <li><a href="https://www.dir.ca.gov/dlse/dlse.html">Department of Industrial Relations (DIR)</a></li>
+                </ol>
+                <br/>
+                <br/>
+                
+                <apex:outputPanel >
+                    <h1>Class</h1>
+                    <h2 class="panel-title">Enter class information for {!owner.First_Name__c} {!owner.Last_Name__c} </h2>
+                    <span>Values with a red asterisk are required.</span>
+                    <br/><br/>
+                    <div class="panel-body">
+                        <div class="row mb">
+                            
+                            <div class="form-group col-md-12">
+                                <table id="tablelocmain" class="cell-border stripe"  cellspacing="0">
+                                    <tbody>
+                                        <tr >
+                                            <td class="input lbl req" width="30%">Training Organization</td>
+                                            <td class="input" ><apex:inputText value="{!Training_Organization}" required="true" /></td> 
+                                        </tr>
+                                        <tr>
+                                            <td class="input lbl req" >Hours Completed</td>
+                                            <td class="input"><apex:inputText value="{!Hours_Completed}" required="true" /></td>
+                                        </tr>
+                                        <tr>
+                                            <td class="input lbl req">Language</td>
+                                            <td class="input"><apex:selectList id="selectedLanguage" value="{!Language}" multiselect="false" size="1" styleClass="form-control">
+                                                <apex:selectOptions value="{!languageList}"/>
+                                                </apex:selectList></td>
+                                        </tr>
+                                        <tr>
+                                            <td class="input lbl req">Completion Date</td>
+                                            <td class="input"><apex:input value="{!Completion_Date}" type="date" required="true"/></td>
+                                        </tr>
+                                        <tr>	
+                                            <td class="input lbl">Notes</td>
+                                            <td class="input"><apex:inputText value="{!Notes}" size="50"/></td>
+                                        </tr>
+                                        
+                                        
+                                        <tr style="">
+                                            <td class="input">
+
+                                            </td>
+                                            <td class="input" style="text-align:center">
+                                                <apex:commandLink action="{!LinkClass}" value="Save"  onclick="window.top.location='/{!ownerId}'; " style="text-decoration:none;" styleclass="btn btn-custom spaced"/>
+                                                &nbsp;&nbsp;&nbsp;
+                                                <apex:commandButton value="Close this Window" styleclass="btn btn-custom spaced" onClick="self.close();return false;"/>
+                                            </td>
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>   
+                    </div>
+                </apex:outputPanel>
+                
+                
+                <br/>
+                <apex:outputPanel >
+                    <h2 class="panel-title">Class information</h2>
+                    <div class="panel-body">
+                        <div class="row mb">
+                            <div class="form-group col-md-12">
+                                <table id="tablelocmain" class="cell-border stripe" cellspacing="0">
+                                    <thead>
+                                        <tr>
+                                            <th width="15%">Owner First Name</th>
+                                            <th width="15%">Owner Last Name</th>
+                                            <!--<th width="15%">Course Id</th> -->
+                                            <th width="15%">Training Organization</th>
+                                            <th width="15%">Hours Completed</th>
+                                            <th width="15%">Language</th>
+                                            <th width="15%">Completion Date</th>
+                                            <th width="15%">Notes</th>
+                                            <th width="15%">User Name</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody> 
+                                        <apex:repeat value="{!regCourse}" var="eachClass">
+                                            <tr>
+                                                <td><apex:outputField value="{!eachClass.Ownership__r.First_Name__c}" /></td>
+                                                <td><apex:outputField value="{!eachClass.Ownership__r.Last_Name__c}" /></td>
+                                                <!-- <td><apex:outputField value="{!eachClass.Name}" /></td> -->
+                                                <td><apex:outputField value="{!eachClass.Training_Organization__c}" /></td> 
+                                                <td><apex:outputField value="{!eachClass.Hours_Completed__c}" /></td>
+                                                <td><apex:outputField value="{!eachClass.Language__c}"/></td>
+                                                <td><apex:outputField value="{!eachClass.Completion_Date__c}"/></td>
+                                                <td><apex:outputField value="{!eachClass.Notes__c}"/></td>
+                                                <td width="30px"><apex:outputField value="{!eachClass.User__r.Name}"/></td>
+                                                
+                                            </tr>
+                                        </apex:repeat>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>   
+                    </div>
+                </apex:outputPanel>
+                
+            </apex:form>
+        </apex:define>
+    </apex:composition>
+</apex:page>

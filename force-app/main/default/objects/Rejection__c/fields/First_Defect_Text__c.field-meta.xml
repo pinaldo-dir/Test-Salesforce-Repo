@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>First_Defect_Text__c</fullName>
+    <externalId>false</externalId>
+    <formula>"Please return or resubmit your online application with the above requested item(s) within "+ TEXT(Days_to_Respond__c) +" days from the date of this letter. " 
++
+IF(Registration_Type__c = "Car Wash", "If you do not respond, your application will be rejected and you will forfeit your application fee.",
+IF(Registration_Type__c = "Child Performer Services", "Please return this notice along with the above requested items(s) within 30 days of the date of this letter.",
+IF(Registration_Type__c = "Garment Manufacturers and Contractors", "If we do not receive the requested items and/or documents listed above within 60 days from the date of this letter, your application for registration will be rejected and the fee will be forfeited.", 
+IF(Registration_Type__c = "Talent Agency", "If you submitted a paper application, please fax requested item(s) to Fax No. (510) 286-1366 or email to DLSELicensing@dir.ca.gov.  If you are unable to submit by fax or email then mailing is acceptable.",
+IF(Registration_Type__c = "Farm Labor Contractor", "Please return this notice along with the above requested items(s) within 30 days of the date of this letter.",
+IF(Registration_Type__c = "Janitorial", "If you do not respond, your application will be rejected and you will forfeit your application fee.", ""))))))</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>First Defect Text</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

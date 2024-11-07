@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Copy_of_BOFE_Penalties_owed</fullName>
+    <booleanFilter>(1 OR 2 OR 3 OR 4 OR 5) AND 6</booleanFilter>
+    <columns>NAME</columns>
+    <columns>Case_Management__c</columns>
+    <columns>DIR_Office__c</columns>
+    <columns>Payee_Name__c</columns>
+    <columns>Payee_Type__c</columns>
+    <columns>Status__c</columns>
+    <columns>Verification_Letter_Sent_Date__c</columns>
+    <columns>Release_Required__c</columns>
+    <columns>Wage_Payable_Balance_New__c</columns>
+    <columns>Wage_Interest_Payable_Balance__c</columns>
+    <columns>Penalty_Payable_Balance_New__c</columns>
+    <columns>Interest_Other_Payable_Balance__c</columns>
+    <columns>Recycled_Funds__c</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>Wage_Payable_Balance_New__c</field>
+        <operation>greaterThan</operation>
+        <value>0</value>
+    </filters>
+    <filters>
+        <field>Interest_Other_Payable_Balance__c</field>
+        <operation>greaterThan</operation>
+        <value>0</value>
+    </filters>
+    <filters>
+        <field>Penalty_Payable_Balance_New__c</field>
+        <operation>greaterThan</operation>
+        <value>0</value>
+    </filters>
+    <filters>
+        <field>Wage_Interest_Payable_Balance__c</field>
+        <operation>greaterThan</operation>
+        <value>0</value>
+    </filters>
+    <filters>
+        <field>Recycled_Funds__c</field>
+        <operation>greaterThan</operation>
+        <value>0</value>
+    </filters>
+    <filters>
+        <field>Payee_Name__c</field>
+        <operation>contains</operation>
+        <value>DLSE</value>
+    </filters>
+    <label>Copy of BOFE Penalties owed</label>
+</ListView>

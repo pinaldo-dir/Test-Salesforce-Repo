@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Occupation_1_Employer_Address__c</fullName>
+    <description>Occupation 1 Employer address</description>
+    <externalId>false</externalId>
+    <inlineHelpText>Enter Employer Address for Occupation 1</inlineHelpText>
+    <label>Occupation 1 Employer Address</label>
+    <length>255</length>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

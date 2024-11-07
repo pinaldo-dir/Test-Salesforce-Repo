@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <description>Send FLC Submission email on Renewal</description>
+    <encodingKey>ISO-8859-1</encodingKey>
+    <letterhead>Blank_Letterhead</letterhead>
+    <name>Registration FLC Submission Email</name>
+    <style>freeForm</style>
+    <subject>FLC License Submitted Successfully</subject>
+    <textOnly>For: {!License_Registration__c.Legal_Entity_Name__c}
+Application ID: {!License_Registration__c.License_Registration_Number__c}
+
+You have now submitted your application for a Farm Labor Contractor License.
+
+Once your submission is processed, you will be notified of approval via e-mail or defect with an attached explanation of the outstanding issues.
+
+If you wish to print a copy of your submission for your records, you may do so by logging into the registration site, and click on the &quot;Email a Copy&quot; link on the left.
+
+
+
+IMPORTANT: Successful completion of the examination does not authorize you to operate as a Farm Labor Contractor. It is illegal to operate as a Farm Labor Contractor business without first obtaining a Farm Labor Contractor License from the State Labor Commissioner&apos;s Office. If you operate without a valid license, you will be subject to civil or criminal penalties.
+
+Thank you,
+
+Licensing &amp; Registration Unit</textOnly>
+    <type>html</type>
+    <uiType>Aloha</uiType>
+</EmailTemplate>

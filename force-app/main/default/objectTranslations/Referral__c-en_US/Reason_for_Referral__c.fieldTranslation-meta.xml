@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+        <label><!-- Reason for Referral --></label>
+        <name>Reason_for_Referral__c</name>
+        <picklistValues>
+            <masterLabel>All retaliation elements are evident</masterLabel>
+            <translation><!-- All retaliation elements are evident --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Well-documented immigration-related threat</masterLabel>
+            <translation><!-- Well-documented immigration-related threat --></translation>
+        </picklistValues>
+    </CustomFieldTranslation>

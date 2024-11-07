@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Part_3_Under_Review_Duration__c</fullName>
+    <externalId>false</externalId>
+    <formula>IF ( RecordType.DeveloperName = 'Packet_to_HR_Part_3_Under_Review',
+
+
+   ( 
+
+      IF ( Error_or_Invalid__c = TRUE, 0,
+
+          IF ( Status_End_Date__c =  DATE(1700,01,01), 0,
+
+              IF ( ISBLANK( Status_End_Date__c ) , ( Todays_Date_Hidden__c - 
+
+                 Review_Packet_Received_Date__c + 1) ,
+
+                      Status_End_Date__c - Review_Packet_Received_Date__c + 1 ) ) )
+
+   )
+
+ , 0 )</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>Part 3 Under Review Duration</label>
+    <precision>18</precision>
+    <required>false</required>
+    <scale>0</scale>
+    <trackTrending>false</trackTrending>
+    <type>Number</type>
+    <unique>false</unique>
+</CustomField>

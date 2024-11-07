@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <encodingKey>ISO-8859-1</encodingKey>
+    <letterhead>Blank_Letterhead</letterhead>
+    <name>HR New Training Notification Basic Supervision</name>
+    <style>freeForm</style>
+    <subject>Mandatory New Supervisor Development Training</subject>
+    <textOnly>Hello,
+
+You are receiving this email because our records indicate you were recently appointed to a supervisory classification. California Government Code section 19995.4 and the California Department of Human Resources (CalHR) Human Resources Manual section 2801 require all newly appointed supervisors complete CalHR’s 80-hour Supervisor Development Program within the term of the probationary period or within six months of appointment. Please complete the following steps to fulfill this training requirement:
+
+Step 1 – CalHR CalLearns Registration and Course Enrollment
+
+To register for the 80-hour Supervisor Development Program training, you must create an account on CalHR’s online learning management system CalLearns using your DIR email address.
+
+Once you have created a CalLearns account, log into the CalLearns system, search for the appropriate course titled “California Leadership Academy - Supervisor Development Program (80-Hour),” and add it to your cart. Upon checkout, designate your direct supervisor to approve the course. Your supervisor will then receive an email notification from CalHR Statewide Training to review your training request.
+
+After your supervisor approves the course, you will receive an email from CalHR Statewide Training confirming your registration for the class. You should save this email for your records.
+
+Step 2 - Payment Request
+
+Once you receive the registration confirmation email and prior to the scheduled course date, you must complete DIR’s Request for OutService Training (OSTR) form and submit the completed form to the Office of Administrative Services (OAS) Training Unit at Training@dir.ca.gov.
+
+When completing the OSTR form, you must include your applicable service location number and reporting structure number located on the DIR Accounting Intranet page. You must also ensure the form has all required signatures prior to submitting it to the OAS Training Unit.
+
+Step 3 – Tracking Completion of Mandatory Training
+
+After completing the mandatory training and to receive course credit, you must email a copy of your certificate of completion to the OAS Training Unit at Training@dir.ca.gov.
+
+If you have any questions, you may contact the OAS Training Unit at Training@dir.ca.gov.
+
+
+Thank you!</textOnly>
+    <type>html</type>
+    <uiType>Aloha</uiType>
+</EmailTemplate>

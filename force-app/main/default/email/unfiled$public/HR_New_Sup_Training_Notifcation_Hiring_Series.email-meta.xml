@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <encodingKey>ISO-8859-1</encodingKey>
+    <name>HR New Sup Training Notifcation Hiring Series</name>
+    <style>none</style>
+    <subject>Best Hiring Practices and Writing Effective and Compliant Duty Statements Training Courses</subject>
+    <textOnly>Greetings,
+
+
+You are receiving this email because our records indicate that you have recently been appointed to a supervisory or managerial classification at the Department of Industrial Relations (DIR). In line with the State’s merit-based principles and the California Department of Human Resources (CalHR) best hiring practices, all DIR supervisors and managers must complete CalHR’s Best Hiring Practices for Supervisors and Writing Effective and Compliant Duty Statements training courses within the first 60 days of appointment and before participating in DIR’s recruitment and hiring process.
+
+
+To register for these training courses, you must create an account on CalHR’s CalLearns system at https://calhr.geniussis.com/PublicWelcome.aspx.
+
+
+Once logged into the CalLearns system, find the mandatory trainings, add them to your cart and proceed to checkout. If the Best Hiring Practices for Supervisors training is not available, the Best Hiring Practices (HR Liaisons) training will fulfill this training requirement.
+
+
+After checkout, you must designate your direct supervisor to approve the course. Your supervisor will then receive an email from CalHR Statewide Training regarding your training request.  If approved, your supervisor should select the Direct Transfer payment option and enter the following information:
+
+
+Department Division/Unit/Board or Contract*: (Identify your applicable division)
+
+Training Coordinator or Supervisor*: Cathleen Urbina
+
+Telephone Number*: (916) 584-0107
+
+Email Address*: HRTrainingUnit@dir.ca.gov
+
+Comments: (Optional)
+
+
+After your supervisor approves the course, you will receive an email from CalHR Statewide Training confirming your registration in the training.
+
+
+Once you complete the mandatory trainings, you must email a copy of your certificates of completion to the DIR HR Training Unit at HRTrainingUnit@dir.ca.gov to receive course credit.  You cannot participate in DIR’s recruitment and hiring process until you have completed these courses.
+
+
+If you have any questions, please contact the DIR HR Training Unit at HRTrainingUnit@dir.ca.gov.
+
+
+Thank you!
+
+
+DIR HR Training Unit</textOnly>
+    <type>custom</type>
+    <uiType>Aloha</uiType>
+</EmailTemplate>

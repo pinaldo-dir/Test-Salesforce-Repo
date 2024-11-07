@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <encodingKey>ISO-8859-1</encodingKey>
+    <name>Advocate notification - UnConfirmed_es</name>
+    <style>none</style>
+    <subject>Confirmación del reclamante para el reclamo en línea ({!DIR_Case__c.Name})</subject>
+    <textOnly>Hola {!Advocate},
+Gracias por presentar el reclamo de sueldo en nombre de {!Claimant}, en contra de {!Defendant}, el {!filed date}. Hemos enviado una solicitud de confirmación a {!Claimant}. El reclamo de sueldo no se finalizará hasta que sea confirmado por {!Claimant}. Si no se recibe confirmación del reclamante dentro de los 60 días, el caso se cerrará.
+Si tiene preguntas, envíenos un correo electrónico a o llámenos al 833-LCO-INFO (833-526-4636)
+La Oficina de la Comisionada Laboral&quot;</textOnly>
+    <type>custom</type>
+    <uiType>Aloha</uiType>
+</EmailTemplate>

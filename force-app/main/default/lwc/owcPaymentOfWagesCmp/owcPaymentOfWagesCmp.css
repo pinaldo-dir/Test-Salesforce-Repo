@@ -1,0 +1,63 @@
+.requiredStyle1{
+    color:rgb(255, 187, 0);
+}
+
+.hintstyle1{
+    color:rgb(255, 0, 0);
+}
+
+.helpTextStyle{
+    color:rgb(27, 194, 216);
+    font-size: 20px;
+}
+
+
+.headingStyle{
+    font-size: 34px;
+    line-height: 44px;
+    font-family: Avenir Next forINTUIT,Avenir,Helvetica,Arial,sans-serif;
+    font-style: normal;
+    font-weight: lighter;
+    color: #393a3d;
+    margin: 0;
+    overflow-wrap: break-word;
+}
+
+.requiredErrorMag{
+    color: red;
+    padding: 0 0 0 6px;
+    font-size: 15px;
+}
+
+.learnMoreStyle{
+    font-size: 15px;
+}
+/*--------------------------------------------------------------------------*/
+.formHeading {
+    font-weight: normal;
+    line-height: 1.1;
+    margin: .67em 0;
+}
+.breakStyle {
+    padding-bottom: 14px;
+}
+.owcFieldSetLabel {
+    font-family: 'Source Sans Pro';
+    font-size: 18px;
+    font-weight: 600;
+    color: #333333;
+}
+.formFieldSetStyle {
+    background: #f4f4f4;
+    padding: 8px 12px 6px 15px;
+}
+.radioSetStyle {
+    /* background: #f4f4f4; */
+    padding: 8px 12px 6px 15px;
+}
+div {
+    font-size: 16px;
+    font-weight: normal;
+    color: #333333;
+    font-family: 'Source Sans Pro';
+}

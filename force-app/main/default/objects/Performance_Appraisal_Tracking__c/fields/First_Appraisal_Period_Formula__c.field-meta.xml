@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>First_Appraisal_Period_Formula__c</fullName>
+    <description>First Appraisal Period year based on 3rd probation due date or appt start date. Based on this field, system can determine if annual appraisal record is to be created.</description>
+    <externalId>false</externalId>
+    <formula>Appointment__r.First_Appraisal_Period_Formula__c</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>First  Appraisal Period Formula</label>
+    <precision>18</precision>
+    <required>false</required>
+    <scale>0</scale>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Number</type>
+    <unique>false</unique>
+</CustomField>

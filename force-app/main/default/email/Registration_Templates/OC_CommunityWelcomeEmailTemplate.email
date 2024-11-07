@@ -1,0 +1,7 @@
+Hello {!Receiving_User.FirstName},
+
+Welcome to {!Community_Name} portal! To get started, go to {!Community_Url}
+
+Username: {!Receiving_User.Email}
+
+Labor Commissioner's Office

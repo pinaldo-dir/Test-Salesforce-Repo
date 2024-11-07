@@ -1,0 +1,6 @@
+A new case has been opened for the same employer. 
+
+Employer: {!DIR_Case__c.Employer__c}
+Record Type: {!DIR_Case__c.Record_Type_Name__c}
+
+{!DIR_Case__c.Link}

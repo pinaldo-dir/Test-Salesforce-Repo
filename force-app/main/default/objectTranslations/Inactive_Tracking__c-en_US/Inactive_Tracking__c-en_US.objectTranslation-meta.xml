@@ -1,0 +1,207 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>Inactive &amp; Stay Tracking</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Inactive &amp; Stay Trackings</value>
+    </caseValues>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <layouts>
+        <layout>Inactive Tracking Layout</layout>
+        <sections>
+            <label><!-- Comment History --></label>
+            <section>Comment History</section>
+        </sections>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+        <sections>
+            <label><!-- Type of Information Needed --></label>
+            <section>Type of Information Needed</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>Stay Layout</layout>
+        <sections>
+            <label><!-- Comment History --></label>
+            <section>Comment History</section>
+        </sections>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+    </layouts>
+    <recordTypes>
+        <label><!-- Intake Stage --></label>
+        <name>Intake_Stage</name>
+    </recordTypes>
+    <recordTypes>
+        <label><!-- Stay --></label>
+        <name>Stay</name>
+    </recordTypes>
+    <startsWith>Consonant</startsWith>
+    <validationRules>
+        <errorMessage><!-- Claimant Respond Date is filled then PCN Sent Date cannot be entered, as PCN is not expected to be sent. --></errorMessage>
+        <name>Both_PCN_Date_and_Claimant_Resp_Date</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Intake Deputy must be filled before creating Inactive Tracking record --></errorMessage>
+        <name>Case_must_have_IRR</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Claimant Respond Date is filled, so Inactive End Date must be filled with the same date. --></errorMessage>
+        <name>Claim_Res_Date_but_NO_Inactive_End_Date</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Claim Respond Date is greater than 180 days of the PCN Sent Date --></errorMessage>
+        <name>Claim_Res_Date_greater_than_PCN_Sent_Dat</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Claim Respond Date is less than 1st Attempt Date --></errorMessage>
+        <name>Claim_Res_Less_than_1st_Attempt_Date</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Please enter comments via &apos;Comment Entry&apos; field --></errorMessage>
+        <name>Comments_required_for_new_record</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Date Lifted cannot be less than Date Stayed --></errorMessage>
+        <name>Date_Lifted_cannot_be_less_Stayed</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Please enter Defendant Account Name --></errorMessage>
+        <name>Defendant_Account_Name_Required</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- 1st Attempt Outcome must be filled when entering 2nd Attempt Date --></errorMessage>
+        <name>First_Outcome_Needed_for_2nd_Attpt_Date</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Inactive Notice Sent Date must be greater than 60 days from PCN Sent Date --></errorMessage>
+        <name>Inact_Send_Date_less_than_PCN_plus_60</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Inactive Closure Sent Date must be &gt;= Inactive Notice Sent  Date + 120 day --></errorMessage>
+        <name>Inactive_Close_Date_Less_Inactive_Notice</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Inactive Notice Sent Date must be filled prior to Inactive Closure Sent Date --></errorMessage>
+        <name>Inactive_Closure_Date_wo_INS</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Inactive End Date must be equal to Claimant Respond Date --></errorMessage>
+        <name>Inactive_End_Date_rule</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Enter the Type of Information Needed in the respective LIST box. --></errorMessage>
+        <name>Inactiving_Tracking_Checkbox_and_List</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Case is closed, do not enter a new Inactive or Stay record --></errorMessage>
+        <name>No_New_Stay_Record_on_Close_Case</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Only Senior can invalidate a record --></errorMessage>
+        <name>Only_Senior_Can_Invalidate_a_Record</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- PCN Sent Date must be greater or equal to 2nd Attempt Date+15 days --></errorMessage>
+        <name>PCN_Date_Greater_than_2nd_plus_15</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- PCN Sent Date must be filled when entering Inactive Notice Sent Date --></errorMessage>
+        <name>PCN_Date_Needed_for_Inactive_Notice</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- PCN Sent Date cannot be less than 1st Attempt Date or 2nd Attempt Date. --></errorMessage>
+        <name>PCN_Date_less1st_Attempt_or_2nd_Attempt</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Fill in Date Lifted of the existing Stay Record before creating another Stay --></errorMessage>
+        <name>Preventing_Open_Stay_Duplicate</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- 2nd Attempt Date must be &gt;=  1st Attempt Date+15 days --></errorMessage>
+        <name>Sec_Attpt_Date_Greater_than_1st_plus_15</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- 2nd Attempt Date must be entered when PCN Sent Date is filled. --></errorMessage>
+        <name>Sec_Attpt_Date_Needed_for_PCN_Sent_Date</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- 2nd Attempt Method must be filled when entering 2nd Attempt Date --></errorMessage>
+        <name>Sec_Attpt_Method_Needed_for_2nd_Date</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- 2nd Attempt Outcome must be filled when entering PCN Sent Date --></errorMessage>
+        <name>Sec_Attpt_Method_Needed_for_PCN_Date</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Select at least one Type of Information checkbox. --></errorMessage>
+        <name>Type_of_Information_Needed</name>
+    </validationRules>
+    <webLinks>
+        <label><!-- Click_Here_to_Start_Inactive --></label>
+        <name>Click_Here_to_Start_Inactive</name>
+    </webLinks>
+    <webLinks>
+        <label><!-- Click_Here_to_Start_a_Stay --></label>
+        <name>Click_Here_to_Start_a_Stay</name>
+    </webLinks>
+    <webLinks>
+        <label><!-- Generate_Documents --></label>
+        <name>Generate_Documents</name>
+    </webLinks>
+</CustomObjectTranslation>

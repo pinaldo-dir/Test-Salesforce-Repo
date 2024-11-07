@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+        <label><!-- Verified Cure --></label>
+        <name>Verified_Cure__c</name>
+        <picklistValues>
+            <masterLabel>Indemnification of employees by employer (Labor Code §2800)-Verified</masterLabel>
+            <translation><!-- Indemnification of employees by employer (Labor Code §2800)-Verified --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Meal and rest breaks-Verified</masterLabel>
+            <translation><!-- Meal and rest breaks-Verified --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Minimum Wage-Verified</masterLabel>
+            <translation><!-- Minimum Wage-Verified --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Other Unpaid Wages-Verified</masterLabel>
+            <translation><!-- Other Unpaid Wages-Verified --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Other-Verified</masterLabel>
+            <translation><!-- Other-Verified --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Overtime-Verified</masterLabel>
+            <translation><!-- Overtime-Verified --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Reimbursement of employee expenses-Verified</masterLabel>
+            <translation><!-- Reimbursement of employee expenses-Verified --></translation>
+        </picklistValues>
+    </CustomFieldTranslation>

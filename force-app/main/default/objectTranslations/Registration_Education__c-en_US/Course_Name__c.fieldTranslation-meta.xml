@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+        <help><!-- Select one --></help>
+        <label><!-- Course Name --></label>
+        <name>Course_Name__c</name>
+        <picklistValues>
+            <masterLabel>Farm Labor Contractor Exam</masterLabel>
+            <translation><!-- Farm Labor Contractor Exam --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Garment Registration Exam</masterLabel>
+            <translation><!-- Garment Registration Exam --></translation>
+        </picklistValues>
+    </CustomFieldTranslation>

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FieldSet xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Registration_Business_Type</fullName>
+    <description>Garment Registration - Company Name &amp; Type section</description>
+    <displayedFields>
+        <field>Business_Type__c</field>
+        <isFieldManaged>false</isFieldManaged>
+        <isRequired>true</isRequired>
+    </displayedFields>
+    <label>Registration_Business_Type</label>
+</FieldSet>

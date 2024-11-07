@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Merge_2_Lic_Reg_Type_Accts_is_Prohibited</fullName>
+    <active>false</active>
+    <description>Merge_2_Lic_Reg_type_accts_is_prohibited</description>
+    <errorConditionFormula>NOT(ISBLANK( Registration__c ))
+&amp;&amp; 
+Mark_as_duplicate__c = TRUE 
+&amp;&amp; 
+NOT(ISBLANK(Merge_Into_Account__c)) 
+&amp;&amp; 
+NOT(ISBLANK(Merge_Into_Account__r.Registration__c))</errorConditionFormula>
+    <errorMessage>Merging two license registration type accounts is not allowed.</errorMessage>
+</ValidationRule>

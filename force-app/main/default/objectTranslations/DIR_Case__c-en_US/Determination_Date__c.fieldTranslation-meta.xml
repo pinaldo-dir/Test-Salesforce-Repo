@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+        <help><!-- This is the 30 day determination required by Labor Code section 98(a) --></help>
+        <label><!-- Date of 30 day Determination --></label>
+        <name>Determination_Date__c</name>
+    </CustomFieldTranslation>

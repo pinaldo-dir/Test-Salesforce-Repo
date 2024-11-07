@@ -1,0 +1,4 @@
+{!$Label.owc_Hello} {!Related_Party__c.CreatedBy},
+
+{!$Label.owc_Case_Number}: {!Related_Party__c.Case_Management__c}
+{!$Label.owc_claim_success}

@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+        <help><!-- Enter full name of owner, partner, or authorized corporate officer. --></help>
+        <label><!-- E-signature of Applicant --></label>
+        <name>E_signature_of_Applicant__c</name>
+    </CustomFieldTranslation>

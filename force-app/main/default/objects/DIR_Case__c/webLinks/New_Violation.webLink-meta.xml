@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<WebLink xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>New_Violation</fullName>
+    <availability>online</availability>
+    <displayType>button</displayType>
+    <linkType>javascript</linkType>
+    <masterLabel>New Case Issue</masterLabel>
+    <openType>onClickJavaScript</openType>
+    <protected>false</protected>
+    <url>{!DIR_Case__c.Received_Check_Stubs__c}{!REQUIRESCRIPT('/soap/ajax/26.0/connection.js')} 
+var naicsCode = "{!DIR_Case__c.NAICS_Code__c}";
+var dlseProgram = "{!DIR_Case__c.DLSE_Program__c}";
+var employerIndustry = "{!DIR_Case__c.Employer_Industry__c}";
+var naicsCode = "{!DIR_Case__c.NAICS_Code__c}";
+var recordTypeText = "{!DIR_Case__c.Record_Type_Text__c}";
+var recordType = "{!DIR_Case__c.RecordType}";
+var iCInformationAB5 = "{!DIR_Case__c.IC_Determination__c}";
+var totalNumberofMisclassifiedEmployees = "{!DIR_Case__c.Total_Number_of_Misclassified_Employees__c}";
+
+
+if ((recordType.indexOf('BOFE') &gt;= 0)) {
+    if(employerIndustry != 'Not Specified' &amp;&amp; dlseProgram != '' &amp;&amp; naicsCode != '' 
+		&amp;&amp; ((iCInformationAB5 == 'AB5 Not 226.8' &amp;&amp; totalNumberofMisclassifiedEmployees != '') || iCInformationAB5 != 'AB5 Not 226.8') 
+		&amp;&amp; ((iCInformationAB5 == 'AB5 Final' &amp;&amp; totalNumberofMisclassifiedEmployees !='') || iCInformationAB5 != 'AB5 Final'))  {
+        window.location="/apex/NewViolation?id={!DIR_Case__c.Id}";
+    } else {
+        if (dlseProgram == '')
+            alert('Please set the DLSE Program on the case record before adding any Case Issues.');
+        if (employerIndustry == 'Not Specified' || naicsCode == '')
+            alert('Please add the appropriate NAICS code to the employer’s account and verify that industry has been set correctly before adding any Case Issues.');
+		if ((iCInformationAB5 == 'AB5 Not 226.8' || iCInformationAB5 == 'AB5 Final') &amp;&amp; totalNumberofMisclassifiedEmployees == '' )
+			alert('The deputy must enter the "total number of misclassifed employess');
+    }
+} else if ((recordType.indexOf('WCA') &gt;= 0)) {
+    if(employerIndustry != 'Not Specified' &amp;&amp; naicsCode != '') {
+        window.location="/apex/NewViolation?id={!DIR_Case__c.Id}";
+    } else {
+        if (employerIndustry == 'Not Specified' || naicsCode == '')
+            alert('Please add the appropriate NAICS code to the employer’s account and verify that industry has been set correctly before adding any Case Issues.');
+    }
+} else {
+    window.location="/apex/NewViolation?id={!DIR_Case__c.Id}";
+}</url>
+</WebLink>

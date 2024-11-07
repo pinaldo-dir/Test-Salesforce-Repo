@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <encodingKey>ISO-8859-1</encodingKey>
+    <name>Claim Email Reply INVALID_es</name>
+    <style>none</style>
+    <subject>Notificación de confirmación para ({Case.Name})</subject>
+    <textOnly>Hola {!Claimant},
+Gracias por su oportuna respuesta a nuestra solicitud. Sin embargo, su respuesta no nos dio instruccion suficiente si CONFIRMAR o NEGAR el reclamo presentado en su nombre por {!advocate/rep} contra {!Defendant} el {!filed date} . Hasta que recibamos una de las dos instrucciones, CONFIRMAR para seguir adelante o NEGAR para cerrar el caso, mantendremos el reclamo en estado pendiente durante 60 días, tras los cuales se cerrará el caso.
+Si tiene alguna pregunta o duda sobre su decisión, llámenos al 833-LCO-INFO (833-526-4636).
+La Oficina de la Comisionada Laboral</textOnly>
+    <type>custom</type>
+    <uiType>Aloha</uiType>
+</EmailTemplate>

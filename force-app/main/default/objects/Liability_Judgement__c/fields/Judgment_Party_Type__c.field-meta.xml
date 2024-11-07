@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Judgment_Party_Type__c</fullName>
+    <externalId>false</externalId>
+    <label>Judgment Party Type</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Alter Ego</fullName>
+                <default>false</default>
+                <label>Alter Ego</label>
+            </value>
+            <value>
+                <fullName>Car Wash Successor (LC 2066)</fullName>
+                <default>false</default>
+                <label>Car Wash Successor (LC 2066)</label>
+            </value>
+            <value>
+                <fullName>Equitable Successor</fullName>
+                <default>false</default>
+                <label>Equitable Successor</label>
+            </value>
+            <value>
+                <fullName>FLC Successor (LC 1698.9)</fullName>
+                <default>false</default>
+                <label>FLC Successor (LC 1698.9)</label>
+            </value>
+            <value>
+                <fullName>Garment Successor (LC 2684)</fullName>
+                <default>false</default>
+                <label>Garment Successor (LC 2684)</label>
+            </value>
+            <value>
+                <fullName>Janitorial Successor (LC 1420)</fullName>
+                <default>false</default>
+                <label>Janitorial Successor (LC 1420)</label>
+            </value>
+            <value>
+                <fullName>Judgment Successor (LC 200.3)</fullName>
+                <default>false</default>
+                <label>Judgment Successor (LC 200.3)</label>
+            </value>
+            <value>
+                <fullName>Labor Code 238(e) Related Business</fullName>
+                <default>false</default>
+                <label>Labor Code 238(e) Related Business</label>
+            </value>
+            <value>
+                <fullName>Original Judgment Debtor</fullName>
+                <default>true</default>
+                <label>Original Judgment Debtor</label>
+            </value>
+            <value>
+                <fullName>Other</fullName>
+                <default>false</default>
+                <label>Other</label>
+            </value>
+            <value>
+                <fullName>Port Trucking Successor (LC 2810.4)</fullName>
+                <default>false</default>
+                <label>Port Trucking Successor (LC 2810.4)</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

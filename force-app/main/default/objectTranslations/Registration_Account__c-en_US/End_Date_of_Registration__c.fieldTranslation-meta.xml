@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+        <help><!-- Enter End Date of Registration --></help>
+        <label><!-- End Date of Registration --></label>
+        <name>End_Date_of_Registration__c</name>
+    </CustomFieldTranslation>

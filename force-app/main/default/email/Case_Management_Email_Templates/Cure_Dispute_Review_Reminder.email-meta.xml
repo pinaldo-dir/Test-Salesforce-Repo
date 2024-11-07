@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <description>Notification to PAGA unit attorney of the Cure Dispute Review Deadline</description>
+    <encodingKey>ISO-8859-1</encodingKey>
+    <name>Cure Dispute Review Reminder</name>
+    <style>none</style>
+    <subject>Cure Dispute Review Reminder</subject>
+    <type>text</type>
+    <uiType>Aloha</uiType>
+</EmailTemplate>

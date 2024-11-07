@@ -1,0 +1,445 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <fieldSets>
+        <label><!-- BOFE Create Account --></label>
+        <name>BOFE_Create_Account</name>
+    </fieldSets>
+    <fieldSets>
+        <label><!-- Company Registration Field Set --></label>
+        <name>Company_Registration_Field_Set</name>
+    </fieldSets>
+    <fieldSets>
+        <label><!-- Registration LLC or Corp --></label>
+        <name>Registration_LLC_or_Corp</name>
+    </fieldSets>
+    <fieldSets>
+        <label><!-- Registration - Sole Proprietorship --></label>
+        <name>Registration_Sole_Proprietorship</name>
+    </fieldSets>
+    <layouts>
+        <layout>Account Layout Defendant</layout>
+        <sections>
+            <label><!-- Additional Business Locations --></label>
+            <section>Additional Business Locations</section>
+        </sections>
+        <sections>
+            <label><!-- Business Background Information --></label>
+            <section>Business Background Information</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>BOFE Employer</layout>
+        <sections>
+            <label><!-- Background Information --></label>
+            <section>Background Information</section>
+        </sections>
+        <sections>
+            <label><!-- NAICS Code --></label>
+            <section>NAICS Code</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>Copy of DLSE Business</layout>
+        <sections>
+            <label><!-- Background Information --></label>
+            <section>Background Information</section>
+        </sections>
+        <sections>
+            <label><!-- NAICS Code --></label>
+            <section>NAICS Code</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>Copy of DLSE Person</layout>
+        <layoutType>PersonAccount</layoutType>
+        <sections>
+            <label><!-- Business Background Info (for sole proprietor/individual employer) --></label>
+            <section>Business Background Info (for sole proprietor/individual employer)</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>DLSE Business</layout>
+        <sections>
+            <label><!-- Background Information --></label>
+            <section>Background Information</section>
+        </sections>
+        <sections>
+            <label><!-- NAICS Code --></label>
+            <section>NAICS Code</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>DLSE Person</layout>
+        <layoutType>PersonAccount</layoutType>
+        <sections>
+            <label><!-- Addresses --></label>
+            <section>Addresses</section>
+        </sections>
+        <sections>
+            <label><!-- Business Background Info (for sole proprietor/individual employer) --></label>
+            <section>Business Background Info (for sole proprietor/individual employer)</section>
+        </sections>
+    </layouts>
+    <quickActions>
+        <label><!-- New Garment Intake Form --></label>
+        <name>New_Garment_Intake_Form</name>
+    </quickActions>
+    <quickActions>
+        <label><!-- New Wage Intake Form --></label>
+        <name>New_Wage_Intake_Form</name>
+    </quickActions>
+    <recordTypes>
+        <label><!-- Agent for Service --></label>
+        <name>Agent_for_Service</name>
+    </recordTypes>
+    <recordTypes>
+        <label><!-- Business Account --></label>
+        <name>Business_Account</name>
+    </recordTypes>
+    <recordTypes>
+        <label><!-- City Business License --></label>
+        <name>City_Business_License</name>
+    </recordTypes>
+    <recordTypes>
+        <label><!-- County Registrar --></label>
+        <name>County_Registrar</name>
+    </recordTypes>
+    <recordTypes>
+        <label><!-- Court --></label>
+        <name>Court</name>
+    </recordTypes>
+    <recordTypes>
+        <label><!-- Defendant Business --></label>
+        <name>Defendant_Business</name>
+    </recordTypes>
+    <recordTypes>
+        <description><!-- Deactivated per SR-010542 --></description>
+        <label><!-- Law Firm --></label>
+        <name>Law_Firm</name>
+    </recordTypes>
+    <recordTypes>
+        <label><!-- Office --></label>
+        <name>Office</name>
+    </recordTypes>
+    <validationRules>
+        <errorMessage><!-- You must enter bankruptcy status date --></errorMessage>
+        <name>Bankruptcy_Status_Date</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- This is a Master Account, you may not mark this as a duplicate. --></errorMessage>
+        <name>Master_account_can_not_be_duplicate</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Merging two license registration type accounts is not allowed. --></errorMessage>
+        <name>Merge_2_Lic_Reg_Type_Accts_is_Prohibited</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- You are merging this account with an account that has License Registration, please look up the Registration record from the other account before saving --></errorMessage>
+        <name>Merge_a_Lic_Reg_Acct</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- When selecting &quot;Other&quot; for entity type, please enter a description in the Entity Type Other field. --></errorMessage>
+        <name>Req_Other_Entity</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- You must enter a valid phone or fax number --></errorMessage>
+        <name>Validate_Account_Phone_Number</name>
+    </validationRules>
+    <webLinks>
+        <label><!-- ABC --></label>
+        <name>ABC</name>
+    </webLinks>
+    <webLinks>
+        <label><!-- Conga_Composer_OAuth --></label>
+        <name>APXTConga4__Conga_Composer_OAuth</name>
+    </webLinks>
+    <webLinks>
+        <label><!-- Conga_Mail_Merge --></label>
+        <name>APXTConga4__Conga_Mail_Merge</name>
+    </webLinks>
+    <webLinks>
+        <label><!-- AltavistaNews --></label>
+        <name>AltavistaNews</name>
+    </webLinks>
+    <webLinks>
+        <label><!-- CSLB --></label>
+        <name>CSLB</name>
+    </webLinks>
+    <webLinks>
+        <label><!-- Check_Address --></label>
+        <name>Check_Address</name>
+    </webLinks>
+    <webLinks>
+        <label><!-- Department_of_Consumer_Affairs --></label>
+        <name>Department_of_Consumer_Affairs</name>
+    </webLinks>
+    <webLinks>
+        <label><!-- Generate_Account_Documents --></label>
+        <name>Generate_Account_Documents</name>
+    </webLinks>
+    <webLinks>
+        <label><!-- GoogleMaps --></label>
+        <name>GoogleMaps</name>
+    </webLinks>
+    <webLinks>
+        <label><!-- GoogleNews --></label>
+        <name>GoogleNews</name>
+    </webLinks>
+    <webLinks>
+        <label><!-- GoogleSearch --></label>
+        <name>GoogleSearch</name>
+    </webLinks>
+    <webLinks>
+        <label><!-- HooversProfile --></label>
+        <name>HooversProfile</name>
+    </webLinks>
+    <webLinks>
+        <label><!-- LOOP --></label>
+        <name>Loop__LOOP</name>
+    </webLinks>
+    <webLinks>
+        <label><!-- LOOP_Merge --></label>
+        <name>Loop__LOOP_Merge</name>
+    </webLinks>
+    <webLinks>
+        <label><!-- LOOPlus --></label>
+        <name>Loop__LOOPlus</name>
+    </webLinks>
+    <webLinks>
+        <label><!-- Mass_LOOP_Merge --></label>
+        <name>Loop__Mass_LOOP_Merge</name>
+    </webLinks>
+    <webLinks>
+        <label><!-- Mass_LOOPlus --></label>
+        <name>Loop__Mass_LOOPlus</name>
+    </webLinks>
+    <webLinks>
+        <label><!-- Mass_Delete_Records --></label>
+        <name>Mass_Delete_Records</name>
+    </webLinks>
+    <webLinks>
+        <label><!-- New_BOFE_Intake_Form --></label>
+        <name>New_BOFE_Intake_Form</name>
+    </webLinks>
+    <webLinks>
+        <label><!-- New_Garment_Intake_Form --></label>
+        <name>New_Garment_Intake_Form</name>
+    </webLinks>
+    <webLinks>
+        <label><!-- New_RCI_Intake_Form --></label>
+        <name>New_RCI_Intake_Form</name>
+    </webLinks>
+    <webLinks>
+        <label><!-- New_Wage_Intake_Form --></label>
+        <name>New_Wage_Intake_Form</name>
+    </webLinks>
+    <webLinks>
+        <label><!-- Run_Account_Liability_Report --></label>
+        <name>Run_Account_Liability_Report</name>
+    </webLinks>
+    <webLinks>
+        <label><!-- SOS --></label>
+        <name>SOS</name>
+    </webLinks>
+    <webLinks>
+        <label><!-- Update_NAICS_Code --></label>
+        <name>Update_NAICS_Code</name>
+    </webLinks>
+    <webLinks>
+        <label><!-- YahooMaps --></label>
+        <name>YahooMaps</name>
+    </webLinks>
+</CustomObjectTranslation>

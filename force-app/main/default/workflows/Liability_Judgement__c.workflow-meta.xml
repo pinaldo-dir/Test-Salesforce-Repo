@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Workflow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fieldUpdates>
+        <fullName>Update_2810_4_Date_added_to_list</fullName>
+        <description>Update 2810.4 Date added to list</description>
+        <field>X2810_4_Date_added_to_the_list__c</field>
+        <formula>TODAY()</formula>
+        <name>Update 2810.4 Date added to list</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Formula</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <rules>
+        <fullName>Update 2810%2E4 Date added to list based on selected 2810%2E4 List Status</fullName>
+        <actions>
+            <name>Update_2810_4_Date_added_to_list</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>true</active>
+        <criteriaItems>
+            <field>Liability_Judgement__c.X2810_4_List_Status__c</field>
+            <operation>equals</operation>
+            <value>Confirmed-On List</value>
+        </criteriaItems>
+        <description>Update 2810.4 Date added to list based on selected 2810.4 List Status.</description>
+        <triggerType>onCreateOrTriggeringUpdate</triggerType>
+    </rules>
+</Workflow>

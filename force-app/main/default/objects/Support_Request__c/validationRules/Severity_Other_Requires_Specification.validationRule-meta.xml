@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Severity_Other_Requires_Specification</fullName>
+    <active>true</active>
+    <errorConditionFormula>(ISPICKVAL(Severity__c, "High - Other") || ISPICKVAL(Severity__c, "Medium - Other") || ISPICKVAL(Severity__c, "Low - Other"))
+
+&amp;&amp;
+
+ISBLANK (Severity_Other_Specify__c)
+
+&amp;&amp;
+
+RecordType.DeveloperName  &lt;&gt; "User_Account_Request"</errorConditionFormula>
+    <errorDisplayField>Severity_Other_Specify__c</errorDisplayField>
+    <errorMessage>You must specify if you select Severity -  Other</errorMessage>
+</ValidationRule>

@@ -1,0 +1,23 @@
+<apex:page standardController="Judgement__c" extensions="NewJudgmentPartyWithLiablePartyCtrl">
+    <apex:form >
+        <apex:pageBlock title="Judgment Party Edit">
+            <!--Buttons -->
+            <apex:pageBlockButtons >
+                <apex:commandButton action="{!saveRecord}" value="Save"/>
+                <apex:commandButton action="{!cancel}" value="Cancel"/>
+            </apex:pageBlockButtons>
+            <!--Input form -->
+            <apex:pageBlockSection title="Information" columns="2">
+                <apex:inputField value="{!judgmentParty.Judgement__c}"/>
+                <apex:inputField value="{!judgmentParty.X2810_4_Date_added_to_the_list__c}"/>
+                <apex:inputField value="{!judgmentParty.Liable_Party__c}" required="true"/>
+                <apex:inputField value="{!judgmentParty.X2810_4_Date_Removed_from_the_list__c}"/>
+                <apex:inputField value="{!judgmentParty.X2810_4_List_Status__c}"/>
+                <apex:inputField value="{!judgmentParty.Judgment_Party_Type__c}"/>
+                <apex:inputField value="{!judgmentParty.Other_Reason__c}"/>
+                <apex:inputField value="{!judgmentParty.X2810_4_Removal_Request_Received__c}"/>
+                <apex:inputField value="{!judgmentParty.X2810_4_Date_of_Notice__c }"/>
+            </apex:pageBlockSection>
+        </apex:pageBlock>  
+    </apex:form>
+</apex:page>

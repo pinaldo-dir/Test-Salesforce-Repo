@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+        <label><!-- Status --></label>
+        <name>Status__c</name>
+        <picklistValues>
+            <masterLabel>Closed - Discharged in Bankruptcy</masterLabel>
+            <translation><!-- Closed - Discharged in Bankruptcy --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Closed - Satisfied</masterLabel>
+            <translation><!-- Closed - Satisfied --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Closed-Claimant Judgment</masterLabel>
+            <translation><!-- Closed-Claimant Judgment --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Open - Partial Payment/Satisfaction</masterLabel>
+            <translation><!-- Open - Partial Payment/Satisfaction --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Open - Payment Plan</masterLabel>
+            <translation><!-- Open - Payment Plan --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Open/Unpaid</masterLabel>
+            <translation><!-- Open/Unpaid --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Pending/Open</masterLabel>
+            <translation><!-- Pending/Open --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Stayed - Bankruptcy</masterLabel>
+            <translation><!-- Stayed - Bankruptcy --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Stayed - Other</masterLabel>
+            <translation><!-- Stayed - Other --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Vacated</masterLabel>
+            <translation><!-- Vacated --></translation>
+        </picklistValues>
+    </CustomFieldTranslation>

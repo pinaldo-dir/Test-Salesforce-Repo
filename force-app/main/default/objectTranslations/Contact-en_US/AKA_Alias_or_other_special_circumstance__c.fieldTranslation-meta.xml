@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+        <help><!-- (e.g., guardianship) --></help>
+        <label><!-- AKA/Alias/or other special circumstance --></label>
+        <name>AKA_Alias_or_other_special_circumstance__c</name>
+    </CustomFieldTranslation>

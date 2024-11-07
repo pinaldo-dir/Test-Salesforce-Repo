@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+        <help><!-- Please enter 8-digits only, with no dashes or spaces.  If not applicable, leave blank. --></help>
+        <label><!-- State Employer Identification Number --></label>
+        <name>State_Employer_Identification_Number__c</name>
+    </CustomFieldTranslation>

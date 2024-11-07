@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>RCI_OSHA_My_Cases_IMIS_Fields</fullName>
+    <columns>NAME</columns>
+    <columns>Case_Number__c</columns>
+    <columns>Case_Name__c</columns>
+    <columns>Intake_Origin__c</columns>
+    <columns>Assignment_Start_Date__c</columns>
+    <columns>Adverse_Action_Description__c</columns>
+    <columns>Allegation_Type__c</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>I_am_assigned_deputy__c</field>
+        <operation>equals</operation>
+        <value>1</value>
+    </filters>
+    <filters>
+        <field>Status__c</field>
+        <operation>notEqual</operation>
+        <value>Closed</value>
+    </filters>
+    <filters>
+        <field>RECORDTYPE</field>
+        <operation>equals</operation>
+        <value>DIR_Case__c.RCI</value>
+    </filters>
+    <filters>
+        <field>Case_Type__c</field>
+        <operation>equals</operation>
+        <value>OSHA</value>
+    </filters>
+    <label>RCI OSHA - My Cases IMIS Fields</label>
+</ListView>

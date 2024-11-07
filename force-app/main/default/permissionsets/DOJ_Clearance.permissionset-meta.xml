@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PermissionSet xmlns="http://soap.sforce.com/2006/04/metadata">
+    <description>[Do NOT Assign - DEPRECATED] User with DOJ clearance can view restricted (encrypted fields) data</description>
+    <hasActivationRequired>false</hasActivationRequired>
+    <label>DO NOT USE - DOJ Clearance</label>
+    <userPermissions>
+        <enabled>true</enabled>
+        <name>ViewEncryptedData</name>
+    </userPermissions>
+</PermissionSet>

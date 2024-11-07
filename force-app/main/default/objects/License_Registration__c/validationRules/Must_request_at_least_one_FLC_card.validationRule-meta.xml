@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Must_request_at_least_one_FLC_card</fullName>
+    <active>true</active>
+    <description>Must have at least one FLC card</description>
+    <errorConditionFormula>RecordType.DeveloperName = 'Farm_Labor_Contractor'  
+&amp;&amp; Number_of_Ownership_Records__c &gt; 0 
+&amp;&amp; ISPICKVAL( Ready_to_Submit__c, 'Yes' )
+&amp;&amp; FLC_Cards__c = 0 
+&amp;&amp; FLC_Cards_Manager__c = 0</errorConditionFormula>
+    <errorMessage>At least one FLC card must be requested before submitting. Please change the answer below to "--None--", return to the Ownership tab, and check at least one owner to request a FLC card.</errorMessage>
+</ValidationRule>

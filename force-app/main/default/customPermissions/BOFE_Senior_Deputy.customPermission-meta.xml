@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomPermission xmlns="http://soap.sforce.com/2006/04/metadata">
+    <description>BOFE Senior Deputy Custom Permission for Specific BOFE Senior Deputy Permissions, Added to BOFE Senior Deputy Permission Set</description>
+    <isLicensed>false</isLicensed>
+    <label>BOFE Senior Deputy</label>
+</CustomPermission>

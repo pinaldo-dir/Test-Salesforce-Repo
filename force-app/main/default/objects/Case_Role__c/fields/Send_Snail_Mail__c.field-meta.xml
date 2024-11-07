@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Send_Snail_Mail__c</fullName>
+    <externalId>false</externalId>
+    <formula>AND(ISBLANK(Entity__r.Email__c),ISBLANK(Entity__r.Cell_Phone__c) )</formula>
+    <label>Send Snail Mail</label>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Checkbox</type>
+</CustomField>

@@ -1,0 +1,49 @@
+<aura:component implements="flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId,forceCommunity:availableForAllPageTypes,force:lightningQuickAction" access="global" >
+    <aura:attribute name="JudgmentObj" type="Object" access="public"/>
+    <aura:attribute name="isPopOpen" type="boolean" default="false"/> 
+    <aura:attribute name="dbaName" type="String" default=""/>
+    <aura:attribute name="recordId" type="String" default=""/>
+    <aura:attribute name="jpId" type="String" default=""/>
+    <aura:attribute name="urlParamsForFilters" type="String" default="" />
+    <head><ltng:require styles="{!$Resource.JudgmentSearchCss}" /></head>
+    <td scope="row" data-label="Info Button">
+        <div class="slds-cell-wrap" title="View Info">
+            <button class="slds-button slds-button_brand view-info" onclick="{!c.viewInfoRecord}" >View Info</button>
+        </div>
+    </td>
+    <!--<td class="slds-cell-wrap" data-label="Claimant /Plaintiff Name">
+        <div  title="2810.4Status">{!v.JudgmentObj.ClaimantPlaintiffName}</div>
+    </td>-->
+    <td class="slds-cell-wrap" data-label="Judgment Name">
+        <div title="JudgmentName">{!v.JudgmentObj.JudgmentName}</div>
+    </td>
+    <td class="slds-cell-wrap" data-label="Defendant/Employer Name">
+        <div title="Defendant_EmployerName">{!v.JudgmentObj.Defendant_EmployerName}</div>
+    </td>
+    <td class="slds-cell-wrap" data-label="Primary Address">
+        <div title="PrimaryAddress">{!v.JudgmentObj.PrimaryAddress}</div>
+    </td>
+    <td class="slds-cell-wrap" data-label="As Successor To">
+        <div title="PrimaryAddress">{!v.JudgmentObj.asSuccessorTo}</div>
+    </td>
+    <td class="slds-cell-wrap" data-label="Judgment Total">
+        <div class="slds-hide">{!v.JudgmentObj.JudgmentTotal} </div>
+        <aura:if isTrue="{!v.JudgmentObj.JudgmentTotal == 0}">
+            $0.00
+            <aura:set attribute="else">
+                <div title="JudgmentTotal"><ui:outputCurrency aura:id="curr" value="{!v.JudgmentObj.JudgmentTotal}" format="$##,###,###.00"/></div>
+            </aura:set>
+        </aura:if>
+    </td>
+    <td class="slds-cell-wrap" data-label="Confirmed On List Date">
+        <div class="slds-hide">{!v.JudgmentObj.confirmedOnListDate} </div>
+        <div class="divDateStyle"><ui:outputDate value="{!v.JudgmentObj.confirmedOnListDate}" format="MM/DD/YYYY"/></div>
+    </td>
+    <!--<td class="slds-cell-wrap" data-label="Confirmed Off List Date">
+        <div class="slds-hide">{!v.JudgmentObj.confirmedOffListDate} </div>
+        <div class="divDateStyle"><ui:outputDate value="{!v.JudgmentObj.confirmedOffListDate}" format="MM/DD/YYYY"/></div>
+    </td>-->
+    <aura:if isTrue="{!v.isPopOpen}">
+        <c:JudgmentSearchDetailCmp recordId="{!v.recordId}" isPopOpen="{!v.isPopOpen}" jpId="{!v.jpId}" urlParamsForFilters="{!v.urlParamsForFilters}" dbaName="{!v.dbaName}"/>
+    </aura:if>
+</aura:component>

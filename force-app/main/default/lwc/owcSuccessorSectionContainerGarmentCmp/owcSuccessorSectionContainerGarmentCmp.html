@@ -1,0 +1,28 @@
+<!--
+  @description       : 
+  @author            : ChangeMeIn@UserSettingsUnder.SFDoc
+  @group             : 
+  @last modified on  : 09-26-2021
+  @last modified by  : ChangeMeIn@UserSettingsUnder.SFDoc
+-->
+<template>
+    <div class="slds-grid slds-wrap">
+        <div class="slds-col slds-medium-size_1-of-8 slds-large-size_1-of-8"></div>
+                <div>
+                    <template if:true={isRenderSuccessorInfoSection}>
+                        <template for:each={renderSuccessorSection} for:item="successorObj">
+                            <div key={successorObj.Id}>
+                                <c-owc-Successor-Section-Garment-Cmp isemployernamechanged={isemployernamechanged} isclaimantgarment={isclaimantgarment} sectionid={successorObj.sectionId} successorheading={successorObj.heading} onsuccessorsectioncustomevent={handleSuccessorSectionEvent} onsuccessorsectionvalidity={handleSuccessorSectionValidity} deletebutton={successorObj.button} oncustomsuccessordeleteevent={handleSuccessorSectionDelete} onsuccessorsectiondeleteevent={handleSuccessorSectionDeletedData}></c-owc-Successor-Section-Garment-Cmp>
+                            </div>
+                        </template>
+                    </template>
+                </div>
+                <template if:false={isFormPreviewMode}>
+                <div>
+                    <div class="slds-p-top_medium">{customLabelValues.OWC_employer_other_name_label}</div>
+                    <lightning-button icon-name="utility:add" class="slds-float_left owcAdditionalButtonStyle" variant="brand" label={customLabelValues.OWC_addanothersuccessor_buttton} onclick={addMoreSuccessor}></lightning-button>
+                </div>
+            </template>
+    </div>
+    
+</template>

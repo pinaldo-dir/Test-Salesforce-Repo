@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+        <help><!-- Once you enter the SSN, you will no longer be able to see the entered fields unless you’re a Senior or a designated JEU user --></help>
+        <label><!-- SSN --></label>
+        <name>SSN__c</name>
+    </CustomFieldTranslation>

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Lift_Stay_to_Close_Case</fullName>
+    <active>true</active>
+    <errorConditionFormula>AND(
+ISCHANGED(Status__c),
+ISPICKVAL(Status__c, 'Closed'),
+Open_Stay_Counter__c  &gt; 0
+)</errorConditionFormula>
+    <errorMessage>Click Inactive &amp; Stay Tracking quick link and enter Date Lifted for the Stay record</errorMessage>
+</ValidationRule>

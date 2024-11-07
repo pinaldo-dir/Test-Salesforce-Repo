@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<WebLink xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>XGenerate_633_75_Document</fullName>
+    <availability>online</availability>
+    <description>DK 6/13 - Legacy - Used to create ODA before denormalization.
+Generates 633 61 ODA document using Conga Conductor</description>
+    <displayType>massActionButton</displayType>
+    <linkType>javascript</linkType>
+    <masterLabel>Generate 633 75 Document</masterLabel>
+    <openType>onClickJavaScript</openType>
+    <protected>false</protected>
+    <requireRowSelection>true</requireRowSelection>
+    <url>// STEP 1: CHANGE THE NEXT LINE TO THE TYPE OF RECORDS YOU'RE ACCESSING ON THE VIEW 
+var idArray = {!GETRECORDIDS($ObjectType.Liable_Party__c)}; 
+
+// STEP 2: CHANGE THE NEXT LINE TO THE API NAME OF THE FIELD THAT CONTAINS THE CONGA COMPOSER URL 
+var urlFieldName="X633_75_Conductor_Formula__c"; 
+
+
+// DO NOT MODIFY ANYTHING BELOW THIS POINT ******************** 
+
+// YOU MAY PASS UP TO 50 IDS 
+
+var CongaURL = "https://conductor.congamerge.com" + 
+"?MOID=" + idArray + 
+"&amp;sessionId={!$Api.Session_ID}"+ 
+"&amp;serverUrl={!API.Partner_Server_URL_290}"+ 
+"&amp;UrlFieldName="+urlFieldName; 
+
+window.open( CongaURL, "Conga", "width=700,height=450,menubar=0" );</url>
+</WebLink>

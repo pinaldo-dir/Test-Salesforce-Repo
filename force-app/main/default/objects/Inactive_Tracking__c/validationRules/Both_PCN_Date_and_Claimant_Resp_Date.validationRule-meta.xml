@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Both_PCN_Date_and_Claimant_Resp_Date</fullName>
+    <active>false</active>
+    <description>PCN Sent Date is entered but Claimant Respond Date is filled</description>
+    <errorConditionFormula>AND(NOT(ISNULL( PCN_Sent_Date__c )),NOT(ISNULL( Claimant_Respond_Date__c)))</errorConditionFormula>
+    <errorMessage>Claimant Respond Date is filled then PCN Sent Date cannot be entered, as PCN is not expected to be sent.</errorMessage>
+</ValidationRule>

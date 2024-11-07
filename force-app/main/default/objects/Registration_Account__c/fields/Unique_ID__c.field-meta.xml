@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Unique_ID__c</fullName>
+    <externalId>false</externalId>
+    <formula>IF(
+RecordType.Name="Sole Proprietorship",
+LEFT(First_Name__c,3)+LEFT(Last_Name__c,3)+MID(Residential_Phone__c,2,3)+MID(Residential_Phone__c,7,3)+MID(Residential_Phone__c,11,4),
+IF(
+(RecordType.Name="Corp or LLC" ||
+RecordType.Name="Joint Venture" ||
+RecordType.Name="Limited Partnership" ||
+RecordType.Name="Partnership" ||
+RecordType.Name="Parent Company"),
+LEFT(First_Name__c,3)+LEFT(Last_Name__c,3)+LEFT(Federal_Employer_Identification_Number__c,9),null))</formula>
+    <label>Unique ID</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

@@ -1,0 +1,25 @@
+.THIS.c-container {
+    border: 1px solid #d8dde6;
+    margin: 10px 0 20px 0;
+}
+.header-column {
+    margin-top: 28px;
+}
+.THIS .field-title {
+    font-size: .75rem;
+    line-height: 1.25;
+    color: #54698d;
+    margin-top: 28px;
+}
+p{
+    margin-top: 28px;
+}
+
+.field-title {
+    margin-top: 28px;
+}
+
+.my-icon {
+    --sds-c-icon-color-foreground-default: #3665ad;
+    height: 22px;
+}

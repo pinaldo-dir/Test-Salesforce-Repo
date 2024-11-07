@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<WebLink xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Create_Form_1</fullName>
+    <availability>online</availability>
+    <displayType>button</displayType>
+    <linkType>javascript</linkType>
+    <masterLabel>Create Form 1</masterLabel>
+    <openType>onClickJavaScript</openType>
+    <protected>false</protected>
+    <url>var F1Active = '{!Position__c.Active_F1__c}';
+if((F1Active == '0')){
+window.open("/a0H/e?CF00Nd0000006nGiL={!Position__c.Name}&amp;CF00Nd0000006nGiL_lkid={!Position__c.Id}&amp;retURL=%2Fa{!Position__c.Id}&amp;00Nd0000006nGiK={!Position__c.Name}&amp;00Nd0000006nGiG={!Position__c.Class_Title__c}&amp;cancelURL=%2F{!Position__c.Id}");}
+else{
+alert('This position has an active Form 1, new Form 1 is not allowed');
+}</url>
+</WebLink>

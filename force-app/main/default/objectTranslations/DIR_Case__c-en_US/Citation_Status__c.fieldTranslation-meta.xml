@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+        <label><!-- Citation Status --></label>
+        <name>Citation_Status__c</name>
+        <picklistValues>
+            <masterLabel>Appealed</masterLabel>
+            <translation><!-- Appealed --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Citation Issued</masterLabel>
+            <translation><!-- Citation Issued --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Closed</masterLabel>
+            <translation><!-- Closed --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Consultation</masterLabel>
+            <translation><!-- Consultation --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Decision Issued</masterLabel>
+            <translation><!-- Decision Issued --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Discovery Issued</masterLabel>
+            <translation><!-- Discovery Issued --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Entry of Judgment Filed</masterLabel>
+            <translation><!-- Entry of Judgment Filed --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Hearing Scheduled</masterLabel>
+            <translation><!-- Hearing Scheduled --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Subpoenas Issued</masterLabel>
+            <translation><!-- Subpoenas Issued --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Writ Filed</masterLabel>
+            <translation><!-- Writ Filed --></translation>
+        </picklistValues>
+    </CustomFieldTranslation>

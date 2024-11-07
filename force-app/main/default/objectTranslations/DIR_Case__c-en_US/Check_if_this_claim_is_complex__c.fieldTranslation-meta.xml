@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+        <label><!-- Check if this claim is complex --></label>
+        <name>Check_if_this_claim_is_complex__c</name>
+    </CustomFieldTranslation>

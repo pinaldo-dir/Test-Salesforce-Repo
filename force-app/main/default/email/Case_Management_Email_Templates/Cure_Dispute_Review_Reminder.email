@@ -1,0 +1,5 @@
+This is a reminder email that a Cure Dispute was received on {!DIR_Case__c.Cure_Dispute_Submission_Date__c} must be reviewed within 17 days, which is {!DIR_Case__c.Cure_Dispute_Submission_Date_10_Days__c}.  Please review the Cure Dispute to decide if action is required.
+
+Link to Cure Dispute: {!Attachments_Plus__c.Link}
+
+Thank you.

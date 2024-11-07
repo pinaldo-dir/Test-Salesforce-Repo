@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<SharingRules xmlns="http://soap.sforce.com/2006/04/metadata">
+    <sharingCriteriaRules>
+        <fullName>Non_Witness_Employee_Party_access_to_Internal_User</fullName>
+        <accessLevel>Edit</accessLevel>
+        <label>Non-Witness/Employee Party access to Internal User</label>
+        <sharedTo>
+            <roleAndSubordinatesInternal>DLSE</roleAndSubordinatesInternal>
+        </sharedTo>
+        <criteriaItems>
+            <field>RecordTypeId</field>
+            <operation>equals</operation>
+            <value>Employer Carrying Out Change,Employer,Potential Defendant,Advocate,Claimant,Internal Staff,Employer DWA</value>
+        </criteriaItems>
+        <includeRecordsOwnedByAll>false</includeRecordsOwnedByAll>
+    </sharingCriteriaRules>
+    <sharingCriteriaRules>
+        <fullName>Secure_Access_to_RCI</fullName>
+        <accessLevel>Edit</accessLevel>
+        <description>If record type is Employee and Witness then give secure access to RCI Profile.</description>
+        <label>Secure Access to RCI</label>
+        <sharedTo>
+            <role>RCI</role>
+        </sharedTo>
+        <criteriaItems>
+            <field>RecordTypeId</field>
+            <operation>equals</operation>
+            <value>Witness,Employee</value>
+        </criteriaItems>
+        <includeRecordsOwnedByAll>false</includeRecordsOwnedByAll>
+    </sharingCriteriaRules>
+    <sharingGuestRules>
+        <fullName>Guest_User_Access</fullName>
+        <accessLevel>Read</accessLevel>
+        <label>Guest User Access</label>
+        <sharedTo>
+            <guestUser>RCIComplaint</guestUser>
+        </sharedTo>
+        <criteriaItems>
+            <field>RecordTypeId</field>
+            <operation>equals</operation>
+            <value>Employer Carrying Out Change,Employee,Employer,Witness,Advocate,Internal Staff,Employer DWA</value>
+        </criteriaItems>
+        <includeHVUOwnedRecords>false</includeHVUOwnedRecords>
+    </sharingGuestRules>
+    <sharingOwnerRules>
+        <fullName>RCIComplaint_Site_Guest_User_Share_with_RCI</fullName>
+        <accessLevel>Edit</accessLevel>
+        <description>RCIComplaint Site Guest User related party records sharing with RCI users</description>
+        <label>RCIComplaint Site Guest User Share with RCI</label>
+        <sharedTo>
+            <roleAndSubordinatesInternal>RCI</roleAndSubordinatesInternal>
+        </sharedTo>
+        <sharedFrom>
+            <group>RCIComplaintGuestUser</group>
+        </sharedFrom>
+    </sharingOwnerRules>
+    <sharingOwnerRules>
+        <fullName>RCI_Share_with_RCI</fullName>
+        <accessLevel>Edit</accessLevel>
+        <description>Share RCI related party with other RCI users</description>
+        <label>RCI Share with RCI</label>
+        <sharedTo>
+            <roleAndSubordinatesInternal>RCI</roleAndSubordinatesInternal>
+        </sharedTo>
+        <sharedFrom>
+            <roleAndSubordinatesInternal>RCI</roleAndSubordinatesInternal>
+        </sharedFrom>
+    </sharingOwnerRules>
+    <sharingOwnerRules>
+        <fullName>SYSADMIN</fullName>
+        <accessLevel>Edit</accessLevel>
+        <label>SYSADMIN</label>
+        <sharedTo>
+            <roleAndSubordinatesInternal>RCI</roleAndSubordinatesInternal>
+        </sharedTo>
+        <sharedFrom>
+            <role>System_Administrators</role>
+        </sharedFrom>
+    </sharingOwnerRules>
+</SharingRules>

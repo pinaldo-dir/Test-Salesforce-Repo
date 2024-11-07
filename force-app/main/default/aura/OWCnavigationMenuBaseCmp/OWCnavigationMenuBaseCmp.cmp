@@ -1,0 +1,66 @@
+<aura:component extends="forceCommunity:navigationMenuBase" implements="forceCommunity:availableForAllPageTypes">
+    <aura:attribute name="isOWCTabHidden" type="Boolean" default="true" />
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
+    <aura:handler name="change" value="{!v.pageReference}" action="{!c.reInit}" />
+    <!--  -->
+    <!--<aura:if isTrue="{!$Browser.formFactor == 'DESKTOP' || $Browser.formFactor == 'TABLET ' || $Browser.isTablet || $Browser.isIPad || $Browser.isTablet}">-->
+        <div class="slds-context-bar">
+            <nav class="slds-context-bar__secondary" role="navigation">
+                <ul class="slds-grid" >
+                    <aura:iteration items="{!v.menuItems}" var="item" >
+                        <aura:if isTrue="{! item.label == 'Home' || item.label == 'Inicio' }">
+                            <li  class="slds-context-bar__item" >
+                                <a  href="" style="font-weight:bold;" class="slds-context-bar__label-action" title="Dashboard" onclick="{!c.onClick}">
+                                    <span class="slds-assistive-text">{!$Label.c.OWC_dashboard_label}</span>
+                                    <span class="slds-truncate" title="Dashboard" data-menu-item-id="{!item.id}">{!$Label.c.OWC_dashboard_label}</span>
+                                </a>
+                            </li>
+                            <aura:set attribute="else">
+                                <aura:if isTrue="{!v.isOWCTabHidden}">
+                                    <aura:set attribute="else">
+                                        <li  class="slds-context-bar__item">
+                                            <!--<a onclick="{!c.onClick}" href=""  class="slds-context-bar__label-action" title="{!item.label}">
+                                                <span class="slds-assistive-text">{!$Label.c.OWC_onlinewageclaim_label}</span>
+                                                <span class="slds-truncate" title="{!item.label}" data-menu-item-id="{!item.id}">{!$Label.c.OWC_onlinewageclaim_label}</span>
+                                            </a>-->
+                                        </li>
+                                    </aura:set>
+                                </aura:if>
+                            </aura:set>
+                        </aura:if>
+                    </aura:iteration>
+                </ul>
+            </nav>
+        </div>
+    <!--</aura:if>
+    <aura:if isTrue="{!$Browser.formFactor == 'PHONE' || $Browser.isPhone || $Browser.isAndroid || $Browser.isIPhone}">
+        <div class="slds-context-bar">
+            <nav class="" role="navigation">
+                <ul class="slds-grid" >
+                    <aura:iteration items="{!v.menuItems}" var="item" >
+                        <aura:if isTrue="{! item.label == 'Home' || item.label == 'Inicio' }">
+                            <li  class="slds-context-bar__item" >
+                                <a  href=""  class="slds-context-bar__label-action" title="Dashboard" onclick="{!c.onClick}">
+                                    <span class="slds-assistive-text">{!$Label.c.OWC_dashboard_label}</span>
+                                    <span class="slds-truncate" title="Dashboard" data-menu-item-id="{!item.id}">{!$Label.c.OWC_dashboard_label}</span>
+                                </a>
+                            </li>
+                            <aura:set attribute="else">
+                                <aura:if isTrue="{!v.isOWCTabHidden}">
+                                    <aura:set attribute="else">
+                                        <li  class="slds-context-bar__item">
+                                            <a onclick="{!c.onClick}" href=""  class="slds-context-bar__label-action" title="{!item.label}">
+                                                <span class="slds-assistive-text">{!$Label.c.OWC_onlinewageclaim_label}</span>
+                                                <span class="slds-truncate" title="{!item.label}" data-menu-item-id="{!item.id}">{!$Label.c.OWC_onlinewageclaim_label}</span>
+                                            </a>
+                                        </li>
+                                    </aura:set>
+                                </aura:if>
+                            </aura:set>
+                        </aura:if>
+                    </aura:iteration>
+                </ul>
+            </nav>
+        </div>
+    </aura:if>-->
+</aura:component>

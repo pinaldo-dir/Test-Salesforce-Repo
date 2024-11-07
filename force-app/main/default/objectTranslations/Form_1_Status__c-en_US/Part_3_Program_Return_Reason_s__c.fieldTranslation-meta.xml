@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+        <label><!-- Part 3 Program Return Reason(s) --></label>
+        <name>Part_3_Program_Return_Reason_s__c</name>
+        <picklistValues>
+            <masterLabel>Additional Candidates to be Interviewed</masterLabel>
+            <translation><!-- Additional Candidates to be Interviewed --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Eligibility See HR Hold</masterLabel>
+            <translation><!-- Eligibility See HR Hold --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Missing Documents</masterLabel>
+            <translation><!-- Missing Documents --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>OPF Review</masterLabel>
+            <translation><!-- OPF Review --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Other (Legacy)</masterLabel>
+            <translation><!-- Other (Legacy) --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Other (See Status Notes)</masterLabel>
+            <translation><!-- Other (See Status Notes) --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Reference Checks</masterLabel>
+            <translation><!-- Reference Checks --></translation>
+        </picklistValues>
+    </CustomFieldTranslation>

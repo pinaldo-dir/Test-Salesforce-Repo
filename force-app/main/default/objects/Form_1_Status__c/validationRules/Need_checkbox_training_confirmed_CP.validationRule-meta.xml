@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Need_checkbox_training_confirmed_CP</fullName>
+    <active>true</active>
+    <description>Validation rule for  Training_Confirmed_by_C_P__c checkbox on the HR Part 2 Approved page layout.</description>
+    <errorConditionFormula>Training_Confirmed_by_C_P__c = FALSE &amp;&amp; RecordType.DeveloperName ='HR_Part_2_Approved'</errorConditionFormula>
+    <errorMessage>Please fill out the Training Confirmed by C&amp;P checkbox.</errorMessage>
+</ValidationRule>

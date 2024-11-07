@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<SharingRules xmlns="http://soap.sforce.com/2006/04/metadata">
+    <sharingGuestRules>
+        <fullName>DIR_Guest_User_Naics_Access</fullName>
+        <accessLevel>Read</accessLevel>
+        <label>DIR Guest User Naics Access</label>
+        <sharedTo>
+            <guestUser>Judgment_WC_Search</guestUser>
+        </sharedTo>
+        <criteriaItems>
+            <field>CreatedById</field>
+            <operation>notEqual</operation>
+            <value>null</value>
+        </criteriaItems>
+        <includeHVUOwnedRecords>false</includeHVUOwnedRecords>
+    </sharingGuestRules>
+    <sharingGuestRules>
+        <fullName>NAICS_Access_Wage_Claim_Users</fullName>
+        <accessLevel>Read</accessLevel>
+        <label>NAICS Access Wage Claim Users</label>
+        <sharedTo>
+            <guestUser>Wage_Claim_Search</guestUser>
+        </sharedTo>
+        <criteriaItems>
+            <field>CreatedById</field>
+            <operation>notEqual</operation>
+            <value>null</value>
+        </criteriaItems>
+        <includeHVUOwnedRecords>false</includeHVUOwnedRecords>
+    </sharingGuestRules>
+</SharingRules>

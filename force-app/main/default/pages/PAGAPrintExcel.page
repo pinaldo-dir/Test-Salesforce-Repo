@@ -1,0 +1,7 @@
+<apex:page controller="PAGAPrintController" readOnly="true" contentType="application/vnd.ms-excel#PAGACases.csv">LWDA #, Submission Type, Submission Date, Submission Name,Employer Name,Employer City,Employer Zip Code, # of Impacted Employees,Law Firm for PAGA Plaintiff,Employer Filer Firm, Court Case #,Plaintiff for PAGA Case,Filer/Attorney for PAGA Case,Employer Filer
+        <apex:repeat value="{!allResultCases}" var="r"> 
+                <apex:repeat value="{!r.Attachments__r}" var="s">
+"{!r.Case_Number__c}","{!s.Type__c}", <apex:outputText value="{0,date,MM/dd/yy}"> <apex:param value="{!s.CreatedDate}" /></apex:outputText>,"{!s.Name}","{!r.Employer__r.Name}","{!r.Employer__r.ShippingCity}",{!r.Employer__r.ShippingPostalCode},{!r.PAGA_Impacted_Employees__c},"{!r.Law_Firm_for_PAGA_Case__c}","{!r.Employer_Filer_Firm__c}",{!r.PAGA_Court_Case_Number__c},"{!r.Plaintiff_for_PAGA_Case_Text__c}","{!r.Filer_Attorney_for_PAGA_Case__r.Name}","{!r.Employer_Filer__r.Name}"
+        </apex:repeat>     
+    </apex:repeat>
+</apex:page>

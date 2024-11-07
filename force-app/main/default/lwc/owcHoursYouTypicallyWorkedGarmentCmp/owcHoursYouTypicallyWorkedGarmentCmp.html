@@ -1,0 +1,597 @@
+<template>
+    <template if:true={isFormPreviewMode}>
+        <template if:true={specifyTypicalyyworked}>
+            <form>
+                <div class="slds-grid slds-wrap">
+                    <div class="slds-col slds-medium-size_1-of-8 slds-large-size_1-of-8"></div>
+                    <div class="slds-col slds-size_1-of-1 slds-medium-size_6-of-8 slds-large-size_6-of-8">
+                        <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-1 slds-large-size_1-of-1">
+                            <div class="slds-grid slds-wrap">
+                                <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-1 slds-large-size_1-of-1">
+                                    <h1 class="slds-p-around_medium slds-text-heading_large owcHeadingStyle">
+                                        {customLabelValues.OWC_hours_typically_worked_heading}
+                                    </h1>
+                                </div>
+                            </div>
+                        </div>
+                           
+                        <div class="slds-grid slds-wrap">
+                            <template if:true={specifyTypicalyyworked}>
+                                <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-1 slds-large-size_1-of-1">
+                                    <fieldset class="slds-p-bottom_medium slds-p-left_medium">
+                                        {customLabelValues.OWC_typicallyworked_selectone}
+                                        <lightning-radio-group disabled 
+                                            variant="label-hidden" 
+                                            name="specifyTypicalyyworked"
+                                            max-length="1"
+                                            options={options}
+                                            data-id="specifyTypicalyyworked"
+                                            value={specifyTypicalyyworked}
+                                            type="radio"
+                                            class=""
+                                            onchange={handleChange}
+                                            onblur={handleSpecifyTypicallyWorkedFocus}>
+                                        </lightning-radio-group>
+                                    </fieldset>
+                                </div>
+                            </template>
+                            <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-1 slds-large-size_1-of-1">
+                                <template if:true={timeEntriesDetail}>
+                                    <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-1 slds-large-size_1-of-1">
+                                        <fieldset class="slds-p-bottom_medium">
+                                            <div class="slds-p-left_medium">{customLabelValues.OWC_typically_working_hours_same}</div>
+                                            <c-owc-Hours-You-Typically-Garment-Calendar workweekvalue={workweekvalue} isrenderedtimecalendar={isRenderTimeCalendar} timeentrydetail={timeEntriesDetail} ontimeentriesevent={handleTimeEntriesDetails} isformpreviewmode={isFormPreviewMode}></c-owc-Hours-You-Typically-Garment-Calendar>
+                                        </fieldset>
+                                    </div>
+                                    </template>
+                            </div>
+                            <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-1 slds-large-size_1-of-1">
+                                <template if:true={isSameWeekDaysAndHours}>
+                                    <div class="slds-grid slds-wrap">
+                                        <template if:true={workMissedReason}>
+                                        <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-1 slds-large-size_1-of-1">
+                                            <fieldset class="slds-p-bottom_medium slds-p-left_medium">
+                                                {customLabelValues.OWC_hours_typically_worked_work_missed_reason}
+                                                <!-- <span class="requiredStyle"><abbr title="required">*</abbr></span>   -->
+                                                <lightning-radio-group disabled 
+                                                    variant="label-hidden" 
+                                                    name="workMissedReason"
+                                                    options={restPeriodOptions}
+                                                    data-id="workMissedReason"
+                                                    value={workMissedReason}
+                                                    type="radio"
+                                                    class="slds-p-top_medium"
+                                                    onchange={handleChange}
+                                                    onblur={handleWorkMissedReasonFocus}>
+                                                </lightning-radio-group>
+                                            </fieldset>
+                                        </div>
+                                        </template>
+                                        <template if:true={isWorkMissedReason}>
+                                        <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-1 slds-large-size_1-of-1">
+                                            <template if:true={isWorkMissedReason}>
+                                            <div class="slds-grid slds-wrap">
+                                                <template if:true={daysMissed}>
+                                                <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-2 slds-large-size_1-of-2">
+                                                    <fieldset class="slds-p-bottom_medium slds-p-left_medium slds-p-right_medium">
+                                                        {customLabelValues.OWC_DaysOfWorkMissed} 
+                                                        <!-- <span class="requiredStyle"><abbr title="required">*</abbr></span>   -->
+                                                        <lightning-input disabled  type="number" variant="label-hidden" name="daysMissed" data-id="daysMissed" value={daysMissed} onchange={handleChange} onblur={handledaysMissedfocus}></lightning-input>
+                                                    </fieldset>
+                                                </div>
+                                                </template>
+                                                <template if:true={whyDaysMissed}>
+                                                <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-2 slds-large-size_1-of-2">
+                                                    <fieldset class="slds-p-bottom_medium slds-p-left_medium slds-p-right_medium">
+                                                        {customLabelValues.OWC_WhyWorkMissed} 
+                                                        <!-- <span class="requiredStyle"><abbr title="required">*</abbr></span>   -->
+                                                        <lightning-textarea disabled variant="label-hidden" name="whyDaysMissed" data-id="whyDaysMissed" value={whyDaysMissed} onchange={handleChange} onblur={handlewhyDaysMissedfocus}></lightning-textarea>
+                                                    </fieldset>
+                                                </div>
+                                                </template>
+                                            </div>
+                                            </template>
+                                        </div>
+                                        </template>
+                                        <template if:true={selectedHolidayOptions}>
+                                        <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-1 slds-large-size_1-of-1">
+                                            <fieldset class="slds-p-bottom_medium slds-p-left_medium">
+                                                {customLabelValues.OWC_typically_worked_holiday_selection}
+                                                <!-- <span class="requiredStyle"><abbr title="required">*</abbr></span>   -->
+                                                <lightning-checkbox-group disabled
+                                                    variant="label-hidden" 
+                                                    name="companyHolidaySelection"
+                                                    class=""
+                                                    data-id="companyHolidaySelection"
+                                                    options={comapnyHolidayOptions}
+                                                    value={selectedHolidayOptions}
+                                                    onchange={handleChange}
+                                                    onblur={handlecompanyHolidaySelectionfocus}>
+                                                </lightning-checkbox-group>
+                                            </fieldset>
+                                        </div>
+                                        </template>
+                                        <template if:true={otherHolidaySelection}>
+                                        <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-1 slds-large-size_1-of-1">
+                                            <template if:true={isCompanyHolidayOther}>
+                                                <fieldset class="sdls-grid slds-wrap slds-p-bottom_medium slds-p-left_medium slds-p-right_medium">
+                                                    <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-1 slds-large-size_1-of-1">
+                                                        {customLabelValues.OWC_typically_worked_othertext}
+                                                        <!-- <span class="requiredStyle"><abbr title="required">*</abbr></span>   -->
+                                                        <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-2 slds-large-size_1-of-2">
+                                                            <lightning-textarea disabled variant="label-hidden" name="otherHolidaySelection" data-id="otherHolidaySelection" value={otherHolidaySelection} onchange={handleChange} onblur={handleotherHolidaySelectionfocus}></lightning-textarea>
+                                                        </div>
+                                                    </div>
+                                                </fieldset>
+                                            </template>
+                                        </div>
+                                        </template>
+                                     
+                                    </div>
+                                </template>
+                                <template if:true={isDaysOrWeekVaried}>
+                                    <div class="slds-p-left_medium">
+                                        <fieldset class="slds-p-top_medium slds-p-bottom_medium">
+                                            <div>
+                                                {customLabelValues.OWC_typically_worked_upload_form}
+                                                
+                                            </div> 
+                                            <div>
+                                                <a href="https://www.dir.ca.gov/dlse/DLSE-55-overtime-sheet.xls" target="_blank">https://www.dir.ca.gov/dlse/DLSE-55-overtime-sheet.xls</a>
+                                            </div>
+                                        </fieldset>
+                                        <template if:false={isOverTimeSheetUploaded}>
+                                            <c-owc-Multiple-File-Upload-Details-Cmp data-id="overSheetDocId" name="overSheetDocId" isfileuploaded={isOverTimeSheetUploaded} onuploaddocumentevent={handleOverTimeSheetDoc}></c-owc-Multiple-File-Upload-Details-Cmp>
+                                        </template>
+                                    </div>
+                                    <div class="slds-grid slds-wrap">
+                                        <template if:true={workMissedReason}>
+                                        <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-1 slds-large-size_1-of-1">
+                                            <fieldset class="slds-p-bottom_medium slds-p-left_medium">
+                                                {customLabelValues.OWC_hours_typically_worked_work_missed_reason}
+                                                <!-- <span class="requiredStyle"><abbr title="required">*</abbr></span>   -->
+                                                <lightning-radio-group disabled 
+                                                    variant="label-hidden" 
+                                                    name="workMissedReason"
+                                                    options={restPeriodOptions}
+                                                    data-id="workMissedReason"
+                                                    value={workMissedReason}
+                                                    type="radio"
+                                                    class="slds-p-top_medium"
+                                                    onchange={handleChange}
+                                                    onblur={handleWorkMissedReasonFocus}>
+                                                </lightning-radio-group>
+                                            </fieldset>
+                                        </div>
+                                        </template>
+                                        <template if:true={isWorkMissedReason}>
+                                        <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-1 slds-large-size_1-of-1">
+                                            <template if:true={isWorkMissedReason}>
+                                            <div class="slds-grid slds-wrap">
+                                                <template if:true={daysMissed}>
+                                                <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-2 slds-large-size_1-of-2">
+                                                    <fieldset class="slds-p-bottom_medium slds-p-left_medium slds-p-right_medium">
+                                                        {customLabelValues.OWC_DaysOfWorkMissed} 
+                                                        <!-- <span class="requiredStyle"><abbr title="required">*</abbr></span>   -->
+                                                        <lightning-input disabled  type="number" variant="label-hidden" name="daysMissed" data-id="daysMissed" value={daysMissed} onchange={handleChange} onblur={handledaysMissedfocus}></lightning-input>
+                                                    </fieldset>
+                                                </div>
+                                                </template>
+                                                <template if:true={whyDaysMissed}>
+                                                <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-2 slds-large-size_1-of-2">
+                                                    <fieldset class="slds-p-bottom_medium slds-p-left_medium slds-p-right_medium">
+                                                        {customLabelValues.OWC_WhyWorkMissed} 
+                                                        <!-- <span class="requiredStyle"><abbr title="required">*</abbr></span>   -->
+                                                        <lightning-textarea disabled variant="label-hidden" name="whyDaysMissed" data-id="whyDaysMissed" value={whyDaysMissed} onchange={handleChange} onblur={handlewhyDaysMissedfocus}></lightning-textarea>
+                                                    </fieldset>
+                                                </div>
+                                                </template>
+                                            </div>
+                                            </template>
+                                        </div>
+                                        </template>
+                                        <template if:true={selectedHolidayOptions}>
+                                        <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-1 slds-large-size_1-of-1">
+                                            <fieldset class="slds-p-bottom_medium slds-p-left_medium">
+                                                {customLabelValues.OWC_typically_worked_holiday_selection}
+                                                <!-- <span class="requiredStyle"><abbr title="required">*</abbr></span>   -->
+                                                <lightning-checkbox-group disabled
+                                                    variant="label-hidden" 
+                                                    name="companyHolidaySelection"
+                                                    class=""
+                                                    data-id="companyHolidaySelection"
+                                                    options={comapnyHolidayOptions}
+                                                    value={selectedHolidayOptions}
+                                                    onchange={handleChange}
+                                                    onblur={handlecompanyHolidaySelectionfocus}>
+                                                </lightning-checkbox-group>
+                                            </fieldset>
+                                        </div>
+                                        </template>
+                                        <template if:true={otherHolidaySelection}>
+                                        <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-1 slds-large-size_1-of-1">
+                                            <template if:true={isCompanyHolidayOther}>
+                                                <fieldset class="sdls-grid slds-wrap slds-p-bottom_medium slds-p-left_medium slds-p-right_medium">
+                                                    <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-1 slds-large-size_1-of-1">
+                                                        {customLabelValues.OWC_typically_worked_othertext}
+                                                        <!-- <span class="requiredStyle"><abbr title="required">*</abbr></span>   -->
+                                                        <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-2 slds-large-size_1-of-2">
+                                                            <lightning-textarea disabled variant="label-hidden" name="otherHolidaySelection" data-id="otherHolidaySelection" value={otherHolidaySelection} onchange={handleChange} onblur={handleotherHolidaySelectionfocus}></lightning-textarea>
+                                                        </div>
+                                                    </div>
+                                                </fieldset>
+                                            </template>
+                                        </div>
+                                        </template>
+                                     
+                                    </div>
+                                </template>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="slds-col slds-medium-size_1-of-8 slds-large-size_1-of-8"></div>
+                </div>
+            </form>
+        </template>
+    </template>
+    <template if:false={isFormPreviewMode}>
+        <form>
+            <div class="slds-grid slds-wrap">
+                <div class="slds-col slds-medium-size_1-of-8 slds-large-size_1-of-8"></div>
+                <div class="slds-col slds-size_1-of-1 slds-medium-size_6-of-8 slds-large-size_6-of-8">
+                    <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-1 slds-large-size_1-of-1">
+                        <div class="slds-grid slds-wrap">
+                            <div class="slds-col slds-size_1-of-1 slds-medium-size_5-of-6 slds-large-size_5-of-6">
+                                <h1 class="slds-p-around_medium slds-text-heading_large owcHeadingStyle">
+                                    {customLabelValues.OWC_hours_typically_worked_heading}
+                                </h1>
+                            </div>
+                            <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-6 slds-large-size_1-of-6">
+                                <lightning-button class="slds-float_right slds-m-top_medium slds-m-bottom_medium slds-m-left_medium owcButtonStyle" label={customLabelValues.OWC_save_as_draft_label} variant="brand" onclick={handleSaveAsDraft}></lightning-button>
+                            </div>
+                        </div>
+                    </div>
+                   
+                    <div class="slds-grid slds-wrap">
+                        <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-1 slds-large-size_1-of-1">
+                            <fieldset class="slds-p-around_medium slds-p-left_xx-large">
+                                {customLabelValues.OWC_typicallyworked_selectone}
+                                
+                                <lightning-radio-group 
+                                    variant="label-hidden" 
+                                    name="specifyTypicalyyworked"
+                                    max-length="1"
+                                    options={options}
+                                    data-id="specifyTypicalyyworked"
+                                    value={specifyTypicalyyworked}
+                                    type="radio"
+                                    class="slds-p-top_medium"
+                                    onchange={handleChange}
+                                    onblur={handleSpecifyTypicallyWorkedFocus}>
+                                </lightning-radio-group>
+                            </fieldset>
+                        </div>
+                        <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-1 slds-large-size_1-of-1">
+                            <template if:true={isSameWeekDaysAndHours}>
+                                <div class="slds-grid slds-wrap">
+                                    <!-- <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-2 slds-large-size_1-of-2">
+                                        <fieldset class="slds-p-around_medium slds-p-left_xx-large">
+                                            1.1 {customLabelValues.OWC_typically_worked_no_of_saturday}
+                                            <span class="requiredStyle"><abbr title="required">*</abbr></span>  
+                                            <lightning-input type="text" 
+                                                max-length="1"
+                                                data-id="numberOfWorkingSaturday" 
+                                                variant="label-hidden" 
+                                                name="numberOfWorkingSaturday" 
+                                                value={numberOfWorkingSaturday} 
+                                                onchange={handleChange}
+                                                onblur={handleNumberOfWorkingSaturdayFocus}>
+                                            </lightning-input>
+                                        </fieldset>
+                                    </div>
+                                    <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-2 slds-large-size_1-of-2">
+                                        <fieldset class="slds-p-around_medium slds-p-left_xx-large">
+                                            1.2 {customLabelValues.OWC_typically_worked_no_of_sunday}
+                                            <span class="requiredStyle"><abbr title="required">*</abbr></span>  
+                                            <lightning-input type="text" max-length="2" data-id="numberOfWorkingSunday" variant="label-hidden" name="numberOfWorkingSunday" value={numberOfWorkingSunday} onchange={handleChange} onblur={handlenumberOfWorkingSundayfocus}></lightning-input>
+                                        </fieldset>
+                                    </div>
+                                    <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-1 slds-large-size_1-of-1">
+                                        <fieldset class="slds-p-around_medium slds-p-left_xx-large">
+                                            1.3 {customLabelValues.OWC_typically_worked_missed}
+                                            <span class="requiredStyle"><abbr title="required">*</abbr></span>  
+                                            <lightning-radio-group 
+                                                variant="label-hidden" 
+                                                name="workMissedDuetoIllness"
+                                                options={restPeriodOptions}
+                                                data-id="workMissedDuetoIllness"
+                                                value={workMissedDuetoIllness}
+                                                type="radio"
+                                                class="radioGroupStyle"
+                                                onchange={handleChange}
+                                                onblur={handleMissedWorkedFocus}>
+                                            </lightning-radio-group>
+                                        </fieldset>
+                                    </div>
+                                    <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-1 slds-large-size_1-of-1  slds-p-left_x-large">
+                                        <template if:true={isWorkMissedDueToIllness}>
+                                            <div class="slds-grid slds-wrap slds-p-left_medium">
+                                                <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-2 slds-large-size_1-of-2">
+                                                    <fieldset class="slds-p-around_medium slds-p-left_xx-large">
+                                                        1.3.1  If so, how much work did you miss for this reason?
+                                                        <span class="requiredStyle"><abbr title="required">*</abbr></span>  
+                                                        <lightning-input type="text" variant="label-hidden" name="explainMissedWork" data-id="explainMissedWork" value={explainMissedWork} onchange={handleChange} onblur={handleexplainMissedWorkfocus}></lightning-input>
+                                                    </fieldset>
+                                                </div>
+                                                <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-2 slds-large-size_1-of-2">
+                                                    <fieldset class="slds-p-around_medium slds-p-left_xx-large">
+                                                        1.3.2  {customLabelValues.OWC_available_sick_leave} 
+                                                        <span class="requiredStyle"><abbr title="required">*</abbr></span>  
+                                                        <lightning-radio-group 
+                                                            variant="label-hidden" 
+                                                            name="availableSickLeave"
+                                                            options={restPeriodOptions}
+                                                            data-id="availableSickLeave"
+                                                            value={availableSickLeave}
+                                                            type="radio"
+                                                            class="radioGroupStyle"
+                                                            onchange={handleChange}
+                                                            onblur={handleavailableSickLeavefocus}></lightning-radio-group>
+                                                    </fieldset>
+                                                </div>
+                                            </div>
+                                        </template>
+                                    </div> -->
+                                    <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-1 slds-large-size_1-of-1">
+                                        <fieldset class="">
+                                            <div class="slds-p-bottom_medium slds-p-left_medium">
+                                                {customLabelValues.OWC_typically_working_hours_same}
+                                            </div>
+                                            <c-owc-Hours-You-Typically-Garment-Calendar workweekvalue={workweekvalue} isrenderedtimecalendar={isRenderTimeCalendar} timeentrydetail={timeEntriesDetail} ontimeentriesevent={handleTimeEntriesDetails} isformpreviewmode={isFormPreviewMode}></c-owc-Hours-You-Typically-Garment-Calendar>
+                                        </fieldset>
+                                    </div>
+                                    <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-1 slds-large-size_1-of-1">
+                                        <fieldset class="slds-p-left_medium">
+                                            {customLabelValues.OWC_hours_typically_worked_work_missed_reason}
+                                            <!-- <span class="requiredStyle"><abbr title="required">*</abbr></span>   -->
+                                            <lightning-radio-group 
+                                                variant="label-hidden" 
+                                                name="workMissedReason"
+                                                options={restPeriodOptions}
+                                                data-id="workMissedReason"
+                                                value={workMissedReason}
+                                                type="radio"
+                                                class=""
+                                                onchange={handleChange}
+                                                onblur={handleWorkMissedReasonFocus}>
+                                            </lightning-radio-group>
+                                        </fieldset>
+                                    </div>
+                                    <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-1 slds-large-size_1-of-1  slds-p-left_medium">
+                                        <template if:true={isWorkMissedReason}>
+                                        <div class="slds-grid slds-wrap">
+                                            <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-2 slds-large-size_1-of-2">
+                                                <fieldset class="slds-p-top_medium slds-p-bottom_medium slds-p-right_medium">
+                                                    {customLabelValues.OWC_DaysOfWorkMissed} 
+                                                    <!-- <span class="requiredStyle"><abbr title="required">*</abbr></span>   -->
+                                                    <lightning-input type="text" variant="label-hidden" name="daysMissed" data-id="daysMissed" value={daysMissed} onchange={handleChange}></lightning-input>
+                                                </fieldset>
+                                            </div>
+                                            <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-2 slds-large-size_1-of-2">
+                                                <fieldset class="slds-p-top_medium slds-p-bottom_medium slds-p-right_medium">
+                                                    {customLabelValues.OWC_WhyWorkMissed} 
+                                                    <!-- <span class="requiredStyle"><abbr title="required">*</abbr></span>   -->
+                                                    <lightning-textarea variant="label-hidden" name="whyDaysMissed" data-id="whyDaysMissed" value={whyDaysMissed} onchange={handleChange} onblur={handlewhyDaysMissedfocus}></lightning-textarea>
+                                                </fieldset>
+                                            </div>
+                                        </div>
+                                        </template>
+                                    </div>
+                                    <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-1 slds-large-size_1-of-1">
+                                        <fieldset class="slds-p-left_medium">
+                                            {customLabelValues.OWC_typically_worked_holiday_selection}
+                                            <!-- <span class="requiredStyle"><abbr title="required">*</abbr></span>   -->
+                                            <lightning-checkbox-group 
+                                                variant="label-hidden" 
+                                                name="companyHolidaySelection"
+                                                class=""
+                                                data-id="companyHolidaySelection"
+                                                options={comapnyHolidayOptions}
+                                                value={selectedHolidayOptions}
+                                                onchange={handleChange}
+                                                onblur={handlecompanyHolidaySelectionfocus}>
+                                            </lightning-checkbox-group>
+                                        </fieldset>
+                                    </div>
+                                    <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-1 slds-large-size_1-of-1  slds-p-left_medium">
+                                        <template if:true={isCompanyHolidayOther}>
+                                            <fieldset class="sdls-grid slds-wrap">
+                                                <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-1 slds-large-size_1-of-1 slds-p-right_medium">
+                                                    {customLabelValues.OWC_typically_worked_othertext}
+                                                    <!-- <span class="requiredStyle"><abbr title="required">*</abbr></span>   -->
+                                                    <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-2 slds-large-size_1-of-2">
+                                                        <lightning-textarea variant="label-hidden" name="otherHolidaySelection" data-id="otherHolidaySelection" value={otherHolidaySelection} onchange={handleChange} onblur={handleotherHolidaySelectionfocus}></lightning-textarea>
+                                                    </div>
+                                                </div>
+                                            </fieldset>
+                                        </template>
+                                    </div>
+                                    <!-- <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-1 slds-large-size_1-of-1">
+                                        <fieldset class="slds-p-around_medium slds-p-left_xx-large">
+                                            {customLabelValues.OWC_paystub_sick_leave}
+                                            <span class="requiredStyle"><abbr title="required">*</abbr></span>  
+                                            <lightning-radio-group 
+                                                variant="label-hidden" 
+                                                name="paystubSickLeave"
+                                                options={restPeriodOptions}
+                                                data-id="paystubSickLeave"
+                                                value={paystubSickLeave}
+                                                type="radio"
+                                                class="radioGroupStyle"
+                                                onchange={handleChange}>
+                                            </lightning-radio-group>
+                                        </fieldset>
+                                    </div> -->
+                                    
+                                </div>
+                            </template>
+                            <template if:true={isDaysOrWeekVaried}>
+                                <div class="slds-p-left_medium slds-p-bottom_medium">
+                                    <fieldset class="">
+                                        <div>
+                                            {customLabelValues.OWC_typically_worked_upload_form}
+                                            <span class="slds-p-left_x-small">
+                                                <lightning-icon icon-name="utility:info" class="my-icon" size="x-small" alternative-text="info"  label={customLabelValues.OWC_learnmore_button} name="dlseForm55" onclick={handleHelpText} ></lightning-icon>
+                                             </span>
+                                            <!-- <span class="slds-p-left_medium learnMoreStyle">
+                                                <lightning-button variant="base" label={customLabelValues.OWC_learnmore_button} name="dlseForm55" onclick={handleHelpText} class="slds-m-left_x-small"></lightning-button>
+                                            </span> -->
+                                        </div> 
+                                        <div>
+                                            <a href="https://www.dir.ca.gov/dlse/DLSE-55-overtime-sheet.xls" target="_blank">https://www.dir.ca.gov/dlse/DLSE-55-overtime-sheet.xls</a>
+                                        </div>
+                                        <lightning-file-upload 
+                                            name="overTimeSheet"
+                                            disabled={isFileUploadDisabled}
+                                            accept={acceptedFormats}
+                                            data-id="overTimeSheet"
+                                            record-id={myRecordId}
+                                            onuploadfinished={handleUploadOverTimeSheet}
+                                            multiple>
+                                        </lightning-file-upload>
+                                        <template if:true={isFileUploadDisabled}>
+                                            <span style="color:red;">{customLabelValues.OWC_file_size_error}</span>
+                                        </template>
+                                    </fieldset>
+                                    <template if:false={isOverTimeSheetUploaded}>
+                                        <c-owc-Multiple-File-Upload-Details-Cmp data-id="overSheetDocId" name="overSheetDocId" isfileuploaded={isOverTimeSheetUploaded} onuploaddocumentevent={handleOverTimeSheetDoc}></c-owc-Multiple-File-Upload-Details-Cmp>
+                                    </template>
+                                </div>
+                                <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-1 slds-large-size_1-of-1">
+                                    <fieldset class="slds-p-left_medium">
+                                        {customLabelValues.OWC_hours_typically_worked_work_missed_reason}
+                                        <!-- <span class="requiredStyle"><abbr title="required">*</abbr></span>   -->
+                                        <lightning-radio-group 
+                                            variant="label-hidden" 
+                                            name="workMissedReason"
+                                            options={restPeriodOptions}
+                                            data-id="workMissedReason"
+                                            value={workMissedReason}
+                                            type="radio"
+                                            class=""
+                                            onchange={handleChange}
+                                            onblur={handleWorkMissedReasonFocus}>
+                                        </lightning-radio-group>
+                                    </fieldset>
+                                </div>
+                                <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-1 slds-large-size_1-of-1  slds-p-left_medium">
+                                    <template if:true={isWorkMissedReason}>
+                                    <div class="slds-grid slds-wrap">
+                                        <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-2 slds-large-size_1-of-2">
+                                            <fieldset class="slds-p-top_medium slds-p-bottom_medium slds-p-right_medium">
+                                                {customLabelValues.OWC_DaysOfWorkMissed} 
+                                                <!-- <span class="requiredStyle"><abbr title="required">*</abbr></span>   -->
+                                                <lightning-input type="text" variant="label-hidden" name="daysMissed" data-id="daysMissed" value={daysMissed} onchange={handleChange}></lightning-input>
+                                            </fieldset>
+                                        </div>
+                                        <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-2 slds-large-size_1-of-2">
+                                            <fieldset class="slds-p-top_medium slds-p-bottom_medium slds-p-right_medium">
+                                                {customLabelValues.OWC_WhyWorkMissed} 
+                                                <!-- <span class="requiredStyle"><abbr title="required">*</abbr></span>   -->
+                                                <lightning-textarea variant="label-hidden" name="whyDaysMissed" data-id="whyDaysMissed" value={whyDaysMissed} onchange={handleChange} onblur={handlewhyDaysMissedfocus}></lightning-textarea>
+                                            </fieldset>
+                                        </div>
+                                    </div>
+                                    </template>
+                                </div>
+                                <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-1 slds-large-size_1-of-1">
+                                    <fieldset class="slds-p-left_medium">
+                                        {customLabelValues.OWC_typically_worked_holiday_selection}
+                                        <!-- <span class="requiredStyle"><abbr title="required">*</abbr></span>   -->
+                                        <lightning-checkbox-group 
+                                            variant="label-hidden" 
+                                            name="companyHolidaySelection"
+                                            class=""
+                                            data-id="companyHolidaySelection"
+                                            options={comapnyHolidayOptions}
+                                            value={selectedHolidayOptions}
+                                            onchange={handleChange}
+                                            >
+                                        </lightning-checkbox-group>
+                                    </fieldset>
+                                </div>
+                                <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-1 slds-large-size_1-of-1  slds-p-left_medium">
+                                    <template if:true={isCompanyHolidayOther}>
+                                        <fieldset class="sdls-grid slds-wrap">
+                                            <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-1 slds-large-size_1-of-1 slds-p-right_medium">
+                                                {customLabelValues.OWC_typically_worked_othertext}
+                                                <!-- <span class="requiredStyle"><abbr title="required">*</abbr></span>   -->
+                                                <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-2 slds-large-size_1-of-2">
+                                                    <lightning-textarea variant="label-hidden" name="otherHolidaySelection" data-id="otherHolidaySelection" value={otherHolidaySelection} onchange={handleChange} ></lightning-textarea>
+                                                </div>
+                                            </div>
+                                        </fieldset>
+                                    </template>
+                                </div>
+                            </template>
+                        </div>
+                        <!-- <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-1 slds-large-size_1-of-1">
+                            <fieldset class="slds-p-around_medium slds-p-left_xx-large">
+                                2. {customLabelValues.OWC_typically_worked_vacation_time_claims}
+                                <span class="slds-p-left_medium learnMoreStyle">
+                                    <lightning-button variant="base" label={customLabelValues.OWC_learnmore_button} name="vacationTimeClaim" onclick={handleHelpText} class="slds-m-left_x-small"></lightning-button>
+                                </span>
+                                <div>
+                                    <a href="https://www.dir.ca.gov/dlse/Vac-Pay-Sched.pdf" target="_blank">https://www.dir.ca.gov/dlse/Vac-Pay-Sched.pdf</a>
+                                </div>
+                                <lightning-file-upload name="vacationTimeClaimDoc"
+                                    accept={acceptedFormats}
+                                    data-id="vacationTimeClaimDoc"
+                                    record-id={myRecordId}
+                                    onuploadfinished={handleVacationTimeClaimDoc}
+                                    multiple>
+                                </lightning-file-upload>
+                            </fieldset>
+                            <template if:false={isVacationTimeClaimUpload}>
+                                <c-owc-Multiple-File-Upload-Details-Cmp data-id="vacationTimeClaimId" name="vacationTimeClaimId" isfileuploaded={isVacationTimeClaimUpload} onuploaddocumentevent={handleVacationTimeClaimEvent}></c-owc-Multiple-File-Upload-Details-Cmp>
+                            </template>
+                        </div>
+                        <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-1 slds-large-size_1-of-1">
+                            <fieldset class="slds-p-around_medium slds-p-left_xx-large">
+                                3. {customLabelValues.OWC_typically_worked_unreimbursed_business}
+                                <span class="slds-p-left_medium learnMoreStyle">
+                                    <lightning-button variant="base" label={customLabelValues.OWC_learnmore_button} name="unreimbursedBusiness" onclick={handleHelpText} class="slds-m-left_x-small"></lightning-button>
+                                </span>
+                                <div>
+                                    <a href="https://www.dir.ca.gov/dlse/Schedule-of-Expenses.pdf" target="_blank">https://www.dir.ca.gov/dlse/Schedule-of-Expenses.pdf</a>
+                                </div>
+                                <lightning-file-upload name="unreimbursedDoc"
+                                    accept={acceptedFormats}
+                                    data-id="unreimbursedDoc"
+                                    record-id={myRecordId}
+                                    onuploadfinished={handleunreimbursedDoc}
+                                    multiple>
+                                </lightning-file-upload>
+                            </fieldset>
+                            <template if:false={isUnreimbursedUpload}>
+                            <c-owc-Multiple-File-Upload-Details-Cmp data-id="unreimbursedDocId" name="unreimbursedDocId" isfileuploaded={isUnreimbursedUpload} onuploaddocumentevent={handleUnreimbursedDocEvent}></c-owc-Multiple-File-Upload-Details-Cmp>
+                            </template>
+                        </div> -->
+                        <!-- <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-1 slds-large-size_1-of-1">
+                            <fieldset class="slds-p-around_medium slds-p-left_xx-large">
+                                <div class="slds-p-bottom_medium">
+                                    2. {customLabelValues.OWC_typically_working_hours_same}
+                                </div>
+                                <c-owc-Full-Calendar-Js></c-owc-Full-Calendar-Js>
+                            </fieldset>
+                        </div> -->
+                    </div>
+                </div>
+                <div class="slds-col slds-medium-size_1-of-8 slds-large-size_1-of-8"></div>
+            </div>
+            <template if:true={isHelpText}>
+                <c-owc-Help-Text-Cmp isworkweekhelptext={isWorkWeekHelpText} isdlseformhelptext={isdlse55Available} helptext={helpText} onhelptextevent={handleHelpTextEvent} ismultiplefileuploadhelptext={isMultipleFileUploadHelpText}></c-owc-Help-Text-Cmp>
+            </template>
+        </form>
+    </template>
+</template>

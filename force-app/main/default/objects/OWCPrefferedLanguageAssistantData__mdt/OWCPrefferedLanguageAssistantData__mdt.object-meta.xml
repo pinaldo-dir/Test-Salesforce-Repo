@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <description>Used to store preffered language values for Language Assistant section.</description>
+    <label>OWCPrefferedLanguageAssistantData</label>
+    <pluralLabel>OWCPrefferedLanguageAssistantDatas</pluralLabel>
+    <visibility>Public</visibility>
+</CustomObject>

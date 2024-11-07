@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Must_have_at_least_1_owner</fullName>
+    <active>true</active>
+    <description>Must have at least one Owner</description>
+    <errorConditionFormula>(RecordType.DeveloperName = 'Farm_Labor_Contractor' || RecordType.DeveloperName = 'Garment_Manufacturers_and_Contractors')
+&amp;&amp; (Number_of_Ownership_Records__c &lt;= 0 || ISBLANK(Number_of_Ownership_Records__c ) )
+&amp;&amp; ISPICKVAL( Ready_to_Submit__c, 'Yes' )</errorConditionFormula>
+    <errorMessage>At least one Owner must be added before submitting. Please change the answer below to "--None--", return to the Ownership tab, and add at least one owner.</errorMessage>
+</ValidationRule>

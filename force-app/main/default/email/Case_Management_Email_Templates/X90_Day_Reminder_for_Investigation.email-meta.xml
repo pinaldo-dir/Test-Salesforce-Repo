@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <description>90-Day reminder after Investigation Acceptance Date to update case progress and status</description>
+    <encodingKey>ISO-8859-1</encodingKey>
+    <name>90-Day Reminder for Investigation</name>
+    <style>none</style>
+    <subject>Update Investigation Progress for Case {!DIR_Case__c.Name}</subject>
+    <type>text</type>
+    <uiType>Aloha</uiType>
+</EmailTemplate>

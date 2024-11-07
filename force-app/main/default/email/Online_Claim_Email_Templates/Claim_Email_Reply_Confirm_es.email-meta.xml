@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <encodingKey>ISO-8859-1</encodingKey>
+    <name>Claim Email Reply Confirm_es</name>
+    <style>none</style>
+    <subject>Notificación de confirmación para ({Case.Name})</subject>
+    <textOnly>Hola {!Claimant},
+Gracias por su oportuna respuesta a nuestra solicitud. Ha respondido que el reclamo de sueldo presentado en su nombre por {!advocate/rep} contra el {!Defendant} el {!filed date} deberá ser CONFIRMADO. Su número de es {!case number}. Su reclamo está asignado a la siguiente Oficina de Sueldo:
+{!DIR_Case__c.Office__c } {!DIR_Case__c.DIR_WCA_Office_Address__c} {!DIR_Case__c.DIR_Office_Phone_Number__c}  La Oficina de la Comisionada Laboral</textOnly>
+    <type>custom</type>
+    <uiType>Aloha</uiType>
+</EmailTemplate>

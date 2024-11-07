@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<WebLink xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>case_Click_to_Start_Inactive_Tracking</fullName>
+    <availability>online</availability>
+    <displayType>button</displayType>
+    <encodingKey>UTF-8</encodingKey>
+    <linkType>url</linkType>
+    <masterLabel>case Click to Start Inactive Tracking</masterLabel>
+    <openType>replace</openType>
+    <protected>false</protected>
+    <url>https://cadir--stay1.sandbox.lightning.force.com/lightning/o/Inactive_Tracking__c/new?count=1&amp;nooverride=1&amp;useRecordTypeCheck=1&amp;navigationLocation=RELATED_LIST&amp;backgroundContext=%2Flightning%2Fr%2FDIR_Case__c%2Case_Name__cd%2Frelated%2FInactive_Trackings__r%2Fview&amp;recordTypeId=0128y0000004hVkAAI&amp;defaultFieldValues=Case_Management__c={!DIR_Case__c.Id}</url>
+</WebLink>

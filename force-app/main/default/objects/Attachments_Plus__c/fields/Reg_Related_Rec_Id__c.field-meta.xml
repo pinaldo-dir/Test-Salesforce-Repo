@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Reg_Related_Rec_Id__c</fullName>
+    <description>Registration Related Record Id. This field is used by Registration Services to store the related Registration record.</description>
+    <externalId>true</externalId>
+    <label>Reg Related Rec Id</label>
+    <length>18</length>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

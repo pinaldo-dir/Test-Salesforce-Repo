@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Send_PW_Registration_Doc__c</fullName>
+    <externalId>false</externalId>
+    <formula>"&amp;id=" + Id +
+"&amp;templateid=a0nt0000000s8jP" +
+"&amp;defaultpdf=1" +
+"&amp;queryid=[Education]a0mt00000000sKw,[Disclaimer]a0mt00000001R1N?pv1=" + Record_Type_Name__c + ",[REG]a0mt00000000sKq,[REGACT]a0mt0000000J0uD,[Bond]a0mt00000000sKv,[Owner]a0mt00000000sKr,[Manager]a0mt00000000sKt, [Reglocation]a0mt00000000sKx,[FUQues]a0mt00000000sKu,[Ques]a0mt00000000sKs,[Attach]a0mt00000000sKy,[Trade]a0mt0000000J0uI,[Document]a0mt00000000sKp" +
+IF(Status_of_Payment__c="Paid / No Balance Due","&amp;CongaEmailTemplateId=a0lt0000000XBan","&amp;CongaEmailTemplateId=a0lt0000000XBas") +
+"&amp;EmailAdditionalTo=" + Applicant_s_Email__c +
+"&amp;EmailFromID=0D2d0000000Gr2j" +
+"&amp;qmode=SendEmail" +
+"&amp;SC0=1" +
+"&amp;SC1=Attachments" +
+"&amp;OFN=Affidavit PDF for " + License_Registration_Number__c</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>Send PW Registration Doc</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

@@ -1,0 +1,13 @@
+Dear {!DIR_Case__c.Claimant_Name_in_Text__c}
+
+We are in receipt of your client's claim filed against {! DIR_Case__c.Employer_Name_in_Text__c} on {!Today}. A representative from the Labor Commissioner’s office will contact you regarding your client's claim. Your client's claim number is WC-{!DIR_Case__c.Name} and is assigned to the following Wage Office:
+
+{!CASE(DIR_Case__c.Office__c, "WCA - OUT OF STATE", "Pending Assignment",  DIR_Case__c.Office__c )}
+
+{!CASE(DIR_Case__c.Office__c, "WCA - OUT OF STATE", "",  DIR_Case__c.DIR_WCA_Office_Address__c )}
+
+{!CASE(DIR_Case__c.Office__c, "WCA - OUT OF STATE", "",  DIR_Case__c.DIR_Office_Phone_Number__c )}
+
+
+
+Please do not respond to this email as it is system generated and not a monitored email address.

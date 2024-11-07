@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Status_Comment__c</fullName>
+    <description>Pick List for Void/Cancel/Stop Reason</description>
+    <externalId>false</externalId>
+    <label>Status Comment</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Incorrect address</fullName>
+                <default>false</default>
+                <label>Incorrect address</label>
+            </value>
+            <value>
+                <fullName>Payee did not receive</fullName>
+                <default>false</default>
+                <label>Payee did not receive</label>
+            </value>
+            <value>
+                <fullName>Payee lost warrant</fullName>
+                <default>false</default>
+                <label>Payee lost warrant</label>
+            </value>
+            <value>
+                <fullName>Returned USPS/Undeliverable</fullName>
+                <default>false</default>
+                <label>Returned USPS/Undeliverable</label>
+            </value>
+            <value>
+                <fullName>Stale dated</fullName>
+                <default>false</default>
+                <label>Stale dated</label>
+            </value>
+            <value>
+                <fullName>Stolen</fullName>
+                <default>false</default>
+                <label>Stolen</label>
+            </value>
+            <value>
+                <fullName>Warrant damaged</fullName>
+                <default>false</default>
+                <label>Warrant damaged</label>
+            </value>
+            <value>
+                <fullName>Warrant not approved to print</fullName>
+                <default>false</default>
+                <label>Warrant not approved to print</label>
+            </value>
+            <value>
+                <fullName>Wrong payee</fullName>
+                <default>false</default>
+                <label>Wrong payee</label>
+            </value>
+            <value>
+                <fullName>Wrong payment amount</fullName>
+                <default>false</default>
+                <label>Wrong payment amount</label>
+            </value>
+            <value>
+                <fullName>Warrant batch void</fullName>
+                <default>false</default>
+                <label>Warrant batch void</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

@@ -1,0 +1,211 @@
+<template>
+    <div class="approvalDiv">
+        <template if:true={allowUserApprove}>
+            <template if:false={startRevWr}>
+                <div class="wbLayoutDiv">
+                    <P><label style="color: green;">Reviewing Warrants for Secondary Approval under the Warrant Batch listed below </label></P>
+                    <lightning-record-view-form record-id={getwbid} object-api-name="Warrant_Batch__c">
+                        <div class="slds-grid">
+                            <div class="slds-col slds-size_1-of-2">
+                                <lightning-output-field field-name="Name"></lightning-output-field>
+                                <lightning-output-field field-name="Batch_Total__c"></lightning-output-field>
+                            </div>
+                            <div class="slds-col slds-size_1-of-2">
+                                <lightning-output-field field-name="Status__c"></lightning-output-field>
+                                <lightning-output-field field-name="Reviewed_By__c"></lightning-output-field>
+                            </div>
+                        </div>
+                    </lightning-record-view-form>
+                    <br>
+
+                    <lightning-button variant="brand-outline" label="Secondary Approve Warrants" onclick={handleRevEachWrClick} class="slds-var-m-left_x-small"></lightning-button><br><br>
+                    <template if:false={wrReadytoApprove}>
+                        <label style="color: rgb(255, 102, 0);"> No Warrants waiting for Secondary Approval </label>
+                    </template>
+                </div>
+            </template>
+            
+            <template if:true={startRevWr}>
+                <template if:true={wrReadytoApprove}>
+                    <lightning-button variant="brand-outline" label="Back" onclick={handleBackClick} class="slds-var-m-left_x-small"></lightning-button><br>
+                    
+                    <template if:false={bulkReview}>
+                        <template if:false={finalWrrantUpd}>
+                            <template for:each={pageDataItem} for:item="wr">
+                                <lightning-record-view-form key={wr.Id} record-id={wr.Id} object-api-name="Warrant__c">
+                                    <div class="slds-grid">
+                                        <div class="slds-col slds-size_1-of-2">
+                                            <lightning-output-field field-name="Name"></lightning-output-field>
+                                            <lightning-output-field field-name="Amount__c"></lightning-output-field>
+                                            <lightning-output-field field-name="Status__c"></lightning-output-field>
+                                            <lightning-output-field field-name="Disbursement_Type__c"></lightning-output-field>
+                                        </div>
+                                        <div class="slds-col slds-size_1-of-2">
+                                            <lightning-output-field field-name="Case__c"></lightning-output-field>
+                                            <lightning-output-field field-name="Case_Number__c"></lightning-output-field>
+                                            <lightning-output-field field-name="Payee__c"></lightning-output-field>
+                                        </div>
+                                    </div>
+                                    <label style="color: green;">By Approving this warrant I attest that I have reviewed the supporting documentation</label>
+                                    <br> 
+                                    <label style="font-weight: bold;">Approve Warrants: </label>
+                                    <template if:true = {wr.Approved_Warrant__c}>
+                                        <lightning-radio-group name="radioGroup"
+                                            options={approvalOptions}
+                                            value="true"
+                                            type="radio"
+                                            onchange={handleAppRadBtnChange}>
+                                        </lightning-radio-group>
+                                    </template>
+                                    <template if:false = {wr.Approved_Warrant__c}>
+                                        <lightning-radio-group name="radioGroup"
+                                            options={approvalOptions}
+                                            value="false"
+                                            type="radio"
+                                            onchange={handleAppRadBtnChange}>
+                                        </lightning-radio-group>
+                                    </template>
+                                    <br>
+                                    <br>
+                                    <label style="color: rgb(255, 102, 0);">Specify the reason, only if Approve Warrants is selected "No"</label>
+                                    <template if:true = {undefinedNotAppCmt}>
+                                        <lightning-textarea label="Not Approved Comments" onchange={handleNotApproveTxtChange} maxlength="140" message-when-too-long="A maximum of 140 characters are allowed"></lightning-textarea>
+                                    </template> 
+                                    <template if:false = {undefinedNotAppCmt}>
+                                        <lightning-textarea label="Not Approved Comments" value={wr.Not_Approved_Comments__c} onchange={handleNotApproveTxtChange} maxlength="140" message-when-too-long="A maximum of 140 characters are allowed"></lightning-textarea>
+                                    </template>
+                                    <template if:true={sameApprover}>
+                                        <label style="color:red;">Secondary Approver cannot be same as the Primary Approver</label><br><br>
+                                    </template>
+                                    <template if:false={reasonNotApproved}>
+                                        <label style="color: red;">Specify the reason for not approving this Warrant</label>
+                                    </template>
+                                    <br>
+                                </lightning-record-view-form>
+                                <template if:true={pagination}>
+                                    <lightning-layout key={wr.Id} horizontal-align="space">
+                                        <lightning-layout-item flexibility="auto">
+                                            <lightning-button 
+                                                variant="brand-outline" 
+                                                label="Previous" 
+                                                icon-name="utility:chevronleft" 
+                                                onclick={previousHandler}
+                                                disabled={prevPageBtn}>
+                                            </lightning-button>
+                                        </lightning-layout-item>
+                                        <lightning-layout-item flexibility="auto">
+                                            Warrant {page} of {totalPage}
+                                        </lightning-layout-item>
+                                        <lightning-layout-item flexibility="auto">
+                                            <lightning-button 
+                                                variant="brand-outline" 
+                                                label="Next" 
+                                                icon-name="utility:chevronright" 
+                                                icon-position="right"
+                                                onclick={nextHandler}
+                                                disabled={nextPageBtn}>
+                                            </lightning-button>
+                                        </lightning-layout-item>
+                                    </lightning-layout><br key={wr.Id}><br key={wr.Id}>
+                                    <template if:true={approvalsUpdated}>
+                                        <label key={wr.Id} style="color: green;">An email confirmation will be sent, once all changes in Secondary Warrants Approval has been Updated.</label><br key={wr.Id}><br key={wr.Id}>
+                                    </template>
+                                    <template if:true={approvalsNotUpdated}>
+                                        <label key={wr.Id} style="color:red;">Something went wrong in updating the changes, Please contact Admin</label><br key={wr.Id}><br key={wr.Id}>
+                                    </template>
+                                </template>
+                            </template>
+                        </template>
+                        <template if:true={finalWrrantUpd}>
+                            <br>
+                            <label style="color: green;">Successfully reviewed all the Warrants in this Batch</label><br><br>
+                            <label>Click the button 'Update Warrants' below to save all changes</label><br><br>
+                            <lightning-button variant="brand-outline" label="Update Warrants" onclick={handleEndWarrantUpdate} disabled={buttonsDisabled} class="slds-var-m-left_x-small" icon-position="center"></lightning-button><br>
+                            <template if:true={approvalsUpdated}>
+                                <label style="color: green;">An email confirmation will be sent, once all changes in Secondary Warrants Approval has been Updated.</label><br><br>
+                            </template>
+                            <template if:true={approvalsNotUpdated}>
+                                <label style="color:red;">Something went wrong in updating the Warrant changes, Please contact Admin</label><br><br>
+                            </template>
+                            <template if:true={wbApprovalUpdated}>
+                                <label style="color: green;">Warrant Batch Status has been Updated</label><br><br>
+                            </template>
+                            <template if:true={wbApprovalNotUpdated}>
+                                <label style="color:red;">Something went wrong in updating the Warrant Batch Status, Please contact Admin</label><br><br>
+                            </template>
+                            <template if:true={sameApprover}>
+                                <label style="color:red;">Secondary Approver cannot be same as the Primary Approver</label><br><br>
+                            </template>
+                        </template>
+                    </template>
+                    <template if:true={bulkReview}>
+                        <table class="slds-table slds-table_cell-buffer slds-table_bordered">
+                            <thead>
+                                <tr class="slds-line-height_reset">
+                                    <th class="" scope="col">
+                                        <div class="slds-truncate">
+                                            <lightning-input onchange={allSelected} type="checkbox"></lightning-input>
+                                        </div>
+                                    </th>
+                                    <th class="" scope="col">
+                                        <div class="slds-truncate" title="Name"> Warrant Name</div>
+                                    </th>
+                                    <th class="" scope="col">
+                                        <div class="slds-truncate" title="First Name">Case Number</div>
+                                    </th>
+                                    <th class="" scope="col">
+                                        <div class="slds-truncate" title="Last Name">Amount</div>
+                                    </th>
+                                    <th class="" scope="col">
+                                        <div class="slds-truncate" title="Phone">Status</div>
+                                    </th>
+                                    <th class="" scope="col">
+                                        <div class="slds-truncate" title="Email">Warrant Number</div>
+                                    </th>
+                                    <th class="" scope="col">
+                                        <div class="slds-truncate" title="Email">Serial Number</div>
+                                    </th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <template for:each={wrListtoSecApprove} for:item="wr">
+                                    <tr key={wr.Id}>
+                                        <th scope="col">
+                                            <div>
+                                                <lightning-input type="checkbox" value={wr.Name} data-id={wr.Id}>
+                                                </lightning-input>
+                                            </div>
+                                        </th>
+                                        <th scope="col">
+                                            <div>{wr.Name}</div> 
+                                            <!--<a target="_blank" href={sfdcBaseURL}>{wr.Name}</a>-->
+                                        </th>
+                                        <th scope="col">
+                                            <div>{wr.Case_Number__c}</div>
+                                        </th>
+                                        <th scope="col">
+                                            <div>{wr.Amount__c}</div>
+                                        </th>
+                                        <th scope="col">
+                                            <div>{wr.Status__c}</div>
+                                        </th>
+                                        <th scope="col">
+                                            <div>{wr.Warrant_Number__c}</div>
+                                        </th>
+                                        <th scope="col">
+                                            <div>{wr.Serial_Number__c}</div>
+                                        </th>
+                                    </tr>
+                                </template>
+                            </tbody>
+                        </table> <br><br>
+                        <lightning-button variant="brand-outline" label="Update Warrants" onclick={handleBulkUpdate} disabled={buttonsDisabled} class="slds-var-m-left_x-small" icon-position="center"></lightning-button><br>
+                    </template>
+                </template>
+            </template>
+        </template>
+        <template if:false={allowUserApprove}>
+            <label class="sbmtWRlbl" style="color: red;">Sorry! Contact Admin to get access to perform this action </label>
+        </template>
+    </div>
+</template>

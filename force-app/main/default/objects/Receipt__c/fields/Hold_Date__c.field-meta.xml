@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Hold_Date__c</fullName>
+    <description>Updated by TransactionTrigger -&gt; TransactionMethods -&gt; AccountingDepositBatch.
+Once this Receipt is deposited, this field is updated to TRN.Deposit_Date__c + Receipt_Hold_Date__mdt.Number_of_Days__c.</description>
+    <externalId>false</externalId>
+    <label>Hold Date</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackTrending>false</trackTrending>
+    <type>Date</type>
+</CustomField>

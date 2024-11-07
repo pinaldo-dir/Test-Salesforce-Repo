@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+        <label><!-- Settlement Type --></label>
+        <name>Settlement_Type__c</name>
+        <picklistValues>
+            <masterLabel>JEU</masterLabel>
+            <translation><!-- JEU --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Legal - Citation</masterLabel>
+            <translation><!-- Legal - Citation --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Legal - Writ</masterLabel>
+            <translation><!-- Legal - Writ --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Legal-Lawsuit</masterLabel>
+            <translation><!-- Legal-Lawsuit --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Legal-postjudgment</masterLabel>
+            <translation><!-- Legal-postjudgment --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Legal-prejudgment</masterLabel>
+            <translation><!-- Legal-prejudgment --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Self-Audit</masterLabel>
+            <translation><!-- Self-Audit --></translation>
+        </picklistValues>
+    </CustomFieldTranslation>

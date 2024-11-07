@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Violation_Type__c</fullName>
+    <deleteConstraint>Restrict</deleteConstraint>
+    <externalId>false</externalId>
+    <label>Violation Type</label>
+    <referenceTo>Violation_Type__c</referenceTo>
+    <relationshipLabel>Wage Deficiency Violation Types</relationshipLabel>
+    <relationshipName>Wage_Deficiency_Violation_Types</relationshipName>
+    <required>true</required>
+    <trackTrending>false</trackTrending>
+    <type>Lookup</type>
+</CustomField>

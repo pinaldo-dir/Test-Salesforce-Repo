@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>LC_226_Violations_Cured__c</fullName>
+    <externalId>false</externalId>
+    <label>LC 226 Violations Cured</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>MultiselectPicklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Gross Wages Earned</fullName>
+                <default>false</default>
+                <label>Gross Wages Earned</label>
+            </value>
+            <value>
+                <fullName>Total Hours Worked</fullName>
+                <default>false</default>
+                <label>Total Hours Worked</label>
+            </value>
+            <value>
+                <fullName>Piece Rate Units</fullName>
+                <default>false</default>
+                <label>Piece Rate Units</label>
+            </value>
+            <value>
+                <fullName>Deductions</fullName>
+                <default>false</default>
+                <label>Deductions</label>
+            </value>
+            <value>
+                <fullName>Net Wages Earned</fullName>
+                <default>false</default>
+                <label>Net Wages Earned</label>
+            </value>
+            <value>
+                <fullName>Pay period dates</fullName>
+                <default>false</default>
+                <label>Pay period dates</label>
+            </value>
+            <value>
+                <fullName>Employer legal entity name/address</fullName>
+                <default>false</default>
+                <label>Employer legal entity name/address</label>
+            </value>
+            <value>
+                <fullName>All applicable hourly rates + Number of hrs at each rate</fullName>
+                <default>false</default>
+                <label>All applicable hourly rates + Number of hrs at each rate</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+    <visibleLines>4</visibleLines>
+</CustomField>

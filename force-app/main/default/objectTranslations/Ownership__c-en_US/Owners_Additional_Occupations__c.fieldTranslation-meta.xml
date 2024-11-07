@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+        <help><!-- Enter Owners additional Occupations if more than 2 --></help>
+        <label><!-- Owners Additional Occupations --></label>
+        <name>Owners_Additional_Occupations__c</name>
+    </CustomFieldTranslation>

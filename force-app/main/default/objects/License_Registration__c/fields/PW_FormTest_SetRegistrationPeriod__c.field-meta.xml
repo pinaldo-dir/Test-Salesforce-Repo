@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>PW_FormTest_SetRegistrationPeriod__c</fullName>
+    <externalId>false</externalId>
+    <formula>IF(
+Renewal__c = FALSE
+&amp;&amp;
+ISPICKVAL(PW_Form_Test_Only__c,"July1 - April30"), "1",  /*Today Only*/
+IF(
+Renewal__c = FALSE 
+&amp;&amp;
+ISPICKVAL(PW_Form_Test_Only__c,"May1 - July1"),"2",  /*Today or July 1st*/
+IF(
+Renewal__c = TRUE 
+&amp;&amp;
+PreviousRegistrationStatus__c = "Expired"
+&amp;&amp;
+ISPICKVAL(PW_Form_Test_Only__c,"May1 - July1"), "2",  /*Today or July 1st*/
+IF(
+Renewal__c = TRUE 
+&amp;&amp;
+PreviousRegistrationStatus__c = "Active"
+&amp;&amp;
+ISPICKVAL(PW_Form_Test_Only__c,"May1 - July1"),"3",  /*July 1st Only*/
+IF(
+Renewal__c = TRUE 
+&amp;&amp;
+PreviousRegistrationStatus__c = "Expired"
+&amp;&amp;
+ISPICKVAL(PW_Form_Test_Only__c,"July1 - April30"),"4", null)))))  /*Today Only*/</formula>
+    <inlineHelpText>Use this for testing only</inlineHelpText>
+    <label>PW FormTest - SetRegistrationPeriod</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

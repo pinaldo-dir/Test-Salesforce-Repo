@@ -1,0 +1,8 @@
+Hello,
+
+Writ {!Writ__c.Name} on Case {!Writ__c.Case_Management__c} has had its status or final legal outcome updated.
+
+Status: {!Writ__c.Status__c}
+Final Legal Outcome: {!Writ__c.Final_Legal_Outcome__c}
+
+You may view the writ directly in Salesforce at {!Writ__c.Link}

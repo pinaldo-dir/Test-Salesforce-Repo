@@ -1,0 +1,93 @@
+<!--
+  @description       : 
+  @author            : ChangeMeIn@UserSettingsUnder.SFDoc
+  @group             : 
+  @last modified on  : 11-05-2021
+  @last modified by  : ChangeMeIn@UserSettingsUnder.SFDoc
+-->
+<template>
+    <template if:true={largeDeviceDetect}>
+        <template if:true={contractDocSize}>
+            <div class="">
+                <div class="slds-grid slds-wrap">
+                    <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-1 slds-large-size_1-of-1 slds-p-top_xx-small">
+                        <table class="slds-table slds-table_cell-buffer slds-table_bordered slds-border_left slds-border_right">
+                            <thead class="tableStyle">
+                                <tr class="slds-line-height_reset">
+                                    <th class="" scope="col">
+                                        <div class="slds-truncate">
+                                            {customLabelValues.OWC_delete_file_header_label}
+                                        </div>
+                                    </th>
+                                    <th class="slds-cell-wrap cellStyle slds-table_fixed-layout " scope="col">
+                                        <div class="slds-truncate" title="Name">{customLabelValues.OWC_file_name_header_label}</div>
+                                    </th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <template for:each={uploadcontractdoc} for:item="doc">
+                                    <tr key={doc.documentId}>
+                                        <th scope="col">
+                                            <div>
+                                                <lightning-button-icon icon-name="utility:delete" disabled={isFormPreviewMode} value={doc.documentId} alternative-text="Delete" class="slds-m-left_xx-small" title="Delete" onclick={deleteUploadDoc}></lightning-button-icon>
+                                            </div>
+                                        </th>
+                                        <th scope="col" class="slds-cell-wrap cellStyle slds-table_fixed-layout ">
+                                            <div>{doc.name}</div>
+                                        </th>
+                                    </tr>
+                                </template>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                
+            </div>
+        </template>
+        <template if:true={isFileDeleted}>
+            <c-owc-Multiple-File-Delete-Cmp filename={fileName} ondeletemsgevent={handleDeleteMsg} onundeletemsgevent={handleUndeleteMsg} onclosedmodalboxevent={handleCloseModal}></c-owc-Multiple-File-Delete-Cmp>
+        </template>
+    </template>
+    <template if:true={smallDeviceDetect}>
+        <template if:true={contractDocSize}>
+            <div class="slds-p-around_medium">
+                <div class="slds-grid slds-wrap">
+                    <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-1 slds-large-size_1-of-1 slds-p-top_xx-small">
+                        <table class="slds-table slds-table_cell-buffer slds-table_bordered slds-table_fixed-layout slds-border_left slds-border_right">
+                            <thead class="tableStyle">
+                                <tr class="slds-line-height_reset">
+                                    <th class="" scope="col">
+                                        <div class="slds-truncate">
+                                            Delete File
+                                        </div>
+                                    </th>
+                                    <th class="slds-cell-wrap cellStyle " scope="col">
+                                        <div class="slds-truncate" title="Name">File Name</div>
+                                    </th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <template for:each={uploadcontractdoc} for:item="doc">
+                                    <tr key={doc.documentId}>
+                                        <th scope="col">
+                                            <div>
+                                                <lightning-button-icon icon-name="utility:delete" disabled={isFormPreviewMode} value={doc.documentId} alternative-text="Delete" class="slds-m-left_xx-small" title="Delete" onclick={deleteUploadDoc}></lightning-button-icon>
+                                            </div>
+                                        </th>
+                                        <th scope="col" class="slds-cell-wrap cellStyle">
+                                            <div>{doc.name}</div>
+                                        </th>
+                                    </tr>
+                                </template>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                
+            </div>
+        </template>
+        <template if:true={isFileDeleted}>
+            <c-owc-Multiple-File-Delete-Cmp filename={fileName} ondeletemsgevent={handleDeleteMsg} onundeletemsgevent={handleUndeleteMsg} onclosedmodalboxevent={handleCloseModal}></c-owc-Multiple-File-Delete-Cmp>
+        </template>
+    </template>
+</template>

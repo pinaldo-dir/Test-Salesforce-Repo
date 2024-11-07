@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Eligible_for_Closure_Open_Violations</fullName>
+    <active>true</active>
+    <description>This validation rule checks the roll up summary field "Open Violations" on the case.  If there are any open violations present for the case, the user cannot set the case to "Eligible for Closure".</description>
+    <errorConditionFormula>AND( TEXT( Status__c ) = "Eligible for Closure" ,  Open_Violations__c &gt; 0 )
+&amp;&amp; ISPICKVAL(Imported_From__c,'')
+&amp;&amp;  NOT( CONTAINS($Profile.Name, 'System Administrator') )</errorConditionFormula>
+    <errorMessage>Error:You may not set a case to be eligible for closure while there are open violations present. Please ensure all violations are set to the correct status before setting the case to "Eligible for Closure".</errorMessage>
+</ValidationRule>

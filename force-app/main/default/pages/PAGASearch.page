@@ -1,0 +1,248 @@
+<!-- controller PAGASearchController.cls -->
+<apex:page controller="PAGASearchController" docType="HTML-5.0" applyHtmlTag="false" applyBodyTag="false" sidebar="false" showHeader="false" standardStylesheets="true" title="PAGA Search">
+    
+    <style>
+        .multiSelectPicklistRow select option:before,
+        .multiSelectPicklistRow select option:after {display:none;}
+    </style>
+    <script type="text/javascript"> 
+        $j = jQuery.noConflict();
+        $j( document ).ready(function() {
+        
+            $j("#calYearPicker").html('')
+            for(var i = 2004; i <= (new Date()).getFullYear(); i++){
+                $j("#calYearPicker").append("<option value='" + i + "'>" + i + "</option>")
+            }
+        });
+    </script>
+    <apex:composition template="PAGATemplate">
+        
+        <apex:define name="body">
+            <apex:form >
+                
+                <apex:outputPanel id="maintenanceMsgId" rendered="{!isMaintenanceMsg}">
+                    <div class="alert alert-info">
+                        <br/>
+                        <H2><apex:outputText style="color:white" value="{!$Label.Reg_Maintenance_Msg}"/></H2>
+                        <br/>
+                        <br/>
+                    </div>
+                </apex:outputPanel>
+                
+                <apex:outputPanel id="mainPanel">
+                    <ol class="breadcrumb">
+                        <li><a href="https://www.dir.ca.gov/dlse/dlse.html">Department of Industrial Relations (DIR)</a></li>
+                        <li class="active">PAGA Case Search</li>
+                    </ol>
+                    <h1>Private Attorneys General Act (PAGA) Case Search</h1>
+                    <div class="row" id="messageInfo">
+                        <div class="col-xs-12">
+                            <div class="alert alert-info">
+                                <!-- Updated text here that is in a blue box at the top of the paga search home page for the Paga Search 2 project requirement PS2-68. -->
+                                Please enter one or more search criteria to find filings submitted to the LWDA pursuant to the Private Attorneys General Act (PAGA).
+                                <br /><i>Note: The searchable database includes most PAGA claims filed with the LWDA since 2004. Prior to June 27, 2016, only employee claims, employer cure notices, and employee cure disputes were required to be filed. Since that time, parties have also been required to file copies of court complaints, settlements, and certain orders, first by email (through 9/5/2016) and then through the current online filing system.</i>
+                                <br />
+                                <br /><i>UPDATE: As of December 21, 2020, certain documents, including court related documents (i.e. court complaints, proposed settlements, and court orders/judgments) are available for download.</i>
+                                <br />
+                                <br /> “Submission Type” and “Date Range of Submission” are required when conducting searches by specific searchable data such as Business, Lawfirm, Individual Name, LWDA Number, Employer City, Employer Zip Code, Court Case Number and/or Court Type and Court Name.
+                                <br />
+                                <br /> To search for LWDA Case numbers, you must input the name of the entity and on the “Date Range of Submission” your search must begin on 09/06/2016.  For example, 09/06/2016 – 10/01/2018 or 09/06/2016 – current date.
+                            </div>
+                        </div>
+                    </div>
+                    <br />
+                    <div class="row mb">
+                        <div class="form-group col-md-4">
+                            <label for="{!$Component.searchName}" styleclass="form-label">Business, Lawfirm, or Individual Name</label>
+                            <apex:inputText id="searchName" value="{!searchString}" styleclass="form-control" />
+                        </div>
+                    </div>  
+                    <div class="row mb">
+                        <div class="form-group col-md-3">
+                            <label for="{!$Component.lwdaNum}">LWDA Number</label>
+                            <apex:inputText id="lwdaNum" value="{!dummyCase.LWDA_Number__c}" styleclass="form-control" />
+                        </div>
+                    </div> 
+                    
+                    <div class="row mb">
+                        <div class="form-group col-md-3">
+                            <label for="{!$Component.empcity}">Employer City</label>
+                            <apex:inputText id="empcity" value="{!employeeCity}" styleclass="form-control" />
+                        </div>
+                    </div> 
+                    <div class="row mb">
+                        <div class="form-group col-md-3">
+                            <label for="{!$Component.empzip}">Employer Zip Code</label>
+                            <apex:inputText id="empzip" value="{!employeeZipCode}" styleclass="form-control" style="width:50%;" />
+                        </div>
+                    </div> 
+                    <div class="row mb">
+                        <div class="form-group col-md-3">
+                            <label for="{!$Component.empcasenum}">Court Case Number</label>
+                            <apex:inputText id="empcasenum" value="{!dummyCase.PAGA_Court_Case_Number__c}" styleclass="form-control" />
+                        </div>
+                    </div> 
+                    <div class="row mb">
+                        <div class="form-group col-md-3">
+                            <label for="{!$Component.courttype}">Court Type</label>
+                            <apex:inputField id="courttype" value="{!dummyCase.Court_Type__c}" styleclass="form-control" />     
+                        </div>
+                        
+                        <div class="form-group col-md-4">
+                            <label for="{!$Component.courtname}">Court Name</label>
+                            <apex:inputField id="courtName" value="{!dummyCase.Court_Name__c}" styleclass="form-control" />     
+                        </div>
+                    </div> 
+<!------------------------------------------------------------------------------------
+                    <div class="row mb">
+                        <div class="form-group col-md-6">
+                            <label for="{!$Component.vitype}">Violation Type</label>
+                             <apex:inputField id="vitype" value="{!dummyCase.Violation_Type__c}" styleclass="form-control" />
+                        </div>
+                    </div>
+--------------------------------------------------------------------------------------->
+                    
+<!-----------------------------------------                    
+                    <apex:pageBlock id="xxxpb1" >
+                    <apex:pageBlockSection >
+                    <apex:actionRegion >
+                             <label for="{!$Component.subType}">Submission Type</label>
+                              <div class="alert alert-warning submission needed">
+                                  Please <strong>select at least one submission type</strong> to search by date range of PAGA submission.                                
+                            </div>
+                             <apex:inputField id="subType" value="{!dummyCase.Submission_Detail_Type__c}" styleclass="form-control" >
+                             <apex:actionSupport event="onchange" action="{!null}" rerender="xxxpb1" />
+                             </apex:inputField>
+                             </apex:actionRegion>
+                    </apex:pageBlockSection>
+-------------------------------->
+                  
+                    <apex:pageBlock id="xxxpb1" >
+            
+                    <apex:pageBlockSection >
+                              <div class="alert alert-warning">
+                              <strong>*Required field</strong>
+                              </div>
+                              <label for="{!$Component.subType}"><b>*Submission Type</b></label>
+                              <div class="alert alert-warning submission needed">
+                                  Please <strong>select one (1) Submission Type</strong>.                                
+                              </div>
+                     </apex:pageBlockSection>
+            
+                     
+                    <apex:pageBlockSection >    
+                        <!-- Change for the Paga Search 2 project. Business user has agreed that Submission detail type is now a single select picklist compared to multiselect in the original application.  The value selected in the picklist is passed with the component ID subType and now is being passed as a instance variable to backend query.  Passing instance variable to reference the Type__c field on Attachments_Plus__c and not the Submission_Detail_Type__c field on DIR_Case__c-->
+                        <apex:selectList id="subType" value="{!selectedsubmissiontype}" multiselect="false" required="true" size="1" styleClass="form-control">
+                        <!-- Display submission types in the multiselect picklist-->
+                        <apex:selectOptions value="{!items}"/>
+                        </apex:selectList>
+                    </apex:pageBlockSection>
+                    <apex:PageBlockSection >
+                        <!-- Added for Paga search 2 project PS-001-A.  Seperate error message under the submission type field and Date Range of Submission when fields are blank.  Referenced in the PAGASearchController public PageReference SearchCases() method.  Lines 91 - 139.  -->
+                        <apex:outputText rendered="{!shwErrorSubmissionType}"> <span style="color:red;">{!submissiontypeError}</span></apex:outputText>
+                    </apex:PageBlockSection>
+<!-------------------------------------------- 
+<!---Commented out output of submission detail multiselect picklist->
+                    <apex:outputPanel id="out">
+                    <apex:actionstatus id="status" startText="selecting...">
+                    <apex:facet name="stop">
+                    <apex:outputPanel >
+                    <p>You have selected:</p>
+                    <apex:dataList value="{!selectedsubmissiontype}" var="c">{!c}</apex:dataList>
+                </apex:outputPanel>
+            </apex:facet>
+        </apex:actionstatus>
+
+                </apex:outputPanel>
+ ----------------->                            
+               
+             
+                    
+                       
+                        <div class="form-group col-md-6" column="1">
+                            <br/>
+                            <br/>
+                            <!-- Checked with Mark Janatpour and as of 1/31/24 for Paga Search 2 project warning is no longer needed  -->
+                           <!-- <div class="alert alert-warning">
+                                        The search results are based on the number of <strong>cases</strong> in the system, not the number of submission types. Each case may have one or more documents per submission type. The results are based on the PAGA Notice date.                                
+                            </div>
+                           -->
+                        </div>
+                    <apex:pageBlockSection >
+                    <!--tag to display error message when either From (startAttachDate variable) or Until (endAttachDate variable) field is blank or selected submission type = Select One... .  Referenced by PAGASearchController lines 68-72 of the SearchCases method-->
+                    <apex:pageMessages id="showmsg"></apex:pageMessages>
+                    </apex:pageBlockSection>
+                  
+                        <div class="col-xs-12">
+                            <label><b>Date Range of Submission</b></label>
+                            <span class="help-block"><i>The online system only has submissions filed online on or after 9/6/2016.</i></span>
+                        </div>
+          
+                  
+
+                        
+                      <apex:pageBlockSection id="xxxpbs2">                     
+                                   
+                                        <label for="{!$Component.startDate}">*From</label>
+                                        <apex:input type="date" id="startDate" value="{!startAttachDate}" styleclass="form-control" style="width:100%!important;"/>
+                                        <!--Commented out span since this javascript date picker was covering up the native salesforce date picker, so it was impossible to enter in date. -->
+                                            <!--<span class="input-group-addon">
+                                            <i class="fa fa-calendar" aria-hidden="true"></i>
+                                            </span> -->
+                                        
+                                  
+                                        <label for="{!$Component.endDate}">*To</label>
+                                        <apex:input type="date" id="endDate" value="{!endAttachDate}" styleclass="form-control" style="width:100%!important;"/>
+                                        <!--Commented out span since this javascript date picker was covering up the native salesforce date picker, so it was impossible to enter in date. -->
+                                            <!--<span class="input-group-addon">
+                                            <i class="fa fa-calendar" aria-hidden="true"></i>
+                                             </span> -->      
+                        </apex:pageBlockSection>
+                        <apex:PageBlockSection >
+                        <!-- Added for Paga search 2 project PS-001-A.  Seperate error message under the submission type field and Date Range of Submission when fields are blank.  Referenced in the PAGASearchController public PageReference SearchCases() method.  Lines 91 - 139.  -->
+                        <apex:outputText rendered="{!shwErrorDates}"> <span style="color:red;">{!dateError}</span></apex:outputText>
+                        </apex:PageBlockSection>
+                
+  </apex:pageBlock>
+                  
+                   
+
+                    
+                    <!-- redirects to PAGASearchResults.page (view action SearchCases() on PAGASearchController.cls) -->
+                    <apex:commandLink id="searchbt" action="{!SearchCases}" value="Search" style="text-decoration:none;" styleclass="btn-custom btn-lg" />&nbsp;&nbsp;
+                    
+                    <!-- empty fields (view action ClearFields() on PAGASearchController.cls) -->
+                    <apex:commandLink id="clearbt" onclick="clearDataFields();" action="{!ClearFields}" value="Clear Fields" rerender="mainPanel" />
+                    
+                </apex:outputPanel>
+                <!-- start press enter to initiate a search -->
+                <script type="text/javascript">
+                    $j( document ).ready(function() {
+                        var x = document.getElementById('calYearPicker');
+                        document.getElementById('calYearPicker').innerHTML = "";
+                        for(var i = 2004; i <= (new Date()).getFullYear(); i++){
+                         var option = document.createElement("option");
+                         option.text = i;
+                         x.add(option);
+                        }
+                    });
+                    
+                    $j(document).keypress(function(event) {
+                        var keycode = (event.keyCode ? event.keyCode : event.which);
+                        if (keycode == '13') {
+                             document.getElementById('{!$Component.searchbt}').click();
+                             
+                        }
+                    });
+                    function clearDataFields() {
+                        document.getElementById('{!$Component.startDate}').value = '';
+                        document.getElementById('{!$Component.endDate}').value = '';
+                    }
+                </script> 
+                <!-- end press enter to initiate a search -->
+            </apex:form>
+              
+        </apex:define>
+    </apex:composition>
+    
+</apex:page>

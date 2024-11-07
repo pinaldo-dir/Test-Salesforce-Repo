@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Sum_of_UWF_Payment_Records__c</fullName>
+    <description>Used to generate UWF schedule.</description>
+    <externalId>false</externalId>
+    <label>Sum of UWF Payment Records</label>
+    <summarizedField>Payment_Record__c.Payment_Amount__c</summarizedField>
+    <summaryFilterItems>
+        <field>Payment_Record__c.Disbursement_Type__c</field>
+        <operation>equals</operation>
+        <value>Unpaid Wage Fund</value>
+    </summaryFilterItems>
+    <summaryFilterItems>
+        <field>Payment_Record__c.Batched_Under_Warrant__c</field>
+        <operation>equals</operation>
+        <value>True</value>
+    </summaryFilterItems>
+    <summaryFilterItems>
+        <field>Payment_Record__c.Warrant_Issued__c</field>
+        <operation>equals</operation>
+        <value>False</value>
+    </summaryFilterItems>
+    <summaryForeignKey>Payment_Record__c.Payee__c</summaryForeignKey>
+    <summaryOperation>sum</summaryOperation>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Summary</type>
+</CustomField>

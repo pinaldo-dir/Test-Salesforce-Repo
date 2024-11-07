@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+        <label><!-- Office Senior 2 --></label>
+        <lookupFilter>
+            <errorMessage><!-- Please select a senior from the same office. --></errorMessage>
+        </lookupFilter>
+        <name>Office_Senior_2__c</name>
+        <relationshipLabel><!-- Offices (Office Senior 2) --></relationshipLabel>
+    </CustomFieldTranslation>

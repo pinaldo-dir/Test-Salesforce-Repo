@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>55.0</apiVersion>
+    <decisions>
+        <description>Populate the current date when the deputy is assigned.</description>
+        <name>Add_Date_Deputy_Assigned</name>
+        <label>Add Date Deputy Assigned</label>
+        <locationX>766</locationX>
+        <locationY>539</locationY>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>Deputy_is_added</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.Assigned_Deputy__c</leftValueReference>
+                <operator>IsChanged</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record__Prior.Assigned_Deputy__c</leftValueReference>
+                <operator>EqualTo</operator>
+            </conditions>
+            <connector>
+                <targetReference>Update_Date_Deputy_Assigned_field</targetReference>
+            </connector>
+            <label>Deputy is added</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <name>New_Registrations</name>
+        <label>New Registrations</label>
+        <locationX>765</locationX>
+        <locationY>360</locationY>
+        <defaultConnector>
+            <targetReference>Add_Date_Deputy_Assigned</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>New_Registration</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>NewRegistration</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <label>New Registration</label>
+        </rules>
+    </decisions>
+    <description>This flow will handle the automation for Registration field updates on create and update, and eventually replace the Registration Process Builder.</description>
+    <environments>Default</environments>
+    <formulas>
+        <name>NewRegistration</name>
+        <dataType>Boolean</dataType>
+        <expression>ISNEW()</expression>
+    </formulas>
+    <formulas>
+        <name>NumDays_OrigSubDate_Today</name>
+        <dataType>Number</dataType>
+        <expression>{!$Record.Submitted_Date__c}-{!$Flow.CurrentDate}</expression>
+        <scale>0</scale>
+    </formulas>
+    <interviewLabel>Registration {!$Flow.CurrentDateTime}</interviewLabel>
+    <label>Registration</label>
+    <processMetadataValues>
+        <name>BuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>CanvasMode</name>
+        <value>
+            <stringValue>FREE_FORM_CANVAS</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>OriginBuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processType>AutoLaunchedFlow</processType>
+    <recordUpdates>
+        <name>Update_Date_Deputy_Assigned_field</name>
+        <label>Update Date Deputy Assigned field</label>
+        <locationX>1069</locationX>
+        <locationY>535</locationY>
+        <inputAssignments>
+            <field>Date_Deputy_Assigned__c</field>
+            <value>
+                <elementReference>$Flow.CurrentDate</elementReference>
+            </value>
+        </inputAssignments>
+        <inputReference>$Record</inputReference>
+    </recordUpdates>
+    <start>
+        <locationX>647</locationX>
+        <locationY>10</locationY>
+        <connector>
+            <targetReference>New_Registrations</targetReference>
+        </connector>
+        <object>License_Registration__c</object>
+        <recordTriggerType>CreateAndUpdate</recordTriggerType>
+        <triggerType>RecordAfterSave</triggerType>
+    </start>
+    <status>Active</status>
+</Flow>

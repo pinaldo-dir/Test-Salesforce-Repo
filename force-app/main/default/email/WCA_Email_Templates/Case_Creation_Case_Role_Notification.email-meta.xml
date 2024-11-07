@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <description>Placeholder template designed to work in conjunction with the Form Assembly piece in Salesforce.  When a case is submitted to Salesforce via form assembly, this email notification will be sent to the submitter informing them of the submission and providing details about the case that they provided as a summary.  Dear &lt;Claimant First Name (#7)&gt; &lt;Claimant Last Name (#8)&gt;   We are in receipt of your claim filed against &lt;Employer Name (#13)&gt; on &lt;Date Claim Submitted&gt;. A representative from the Labor Commissioner’s office will contact you regarding your claim.  Your claim number is &lt;Wage Claim Case #&gt; and is assigned to the following Wage Office:  &lt;ASSIGNED WAGE OFFICE &gt; &lt;ASSIGNED WAGE OFFICE ADDRESS &gt; &lt;ASSIGNED WAGE OFFICE TEL NUMBER&gt;   Please do not respond to this email as it is system generated and not a monitored email address.</description>
+    <encodingKey>ISO-8859-1</encodingKey>
+    <letterhead>Blank_Letterhead</letterhead>
+    <name>Case Creation - Case Role Notification</name>
+    <style>freeForm</style>
+    <subject>Thank you for submitting your case for processing</subject>
+    <textOnly>Dear {!Case_Role__c.Case_Role_Account_Name__c},
+
+
+We are in receipt of your claim filed against {!Case_Role__c.Case_Employer__c} on {!Case_Role__c.Case_Date_Case_Received__c}. A representative from the Labor Commissioner’s office will contact you regarding your claim.  Your claim number is {!Case_Role__c.Case_Number__c} and is assigned to the following Wage Office:
+
+
+
+{!Case_Role__c.Case_Office_Information__c}
+
+
+Please do not respond to this email as it is system generated and not a monitored email address.</textOnly>
+    <type>html</type>
+    <uiType>Aloha</uiType>
+</EmailTemplate>

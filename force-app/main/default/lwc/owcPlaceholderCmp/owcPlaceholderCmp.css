@@ -1,0 +1,10 @@
+ul:not(.browser-default) li {
+    list-style-type: disc;
+}
+ul{
+    padding: 20px 0 0 20px;
+    line-height: normal;
+}
+li{
+    padding-bottom: 10px;
+}

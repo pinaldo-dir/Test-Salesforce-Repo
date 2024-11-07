@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+        <label><!-- e-Sign Documents --></label>
+        <name>e_Sign_Documents__c</name>
+        <picklistValues>
+            <masterLabel>DIRCase- 633 055</masterLabel>
+            <translation><!-- DIRCase- 633 055 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>DIRCase- WCA 055</masterLabel>
+            <translation><!-- DIRCase- WCA 055 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>RELEASE- WCA 023</masterLabel>
+            <translation><!-- RELEASE- WCA 023 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>SETTLEMENT- WCA 026A</masterLabel>
+            <translation><!-- SETTLEMENT- WCA 026A --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>SETTLEMENT- WCA 026A-1</masterLabel>
+            <translation><!-- SETTLEMENT- WCA 026A-1 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>SETTLEMENT- WCA 026B-1</masterLabel>
+            <translation><!-- SETTLEMENT- WCA 026B-1 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>SETTLEMENT- WCA 026C-1</masterLabel>
+            <translation><!-- SETTLEMENT- WCA 026C-1 --></translation>
+        </picklistValues>
+    </CustomFieldTranslation>

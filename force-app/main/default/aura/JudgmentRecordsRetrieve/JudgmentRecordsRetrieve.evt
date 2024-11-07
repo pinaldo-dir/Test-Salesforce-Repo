@@ -1,0 +1,15 @@
+<aura:event type="APPLICATION" description="Get Judgments records" >
+    <aura:attribute name="listStatus2810" type="String"/>
+    <aura:attribute name="naicsCode" type="String"/>
+    <aura:attribute name="accountName" type="String"/>
+    <aura:attribute name="city" type="String"/>
+    <aura:attribute name="zipCode" type="String"/>
+    <aura:attribute name="judgmentEntryDateFrom" type="Date"/>
+    <aura:attribute name="judgmentEntryDateTo" type="Date"/>
+    <aura:attribute name="court" type="String"/>
+    <aura:attribute name="judgmentStatus" type="integer" default="0.0"/>
+    <aura:attribute name="defandantEmployerName" type="String"/>
+    <aura:attribute name="judgmentTotal" type="String"/>
+    <aura:attribute name="citationNumber" type="String"/>
+    <aura:attribute name="dirOffice" type="String"/>
+</aura:event>

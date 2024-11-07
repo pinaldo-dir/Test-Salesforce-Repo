@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <description>Describes the actions that a user needs to perform when adding a new object to the history tracking using the enhanced history tracking</description>
+    <encodingKey>ISO-8859-1</encodingKey>
+    <letterhead>Blank_Letterhead</letterhead>
+    <name>Object History Tracking</name>
+    <style>freeForm</style>
+    <subject>Steps required to track history on new object.</subject>
+    <textOnly>You have just configured a new object to track the history on. There are manual steps that must be taken in order for the history to be tracked. These steps are in addition to the selecting of fields, configuring of attachments plus, or configuring the tracking of activities.
+
+Tracking history (changes on &quot;stuff&quot; related to an object&apos;s records), requires that Salesforce is &quot;told&quot; that a change has occurred. This requires a trigger on the object in question. Below are the steps for creating and deploying this trigger.
+
+Creating a trigger means that you must first create the trigger in a sandbox and deploy it with a change set:
+
+Log into one of the sandbox orgs, such as DEV or TESTING
+Click on [Your Name]
+Select &quot;Developer Console&quot;
+On the &quot;File&quot; menu, select &quot;new&quot; and &quot;Apex Trigger&quot;
+In the &quot;New Apex Trigger&quot; box that opens,
+
+Enter the name: [ObjectName]HistoryConfig
+Select the sObject you&apos;re configuring the history tracking for
+
+When you click &quot;Submit,&quot; the trigger will be created. You will see a screen with that looks similar to this:
+
+trigger AppealHistoryConfig on Appeal__c (before insert) {
+
+}
+
+You now need to configure the trigger. Do this by taking the following actions:
+
+Replace the text between the parenthesis that reads &quot;before insert&quot; with the text - after delete, after insert, after update
+Within the curly braces paste the following lines of code:
+
+GenerateFieldHistoryAction.runHandler();
+
+Your trigger should now read:
+
+trigger AppealHistoryConfig on Appeal__c (after delete, after insert, after update) {
+GenerateFieldHistoryAction.runHandler();
+}
+
+Obviously, replacing AppealHistoryConfig and Appeal__c with the name and object you configured when creating the trigger.
+
+Next, click &quot;File&quot; and &quot;Save&quot; to save the trigger.
+
+You can now deploy this trigger to production and any other instances you need to. A change set is the easiest method for deploying. There is no need to create any test classes as the existing test classes will test the new trigger.</textOnly>
+    <type>html</type>
+    <uiType>Aloha</uiType>
+</EmailTemplate>

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Workflow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <alerts>
+        <fullName>Warrant_Batch_Approval_Request</fullName>
+        <description>Warrant Batch Approval Request</description>
+        <protected>false</protected>
+        <recipients>
+            <type>owner</type>
+        </recipients>
+        <senderType>CurrentUser</senderType>
+        <template>Cashiering_Email_Templates/Warrant_Batch_Approval_Request</template>
+    </alerts>
+    <alerts>
+        <fullName>Warrant_Secondary_Approval</fullName>
+        <description>Warrant Secondary Approval</description>
+        <protected>false</protected>
+        <recipients>
+            <type>owner</type>
+        </recipients>
+        <senderType>CurrentUser</senderType>
+        <template>unfiled$public/Warrant_Secondary_Approval_Template</template>
+    </alerts>
+</Workflow>

@@ -1,0 +1,13 @@
+Hello,
+
+Please review the following case to be re-opened:
+
+Case Type:  {!DIR_Case__c.Case_Type__c}
+Case Owner:  {!DIR_Case__c.OwnerFullName}
+Case Number:  {!DIR_Case__c.RCI_Case_Number__c}
+Case Status:  {!DIR_Case__c.Status__c}
+Case Link:  {!DIR_Case__c.Link}
+
+
+Thank you 
+Salesforce Automated Email

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Bond_Requirements__c</fullName>
+    <externalId>false</externalId>
+    <formula>CASE( License_Registration_Type__c ,
+"Car Wash", "All Car Wash registrations require a bond amount of $150,000.00", 
+"Garment Manufacturers and Contractors", "$5,000 for applicants who have had a citation or assessment by either the US Dept of Labor or DIR for violating the Fair Labor Standards Act or CA Labor Code in the last 3 years.",
+"Farm Labor Contractor", "Surety Bond properly signed by applicant. The bond needs to be signed by all applicants. A surety bond will be based on the size of the contractor’s annual payroll; a minimum of $25,000.00.",
+"")</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>Bond Requirements</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

@@ -1,0 +1,19 @@
+Please review the following approval request:
+
+Sr Approval Required by:  {!DIR_Case__c.LC_Approval_Required_By__c}
+
+Case Status:  {!DIR_Case__c.Status__c}
+Case Type:  {!DIR_Case__c.Case_Type__c}
+Case Priority:  {!DIR_Case__c.Case_Priority__c}
+DIR Office:  {!DIR_Case__c.Office__c}
+
+Determination Issue Date:  {!DIR_Case__c.Determination_Issued_Date__c}
+Determination Served Date:  {!DIR_Case__c.Determination_Served_Date__c}
+
+Determination Type:  {!DIR_Case__c.Determination_Type__c}
+Determination Summary:  {!DIR_Case__c.Determination_Summary__c}
+Determination Summary Comments 
+ {!DIR_Case__c.Determination_Summary_Comments__c}
+Determination Summary Other:  {!DIR_Case__c.Determination_Summary_Other_Text__c}
+
+Link to Case:  {!DIR_Case__c.Link}

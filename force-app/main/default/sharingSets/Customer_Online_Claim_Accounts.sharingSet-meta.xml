@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<SharingSet xmlns="http://soap.sforce.com/2006/04/metadata">
+    <accessMappings>
+        <accessLevel>Edit</accessLevel>
+        <object>Account</object>
+        <objectField>Id</objectField>
+        <userField>Account</userField>
+    </accessMappings>
+    <accessMappings>
+        <accessLevel>Edit</accessLevel>
+        <object>DIR_Case__c</object>
+        <objectField>Online_Claim_Account__c</objectField>
+        <userField>Account</userField>
+    </accessMappings>
+    <accessMappings>
+        <accessLevel>Edit</accessLevel>
+        <object>Related_Party__c</object>
+        <objectField>Owner.Contact</objectField>
+        <userField>Manager.Contact</userField>
+    </accessMappings>
+    <accessMappings>
+        <accessLevel>Read</accessLevel>
+        <object>User</object>
+        <objectField>Manager.Account</objectField>
+        <userField>Manager.Account</userField>
+    </accessMappings>
+    <name>Customer Online Claim Accounts</name>
+    <profiles>customer online claim user</profiles>
+</SharingSet>

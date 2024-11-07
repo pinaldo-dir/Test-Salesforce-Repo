@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<RestrictionRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <active>true</active>
+    <description>User has a conflict of interest on this case</description>
+    <enforcementType>Restrict</enforcementType>
+    <masterLabel>Conflict of Interest - 35-CM-938130-23</masterLabel>
+    <recordFilter>Confidential__c=false</recordFilter>
+    <targetEntity>DIR_Case__c</targetEntity>
+    <userCriteria>$User.Username=&apos;dcontreras@dir.ca.gov&apos;</userCriteria>
+    <version>1</version>
+</RestrictionRule>

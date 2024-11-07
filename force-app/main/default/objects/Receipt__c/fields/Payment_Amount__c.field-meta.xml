@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Payment_Amount__c</fullName>
+    <description>Required field. Refers to the amount of the incoming instrument; or for Deduction payments derived from one incoming instrument, refers to the net amount of the resultant Net RCT. The deduction amount of the resultant affiliated Deduction RCT will be in Deduction_Amount__c and this field will be $0.00.</description>
+    <externalId>false</externalId>
+    <label>Payment Amount</label>
+    <precision>18</precision>
+    <required>false</required>
+    <scale>2</scale>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackTrending>false</trackTrending>
+    <type>Currency</type>
+</CustomField>

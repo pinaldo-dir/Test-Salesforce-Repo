@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <description>Email to deputy when a referral to BOFE is approved</description>
+    <encodingKey>ISO-8859-1</encodingKey>
+    <name>WCA/Garment Referral to BOFE Approved</name>
+    <style>none</style>
+    <subject>A case has been approved to refer to BOFE</subject>
+    <type>text</type>
+    <uiType>Aloha</uiType>
+</EmailTemplate>

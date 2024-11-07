@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Citation_Status__c</fullName>
+    <externalId>false</externalId>
+    <label>Citation Status</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Consultation</fullName>
+                <default>false</default>
+                <label>Consultation</label>
+            </value>
+            <value>
+                <fullName>Citation Issued</fullName>
+                <default>false</default>
+                <label>Citation Issued</label>
+            </value>
+            <value>
+                <fullName>Entry of Judgment Filed</fullName>
+                <default>false</default>
+                <label>Entry of Judgment Filed</label>
+            </value>
+            <value>
+                <fullName>Appealed</fullName>
+                <default>false</default>
+                <label>Appealed</label>
+            </value>
+            <value>
+                <fullName>Discovery Issued</fullName>
+                <default>false</default>
+                <label>Discovery Issued</label>
+            </value>
+            <value>
+                <fullName>Hearing Scheduled</fullName>
+                <default>false</default>
+                <label>Hearing Scheduled</label>
+            </value>
+            <value>
+                <fullName>Subpoenas Issued</fullName>
+                <default>false</default>
+                <label>Subpoenas Issued</label>
+            </value>
+            <value>
+                <fullName>Decision Issued</fullName>
+                <default>false</default>
+                <label>Decision Issued</label>
+            </value>
+            <value>
+                <fullName>Writ Filed</fullName>
+                <default>false</default>
+                <label>Writ Filed</label>
+            </value>
+            <value>
+                <fullName>Closed</fullName>
+                <default>false</default>
+                <label>Closed</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

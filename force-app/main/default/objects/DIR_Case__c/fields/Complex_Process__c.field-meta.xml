@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Complex_Process__c</fullName>
+    <externalId>false</externalId>
+    <label>Complex Process</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>MultiselectPicklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Includes one interpreter.</fullName>
+                <default>false</default>
+                <label>Includes one interpreter.</label>
+            </value>
+            <value>
+                <fullName>Involves rare/exotic languages or multiple interpreters.</fullName>
+                <default>false</default>
+                <label>Involves rare/exotic languages or multiple interpreters.</label>
+            </value>
+            <value>
+                <fullName>Defendant(s) is/are represented.</fullName>
+                <default>false</default>
+                <label>Defendant(s) is/are represented.</label>
+            </value>
+            <value>
+                <fullName>Plaintiff is represented.</fullName>
+                <default>false</default>
+                <label>Plaintiff is represented.</label>
+            </value>
+            <value>
+                <fullName>Number of Defendants or liable parties that are listed.</fullName>
+                <default>false</default>
+                <label>Number of Defendants or liable parties that are listed.</label>
+            </value>
+            <value>
+                <fullName>One or more special theory of liability has been raised: Client Employer, IC, Exempt/Non-Exempt, Joint Employer, Individual Liability (558.1), Joint Liability (238.5).</fullName>
+                <default>false</default>
+                <label>One or more special theory of liability has been raised: Client Employer, IC, Exempt/Non-Exempt, Joint Employer, Individual Liability (558.1), Joint Liability (238.5).</label>
+            </value>
+            <value>
+                <fullName>Multiple case issues.</fullName>
+                <default>false</default>
+                <label>Multiple case issues.</label>
+            </value>
+            <value>
+                <fullName>Claim includes irregular work hours and/or multiple hourly rates for extended periods.</fullName>
+                <default>false</default>
+                <label>Claim includes irregular work hours and/or multiple hourly rates for extended periods.</label>
+            </value>
+            <value>
+                <fullName>Claim involves subpoenas.</fullName>
+                <default>false</default>
+                <label>Claim involves subpoenas.</label>
+            </value>
+            <value>
+                <fullName>More than 2 witnesses, excluding principal parties</fullName>
+                <default>false</default>
+                <label>More than 2 witnesses, excluding principal parties</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+    <visibleLines>4</visibleLines>
+</CustomField>

@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>WCA_Garment_Closing_Fields_Required</fullName>
+    <active>true</active>
+    <errorConditionFormula>(RecordType.DeveloperName="WCA" || RecordType.DeveloperName = 'Garment' || RecordType.DeveloperName = 'Legacy_WCA_Case' || RecordType.DeveloperName = 'Legacy_Garment_Case') &amp;&amp;
+(ISPICKVAL(Status__c, "Closed")) &amp;&amp;
+(ISCHANGED(Status__c)) &amp;&amp;
+(ISPICKVAL(Closure_Disposition__c,"") || ISBLANK(Case_Closed_Date__c) || ISBLANK(Purge_Date__c) || IF( Hearings_Scheduled_on_Case__c &gt; 0, false, ISBLANK(Resolution_Date__c)))</errorConditionFormula>
+    <errorMessage>Please fill in the following fields to close a case: Closure Disposition, Case Closed Date, Purge Date, Resolution Date. If a WCA or Garment Hearing is on a case, Resolution Date is not required.</errorMessage>
+</ValidationRule>

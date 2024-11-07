@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PermissionSet xmlns="http://soap.sforce.com/2006/04/metadata">
+    <description>[Do NOT Assign - DEPRECATED] Allows subset of users to modify amounts on violations.</description>
+    <hasActivationRequired>false</hasActivationRequired>
+    <label>DO NOT USE - BOFE - Modify Violation Amounts</label>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>DIR_Violation__c.Citation_Amount__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>DIR_Violation__c.Wages_Due__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+</PermissionSet>

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>HR_Form_1_Cert_Group__c</fullName>
+    <description>This field groups HR Division users into group in order to send email notification, when F1 is approved, to assigned Cert Unit Analyst by division</description>
+    <externalId>false</externalId>
+    <label>HR Form 1 Cert Group</label>
+    <length>20</length>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

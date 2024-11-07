@@ -1,0 +1,10 @@
+TO:    PAGA Attorneys
+RE:    Cure Dispute Review Notification
+ 
+There has been a Cure Dispute received by the PAGA unit.  Following are links for you to locate the document(s):
+
+Link to Attachments Plus Record: {!Attachments_Plus__c.Link}
+Link to Case (if the Cure Dispute matched to a case): {!DIR_Case__c.Link}
+Case Number (if the Cure Dispute matched to a case): {!DIR_Case__c.Name}
+
+Alternatively you may also locate the Cure Dispute from the Attachments Plus Tab using the List View, “PAGA Attorney Review – Cure Dispute”

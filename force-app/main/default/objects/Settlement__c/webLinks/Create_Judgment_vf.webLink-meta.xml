@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<WebLink xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Create_Judgment_vf</fullName>
+    <availability>online</availability>
+    <description>Calls the CreateJudgmentFromSettlement VFP/JudgmentCreateController class, which in turn calls the Judgment Create flow. This button is also located on ODAS__c and Liability__c.</description>
+    <displayType>button</displayType>
+    <encodingKey>UTF-8</encodingKey>
+    <height>600</height>
+    <linkType>url</linkType>
+    <masterLabel>Create Judgment</masterLabel>
+    <openType>sidebar</openType>
+    <protected>false</protected>
+    <url>/apex/CreateJudgmentFromSettlement?vObjectType=Settlement&amp;vCaseId={!Settlement__c.Case_ManagementId__c}&amp;varRecordId={!Settlement__c.Id}&amp;vAmountsDueAccrueInterest={!Settlement__c.Amounts_Due_that_Accrue_Interest__c}</url>
+</WebLink>

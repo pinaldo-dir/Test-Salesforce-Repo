@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Interest_Other_Payable_Balance__c</fullName>
+    <description>Sum of all child Payment Records that have not been batched under a Warrant and Payment_Applied_To != 'Wages', 'Wage Interest', or 'Penalties'.</description>
+    <externalId>false</externalId>
+    <label>Interest/Other Payable Balance</label>
+    <summarizedField>Payment_Record__c.Payment_Amount__c</summarizedField>
+    <summaryFilterItems>
+        <field>Payment_Record__c.Payment_Applied_To__c</field>
+        <operation>notEqual</operation>
+        <value>Penalties</value>
+    </summaryFilterItems>
+    <summaryFilterItems>
+        <field>Payment_Record__c.Payment_Applied_To__c</field>
+        <operation>notEqual</operation>
+        <value>Wages</value>
+    </summaryFilterItems>
+    <summaryFilterItems>
+        <field>Payment_Record__c.Payment_Applied_To__c</field>
+        <operation>notEqual</operation>
+        <value>Wage Interest</value>
+    </summaryFilterItems>
+    <summaryFilterItems>
+        <field>Payment_Record__c.Batched_Under_Warrant__c</field>
+        <operation>equals</operation>
+        <value>False</value>
+    </summaryFilterItems>
+    <summaryForeignKey>Payment_Record__c.Payee__c</summaryForeignKey>
+    <summaryOperation>sum</summaryOperation>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Summary</type>
+</CustomField>

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Public_Works_Contractor_Registration</fullName>
+    <columns>NAME</columns>
+    <columns>License_Registration_Number__c</columns>
+    <columns>Legal_Entity_Name__c</columns>
+    <columns>Account_Email__c</columns>
+    <columns>Applicant__c</columns>
+    <columns>Status__c</columns>
+    <columns>Expiration_Date__c</columns>
+    <columns>Physical_Business_Address_Line_1__c</columns>
+    <columns>Physical_Business_Address_Line_2__c</columns>
+    <columns>Physical_Business_City__c</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>RECORDTYPE</field>
+        <operation>equals</operation>
+        <value>License_Registration__c.Public_Works</value>
+    </filters>
+    <label>Public Works Contractor Registration</label>
+</ListView>

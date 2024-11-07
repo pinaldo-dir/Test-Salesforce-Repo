@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <encodingKey>ISO-8859-1</encodingKey>
+    <letterhead>Blank_Letterhead</letterhead>
+    <name>First Defect Notice GAR NINTEX</name>
+    <style>freeForm</style>
+    <subject>First Defect Notice: Permit Application# {!Rejection__c.Registration_Number__c} for {!Rejection__c.Legal_Entity_Name__c}</subject>
+    <textOnly>The application for {!Rejection__c.Legal_Entity_Name__c} has been reviewed and defected for not meeting all of the  requirements. Please review the attached First Defect Notice, which lists each specific defect in your application. 
+
+You are required to complete the requested adjustments to your application and re-submit it within 10 days from the date of this email, applications not resubmitted will be eligible for closure.
+
+To log in and make changes, please visit https://cadir.my.site.com/registrations. 
+ 
+Please follow the steps below:
+1.	Log in to your dashboard and click update under the license number. 
+2.	Provide the requested information.
+3.	Go to the &quot;Submission&quot; section.
+4.	Select &quot;Yes&quot; to the question &quot;Resubmit Application due to Pending Defect&quot;.
+5.	Click &lt;Submit&gt;.
+ 
+ 
+Sincerely,
+ 
+Licensing &amp; Registration
+Labor Commissioner&apos;s Office
+Department of Industrial Relations
+State of California</textOnly>
+    <type>html</type>
+    <uiType>Aloha</uiType>
+</EmailTemplate>

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Add_Deduction__c</fullName>
+    <defaultValue>false</defaultValue>
+    <description>Not on any layout, only visible on ICL. User checks this box to generate both a Net and Deduction RCT. This box will be checked on both the Net and Deduction RCT records.</description>
+    <externalId>false</externalId>
+    <label>Add Deduction</label>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackTrending>false</trackTrending>
+    <type>Checkbox</type>
+</CustomField>

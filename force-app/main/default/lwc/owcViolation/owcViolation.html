@@ -1,0 +1,407 @@
+<!--
+    owcViolation LWC
+        owcViolation.js
+        OwcVioltaionController.cls [sic]
+        Test_OwcVioltaionController.cls [sic]
+-->
+<template>
+    <!-- TODO: what's up with all the utility classes "slds-size_0-of-x"? -->
+    <!-- pop up modal templates stolen from: https://www.sfdcpoint.com/salesforce/modal-popup-lightning-web-component-lwc/ -->
+    <!-- possible TODO: combine these two modal popups  -->
+    <template if:false={isValid}>
+        <section role="dialog" tabindex="-1" aria-labelledby="modal-heading-01" aria-modal="true" aria-describedby="modal-content-id-1" class="slds-modal slds-fade-in-open">
+            <div class="slds-modal__container">
+                <!-- Modal/Popup Box LWC header here -->
+                <header class="slds-modal__header">
+                    <button class="slds-button slds-button_icon slds-modal__close slds-button_icon-inverse" title="Close" onclick={closeModal}>
+                        <lightning-icon icon-name="utility:close"
+                            alternative-text="close"
+                            variant="inverse"
+                            size="small" ></lightning-icon>
+                        <span class="slds-assistive-text">Close</span>
+                    </button>
+                    <h2 id="modal-heading-01" class="slds-text-heading_medium slds-hyphenate">Warning message</h2>
+                </header>
+                <!-- Modal/Popup Box LWC body starts here -->
+                <div class="slds-modal__content slds-var-p-around_medium" id="modal-content-id-1">
+                    <p><b>Please add the appropriate NAICS code to the employer’s account and verify that industry has been set correctly before adding any Case Issues.
+                    </b></p>
+                </div>
+                <!-- Modal/Popup Box LWC footer starts here -->
+                <footer class="slds-modal__footer">
+                    <button class="slds-button slds-button_neutral" onclick={closeModal} title="Cancel">Go Back</button>
+                </footer>
+            </div>
+        </section>
+    </template>
+
+
+    <template if:true={showAutoAddedVtModal}>
+        <!-- Modal/Popup Box LWC starts here -->
+        <section role="dialog" tabindex="-1" aria-labelledby="modal-heading-02" aria-modal="true" aria-describedby="modal-content-id-2" class="slds-modal slds-fade-in-open">
+            <div class="slds-modal__container">
+                <!-- Modal/Popup Box LWC header here -->
+                <header class="slds-modal__header">
+                    <button class="slds-button slds-button_icon slds-modal__close slds-button_icon-inverse" title="Close" onclick={closeAutoAddedVtModal}>
+                        <lightning-icon icon-name="utility:close"
+                            alternative-text="close"
+                            variant="inverse"
+                            size="small" >
+                            <label>Close</label>
+                        </lightning-icon>
+                        <span class="slds-assistive-text">Close</span>
+                    </button>
+                    <h2 id="modal-heading-02" class="slds-text-heading_medium slds-hyphenate">{nameOfAutoAddedVt} automatically added</h2>
+                </header>
+                <!-- Modal/Popup Box LWC body starts here -->
+                <div class="slds-modal__content slds-var-p-around_medium" id="modal-content-id-2">
+                    <p>Because you added {nameOfManuallyAddedVt}, {nameOfAutoAddedVt} was also added automatically.</p>
+                    <p>You may <b>remove</b> either or both manually if needed.</p>
+                </div>
+                <!-- Modal/Popup Box LWC footer starts here -->
+                <footer class="slds-modal__footer">
+                    <button class="slds-button slds-button_neutral" onclick={closeAutoAddedVtModal} title="Got it!">Got it!</button>
+                </footer>
+            </div>
+        </section>
+        <div class="slds-backdrop slds-backdrop_open"></div>
+    </template>
+
+
+
+    <template if:true={isValid}>
+        <template if:false={loadSpinner}>
+            <template if:false={isSecondPage}>
+                <lightning-card>
+                    <div class="slds-wrap slds-grid">
+                        <div class="slds-box slds-theme_shade slds-col slds-size_1-of-1">
+                            <h1 class="slds-align_absolute-center slds-text-heading_medium">
+                                Add Case Issues: {caseNumber}
+                            </h1>
+                        </div>            
+                    </div>
+                    <div></div>
+                    <div class="slds-box  slds-theme_default" >
+                        <lightning-input
+                            name="enter-search"
+                            data-id="filterTB"
+                            variant="label-hidden"
+                            placeholder="Enter Search Term(s)"
+                            type="search"
+                            onchange={SearchCI}
+                        ></lightning-input>
+                    </div>        
+                    <div></div>
+                    <div class="slds-box slds-scrollable_y slds-theme_default" style="border: 1px solid black; height:388.8px;">
+                        <template if:true={searched}>
+                            <div data-role="controlgroup" data-mini="true" data-corners="false" id="vTypelist" style="margin: 0px; width:95%;">
+                                <template for:each={searchViolationsTypes} for:item="vType">                    
+                                    <div class="panelClass" key={vType.vType.Id}>
+                                            <h3 style="font-weight: 700;">
+                                                <lightning-button data-id={vType.vType.Id} variant="base" label="Add"  onclick={doAddViolation} class="slds-var-m-left_x-small">
+                                                </lightning-button>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                                <div class="vTypeNameClass">
+                                                    {vType.vType.Name} - {vType.vType.Wizard_Search_Text__c}   
+                                                </div>                       
+                                            </h3>
+                                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                            &nbsp;&nbsp;&nbsp;
+                                            {vType.vType.Help_Text__c}
+                                        <br/>
+                                    </div>
+                                </template>
+                            </div>
+                        </template>
+                        <template if:false={searched}>
+                            <template for:each={violationTypes} for:item="vType">                    
+                                <div key={vType.vType.Id}>
+                                        <h3 style="font-weight: 700;">
+                                            <lightning-button data-id={vType.vType.Id} variant="base" label="Add"  onclick={doAddViolation} class="slds-m-left_x-small">
+                                            </lightning-button>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                            {vType.vType.Name} - {vType.vType.Wizard_Search_Text__c}                          
+                                        </h3>
+                                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                        &nbsp;&nbsp;&nbsp;
+                                        {vType.vType.Help_Text__c}
+                                    <br/>
+                                </div>
+                            </template>
+                        </template>
+                    </div> 
+
+                    <div class="slds-box  slds-theme_default"  id="DetailsText2">
+                        <template if:true={displaySelectedTypesSection}><br/></template>
+                            <ul data-role="listview" class="slds-var-m-around_medium" id="detailsList">
+                                <template for:each={selectedTypes} for:item="selType">                        
+                                    <template for:each={selType} for:item="vT">
+                                        <lightning-accordion allow-multiple-sections-open
+                                            onsectiontoggle={handleToggleSection}
+                                            active-section-name={vT.vType.Name}
+                                            key={vT.indexCounter}>
+                                            <lightning-accordion-section name={vT.vType.Name} label={vT.vType.Name}>
+                                                <li class="slds-var-p-left_large"> 
+                                                    <b>{vT.vType.Name} - {vT.vType.Civil_Penalty_Section__c} - {vT.vType.Violation_Type__c} - {vT.vType.Help_Text__c} </b>
+                                                        <br />{vT.vType.Violation_Text__c}
+                                                        <br />
+                                                        <b><lightning-button data-id={vT.vType.Id} variant="base" label="Remove"  onclick={doRemoveViolation} class="slds-var-m-left_x-small">
+                                                        </lightning-button>
+                                                        <br/>
+                                                        <template for:each={vT.vtvWrapperList} for:item="vtv" >
+                                                            <div key={vtv.indexCounter} > 
+                                                                <lightning-input-field >{vT.indexCounter}{vtv.indexCounter}</lightning-input-field>
+                                                                {vtv.vTypeVar.Description__c} :
+                                                                <template if:true={vtv.isUserInput}>
+                                                                    <lightning-input date-style="short" type={vtv.dataType} data-index={vT.indexNumber} data-indexcounter={vtv.indexCounter} data-id={vtv.vTypeVar.Name} name={vtv.vTypeVar.Name}  onchange={valChanged} value={vtv.vTypeVar.value__c}></lightning-input><br/>
+                                                                </template>
+                                                                <template if:false={vtv.isUserInput}>
+                                                                    <lightning-input data-id="output" name=output value={vtv.varValue} disabled></lightning-input>    
+                                                                </template>
+                                                                <!-- <lightning-input  type="hidden" data-id="selVal"  value={vtv.varValue}></lightning-input> -->
+                                                            </div>
+                                                        </template>
+                                                    </b>  
+                                                </li>
+                                            
+                                                <hr key={vT.indexCounter}/>  
+                                                <div class="slds-grid slds-wrap slds-var-p-left_large" key={vT.indexCounter}>
+                                                    <div class="slds-col slds-size_3-of-12">
+                                                        <span>Subtotal of Civil Penalties to State:</span>
+                                                        <lightning-input read-only="true" type="text"  value={vT.a}></lightning-input>
+                                                    </div>
+                                                    <div class="slds-col slds-size_1-of-12"></div>
+                                                    <div class="slds-col slds-size_3-of-12">
+                                                    <span>Subtotal of Amount Payable to Employee(s):</span>
+                                                    <lightning-input read-only="true" type="text"  value={vT.b}></lightning-input>
+                                                    </div>
+                                                    <div class="slds-col slds-size_1-of-12"></div>
+                                                    <div class="slds-col slds-size_4-of-12">
+                                                    <span>Subtotal of Interest Amount Payable to Employee(s):</span>
+                                                    <lightning-input read-only="true" type="text" value={vT.c}></lightning-input>
+                                                    </div>
+                                                </div> 
+                                                <hr key={vT.indexCounter} style="color:Black;"/> 
+                                            </lightning-accordion-section>
+                                        </lightning-accordion>
+                                    </template>                      
+                                </template>
+                            </ul>
+                            <div class="slds-var-p-left_large">                                              
+                                <b>
+                                    Total Case Issue Count: {counter}<br />
+                                    Total Amount of Civil Penalties to State: $<span id="totalAmount">{TotalAmount}</span><br />
+                                    Total Amount Payable to Employee(s): $<span id="totalWages">{TotalWages}</span><br />
+                                    Total Interest Amount Payable to Employee(s): $<span id="totalInterestWages">{TotalInterestWages}</span>
+                                </b><br /><br />
+                            </div>
+
+                            <div class="slds-theme_default slds-wrap slds-grid slds-var-p-left_large">
+                                <template if:true={hasBofeViolationType} >
+                                    <template if:true={hasBofeNullValues} >
+                                        <div class="slds-col slds-size_0-of-1">
+                                            <font style="color:red" >No input fields may be left blank on BOFE Violation Types.</font><br>Once you've reviewed your issues for accuracy, check this box to continue assigning liabilities. ➡
+                                        </div>    
+                                    </template>
+                                    <template if:false={hasBofeNullValues} >
+                                        <div class="slds-col slds-size_0-of-1">
+                                            No input fields may be left blank on BOFE Violation Types.<br>Once you've reviewed your issues for accuracy, check this box to continue assigning liabilities. ➡
+                                        </div>
+                                    </template>
+                                </template>
+                                <template if:false={hasBofeViolationType} >
+                                    <div class="slds-col slds-size_0-of-1">
+                                        Once you've reviewed your issues for accuracy, check this box to continue assigning liabilities. ➡
+                                    </div>
+                                </template>
+                                <div class="slds-col slds-size_0-of-1 ">
+                                    <lightning-input 
+                                                        name="validateCB"
+                                                        label={validateCB}
+                                                        variant="label-hidden"
+                                                        type="checkbox"
+                                                        value={validateCBValue}
+                                                        data-id="validateCB"
+                                                        checked={validateCBValue}
+                                                        onchange={assignLiabilities}>
+                                    </lightning-input>                                
+                                </div>
+                                <div class="slds-col slds-size_1-of-1"><br/></div>   
+                                <div class="slds-box slds-box_small slds-col slds-size_1-of-2" onclick={handleCancel} style="cursor:pointer;">
+                                    <span class="slds-align_absolute-center" style="color:cornflowerblue">
+                                        <b>
+                                            Back to Case / Cancel
+                                        </b>
+                                    </span>    
+                                </div>
+                                <template if:false={assignLiabilitiesButtonActive}>
+                                    <div class="slds-box slds-box_small slds-col slds-size_1-of-2" >
+                                        <span class="slds-align_absolute-center" style="color: grey;">
+                                            <b>
+                                                Assign Liabilities
+                                            </b>
+                                        </span>
+                                    </div>
+                                </template>
+                                <template if:true={assignLiabilitiesButtonActive}>
+                                    <div class="slds-box slds-box_small slds-col slds-size_1-of-2" onclick={GoToSecondStep} style="cursor:pointer;">
+                                        <span class="slds-align_absolute-center" style="color:cornflowerblue">
+                                            <b>
+                                                Assign Liabilities
+                                            </b>
+                                        </span>
+                                    </div>
+                                </template>
+                                <!-- <div class="slds-box slds-box_small slds-col slds-size_1-of-2" >
+                                    <span class="slds-align_absolute-center">
+                                        <b>
+                                            <template if:false={isLiablityAssigned}>
+                                                <lightning-button variant="base" disabled label="Assign Liabilities" onclick={GoToSecondStep} class="slds-m-left_x-small" style="height: 100px; width:100px;">
+                                                </lightning-button>
+                                            </template>
+                                            
+                                            <template if:true={isLiablityAssigned}>
+                                                <lightning-button variant="base" label="Assign Liabilities" onclick={GoToSecondStep} class="slds-m-left_x-small">
+                                                </lightning-button>
+                                            </template> 
+                                        </b> 
+                                    </span>                                
+                                </div> -->
+                            </div>
+                    </div>
+                </lightning-card> 
+            </template>
+        
+            <template if:true={isSecondPage} >
+                <lightning-card>
+                    <div class="slds-wrap slds-grid">
+                        <div class="slds-box slds-theme_shade slds-col slds-size_1-of-1">
+                            <h1 class="slds-align_absolute-center slds-text-heading_medium">
+                                Add Case Issues: {caseNumber}
+                            </h1>
+                        </div>            
+                    </div>
+                    <div class="slds-var-p-around_large"  id="DetailsText3">
+                        <template for:each={selectedTypes} for:item="selType">                        
+                            <template for:each={selType} for:item="vT">
+                                    <div class="slds-box slds-box_xx-small slds-theme_shade" key={vT.indexCounter}>
+                                        <p class="slds-align_absolute-center"> 
+                                                {vT.vType.Name} 
+                                        </p>
+                                    </div>
+                            </template>                      
+                        </template>
+                    </div>
+                    <div class="slds-var-p-left_large">                                              
+                        <b>
+                            Total Case Issue Count: {counter}<br />
+                            Total Amount of Civil Penalties to State: ${TotalAmount}<br />
+                            Total Amount Payable to Employee(s): ${TotalWages}<br />
+                            Total Interest Amount Payable to Employee(s): ${TotalInterestWages}
+                        </b>
+                    </div>
+                    <div class="slds-var-p-around_large">
+                        <lightning-combobox
+                                name="SelectedCitation"
+                                value={value}
+                                placeholder="--Select--"
+                                options={options}
+                                onchange={handleCitationChange} >
+                        </lightning-combobox>
+                    </div>
+                    <div class="slds-var-p-around_large">
+                        Select Individual(s) Liable for these case issue(s) 
+                    </div>
+                    <div class="slds-theme_default slds-wrap slds-grid slds-var-p-around_large slds-box slds-theme_shade">
+                        <div class="slds-col slds-size_0-of-5">
+                            <lightning-input 
+                                name="allSelect"
+                                label={allSelect}
+                                variant="label-hidden"
+                                type="checkbox"
+                                value ={selectedAll}
+                                data-id="allSelect"
+                                checked={selectedAll}
+                                onchange={selectedAllOnchange}>
+                            </lightning-input>                        
+                        </div>
+                        <div class="slds-col slds-size_0-of-5">
+                            Select All
+                        </div>
+                    </div>
+                    <div class="slds-box slds-scrollable_y slds-theme_default" style="border: 1px solid black; height:300px;">
+                        <template for:each={Liabilities} for:item="liab">
+                            <div class="slds-theme_default slds-wrap slds-grid " key={liab.AccountId}>
+                                <div class="slds-col slds-size_1-of-6">
+                                    <div class="slds-theme_default slds-wrap slds-grid ">
+                                        <div class="slds-col slds-size_0-of-6">
+                                            <lightning-input 
+                                                name={liab.Name}
+                                                label={liab.Name}
+                                                variant="label-hidden"
+                                                type="checkbox"
+                                                value ={liab.selected}
+                                                data-id={liab.Name}
+                                                data-affiliation = {liab.Affiliation}
+                                                checked={liab.selected}
+                                                onchange={liabSelectedonChange}>
+                                            </lightning-input>                        
+                                        </div>
+                                        <div class="slds-col slds-size_0-of-6">
+                                            {liab.Name} ({liab.Affiliation})
+                                        </div>
+                                    </div> 
+                                </div>
+                                <div class="slds-col slds-size_1-of-6"></div>                      
+                                <div class="slds-col slds-size_1-of-6">    
+                                <template if:true={propVisible} >                        
+                                    <lightning-input  type="text" label="Proportionate Share %" data-id={liab.Name} value={liab.propShare} onchange={handlePropData}></lightning-input>
+                                </template>
+                                </div>
+                                <div class="slds-col slds-size_1-of-6"></div>
+                                <div class="slds-col slds-size_1-of-6">
+                                    <lightning-combobox
+                                        name="liabParty"
+                                        label="Basis for Liability"
+                                        placeholder="--None--"
+                                        value={value}
+                                        data-id={liab.Name}
+                                        options={liabOptions}
+                                        onchange={handleBasicLiability} ></lightning-combobox>
+                                </div>
+                                <div class="slds-col slds-size_1-of-6"></div>
+                            </div>
+                        </template>
+                    </div>
+
+                    <div class="slds-theme_default slds-wrap slds-grid ">
+                        <div class="slds-col slds-size_1-of-1"><br/></div>
+                        <div class="slds-box slds-box_small slds-col slds-size_1-of-2" onclick={BackTo1stStep} style="cursor:pointer;">
+                            <span class="slds-align_absolute-center" style="color:cornflowerblue">
+                                <b>
+                                    Revise Case Issues
+                                    <!-- <lightning-button variant="base" label="Revise Case Issues" onclick={BackTo1stStep} >
+                                    </lightning-button> -->
+                                </b>
+                            </span>    
+                        </div>
+                        <div class="slds-box slds-box_small slds-col slds-size_1-of-2" onclick={Finalize} style="cursor:pointer;">
+                            <span class="slds-align_absolute-center" style="color:cornflowerblue">
+                                <b>
+                                    Finish Assessing Case Issues
+                                    <!-- <lightning-button variant="base" label="Finish Assessing Case Issues" onclick={Finalize} >
+                                    </lightning-button> -->
+                                </b> 
+                            </span>                                
+                        </div>
+                    </div>
+                </lightning-card>
+            </template>
+        </template>
+        <template if:true={loadSpinner}>
+            <div class="exampleHolder">
+                <lightning-spinner variangt="brand" alternative-text="Loading" size="large"></lightning-spinner>
+            </div>
+        </template>
+    </template>    
+</template>

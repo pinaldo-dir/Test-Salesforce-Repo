@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>isSME__c</fullName>
+    <defaultValue>false</defaultValue>
+    <description>This field is used in a flow to automatically activate a user when a sandbox is refreshed. This includes SME and BA.</description>
+    <externalId>false</externalId>
+    <inlineHelpText>This field is used in a flow to automatically activate a user when a sandbox is refreshed. This includes SME and BA.</inlineHelpText>
+    <label>isSME</label>
+    <trackFeedHistory>false</trackFeedHistory>
+    <type>Checkbox</type>
+</CustomField>

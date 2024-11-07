@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>First_Outcome_Needed_for_2nd_Attpt_Date</fullName>
+    <active>true</active>
+    <description>1st Attempt Outcome must be filled when entering 2nd Attempt Date</description>
+    <errorConditionFormula>AND(
+ISCHANGED(X2nd_Attempt_Date__c),
+NOT(ISNULL(X2nd_Attempt_Date__c)),
+ISBLANK(TEXT(X1st_Attempt_Outcome__c)),
+DATEVALUE(CreatedDate) &gt;  DATEVALUE("2024-02-01")
+)</errorConditionFormula>
+    <errorMessage>1st Attempt Outcome must be filled when entering 2nd Attempt Date</errorMessage>
+</ValidationRule>

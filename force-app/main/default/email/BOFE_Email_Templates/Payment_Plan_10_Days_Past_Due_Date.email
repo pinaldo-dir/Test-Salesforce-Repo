@@ -1,0 +1,7 @@
+Hello {!Payment_Plan__c.OwnerFirstName},
+
+The Payment Plan on Case {!DIR_Case__c.Case_Number__c} with a Payment Due Date of {!Payment_Plan__c.Due_Date__c} has a past due amount of  {!Payment_Plan__c.Payment_Plan_Regular_Payment__c}
+
+Please follow up.  Below is the link.
+
+{!Payment_Plan__c.Link}

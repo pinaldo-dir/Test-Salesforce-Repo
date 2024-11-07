@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomMetadata xmlns="http://soap.sforce.com/2006/04/metadata" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <label>I took sick leave but was not paid for i</label>
+    <protected>false</protected>
+    <values>
+        <field>English_Translation__c</field>
+        <value xsi:type="xsd:string">I took sick leave but was not paid for it</value>
+    </values>
+    <values>
+        <field>Label__c</field>
+        <value xsi:type="xsd:string">I took sick leave but was not paid for it</value>
+    </values>
+    <values>
+        <field>Order_Number__c</field>
+        <value xsi:type="xsd:double">2.0</value>
+    </values>
+    <values>
+        <field>Spanish_Translation__c</field>
+        <value xsi:type="xsd:string">Tomé permiso por enfermedad, pero no me lo pagaron</value>
+    </values>
+    <values>
+        <field>Value__c</field>
+        <value xsi:type="xsd:string">I took sick leave but was not paid for it</value>
+    </values>
+</CustomMetadata>

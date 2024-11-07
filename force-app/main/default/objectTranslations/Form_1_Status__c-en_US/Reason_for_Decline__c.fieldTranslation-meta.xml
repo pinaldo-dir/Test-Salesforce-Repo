@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+        <label><!-- Reason for Decline --></label>
+        <name>Reason_for_Decline__c</name>
+        <picklistValues>
+            <masterLabel>Accepted other employment</masterLabel>
+            <translation><!-- Accepted other employment --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>No longer interested</masterLabel>
+            <translation><!-- No longer interested --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Other (See Status Notes)</masterLabel>
+            <translation><!-- Other (See Status Notes) --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Other-Legacy</masterLabel>
+            <translation><!-- Other-Legacy --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Personal reasons</masterLabel>
+            <translation><!-- Personal reasons --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Salary level</masterLabel>
+            <translation><!-- Salary level --></translation>
+        </picklistValues>
+    </CustomFieldTranslation>

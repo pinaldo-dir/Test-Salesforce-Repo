@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FieldSet xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Registration_MGMT_Fieldset_GA</fullName>
+    <description>VIP Form Registration MGMT Fieldset - GA</description>
+    <label>Registration MGMT Fieldset - GA</label>
+</FieldSet>

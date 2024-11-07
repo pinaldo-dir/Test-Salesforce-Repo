@@ -1,0 +1,3 @@
+<apex:component >
+  <p><font size="4">Please make sure your case is under investigation, you selected a DLSE program, you have a NAICS code, and have entered the number of misclassified employees.</font></p>
+</apex:component>

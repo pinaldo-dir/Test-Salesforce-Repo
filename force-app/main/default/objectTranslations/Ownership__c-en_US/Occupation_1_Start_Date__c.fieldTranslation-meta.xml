@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+        <help><!-- Enter Start date of Owner&apos;s 1st Occupation --></help>
+        <label><!-- Occupation 1 Start Date --></label>
+        <name>Occupation_1_Start_Date__c</name>
+    </CustomFieldTranslation>

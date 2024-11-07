@@ -1,0 +1,7 @@
+The following RCI Referral has been Approved.
+
+Approval Date:  {!Referral__c.Approval_Date__c}
+Referral Status:  {!Referral__c.Request_Status__c}
+Record Type:  {!Referral__c.RecordType}
+
+Link to Referral:  {!Referral__c.Link}
